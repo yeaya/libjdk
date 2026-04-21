@@ -441,6 +441,7 @@ $String* Sort::compileSortRecordFactory($List* sortObjects, $ClassGenerator* cla
 	argNames->set(5, "lang"_s);
 	argNames->set(6, "case_order"_s);
 	$var($InstructionList, il, $new($InstructionList));
+	$init($1Type);
 	$var($MethodGenerator, constructor, $new($MethodGenerator, $Constants::ACC_PUBLIC, $1Type::VOID, argTypes, argNames, "<init>"_s, className, il, cpg));
 	il->append($Constants::ALOAD_0);
 	il->append($Constants::ALOAD_1);

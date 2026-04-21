@@ -51,10 +51,12 @@ void JdkXmlFeatures::init$(bool secureProcessing) {
 			if (secureProcessing && $nc(f)->enforced()) {
 				int32_t var$0 = f->ordinal();
 				this->featureValues->set(var$0, f->enforcedValue());
+				$init($JdkProperty$State);
 				this->states->set(f->ordinal(), $JdkProperty$State::FSP);
 			} else {
 				int32_t var$1 = $nc(f)->ordinal();
 				this->featureValues->set(var$1, f->defaultValue());
+				$init($JdkProperty$State);
 				this->states->set(f->ordinal(), $JdkProperty$State::DEFAULT);
 			}
 		}

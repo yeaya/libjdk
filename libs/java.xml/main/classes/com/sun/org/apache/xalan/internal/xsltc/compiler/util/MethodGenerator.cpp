@@ -660,6 +660,7 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 	if (isStaticMethod) {
 		methodAttributes = methodAttributes | $Constants::ACC_STATIC;
 	}
+	$init($Type);
 	$var(MethodGenerator, outlinedMethodGen, $new(MethodGenerator, methodAttributes, $Type::VOID, argTypes, argNames, outlinedMethodName, $(getClassName()), newIL, cpg));
 	$init($Constants);
 	$var($ClassGenerator, copyAreaCG, $new($MethodGenerator$1, this, argTypeName, $Constants::OBJECT_CLASS, $$str({argTypeName, ".java"_s}), ($Constants::ACC_FINAL | $Constants::ACC_PUBLIC) | $Constants::ACC_SUPER, nullptr, $(classGen->getStylesheet())));

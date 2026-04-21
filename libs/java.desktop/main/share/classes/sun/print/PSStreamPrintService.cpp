@@ -356,6 +356,7 @@ $Object* PSStreamPrintService::getSupportedAttributeValues($Class* category, $Do
 	$load($Chromaticity);
 	if (category == $Chromaticity::class$) {
 		$var($ChromaticityArray, arr, $new($ChromaticityArray, 1));
+		$init($Chromaticity);
 		arr->set(0, $Chromaticity::COLOR);
 		return (arr);
 	} else {
@@ -385,6 +386,7 @@ $Object* PSStreamPrintService::getSupportedAttributeValues($Class* category, $Do
 					bool var$0 = var$1 || flavor->equals($DocFlavor$URL::JPEG);
 					if (var$0 || flavor->equals($DocFlavor$URL::PNG)) {
 						$var($OrientationRequestedArray, arr, $new($OrientationRequestedArray, 3));
+						$init($OrientationRequested);
 						arr->set(0, $OrientationRequested::PORTRAIT);
 						arr->set(1, $OrientationRequested::LANDSCAPE);
 						arr->set(2, $OrientationRequested::REVERSE_LANDSCAPE);
@@ -407,6 +409,7 @@ $Object* PSStreamPrintService::getSupportedAttributeValues($Class* category, $Do
 							$load($Fidelity);
 							if (category == $Fidelity::class$) {
 								$var($FidelityArray, arr, $new($FidelityArray, 2));
+								$init($Fidelity);
 								arr->set(0, $Fidelity::FIDELITY_FALSE);
 								arr->set(1, $Fidelity::FIDELITY_TRUE);
 								return arr;
@@ -461,11 +464,13 @@ $Object* PSStreamPrintService::getSupportedAttributeValues($Class* category, $Do
 											bool var$11 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
 											if (var$11 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 												$var($SheetCollateArray, arr, $new($SheetCollateArray, 2));
+												$init($SheetCollate);
 												arr->set(0, $SheetCollate::UNCOLLATED);
 												arr->set(1, $SheetCollate::COLLATED);
 												return arr;
 											} else {
 												$var($SheetCollateArray, arr, $new($SheetCollateArray, 1));
+												$init($SheetCollate);
 												arr->set(0, $SheetCollate::UNCOLLATED);
 												return arr;
 											}
@@ -476,6 +481,7 @@ $Object* PSStreamPrintService::getSupportedAttributeValues($Class* category, $Do
 												bool var$12 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
 												if (var$12 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 													$var($SidesArray, arr, $new($SidesArray, 3));
+													$init($Sides);
 													arr->set(0, $Sides::ONE_SIDED);
 													arr->set(1, $Sides::TWO_SIDED_LONG_EDGE);
 													arr->set(2, $Sides::TWO_SIDED_SHORT_EDGE);

@@ -897,6 +897,7 @@ $String* Stylesheet::compileTopLevel($ClassGenerator* classGen) {
 		$Constants::TRANSLET_OUTPUT_PNAME
 	}));
 	$var($InstructionList, il, $new($InstructionList));
+	$init($1Type);
 	$var($MethodGenerator, toplevel, $new($MethodGenerator, $Constants::ACC_PUBLIC, $1Type::VOID, argTypes, argNames, "topLevel"_s, this->_className, il, $(classGen->getConstantPool())));
 	toplevel->addException("com.sun.org.apache.xalan.internal.xsltc.TransletException"_s);
 	$var($LocalVariableGen, current, toplevel->addLocalVariable("current"_s, $1Type::INT, nullptr, nullptr));
@@ -1024,6 +1025,7 @@ void Stylesheet::compileTransform($ClassGenerator* classGen) {
 	argNames->set(1, $Constants::ITERATOR_PNAME);
 	argNames->set(2, $Constants::TRANSLET_OUTPUT_PNAME);
 	$var($InstructionList, il, $new($InstructionList));
+	$init($1Type);
 	$var($MethodGenerator, transf, $new($MethodGenerator, $Constants::ACC_PUBLIC, $1Type::VOID, argTypes, argNames, "transform"_s, this->_className, il, $(classGen->getConstantPool())));
 	transf->addException("com.sun.org.apache.xalan.internal.xsltc.TransletException"_s);
 	int32_t check = $nc(cpg)->addMethodref($Constants::BASIS_LIBRARY_CLASS, "resetPrefixIndex"_s, "()V"_s);

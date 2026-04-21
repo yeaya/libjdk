@@ -177,6 +177,7 @@ float JPEG::convertToLinearQuality(float quality) {
 $JPEGQTableArray* JPEG::getDefaultQTables() {
 	$init(JPEG);
 	$var($JPEGQTableArray, qTables, $new($JPEGQTableArray, 2));
+	$init($JPEGQTable);
 	qTables->set(0, $JPEGQTable::K1Div2Luminance);
 	qTables->set(1, $JPEGQTable::K2Div2Chrominance);
 	return qTables;
@@ -186,9 +187,11 @@ $JPEGHuffmanTableArray* JPEG::getDefaultHuffmanTables(bool wantDC) {
 	$init(JPEG);
 	$var($JPEGHuffmanTableArray, tables, $new($JPEGHuffmanTableArray, 2));
 	if (wantDC) {
+		$init($JPEGHuffmanTable);
 		tables->set(0, $JPEGHuffmanTable::StdDCLuminance);
 		tables->set(1, $JPEGHuffmanTable::StdDCChrominance);
 	} else {
+		$init($JPEGHuffmanTable);
 		tables->set(0, $JPEGHuffmanTable::StdACLuminance);
 		tables->set(1, $JPEGHuffmanTable::StdACChrominance);
 	}

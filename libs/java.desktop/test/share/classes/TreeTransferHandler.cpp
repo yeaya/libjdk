@@ -54,6 +54,7 @@ void TreeTransferHandler::init$() {
 	$TransferHandler::init$();
 	$set(this, flavors, $new($DataFlavorArray, 1));
 	try {
+		$init($DataFlavor);
 		$load($DefaultMutableTreeNode);
 		$var($String, mimeType, $str({$DataFlavor::javaJVMLocalObjectMimeType, ";class=\""_s, $($getClass($DefaultMutableTreeNodeArray)->getName()), "\""_s}));
 		$set(this, nodesFlavor, $new($DataFlavor, mimeType));

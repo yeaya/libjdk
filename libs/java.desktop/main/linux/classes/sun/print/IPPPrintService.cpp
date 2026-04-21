@@ -550,6 +550,7 @@ $Object* IPPPrintService::getSupportedAttributeValues($Class* category, $DocFlav
 				bool var$3 = var$4 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
 				if (var$3 || !isIPPSupportedImages($(flavor->getMimeType()))) {
 					$var($ChromaticityArray, arr, $new($ChromaticityArray, 1));
+					$init($Chromaticity);
 					arr->set(0, $Chromaticity::COLOR);
 					return (arr);
 				} else {
@@ -576,6 +577,7 @@ $Object* IPPPrintService::getSupportedAttributeValues($Class* category, $DocFlav
 					$load($Fidelity);
 					if (category == $Fidelity::class$) {
 						$var($FidelityArray, arr, $new($FidelityArray, 2));
+						$init($Fidelity);
 						arr->set(0, $Fidelity::FIDELITY_FALSE);
 						arr->set(1, $Fidelity::FIDELITY_TRUE);
 						return arr;
@@ -588,6 +590,7 @@ $Object* IPPPrintService::getSupportedAttributeValues($Class* category, $DocFlav
 								if ((finArray != nullptr) && (finArray->length > 0)) {
 									$var($FinishingsArray, finSup, $new($FinishingsArray, finArray->length));
 									for (int32_t i = 0; i < finArray->length; ++i) {
+										$init($Finishings);
 										finSup->set(i, $Finishings::NONE);
 										$var($FinishingsArray, fAll, $cast($FinishingsArray, ($$new($IPPPrintService$ExtFinishing, this, 100))->getAll()));
 										for (int32_t j = 0; j < $nc(fAll)->length; ++j) {
@@ -611,6 +614,7 @@ $Object* IPPPrintService::getSupportedAttributeValues($Class* category, $DocFlav
 								$load($JobSheets);
 								if (category == $JobSheets::class$) {
 									$var($JobSheetsArray, arr, $new($JobSheetsArray, 2));
+									$init($JobSheets);
 									arr->set(0, $JobSheets::NONE);
 									arr->set(1, $JobSheets::STANDARD);
 									return arr;
@@ -715,15 +719,19 @@ $Object* IPPPrintService::getSupportedAttributeValues($Class* category, $DocFlav
 																switch (orientArray->get(i)) {
 																default:
 																case 3:
+																	$init($OrientationRequested);
 																	orientSup->set(i, $OrientationRequested::PORTRAIT);
 																	break;
 																case 4:
+																	$init($OrientationRequested);
 																	orientSup->set(i, $OrientationRequested::LANDSCAPE);
 																	break;
 																case 5:
+																	$init($OrientationRequested);
 																	orientSup->set(i, $OrientationRequested::REVERSE_LANDSCAPE);
 																	break;
 																case 6:
+																	$init($OrientationRequested);
 																	orientSup->set(i, $OrientationRequested::REVERSE_PORTRAIT);
 																	revPort = true;
 																	break;
@@ -736,6 +744,7 @@ $Object* IPPPrintService::getSupportedAttributeValues($Class* category, $DocFlav
 													if (var$9 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 														if (revPort && flavor == nullptr) {
 															$var($OrientationRequestedArray, orSup, $new($OrientationRequestedArray, 4));
+															$init($OrientationRequested);
 															orSup->set(0, $OrientationRequested::PORTRAIT);
 															orSup->set(1, $OrientationRequested::LANDSCAPE);
 															orSup->set(2, $OrientationRequested::REVERSE_LANDSCAPE);
@@ -743,6 +752,7 @@ $Object* IPPPrintService::getSupportedAttributeValues($Class* category, $DocFlav
 															return orSup;
 														} else {
 															$var($OrientationRequestedArray, orSup, $new($OrientationRequestedArray, 3));
+															$init($OrientationRequested);
 															orSup->set(0, $OrientationRequested::PORTRAIT);
 															orSup->set(1, $OrientationRequested::LANDSCAPE);
 															orSup->set(2, $OrientationRequested::REVERSE_LANDSCAPE);
@@ -782,10 +792,13 @@ $Object* IPPPrintService::getSupportedAttributeValues($Class* category, $DocFlav
 																		$var($SidesArray, sidesSup, $new($SidesArray, sidesArray->length));
 																		for (int32_t i = 0; i < sidesArray->length; ++i) {
 																			if ($nc(sidesArray->get(i))->endsWith("long-edge"_s)) {
+																				$init($Sides);
 																				sidesSup->set(i, $Sides::TWO_SIDED_LONG_EDGE);
 																			} else if ($nc(sidesArray->get(i))->endsWith("short-edge"_s)) {
+																				$init($Sides);
 																				sidesSup->set(i, $Sides::TWO_SIDED_SHORT_EDGE);
 																			} else {
+																				$init($Sides);
 																				sidesSup->set(i, $Sides::ONE_SIDED);
 																			}
 																		}

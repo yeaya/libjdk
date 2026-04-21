@@ -89,6 +89,7 @@ void AttributeSetMethodGenerator::clinit$($Class* clazz) {
 		AttributeSetMethodGenerator::argTypes->set(0, $($Util::getJCRefType($Constants::DOM_INTF_SIG)));
 		AttributeSetMethodGenerator::argTypes->set(1, $($Util::getJCRefType($Constants::NODE_ITERATOR_SIG)));
 		AttributeSetMethodGenerator::argTypes->set(2, $($Util::getJCRefType($Constants::TRANSLET_OUTPUT_SIG)));
+		$init($Type);
 		AttributeSetMethodGenerator::argTypes->set(3, $Type::INT);
 		AttributeSetMethodGenerator::argNames->set(0, $Constants::DOCUMENT_PNAME);
 		AttributeSetMethodGenerator::argNames->set(1, $Constants::ITERATOR_PNAME);

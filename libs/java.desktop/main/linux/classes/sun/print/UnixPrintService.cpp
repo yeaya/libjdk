@@ -818,6 +818,7 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 	if (category == $Chromaticity::class$) {
 		if (flavor == nullptr || isServiceFormattedFlavor(flavor)) {
 			$var($ChromaticityArray, arr, $new($ChromaticityArray, 1));
+			$init($Chromaticity);
 			arr->set(0, $Chromaticity::COLOR);
 			return (arr);
 		} else {
@@ -843,6 +844,7 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 				$load($JobSheets);
 				if (category == $JobSheets::class$) {
 					$var($JobSheetsArray, arr, $new($JobSheetsArray, 2));
+					$init($JobSheets);
 					arr->set(0, $JobSheets::NONE);
 					arr->set(1, $JobSheets::STANDARD);
 					return arr;
@@ -860,6 +862,7 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 						if (category == $OrientationRequested::class$) {
 							if (flavor == nullptr || isServiceFormattedFlavor(flavor)) {
 								$var($OrientationRequestedArray, arr, $new($OrientationRequestedArray, 3));
+								$init($OrientationRequested);
 								arr->set(0, $OrientationRequested::PORTRAIT);
 								arr->set(1, $OrientationRequested::LANDSCAPE);
 								arr->set(2, $OrientationRequested::REVERSE_LANDSCAPE);
@@ -895,6 +898,7 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 									$load($Fidelity);
 									if (category == $Fidelity::class$) {
 										$var($FidelityArray, arr, $new($FidelityArray, 2));
+										$init($Fidelity);
 										arr->set(0, $Fidelity::FIDELITY_FALSE);
 										arr->set(1, $Fidelity::FIDELITY_TRUE);
 										return arr;
@@ -952,6 +956,7 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 													bool var$5 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
 													if (var$5 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 														$var($SheetCollateArray, arr, $new($SheetCollateArray, 2));
+														$init($SheetCollate);
 														arr->set(0, $SheetCollate::UNCOLLATED);
 														arr->set(1, $SheetCollate::COLLATED);
 														return arr;
@@ -965,6 +970,7 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 														bool var$6 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
 														if (var$6 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 															$var($SidesArray, arr, $new($SidesArray, 3));
+															$init($Sides);
 															arr->set(0, $Sides::ONE_SIDED);
 															arr->set(1, $Sides::TWO_SIDED_LONG_EDGE);
 															arr->set(2, $Sides::TWO_SIDED_SHORT_EDGE);

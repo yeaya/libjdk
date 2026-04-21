@@ -33,6 +33,7 @@ void CaretFloatingPointAPITest$CustomCaret$CaretMouseListener::mousePressed($Mou
 	$var($Position$BiasArray, biasRet, $new($Position$BiasArray, 1));
 	int32_t pos = $$sure($TextUI, $nc(this->this$0->component)->getUI())->viewToModel(this->this$0->component, pt, biasRet);
 	if (biasRet->get(0) == nullptr) {
+		$init($Position$Bias);
 		biasRet->set(0, $Position$Bias::Forward);
 	}
 	if (pos >= 0) {

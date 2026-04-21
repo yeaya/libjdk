@@ -467,6 +467,7 @@ void Mode::compileNamedTemplate($Template* template$, $ClassGenerator* classGen)
 	types->set(0, $($Util::getJCRefType($Constants::DOM_INTF_SIG)));
 	types->set(1, $($Util::getJCRefType($Constants::NODE_ITERATOR_SIG)));
 	types->set(2, $($Util::getJCRefType($Constants::TRANSLET_OUTPUT_SIG)));
+	$init($Type);
 	types->set(3, $Type::INT);
 	names->set(0, $Constants::DOCUMENT_PNAME);
 	names->set(1, $Constants::ITERATOR_PNAME);
@@ -643,6 +644,7 @@ void Mode::compileApplyTemplates($ClassGenerator* classGen) {
 	argNames->set(1, $Constants::ITERATOR_PNAME);
 	argNames->set(2, $Constants::TRANSLET_OUTPUT_PNAME);
 	$var($InstructionList, mainIL, $new($InstructionList));
+	$init($Type);
 	$var($Type, var$0, $Type::VOID);
 	$var($String, var$1, functionName());
 	$var($String, var$2, getClassName());
@@ -861,6 +863,7 @@ void Mode::compileApplyImports($ClassGenerator* classGen, int32_t min, int32_t m
 	argTypes->set(0, $($Util::getJCRefType($Constants::DOM_INTF_SIG)));
 	argTypes->set(1, $($Util::getJCRefType($Constants::NODE_ITERATOR_SIG)));
 	argTypes->set(2, $($Util::getJCRefType($Constants::TRANSLET_OUTPUT_SIG)));
+	$init($Type);
 	argTypes->set(3, $Type::INT);
 	$var($StringArray, argNames, $new($StringArray, 4));
 	argNames->set(0, $Constants::DOCUMENT_PNAME);

@@ -63,10 +63,12 @@ void XMLSecurityManager::init$(bool secureProcessing) {
 			if (secureProcessing) {
 				int32_t var$0 = $nc(limit)->ordinal();
 				this->values->set(var$0, limit->secureValue());
+				$init($JdkProperty$State);
 				$nc(this->states)->set(limit->ordinal(), $JdkProperty$State::FSP);
 			} else {
 				int32_t var$1 = $nc(limit)->ordinal();
 				this->values->set(var$1, limit->defaultValue());
+				$init($JdkProperty$State);
 				$nc(this->states)->set(limit->ordinal(), $JdkProperty$State::DEFAULT);
 			}
 		}

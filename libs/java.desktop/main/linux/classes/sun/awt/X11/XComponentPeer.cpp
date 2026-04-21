@@ -805,6 +805,7 @@ $ColorArray* XComponentPeer::getGUIcolors() {
 		c->set(XComponentPeer::BACKGROUND_COLOR, $($XWindow::getWinBackground()));
 	}
 	if (c->get(XComponentPeer::BACKGROUND_COLOR) == nullptr) {
+		$init($Color);
 		c->set(XComponentPeer::BACKGROUND_COLOR, $Color::lightGray);
 	}
 	$var($ints, rgb, getRGBvals(c->get(XComponentPeer::BACKGROUND_COLOR)));

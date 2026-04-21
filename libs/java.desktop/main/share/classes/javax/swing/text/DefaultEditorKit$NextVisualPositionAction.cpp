@@ -62,11 +62,14 @@ void DefaultEditorKit$NextVisualPositionAction::actionPerformed($ActionEvent* e)
 			}
 			$var($NavigationFilter, filter, target->getNavigationFilter());
 			if (filter != nullptr) {
+				$init($Position$Bias);
 				dot = filter->getNextVisualPositionFrom(target, dot, (bidiCaret != nullptr) ? $(bidiCaret->getDotBias()) : $Position$Bias::Forward, this->direction, bias);
 			} else {
+				$init($Position$Bias);
 				dot = $$sure($TextUI, target->getUI())->getNextVisualPositionFrom(target, dot, (bidiCaret != nullptr) ? $(bidiCaret->getDotBias()) : $Position$Bias::Forward, this->direction, bias);
 			}
 			if (bias->get(0) == nullptr) {
+				$init($Position$Bias);
 				bias->set(0, $Position$Bias::Forward);
 			}
 			if (bidiCaret != nullptr) {

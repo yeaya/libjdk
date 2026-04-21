@@ -127,6 +127,7 @@ void CatalogFeatures::init() {
 		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$CatalogFeatures$Feature* cf = arr$->get(i$);
 			{
+				$init($CatalogFeatures$State);
 				setProperty(cf, $CatalogFeatures$State::DEFAULT, $($nc(cf)->defaultValue()));
 			}
 		}

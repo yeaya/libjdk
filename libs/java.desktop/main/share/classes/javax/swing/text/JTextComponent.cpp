@@ -499,6 +499,7 @@ $TransferHandler$DropLocation* JTextComponent::dropLocationForPoint($Point* p) {
 	$var($Position$BiasArray, bias, $new($Position$BiasArray, 1));
 	int32_t index = $$sure($TextUI, getUI())->viewToModel(this, p, bias);
 	if (bias->get(0) == nullptr) {
+		$init($Position$Bias);
 		bias->set(0, $Position$Bias::Forward);
 	}
 	return $new($JTextComponent$DropLocation, p, index, bias->get(0));

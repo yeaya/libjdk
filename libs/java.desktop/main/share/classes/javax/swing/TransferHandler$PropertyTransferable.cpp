@@ -37,6 +37,7 @@ $DataFlavorArray* TransferHandler$PropertyTransferable::getTransferDataFlavors()
 	$useLocalObjectStack();
 	$var($DataFlavorArray, flavors, $new($DataFlavorArray, 1));
 	$Class* propertyType = $nc(this->property)->getPropertyType();
+	$init($DataFlavor);
 	$var($String, mimeType, $str({$DataFlavor::javaJVMLocalObjectMimeType, ";class="_s, $($nc(propertyType)->getName())}));
 	try {
 		flavors->set(0, $$new($DataFlavor, mimeType));

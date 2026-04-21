@@ -26,6 +26,7 @@ void BasicFileChooserUI$FileTransferHandler$FileTransferable::init$($String* pla
 
 $DataFlavorArray* BasicFileChooserUI$FileTransferHandler$FileTransferable::getRicherFlavors() {
 	$var($DataFlavorArray, flavors, $new($DataFlavorArray, 1));
+	$init($DataFlavor);
 	flavors->set(0, $DataFlavor::javaFileListFlavor);
 	return flavors;
 }

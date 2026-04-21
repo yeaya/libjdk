@@ -582,11 +582,13 @@ void JPEGImageWriter::writeOnThread($IIOMetadata* streamMetadata, $IIOImage* ima
 				quality = param->getCompressionQuality();
 				quality = $JPEG::convertToLinearQuality(quality);
 				$assign(qTables, $new($JPEGQTableArray, 2));
+				$init($JPEGQTable);
 				qTables->set(0, $($nc($JPEGQTable::K1Luminance)->getScaledInstance(quality, true)));
 				qTables->set(1, $($nc($JPEGQTable::K2Chrominance)->getScaledInstance(quality, true)));
 				break;
 			case $ImageWriteParam::MODE_DEFAULT:
 				$assign(qTables, $new($JPEGQTableArray, 2));
+				$init($JPEGQTable);
 				qTables->set(0, $JPEGQTable::K1Div2Luminance);
 				qTables->set(1, $JPEGQTable::K2Div2Chrominance);
 				break;

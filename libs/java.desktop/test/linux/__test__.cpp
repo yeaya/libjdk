@@ -1065,7 +1065,7 @@ void TestCases::runCases() {
 	run("bug4492274", ::bug4492274, true);
 	run("bug4496801", ::bug4496801);
 	run("bug4506788", ::bug4506788, true);
-	run("bug4514858", ::bug4514858);
+	run("bug4514858", ::bug4514858, true);
 	run("bug4529206", ::bug4529206);
 	run("bug4530474", ::bug4530474, true);
 	run("bug4697612", ::bug4697612, true);
@@ -1085,7 +1085,7 @@ void TestCases::runCases() {
 	run("bug4960629", ::bug4960629);
 	run("bug4962534", ::bug4962534);
 	run("bug4966171", ::bug4966171);
-	run("bug5012888", ::bug5012888);
+	run("bug5012888", ::bug5012888, true);
 	run("bug5043626", ::bug5043626, true);
 	run("bug5073047", ::bug5073047);
 	run("bug5074573", ::bug5074573, true);
@@ -1106,7 +1106,7 @@ void TestCases::runCases() {
 	run("bug6406264", ::bug6406264);
 	run("bug6432565", ::bug6432565);
 	run("bug6438430", ::bug6438430);
-	run("bug6462008", ::bug6462008);
+	run("bug6462008", ::bug6462008, true);
 	run("bug6463712", ::bug6463712);
 	run("bug6474153", ::bug6474153);
 	run("bug6484091", ::bug6484091, true);

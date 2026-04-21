@@ -229,6 +229,7 @@ void DefaultCaret::positionCaret($MouseEvent* e) {
 	$var($Position$BiasArray, biasRet, $new($Position$BiasArray, 1));
 	int32_t pos = $$sure($TextUI, $nc(this->component)->getUI())->viewToModel(this->component, pt, biasRet);
 	if (biasRet->get(0) == nullptr) {
+		$init($Position$Bias);
 		biasRet->set(0, $Position$Bias::Forward);
 	}
 	if (pos >= 0) {
@@ -243,6 +244,7 @@ void DefaultCaret::moveCaret($MouseEvent* e) {
 	$var($Position$BiasArray, biasRet, $new($Position$BiasArray, 1));
 	int32_t pos = $$sure($TextUI, $nc(this->component)->getUI())->viewToModel(this->component, pt, biasRet);
 	if (biasRet->get(0) == nullptr) {
+		$init($Position$Bias);
 		biasRet->set(0, $Position$Bias::Forward);
 	}
 	if (pos >= 0) {

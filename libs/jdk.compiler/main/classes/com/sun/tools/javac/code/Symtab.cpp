@@ -644,6 +644,7 @@ void Symtab::init$($Context* context) {
 	$set(this, noModule, $new($Symtab$5, this, this->names->empty, nullptr));
 	addRootPackageFor(this->noModule);
 	$init($Kinds$Kind);
+	$init($Type);
 	$set(this, noSymbol, $new($Symtab$6, this, $Kinds$Kind::NIL, 0, this->names->empty, $Type::noType, this->rootPackage));
 	$set(this, errSymbol, $new($Symbol$ClassSymbol, (1 | 8) | 0x40000000, this->names->any, nullptr, this->rootPackage));
 	$set(this, errType, $new($Type$ErrorType, this->errSymbol, $Type::noType));

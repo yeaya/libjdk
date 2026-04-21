@@ -1407,10 +1407,12 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 						int32_t caps = getPrinterCapabilities();
 						if ((caps & Win32PrintService::DEVCAP_COLOR) == 0) {
 							$var($ChromaticityArray, arr, $new($ChromaticityArray, 1));
+							$init($Chromaticity);
 							arr->set(0, $Chromaticity::MONOCHROME);
 							return (arr);
 						} else {
 							$var($ChromaticityArray, arr, $new($ChromaticityArray, 2));
+							$init($Chromaticity);
 							arr->set(0, $Chromaticity::MONOCHROME);
 							arr->set(1, $Chromaticity::COLOR);
 							return (arr);
@@ -1449,6 +1451,7 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 							bool var$12 = var$13 || flavor->equals($DocFlavor$URL::JPEG);
 							if (var$12 || flavor->equals($DocFlavor$URL::PNG)) {
 								$var($OrientationRequestedArray, arr, $new($OrientationRequestedArray, 3));
+								$init($OrientationRequested);
 								arr->set(0, $OrientationRequested::PORTRAIT);
 								arr->set(1, $OrientationRequested::LANDSCAPE);
 								arr->set(2, $OrientationRequested::REVERSE_LANDSCAPE);
@@ -1532,6 +1535,7 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 														bool var$23 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
 														if (var$23 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 															$var($SidesArray, arr, $new($SidesArray, 3));
+															$init($Sides);
 															arr->set(0, $Sides::ONE_SIDED);
 															arr->set(1, $Sides::TWO_SIDED_LONG_EDGE);
 															arr->set(2, $Sides::TWO_SIDED_SHORT_EDGE);
@@ -1543,6 +1547,7 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 														$load($PrintQuality);
 														if (category == $PrintQuality::class$) {
 															$var($PrintQualityArray, arr, $new($PrintQualityArray, 3));
+															$init($PrintQuality);
 															arr->set(0, $PrintQuality::DRAFT);
 															arr->set(1, $PrintQuality::HIGH);
 															arr->set(2, $PrintQuality::NORMAL);
@@ -1558,6 +1563,7 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 																}
 																if (var$24) {
 																	$var($SheetCollateArray, arr, $new($SheetCollateArray, 2));
+																	$init($SheetCollate);
 																	arr->set(0, $SheetCollate::COLLATED);
 																	arr->set(1, $SheetCollate::UNCOLLATED);
 																	return arr;
@@ -1568,6 +1574,7 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 																$load($Fidelity);
 																if (category == $Fidelity::class$) {
 																	$var($FidelityArray, arr, $new($FidelityArray, 2));
+																	$init($Fidelity);
 																	arr->set(0, $Fidelity::FIDELITY_FALSE);
 																	arr->set(1, $Fidelity::FIDELITY_TRUE);
 																	return arr;
