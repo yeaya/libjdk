@@ -159,12 +159,12 @@ void AquaSliderUI$TrackListener::mouseDragged($MouseEvent* e) {
 		switch ($$nc($AquaSliderUI::access$3100(this->this$0))->getOrientation()) {
 		case $SwingConstants::VERTICAL:
 			{
-				int32_t var$0 = $nc($($AquaSliderUI::access$3400(this->this$0)))->y;
-				int32_t var$1 = $$nc($AquaSliderUI::access$3600(this->this$0))->getMaximum();
 				halfThumbHeight = $nc($($AquaSliderUI::access$3200(this->this$0)))->height / 2;
 				thumbTop = e->getY() - this->offset;
 				trackTop = $nc($($AquaSliderUI::access$3300(this->this$0)))->y;
+				int32_t var$0 = $nc($($AquaSliderUI::access$3400(this->this$0)))->y;
 				trackBottom = var$0 + ($nc($($AquaSliderUI::access$3500(this->this$0)))->height - 1);
+				int32_t var$1 = $$nc($AquaSliderUI::access$3600(this->this$0))->getMaximum();
 				vMax = $AquaSliderUI::access$3800(this->this$0, var$1 - $$nc($AquaSliderUI::access$3700(this->this$0))->getExtent());
 				if ($AquaSliderUI::access$3900(this->this$0)) {
 					trackBottom = vMax;
@@ -180,12 +180,12 @@ void AquaSliderUI$TrackListener::mouseDragged($MouseEvent* e) {
 			}
 		case $SwingConstants::HORIZONTAL:
 			{
-				int32_t var$2 = $nc($($AquaSliderUI::access$4400(this->this$0)))->x;
-				int32_t var$3 = $$nc($AquaSliderUI::access$4600(this->this$0))->getMaximum();
 				halfThumbWidth = $nc($($AquaSliderUI::access$4200(this->this$0)))->width / 2;
 				thumbLeft = e->getX() - this->offset;
 				trackLeft = $nc($($AquaSliderUI::access$4300(this->this$0)))->x;
+				int32_t var$2 = $nc($($AquaSliderUI::access$4400(this->this$0)))->x;
 				trackRight = var$2 + ($nc($($AquaSliderUI::access$4500(this->this$0)))->width - 1);
+				int32_t var$3 = $$nc($AquaSliderUI::access$4600(this->this$0))->getMaximum();
 				hMax = $AquaSliderUI::access$4800(this->this$0, var$3 - $$nc($AquaSliderUI::access$4700(this->this$0))->getExtent());
 				if ($AquaSliderUI::access$4900(this->this$0)) {
 					trackLeft = hMax;

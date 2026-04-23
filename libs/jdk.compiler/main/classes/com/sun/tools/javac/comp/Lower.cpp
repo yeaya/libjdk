@@ -2059,8 +2059,8 @@ $JCTree$JCExpression* Lower::classOfType($Type* type, $JCDiagnostic$DiagnosticPo
 	case 7:
 	case 8:
 	case 9:
-		$init($Kinds$KindSelector);
 		$assign(c, $nc(this->types)->boxedClass(type));
+		$init($Kinds$KindSelector);
 		$assign(typeSym, $nc(this->rs)->accessBase($($nc(this->rs)->findIdentInType(pos, this->attrEnv, $nc(c)->type, $nc(this->names)->TYPE, $Kinds$KindSelector::VAR)), pos, $nc(c)->type, $nc(this->names)->TYPE, true));
 		$init($Kinds$Kind);
 		if ($nc(typeSym)->kind == $Kinds$Kind::VAR) {

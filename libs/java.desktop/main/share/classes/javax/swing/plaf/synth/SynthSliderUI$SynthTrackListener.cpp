@@ -73,12 +73,12 @@ void SynthSliderUI$SynthTrackListener::mouseDragged($MouseEvent* e) {
 		switch ($$nc($SynthSliderUI::access$400(this->this$0))->getOrientation()) {
 		case $JSlider::VERTICAL:
 			{
-				int32_t var$0 = $nc($($SynthSliderUI::access$700(this->this$0)))->y;
-				int32_t var$1 = $$nc($SynthSliderUI::access$900(this->this$0))->getMaximum();
 				halfThumbHeight = $nc($($SynthSliderUI::access$500(this->this$0)))->height / 2;
 				thumbTop = e->getY() - this->offset;
 				trackTop = $nc($($SynthSliderUI::access$600(this->this$0)))->y;
+				int32_t var$0 = $nc($($SynthSliderUI::access$700(this->this$0)))->y;
 				trackBottom = var$0 + $nc($($SynthSliderUI::access$800(this->this$0)))->height - halfThumbHeight - this->this$0->trackBorder;
+				int32_t var$1 = $$nc($SynthSliderUI::access$900(this->this$0))->getMaximum();
 				vMax = $SynthSliderUI::access$1100(this->this$0, var$1 - $$nc($SynthSliderUI::access$1000(this->this$0))->getExtent());
 				if ($SynthSliderUI::access$1200(this->this$0)) {
 					trackBottom = vMax;
@@ -95,12 +95,12 @@ void SynthSliderUI$SynthTrackListener::mouseDragged($MouseEvent* e) {
 			}
 		case $JSlider::HORIZONTAL:
 			{
-				int32_t var$2 = $nc($($SynthSliderUI::access$1700(this->this$0)))->x;
-				int32_t var$3 = $$nc($SynthSliderUI::access$1900(this->this$0))->getMaximum();
 				halfThumbWidth = $nc($($SynthSliderUI::access$1500(this->this$0)))->width / 2;
 				thumbLeft = e->getX() - this->offset;
 				trackLeft = $nc($($SynthSliderUI::access$1600(this->this$0)))->x + halfThumbWidth + this->this$0->trackBorder;
+				int32_t var$2 = $nc($($SynthSliderUI::access$1700(this->this$0)))->x;
 				trackRight = var$2 + $nc($($SynthSliderUI::access$1800(this->this$0)))->width - halfThumbWidth - this->this$0->trackBorder;
+				int32_t var$3 = $$nc($SynthSliderUI::access$1900(this->this$0))->getMaximum();
 				hMax = this->this$0->xPositionForValue(var$3 - $$nc($SynthSliderUI::access$2000(this->this$0))->getExtent());
 				if ($SynthSliderUI::access$2100(this->this$0)) {
 					trackLeft = hMax;

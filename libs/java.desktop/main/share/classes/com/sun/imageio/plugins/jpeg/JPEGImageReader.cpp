@@ -476,10 +476,10 @@ int32_t JPEGImageReader::getNumImagesOnThread(bool allowSearch) {
 					break;
 				default:
 					{
-						int32_t var$0 = ($nc(buffer->buf)->get(buffer->bufPtr++) & 0xff) << 8;
 						--buffer->bufAvail;
 						++buffer->bufPtr;
 						buffer->loadBuf(2);
+						int32_t var$0 = ($nc(buffer->buf)->get(buffer->bufPtr++) & 0xff) << 8;
 						length = var$0 | (buffer->buf->get(buffer->bufPtr++) & 0xff);
 						buffer->bufAvail -= 2;
 						length -= 2;

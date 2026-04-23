@@ -296,10 +296,10 @@ $Event* AWTEvent::convertToOld() {
 		case $MouseEvent::MOUSE_ENTERED:
 		case $MouseEvent::MOUSE_EXITED:
 			{
+				$assign(me, $cast($MouseEvent, this));
 				int64_t var$2 = $nc(me)->getWhen();
 				int32_t var$3 = me->getX();
 				int32_t var$4 = me->getY();
-				$assign(me, $cast($MouseEvent, this));
 				$assign(olde, $new($Event, src, var$2, newid, var$3, var$4, 0, (me->getModifiers() & ~$InputEvent::BUTTON1_MASK)));
 				$nc(olde)->clickCount = me->getClickCount();
 				return olde;

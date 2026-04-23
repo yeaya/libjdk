@@ -290,6 +290,7 @@ void Step::translateStep($ClassGenerator* classGen, $MethodGenerator* methodGen,
 						$assign(namespace$, $nc(name)->substring(0, star - 1));
 					}
 					int32_t nsType = $nc(xsltc)->registerNamespace(namespace$);
+					$init($Constants);
 					int32_t ns = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getNamespaceAxisIterator"_s, $$str({"(II)"_s, $Constants::NODE_ITERATOR_SIG}));
 					$nc(il)->append($(methodGen->loadDOM()));
 					il->append($$new($PUSH, cpg, this->_axis));
@@ -298,6 +299,7 @@ void Step::translateStep($ClassGenerator* classGen, $MethodGenerator* methodGen,
 					break;
 				}
 			case $NodeTest::ELEMENT:
+				$init($Constants);
 				ty = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getTypedAxisIterator"_s, $$str({"(II)"_s, $Constants::NODE_ITERATOR_SIG}));
 				$nc(il)->append($(methodGen->loadDOM()));
 				il->append($$new($PUSH, cpg, this->_axis));

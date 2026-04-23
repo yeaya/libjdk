@@ -193,11 +193,11 @@ void BasicSliderUI$TrackListener::mouseDragged($MouseEvent* e) {
 		switch ($nc(this->this$0->slider)->getOrientation()) {
 		case $JSlider::VERTICAL:
 			{
-				int32_t var$0 = this->this$0->slider->getMaximum();
 				halfThumbHeight = $nc(this->this$0->thumbRect)->height / 2;
 				thumbTop = e->getY() - this->offset;
 				trackTop = $nc(this->this$0->trackRect)->y;
 				trackBottom = this->this$0->trackRect->y + (this->this$0->trackRect->height - 1);
+				int32_t var$0 = this->this$0->slider->getMaximum();
 				vMax = this->this$0->yPositionForValue(var$0 - this->this$0->slider->getExtent());
 				if (this->this$0->drawInverted()) {
 					trackBottom = vMax;
@@ -213,11 +213,11 @@ void BasicSliderUI$TrackListener::mouseDragged($MouseEvent* e) {
 			}
 		case $JSlider::HORIZONTAL:
 			{
-				int32_t var$1 = $nc(this->this$0->slider)->getMaximum();
 				halfThumbWidth = $nc(this->this$0->thumbRect)->width / 2;
 				thumbLeft = e->getX() - this->offset;
 				trackLeft = $nc(this->this$0->trackRect)->x;
 				trackRight = this->this$0->trackRect->x + (this->this$0->trackRect->width - 1);
+				int32_t var$1 = $nc(this->this$0->slider)->getMaximum();
 				hMax = this->this$0->xPositionForValue(var$1 - this->this$0->slider->getExtent());
 				if (this->this$0->drawInverted()) {
 					trackLeft = hMax;

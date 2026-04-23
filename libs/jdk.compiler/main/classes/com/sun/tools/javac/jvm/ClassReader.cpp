@@ -769,8 +769,8 @@ $Type* ClassReader::sigToType() {
 		}
 	case u'<':
 		{
-			$var($List, var$0, sigToTypeParams());
 			$set(this, typevars, $nc(this->typevars)->dup(this->currentOwner));
+			$var($List, var$0, sigToTypeParams());
 			$assign(poly, $new($Type$ForAll, var$0, $(sigToType())));
 			$set(this, typevars, $nc(this->typevars)->leave());
 			return poly;

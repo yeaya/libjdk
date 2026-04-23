@@ -91,7 +91,6 @@ $StandardFileFormat* AiffFileReader::getAudioFileFormatImpl($InputStream* stream
 			case $AiffFileFormat::FVER_MAGIC:
 				break;
 			case $AiffFileFormat::COMM_MAGIC:
-				$init($AudioFormat$Encoding);
 				if ((!aifc && chunkLen < 18) || (aifc && chunkLen < 22)) {
 					$throwNew($UnsupportedAudioFileException, "Invalid AIFF/COMM chunksize"_s);
 				}
@@ -106,6 +105,7 @@ $StandardFileFormat* AiffFileReader::getAudioFileFormatImpl($InputStream* stream
 				}
 				sampleRate = (float)read_ieee_extended(dis);
 				chunkRead += (2 + 4 + 2 + 10);
+				$init($AudioFormat$Encoding);
 				$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
 				if (aifc) {
 					int32_t enc = dis->readInt();
