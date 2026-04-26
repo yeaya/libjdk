@@ -156,7 +156,7 @@ void DTMTreeWalker::startNode(int32_t node) {
 					$var($String, var$1, dtm->getLocalName(i));
 					$var($String, var$2, dtm->getNodeName(i));
 					$var($String, var$3, "CDATA"_s);
-					$nc(attrs)->addAttribute(var$0, var$1, var$2, var$3, $(dtm->getNodeValue(i)));
+					attrs->addAttribute(var$0, var$1, var$2, var$3, $(dtm->getNodeValue(i)));
 				}
 				$var($String, var$4, $nc(this->m_dtm)->getLocalName(node));
 				$nc(this->m_contentHandler)->startElement(ns, var$4, $(this->m_dtm->getNodeName(node)), attrs);

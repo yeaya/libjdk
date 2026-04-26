@@ -218,18 +218,18 @@ void XMLSignatureInputDebugger::canonicalizeXPathNodeSet($Node* currentNode) {
 					$nc(this->writer)->write(XMLSignatureInputDebugger::HTMLExcludePrefix);
 				}
 				$nc(this->writer)->write("&lt;"_s);
-				this->writer->write($($nc(currentElement)->getTagName()));
+				this->writer->write($(currentElement->getTagName()));
 				$nc(this->writer)->write(XMLSignatureInputDebugger::HTMLIncludeOrExcludeSuffix);
 				$assign(attrs, currentElement->getAttributes());
 				attrsLength = $nc(attrs)->getLength();
 				$assign(attrs2, $new($AttrArray, attrsLength));
 				for (int32_t i = 0; i < attrsLength; ++i) {
-					$nc(attrs2)->set(i, $$cast($Attr, attrs->item(i)));
+					attrs2->set(i, $$cast($Attr, attrs->item(i)));
 				}
 				$Arrays::sort(attrs2, XMLSignatureInputDebugger::ATTR_COMPARE);
 				$assign(attrs3, attrs2);
 				for (int32_t i = 0; i < attrsLength; ++i) {
-					$var($Attr, a, $cast($Attr, $nc(attrs3)->get(i)));
+					$var($Attr, a, $cast($Attr, attrs3->get(i)));
 					bool included = $nc(this->xpathNodeSet)->contains(a);
 					bool inclusive = $nc(this->inclusiveNamespaces)->contains($($nc(a)->getName()));
 					if (included) {

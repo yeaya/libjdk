@@ -224,7 +224,7 @@ void CanonicalizerBase::canonicalizeSubTree($Node* currentNode$renamed, $NameSpa
 				$assign(currentElement, $cast($Element, currentNode));
 				$nc(ns)->outputNodePush();
 				$nc(writer)->write(u'<');
-				$assign(name, $nc(currentElement)->getTagName());
+				$assign(name, currentElement->getTagName());
 				$UtfHelpper::writeByte(name, writer, cache);
 				outputAttributesSubtree(currentElement, ns, cache, writer);
 				writer->write(u'>');

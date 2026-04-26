@@ -111,12 +111,12 @@ void Types$SignatureGenerator::assembleSig($Type* type) {
 	case 1:
 		$assign(at, $cast($Type$ArrayType, type));
 		append(u'[');
-		assembleSig($nc(at)->elemtype);
+		assembleSig(at->elemtype);
 		break;
 	case 19:
 		$assign(mt, $cast($Type$MethodType, type));
 		append(u'(');
-		assembleSig($nc(mt)->argtypes$);
+		assembleSig(mt->argtypes$);
 		append(u')');
 		assembleSig(mt->restype);
 		if (hasTypeVar(mt->thrown)) {
@@ -157,7 +157,7 @@ void Types$SignatureGenerator::assembleSig($Type* type) {
 		break;
 	case 18:
 		$assign(ft, $cast($Type$ForAll, type));
-		assembleParamsSig($nc(ft)->tvars);
+		assembleParamsSig(ft->tvars);
 		assembleSig(ft->qtype);
 		break;
 	default:

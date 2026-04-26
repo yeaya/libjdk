@@ -614,7 +614,7 @@ $Pair* DocTreeMaker::splitBody($Collection* list) {
 					break;
 				case 3:
 					$assign(tt, $cast($DCTree$DCText, dt));
-					$assign(s, $nc(tt)->getBody());
+					$assign(s, tt->getBody());
 					$assign(peekedNext, itr->hasNext() ? $cast($DocTree, alist->get(itr->nextIndex())) : ($DocTree*)nullptr);
 					sbreak = getSentenceBreak(s, peekedNext);
 					if (sbreak > 0) {
@@ -748,10 +748,10 @@ bool DocTreeMaker::isSentenceBreak($DocTree* dt, bool isFirstDocTree) {
 	switch ($nc($DocTreeMaker$2::$SwitchMap$com$sun$source$doctree$DocTree$Kind)->get(($$nc($nc(dt)->getKind()))->ordinal())) {
 	case 4:
 		$assign(set, $cast($StartElementTree, dt));
-		return !isFirstDocTree && $cast($DCTree, dt)->pos$ > 1 && isSentenceBreak($($nc(set)->getName()));
+		return !isFirstDocTree && $cast($DCTree, dt)->pos$ > 1 && isSentenceBreak($(set->getName()));
 	case 5:
 		$assign(eet, $cast($EndElementTree, dt));
-		return !isFirstDocTree && $cast($DCTree, dt)->pos$ > 1 && isSentenceBreak($($nc(eet)->getName()));
+		return !isFirstDocTree && $cast($DCTree, dt)->pos$ > 1 && isSentenceBreak($(eet->getName()));
 	default:
 		return false;
 	}

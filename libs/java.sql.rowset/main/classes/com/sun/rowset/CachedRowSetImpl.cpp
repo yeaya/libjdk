@@ -2070,7 +2070,7 @@ $Object* CachedRowSetImpl::convertNumeric(Object$* srcObj, int32_t srcType, int3
 		switch (trgType) {
 		case $Types::BIT:
 			$assign(i, $Integer::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
-			return $of($nc(i)->equals($($Integer::valueOf(0))) ? $Boolean::valueOf(false) : $Boolean::valueOf(true));
+			return $of(i->equals($($Integer::valueOf(0))) ? $Boolean::valueOf(false) : $Boolean::valueOf(true));
 		case $Types::TINYINT:
 			return $of($Byte::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
 		case $Types::SMALLINT:
@@ -2164,7 +2164,7 @@ $Object* CachedRowSetImpl::convertBoolean(Object$* srcObj, int32_t srcType, int3
 		switch (trgType) {
 		case $Types::BIT:
 			$assign(i, $Integer::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
-			return $of($nc(i)->equals($($Integer::valueOf(0))) ? $Boolean::valueOf(false) : $Boolean::valueOf(true));
+			return $of(i->equals($($Integer::valueOf(0))) ? $Boolean::valueOf(false) : $Boolean::valueOf(true));
 		case $Types::BOOLEAN:
 			return $of($Boolean::valueOf($($$nc($nc($of(srcObj))->toString())->trim())));
 		default:

@@ -496,7 +496,7 @@ void TCPTransport::handleMessages($Connection* conn, bool persistent) {
 						break;
 					case $TransportConstants::Ping:
 						$assign(out, $new($DataOutputStream, $(conn->getOutputStream())));
-						$nc(out)->writeByte($TransportConstants::PingAck);
+						out->writeByte($TransportConstants::PingAck);
 						conn->releaseOutputStream();
 						break;
 					case $TransportConstants::DGCAck:

@@ -133,7 +133,7 @@ void OffScreenImageSource::sendPixels() {
 				for (int32_t y = 0; y < this->height; ++y) {
 					raster->getDataElements(0, y, this->width, 1, bscanline);
 					for (int32_t x = 0; x < this->width; ++x) {
-						scanline->set(x, $nc(bscanline)->get(x) & 0xff);
+						scanline->set(x, bscanline->get(x) & 0xff);
 					}
 					$nc(this->theConsumer)->setPixels(0, y, this->width, 1, cm, scanline, 0, this->width);
 				}
@@ -143,7 +143,7 @@ void OffScreenImageSource::sendPixels() {
 				for (int32_t y = 0; y < this->height; ++y) {
 					raster->getDataElements(0, y, this->width, 1, sscanline);
 					for (int32_t x = 0; x < this->width; ++x) {
-						scanline->set(x, $nc(sscanline)->get(x) & 0xffff);
+						scanline->set(x, sscanline->get(x) & 0xffff);
 					}
 					$nc(this->theConsumer)->setPixels(0, y, this->width, 1, cm, scanline, 0, this->width);
 				}

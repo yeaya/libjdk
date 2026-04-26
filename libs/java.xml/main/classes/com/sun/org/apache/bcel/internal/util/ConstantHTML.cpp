@@ -124,12 +124,12 @@ void ConstantHTML::writeConstant(int32_t index) {
 			$assign(ret_type, $Class2HTML::referenceType(type));
 			$assign(buf, $new($StringBuilder, "("_s));
 			for (int32_t i = 0; i < $nc(args)->length; ++i) {
-				$nc(buf)->append($($Class2HTML::referenceType(args->get(i))));
+				buf->append($($Class2HTML::referenceType(args->get(i))));
 				if (i < args->length - 1) {
 					buf->append(",&nbsp;"_s);
 				}
 			}
-			$nc(buf)->append(")"_s);
+			buf->append(")"_s);
 			$assign(arg_types, buf->toString());
 			if ($nc(method_class)->equals(this->className)) {
 				$assign(ref, $str({"<A HREF=\""_s, this->className, "_code.html#method"_s, $$str(getMethodNumber($$str({method_name, signature}))), "\" TARGET=Code>"_s, html_method_name, "</A>"_s}));

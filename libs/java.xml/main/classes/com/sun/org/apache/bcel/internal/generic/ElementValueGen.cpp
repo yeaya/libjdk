@@ -111,7 +111,7 @@ ElementValueGen* ElementValueGen::readElementValue($DataInput* dis, $ConstantPoo
 			numArrayVals = dis->readUnsignedShort();
 			$assign(evalues, $new($ElementValueArray, numArrayVals));
 			for (int32_t j = 0; j < numArrayVals; ++j) {
-				$nc(evalues)->set(j, $($ElementValue::readElementValue(dis, $($nc(cpGen)->getConstantPool()))));
+				evalues->set(j, $($ElementValue::readElementValue(dis, $($nc(cpGen)->getConstantPool()))));
 			}
 			return $new($ArrayElementValueGen, ElementValueGen::ARRAY, evalues, cpGen);
 		default:

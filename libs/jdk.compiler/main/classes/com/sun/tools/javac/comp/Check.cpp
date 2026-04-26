@@ -3059,7 +3059,7 @@ void Check::checkModuleName($JCTree$JCModuleDecl* tree) {
 				switch ($nc($Check$5::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc(qualId->getTag()))->ordinal())) {
 				case 1:
 					$assign(selectNode, $cast($JCTree$JCFieldAccess, qualId));
-					$assign(componentName, $nc(selectNode)->name);
+					$assign(componentName, selectNode->name);
 					$assign(pos, selectNode->pos());
 					$assign(qualId, selectNode->selected);
 					break;

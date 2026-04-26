@@ -229,7 +229,7 @@ void DOM2SAX::parse($Node* node) {
 					int32_t colon = qnameAttr->lastIndexOf(u':');
 					$assign(prefix, (colon > 0) ? qnameAttr->substring(colon + 1) : DOM2SAX::EMPTYSTRING);
 					if (startPrefixMapping(prefix, uriAttr)) {
-						$nc(pushedPrefixes)->add(prefix);
+						pushedPrefixes->add(prefix);
 					}
 				}
 			}
@@ -247,13 +247,13 @@ void DOM2SAX::parse($Node* node) {
 							$assign(qnameAttr, $str({prefix, $$str(u':'), qnameAttr}));
 						}
 						if (startPrefixMapping(prefix, uriAttr)) {
-							$nc(pushedPrefixes)->add(prefix);
+							pushedPrefixes->add(prefix);
 						}
 					}
 					$var($String, var$3, attr->getNamespaceURI());
 					$var($String, var$4, attr->getLocalName());
 					$var($String, var$5, "CDATA"_s);
-					$nc(attrs)->addAttribute(var$3, var$4, qnameAttr, var$5, $(attr->getNodeValue()));
+					attrs->addAttribute(var$3, var$4, qnameAttr, var$5, $(attr->getNodeValue()));
 				}
 			}
 			$assign(qname, node->getNodeName());
@@ -263,7 +263,7 @@ void DOM2SAX::parse($Node* node) {
 				int32_t colon = $nc(qname)->lastIndexOf(u':');
 				$assign(prefix, (colon > 0) ? qname->substring(0, colon) : DOM2SAX::EMPTYSTRING);
 				if (startPrefixMapping(prefix, uri)) {
-					$nc(pushedPrefixes)->add(prefix);
+					pushedPrefixes->add(prefix);
 				}
 			}
 			if (this->_saxImpl != nullptr) {
@@ -277,7 +277,7 @@ void DOM2SAX::parse($Node* node) {
 				$assign(next, next->getNextSibling());
 			}
 			$nc(this->_sax)->endElement(uri, localName, qname);
-			nPushedPrefixes = $nc(pushedPrefixes)->size();
+			nPushedPrefixes = pushedPrefixes->size();
 			for (int32_t i = 0; i < nPushedPrefixes; ++i) {
 				endPrefixMapping($$cast($String, pushedPrefixes->get(i)));
 			}

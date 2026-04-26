@@ -159,7 +159,7 @@ $String* ConstantPool::constantToString($Constant* c$renamed) {
 			{
 				$assign(cmh, $cast($ConstantMethodHandle, c));
 				$var($StringBuilder, var$2, $new($StringBuilder));
-				var$2->append($($Const::getMethodHandleName($nc(cmh)->getReferenceKind())));
+				var$2->append($($Const::getMethodHandleName(cmh->getReferenceKind())));
 				var$2->append(" "_s);
 				int32_t var$3 = cmh->getReferenceIndex();
 				var$2->append($(constantToString(var$3, $$nc(getConstant(cmh->getReferenceIndex()))->getTag())));
@@ -168,13 +168,13 @@ $String* ConstantPool::constantToString($Constant* c$renamed) {
 			}
 		case $Const::CONSTANT_MethodType:
 			$assign(cmt, $cast($ConstantMethodType, c));
-			$assign(str, constantToString($nc(cmt)->getDescriptorIndex(), $Const::CONSTANT_Utf8));
+			$assign(str, constantToString(cmt->getDescriptorIndex(), $Const::CONSTANT_Utf8));
 			break;
 		case $Const::CONSTANT_InvokeDynamic:
 			{
 				$assign(cid, $cast($ConstantInvokeDynamic, c));
 				$var($StringBuilder, var$4, $new($StringBuilder));
-				var$4->append($nc(cid)->getBootstrapMethodAttrIndex());
+				var$4->append(cid->getBootstrapMethodAttrIndex());
 				var$4->append(":"_s);
 				var$4->append($(constantToString(cid->getNameAndTypeIndex(), $Const::CONSTANT_NameAndType)));
 				$assign(str, $str(var$4));

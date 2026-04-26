@@ -1219,7 +1219,7 @@ void Flow$AssignAnalyzer::visitUnary($JCTree$JCUnary* tree) {
 		$assign(t, $new($Bits, this->initsWhenFalse));
 		this->initsWhenFalse->assign(this->initsWhenTrue);
 		this->initsWhenTrue->assign(t);
-		$nc(t)->assign(this->uninitsWhenFalse);
+		t->assign(this->uninitsWhenFalse);
 		this->uninitsWhenFalse->assign(this->uninitsWhenTrue);
 		this->uninitsWhenTrue->assign(t);
 		break;

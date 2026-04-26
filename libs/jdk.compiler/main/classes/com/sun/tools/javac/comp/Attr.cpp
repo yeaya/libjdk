@@ -3679,7 +3679,7 @@ bool Attr::isBooleanOrNumeric($Env* env, $JCTree$JCExpression* tree) {
 	case 5:
 		{
 			$assign(condTree, $cast($JCTree$JCConditional, tree));
-			bool var$0 = isBooleanOrNumeric(env, $nc(condTree)->truepart);
+			bool var$0 = isBooleanOrNumeric(env, condTree->truepart);
 			return var$0 && isBooleanOrNumeric(env, condTree->falsepart);
 		}
 	case 6:
@@ -4653,7 +4653,7 @@ $Type* Attr::fallbackDescriptorType($JCTree$JCExpression* tree) {
 			$assign(lambda, $cast($JCTree$JCLambda, tree));
 			$assign(argtypes, $List::nil());
 			{
-				$var($Iterator, i$, $nc($nc(lambda)->params)->iterator());
+				$var($Iterator, i$, $nc(lambda->params)->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($JCTree$JCVariableDecl, param, $cast($JCTree$JCVariableDecl, i$->next()));
 					{
@@ -5649,21 +5649,21 @@ $Type* Attr::checkIdInternal($JCTree* tree, $Type* site, $Symbol* sym, $Type* pt
 			{
 				$assign(v, $cast($Symbol$VarSymbol, sym));
 				$init($TypeTag);
-				if ($nc(($cast($AttrContext, $nc(env)->info)))->enclVar != nullptr && $nc($nc(v)->type)->hasTag($TypeTag::NONE)) {
+				if ($nc(($cast($AttrContext, $nc(env)->info)))->enclVar != nullptr && $nc(v->type)->hasTag($TypeTag::NONE)) {
 					int32_t var$2 = $TreeInfo::positionFor(v, env->enclClass);
 					$init($CompilerProperties$Fragments);
 					$nc(this->log)->error(var$2, $($CompilerProperties$Errors::CantInferLocalVarType(v->name, $CompilerProperties$Fragments::LocalSelfRef)));
 					return $set(v, type, $nc(this->types)->createErrorType(v->type));
 				}
 				$init($Kinds$KindSelector);
-				bool var$4 = $nc($Kinds$KindSelector::ASG)->subset($(pkind())) && $nc($nc(v)->owner)->kind == $Kinds$Kind::TYP;
+				bool var$4 = $nc($Kinds$KindSelector::ASG)->subset($(pkind())) && $nc(v->owner)->kind == $Kinds$Kind::TYP;
 				bool var$3 = var$4 && (v->flags() & 8) == 0;
 				if (var$3) {
 					bool var$5 = $nc(site)->hasTag($TypeTag::CLASS);
 					var$3 = var$5 || site->hasTag($TypeTag::TYPEVAR);
 				}
 				if (var$3) {
-					$var($Type, s, $nc(this->types)->asOuterSuper(site, $nc(v)->owner));
+					$var($Type, s, $nc(this->types)->asOuterSuper(site, v->owner));
 					bool var$6 = s != nullptr && s->isRaw();
 					if (var$6 && !this->types->isSameType(v->type, $(v->erasure(this->types)))) {
 						$var($JCDiagnostic$DiagnosticPosition, var$7, $nc(tree)->pos());
@@ -5671,7 +5671,7 @@ $Type* Attr::checkIdInternal($JCTree* tree, $Type* site, $Symbol* sym, $Type* pt
 					}
 				}
 				$assign(owntype, ($nc(sym->owner)->kind == $Kinds$Kind::TYP && sym->name != $nc(this->names)->_this && sym->name != this->names->_super) ? $nc(this->types)->memberType(site, sym) : sym->type);
-				bool var$8 = $nc(v)->getConstValue() != nullptr;
+				bool var$8 = v->getConstValue() != nullptr;
 				if (var$8 && isStaticReference(tree)) {
 					$assign(owntype, $nc(owntype)->constType($(v->getConstValue())));
 				}

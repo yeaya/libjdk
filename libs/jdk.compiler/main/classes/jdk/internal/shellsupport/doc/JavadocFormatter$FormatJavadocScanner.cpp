@@ -506,12 +506,12 @@ void JavadocFormatter$FormatJavadocScanner::handleEndElement($Name* name) {
 			int32_t currentCell = $$sure($Integer, cells->remove(cells->size() - 1))->intValue();
 			$var($StringArray, lines, $$nc(this->result->substring(currentCell, this->result->length()))->split("\n"_s));
 			this->result->delete$(currentCell - 1, this->result->length());
-			$nc(content)->add(lines);
+			content->add(lines);
 			maxLines = $Math::max(maxLines, lines->length);
 		}
 		$Collections::reverse(content);
 		for (int32_t line = 0; line < maxLines; ++line) {
-			for (int32_t column = 0; column < $nc(content)->size(); ++column) {
+			for (int32_t column = 0; column < content->size(); ++column) {
 				$var($StringArray, lines, $cast($StringArray, content->get(column)));
 				$var($String, currentLine, line < $nc(lines)->length ? lines->get(line) : ""_s);
 				this->result->append("| "_s);
@@ -531,7 +531,7 @@ void JavadocFormatter$FormatJavadocScanner::handleEndElement($Name* name) {
 			}
 			this->result->append("|\n"_s);
 		}
-		for (int32_t sep = 0; sep < (this->limit + 3) * $nc(content)->size() + 1; ++sep) {
+		for (int32_t sep = 0; sep < (this->limit + 3) * content->size() + 1; ++sep) {
 			this->result->append("-"_s);
 		}
 		this->result->append("\n"_s);

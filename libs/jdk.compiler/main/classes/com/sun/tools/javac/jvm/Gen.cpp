@@ -576,7 +576,7 @@ $List* Gen::normalizeDefs($List* defs, $Symbol$ClassSymbol* c) {
 				switch ($nc($Gen$4::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(def)->getTag()))->ordinal())) {
 				case 1:
 					$assign(block, $cast($JCTree$JCBlock, def));
-					if (($nc(block)->flags & 8) != 0) {
+					if ((block->flags & 8) != 0) {
 						clinitCode->append(block);
 					} else if ((block->flags & 0x1000) == 0) {
 						initCode->append(block);
@@ -587,7 +587,7 @@ $List* Gen::normalizeDefs($List* defs, $Symbol$ClassSymbol* c) {
 					break;
 				case 3:
 					$assign(vdef, $cast($JCTree$JCVariableDecl, def));
-					$assign(sym, $nc(vdef)->sym);
+					$assign(sym, vdef->sym);
 					checkDimension($(vdef->pos()), $nc(sym)->type);
 					if (vdef->init != nullptr) {
 						if ((sym->flags() & 8) == 0) {

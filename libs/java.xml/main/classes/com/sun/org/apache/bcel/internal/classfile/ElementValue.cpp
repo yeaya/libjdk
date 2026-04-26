@@ -90,7 +90,7 @@ ElementValue* ElementValue::readElementValue($DataInput* input, $ConstantPool* c
 			numArrayVals = input->readUnsignedShort();
 			$assign(evalues, $new($ElementValueArray, numArrayVals));
 			for (int32_t j = 0; j < numArrayVals; ++j) {
-				$nc(evalues)->set(j, $(ElementValue::readElementValue(input, cpool)));
+				evalues->set(j, $(ElementValue::readElementValue(input, cpool)));
 			}
 			return $new($ArrayElementValue, ElementValue::ARRAY, evalues, cpool);
 		default:

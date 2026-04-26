@@ -48,7 +48,7 @@ void ArrayType::init$($Type* type, int32_t dimensions) {
 		switch ($nc(type)->getType()) {
 		case $Const::T_ARRAY:
 			$assign(array, $cast(ArrayType, type));
-			this->dimensions = dimensions + $nc(array)->dimensions;
+			this->dimensions = dimensions + array->dimensions;
 			$set(this, basicType, array->basicType);
 			break;
 		case $Const::T_VOID:

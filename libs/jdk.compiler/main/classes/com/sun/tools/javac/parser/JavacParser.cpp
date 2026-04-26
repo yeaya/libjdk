@@ -1843,11 +1843,11 @@ $JCTree$JCExpression* JavacParser::term3() {
 					switch ($JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->get((this->token$->kind)->ordinal())) {
 					case 33:
 					case 34:
-						$nc(cases)->appendList($(switchExpressionStatementGroup()));
+						cases->appendList($(switchExpressionStatementGroup()));
 						break;
 					case 12:
 					case 6:
-						$assign(e, $cast($JCTree$JCSwitchExpression, to($($$nc($nc(this->F)->at(switchPos))->SwitchExpression(selector, $($nc(cases)->toList()))))));
+						$assign(e, $cast($JCTree$JCSwitchExpression, to($($$nc($nc(this->F)->at(switchPos))->SwitchExpression(selector, $(cases->toList()))))));
 						$nc(e)->endpos = $nc(this->token$)->pos;
 						accept($Tokens$TokenKind::RBRACE);
 						return e;
@@ -3856,7 +3856,7 @@ $JCTree$JCExpression* JavacParser::annotationValue() {
 				if ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
 					nextToken();
 				} else if (this->token$->kind != $Tokens$TokenKind::RBRACE) {
-					$nc(buf)->append($(annotationValue()));
+					buf->append($(annotationValue()));
 					while ($nc(this->token$)->kind == $Tokens$TokenKind::COMMA) {
 						nextToken();
 						if ($nc(this->token$)->kind == $Tokens$TokenKind::RBRACE) {
@@ -3867,7 +3867,7 @@ $JCTree$JCExpression* JavacParser::annotationValue() {
 				}
 				accept($Tokens$TokenKind::RBRACE);
 				$var($List, var$0, $List::nil());
-				return $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->NewArray(nullptr, var$0, $($nc(buf)->toList())))));
+				return $cast($JCTree$JCExpression, toP($($$nc($nc(this->F)->at(pos))->NewArray(nullptr, var$0, $(buf->toList())))));
 			}
 		default:
 			selectExprMode();

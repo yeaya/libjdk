@@ -515,7 +515,7 @@ $TypeAnnotationPosition* TypeAnnotations$TypeAnnotationPositions::resolveFrame($
 		return $TypeAnnotationPosition::instanceOf($($nc(location)->toList()), currentLambda, frame->pos$);
 	case 3:
 		$assign(frameNewClass, $cast($JCTree$JCNewClass, frame));
-		if ($nc(frameNewClass)->def != nullptr) {
+		if (frameNewClass->def != nullptr) {
 			$var($JCTree$JCClassDecl, frameClassDecl, frameNewClass->def);
 			if ($nc($nc(frameClassDecl)->implementing)->contains(tree)) {
 				int32_t type_index = $nc(frameClassDecl->implementing)->indexOf(tree);

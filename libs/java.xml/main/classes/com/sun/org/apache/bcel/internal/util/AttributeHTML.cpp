@@ -118,7 +118,7 @@ void AttributeHTML::writeAttribute($Attribute* attribute, $String* anchor, int32
 				$assign(c, $cast($Code, attribute));
 				$var($StringBuilder, var$0, $new($StringBuilder));
 				var$0->append("<UL><LI>Maximum stack size = "_s);
-				var$0->append($nc(c)->getMaxStack());
+				var$0->append(c->getMaxStack());
 				var$0->append("</LI>\n<LI>Number of local variables = "_s);
 				var$0->append(c->getMaxLocals());
 				var$0->append("</LI>\n<LI><A HREF=\""_s);
@@ -127,7 +127,7 @@ void AttributeHTML::writeAttribute($Attribute* attribute, $String* anchor, int32
 				var$0->append(method_number);
 				var$0->append("\" TARGET=Code>Byte code</A></LI></UL>\n"_s);
 				this->file->print($$str(var$0));
-				$assign(ce, $nc(c)->getExceptionTable());
+				$assign(ce, c->getExceptionTable());
 				len = $nc(ce)->length;
 				if (len > 0) {
 					this->file->print("<P><B>Exceptions handled</B><UL>"_s);

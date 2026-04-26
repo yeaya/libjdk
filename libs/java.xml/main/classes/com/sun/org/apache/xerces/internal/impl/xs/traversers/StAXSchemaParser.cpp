@@ -169,7 +169,7 @@ void StAXSchemaParser::parse($XMLEventReader* input) {
 					break;
 				case $XMLStreamConstants::PROCESSING_INSTRUCTION:
 					$assign(pi, $cast($ProcessingInstruction, currentEvent));
-					fillProcessingInstruction($($nc(pi)->getData()));
+					fillProcessingInstruction($(pi->getData()));
 					$nc(this->fSchemaDOMParser)->processingInstruction($(pi->getTarget()), this->fTempString, nullptr);
 					break;
 				case $XMLStreamConstants::DTD:

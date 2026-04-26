@@ -683,7 +683,7 @@ void PNGImageReader::readMetadata() {
 					$assign(b, $new($bytes, chunkLength));
 					$nc(this->stream)->readFully(b);
 					$assign(chunkName, $new($StringBuilder, 4));
-					$nc(chunkName)->append((char16_t)((int32_t)((uint32_t)chunkType >> 24)));
+					chunkName->append((char16_t)((int32_t)((uint32_t)chunkType >> 24)));
 					chunkName->append((char16_t)((chunkType >> 16) & 0xff));
 					chunkName->append((char16_t)((chunkType >> 8) & 0xff));
 					chunkName->append((char16_t)(chunkType & 0xff));

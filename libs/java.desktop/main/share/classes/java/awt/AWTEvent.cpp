@@ -278,7 +278,7 @@ $Event* AWTEvent::convertToOld() {
 		case $KeyEvent::KEY_RELEASED:
 			{
 				$assign(ke, $cast($KeyEvent, this));
-				if ($nc(ke)->isActionKey()) {
+				if (ke->isActionKey()) {
 					newid = (this->id == $KeyEvent::KEY_PRESSED ? $Event::KEY_ACTION : $Event::KEY_ACTION_RELEASE);
 				}
 				keyCode = ke->getKeyCode();
@@ -297,11 +297,11 @@ $Event* AWTEvent::convertToOld() {
 		case $MouseEvent::MOUSE_EXITED:
 			{
 				$assign(me, $cast($MouseEvent, this));
-				int64_t var$2 = $nc(me)->getWhen();
+				int64_t var$2 = me->getWhen();
 				int32_t var$3 = me->getX();
 				int32_t var$4 = me->getY();
 				$assign(olde, $new($Event, src, var$2, newid, var$3, var$4, 0, (me->getModifiers() & ~$InputEvent::BUTTON1_MASK)));
-				$nc(olde)->clickCount = me->getClickCount();
+				olde->clickCount = me->getClickCount();
 				return olde;
 			}
 		case $FocusEvent::FOCUS_GAINED:
@@ -325,26 +325,26 @@ $Event* AWTEvent::convertToOld() {
 			} else if ($instanceOf($MenuItem, src)) {
 				$assign(cmd, $cast($MenuItem, src)->getLabel());
 			} else {
-				$assign(cmd, $nc(ae)->getActionCommand());
+				$assign(cmd, ae->getActionCommand());
 			}
-			return $new($Event, src, 0, newid, 0, 0, 0, $nc(ae)->getModifiers(), cmd);
+			return $new($Event, src, 0, newid, 0, 0, 0, ae->getModifiers(), cmd);
 		case $ItemEvent::ITEM_STATE_CHANGED:
 			$assign(ie, $cast($ItemEvent, this));
 			if ($instanceOf($List, src)) {
-				newid = ($nc(ie)->getStateChange() == $ItemEvent::SELECTED ? $Event::LIST_SELECT : $Event::LIST_DESELECT);
+				newid = (ie->getStateChange() == $ItemEvent::SELECTED ? $Event::LIST_SELECT : $Event::LIST_DESELECT);
 				$assign(arg, ie->getItem());
 			} else {
 				newid = $Event::ACTION_EVENT;
 				if ($instanceOf($Choice, src)) {
-					$assign(arg, $nc(ie)->getItem());
+					$assign(arg, ie->getItem());
 				} else {
-					$assign(arg, $Boolean::valueOf($nc(ie)->getStateChange() == $ItemEvent::SELECTED));
+					$assign(arg, $Boolean::valueOf(ie->getStateChange() == $ItemEvent::SELECTED));
 				}
 			}
 			return $new($Event, src, newid, arg);
 		case $AdjustmentEvent::ADJUSTMENT_VALUE_CHANGED:
 			$assign(aje, $cast($AdjustmentEvent, this));
-			switch ($nc(aje)->getAdjustmentType()) {
+			switch (aje->getAdjustmentType()) {
 			case $AdjustmentEvent::UNIT_INCREMENT:
 				newid = $Event::SCROLL_LINE_DOWN;
 				break;

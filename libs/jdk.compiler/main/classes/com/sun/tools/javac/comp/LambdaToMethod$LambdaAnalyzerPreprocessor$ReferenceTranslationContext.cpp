@@ -100,7 +100,7 @@ bool LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::isIn
 		return true;
 	case 3:
 		$assign(tv, $cast($Type$TypeVar, t));
-		return isIntersectionOrUnionType($($nc(tv)->getUpperBound()));
+		return isIntersectionOrUnionType($(tv->getUpperBound()));
 	}
 	return false;
 }

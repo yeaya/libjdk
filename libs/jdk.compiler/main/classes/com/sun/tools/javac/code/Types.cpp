@@ -959,7 +959,7 @@ void Types::checkUnsafeVarargsConversion($Type* t, $Type* s, $Warner* warn) {
 			{
 				$assign(to, $cast($Type$ArrayType, s));
 				bool var$2 = from->isVarargs();
-				bool var$1 = var$2 && !$nc(to)->isVarargs();
+				bool var$1 = var$2 && !to->isVarargs();
 				shouldWarn = var$1 && !isReifiable(from);
 				break;
 			}
@@ -2403,7 +2403,7 @@ case$1:
 			// ARRAY_BOUND
 			$assign(elements, $new($TypeArray, ts->length));
 			for (int32_t i = 0; i < ts->length; ++i) {
-				$var($Type, elem, $nc(elements)->set(i, $($nc(this->elemTypeFun)->apply(ts->get(i)))));
+				$var($Type, elem, elements->set(i, $($nc(this->elemTypeFun)->apply(ts->get(i)))));
 				if ($nc(elem)->isPrimitive()) {
 					$var($Type, first, ts->get(0));
 					for (int32_t j = 1; j < ts->length; ++j) {

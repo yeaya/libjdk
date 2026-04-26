@@ -269,7 +269,7 @@ $Op* RegularExpression::compile($Token* tok, $Op* next$renamed, bool reverse) {
 			}
 		case $Token::CONDITION:
 			$assign(ctok, $cast($Token$ConditionToken, tok));
-			ref = $nc(ctok)->refNumber;
+			ref = ctok->refNumber;
 			$assign(condition, ctok->condition == nullptr ? ($Op*)nullptr : compile(ctok->condition, nullptr, reverse));
 			$assign(yes, compile(ctok->yes, next, reverse));
 			$assign(no, ctok->no == nullptr ? ($Op*)nullptr : compile(ctok->no, next, reverse));

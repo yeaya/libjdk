@@ -231,7 +231,7 @@ void SampleModel::setDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Ob
 			for (int32_t i = y; i < y1; ++i) {
 				for (int32_t j = x; j < x1; ++j) {
 					for (int32_t k = 0; k < numDataElems; ++k) {
-						$nc(btemp)->set(k, $nc(barray)->get(cnt++));
+						btemp->set(k, $nc(barray)->get(cnt++));
 					}
 					setDataElements(j, i, btemp, data);
 				}
@@ -244,7 +244,7 @@ void SampleModel::setDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Ob
 			for (int32_t i = y; i < y1; ++i) {
 				for (int32_t j = x; j < x1; ++j) {
 					for (int32_t k = 0; k < numDataElems; ++k) {
-						$nc(stemp)->set(k, $nc(sarray)->get(cnt++));
+						stemp->set(k, $nc(sarray)->get(cnt++));
 					}
 					setDataElements(j, i, stemp, data);
 				}
@@ -256,7 +256,7 @@ void SampleModel::setDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Ob
 			for (int32_t i = y; i < y1; ++i) {
 				for (int32_t j = x; j < x1; ++j) {
 					for (int32_t k = 0; k < numDataElems; ++k) {
-						$nc(itemp)->set(k, $nc(iArray)->get(cnt++));
+						itemp->set(k, $nc(iArray)->get(cnt++));
 					}
 					setDataElements(j, i, itemp, data);
 				}
@@ -268,7 +268,7 @@ void SampleModel::setDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Ob
 			for (int32_t i = y; i < y1; ++i) {
 				for (int32_t j = x; j < x1; ++j) {
 					for (int32_t k = 0; k < numDataElems; ++k) {
-						$nc(ftemp)->set(k, $nc(fArray)->get(cnt++));
+						ftemp->set(k, $nc(fArray)->get(cnt++));
 					}
 					setDataElements(j, i, ftemp, data);
 				}
@@ -280,7 +280,7 @@ void SampleModel::setDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Ob
 			for (int32_t i = y; i < y1; ++i) {
 				for (int32_t j = x; j < x1; ++j) {
 					for (int32_t k = 0; k < numDataElems; ++k) {
-						$nc(dtemp)->set(k, $nc(dArray)->get(cnt++));
+						dtemp->set(k, $nc(dArray)->get(cnt++));
 					}
 					setDataElements(j, i, dtemp, data);
 				}

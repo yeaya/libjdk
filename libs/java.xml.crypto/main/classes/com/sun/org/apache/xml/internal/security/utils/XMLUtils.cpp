@@ -284,7 +284,7 @@ void XMLUtils::getSetRec($Node* rootNode, $Set* result, $Node* exclude, bool com
 		case $Node::ELEMENT_NODE:
 			$nc(result)->add(rootNode);
 			$assign(el, $cast($Element, rootNode));
-			if ($nc(el)->hasAttributes()) {
+			if (el->hasAttributes()) {
 				$var($NamedNodeMap, nl, el->getAttributes());
 				int32_t length = $nc(nl)->getLength();
 				for (int32_t i = 0; i < length; ++i) {
@@ -609,7 +609,7 @@ void XMLUtils::circumventBug2650internal($Node* node$renamed) {
 			switch ($nc(node)->getNodeType()) {
 			case $Node::ELEMENT_NODE:
 				$assign(element, $cast($Element, node));
-				if (!$nc(element)->hasChildNodes()) {
+				if (!element->hasChildNodes()) {
 					break;
 				}
 				if (element->hasAttributes()) {

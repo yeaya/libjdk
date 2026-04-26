@@ -540,7 +540,7 @@ void CipherHelper::encryptData($WrapToken* token, $bytes* confounder, $bytes* pl
 	case $MessageToken::SEAL_ALG_DES:
 		$assign(des, getInitializedDes(true, $(getDesEncryptionKey(this->keybytes)), CipherHelper::ZERO_IV));
 		$assign(cos, $new($CipherOutputStream, os, des));
-		$nc(cos)->write(confounder);
+		cos->write(confounder);
 		cos->write(plaintext, start, len);
 		cos->write(padding);
 		break;

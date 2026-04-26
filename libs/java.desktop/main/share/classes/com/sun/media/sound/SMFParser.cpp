@@ -161,7 +161,7 @@ void SMFParser::readTrack($Track* track) {
 						$assign(sysexData, $new($bytes, sysexLength));
 						read(sysexData);
 						$assign(sysexMessage, $new($SysexMessage));
-						$nc(sysexMessage)->setMessage(status, sysexData, sysexLength);
+						sysexMessage->setMessage(status, sysexData, sysexLength);
 						$assign(message, sysexMessage);
 						break;
 					case 255:
@@ -174,7 +174,7 @@ void SMFParser::readTrack($Track* track) {
 						}
 						read(metaData);
 						$assign(metaMessage, $new($MetaMessage));
-						$nc(metaMessage)->setMessage(metaType, metaData, metaLength);
+						metaMessage->setMessage(metaType, metaData, metaLength);
 						$assign(message, metaMessage);
 						if (metaType == 47) {
 							endOfTrackFound = true;

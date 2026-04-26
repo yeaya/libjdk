@@ -227,15 +227,15 @@ void SoftMainMixer::processSystemExclusiveMessage($bytes* data) {
 								for (int32_t i = 0; i < slotPathLen; ++i) {
 									int32_t msb = (data->get(ix++) & 0xff);
 									int32_t lsb = (data->get(ix++) & 0xff);
-									$nc(slotPath)->set(i, msb * 128 + lsb);
+									slotPath->set(i, msb * 128 + lsb);
 								}
 								paramCount = $div((data->length - 1 - ix), (paramWidth + valueWidth));
 								$assign(params, $new($longs, paramCount));
 								$assign(values, $new($longs, paramCount));
 								for (int32_t i = 0; i < paramCount; ++i) {
-									$nc(values)->set(i, 0);
+									values->set(i, 0);
 									for (int32_t j = 0; j < paramWidth; ++j) {
-										$nc(params)->set(i, $nc(params)->get(i) * 128 + (data->get(ix++) & 0xff));
+										params->set(i, params->get(i) * 128 + (data->get(ix++) & 0xff));
 									}
 									for (int32_t j = 0; j < valueWidth; ++j) {
 										values->set(i, values->get(i) * 128 + (data->get(ix++) & 0xff));

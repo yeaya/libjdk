@@ -112,16 +112,16 @@ int64_t JavacTrees$1::getEndPosition($CompilationUnitTree* file, $DocCommentTree
 		switch ($nc($JavacTrees$8::$SwitchMap$com$sun$source$doctree$DocTree$Kind)->get(($$nc($nc(tree)->getKind()))->ordinal())) {
 		case 1:
 			$assign(text, $cast($DCTree$DCText, tree));
-			return $nc($nc(dcComment)->comment)->getSourcePos($nc(text)->pos$ + $nc($nc(text)->text)->length());
+			return $nc($nc(dcComment)->comment)->getSourcePos(text->pos$ + $nc(text->text)->length());
 		case 2:
 			$assign(err, $cast($DCTree$DCErroneous, tree));
-			return $nc($nc(dcComment)->comment)->getSourcePos($nc(err)->pos$ + $nc($nc(err)->body)->length());
+			return $nc($nc(dcComment)->comment)->getSourcePos(err->pos$ + $nc(err->body)->length());
 		case 3:
 			$assign(ident, $cast($DCTree$DCIdentifier, tree));
-			return $nc($nc(dcComment)->comment)->getSourcePos($nc(ident)->pos$ + (!$equals($nc(ident)->name, $nc(this->this$0->names)->error) ? $nc(ident->name)->length() : 0));
+			return $nc($nc(dcComment)->comment)->getSourcePos(ident->pos$ + (!$equals(ident->name, $nc(this->this$0->names)->error) ? $nc(ident->name)->length() : 0));
 		case 4:
 			$assign(param, $cast($DCTree$DCParam, tree));
-			if ($nc(param)->isTypeParameter$ && $$nc(param->getDescription())->isEmpty()) {
+			if (param->isTypeParameter$ && $$nc(param->getDescription())->isEmpty()) {
 				correction = 1;
 			}
 		case 5:

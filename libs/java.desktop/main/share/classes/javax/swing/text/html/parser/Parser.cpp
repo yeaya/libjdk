@@ -1320,7 +1320,7 @@ void Parser::parseTag() {
 				default:
 					$assign(strBuff, $new($StringBuffer));
 					while (true) {
-						$nc(strBuff)->append((char16_t)this->ch);
+						strBuff->append((char16_t)this->ch);
 						if (parseMarkupDeclarations(strBuff)) {
 							return;
 						}

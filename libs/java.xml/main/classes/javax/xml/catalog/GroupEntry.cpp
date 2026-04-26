@@ -285,7 +285,7 @@ $String* GroupEntry::matchSystem($String* systemId) {
 					break;
 				case 4:
 					$assign(grpEntry, $cast(GroupEntry, entry));
-					$assign(match, $nc(grpEntry)->matchSystem(systemId));
+					$assign(match, grpEntry->matchSystem(systemId));
 					if (grpEntry->isInstantMatch) {
 						return match;
 					} else if (grpEntry->longestRewriteMatch > this->longestRewriteMatch) {
@@ -376,7 +376,7 @@ $String* GroupEntry::matchURI($String* uri) {
 					break;
 				case 4:
 					$assign(grpEntry, $cast(GroupEntry, entry));
-					$assign(match, $nc(grpEntry)->matchURI(uri));
+					$assign(match, grpEntry->matchURI(uri));
 					if (grpEntry->isInstantMatch) {
 						return match;
 					} else if (grpEntry->longestRewriteMatch > this->longestRewriteMatch) {

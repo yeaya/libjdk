@@ -2129,7 +2129,7 @@ $JCTree$JCExpression* Lower::abstractRval($JCTree$JCExpression* rval$renamed, $T
 		case 2:
 			$assign(id, $cast($JCTree$JCIdent, rval));
 			$init($Kinds$Kind);
-			if (($nc($nc(id)->sym)->flags() & 0x10) != 0 && $nc(id->sym->owner)->kind == $Kinds$Kind::MTH) {
+			if (($nc(id->sym)->flags() & 0x10) != 0 && $nc(id->sym->owner)->kind == $Kinds$Kind::MTH) {
 				return $nc(builder)->build(rval);
 			}
 		}

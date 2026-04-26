@@ -160,7 +160,7 @@ $WritableRaster* ImagingLib::filter($RasterOp* op, $Raster* src, $WritableRaster
 		case ImagingLib::AFFINE_OP:
 			$assign(bOp, $cast($AffineTransformOp, op));
 			$assign(matrix, $new($doubles, 6));
-			$$nc($nc(bOp)->getTransform())->getMatrix(matrix);
+			$$nc(bOp->getTransform())->getMatrix(matrix);
 			if (transformRaster(src, dst, matrix, bOp->getInterpolationType()) > 0) {
 				$assign(retRaster, dst);
 			}
@@ -168,7 +168,7 @@ $WritableRaster* ImagingLib::filter($RasterOp* op, $Raster* src, $WritableRaster
 		case ImagingLib::CONVOLVE_OP:
 			{
 				$assign(cOp, $cast($ConvolveOp, op));
-				$var($Kernel, var$0, $nc(cOp)->getKernel());
+				$var($Kernel, var$0, cOp->getKernel());
 				if (convolveRaster(src, dst, var$0, cOp->getEdgeCondition()) > 0) {
 					$assign(retRaster, dst);
 				}
@@ -220,7 +220,7 @@ $BufferedImage* ImagingLib::filter($BufferedImageOp* op, $BufferedImage* src, $B
 		case ImagingLib::AFFINE_OP:
 			$assign(bOp, $cast($AffineTransformOp, op));
 			$assign(matrix, $new($doubles, 6));
-			$assign(xform, $nc(bOp)->getTransform());
+			$assign(xform, bOp->getTransform());
 			$$nc(bOp->getTransform())->getMatrix(matrix);
 			if (transformBI(src, dst, matrix, bOp->getInterpolationType()) > 0) {
 				$assign(retBI, dst);
@@ -229,7 +229,7 @@ $BufferedImage* ImagingLib::filter($BufferedImageOp* op, $BufferedImage* src, $B
 		case ImagingLib::CONVOLVE_OP:
 			{
 				$assign(cOp, $cast($ConvolveOp, op));
-				$var($Kernel, var$0, $nc(cOp)->getKernel());
+				$var($Kernel, var$0, cOp->getKernel());
 				if (convolveBI(src, dst, var$0, cOp->getEdgeCondition()) > 0) {
 					$assign(retBI, dst);
 				}

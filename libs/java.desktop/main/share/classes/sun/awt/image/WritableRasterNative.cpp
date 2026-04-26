@@ -62,7 +62,7 @@ WritableRasterNative* WritableRasterNative::createNativeRaster($ColorModel* cm, 
 				dataType = $DataBuffer::TYPE_USHORT;
 			}
 			$assign(bandOffsets, $new($ints, 1));
-			$nc(bandOffsets)->set(0, 0);
+			bandOffsets->set(0, 0);
 			$assign(smHw, $new($PixelInterleavedSampleModel, dataType, width, height, 1, scanStride, bandOffsets));
 			break;
 		case 15:
@@ -70,7 +70,7 @@ WritableRasterNative* WritableRasterNative::createNativeRaster($ColorModel* cm, 
 			dataType = $DataBuffer::TYPE_USHORT;
 			$assign(bitMasks, $new($ints, 3));
 			$assign(dcm, $cast($DirectColorModel, cm));
-			$nc(bitMasks)->set(0, $nc(dcm)->getRedMask());
+			bitMasks->set(0, dcm->getRedMask());
 			bitMasks->set(1, dcm->getGreenMask());
 			bitMasks->set(2, dcm->getBlueMask());
 			$assign(smHw, $new($SinglePixelPackedSampleModel, dataType, width, height, scanStride, bitMasks));

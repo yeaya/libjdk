@@ -207,7 +207,7 @@ void UnionPathIterator::loadLocationPaths($Compiler* compiler, int32_t opPos, in
 		case $OpCodes::OP_GROUP:
 			loadLocationPaths(compiler, compiler->getNextOpPos(opPos), count + 1);
 			$assign(iter, $new($WalkingIterator, $(compiler->getNamespaceContext())));
-			$nc(iter)->exprSetParent(this);
+			iter->exprSetParent(this);
 			if (compiler->getLocationPathDepth() <= 0) {
 				iter->setIsTopLevel(true);
 			}

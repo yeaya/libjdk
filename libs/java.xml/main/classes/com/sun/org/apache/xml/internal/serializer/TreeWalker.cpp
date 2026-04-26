@@ -180,7 +180,7 @@ void TreeWalker::startNode($Node* node) {
 			{
 				$assign(elem_node, $cast($Element, node));
 				{
-					$var($String, uri, $nc(elem_node)->getNamespaceURI());
+					$var($String, uri, elem_node->getNamespaceURI());
 					if (uri != nullptr) {
 						$var($String, prefix, elem_node->getPrefix());
 						if (prefix == nullptr) {

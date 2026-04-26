@@ -855,7 +855,7 @@ bool TreeInfo::isStaticSelector($JCTree* base, $Names* names) {
 		switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(base)->getTag()))->ordinal())) {
 		case 4:
 			$assign(id, $cast($JCTree$JCIdent, base));
-			return $nc(id)->name != $nc(names)->_this && id->name != names->_super && isStaticSym(base);
+			return id->name != $nc(names)->_this && id->name != names->_super && isStaticSym(base);
 		case 5:
 			{
 				bool var$0 = isStaticSym(base);
@@ -1382,7 +1382,7 @@ $Symbol* TreeInfo::symbolForImpl($JCTree* node$renamed) {
 		switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(node)->getTag()))->ordinal())) {
 		case 69:
 			$assign(cut, $cast($JCTree$JCCompilationUnit, node));
-			$assign(moduleDecl, $nc(cut)->getModuleDecl());
+			$assign(moduleDecl, cut->getModuleDecl());
 			if (isModuleInfo(cut) && moduleDecl != nullptr) {
 				return symbolFor(moduleDecl);
 			}

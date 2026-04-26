@@ -285,7 +285,7 @@ void LambdaToMethod$LambdaAnalyzerPreprocessor::visitIdent($JCTree$JCIdent* tree
 						case 4:
 							$assign(cdecl$, $cast($JCTree$JCClassDecl, block));
 							$init($LambdaToMethod$LambdaSymbolKind);
-							$cast($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, localContext)->addSymbol($nc(cdecl$)->sym, $LambdaToMethod$LambdaSymbolKind::CAPTURED_THIS);
+							$cast($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, localContext)->addSymbol(cdecl$->sym, $LambdaToMethod$LambdaSymbolKind::CAPTURED_THIS);
 							break;
 						default:
 							$Assert::error("bad block kind"_s);

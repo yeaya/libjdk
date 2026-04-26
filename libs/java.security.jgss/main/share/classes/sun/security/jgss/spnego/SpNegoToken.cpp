@@ -60,11 +60,11 @@ $bytes* SpNegoToken::getEncoded() {
 		switch (this->tokenType) {
 		case SpNegoToken::NEG_TOKEN_INIT_ID:
 			$assign(initToken, $new($DerOutputStream));
-			$nc(initToken)->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)SpNegoToken::NEG_TOKEN_INIT_ID), token);
+			initToken->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)SpNegoToken::NEG_TOKEN_INIT_ID), token);
 			return initToken->toByteArray();
 		case SpNegoToken::NEG_TOKEN_TARG_ID:
 			$assign(targToken, $new($DerOutputStream));
-			$nc(targToken)->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)SpNegoToken::NEG_TOKEN_TARG_ID), token);
+			targToken->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)SpNegoToken::NEG_TOKEN_TARG_ID), token);
 			return targToken->toByteArray();
 		default:
 			return token->toByteArray();

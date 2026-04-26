@@ -161,7 +161,7 @@ bool Util::isFileUriExist($URI* uri, bool openJarFile) {
 				case 0:
 					$assign(path, uri->getPath());
 					$assign(f1, $new($File, path));
-					if ($nc(f1)->isFile()) {
+					if (f1->isFile()) {
 						return true;
 					}
 					break;

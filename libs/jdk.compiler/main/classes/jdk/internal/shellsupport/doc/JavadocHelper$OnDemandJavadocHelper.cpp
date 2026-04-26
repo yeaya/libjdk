@@ -650,7 +650,7 @@ $String* JavadocHelper$OnDemandJavadocHelper::elementSignature($Element* el) {
 	case 12:
 		{
 			$assign(header, $new($StringBuilder));
-			$nc(header)->append($(elementSignature($(el->getEnclosingElement()))));
+			header->append($(elementSignature($(el->getEnclosingElement()))));
 			if (el->getKind() == $ElementKind::METHOD) {
 				header->append("."_s);
 				header->append($(el->getSimpleName()));
@@ -659,7 +659,7 @@ $String* JavadocHelper$OnDemandJavadocHelper::elementSignature($Element* el) {
 			$assign(sep, ""_s);
 			$assign(method, $cast($ExecutableElement, el));
 			{
-				$var($Iterator, i, $$nc($nc(method)->getParameters())->iterator());
+				$var($Iterator, i, $$nc(method->getParameters())->iterator());
 				for (; $nc(i)->hasNext();) {
 					$var($VariableElement, p, $cast($VariableElement, i->next()));
 					header->append(sep);

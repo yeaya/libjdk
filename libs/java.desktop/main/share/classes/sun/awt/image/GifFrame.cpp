@@ -102,7 +102,7 @@ bool GifFrame::dispose() {
 				$assign(rasline, $new($bytes, this->width));
 				if (tpix != 0) {
 					for (int32_t i = 0; i < this->width; ++i) {
-						$nc(rasline)->set(i, tpix);
+						rasline->set(i, tpix);
 					}
 				}
 				if ($nc(this->decoder)->saved_image != nullptr) {
