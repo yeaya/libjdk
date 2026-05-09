@@ -76,19 +76,19 @@ namespace javax {
 		namespace relation {
 
 int32_t RelationSupport::hashCode() {
-	 return this->$RelationSupportMBean::hashCode();
+	return this->$RelationSupportMBean::hashCode();
 }
 
 bool RelationSupport::equals(Object$* arg0) {
-	 return this->$RelationSupportMBean::equals(arg0);
+	return this->$RelationSupportMBean::equals(arg0);
 }
 
 $Object* RelationSupport::clone() {
-	 return this->$RelationSupportMBean::clone();
+	return this->$RelationSupportMBean::clone();
 }
 
 $String* RelationSupport::toString() {
-	 return this->$RelationSupportMBean::toString();
+	return this->$RelationSupportMBean::toString();
 }
 
 void RelationSupport::finalize() {

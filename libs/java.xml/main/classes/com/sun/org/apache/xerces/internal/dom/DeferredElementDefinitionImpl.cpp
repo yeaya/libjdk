@@ -33,55 +33,55 @@ namespace com {
 						namespace dom {
 
 int16_t DeferredElementDefinitionImpl::getNodeType() {
-	 return this->$ElementDefinitionImpl::getNodeType();
+	return this->$ElementDefinitionImpl::getNodeType();
 }
 
 $String* DeferredElementDefinitionImpl::getNodeName() {
-	 return this->$ElementDefinitionImpl::getNodeName();
+	return this->$ElementDefinitionImpl::getNodeName();
 }
 
 $Node* DeferredElementDefinitionImpl::cloneNode(bool deep) {
-	 return this->$ElementDefinitionImpl::cloneNode(deep);
+	return this->$ElementDefinitionImpl::cloneNode(deep);
 }
 
 $NamedNodeMap* DeferredElementDefinitionImpl::getAttributes() {
-	 return this->$ElementDefinitionImpl::getAttributes();
+	return this->$ElementDefinitionImpl::getAttributes();
 }
 
 $Document* DeferredElementDefinitionImpl::getOwnerDocument() {
-	 return this->$ElementDefinitionImpl::getOwnerDocument();
+	return this->$ElementDefinitionImpl::getOwnerDocument();
 }
 
 bool DeferredElementDefinitionImpl::hasChildNodes() {
-	 return this->$ElementDefinitionImpl::hasChildNodes();
+	return this->$ElementDefinitionImpl::hasChildNodes();
 }
 
 $NodeList* DeferredElementDefinitionImpl::getChildNodes() {
-	 return this->$ElementDefinitionImpl::getChildNodes();
+	return this->$ElementDefinitionImpl::getChildNodes();
 }
 
 $Node* DeferredElementDefinitionImpl::getFirstChild() {
-	 return this->$ElementDefinitionImpl::getFirstChild();
+	return this->$ElementDefinitionImpl::getFirstChild();
 }
 
 $Node* DeferredElementDefinitionImpl::getLastChild() {
-	 return this->$ElementDefinitionImpl::getLastChild();
+	return this->$ElementDefinitionImpl::getLastChild();
 }
 
 $Node* DeferredElementDefinitionImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$ElementDefinitionImpl::insertBefore(newChild, refChild);
+	return this->$ElementDefinitionImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DeferredElementDefinitionImpl::removeChild($Node* oldChild) {
-	 return this->$ElementDefinitionImpl::removeChild(oldChild);
+	return this->$ElementDefinitionImpl::removeChild(oldChild);
 }
 
 $Node* DeferredElementDefinitionImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$ElementDefinitionImpl::replaceChild(newChild, oldChild);
+	return this->$ElementDefinitionImpl::replaceChild(newChild, oldChild);
 }
 
 $String* DeferredElementDefinitionImpl::getTextContent() {
-	 return this->$ElementDefinitionImpl::getTextContent();
+	return this->$ElementDefinitionImpl::getTextContent();
 }
 
 void DeferredElementDefinitionImpl::setTextContent($String* textContent) {
@@ -93,23 +93,23 @@ void DeferredElementDefinitionImpl::normalize() {
 }
 
 bool DeferredElementDefinitionImpl::isEqualNode($Node* arg) {
-	 return this->$ElementDefinitionImpl::isEqualNode(arg);
+	return this->$ElementDefinitionImpl::isEqualNode(arg);
 }
 
 $Node* DeferredElementDefinitionImpl::getParentNode() {
-	 return this->$ElementDefinitionImpl::getParentNode();
+	return this->$ElementDefinitionImpl::getParentNode();
 }
 
 $Node* DeferredElementDefinitionImpl::getNextSibling() {
-	 return this->$ElementDefinitionImpl::getNextSibling();
+	return this->$ElementDefinitionImpl::getNextSibling();
 }
 
 $Node* DeferredElementDefinitionImpl::getPreviousSibling() {
-	 return this->$ElementDefinitionImpl::getPreviousSibling();
+	return this->$ElementDefinitionImpl::getPreviousSibling();
 }
 
 $String* DeferredElementDefinitionImpl::getNodeValue() {
-	 return this->$ElementDefinitionImpl::getNodeValue();
+	return this->$ElementDefinitionImpl::getNodeValue();
 }
 
 void DeferredElementDefinitionImpl::setNodeValue($String* x) {
@@ -117,23 +117,23 @@ void DeferredElementDefinitionImpl::setNodeValue($String* x) {
 }
 
 $Node* DeferredElementDefinitionImpl::appendChild($Node* newChild) {
-	 return this->$ElementDefinitionImpl::appendChild(newChild);
+	return this->$ElementDefinitionImpl::appendChild(newChild);
 }
 
 bool DeferredElementDefinitionImpl::hasAttributes() {
-	 return this->$ElementDefinitionImpl::hasAttributes();
+	return this->$ElementDefinitionImpl::hasAttributes();
 }
 
 bool DeferredElementDefinitionImpl::isSupported($String* feature, $String* version) {
-	 return this->$ElementDefinitionImpl::isSupported(feature, version);
+	return this->$ElementDefinitionImpl::isSupported(feature, version);
 }
 
 $String* DeferredElementDefinitionImpl::getNamespaceURI() {
-	 return this->$ElementDefinitionImpl::getNamespaceURI();
+	return this->$ElementDefinitionImpl::getNamespaceURI();
 }
 
 $String* DeferredElementDefinitionImpl::getPrefix() {
-	 return this->$ElementDefinitionImpl::getPrefix();
+	return this->$ElementDefinitionImpl::getPrefix();
 }
 
 void DeferredElementDefinitionImpl::setPrefix($String* prefix) {
@@ -141,59 +141,59 @@ void DeferredElementDefinitionImpl::setPrefix($String* prefix) {
 }
 
 $String* DeferredElementDefinitionImpl::getLocalName() {
-	 return this->$ElementDefinitionImpl::getLocalName();
+	return this->$ElementDefinitionImpl::getLocalName();
 }
 
 $String* DeferredElementDefinitionImpl::getBaseURI() {
-	 return this->$ElementDefinitionImpl::getBaseURI();
+	return this->$ElementDefinitionImpl::getBaseURI();
 }
 
 int16_t DeferredElementDefinitionImpl::compareDocumentPosition($Node* other) {
-	 return this->$ElementDefinitionImpl::compareDocumentPosition(other);
+	return this->$ElementDefinitionImpl::compareDocumentPosition(other);
 }
 
 bool DeferredElementDefinitionImpl::isSameNode($Node* other) {
-	 return this->$ElementDefinitionImpl::isSameNode(other);
+	return this->$ElementDefinitionImpl::isSameNode(other);
 }
 
 bool DeferredElementDefinitionImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$ElementDefinitionImpl::isDefaultNamespace(namespaceURI);
+	return this->$ElementDefinitionImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DeferredElementDefinitionImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$ElementDefinitionImpl::lookupPrefix(namespaceURI);
+	return this->$ElementDefinitionImpl::lookupPrefix(namespaceURI);
 }
 
 $String* DeferredElementDefinitionImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$ElementDefinitionImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$ElementDefinitionImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* DeferredElementDefinitionImpl::getFeature($String* feature, $String* version) {
-	 return this->$ElementDefinitionImpl::getFeature(feature, version);
+	return this->$ElementDefinitionImpl::getFeature(feature, version);
 }
 
 $Object* DeferredElementDefinitionImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$ElementDefinitionImpl::setUserData(key, data, handler);
+	return this->$ElementDefinitionImpl::setUserData(key, data, handler);
 }
 
 $Object* DeferredElementDefinitionImpl::getUserData($String* key) {
-	 return this->$ElementDefinitionImpl::getUserData(key);
+	return this->$ElementDefinitionImpl::getUserData(key);
 }
 
 $String* DeferredElementDefinitionImpl::toString() {
-	 return this->$ElementDefinitionImpl::toString();
+	return this->$ElementDefinitionImpl::toString();
 }
 
 int32_t DeferredElementDefinitionImpl::hashCode() {
-	 return this->$ElementDefinitionImpl::hashCode();
+	return this->$ElementDefinitionImpl::hashCode();
 }
 
 bool DeferredElementDefinitionImpl::equals(Object$* arg0) {
-	 return this->$ElementDefinitionImpl::equals(arg0);
+	return this->$ElementDefinitionImpl::equals(arg0);
 }
 
 $Object* DeferredElementDefinitionImpl::clone() {
-	 return this->$ElementDefinitionImpl::clone();
+	return this->$ElementDefinitionImpl::clone();
 }
 
 void DeferredElementDefinitionImpl::finalize() {

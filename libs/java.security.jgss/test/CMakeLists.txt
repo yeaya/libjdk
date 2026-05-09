@@ -4,6 +4,7 @@ jcpp_add_dependencies(
 	"java.base:17.35"
 	"java.logging:17.35"
 	"java.naming:17.35"
+	"java.security.sasl:17.35"
 )
 
 include_directories("share/classes")

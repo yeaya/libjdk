@@ -22,19 +22,19 @@ namespace javax {
 		namespace text {
 
 int32_t TableView$TableCell::hashCode() {
-	 return this->$BoxView::hashCode();
+	return this->$BoxView::hashCode();
 }
 
 bool TableView$TableCell::equals(Object$* arg0) {
-	 return this->$BoxView::equals(arg0);
+	return this->$BoxView::equals(arg0);
 }
 
 $Object* TableView$TableCell::clone() {
-	 return this->$BoxView::clone();
+	return this->$BoxView::clone();
 }
 
 $String* TableView$TableCell::toString() {
-	 return this->$BoxView::toString();
+	return this->$BoxView::toString();
 }
 
 void TableView$TableCell::finalize() {

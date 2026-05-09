@@ -22,19 +22,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaTextFieldFormattedUI::hashCode() {
-	 return this->$AquaTextFieldUI::hashCode();
+	return this->$AquaTextFieldUI::hashCode();
 }
 
 bool AquaTextFieldFormattedUI::equals(Object$* arg0) {
-	 return this->$AquaTextFieldUI::equals(arg0);
+	return this->$AquaTextFieldUI::equals(arg0);
 }
 
 $Object* AquaTextFieldFormattedUI::clone() {
-	 return this->$AquaTextFieldUI::clone();
+	return this->$AquaTextFieldUI::clone();
 }
 
 $String* AquaTextFieldFormattedUI::toString() {
-	 return this->$AquaTextFieldUI::toString();
+	return this->$AquaTextFieldUI::toString();
 }
 
 void AquaTextFieldFormattedUI::finalize() {

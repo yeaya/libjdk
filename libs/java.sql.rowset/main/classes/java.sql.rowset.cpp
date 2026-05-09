@@ -4,6 +4,8 @@
 #include <java.sql.h>
 #include <java.xml.h>
 #include <java.base.h>
+#include <java.security.sasl.h>
+#include <java.transaction.xa.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
@@ -204,6 +206,8 @@ void java$sql$rowset::init() {
 	::java$sql::init();
 	::java$xml::init();
 	::java$base::init();
+	::java$security$sasl::init();
+	::java$transaction$xa::init();
 	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.sql.rowset", "17.35", "",

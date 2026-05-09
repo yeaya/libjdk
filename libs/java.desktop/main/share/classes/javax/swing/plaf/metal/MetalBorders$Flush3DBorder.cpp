@@ -22,19 +22,19 @@ namespace javax {
 			namespace metal {
 
 int32_t MetalBorders$Flush3DBorder::hashCode() {
-	 return this->$AbstractBorder::hashCode();
+	return this->$AbstractBorder::hashCode();
 }
 
 bool MetalBorders$Flush3DBorder::equals(Object$* arg0) {
-	 return this->$AbstractBorder::equals(arg0);
+	return this->$AbstractBorder::equals(arg0);
 }
 
 $Object* MetalBorders$Flush3DBorder::clone() {
-	 return this->$AbstractBorder::clone();
+	return this->$AbstractBorder::clone();
 }
 
 $String* MetalBorders$Flush3DBorder::toString() {
-	 return this->$AbstractBorder::toString();
+	return this->$AbstractBorder::toString();
 }
 
 void MetalBorders$Flush3DBorder::finalize() {

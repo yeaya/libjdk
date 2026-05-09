@@ -104,15 +104,15 @@ namespace org {
 					namespace dom {
 
 bool DOMSignedInfo::isFeatureSupported($String* feature) {
-	 return this->$DOMStructure::isFeatureSupported(feature);
+	return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMSignedInfo::clone() {
-	 return this->$DOMStructure::clone();
+	return this->$DOMStructure::clone();
 }
 
 $String* DOMSignedInfo::toString() {
-	 return this->$DOMStructure::toString();
+	return this->$DOMStructure::toString();
 }
 
 void DOMSignedInfo::finalize() {

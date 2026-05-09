@@ -61,7 +61,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* map($bytes* sig, int32_t offset, int32_t len) override {
-		 return $of($nc(inst$)->sigToType(sig, offset, len));
+		return $of($nc(inst$)->sigToType(sig, offset, len));
 	}
 	$ClassReader* inst$ = nullptr;
 };
@@ -96,7 +96,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* map($bytes* buf, int32_t offset, int32_t len) override {
-		 return $ClassFile::internalize(buf, offset, len);
+		return $ClassFile::internalize(buf, offset, len);
 	}
 };
 $Class* PoolReader$$Lambda$internalize$1::load$($String* name, bool initialize) {

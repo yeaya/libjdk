@@ -51,19 +51,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicRootPaneUI::hashCode() {
-	 return this->$RootPaneUI::hashCode();
+	return this->$RootPaneUI::hashCode();
 }
 
 bool BasicRootPaneUI::equals(Object$* arg0) {
-	 return this->$RootPaneUI::equals(arg0);
+	return this->$RootPaneUI::equals(arg0);
 }
 
 $Object* BasicRootPaneUI::clone() {
-	 return this->$RootPaneUI::clone();
+	return this->$RootPaneUI::clone();
 }
 
 $String* BasicRootPaneUI::toString() {
-	 return this->$RootPaneUI::toString();
+	return this->$RootPaneUI::toString();
 }
 
 void BasicRootPaneUI::finalize() {

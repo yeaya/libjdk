@@ -66,19 +66,19 @@ void LWLabelPeer::dispose() {
 }
 
 $GraphicsConfiguration* LWLabelPeer::getGraphicsConfiguration() {
-	 return this->$LWComponentPeer::getGraphicsConfiguration();
+	return this->$LWComponentPeer::getGraphicsConfiguration();
 }
 
 bool LWLabelPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$LWComponentPeer::updateGraphicsData(gc);
+	return this->$LWComponentPeer::updateGraphicsData(gc);
 }
 
 $Graphics* LWLabelPeer::getGraphics() {
-	 return this->$LWComponentPeer::getGraphics();
+	return this->$LWComponentPeer::getGraphics();
 }
 
 $ColorModel* LWLabelPeer::getColorModel() {
-	 return this->$LWComponentPeer::getColorModel();
+	return this->$LWComponentPeer::getColorModel();
 }
 
 void LWLabelPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -86,7 +86,7 @@ void LWLabelPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
 }
 
 $Image* LWLabelPeer::getBackBuffer() {
-	 return this->$LWComponentPeer::getBackBuffer();
+	return this->$LWComponentPeer::getBackBuffer();
 }
 
 void LWLabelPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -102,7 +102,7 @@ void LWLabelPeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int32_t 
 }
 
 $Point* LWLabelPeer::getLocationOnScreen() {
-	 return this->$LWComponentPeer::getLocationOnScreen();
+	return this->$LWComponentPeer::getLocationOnScreen();
 }
 
 void LWLabelPeer::setBackground($Color* c) {
@@ -118,7 +118,7 @@ void LWLabelPeer::setFont($Font* f) {
 }
 
 $FontMetrics* LWLabelPeer::getFontMetrics($Font* f) {
-	 return this->$LWComponentPeer::getFontMetrics(f);
+	return this->$LWComponentPeer::getFontMetrics(f);
 }
 
 void LWLabelPeer::setEnabled(bool e) {
@@ -142,7 +142,7 @@ void LWLabelPeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWLabelPeer::isReparentSupported() {
-	 return this->$LWComponentPeer::isReparentSupported();
+	return this->$LWComponentPeer::isReparentSupported();
 }
 
 void LWLabelPeer::setZOrder($ComponentPeer* above) {
@@ -158,19 +158,19 @@ void LWLabelPeer::layout() {
 }
 
 bool LWLabelPeer::isObscured() {
-	 return this->$LWComponentPeer::isObscured();
+	return this->$LWComponentPeer::isObscured();
 }
 
 bool LWLabelPeer::canDetermineObscurity() {
-	 return this->$LWComponentPeer::canDetermineObscurity();
+	return this->$LWComponentPeer::canDetermineObscurity();
 }
 
 $Dimension* LWLabelPeer::getPreferredSize() {
-	 return this->$LWComponentPeer::getPreferredSize();
+	return this->$LWComponentPeer::getPreferredSize();
 }
 
 $Dimension* LWLabelPeer::getMinimumSize() {
-	 return this->$LWComponentPeer::getMinimumSize();
+	return this->$LWComponentPeer::getMinimumSize();
 }
 
 void LWLabelPeer::updateCursorImmediately() {
@@ -178,23 +178,23 @@ void LWLabelPeer::updateCursorImmediately() {
 }
 
 bool LWLabelPeer::isFocusable() {
-	 return this->$LWComponentPeer::isFocusable();
+	return this->$LWComponentPeer::isFocusable();
 }
 
 bool LWLabelPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWLabelPeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWComponentPeer::createImage(width, height);
+	return this->$LWComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* LWLabelPeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWComponentPeer::createVolatileImage(w, h);
+	return this->$LWComponentPeer::createVolatileImage(w, h);
 }
 
 bool LWLabelPeer::handlesWheelScrolling() {
-	 return this->$LWComponentPeer::handlesWheelScrolling();
+	return this->$LWComponentPeer::handlesWheelScrolling();
 }
 
 void LWLabelPeer::applyShape($Region* shape) {
@@ -206,19 +206,19 @@ void LWLabelPeer::handleEvent($AWTEvent* e) {
 }
 
 int32_t LWLabelPeer::hashCode() {
-	 return this->$LWComponentPeer::hashCode();
+	return this->$LWComponentPeer::hashCode();
 }
 
 bool LWLabelPeer::equals(Object$* arg0) {
-	 return this->$LWComponentPeer::equals(arg0);
+	return this->$LWComponentPeer::equals(arg0);
 }
 
 $Object* LWLabelPeer::clone() {
-	 return this->$LWComponentPeer::clone();
+	return this->$LWComponentPeer::clone();
 }
 
 $String* LWLabelPeer::toString() {
-	 return this->$LWComponentPeer::toString();
+	return this->$LWComponentPeer::toString();
 }
 
 void LWLabelPeer::finalize() {

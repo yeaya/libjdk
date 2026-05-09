@@ -229,7 +229,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* m) override {
-		 return Modules::lambda$static$17($cast($Symbol$ModuleSymbol, m));
+		return Modules::lambda$static$17($cast($Symbol$ModuleSymbol, m));
 	}
 };
 $Class* Modules$$Lambda$lambda$static$17::load$($String* name, bool initialize) {
@@ -399,7 +399,7 @@ public:
 		$set(this, observable, observable);
 	}
 	virtual bool test(Object$* sym) override {
-		 return $nc(inst$)->lambda$setupAllModules$5(observable, $cast($Symbol$ModuleSymbol, sym));
+		return $nc(inst$)->lambda$setupAllModules$5(observable, $cast($Symbol$ModuleSymbol, sym));
 	}
 	Modules* inst$ = nullptr;
 	$Set* observable = nullptr;
@@ -436,7 +436,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* sym) override {
-		 return Modules::lambda$setupAllModules$6($cast($Symbol$ModuleSymbol, sym));
+		return Modules::lambda$setupAllModules$6($cast($Symbol$ModuleSymbol, sym));
 	}
 };
 $Class* Modules$$Lambda$lambda$setupAllModules$6$6::load$($String* name, bool initialize) {
@@ -466,7 +466,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* sym) override {
-		 return Modules::lambda$setupAllModules$8($cast($Symbol$ModuleSymbol, sym));
+		return Modules::lambda$setupAllModules$8($cast($Symbol$ModuleSymbol, sym));
 	}
 };
 $Class* Modules$$Lambda$lambda$setupAllModules$8$7::load$($String* name, bool initialize) {
@@ -497,7 +497,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* sym) override {
-		 return $nc(inst$)->lambda$setupAllModules$10($cast($Symbol$ModuleSymbol, sym));
+		return $nc(inst$)->lambda$setupAllModules$10($cast($Symbol$ModuleSymbol, sym));
 	}
 	Modules* inst$ = nullptr;
 };
@@ -532,7 +532,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* sym) override {
-		 return Modules::lambda$setupAllModules$11($cast($Symbol$ModuleSymbol, sym));
+		return Modules::lambda$setupAllModules$11($cast($Symbol$ModuleSymbol, sym));
 	}
 };
 $Class* Modules$$Lambda$lambda$setupAllModules$11$9::load$($String* name, bool initialize) {
@@ -562,7 +562,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* sym) override {
-		 return Modules::lambda$setupAllModules$12($cast($Symbol$ModuleSymbol, sym));
+		return Modules::lambda$setupAllModules$12($cast($Symbol$ModuleSymbol, sym));
 	}
 };
 $Class* Modules$$Lambda$lambda$setupAllModules$12$10::load$($String* name, bool initialize) {
@@ -667,7 +667,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* msym) override {
-		 return Modules::lambda$setupAllModules$14($cast($Symbol$ModuleSymbol, msym));
+		return Modules::lambda$setupAllModules$14($cast($Symbol$ModuleSymbol, msym));
 	}
 };
 $Class* Modules$$Lambda$lambda$setupAllModules$14$13::load$($String* name, bool initialize) {
@@ -697,7 +697,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* msym) override {
-		 return $of(Modules::lambda$setupAllModules$15($cast($Symbol$ModuleSymbol, msym)));
+		return $of(Modules::lambda$setupAllModules$15($cast($Symbol$ModuleSymbol, msym)));
 	}
 };
 $Class* Modules$$Lambda$lambda$setupAllModules$15$14::load$($String* name, bool initialize) {
@@ -803,7 +803,7 @@ public:
 		$set(this, d, d);
 	}
 	virtual $Object* get() override {
-		 return $of(Modules::lambda$completeModule$19(d));
+		return $of(Modules::lambda$completeModule$19(d));
 	}
 	$Directive$RequiresDirective* d = nullptr;
 };
@@ -840,7 +840,7 @@ public:
 		$set(this, msym, msym);
 	}
 	virtual $Object* get() override {
-		 return $of(Modules::lambda$retrieveRequiresTransitive$20(current, msym));
+		return $of(Modules::lambda$retrieveRequiresTransitive$20(current, msym));
 	}
 	$Symbol$ModuleSymbol* current = nullptr;
 	$Symbol$ModuleSymbol* msym = nullptr;
@@ -919,7 +919,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* _x) override {
-		 return Modules::lambda$initAddExports$22($cast($Symbol$ModuleSymbol, _x));
+		return Modules::lambda$initAddExports$22($cast($Symbol$ModuleSymbol, _x));
 	}
 };
 $Class* Modules$$Lambda$lambda$initAddExports$22$20::load$($String* name, bool initialize) {
@@ -949,7 +949,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* m) override {
-		 return Modules::lambda$initAddReads$23($cast($Symbol$ModuleSymbol, m));
+		return Modules::lambda$initAddReads$23($cast($Symbol$ModuleSymbol, m));
 	}
 };
 $Class* Modules$$Lambda$lambda$initAddReads$23$21::load$($String* name, bool initialize) {
@@ -980,7 +980,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$Symbol$ModuleSymbol* inst$ = nullptr;
 };
@@ -1015,7 +1015,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return Modules::lambda$setupAllModules$7($cast($Directive$ExportsDirective, e));
+		return Modules::lambda$setupAllModules$7($cast($Directive$ExportsDirective, e));
 	}
 };
 $Class* Modules$$Lambda$lambda$setupAllModules$7$23::load$($String* name, bool initialize) {

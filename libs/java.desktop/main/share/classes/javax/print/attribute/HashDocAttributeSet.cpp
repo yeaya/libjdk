@@ -22,39 +22,39 @@ namespace javax {
 		namespace attribute {
 
 $Attribute* HashDocAttributeSet::get($Class* category) {
-	 return this->$HashAttributeSet::get(category);
+	return this->$HashAttributeSet::get(category);
 }
 
 bool HashDocAttributeSet::add($Attribute* attribute) {
-	 return this->$HashAttributeSet::add(attribute);
+	return this->$HashAttributeSet::add(attribute);
 }
 
 bool HashDocAttributeSet::remove($Class* category) {
-	 return this->$HashAttributeSet::remove(category);
+	return this->$HashAttributeSet::remove(category);
 }
 
 bool HashDocAttributeSet::remove($Attribute* attribute) {
-	 return this->$HashAttributeSet::remove(attribute);
+	return this->$HashAttributeSet::remove(attribute);
 }
 
 bool HashDocAttributeSet::containsKey($Class* category) {
-	 return this->$HashAttributeSet::containsKey(category);
+	return this->$HashAttributeSet::containsKey(category);
 }
 
 bool HashDocAttributeSet::containsValue($Attribute* attribute) {
-	 return this->$HashAttributeSet::containsValue(attribute);
+	return this->$HashAttributeSet::containsValue(attribute);
 }
 
 bool HashDocAttributeSet::addAll($AttributeSet* attributes) {
-	 return this->$HashAttributeSet::addAll(attributes);
+	return this->$HashAttributeSet::addAll(attributes);
 }
 
 int32_t HashDocAttributeSet::size() {
-	 return this->$HashAttributeSet::size();
+	return this->$HashAttributeSet::size();
 }
 
 $AttributeArray* HashDocAttributeSet::toArray() {
-	 return this->$HashAttributeSet::toArray();
+	return this->$HashAttributeSet::toArray();
 }
 
 void HashDocAttributeSet::clear() {
@@ -62,23 +62,23 @@ void HashDocAttributeSet::clear() {
 }
 
 bool HashDocAttributeSet::isEmpty() {
-	 return this->$HashAttributeSet::isEmpty();
+	return this->$HashAttributeSet::isEmpty();
 }
 
 bool HashDocAttributeSet::equals(Object$* object) {
-	 return this->$HashAttributeSet::equals(object);
+	return this->$HashAttributeSet::equals(object);
 }
 
 int32_t HashDocAttributeSet::hashCode() {
-	 return this->$HashAttributeSet::hashCode();
+	return this->$HashAttributeSet::hashCode();
 }
 
 $Object* HashDocAttributeSet::clone() {
-	 return this->$HashAttributeSet::clone();
+	return this->$HashAttributeSet::clone();
 }
 
 $String* HashDocAttributeSet::toString() {
-	 return this->$HashAttributeSet::toString();
+	return this->$HashAttributeSet::toString();
 }
 
 void HashDocAttributeSet::finalize() {

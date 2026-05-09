@@ -44,7 +44,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return GraphicsPrimitive$TraceReporter::lambda$setShutdownHook$0();
+		return GraphicsPrimitive$TraceReporter::lambda$setShutdownHook$0();
 	}
 };
 $Class* GraphicsPrimitive$TraceReporter$$Lambda$lambda$setShutdownHook$0::load$($String* name, bool initialize) {

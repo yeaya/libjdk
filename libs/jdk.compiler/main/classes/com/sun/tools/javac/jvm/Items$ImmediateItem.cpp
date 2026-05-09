@@ -61,7 +61,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(Object$* inst$, Object$* c) override {
-		 return $sure($PoolWriter, inst$)->putConstant($cast($PoolConstant$LoadableConstant, c));
+		return $sure($PoolWriter, inst$)->putConstant($cast($PoolConstant$LoadableConstant, c));
 	}
 };
 $Class* Items$ImmediateItem$$Lambda$putConstant::load$($String* name, bool initialize) {

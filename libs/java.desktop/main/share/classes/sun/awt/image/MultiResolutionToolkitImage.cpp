@@ -48,7 +48,7 @@ public:
 		$set(this, image, image);
 	}
 	virtual $Object* apply(Object$* key) override {
-		 return MultiResolutionToolkitImage::lambda$getResolutionVariantObserver$0(concatenateInfo, image, $cast($ImageObserver, key));
+		return MultiResolutionToolkitImage::lambda$getResolutionVariantObserver$0(concatenateInfo, image, $cast($ImageObserver, key));
 	}
 	bool concatenateInfo = false;
 	$Image* image = nullptr;
@@ -80,19 +80,19 @@ $Class* MultiResolutionToolkitImage$$Lambda$lambda$getResolutionVariantObserver$
 $Class* MultiResolutionToolkitImage$$Lambda$lambda$getResolutionVariantObserver$0::class$ = nullptr;
 
 int32_t MultiResolutionToolkitImage::hashCode() {
-	 return this->$ToolkitImage::hashCode();
+	return this->$ToolkitImage::hashCode();
 }
 
 bool MultiResolutionToolkitImage::equals(Object$* arg0) {
-	 return this->$ToolkitImage::equals(arg0);
+	return this->$ToolkitImage::equals(arg0);
 }
 
 $Object* MultiResolutionToolkitImage::clone() {
-	 return this->$ToolkitImage::clone();
+	return this->$ToolkitImage::clone();
 }
 
 $String* MultiResolutionToolkitImage::toString() {
-	 return this->$ToolkitImage::toString();
+	return this->$ToolkitImage::toString();
 }
 
 void MultiResolutionToolkitImage::finalize() {

@@ -238,19 +238,19 @@ $Class* CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0::load$($String* n
 $Class* CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0::class$ = nullptr;
 
 bool CoreDocumentImpl::hasChildNodes() {
-	 return this->$ParentNode::hasChildNodes();
+	return this->$ParentNode::hasChildNodes();
 }
 
 $NodeList* CoreDocumentImpl::getChildNodes() {
-	 return this->$ParentNode::getChildNodes();
+	return this->$ParentNode::getChildNodes();
 }
 
 $Node* CoreDocumentImpl::getFirstChild() {
-	 return this->$ParentNode::getFirstChild();
+	return this->$ParentNode::getFirstChild();
 }
 
 $Node* CoreDocumentImpl::getLastChild() {
-	 return this->$ParentNode::getLastChild();
+	return this->$ParentNode::getLastChild();
 }
 
 void CoreDocumentImpl::normalize() {
@@ -258,23 +258,23 @@ void CoreDocumentImpl::normalize() {
 }
 
 bool CoreDocumentImpl::isEqualNode($Node* arg) {
-	 return this->$ParentNode::isEqualNode(arg);
+	return this->$ParentNode::isEqualNode(arg);
 }
 
 $Node* CoreDocumentImpl::getParentNode() {
-	 return this->$ParentNode::getParentNode();
+	return this->$ParentNode::getParentNode();
 }
 
 $Node* CoreDocumentImpl::getNextSibling() {
-	 return this->$ParentNode::getNextSibling();
+	return this->$ParentNode::getNextSibling();
 }
 
 $Node* CoreDocumentImpl::getPreviousSibling() {
-	 return this->$ParentNode::getPreviousSibling();
+	return this->$ParentNode::getPreviousSibling();
 }
 
 $String* CoreDocumentImpl::getNodeValue() {
-	 return this->$ParentNode::getNodeValue();
+	return this->$ParentNode::getNodeValue();
 }
 
 void CoreDocumentImpl::setNodeValue($String* x) {
@@ -282,27 +282,27 @@ void CoreDocumentImpl::setNodeValue($String* x) {
 }
 
 $Node* CoreDocumentImpl::appendChild($Node* newChild) {
-	 return this->$ParentNode::appendChild(newChild);
+	return this->$ParentNode::appendChild(newChild);
 }
 
 $NamedNodeMap* CoreDocumentImpl::getAttributes() {
-	 return this->$ParentNode::getAttributes();
+	return this->$ParentNode::getAttributes();
 }
 
 bool CoreDocumentImpl::hasAttributes() {
-	 return this->$ParentNode::hasAttributes();
+	return this->$ParentNode::hasAttributes();
 }
 
 bool CoreDocumentImpl::isSupported($String* feature, $String* version) {
-	 return this->$ParentNode::isSupported(feature, version);
+	return this->$ParentNode::isSupported(feature, version);
 }
 
 $String* CoreDocumentImpl::getNamespaceURI() {
-	 return this->$ParentNode::getNamespaceURI();
+	return this->$ParentNode::getNamespaceURI();
 }
 
 $String* CoreDocumentImpl::getPrefix() {
-	 return this->$ParentNode::getPrefix();
+	return this->$ParentNode::getPrefix();
 }
 
 void CoreDocumentImpl::setPrefix($String* prefix) {
@@ -310,47 +310,47 @@ void CoreDocumentImpl::setPrefix($String* prefix) {
 }
 
 $String* CoreDocumentImpl::getLocalName() {
-	 return this->$ParentNode::getLocalName();
+	return this->$ParentNode::getLocalName();
 }
 
 int16_t CoreDocumentImpl::compareDocumentPosition($Node* other) {
-	 return this->$ParentNode::compareDocumentPosition(other);
+	return this->$ParentNode::compareDocumentPosition(other);
 }
 
 bool CoreDocumentImpl::isSameNode($Node* other) {
-	 return this->$ParentNode::isSameNode(other);
+	return this->$ParentNode::isSameNode(other);
 }
 
 bool CoreDocumentImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$ParentNode::isDefaultNamespace(namespaceURI);
+	return this->$ParentNode::isDefaultNamespace(namespaceURI);
 }
 
 $String* CoreDocumentImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$ParentNode::lookupPrefix(namespaceURI);
+	return this->$ParentNode::lookupPrefix(namespaceURI);
 }
 
 $String* CoreDocumentImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$ParentNode::lookupNamespaceURI(specifiedPrefix);
+	return this->$ParentNode::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* CoreDocumentImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$ParentNode::setUserData(key, data, handler);
+	return this->$ParentNode::setUserData(key, data, handler);
 }
 
 $Object* CoreDocumentImpl::getUserData($String* key) {
-	 return this->$ParentNode::getUserData(key);
+	return this->$ParentNode::getUserData(key);
 }
 
 $String* CoreDocumentImpl::toString() {
-	 return this->$ParentNode::toString();
+	return this->$ParentNode::toString();
 }
 
 int32_t CoreDocumentImpl::hashCode() {
-	 return this->$ParentNode::hashCode();
+	return this->$ParentNode::hashCode();
 }
 
 bool CoreDocumentImpl::equals(Object$* arg0) {
-	 return this->$ParentNode::equals(arg0);
+	return this->$ParentNode::equals(arg0);
 }
 
 void CoreDocumentImpl::finalize() {

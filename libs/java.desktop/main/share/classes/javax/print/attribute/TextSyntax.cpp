@@ -15,7 +15,7 @@ namespace javax {
 		namespace attribute {
 
 $Object* TextSyntax::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void TextSyntax::finalize() {

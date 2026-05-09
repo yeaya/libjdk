@@ -59,7 +59,7 @@ public:
 		$set(this, module, module);
 	}
 	virtual $Object* run() override {
-		 return LoggingProviderImpl::lambda$demandJULLoggerFor$0(manager, name, module);
+		return LoggingProviderImpl::lambda$demandJULLoggerFor$0(manager, name, module);
 	}
 	$LogManager* manager = nullptr;
 	$String* name = nullptr;

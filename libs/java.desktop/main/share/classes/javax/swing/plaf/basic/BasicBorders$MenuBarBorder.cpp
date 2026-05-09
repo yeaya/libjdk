@@ -25,19 +25,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicBorders$MenuBarBorder::hashCode() {
-	 return this->$AbstractBorder::hashCode();
+	return this->$AbstractBorder::hashCode();
 }
 
 bool BasicBorders$MenuBarBorder::equals(Object$* arg0) {
-	 return this->$AbstractBorder::equals(arg0);
+	return this->$AbstractBorder::equals(arg0);
 }
 
 $Object* BasicBorders$MenuBarBorder::clone() {
-	 return this->$AbstractBorder::clone();
+	return this->$AbstractBorder::clone();
 }
 
 $String* BasicBorders$MenuBarBorder::toString() {
-	 return this->$AbstractBorder::toString();
+	return this->$AbstractBorder::toString();
 }
 
 void BasicBorders$MenuBarBorder::finalize() {

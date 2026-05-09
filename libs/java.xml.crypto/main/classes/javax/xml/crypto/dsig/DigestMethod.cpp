@@ -16,19 +16,19 @@ namespace javax {
 			namespace dsig {
 
 int32_t DigestMethod::hashCode() {
-	 return this->$XMLStructure::hashCode();
+	return this->$XMLStructure::hashCode();
 }
 
 bool DigestMethod::equals(Object$* arg0) {
-	 return this->$XMLStructure::equals(arg0);
+	return this->$XMLStructure::equals(arg0);
 }
 
 $Object* DigestMethod::clone() {
-	 return this->$XMLStructure::clone();
+	return this->$XMLStructure::clone();
 }
 
 $String* DigestMethod::toString() {
-	 return this->$XMLStructure::toString();
+	return this->$XMLStructure::toString();
 }
 
 void DigestMethod::finalize() {

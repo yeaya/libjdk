@@ -125,7 +125,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(MTLGraphicsConfig::lambda$static$0());
+		return $of(MTLGraphicsConfig::lambda$static$0());
 	}
 };
 $Class* MTLGraphicsConfig$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -150,15 +150,15 @@ $Class* MTLGraphicsConfig$$Lambda$lambda$static$0::load$($String* name, bool ini
 $Class* MTLGraphicsConfig$$Lambda$lambda$static$0::class$ = nullptr;
 
 int32_t MTLGraphicsConfig::hashCode() {
-	 return this->$CGraphicsConfig::hashCode();
+	return this->$CGraphicsConfig::hashCode();
 }
 
 bool MTLGraphicsConfig::equals(Object$* arg0) {
-	 return this->$CGraphicsConfig::equals(arg0);
+	return this->$CGraphicsConfig::equals(arg0);
 }
 
 $Object* MTLGraphicsConfig::clone() {
-	 return this->$CGraphicsConfig::clone();
+	return this->$CGraphicsConfig::clone();
 }
 
 void MTLGraphicsConfig::finalize() {

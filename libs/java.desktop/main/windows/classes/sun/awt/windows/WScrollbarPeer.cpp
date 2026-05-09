@@ -70,15 +70,15 @@ namespace sun {
 		namespace windows {
 
 bool WScrollbarPeer::isObscured() {
-	 return this->$WComponentPeer::isObscured();
+	return this->$WComponentPeer::isObscured();
 }
 
 bool WScrollbarPeer::canDetermineObscurity() {
-	 return this->$WComponentPeer::canDetermineObscurity();
+	return this->$WComponentPeer::canDetermineObscurity();
 }
 
 $Point* WScrollbarPeer::getLocationOnScreen() {
-	 return this->$WComponentPeer::getLocationOnScreen();
+	return this->$WComponentPeer::getLocationOnScreen();
 }
 
 void WScrollbarPeer::setVisible(bool b) {
@@ -110,7 +110,7 @@ void WScrollbarPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* WScrollbarPeer::getPreferredSize() {
-	 return this->$WComponentPeer::getPreferredSize();
+	return this->$WComponentPeer::getPreferredSize();
 }
 
 void WScrollbarPeer::layout() {
@@ -118,27 +118,27 @@ void WScrollbarPeer::layout() {
 }
 
 bool WScrollbarPeer::isFocusable() {
-	 return this->$WComponentPeer::isFocusable();
+	return this->$WComponentPeer::isFocusable();
 }
 
 $GraphicsConfiguration* WScrollbarPeer::getGraphicsConfiguration() {
-	 return this->$WComponentPeer::getGraphicsConfiguration();
+	return this->$WComponentPeer::getGraphicsConfiguration();
 }
 
 bool WScrollbarPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$WComponentPeer::updateGraphicsData(gc);
+	return this->$WComponentPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* WScrollbarPeer::getColorModel() {
-	 return this->$WComponentPeer::getColorModel();
+	return this->$WComponentPeer::getColorModel();
 }
 
 $Graphics* WScrollbarPeer::getGraphics() {
-	 return this->$WComponentPeer::getGraphics();
+	return this->$WComponentPeer::getGraphics();
 }
 
 $FontMetrics* WScrollbarPeer::getFontMetrics($Font* font) {
-	 return this->$WComponentPeer::getFontMetrics(font);
+	return this->$WComponentPeer::getFontMetrics(font);
 }
 
 void WScrollbarPeer::setForeground($Color* c) {
@@ -158,23 +158,23 @@ void WScrollbarPeer::updateCursorImmediately() {
 }
 
 bool WScrollbarPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$WComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$WComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* WScrollbarPeer::createImage(int32_t width, int32_t height) {
-	 return this->$WComponentPeer::createImage(width, height);
+	return this->$WComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* WScrollbarPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$WComponentPeer::createVolatileImage(width, height);
+	return this->$WComponentPeer::createVolatileImage(width, height);
 }
 
 $String* WScrollbarPeer::toString() {
-	 return this->$WComponentPeer::toString();
+	return this->$WComponentPeer::toString();
 }
 
 bool WScrollbarPeer::handlesWheelScrolling() {
-	 return this->$WComponentPeer::handlesWheelScrolling();
+	return this->$WComponentPeer::handlesWheelScrolling();
 }
 
 void WScrollbarPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -190,7 +190,7 @@ void WScrollbarPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $Buffe
 }
 
 $Image* WScrollbarPeer::getBackBuffer() {
-	 return this->$WComponentPeer::getBackBuffer();
+	return this->$WComponentPeer::getBackBuffer();
 }
 
 void WScrollbarPeer::reparent($ContainerPeer* newNativeParent) {
@@ -198,7 +198,7 @@ void WScrollbarPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool WScrollbarPeer::isReparentSupported() {
-	 return this->$WComponentPeer::isReparentSupported();
+	return this->$WComponentPeer::isReparentSupported();
 }
 
 void WScrollbarPeer::applyShape($Region* shape) {
@@ -214,15 +214,15 @@ void WScrollbarPeer::dispose() {
 }
 
 int32_t WScrollbarPeer::hashCode() {
-	 return this->$WComponentPeer::hashCode();
+	return this->$WComponentPeer::hashCode();
 }
 
 bool WScrollbarPeer::equals(Object$* arg0) {
-	 return this->$WComponentPeer::equals(arg0);
+	return this->$WComponentPeer::equals(arg0);
 }
 
 $Object* WScrollbarPeer::clone() {
-	 return this->$WComponentPeer::clone();
+	return this->$WComponentPeer::clone();
 }
 
 void WScrollbarPeer::finalize() {

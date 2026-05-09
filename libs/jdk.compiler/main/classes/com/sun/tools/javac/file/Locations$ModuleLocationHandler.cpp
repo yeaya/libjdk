@@ -29,15 +29,15 @@ namespace com {
 				namespace file {
 
 int32_t Locations$ModuleLocationHandler::hashCode() {
-	 return this->$Locations$LocationHandler::hashCode();
+	return this->$Locations$LocationHandler::hashCode();
 }
 
 bool Locations$ModuleLocationHandler::equals(Object$* arg0) {
-	 return this->$Locations$LocationHandler::equals(arg0);
+	return this->$Locations$LocationHandler::equals(arg0);
 }
 
 $Object* Locations$ModuleLocationHandler::clone() {
-	 return this->$Locations$LocationHandler::clone();
+	return this->$Locations$LocationHandler::clone();
 }
 
 void Locations$ModuleLocationHandler::finalize() {

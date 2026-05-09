@@ -58,19 +58,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicInternalFrameUI$Handler::hashCode() {
-	 return this->$ComponentListener::hashCode();
+	return this->$ComponentListener::hashCode();
 }
 
 bool BasicInternalFrameUI$Handler::equals(Object$* arg0) {
-	 return this->$ComponentListener::equals(arg0);
+	return this->$ComponentListener::equals(arg0);
 }
 
 $Object* BasicInternalFrameUI$Handler::clone() {
-	 return this->$ComponentListener::clone();
+	return this->$ComponentListener::clone();
 }
 
 $String* BasicInternalFrameUI$Handler::toString() {
-	 return this->$ComponentListener::toString();
+	return this->$ComponentListener::toString();
 }
 
 void BasicInternalFrameUI$Handler::finalize() {

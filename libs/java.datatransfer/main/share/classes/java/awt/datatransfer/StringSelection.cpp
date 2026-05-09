@@ -24,19 +24,19 @@ namespace java {
 		namespace datatransfer {
 
 int32_t StringSelection::hashCode() {
-	 return this->$Transferable::hashCode();
+	return this->$Transferable::hashCode();
 }
 
 bool StringSelection::equals(Object$* arg0) {
-	 return this->$Transferable::equals(arg0);
+	return this->$Transferable::equals(arg0);
 }
 
 $Object* StringSelection::clone() {
-	 return this->$Transferable::clone();
+	return this->$Transferable::clone();
 }
 
 $String* StringSelection::toString() {
-	 return this->$Transferable::toString();
+	return this->$Transferable::toString();
 }
 
 void StringSelection::finalize() {

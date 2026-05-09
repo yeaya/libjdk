@@ -52,7 +52,7 @@ public:
 		$set(this, h, h);
 	}
 	virtual $Object* get() override {
-		 return $of(SimpleHeaderTable::lambda$put$0(h));
+		return $of(SimpleHeaderTable::lambda$put$0(h));
 	}
 	$SimpleHeaderTable$HeaderField* h = nullptr;
 };
@@ -89,7 +89,7 @@ public:
 		this->entrySize = entrySize;
 	}
 	virtual $Object* get() override {
-		 return $of(SimpleHeaderTable::lambda$put$1(h, entrySize));
+		return $of(SimpleHeaderTable::lambda$put$1(h, entrySize));
 	}
 	$SimpleHeaderTable$HeaderField* h = nullptr;
 	int32_t entrySize = 0;
@@ -127,7 +127,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$put$2());
+		return $of($nc(inst$)->lambda$put$2());
 	}
 	SimpleHeaderTable* inst$ = nullptr;
 };
@@ -163,7 +163,7 @@ public:
 		$set(this, h, h);
 	}
 	virtual $Object* get() override {
-		 return $of(SimpleHeaderTable::lambda$put$3(h));
+		return $of(SimpleHeaderTable::lambda$put$3(h));
 	}
 	$SimpleHeaderTable$HeaderField* h = nullptr;
 };
@@ -199,7 +199,7 @@ public:
 		$set(this, h, h);
 	}
 	virtual $Object* get() override {
-		 return $of(SimpleHeaderTable::lambda$put$4(h));
+		return $of(SimpleHeaderTable::lambda$put$4(h));
 	}
 	$SimpleHeaderTable$HeaderField* h = nullptr;
 };
@@ -235,7 +235,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	SimpleHeaderTable* inst$ = nullptr;
 };
@@ -272,7 +272,7 @@ public:
 		this->s = s;
 	}
 	virtual $Object* get() override {
-		 return $of(SimpleHeaderTable::lambda$evictEntry$5(f, s));
+		return $of(SimpleHeaderTable::lambda$evictEntry$5(f, s));
 	}
 	$SimpleHeaderTable$HeaderField* f = nullptr;
 	int32_t s = 0;

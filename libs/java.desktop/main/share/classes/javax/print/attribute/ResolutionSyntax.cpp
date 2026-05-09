@@ -16,7 +16,7 @@ namespace javax {
 		namespace attribute {
 
 $Object* ResolutionSyntax::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void ResolutionSyntax::finalize() {

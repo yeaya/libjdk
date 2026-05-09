@@ -71,7 +71,7 @@ public:
 		$set(this, results, results);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$getSymbols$1(results);
+		return $nc(inst$)->lambda$getSymbols$1(results);
 	}
 	Scope$FilterImportScope* inst$ = nullptr;
 	$List* results = nullptr;
@@ -110,7 +110,7 @@ public:
 		$set(this, results, results);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$getSymbolsByName$3(results);
+		return $nc(inst$)->lambda$getSymbolsByName$3(results);
 	}
 	Scope$FilterImportScope* inst$ = nullptr;
 	$List* results = nullptr;
@@ -147,7 +147,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Iterable, inst$)->iterator();
+		return $sure($Iterable, inst$)->iterator();
 	}
 };
 $Class* Scope$FilterImportScope$$Lambda$iterator$2::load$($String* name, bool initialize) {
@@ -178,7 +178,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* s) override {
-		 return $nc(inst$)->lambda$getSymbols$0($cast($Symbol, s));
+		return $nc(inst$)->lambda$getSymbols$0($cast($Symbol, s));
 	}
 	Scope$FilterImportScope* inst$ = nullptr;
 };

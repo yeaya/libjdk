@@ -30,7 +30,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$get$0();
+		return $nc(inst$)->lambda$get$0();
 	}
 	AquaUtils$RecyclableSingleton* inst$ = nullptr;
 };

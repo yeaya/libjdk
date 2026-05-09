@@ -204,7 +204,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(SoftSynthesizer::lambda$getDefaultSoundbank$0());
+		return $of(SoftSynthesizer::lambda$getDefaultSoundbank$0());
 	}
 };
 $Class* SoftSynthesizer$$Lambda$lambda$getDefaultSoundbank$0::load$($String* name, bool initialize) {
@@ -234,7 +234,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(SoftSynthesizer::lambda$getStoredProperties$1());
+		return $of(SoftSynthesizer::lambda$getStoredProperties$1());
 	}
 };
 $Class* SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1::load$($String* name, bool initialize) {
@@ -259,19 +259,19 @@ $Class* SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1::load$($String* n
 $Class* SoftSynthesizer$$Lambda$lambda$getStoredProperties$1$1::class$ = nullptr;
 
 int32_t SoftSynthesizer::hashCode() {
-	 return this->$AudioSynthesizer::hashCode();
+	return this->$AudioSynthesizer::hashCode();
 }
 
 bool SoftSynthesizer::equals(Object$* arg0) {
-	 return this->$AudioSynthesizer::equals(arg0);
+	return this->$AudioSynthesizer::equals(arg0);
 }
 
 $Object* SoftSynthesizer::clone() {
-	 return this->$AudioSynthesizer::clone();
+	return this->$AudioSynthesizer::clone();
 }
 
 $String* SoftSynthesizer::toString() {
-	 return this->$AudioSynthesizer::toString();
+	return this->$AudioSynthesizer::toString();
 }
 
 void SoftSynthesizer::finalize() {

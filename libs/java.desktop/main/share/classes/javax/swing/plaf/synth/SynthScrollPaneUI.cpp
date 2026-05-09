@@ -54,19 +54,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthScrollPaneUI::hashCode() {
-	 return this->$BasicScrollPaneUI::hashCode();
+	return this->$BasicScrollPaneUI::hashCode();
 }
 
 bool SynthScrollPaneUI::equals(Object$* arg0) {
-	 return this->$BasicScrollPaneUI::equals(arg0);
+	return this->$BasicScrollPaneUI::equals(arg0);
 }
 
 $Object* SynthScrollPaneUI::clone() {
-	 return this->$BasicScrollPaneUI::clone();
+	return this->$BasicScrollPaneUI::clone();
 }
 
 $String* SynthScrollPaneUI::toString() {
-	 return this->$BasicScrollPaneUI::toString();
+	return this->$BasicScrollPaneUI::toString();
 }
 
 void SynthScrollPaneUI::finalize() {

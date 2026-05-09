@@ -25,19 +25,19 @@ namespace sun {
 			namespace ext {
 
 int32_t MacTurkish::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool MacTurkish::equals(Object$* arg0) {
-	 return this->$Charset::equals(arg0);
+	return this->$Charset::equals(arg0);
 }
 
 $String* MacTurkish::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* MacTurkish::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void MacTurkish::finalize() {

@@ -55,19 +55,19 @@ namespace java {
 	namespace awt {
 
 $String* Scrollbar::toString() {
-	 return this->$Component::toString();
+	return this->$Component::toString();
 }
 
 int32_t Scrollbar::hashCode() {
-	 return this->$Component::hashCode();
+	return this->$Component::hashCode();
 }
 
 bool Scrollbar::equals(Object$* arg0) {
-	 return this->$Component::equals(arg0);
+	return this->$Component::equals(arg0);
 }
 
 $Object* Scrollbar::clone() {
-	 return this->$Component::clone();
+	return this->$Component::clone();
 }
 
 void Scrollbar::finalize() {

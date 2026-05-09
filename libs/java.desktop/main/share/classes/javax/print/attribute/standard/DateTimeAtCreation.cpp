@@ -15,15 +15,15 @@ namespace javax {
 			namespace standard {
 
 int32_t DateTimeAtCreation::hashCode() {
-	 return this->$DateTimeSyntax::hashCode();
+	return this->$DateTimeSyntax::hashCode();
 }
 
 $String* DateTimeAtCreation::toString() {
-	 return this->$DateTimeSyntax::toString();
+	return this->$DateTimeSyntax::toString();
 }
 
 $Object* DateTimeAtCreation::clone() {
-	 return this->$DateTimeSyntax::clone();
+	return this->$DateTimeSyntax::clone();
 }
 
 void DateTimeAtCreation::finalize() {

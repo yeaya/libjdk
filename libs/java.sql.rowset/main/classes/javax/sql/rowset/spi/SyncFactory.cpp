@@ -111,7 +111,7 @@ public:
 		$set(this, properties, properties);
 	}
 	virtual $Object* run() override {
-		 return SyncFactory::lambda$initMapIfNecessary$0(properties);
+		return SyncFactory::lambda$initMapIfNecessary$0(properties);
 	}
 	$Properties* properties = nullptr;
 };

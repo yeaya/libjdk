@@ -15,19 +15,19 @@ namespace com {
 			namespace ldap {
 
 $String* BindingWithControls::toString() {
-	 return this->$Binding::toString();
+	return this->$Binding::toString();
 }
 
 int32_t BindingWithControls::hashCode() {
-	 return this->$Binding::hashCode();
+	return this->$Binding::hashCode();
 }
 
 bool BindingWithControls::equals(Object$* arg0) {
-	 return this->$Binding::equals(arg0);
+	return this->$Binding::equals(arg0);
 }
 
 $Object* BindingWithControls::clone() {
-	 return this->$Binding::clone();
+	return this->$Binding::clone();
 }
 
 void BindingWithControls::finalize() {

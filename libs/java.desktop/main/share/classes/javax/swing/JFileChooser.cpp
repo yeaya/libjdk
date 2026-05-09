@@ -133,19 +133,19 @@ namespace javax {
 	namespace swing {
 
 $String* JFileChooser::toString() {
-	 return this->$JComponent::toString();
+	return this->$JComponent::toString();
 }
 
 int32_t JFileChooser::hashCode() {
-	 return this->$JComponent::hashCode();
+	return this->$JComponent::hashCode();
 }
 
 bool JFileChooser::equals(Object$* arg0) {
-	 return this->$JComponent::equals(arg0);
+	return this->$JComponent::equals(arg0);
 }
 
 $Object* JFileChooser::clone() {
-	 return this->$JComponent::clone();
+	return this->$JComponent::clone();
 }
 
 void JFileChooser::finalize() {

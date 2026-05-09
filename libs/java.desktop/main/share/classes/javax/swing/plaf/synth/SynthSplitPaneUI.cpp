@@ -72,19 +72,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthSplitPaneUI::hashCode() {
-	 return this->$BasicSplitPaneUI::hashCode();
+	return this->$BasicSplitPaneUI::hashCode();
 }
 
 bool SynthSplitPaneUI::equals(Object$* arg0) {
-	 return this->$BasicSplitPaneUI::equals(arg0);
+	return this->$BasicSplitPaneUI::equals(arg0);
 }
 
 $Object* SynthSplitPaneUI::clone() {
-	 return this->$BasicSplitPaneUI::clone();
+	return this->$BasicSplitPaneUI::clone();
 }
 
 $String* SynthSplitPaneUI::toString() {
-	 return this->$BasicSplitPaneUI::toString();
+	return this->$BasicSplitPaneUI::toString();
 }
 
 void SynthSplitPaneUI::finalize() {

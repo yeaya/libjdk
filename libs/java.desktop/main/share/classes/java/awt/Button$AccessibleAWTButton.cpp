@@ -32,19 +32,19 @@ namespace java {
 	namespace awt {
 
 int32_t Button$AccessibleAWTButton::hashCode() {
-	 return this->$Component$AccessibleAWTComponent::hashCode();
+	return this->$Component$AccessibleAWTComponent::hashCode();
 }
 
 bool Button$AccessibleAWTButton::equals(Object$* arg0) {
-	 return this->$Component$AccessibleAWTComponent::equals(arg0);
+	return this->$Component$AccessibleAWTComponent::equals(arg0);
 }
 
 $Object* Button$AccessibleAWTButton::clone() {
-	 return this->$Component$AccessibleAWTComponent::clone();
+	return this->$Component$AccessibleAWTComponent::clone();
 }
 
 $String* Button$AccessibleAWTButton::toString() {
-	 return this->$Component$AccessibleAWTComponent::toString();
+	return this->$Component$AccessibleAWTComponent::toString();
 }
 
 void Button$AccessibleAWTButton::finalize() {

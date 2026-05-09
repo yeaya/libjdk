@@ -236,7 +236,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* request, Object$* credentials) override {
-		 return DummyWebSocketServer::lambda$defaultMapping$4($cast($List, request), $cast($DummyWebSocketServer$Credentials, credentials));
+		return DummyWebSocketServer::lambda$defaultMapping$4($cast($List, request), $cast($DummyWebSocketServer$Credentials, credentials));
 	}
 };
 $Class* DummyWebSocketServer$$Lambda$lambda$defaultMapping$4$3::load$($String* name, bool initialize) {
@@ -266,7 +266,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return DummyWebSocketServer::lambda$defaultMapping$3($cast($String, k));
+		return DummyWebSocketServer::lambda$defaultMapping$3($cast($String, k));
 	}
 };
 $Class* DummyWebSocketServer$$Lambda$lambda$defaultMapping$3$4::load$($String* name, bool initialize) {

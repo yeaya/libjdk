@@ -73,7 +73,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* l) override {
-		 return Package::lambda$savePubapi$0($cast($String, l));
+		return Package::lambda$savePubapi$0($cast($String, l));
 	}
 };
 $Class* Package$$Lambda$lambda$savePubapi$0::load$($String* name, bool initialize) {

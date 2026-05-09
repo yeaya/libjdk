@@ -22,39 +22,39 @@ namespace javax {
 		namespace attribute {
 
 $Attribute* HashPrintJobAttributeSet::get($Class* category) {
-	 return this->$HashAttributeSet::get(category);
+	return this->$HashAttributeSet::get(category);
 }
 
 bool HashPrintJobAttributeSet::add($Attribute* attribute) {
-	 return this->$HashAttributeSet::add(attribute);
+	return this->$HashAttributeSet::add(attribute);
 }
 
 bool HashPrintJobAttributeSet::remove($Class* category) {
-	 return this->$HashAttributeSet::remove(category);
+	return this->$HashAttributeSet::remove(category);
 }
 
 bool HashPrintJobAttributeSet::remove($Attribute* attribute) {
-	 return this->$HashAttributeSet::remove(attribute);
+	return this->$HashAttributeSet::remove(attribute);
 }
 
 bool HashPrintJobAttributeSet::containsKey($Class* category) {
-	 return this->$HashAttributeSet::containsKey(category);
+	return this->$HashAttributeSet::containsKey(category);
 }
 
 bool HashPrintJobAttributeSet::containsValue($Attribute* attribute) {
-	 return this->$HashAttributeSet::containsValue(attribute);
+	return this->$HashAttributeSet::containsValue(attribute);
 }
 
 bool HashPrintJobAttributeSet::addAll($AttributeSet* attributes) {
-	 return this->$HashAttributeSet::addAll(attributes);
+	return this->$HashAttributeSet::addAll(attributes);
 }
 
 int32_t HashPrintJobAttributeSet::size() {
-	 return this->$HashAttributeSet::size();
+	return this->$HashAttributeSet::size();
 }
 
 $AttributeArray* HashPrintJobAttributeSet::toArray() {
-	 return this->$HashAttributeSet::toArray();
+	return this->$HashAttributeSet::toArray();
 }
 
 void HashPrintJobAttributeSet::clear() {
@@ -62,23 +62,23 @@ void HashPrintJobAttributeSet::clear() {
 }
 
 bool HashPrintJobAttributeSet::isEmpty() {
-	 return this->$HashAttributeSet::isEmpty();
+	return this->$HashAttributeSet::isEmpty();
 }
 
 bool HashPrintJobAttributeSet::equals(Object$* object) {
-	 return this->$HashAttributeSet::equals(object);
+	return this->$HashAttributeSet::equals(object);
 }
 
 int32_t HashPrintJobAttributeSet::hashCode() {
-	 return this->$HashAttributeSet::hashCode();
+	return this->$HashAttributeSet::hashCode();
 }
 
 $Object* HashPrintJobAttributeSet::clone() {
-	 return this->$HashAttributeSet::clone();
+	return this->$HashAttributeSet::clone();
 }
 
 $String* HashPrintJobAttributeSet::toString() {
-	 return this->$HashAttributeSet::toString();
+	return this->$HashAttributeSet::toString();
 }
 
 void HashPrintJobAttributeSet::finalize() {

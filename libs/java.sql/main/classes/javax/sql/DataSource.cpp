@@ -16,19 +16,19 @@ namespace javax {
 	namespace sql {
 
 int32_t DataSource::hashCode() {
-	 return this->$CommonDataSource::hashCode();
+	return this->$CommonDataSource::hashCode();
 }
 
 bool DataSource::equals(Object$* arg0) {
-	 return this->$CommonDataSource::equals(arg0);
+	return this->$CommonDataSource::equals(arg0);
 }
 
 $Object* DataSource::clone() {
-	 return this->$CommonDataSource::clone();
+	return this->$CommonDataSource::clone();
 }
 
 $String* DataSource::toString() {
-	 return this->$CommonDataSource::toString();
+	return this->$CommonDataSource::toString();
 }
 
 void DataSource::finalize() {

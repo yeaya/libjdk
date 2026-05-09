@@ -43,63 +43,63 @@ namespace javax {
 	namespace swing {
 
 int32_t JEditorPane$JEditorPaneAccessibleHypertextSupport::getIndexAtPoint($Point* p) {
-	 return this->$JEditorPane$AccessibleJEditorPane::getIndexAtPoint(p);
+	return this->$JEditorPane$AccessibleJEditorPane::getIndexAtPoint(p);
 }
 
 $Rectangle* JEditorPane$JEditorPaneAccessibleHypertextSupport::getCharacterBounds(int32_t i) {
-	 return this->$JEditorPane$AccessibleJEditorPane::getCharacterBounds(i);
+	return this->$JEditorPane$AccessibleJEditorPane::getCharacterBounds(i);
 }
 
 int32_t JEditorPane$JEditorPaneAccessibleHypertextSupport::getCharCount() {
-	 return this->$JEditorPane$AccessibleJEditorPane::getCharCount();
+	return this->$JEditorPane$AccessibleJEditorPane::getCharCount();
 }
 
 int32_t JEditorPane$JEditorPaneAccessibleHypertextSupport::getCaretPosition() {
-	 return this->$JEditorPane$AccessibleJEditorPane::getCaretPosition();
+	return this->$JEditorPane$AccessibleJEditorPane::getCaretPosition();
 }
 
 $AttributeSet* JEditorPane$JEditorPaneAccessibleHypertextSupport::getCharacterAttribute(int32_t i) {
-	 return this->$JEditorPane$AccessibleJEditorPane::getCharacterAttribute(i);
+	return this->$JEditorPane$AccessibleJEditorPane::getCharacterAttribute(i);
 }
 
 int32_t JEditorPane$JEditorPaneAccessibleHypertextSupport::getSelectionStart() {
-	 return this->$JEditorPane$AccessibleJEditorPane::getSelectionStart();
+	return this->$JEditorPane$AccessibleJEditorPane::getSelectionStart();
 }
 
 int32_t JEditorPane$JEditorPaneAccessibleHypertextSupport::getSelectionEnd() {
-	 return this->$JEditorPane$AccessibleJEditorPane::getSelectionEnd();
+	return this->$JEditorPane$AccessibleJEditorPane::getSelectionEnd();
 }
 
 $String* JEditorPane$JEditorPaneAccessibleHypertextSupport::getSelectedText() {
-	 return this->$JEditorPane$AccessibleJEditorPane::getSelectedText();
+	return this->$JEditorPane$AccessibleJEditorPane::getSelectedText();
 }
 
 $String* JEditorPane$JEditorPaneAccessibleHypertextSupport::getAtIndex(int32_t part, int32_t index) {
-	 return this->$JEditorPane$AccessibleJEditorPane::getAtIndex(part, index);
+	return this->$JEditorPane$AccessibleJEditorPane::getAtIndex(part, index);
 }
 
 $String* JEditorPane$JEditorPaneAccessibleHypertextSupport::getAfterIndex(int32_t part, int32_t index) {
-	 return this->$JEditorPane$AccessibleJEditorPane::getAfterIndex(part, index);
+	return this->$JEditorPane$AccessibleJEditorPane::getAfterIndex(part, index);
 }
 
 $String* JEditorPane$JEditorPaneAccessibleHypertextSupport::getBeforeIndex(int32_t part, int32_t index) {
-	 return this->$JEditorPane$AccessibleJEditorPane::getBeforeIndex(part, index);
+	return this->$JEditorPane$AccessibleJEditorPane::getBeforeIndex(part, index);
 }
 
 int32_t JEditorPane$JEditorPaneAccessibleHypertextSupport::hashCode() {
-	 return this->$JEditorPane$AccessibleJEditorPane::hashCode();
+	return this->$JEditorPane$AccessibleJEditorPane::hashCode();
 }
 
 bool JEditorPane$JEditorPaneAccessibleHypertextSupport::equals(Object$* arg0) {
-	 return this->$JEditorPane$AccessibleJEditorPane::equals(arg0);
+	return this->$JEditorPane$AccessibleJEditorPane::equals(arg0);
 }
 
 $Object* JEditorPane$JEditorPaneAccessibleHypertextSupport::clone() {
-	 return this->$JEditorPane$AccessibleJEditorPane::clone();
+	return this->$JEditorPane$AccessibleJEditorPane::clone();
 }
 
 $String* JEditorPane$JEditorPaneAccessibleHypertextSupport::toString() {
-	 return this->$JEditorPane$AccessibleJEditorPane::toString();
+	return this->$JEditorPane$AccessibleJEditorPane::toString();
 }
 
 void JEditorPane$JEditorPaneAccessibleHypertextSupport::finalize() {

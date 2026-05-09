@@ -24,19 +24,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthScrollPaneUI$ViewportViewFocusHandler::hashCode() {
-	 return this->$ContainerListener::hashCode();
+	return this->$ContainerListener::hashCode();
 }
 
 bool SynthScrollPaneUI$ViewportViewFocusHandler::equals(Object$* arg0) {
-	 return this->$ContainerListener::equals(arg0);
+	return this->$ContainerListener::equals(arg0);
 }
 
 $Object* SynthScrollPaneUI$ViewportViewFocusHandler::clone() {
-	 return this->$ContainerListener::clone();
+	return this->$ContainerListener::clone();
 }
 
 $String* SynthScrollPaneUI$ViewportViewFocusHandler::toString() {
-	 return this->$ContainerListener::toString();
+	return this->$ContainerListener::toString();
 }
 
 void SynthScrollPaneUI$ViewportViewFocusHandler::finalize() {

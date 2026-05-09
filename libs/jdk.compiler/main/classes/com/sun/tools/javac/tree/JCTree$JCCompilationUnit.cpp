@@ -64,19 +64,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCCompilationUnit::toString() {
-	 return this->$JCTree::toString();
+	return this->$JCTree::toString();
 }
 
 $Object* JCTree$JCCompilationUnit::clone() {
-	 return this->$JCTree::clone();
+	return this->$JCTree::clone();
 }
 
 int32_t JCTree$JCCompilationUnit::hashCode() {
-	 return this->$JCTree::hashCode();
+	return this->$JCTree::hashCode();
 }
 
 bool JCTree$JCCompilationUnit::equals(Object$* arg0) {
-	 return this->$JCTree::equals(arg0);
+	return this->$JCTree::equals(arg0);
 }
 
 void JCTree$JCCompilationUnit::finalize() {

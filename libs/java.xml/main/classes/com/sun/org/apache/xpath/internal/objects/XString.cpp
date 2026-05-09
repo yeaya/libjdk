@@ -59,11 +59,11 @@ namespace com {
 						namespace objects {
 
 $String* XString::toString() {
-	 return this->$XObject::toString();
+	return this->$XObject::toString();
 }
 
 $Object* XString::clone() {
-	 return this->$XObject::clone();
+	return this->$XObject::clone();
 }
 
 void XString::finalize() {

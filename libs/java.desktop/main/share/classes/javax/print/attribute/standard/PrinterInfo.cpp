@@ -15,15 +15,15 @@ namespace javax {
 			namespace standard {
 
 int32_t PrinterInfo::hashCode() {
-	 return this->$TextSyntax::hashCode();
+	return this->$TextSyntax::hashCode();
 }
 
 $String* PrinterInfo::toString() {
-	 return this->$TextSyntax::toString();
+	return this->$TextSyntax::toString();
 }
 
 $Object* PrinterInfo::clone() {
-	 return this->$TextSyntax::clone();
+	return this->$TextSyntax::clone();
 }
 
 void PrinterInfo::finalize() {

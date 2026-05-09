@@ -26,15 +26,15 @@ namespace javax {
 	namespace swing {
 
 int32_t DefaultBoundedRangeModel::hashCode() {
-	 return this->$BoundedRangeModel::hashCode();
+	return this->$BoundedRangeModel::hashCode();
 }
 
 bool DefaultBoundedRangeModel::equals(Object$* arg0) {
-	 return this->$BoundedRangeModel::equals(arg0);
+	return this->$BoundedRangeModel::equals(arg0);
 }
 
 $Object* DefaultBoundedRangeModel::clone() {
-	 return this->$BoundedRangeModel::clone();
+	return this->$BoundedRangeModel::clone();
 }
 
 void DefaultBoundedRangeModel::finalize() {

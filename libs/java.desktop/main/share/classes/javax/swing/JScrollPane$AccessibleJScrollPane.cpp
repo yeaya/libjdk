@@ -36,19 +36,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JScrollPane$AccessibleJScrollPane::hashCode() {
-	 return this->$JComponent$AccessibleJComponent::hashCode();
+	return this->$JComponent$AccessibleJComponent::hashCode();
 }
 
 bool JScrollPane$AccessibleJScrollPane::equals(Object$* arg0) {
-	 return this->$JComponent$AccessibleJComponent::equals(arg0);
+	return this->$JComponent$AccessibleJComponent::equals(arg0);
 }
 
 $Object* JScrollPane$AccessibleJScrollPane::clone() {
-	 return this->$JComponent$AccessibleJComponent::clone();
+	return this->$JComponent$AccessibleJComponent::clone();
 }
 
 $String* JScrollPane$AccessibleJScrollPane::toString() {
-	 return this->$JComponent$AccessibleJComponent::toString();
+	return this->$JComponent$AccessibleJComponent::toString();
 }
 
 void JScrollPane$AccessibleJScrollPane::finalize() {

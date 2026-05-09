@@ -11,19 +11,19 @@ namespace javax {
 		namespace plaf {
 
 bool InsetsUIResource::equals(Object$* obj) {
-	 return this->$Insets::equals(obj);
+	return this->$Insets::equals(obj);
 }
 
 int32_t InsetsUIResource::hashCode() {
-	 return this->$Insets::hashCode();
+	return this->$Insets::hashCode();
 }
 
 $String* InsetsUIResource::toString() {
-	 return this->$Insets::toString();
+	return this->$Insets::toString();
 }
 
 $Object* InsetsUIResource::clone() {
-	 return this->$Insets::clone();
+	return this->$Insets::clone();
 }
 
 void InsetsUIResource::finalize() {

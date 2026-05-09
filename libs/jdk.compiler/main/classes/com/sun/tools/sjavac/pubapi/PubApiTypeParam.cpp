@@ -37,7 +37,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* td) override {
-		 return $of($TypeDesc::encodeAsString($cast($TypeDesc, td)));
+		return $of($TypeDesc::encodeAsString($cast($TypeDesc, td)));
 	}
 };
 $Class* PubApiTypeParam$$Lambda$encodeAsString::load$($String* name, bool initialize) {

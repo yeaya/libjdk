@@ -22,19 +22,19 @@ namespace javax {
 		namespace plaf {
 
 int32_t BorderUIResource$TitledBorderUIResource::hashCode() {
-	 return this->$TitledBorder::hashCode();
+	return this->$TitledBorder::hashCode();
 }
 
 bool BorderUIResource$TitledBorderUIResource::equals(Object$* arg0) {
-	 return this->$TitledBorder::equals(arg0);
+	return this->$TitledBorder::equals(arg0);
 }
 
 $Object* BorderUIResource$TitledBorderUIResource::clone() {
-	 return this->$TitledBorder::clone();
+	return this->$TitledBorder::clone();
 }
 
 $String* BorderUIResource$TitledBorderUIResource::toString() {
-	 return this->$TitledBorder::toString();
+	return this->$TitledBorder::toString();
 }
 
 void BorderUIResource$TitledBorderUIResource::finalize() {

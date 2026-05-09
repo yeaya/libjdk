@@ -16,15 +16,15 @@ namespace javax {
 			namespace standard {
 
 int32_t Copies::hashCode() {
-	 return this->$IntegerSyntax::hashCode();
+	return this->$IntegerSyntax::hashCode();
 }
 
 $String* Copies::toString() {
-	 return this->$IntegerSyntax::toString();
+	return this->$IntegerSyntax::toString();
 }
 
 $Object* Copies::clone() {
-	 return this->$IntegerSyntax::clone();
+	return this->$IntegerSyntax::clone();
 }
 
 void Copies::finalize() {

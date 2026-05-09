@@ -46,7 +46,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* map($bytes* sig, int32_t offset, int32_t len) override {
-		 return $of($nc(inst$)->sigToType(sig, offset, len));
+		return $of($nc(inst$)->sigToType(sig, offset, len));
 	}
 	$ClassReader* inst$ = nullptr;
 };

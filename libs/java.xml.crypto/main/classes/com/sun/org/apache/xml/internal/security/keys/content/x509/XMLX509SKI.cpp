@@ -44,11 +44,11 @@ namespace com {
 									namespace x509 {
 
 $Object* XMLX509SKI::clone() {
-	 return this->$SignatureElementProxy::clone();
+	return this->$SignatureElementProxy::clone();
 }
 
 $String* XMLX509SKI::toString() {
-	 return this->$SignatureElementProxy::toString();
+	return this->$SignatureElementProxy::toString();
 }
 
 void XMLX509SKI::finalize() {

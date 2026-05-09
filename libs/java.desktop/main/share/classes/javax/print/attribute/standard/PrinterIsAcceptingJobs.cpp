@@ -18,19 +18,19 @@ namespace javax {
 			namespace standard {
 
 $Object* PrinterIsAcceptingJobs::clone() {
-	 return this->$EnumSyntax::clone();
+	return this->$EnumSyntax::clone();
 }
 
 int32_t PrinterIsAcceptingJobs::hashCode() {
-	 return this->$EnumSyntax::hashCode();
+	return this->$EnumSyntax::hashCode();
 }
 
 $String* PrinterIsAcceptingJobs::toString() {
-	 return this->$EnumSyntax::toString();
+	return this->$EnumSyntax::toString();
 }
 
 bool PrinterIsAcceptingJobs::equals(Object$* arg0) {
-	 return this->$EnumSyntax::equals(arg0);
+	return this->$EnumSyntax::equals(arg0);
 }
 
 void PrinterIsAcceptingJobs::finalize() {

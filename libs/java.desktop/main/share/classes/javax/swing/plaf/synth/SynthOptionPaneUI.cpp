@@ -64,19 +64,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthOptionPaneUI::hashCode() {
-	 return this->$BasicOptionPaneUI::hashCode();
+	return this->$BasicOptionPaneUI::hashCode();
 }
 
 bool SynthOptionPaneUI::equals(Object$* arg0) {
-	 return this->$BasicOptionPaneUI::equals(arg0);
+	return this->$BasicOptionPaneUI::equals(arg0);
 }
 
 $Object* SynthOptionPaneUI::clone() {
-	 return this->$BasicOptionPaneUI::clone();
+	return this->$BasicOptionPaneUI::clone();
 }
 
 $String* SynthOptionPaneUI::toString() {
-	 return this->$BasicOptionPaneUI::toString();
+	return this->$BasicOptionPaneUI::toString();
 }
 
 void SynthOptionPaneUI::finalize() {

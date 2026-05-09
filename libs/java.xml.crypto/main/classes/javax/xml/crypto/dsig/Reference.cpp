@@ -22,19 +22,19 @@ namespace javax {
 			namespace dsig {
 
 int32_t Reference::hashCode() {
-	 return this->$URIReference::hashCode();
+	return this->$URIReference::hashCode();
 }
 
 bool Reference::equals(Object$* arg0) {
-	 return this->$URIReference::equals(arg0);
+	return this->$URIReference::equals(arg0);
 }
 
 $Object* Reference::clone() {
-	 return this->$URIReference::clone();
+	return this->$URIReference::clone();
 }
 
 $String* Reference::toString() {
-	 return this->$URIReference::toString();
+	return this->$URIReference::toString();
 }
 
 void Reference::finalize() {

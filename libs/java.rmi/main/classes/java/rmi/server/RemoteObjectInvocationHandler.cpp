@@ -42,19 +42,19 @@ namespace java {
 		namespace server {
 
 int32_t RemoteObjectInvocationHandler::hashCode() {
-	 return this->$RemoteObject::hashCode();
+	return this->$RemoteObject::hashCode();
 }
 
 bool RemoteObjectInvocationHandler::equals(Object$* obj) {
-	 return this->$RemoteObject::equals(obj);
+	return this->$RemoteObject::equals(obj);
 }
 
 $String* RemoteObjectInvocationHandler::toString() {
-	 return this->$RemoteObject::toString();
+	return this->$RemoteObject::toString();
 }
 
 $Object* RemoteObjectInvocationHandler::clone() {
-	 return this->$RemoteObject::clone();
+	return this->$RemoteObject::clone();
 }
 
 void RemoteObjectInvocationHandler::finalize() {

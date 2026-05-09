@@ -244,19 +244,19 @@ namespace sun {
 		namespace windows {
 
 int32_t WPrinterJob::hashCode() {
-	 return this->$RasterPrinterJob::hashCode();
+	return this->$RasterPrinterJob::hashCode();
 }
 
 bool WPrinterJob::equals(Object$* arg0) {
-	 return this->$RasterPrinterJob::equals(arg0);
+	return this->$RasterPrinterJob::equals(arg0);
 }
 
 $Object* WPrinterJob::clone() {
-	 return this->$RasterPrinterJob::clone();
+	return this->$RasterPrinterJob::clone();
 }
 
 $String* WPrinterJob::toString() {
-	 return this->$RasterPrinterJob::toString();
+	return this->$RasterPrinterJob::toString();
 }
 
 void WPrinterJob::finalize() {

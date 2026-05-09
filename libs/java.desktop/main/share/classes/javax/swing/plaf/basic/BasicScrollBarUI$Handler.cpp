@@ -34,19 +34,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicScrollBarUI$Handler::hashCode() {
-	 return this->$FocusListener::hashCode();
+	return this->$FocusListener::hashCode();
 }
 
 bool BasicScrollBarUI$Handler::equals(Object$* arg0) {
-	 return this->$FocusListener::equals(arg0);
+	return this->$FocusListener::equals(arg0);
 }
 
 $Object* BasicScrollBarUI$Handler::clone() {
-	 return this->$FocusListener::clone();
+	return this->$FocusListener::clone();
 }
 
 $String* BasicScrollBarUI$Handler::toString() {
-	 return this->$FocusListener::toString();
+	return this->$FocusListener::toString();
 }
 
 void BasicScrollBarUI$Handler::finalize() {

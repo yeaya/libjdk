@@ -33,19 +33,19 @@ using $ServerSocketFactory = ::javax::net::ServerSocketFactory;
 using $SSLServerSocket = ::javax::net::ssl::SSLServerSocket;
 
 $Object* MockServer::clone() {
-	 return this->$Thread::clone();
+	return this->$Thread::clone();
 }
 
 $String* MockServer::toString() {
-	 return this->$Thread::toString();
+	return this->$Thread::toString();
 }
 
 int32_t MockServer::hashCode() {
-	 return this->$Thread::hashCode();
+	return this->$Thread::hashCode();
 }
 
 bool MockServer::equals(Object$* arg0) {
-	 return this->$Thread::equals(arg0);
+	return this->$Thread::equals(arg0);
 }
 
 void MockServer::finalize() {

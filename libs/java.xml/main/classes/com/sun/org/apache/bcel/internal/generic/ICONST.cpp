@@ -36,23 +36,23 @@ namespace com {
 						namespace generic {
 
 $String* ICONST::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t ICONST::produceStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::produceStack(cpg);
+	return this->$Instruction::produceStack(cpg);
 }
 
 bool ICONST::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t ICONST::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* ICONST::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void ICONST::finalize() {

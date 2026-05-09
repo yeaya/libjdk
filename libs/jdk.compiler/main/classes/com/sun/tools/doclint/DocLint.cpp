@@ -41,7 +41,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* p_) override {
-		 return DocLint::lambda$newDocLint$0($cast($ServiceLoader$Provider, p_));
+		return DocLint::lambda$newDocLint$0($cast($ServiceLoader$Provider, p_));
 	}
 };
 $Class* DocLint$$Lambda$lambda$newDocLint$0::load$($String* name, bool initialize) {

@@ -22,19 +22,19 @@ namespace sun {
 		namespace im {
 
 $String* InputMethodJFrame::toString() {
-	 return this->$JFrame::toString();
+	return this->$JFrame::toString();
 }
 
 int32_t InputMethodJFrame::hashCode() {
-	 return this->$JFrame::hashCode();
+	return this->$JFrame::hashCode();
 }
 
 bool InputMethodJFrame::equals(Object$* arg0) {
-	 return this->$JFrame::equals(arg0);
+	return this->$JFrame::equals(arg0);
 }
 
 $Object* InputMethodJFrame::clone() {
-	 return this->$JFrame::clone();
+	return this->$JFrame::clone();
 }
 
 void InputMethodJFrame::finalize() {

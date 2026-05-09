@@ -84,19 +84,19 @@ namespace javax {
 			namespace html {
 
 int32_t AccessibleHTML$TextElementInfo$TextAccessibleContext::hashCode() {
-	 return this->$AccessibleHTML$HTMLAccessibleContext::hashCode();
+	return this->$AccessibleHTML$HTMLAccessibleContext::hashCode();
 }
 
 bool AccessibleHTML$TextElementInfo$TextAccessibleContext::equals(Object$* arg0) {
-	 return this->$AccessibleHTML$HTMLAccessibleContext::equals(arg0);
+	return this->$AccessibleHTML$HTMLAccessibleContext::equals(arg0);
 }
 
 $Object* AccessibleHTML$TextElementInfo$TextAccessibleContext::clone() {
-	 return this->$AccessibleHTML$HTMLAccessibleContext::clone();
+	return this->$AccessibleHTML$HTMLAccessibleContext::clone();
 }
 
 $String* AccessibleHTML$TextElementInfo$TextAccessibleContext::toString() {
-	 return this->$AccessibleHTML$HTMLAccessibleContext::toString();
+	return this->$AccessibleHTML$HTMLAccessibleContext::toString();
 }
 
 void AccessibleHTML$TextElementInfo$TextAccessibleContext::finalize() {

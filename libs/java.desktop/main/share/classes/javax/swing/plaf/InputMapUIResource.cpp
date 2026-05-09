@@ -11,19 +11,19 @@ namespace javax {
 		namespace plaf {
 
 int32_t InputMapUIResource::hashCode() {
-	 return this->$InputMap::hashCode();
+	return this->$InputMap::hashCode();
 }
 
 bool InputMapUIResource::equals(Object$* arg0) {
-	 return this->$InputMap::equals(arg0);
+	return this->$InputMap::equals(arg0);
 }
 
 $Object* InputMapUIResource::clone() {
-	 return this->$InputMap::clone();
+	return this->$InputMap::clone();
 }
 
 $String* InputMapUIResource::toString() {
-	 return this->$InputMap::toString();
+	return this->$InputMap::toString();
 }
 
 void InputMapUIResource::finalize() {

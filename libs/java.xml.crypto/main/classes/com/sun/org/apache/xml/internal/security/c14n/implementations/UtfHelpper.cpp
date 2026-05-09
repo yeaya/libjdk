@@ -42,7 +42,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(UtfHelpper::lambda$static$0());
+		return $of(UtfHelpper::lambda$static$0());
 	}
 };
 $Class* UtfHelpper$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

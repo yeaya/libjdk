@@ -21,39 +21,39 @@ namespace javax {
 		namespace attribute {
 
 $Attribute* AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::get($Class* key) {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::get(key);
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::get(key);
 }
 
 bool AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::add($Attribute* attribute) {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::add(attribute);
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::add(attribute);
 }
 
 bool AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::remove($Class* category) {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::remove(category);
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::remove(category);
 }
 
 bool AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::remove($Attribute* attribute) {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::remove(attribute);
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::remove(attribute);
 }
 
 bool AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::containsKey($Class* category) {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::containsKey(category);
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::containsKey(category);
 }
 
 bool AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::containsValue($Attribute* attribute) {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::containsValue(attribute);
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::containsValue(attribute);
 }
 
 bool AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::addAll($AttributeSet* attributes) {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::addAll(attributes);
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::addAll(attributes);
 }
 
 int32_t AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::size() {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::size();
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::size();
 }
 
 $AttributeArray* AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::toArray() {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::toArray();
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::toArray();
 }
 
 void AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::clear() {
@@ -61,23 +61,23 @@ void AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::clear() {
 }
 
 bool AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::isEmpty() {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::isEmpty();
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::isEmpty();
 }
 
 bool AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::equals(Object$* o) {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::equals(o);
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::equals(o);
 }
 
 int32_t AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::hashCode() {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::hashCode();
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::hashCode();
 }
 
 $Object* AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::clone() {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::clone();
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::clone();
 }
 
 $String* AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::toString() {
-	 return this->$AttributeSetUtilities$UnmodifiableAttributeSet::toString();
+	return this->$AttributeSetUtilities$UnmodifiableAttributeSet::toString();
 }
 
 void AttributeSetUtilities$UnmodifiablePrintJobAttributeSet::finalize() {

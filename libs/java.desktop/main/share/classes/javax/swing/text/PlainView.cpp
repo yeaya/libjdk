@@ -104,19 +104,19 @@ namespace javax {
 		namespace text {
 
 int32_t PlainView::hashCode() {
-	 return this->$View::hashCode();
+	return this->$View::hashCode();
 }
 
 bool PlainView::equals(Object$* arg0) {
-	 return this->$View::equals(arg0);
+	return this->$View::equals(arg0);
 }
 
 $Object* PlainView::clone() {
-	 return this->$View::clone();
+	return this->$View::clone();
 }
 
 $String* PlainView::toString() {
-	 return this->$View::toString();
+	return this->$View::toString();
 }
 
 void PlainView::finalize() {

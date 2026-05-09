@@ -16,15 +16,15 @@ namespace javax {
 			namespace standard {
 
 int32_t PageRanges::hashCode() {
-	 return this->$SetOfIntegerSyntax::hashCode();
+	return this->$SetOfIntegerSyntax::hashCode();
 }
 
 $String* PageRanges::toString() {
-	 return this->$SetOfIntegerSyntax::toString();
+	return this->$SetOfIntegerSyntax::toString();
 }
 
 $Object* PageRanges::clone() {
-	 return this->$SetOfIntegerSyntax::clone();
+	return this->$SetOfIntegerSyntax::clone();
 }
 
 void PageRanges::finalize() {

@@ -88,7 +88,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* unused) override {
-		 return $nc(inst$)->lambda$connectAsync$0($cast($Void, unused));
+		return $nc(inst$)->lambda$connectAsync$0($cast($Void, unused));
 	}
 	PlainTunnelingConnection* inst$ = nullptr;
 };
@@ -124,7 +124,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* v) override {
-		 return $nc(inst$)->lambda$connectAsync$4($cast($Void, v));
+		return $nc(inst$)->lambda$connectAsync$4($cast($Void, v));
 	}
 	PlainTunnelingConnection* inst$ = nullptr;
 };
@@ -161,7 +161,7 @@ public:
 		$set(this, connectExchange, connectExchange);
 	}
 	virtual $Object* apply(Object$* resp) override {
-		 return $nc(inst$)->lambda$connectAsync$2(connectExchange, $cast($Response, resp));
+		return $nc(inst$)->lambda$connectAsync$2(connectExchange, $cast($Response, resp));
 	}
 	PlainTunnelingConnection* inst$ = nullptr;
 	$Exchange* connectExchange = nullptr;
@@ -199,7 +199,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* result, Object$* ex) override {
-		 return $of($nc(inst$)->lambda$connectAsync$3($cast($Void, result), $cast($Throwable, ex)));
+		return $of($nc(inst$)->lambda$connectAsync$3($cast($Void, result), $cast($Throwable, ex)));
 	}
 	PlainTunnelingConnection* inst$ = nullptr;
 };
@@ -237,7 +237,7 @@ public:
 		$set(this, cf, cf);
 	}
 	virtual $Object* apply(Object$* r, Object$* t) override {
-		 return $of($nc(inst$)->lambda$connectAsync$1(resp, cf, $cast($Void, r), $cast($Throwable, t)));
+		return $of($nc(inst$)->lambda$connectAsync$1(resp, cf, $cast($Void, r), $cast($Throwable, t)));
 	}
 	PlainTunnelingConnection* inst$ = nullptr;
 	$Response* resp = nullptr;

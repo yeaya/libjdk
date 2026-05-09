@@ -48,19 +48,19 @@ namespace javax {
 			namespace synth {
 
 $Object* SynthLookAndFeel$AATextListener::clone() {
-	 return this->$WeakReference::clone();
+	return this->$WeakReference::clone();
 }
 
 int32_t SynthLookAndFeel$AATextListener::hashCode() {
-	 return this->$WeakReference::hashCode();
+	return this->$WeakReference::hashCode();
 }
 
 bool SynthLookAndFeel$AATextListener::equals(Object$* arg0) {
-	 return this->$WeakReference::equals(arg0);
+	return this->$WeakReference::equals(arg0);
 }
 
 $String* SynthLookAndFeel$AATextListener::toString() {
-	 return this->$WeakReference::toString();
+	return this->$WeakReference::toString();
 }
 
 void SynthLookAndFeel$AATextListener::finalize() {

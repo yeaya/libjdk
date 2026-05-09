@@ -32,15 +32,15 @@ namespace javax {
 		namespace openmbean {
 
 $Object* OpenMBeanParameterInfoSupport::clone() {
-	 return this->$MBeanParameterInfo::clone();
+	return this->$MBeanParameterInfo::clone();
 }
 
 $String* OpenMBeanParameterInfoSupport::getName() {
-	 return this->$MBeanParameterInfo::getName();
+	return this->$MBeanParameterInfo::getName();
 }
 
 $String* OpenMBeanParameterInfoSupport::getDescription() {
-	 return this->$MBeanParameterInfo::getDescription();
+	return this->$MBeanParameterInfo::getDescription();
 }
 
 void OpenMBeanParameterInfoSupport::finalize() {

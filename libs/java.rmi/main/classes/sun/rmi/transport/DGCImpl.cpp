@@ -99,7 +99,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DGCImpl::lambda$static$0());
+		return $of(DGCImpl::lambda$static$0());
 	}
 };
 $Class* DGCImpl$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -129,7 +129,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DGCImpl::lambda$static$1());
+		return $of(DGCImpl::lambda$static$1());
 	}
 };
 $Class* DGCImpl$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
@@ -159,7 +159,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DGCImpl::lambda$static$2());
+		return $of(DGCImpl::lambda$static$2());
 	}
 };
 $Class* DGCImpl$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {
@@ -189,7 +189,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return DGCImpl::initDgcFilter();
+		return DGCImpl::initDgcFilter();
 	}
 };
 $Class* DGCImpl$$Lambda$initDgcFilter$3::load$($String* name, bool initialize) {

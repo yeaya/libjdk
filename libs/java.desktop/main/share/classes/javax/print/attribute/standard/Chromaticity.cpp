@@ -18,19 +18,19 @@ namespace javax {
 			namespace standard {
 
 $Object* Chromaticity::clone() {
-	 return this->$EnumSyntax::clone();
+	return this->$EnumSyntax::clone();
 }
 
 int32_t Chromaticity::hashCode() {
-	 return this->$EnumSyntax::hashCode();
+	return this->$EnumSyntax::hashCode();
 }
 
 $String* Chromaticity::toString() {
-	 return this->$EnumSyntax::toString();
+	return this->$EnumSyntax::toString();
 }
 
 bool Chromaticity::equals(Object$* arg0) {
-	 return this->$EnumSyntax::equals(arg0);
+	return this->$EnumSyntax::equals(arg0);
 }
 
 void Chromaticity::finalize() {

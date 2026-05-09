@@ -106,7 +106,7 @@ public:
 		$set(this, finalFile, finalFile);
 	}
 	virtual $Object* run() override {
-		 return Desktop::lambda$moveToTrash$0(finalFile);
+		return Desktop::lambda$moveToTrash$0(finalFile);
 	}
 	$File* finalFile = nullptr;
 };

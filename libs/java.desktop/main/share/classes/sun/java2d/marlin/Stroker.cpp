@@ -54,19 +54,19 @@ namespace sun {
 		namespace marlin {
 
 int32_t Stroker::hashCode() {
-	 return this->$DPathConsumer2D::hashCode();
+	return this->$DPathConsumer2D::hashCode();
 }
 
 bool Stroker::equals(Object$* arg0) {
-	 return this->$DPathConsumer2D::equals(arg0);
+	return this->$DPathConsumer2D::equals(arg0);
 }
 
 $Object* Stroker::clone() {
-	 return this->$DPathConsumer2D::clone();
+	return this->$DPathConsumer2D::clone();
 }
 
 $String* Stroker::toString() {
-	 return this->$DPathConsumer2D::toString();
+	return this->$DPathConsumer2D::toString();
 }
 
 void Stroker::finalize() {

@@ -97,7 +97,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return Init::lambda$init$0();
+		return Init::lambda$init$0();
 	}
 };
 $Class* Init$$Lambda$lambda$init$0::load$($String* name, bool initialize) {

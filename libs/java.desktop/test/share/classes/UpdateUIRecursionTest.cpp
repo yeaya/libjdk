@@ -28,19 +28,19 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DefaultTreeCellRenderer = ::javax::swing::tree::DefaultTreeCellRenderer;
 
 $String* UpdateUIRecursionTest::toString() {
-	 return this->$JFrame::toString();
+	return this->$JFrame::toString();
 }
 
 int32_t UpdateUIRecursionTest::hashCode() {
-	 return this->$JFrame::hashCode();
+	return this->$JFrame::hashCode();
 }
 
 bool UpdateUIRecursionTest::equals(Object$* arg0) {
-	 return this->$JFrame::equals(arg0);
+	return this->$JFrame::equals(arg0);
 }
 
 $Object* UpdateUIRecursionTest::clone() {
-	 return this->$JFrame::clone();
+	return this->$JFrame::clone();
 }
 
 void UpdateUIRecursionTest::finalize() {

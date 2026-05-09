@@ -456,7 +456,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* t) override {
-		 return JavacParser::lambda$new$3($cast($Tokens$TokenKind, t));
+		return JavacParser::lambda$new$3($cast($Tokens$TokenKind, t));
 	}
 };
 $Class* JavacParser$$Lambda$lambda$new$3::load$($String* name, bool initialize) {
@@ -486,7 +486,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $CompilerProperties$Errors::Expected($cast($Tokens$TokenKind, arg0));
+		return $CompilerProperties$Errors::Expected($cast($Tokens$TokenKind, arg0));
 	}
 };
 $Class* JavacParser$$Lambda$Expected$1::load$($String* name, bool initialize) {
@@ -517,7 +517,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* decl) override {
-		 return $of($nc(inst$)->lambda$term2Rest$0($cast($JCTree$JCAnnotation, decl)));
+		return $of($nc(inst$)->lambda$term2Rest$0($cast($JCTree$JCAnnotation, decl)));
 	}
 	JavacParser* inst$ = nullptr;
 };
@@ -552,7 +552,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* lit) override {
-		 return $of(JavacParser::lambda$merge$1($cast($JCTree$JCLiteral, lit)));
+		return $of(JavacParser::lambda$merge$1($cast($JCTree$JCLiteral, lit)));
 	}
 };
 $Class* JavacParser$$Lambda$lambda$merge$1$3::load$($String* name, bool initialize) {
@@ -582,7 +582,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* tk) override {
-		 return JavacParser::lambda$switchExpressionStatementGroup$2($cast($Tokens$TokenKind, tk));
+		return JavacParser::lambda$switchExpressionStatementGroup$2($cast($Tokens$TokenKind, tk));
 	}
 };
 $Class* JavacParser$$Lambda$lambda$switchExpressionStatementGroup$2$4::load$($String* name, bool initialize) {

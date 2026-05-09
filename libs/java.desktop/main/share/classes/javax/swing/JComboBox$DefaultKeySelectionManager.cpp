@@ -16,19 +16,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JComboBox$DefaultKeySelectionManager::hashCode() {
-	 return this->$JComboBox$KeySelectionManager::hashCode();
+	return this->$JComboBox$KeySelectionManager::hashCode();
 }
 
 bool JComboBox$DefaultKeySelectionManager::equals(Object$* arg0) {
-	 return this->$JComboBox$KeySelectionManager::equals(arg0);
+	return this->$JComboBox$KeySelectionManager::equals(arg0);
 }
 
 $Object* JComboBox$DefaultKeySelectionManager::clone() {
-	 return this->$JComboBox$KeySelectionManager::clone();
+	return this->$JComboBox$KeySelectionManager::clone();
 }
 
 $String* JComboBox$DefaultKeySelectionManager::toString() {
-	 return this->$JComboBox$KeySelectionManager::toString();
+	return this->$JComboBox$KeySelectionManager::toString();
 }
 
 void JComboBox$DefaultKeySelectionManager::finalize() {

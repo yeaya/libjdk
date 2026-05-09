@@ -16,15 +16,15 @@ namespace javax {
 			namespace standard {
 
 int32_t JobKOctetsProcessed::hashCode() {
-	 return this->$IntegerSyntax::hashCode();
+	return this->$IntegerSyntax::hashCode();
 }
 
 $String* JobKOctetsProcessed::toString() {
-	 return this->$IntegerSyntax::toString();
+	return this->$IntegerSyntax::toString();
 }
 
 $Object* JobKOctetsProcessed::clone() {
-	 return this->$IntegerSyntax::clone();
+	return this->$IntegerSyntax::clone();
 }
 
 void JobKOctetsProcessed::finalize() {

@@ -31,19 +31,19 @@ namespace com {
 						namespace util {
 
 int32_t AttributesProxy::hashCode() {
-	 return this->$AttributeList::hashCode();
+	return this->$AttributeList::hashCode();
 }
 
 bool AttributesProxy::equals(Object$* arg0) {
-	 return this->$AttributeList::equals(arg0);
+	return this->$AttributeList::equals(arg0);
 }
 
 $Object* AttributesProxy::clone() {
-	 return this->$AttributeList::clone();
+	return this->$AttributeList::clone();
 }
 
 $String* AttributesProxy::toString() {
-	 return this->$AttributeList::toString();
+	return this->$AttributeList::toString();
 }
 
 void AttributesProxy::finalize() {

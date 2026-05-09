@@ -42,19 +42,19 @@ namespace com {
 								namespace dom2dtm {
 
 int32_t DOM2DTMdefaultNamespaceDeclarationNode::hashCode() {
-	 return this->$Attr::hashCode();
+	return this->$Attr::hashCode();
 }
 
 bool DOM2DTMdefaultNamespaceDeclarationNode::equals(Object$* arg0) {
-	 return this->$Attr::equals(arg0);
+	return this->$Attr::equals(arg0);
 }
 
 $Object* DOM2DTMdefaultNamespaceDeclarationNode::clone() {
-	 return this->$Attr::clone();
+	return this->$Attr::clone();
 }
 
 $String* DOM2DTMdefaultNamespaceDeclarationNode::toString() {
-	 return this->$Attr::toString();
+	return this->$Attr::toString();
 }
 
 void DOM2DTMdefaultNamespaceDeclarationNode::finalize() {

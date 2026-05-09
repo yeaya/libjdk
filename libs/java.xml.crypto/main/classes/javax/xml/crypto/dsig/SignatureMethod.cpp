@@ -33,19 +33,19 @@ namespace javax {
 			namespace dsig {
 
 int32_t SignatureMethod::hashCode() {
-	 return this->$XMLStructure::hashCode();
+	return this->$XMLStructure::hashCode();
 }
 
 bool SignatureMethod::equals(Object$* arg0) {
-	 return this->$XMLStructure::equals(arg0);
+	return this->$XMLStructure::equals(arg0);
 }
 
 $Object* SignatureMethod::clone() {
-	 return this->$XMLStructure::clone();
+	return this->$XMLStructure::clone();
 }
 
 $String* SignatureMethod::toString() {
-	 return this->$XMLStructure::toString();
+	return this->$XMLStructure::toString();
 }
 
 void SignatureMethod::finalize() {

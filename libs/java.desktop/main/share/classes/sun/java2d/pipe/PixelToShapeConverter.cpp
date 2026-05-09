@@ -37,19 +37,19 @@ namespace sun {
 		namespace pipe {
 
 int32_t PixelToShapeConverter::hashCode() {
-	 return this->$PixelDrawPipe::hashCode();
+	return this->$PixelDrawPipe::hashCode();
 }
 
 bool PixelToShapeConverter::equals(Object$* arg0) {
-	 return this->$PixelDrawPipe::equals(arg0);
+	return this->$PixelDrawPipe::equals(arg0);
 }
 
 $Object* PixelToShapeConverter::clone() {
-	 return this->$PixelDrawPipe::clone();
+	return this->$PixelDrawPipe::clone();
 }
 
 $String* PixelToShapeConverter::toString() {
-	 return this->$PixelDrawPipe::toString();
+	return this->$PixelDrawPipe::toString();
 }
 
 void PixelToShapeConverter::finalize() {

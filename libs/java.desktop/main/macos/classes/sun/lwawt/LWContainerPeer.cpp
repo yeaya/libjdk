@@ -74,11 +74,11 @@ namespace sun {
 	namespace lwawt {
 
 $Dimension* LWContainerPeer::getPreferredSize() {
-	 return this->$LWCanvasPeer::getPreferredSize();
+	return this->$LWCanvasPeer::getPreferredSize();
 }
 
 $Dimension* LWContainerPeer::getMinimumSize() {
-	 return this->$LWCanvasPeer::getMinimumSize();
+	return this->$LWCanvasPeer::getMinimumSize();
 }
 
 void LWContainerPeer::dispose() {
@@ -86,19 +86,19 @@ void LWContainerPeer::dispose() {
 }
 
 $GraphicsConfiguration* LWContainerPeer::getGraphicsConfiguration() {
-	 return this->$LWCanvasPeer::getGraphicsConfiguration();
+	return this->$LWCanvasPeer::getGraphicsConfiguration();
 }
 
 bool LWContainerPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$LWCanvasPeer::updateGraphicsData(gc);
+	return this->$LWCanvasPeer::updateGraphicsData(gc);
 }
 
 $Graphics* LWContainerPeer::getGraphics() {
-	 return this->$LWCanvasPeer::getGraphics();
+	return this->$LWCanvasPeer::getGraphics();
 }
 
 $ColorModel* LWContainerPeer::getColorModel() {
-	 return this->$LWCanvasPeer::getColorModel();
+	return this->$LWCanvasPeer::getColorModel();
 }
 
 void LWContainerPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -106,7 +106,7 @@ void LWContainerPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* cap
 }
 
 $Image* LWContainerPeer::getBackBuffer() {
-	 return this->$LWCanvasPeer::getBackBuffer();
+	return this->$LWCanvasPeer::getBackBuffer();
 }
 
 void LWContainerPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -122,11 +122,11 @@ void LWContainerPeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int3
 }
 
 $Point* LWContainerPeer::getLocationOnScreen() {
-	 return this->$LWCanvasPeer::getLocationOnScreen();
+	return this->$LWCanvasPeer::getLocationOnScreen();
 }
 
 $FontMetrics* LWContainerPeer::getFontMetrics($Font* f) {
-	 return this->$LWCanvasPeer::getFontMetrics(f);
+	return this->$LWCanvasPeer::getFontMetrics(f);
 }
 
 void LWContainerPeer::setVisible(bool v) {
@@ -138,7 +138,7 @@ void LWContainerPeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWContainerPeer::isReparentSupported() {
-	 return this->$LWCanvasPeer::isReparentSupported();
+	return this->$LWCanvasPeer::isReparentSupported();
 }
 
 void LWContainerPeer::setZOrder($ComponentPeer* above) {
@@ -154,11 +154,11 @@ void LWContainerPeer::layout() {
 }
 
 bool LWContainerPeer::isObscured() {
-	 return this->$LWCanvasPeer::isObscured();
+	return this->$LWCanvasPeer::isObscured();
 }
 
 bool LWContainerPeer::canDetermineObscurity() {
-	 return this->$LWCanvasPeer::canDetermineObscurity();
+	return this->$LWCanvasPeer::canDetermineObscurity();
 }
 
 void LWContainerPeer::updateCursorImmediately() {
@@ -166,23 +166,23 @@ void LWContainerPeer::updateCursorImmediately() {
 }
 
 bool LWContainerPeer::isFocusable() {
-	 return this->$LWCanvasPeer::isFocusable();
+	return this->$LWCanvasPeer::isFocusable();
 }
 
 bool LWContainerPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWCanvasPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWCanvasPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWContainerPeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWCanvasPeer::createImage(width, height);
+	return this->$LWCanvasPeer::createImage(width, height);
 }
 
 $VolatileImage* LWContainerPeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWCanvasPeer::createVolatileImage(w, h);
+	return this->$LWCanvasPeer::createVolatileImage(w, h);
 }
 
 bool LWContainerPeer::handlesWheelScrolling() {
-	 return this->$LWCanvasPeer::handlesWheelScrolling();
+	return this->$LWCanvasPeer::handlesWheelScrolling();
 }
 
 void LWContainerPeer::applyShape($Region* shape) {
@@ -194,19 +194,19 @@ void LWContainerPeer::handleEvent($AWTEvent* e) {
 }
 
 int32_t LWContainerPeer::hashCode() {
-	 return this->$LWCanvasPeer::hashCode();
+	return this->$LWCanvasPeer::hashCode();
 }
 
 bool LWContainerPeer::equals(Object$* arg0) {
-	 return this->$LWCanvasPeer::equals(arg0);
+	return this->$LWCanvasPeer::equals(arg0);
 }
 
 $Object* LWContainerPeer::clone() {
-	 return this->$LWCanvasPeer::clone();
+	return this->$LWCanvasPeer::clone();
 }
 
 $String* LWContainerPeer::toString() {
-	 return this->$LWCanvasPeer::toString();
+	return this->$LWCanvasPeer::toString();
 }
 
 void LWContainerPeer::finalize() {

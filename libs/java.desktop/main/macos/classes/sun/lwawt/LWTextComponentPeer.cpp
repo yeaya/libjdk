@@ -81,19 +81,19 @@ void LWTextComponentPeer::dispose() {
 }
 
 $GraphicsConfiguration* LWTextComponentPeer::getGraphicsConfiguration() {
-	 return this->$LWComponentPeer::getGraphicsConfiguration();
+	return this->$LWComponentPeer::getGraphicsConfiguration();
 }
 
 bool LWTextComponentPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$LWComponentPeer::updateGraphicsData(gc);
+	return this->$LWComponentPeer::updateGraphicsData(gc);
 }
 
 $Graphics* LWTextComponentPeer::getGraphics() {
-	 return this->$LWComponentPeer::getGraphics();
+	return this->$LWComponentPeer::getGraphics();
 }
 
 $ColorModel* LWTextComponentPeer::getColorModel() {
-	 return this->$LWComponentPeer::getColorModel();
+	return this->$LWComponentPeer::getColorModel();
 }
 
 void LWTextComponentPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -101,7 +101,7 @@ void LWTextComponentPeer::createBuffers(int32_t numBuffers, $BufferCapabilities*
 }
 
 $Image* LWTextComponentPeer::getBackBuffer() {
-	 return this->$LWComponentPeer::getBackBuffer();
+	return this->$LWComponentPeer::getBackBuffer();
 }
 
 void LWTextComponentPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -117,7 +117,7 @@ void LWTextComponentPeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, 
 }
 
 $Point* LWTextComponentPeer::getLocationOnScreen() {
-	 return this->$LWComponentPeer::getLocationOnScreen();
+	return this->$LWComponentPeer::getLocationOnScreen();
 }
 
 void LWTextComponentPeer::setBackground($Color* c) {
@@ -133,7 +133,7 @@ void LWTextComponentPeer::setFont($Font* f) {
 }
 
 $FontMetrics* LWTextComponentPeer::getFontMetrics($Font* f) {
-	 return this->$LWComponentPeer::getFontMetrics(f);
+	return this->$LWComponentPeer::getFontMetrics(f);
 }
 
 void LWTextComponentPeer::setEnabled(bool e) {
@@ -157,7 +157,7 @@ void LWTextComponentPeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWTextComponentPeer::isReparentSupported() {
-	 return this->$LWComponentPeer::isReparentSupported();
+	return this->$LWComponentPeer::isReparentSupported();
 }
 
 void LWTextComponentPeer::setZOrder($ComponentPeer* above) {
@@ -173,19 +173,19 @@ void LWTextComponentPeer::layout() {
 }
 
 bool LWTextComponentPeer::isObscured() {
-	 return this->$LWComponentPeer::isObscured();
+	return this->$LWComponentPeer::isObscured();
 }
 
 bool LWTextComponentPeer::canDetermineObscurity() {
-	 return this->$LWComponentPeer::canDetermineObscurity();
+	return this->$LWComponentPeer::canDetermineObscurity();
 }
 
 $Dimension* LWTextComponentPeer::getPreferredSize() {
-	 return this->$LWComponentPeer::getPreferredSize();
+	return this->$LWComponentPeer::getPreferredSize();
 }
 
 $Dimension* LWTextComponentPeer::getMinimumSize() {
-	 return this->$LWComponentPeer::getMinimumSize();
+	return this->$LWComponentPeer::getMinimumSize();
 }
 
 void LWTextComponentPeer::updateCursorImmediately() {
@@ -193,19 +193,19 @@ void LWTextComponentPeer::updateCursorImmediately() {
 }
 
 bool LWTextComponentPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWTextComponentPeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWComponentPeer::createImage(width, height);
+	return this->$LWComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* LWTextComponentPeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWComponentPeer::createVolatileImage(w, h);
+	return this->$LWComponentPeer::createVolatileImage(w, h);
 }
 
 bool LWTextComponentPeer::handlesWheelScrolling() {
-	 return this->$LWComponentPeer::handlesWheelScrolling();
+	return this->$LWComponentPeer::handlesWheelScrolling();
 }
 
 void LWTextComponentPeer::applyShape($Region* shape) {
@@ -217,19 +217,19 @@ void LWTextComponentPeer::handleEvent($AWTEvent* e) {
 }
 
 int32_t LWTextComponentPeer::hashCode() {
-	 return this->$LWComponentPeer::hashCode();
+	return this->$LWComponentPeer::hashCode();
 }
 
 bool LWTextComponentPeer::equals(Object$* arg0) {
-	 return this->$LWComponentPeer::equals(arg0);
+	return this->$LWComponentPeer::equals(arg0);
 }
 
 $Object* LWTextComponentPeer::clone() {
-	 return this->$LWComponentPeer::clone();
+	return this->$LWComponentPeer::clone();
 }
 
 $String* LWTextComponentPeer::toString() {
-	 return this->$LWComponentPeer::toString();
+	return this->$LWComponentPeer::toString();
 }
 
 void LWTextComponentPeer::finalize() {

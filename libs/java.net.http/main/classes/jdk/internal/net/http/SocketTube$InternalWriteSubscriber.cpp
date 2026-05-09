@@ -168,7 +168,7 @@ public:
 		$set(this, error, error);
 	}
 	virtual $Object* get() override {
-		 return $of(SocketTube$InternalWriteSubscriber::lambda$signalError$0(error));
+		return $of(SocketTube$InternalWriteSubscriber::lambda$signalError$0(error));
 	}
 	$Throwable* error = nullptr;
 };

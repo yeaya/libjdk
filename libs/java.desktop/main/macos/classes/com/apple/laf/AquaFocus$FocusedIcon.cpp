@@ -27,19 +27,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaFocus$FocusedIcon::hashCode() {
-	 return this->$AquaUtils$ShadowBorder::hashCode();
+	return this->$AquaUtils$ShadowBorder::hashCode();
 }
 
 bool AquaFocus$FocusedIcon::equals(Object$* arg0) {
-	 return this->$AquaUtils$ShadowBorder::equals(arg0);
+	return this->$AquaUtils$ShadowBorder::equals(arg0);
 }
 
 $Object* AquaFocus$FocusedIcon::clone() {
-	 return this->$AquaUtils$ShadowBorder::clone();
+	return this->$AquaUtils$ShadowBorder::clone();
 }
 
 $String* AquaFocus$FocusedIcon::toString() {
-	 return this->$AquaUtils$ShadowBorder::toString();
+	return this->$AquaUtils$ShadowBorder::toString();
 }
 
 void AquaFocus$FocusedIcon::finalize() {

@@ -52,15 +52,15 @@ namespace org {
 					namespace dom {
 
 bool DOMSignatureProperties::isFeatureSupported($String* feature) {
-	 return this->$DOMStructure::isFeatureSupported(feature);
+	return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMSignatureProperties::clone() {
-	 return this->$DOMStructure::clone();
+	return this->$DOMStructure::clone();
 }
 
 $String* DOMSignatureProperties::toString() {
-	 return this->$DOMStructure::toString();
+	return this->$DOMStructure::toString();
 }
 
 void DOMSignatureProperties::finalize() {

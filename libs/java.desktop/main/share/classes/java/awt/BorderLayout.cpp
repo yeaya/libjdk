@@ -41,15 +41,15 @@ namespace java {
 	namespace awt {
 
 int32_t BorderLayout::hashCode() {
-	 return this->$LayoutManager2::hashCode();
+	return this->$LayoutManager2::hashCode();
 }
 
 bool BorderLayout::equals(Object$* arg0) {
-	 return this->$LayoutManager2::equals(arg0);
+	return this->$LayoutManager2::equals(arg0);
 }
 
 $Object* BorderLayout::clone() {
-	 return this->$LayoutManager2::clone();
+	return this->$LayoutManager2::clone();
 }
 
 void BorderLayout::finalize() {

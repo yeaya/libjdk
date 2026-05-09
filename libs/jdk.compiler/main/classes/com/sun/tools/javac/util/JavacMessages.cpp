@@ -79,7 +79,7 @@ public:
 		$set(this, bundleName, bundleName);
 	}
 	virtual $ResourceBundle* getResourceBundle($Locale* locale) override {
-		 return JavacMessages::lambda$add$0(bundleName, locale);
+		return JavacMessages::lambda$add$0(bundleName, locale);
 	}
 	$String* bundleName = nullptr;
 };

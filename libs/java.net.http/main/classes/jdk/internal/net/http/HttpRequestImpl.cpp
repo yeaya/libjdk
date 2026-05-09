@@ -88,7 +88,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(HttpRequestImpl::lambda$userAgent$0());
+		return $of(HttpRequestImpl::lambda$userAgent$0());
 	}
 };
 $Class* HttpRequestImpl$$Lambda$lambda$userAgent$0::load$($String* name, bool initialize) {
@@ -118,7 +118,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestImpl::lambda$new$1();
+		return HttpRequestImpl::lambda$new$1();
 	}
 };
 $Class* HttpRequestImpl$$Lambda$lambda$new$1$1::load$($String* name, bool initialize) {
@@ -148,7 +148,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestImpl::lambda$new$2();
+		return HttpRequestImpl::lambda$new$2();
 	}
 };
 $Class* HttpRequestImpl$$Lambda$lambda$new$2$2::load$($String* name, bool initialize) {
@@ -178,7 +178,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestImpl::lambda$new$3();
+		return HttpRequestImpl::lambda$new$3();
 	}
 };
 $Class* HttpRequestImpl$$Lambda$lambda$new$3$3::load$($String* name, bool initialize) {
@@ -208,7 +208,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestImpl::lambda$new$4();
+		return HttpRequestImpl::lambda$new$4();
 	}
 };
 $Class* HttpRequestImpl$$Lambda$lambda$new$4$4::load$($String* name, bool initialize) {
@@ -240,7 +240,7 @@ public:
 		this->port = port;
 	}
 	virtual $Object* run() override {
-		 return HttpRequestImpl::lambda$getAddress$5(host, port);
+		return HttpRequestImpl::lambda$getAddress$5(host, port);
 	}
 	$String* host = nullptr;
 	int32_t port = 0;
@@ -272,15 +272,15 @@ $Class* HttpRequestImpl$$Lambda$lambda$getAddress$5$5::load$($String* name, bool
 $Class* HttpRequestImpl$$Lambda$lambda$getAddress$5$5::class$ = nullptr;
 
 bool HttpRequestImpl::equals(Object$* obj) {
-	 return this->$HttpRequest::equals(obj);
+	return this->$HttpRequest::equals(obj);
 }
 
 int32_t HttpRequestImpl::hashCode() {
-	 return this->$HttpRequest::hashCode();
+	return this->$HttpRequest::hashCode();
 }
 
 $Object* HttpRequestImpl::clone() {
-	 return this->$HttpRequest::clone();
+	return this->$HttpRequest::clone();
 }
 
 void HttpRequestImpl::finalize() {

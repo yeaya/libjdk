@@ -31,19 +31,19 @@ namespace com {
 						namespace dom {
 
 int16_t DeferredCDATASectionImpl::getNodeType() {
-	 return this->$CDATASectionImpl::getNodeType();
+	return this->$CDATASectionImpl::getNodeType();
 }
 
 $String* DeferredCDATASectionImpl::getNodeName() {
-	 return this->$CDATASectionImpl::getNodeName();
+	return this->$CDATASectionImpl::getNodeName();
 }
 
 $NodeList* DeferredCDATASectionImpl::getChildNodes() {
-	 return this->$CDATASectionImpl::getChildNodes();
+	return this->$CDATASectionImpl::getChildNodes();
 }
 
 $String* DeferredCDATASectionImpl::getNodeValue() {
-	 return this->$CDATASectionImpl::getNodeValue();
+	return this->$CDATASectionImpl::getNodeValue();
 }
 
 void DeferredCDATASectionImpl::setNodeValue($String* value) {
@@ -51,59 +51,59 @@ void DeferredCDATASectionImpl::setNodeValue($String* value) {
 }
 
 $Node* DeferredCDATASectionImpl::cloneNode(bool deep) {
-	 return this->$CDATASectionImpl::cloneNode(deep);
+	return this->$CDATASectionImpl::cloneNode(deep);
 }
 
 $Node* DeferredCDATASectionImpl::getParentNode() {
-	 return this->$CDATASectionImpl::getParentNode();
+	return this->$CDATASectionImpl::getParentNode();
 }
 
 $Node* DeferredCDATASectionImpl::getNextSibling() {
-	 return this->$CDATASectionImpl::getNextSibling();
+	return this->$CDATASectionImpl::getNextSibling();
 }
 
 $Node* DeferredCDATASectionImpl::getPreviousSibling() {
-	 return this->$CDATASectionImpl::getPreviousSibling();
+	return this->$CDATASectionImpl::getPreviousSibling();
 }
 
 $Node* DeferredCDATASectionImpl::appendChild($Node* newChild) {
-	 return this->$CDATASectionImpl::appendChild(newChild);
+	return this->$CDATASectionImpl::appendChild(newChild);
 }
 
 $Document* DeferredCDATASectionImpl::getOwnerDocument() {
-	 return this->$CDATASectionImpl::getOwnerDocument();
+	return this->$CDATASectionImpl::getOwnerDocument();
 }
 
 $NamedNodeMap* DeferredCDATASectionImpl::getAttributes() {
-	 return this->$CDATASectionImpl::getAttributes();
+	return this->$CDATASectionImpl::getAttributes();
 }
 
 bool DeferredCDATASectionImpl::hasAttributes() {
-	 return this->$CDATASectionImpl::hasAttributes();
+	return this->$CDATASectionImpl::hasAttributes();
 }
 
 bool DeferredCDATASectionImpl::hasChildNodes() {
-	 return this->$CDATASectionImpl::hasChildNodes();
+	return this->$CDATASectionImpl::hasChildNodes();
 }
 
 $Node* DeferredCDATASectionImpl::getFirstChild() {
-	 return this->$CDATASectionImpl::getFirstChild();
+	return this->$CDATASectionImpl::getFirstChild();
 }
 
 $Node* DeferredCDATASectionImpl::getLastChild() {
-	 return this->$CDATASectionImpl::getLastChild();
+	return this->$CDATASectionImpl::getLastChild();
 }
 
 $Node* DeferredCDATASectionImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$CDATASectionImpl::insertBefore(newChild, refChild);
+	return this->$CDATASectionImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DeferredCDATASectionImpl::removeChild($Node* oldChild) {
-	 return this->$CDATASectionImpl::removeChild(oldChild);
+	return this->$CDATASectionImpl::removeChild(oldChild);
 }
 
 $Node* DeferredCDATASectionImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$CDATASectionImpl::replaceChild(newChild, oldChild);
+	return this->$CDATASectionImpl::replaceChild(newChild, oldChild);
 }
 
 void DeferredCDATASectionImpl::normalize() {
@@ -111,15 +111,15 @@ void DeferredCDATASectionImpl::normalize() {
 }
 
 bool DeferredCDATASectionImpl::isSupported($String* feature, $String* version) {
-	 return this->$CDATASectionImpl::isSupported(feature, version);
+	return this->$CDATASectionImpl::isSupported(feature, version);
 }
 
 $String* DeferredCDATASectionImpl::getNamespaceURI() {
-	 return this->$CDATASectionImpl::getNamespaceURI();
+	return this->$CDATASectionImpl::getNamespaceURI();
 }
 
 $String* DeferredCDATASectionImpl::getPrefix() {
-	 return this->$CDATASectionImpl::getPrefix();
+	return this->$CDATASectionImpl::getPrefix();
 }
 
 void DeferredCDATASectionImpl::setPrefix($String* prefix) {
@@ -127,19 +127,19 @@ void DeferredCDATASectionImpl::setPrefix($String* prefix) {
 }
 
 $String* DeferredCDATASectionImpl::getLocalName() {
-	 return this->$CDATASectionImpl::getLocalName();
+	return this->$CDATASectionImpl::getLocalName();
 }
 
 $String* DeferredCDATASectionImpl::getBaseURI() {
-	 return this->$CDATASectionImpl::getBaseURI();
+	return this->$CDATASectionImpl::getBaseURI();
 }
 
 int16_t DeferredCDATASectionImpl::compareDocumentPosition($Node* other) {
-	 return this->$CDATASectionImpl::compareDocumentPosition(other);
+	return this->$CDATASectionImpl::compareDocumentPosition(other);
 }
 
 $String* DeferredCDATASectionImpl::getTextContent() {
-	 return this->$CDATASectionImpl::getTextContent();
+	return this->$CDATASectionImpl::getTextContent();
 }
 
 void DeferredCDATASectionImpl::setTextContent($String* textContent) {
@@ -147,51 +147,51 @@ void DeferredCDATASectionImpl::setTextContent($String* textContent) {
 }
 
 bool DeferredCDATASectionImpl::isSameNode($Node* other) {
-	 return this->$CDATASectionImpl::isSameNode(other);
+	return this->$CDATASectionImpl::isSameNode(other);
 }
 
 bool DeferredCDATASectionImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$CDATASectionImpl::isDefaultNamespace(namespaceURI);
+	return this->$CDATASectionImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DeferredCDATASectionImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$CDATASectionImpl::lookupPrefix(namespaceURI);
+	return this->$CDATASectionImpl::lookupPrefix(namespaceURI);
 }
 
 $String* DeferredCDATASectionImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$CDATASectionImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$CDATASectionImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 bool DeferredCDATASectionImpl::isEqualNode($Node* arg) {
-	 return this->$CDATASectionImpl::isEqualNode(arg);
+	return this->$CDATASectionImpl::isEqualNode(arg);
 }
 
 $Object* DeferredCDATASectionImpl::getFeature($String* feature, $String* version) {
-	 return this->$CDATASectionImpl::getFeature(feature, version);
+	return this->$CDATASectionImpl::getFeature(feature, version);
 }
 
 $Object* DeferredCDATASectionImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$CDATASectionImpl::setUserData(key, data, handler);
+	return this->$CDATASectionImpl::setUserData(key, data, handler);
 }
 
 $Object* DeferredCDATASectionImpl::getUserData($String* key) {
-	 return this->$CDATASectionImpl::getUserData(key);
+	return this->$CDATASectionImpl::getUserData(key);
 }
 
 $String* DeferredCDATASectionImpl::toString() {
-	 return this->$CDATASectionImpl::toString();
+	return this->$CDATASectionImpl::toString();
 }
 
 int32_t DeferredCDATASectionImpl::hashCode() {
-	 return this->$CDATASectionImpl::hashCode();
+	return this->$CDATASectionImpl::hashCode();
 }
 
 bool DeferredCDATASectionImpl::equals(Object$* arg0) {
-	 return this->$CDATASectionImpl::equals(arg0);
+	return this->$CDATASectionImpl::equals(arg0);
 }
 
 $Object* DeferredCDATASectionImpl::clone() {
-	 return this->$CDATASectionImpl::clone();
+	return this->$CDATASectionImpl::clone();
 }
 
 void DeferredCDATASectionImpl::finalize() {

@@ -169,7 +169,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getSystemEventQueue();
+		return $nc(inst$)->getSystemEventQueue();
 	}
 	$Toolkit* inst$ = nullptr;
 };
@@ -204,7 +204,7 @@ public:
 	void init$() {
 	}
 	virtual bool evaluate() override {
-		 return Dialog::lambda$show$1();
+		return Dialog::lambda$show$1();
 	}
 };
 $Class* Dialog$$Lambda$lambda$show$1$2::load$($String* name, bool initialize) {

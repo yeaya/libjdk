@@ -41,7 +41,7 @@ public:
 		$set(this, s, s);
 	}
 	virtual int32_t read($ByteBuffer* bb) override {
-		 return DummySecureWebSocketServer$WebSocketChannel::lambda$of$0(s, bb);
+		return DummySecureWebSocketServer$WebSocketChannel::lambda$of$0(s, bb);
 	}
 	$Socket* s = nullptr;
 };

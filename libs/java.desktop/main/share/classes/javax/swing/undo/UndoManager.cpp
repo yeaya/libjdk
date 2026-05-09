@@ -36,15 +36,15 @@ namespace javax {
 		namespace undo {
 
 int32_t UndoManager::hashCode() {
-	 return this->$CompoundEdit::hashCode();
+	return this->$CompoundEdit::hashCode();
 }
 
 bool UndoManager::equals(Object$* arg0) {
-	 return this->$CompoundEdit::equals(arg0);
+	return this->$CompoundEdit::equals(arg0);
 }
 
 $Object* UndoManager::clone() {
-	 return this->$CompoundEdit::clone();
+	return this->$CompoundEdit::clone();
 }
 
 void UndoManager::finalize() {

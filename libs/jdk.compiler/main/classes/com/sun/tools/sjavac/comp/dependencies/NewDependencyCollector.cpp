@@ -91,7 +91,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* n) override {
-		 return $of(NewDependencyCollector::lambda$getDependencyNodes$0($cast($Dependencies$GraphDependencies$Node, n)));
+		return $of(NewDependencyCollector::lambda$getDependencyNodes$0($cast($Dependencies$GraphDependencies$Node, n)));
 	}
 };
 $Class* NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0::load$($String* name, bool initialize) {
@@ -121,7 +121,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* n) override {
-		 return NewDependencyCollector::lambda$getDependencyNodes$1($cast($Dependencies$GraphDependencies$CompletionNode, n));
+		return NewDependencyCollector::lambda$getDependencyNodes$1($cast($Dependencies$GraphDependencies$CompletionNode, n));
 	}
 };
 $Class* NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1::load$($String* name, bool initialize) {
@@ -153,7 +153,7 @@ public:
 		$set(this, explicitJFOs, explicitJFOs);
 	}
 	virtual bool test(Object$* n) override {
-		 return NewDependencyCollector::lambda$getDependencyNodes$2(explicits, explicitJFOs, $cast($Dependencies$GraphDependencies$CompletionNode, n));
+		return NewDependencyCollector::lambda$getDependencyNodes$2(explicits, explicitJFOs, $cast($Dependencies$GraphDependencies$CompletionNode, n));
 	}
 	bool explicits = false;
 	$Collection* explicitJFOs = nullptr;
@@ -191,7 +191,7 @@ public:
 		$set(this, cnode, cnode);
 	}
 	virtual $Object* apply(Object$* dk) override {
-		 return NewDependencyCollector::lambda$getAllDependencies$3(cnode, $cast($GraphUtils$DependencyKind, dk));
+		return NewDependencyCollector::lambda$getAllDependencies$3(cnode, $cast($GraphUtils$DependencyKind, dk));
 	}
 	$Dependencies$GraphDependencies$CompletionNode* cnode = nullptr;
 };

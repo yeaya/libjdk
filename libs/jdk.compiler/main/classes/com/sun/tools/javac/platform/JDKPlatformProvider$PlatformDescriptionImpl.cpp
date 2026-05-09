@@ -121,7 +121,7 @@ public:
 		$set(this, jrtModules, jrtModules);
 	}
 	virtual $Object* apply(Object$* line) override {
-		 return $of(JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$0(jrtModules, $cast($String, line)));
+		return $of(JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$0(jrtModules, $cast($String, line)));
 	}
 	$Path* jrtModules = nullptr;
 };
@@ -156,7 +156,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* mod) override {
-		 return JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$1($cast($Path, mod));
+		return JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$1($cast($Path, mod));
 	}
 };
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1::load$($String* name, bool initialize) {
@@ -222,7 +222,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* dummy) override {
-		 return JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$3($cast($String, dummy));
+		return JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$3($cast($String, dummy));
 	}
 };
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3::load$($String* name, bool initialize) {

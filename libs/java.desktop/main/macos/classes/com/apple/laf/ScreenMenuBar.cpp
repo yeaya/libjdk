@@ -59,19 +59,19 @@ void ScreenMenuBar::setFont($Font* f) {
 }
 
 $String* ScreenMenuBar::toString() {
-	 return this->$MenuBar::toString();
+	return this->$MenuBar::toString();
 }
 
 int32_t ScreenMenuBar::hashCode() {
-	 return this->$MenuBar::hashCode();
+	return this->$MenuBar::hashCode();
 }
 
 bool ScreenMenuBar::equals(Object$* arg0) {
-	 return this->$MenuBar::equals(arg0);
+	return this->$MenuBar::equals(arg0);
 }
 
 $Object* ScreenMenuBar::clone() {
-	 return this->$MenuBar::clone();
+	return this->$MenuBar::clone();
 }
 
 void ScreenMenuBar::finalize() {

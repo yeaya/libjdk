@@ -284,7 +284,7 @@ public:
 		$set(this, node, node);
 	}
 	virtual $Object* get() override {
-		 return $of(TreeMaker::lambda$TopLevel$0(node));
+		return $of(TreeMaker::lambda$TopLevel$0(node));
 	}
 	$JCTree* node = nullptr;
 };

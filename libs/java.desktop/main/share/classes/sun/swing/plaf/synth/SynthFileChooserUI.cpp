@@ -81,7 +81,7 @@ namespace sun {
 			namespace synth {
 
 $ActionMap* SynthFileChooserUI::createActionMap() {
-	 return this->$BasicFileChooserUI::createActionMap();
+	return this->$BasicFileChooserUI::createActionMap();
 }
 
 void SynthFileChooserUI::setFileName($String* fileName) {
@@ -89,23 +89,23 @@ void SynthFileChooserUI::setFileName($String* fileName) {
 }
 
 $String* SynthFileChooserUI::getFileName() {
-	 return this->$BasicFileChooserUI::getFileName();
+	return this->$BasicFileChooserUI::getFileName();
 }
 
 int32_t SynthFileChooserUI::hashCode() {
-	 return this->$BasicFileChooserUI::hashCode();
+	return this->$BasicFileChooserUI::hashCode();
 }
 
 bool SynthFileChooserUI::equals(Object$* arg0) {
-	 return this->$BasicFileChooserUI::equals(arg0);
+	return this->$BasicFileChooserUI::equals(arg0);
 }
 
 $Object* SynthFileChooserUI::clone() {
-	 return this->$BasicFileChooserUI::clone();
+	return this->$BasicFileChooserUI::clone();
 }
 
 $String* SynthFileChooserUI::toString() {
-	 return this->$BasicFileChooserUI::toString();
+	return this->$BasicFileChooserUI::toString();
 }
 
 void SynthFileChooserUI::finalize() {

@@ -63,15 +63,15 @@ namespace java {
 		namespace geom {
 
 int32_t Path2D$Double::hashCode() {
-	 return this->$Path2D::hashCode();
+	return this->$Path2D::hashCode();
 }
 
 bool Path2D$Double::equals(Object$* arg0) {
-	 return this->$Path2D::equals(arg0);
+	return this->$Path2D::equals(arg0);
 }
 
 $String* Path2D$Double::toString() {
-	 return this->$Path2D::toString();
+	return this->$Path2D::toString();
 }
 
 void Path2D$Double::finalize() {

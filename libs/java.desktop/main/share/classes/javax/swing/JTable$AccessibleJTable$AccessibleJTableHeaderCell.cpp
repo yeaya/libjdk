@@ -63,19 +63,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JTable$AccessibleJTable$AccessibleJTableHeaderCell::hashCode() {
-	 return this->$AccessibleContext::hashCode();
+	return this->$AccessibleContext::hashCode();
 }
 
 bool JTable$AccessibleJTable$AccessibleJTableHeaderCell::equals(Object$* arg0) {
-	 return this->$AccessibleContext::equals(arg0);
+	return this->$AccessibleContext::equals(arg0);
 }
 
 $Object* JTable$AccessibleJTable$AccessibleJTableHeaderCell::clone() {
-	 return this->$AccessibleContext::clone();
+	return this->$AccessibleContext::clone();
 }
 
 $String* JTable$AccessibleJTable$AccessibleJTableHeaderCell::toString() {
-	 return this->$AccessibleContext::toString();
+	return this->$AccessibleContext::toString();
 }
 
 void JTable$AccessibleJTable$AccessibleJTableHeaderCell::finalize() {

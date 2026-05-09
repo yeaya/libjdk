@@ -65,7 +65,7 @@ public:
 	void init$() {
 	}
 	virtual int64_t applyAsLong(Object$* inst$) override {
-		 return $sure($Buffer, inst$)->remaining();
+		return $sure($Buffer, inst$)->remaining();
 	}
 };
 $Class* BufferingSubscriber$$Lambda$remaining::load$($String* name, bool initialize) {
@@ -95,7 +95,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* b) override {
-		 return BufferingSubscriber::lambda$fromInternalBuffers$0($cast($ByteBuffer, b));
+		return BufferingSubscriber::lambda$fromInternalBuffers$0($cast($ByteBuffer, b));
 	}
 };
 $Class* BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1::load$($String* name, bool initialize) {

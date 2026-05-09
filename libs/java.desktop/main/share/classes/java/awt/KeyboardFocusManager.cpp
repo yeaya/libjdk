@@ -157,19 +157,19 @@ namespace java {
 	namespace awt {
 
 int32_t KeyboardFocusManager::hashCode() {
-	 return this->$KeyEventDispatcher::hashCode();
+	return this->$KeyEventDispatcher::hashCode();
 }
 
 bool KeyboardFocusManager::equals(Object$* arg0) {
-	 return this->$KeyEventDispatcher::equals(arg0);
+	return this->$KeyEventDispatcher::equals(arg0);
 }
 
 $Object* KeyboardFocusManager::clone() {
-	 return this->$KeyEventDispatcher::clone();
+	return this->$KeyEventDispatcher::clone();
 }
 
 $String* KeyboardFocusManager::toString() {
-	 return this->$KeyEventDispatcher::toString();
+	return this->$KeyEventDispatcher::toString();
 }
 
 void KeyboardFocusManager::finalize() {

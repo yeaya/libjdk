@@ -39,7 +39,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($Utils::getBuffer());
+		return $of($Utils::getBuffer());
 	}
 };
 $Class* SocketTube$SliceBufferSource$$Lambda$getBuffer::load$($String* name, bool initialize) {

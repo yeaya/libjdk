@@ -32,19 +32,19 @@ namespace com {
 						namespace generic {
 
 $String* JSR::toString() {
-	 return this->$JsrInstruction::toString();
+	return this->$JsrInstruction::toString();
 }
 
 bool JSR::equals(Object$* that) {
-	 return this->$JsrInstruction::equals(that);
+	return this->$JsrInstruction::equals(that);
 }
 
 int32_t JSR::hashCode() {
-	 return this->$JsrInstruction::hashCode();
+	return this->$JsrInstruction::hashCode();
 }
 
 $Object* JSR::clone() {
-	 return this->$JsrInstruction::clone();
+	return this->$JsrInstruction::clone();
 }
 
 void JSR::finalize() {

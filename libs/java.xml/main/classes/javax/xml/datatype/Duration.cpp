@@ -47,7 +47,7 @@ namespace javax {
 		namespace datatype {
 
 int32_t Duration::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 void Duration::init$() {

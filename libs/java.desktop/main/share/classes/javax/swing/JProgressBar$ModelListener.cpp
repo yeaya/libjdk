@@ -16,19 +16,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JProgressBar$ModelListener::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool JProgressBar$ModelListener::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* JProgressBar$ModelListener::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* JProgressBar$ModelListener::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void JProgressBar$ModelListener::finalize() {

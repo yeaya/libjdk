@@ -30,15 +30,15 @@ namespace com {
 						namespace generic {
 
 int32_t LineNumberGen::hashCode() {
-	 return this->$InstructionTargeter::hashCode();
+	return this->$InstructionTargeter::hashCode();
 }
 
 bool LineNumberGen::equals(Object$* arg0) {
-	 return this->$InstructionTargeter::equals(arg0);
+	return this->$InstructionTargeter::equals(arg0);
 }
 
 $String* LineNumberGen::toString() {
-	 return this->$InstructionTargeter::toString();
+	return this->$InstructionTargeter::toString();
 }
 
 void LineNumberGen::finalize() {

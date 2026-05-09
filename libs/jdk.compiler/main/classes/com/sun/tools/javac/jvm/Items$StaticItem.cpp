@@ -42,7 +42,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(Object$* inst$, Object$* s) override {
-		 return $sure($PoolWriter, inst$)->putMember($cast($Symbol, s));
+		return $sure($PoolWriter, inst$)->putMember($cast($Symbol, s));
 	}
 };
 $Class* Items$StaticItem$$Lambda$putMember::load$($String* name, bool initialize) {

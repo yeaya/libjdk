@@ -76,7 +76,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* s1, Object$* s2) override {
-		 return JDKPlatformProvider::lambda$static$0($cast($String, s1), $cast($String, s2));
+		return JDKPlatformProvider::lambda$static$0($cast($String, s1), $cast($String, s2));
 	}
 };
 $Class* JDKPlatformProvider$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

@@ -11,19 +11,19 @@ namespace javax {
 		namespace plaf {
 
 int32_t ActionMapUIResource::hashCode() {
-	 return this->$ActionMap::hashCode();
+	return this->$ActionMap::hashCode();
 }
 
 bool ActionMapUIResource::equals(Object$* arg0) {
-	 return this->$ActionMap::equals(arg0);
+	return this->$ActionMap::equals(arg0);
 }
 
 $Object* ActionMapUIResource::clone() {
-	 return this->$ActionMap::clone();
+	return this->$ActionMap::clone();
 }
 
 $String* ActionMapUIResource::toString() {
-	 return this->$ActionMap::toString();
+	return this->$ActionMap::toString();
 }
 
 void ActionMapUIResource::finalize() {

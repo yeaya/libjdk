@@ -89,19 +89,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicPopupMenuUI$MouseGrabber::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool BasicPopupMenuUI$MouseGrabber::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* BasicPopupMenuUI$MouseGrabber::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* BasicPopupMenuUI$MouseGrabber::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void BasicPopupMenuUI$MouseGrabber::finalize() {

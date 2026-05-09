@@ -39,7 +39,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->iterator();
+		return $nc(inst$)->iterator();
 	}
 	RequestPublishers$IterablePublisher* inst$ = nullptr;
 };

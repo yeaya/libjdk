@@ -43,19 +43,19 @@ namespace com {
 			namespace sound {
 
 int32_t ModelAbstractOscillator::hashCode() {
-	 return this->$ModelOscillator::hashCode();
+	return this->$ModelOscillator::hashCode();
 }
 
 bool ModelAbstractOscillator::equals(Object$* arg0) {
-	 return this->$ModelOscillator::equals(arg0);
+	return this->$ModelOscillator::equals(arg0);
 }
 
 $Object* ModelAbstractOscillator::clone() {
-	 return this->$ModelOscillator::clone();
+	return this->$ModelOscillator::clone();
 }
 
 $String* ModelAbstractOscillator::toString() {
-	 return this->$ModelOscillator::toString();
+	return this->$ModelOscillator::toString();
 }
 
 void ModelAbstractOscillator::finalize() {

@@ -136,31 +136,31 @@ void MTLSurfaceData::markDirty() {
 }
 
 bool MTLSurfaceData::isSurfaceLost() {
-	 return this->$SurfaceData::isSurfaceLost();
+	return this->$SurfaceData::isSurfaceLost();
 }
 
 bool MTLSurfaceData::isValid() {
-	 return this->$SurfaceData::isValid();
+	return this->$SurfaceData::isValid();
 }
 
 int64_t MTLSurfaceData::getNativeOps() {
-	 return this->$SurfaceData::getNativeOps();
+	return this->$SurfaceData::getNativeOps();
 }
 
 int32_t MTLSurfaceData::hashCode() {
-	 return this->$SurfaceData::hashCode();
+	return this->$SurfaceData::hashCode();
 }
 
 bool MTLSurfaceData::equals(Object$* arg0) {
-	 return this->$SurfaceData::equals(arg0);
+	return this->$SurfaceData::equals(arg0);
 }
 
 $Object* MTLSurfaceData::clone() {
-	 return this->$SurfaceData::clone();
+	return this->$SurfaceData::clone();
 }
 
 $String* MTLSurfaceData::toString() {
-	 return this->$SurfaceData::toString();
+	return this->$SurfaceData::toString();
 }
 
 void MTLSurfaceData::finalize() {

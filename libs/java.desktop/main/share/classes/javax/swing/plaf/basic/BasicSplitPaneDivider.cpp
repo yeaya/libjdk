@@ -61,19 +61,19 @@ namespace javax {
 			namespace basic {
 
 $String* BasicSplitPaneDivider::toString() {
-	 return this->$Container::toString();
+	return this->$Container::toString();
 }
 
 int32_t BasicSplitPaneDivider::hashCode() {
-	 return this->$Container::hashCode();
+	return this->$Container::hashCode();
 }
 
 bool BasicSplitPaneDivider::equals(Object$* arg0) {
-	 return this->$Container::equals(arg0);
+	return this->$Container::equals(arg0);
 }
 
 $Object* BasicSplitPaneDivider::clone() {
-	 return this->$Container::clone();
+	return this->$Container::clone();
 }
 
 void BasicSplitPaneDivider::finalize() {

@@ -24,19 +24,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t XTextAreaPeer$BevelBorder::hashCode() {
-	 return this->$AbstractBorder::hashCode();
+	return this->$AbstractBorder::hashCode();
 }
 
 bool XTextAreaPeer$BevelBorder::equals(Object$* arg0) {
-	 return this->$AbstractBorder::equals(arg0);
+	return this->$AbstractBorder::equals(arg0);
 }
 
 $Object* XTextAreaPeer$BevelBorder::clone() {
-	 return this->$AbstractBorder::clone();
+	return this->$AbstractBorder::clone();
 }
 
 $String* XTextAreaPeer$BevelBorder::toString() {
-	 return this->$AbstractBorder::toString();
+	return this->$AbstractBorder::toString();
 }
 
 void XTextAreaPeer$BevelBorder::finalize() {

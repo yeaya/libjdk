@@ -44,7 +44,7 @@ public:
 		$set(this, sym, sym);
 	}
 	virtual bool test(Object$* t) override {
-		 return Scope::lambda$includes$0(sym, $cast($Symbol, t));
+		return Scope::lambda$includes$0(sym, $cast($Symbol, t));
 	}
 	$Symbol* sym = nullptr;
 };

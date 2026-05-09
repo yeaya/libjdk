@@ -56,7 +56,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return HeaderTable::lambda$static$0($cast($String, k));
+		return HeaderTable::lambda$static$0($cast($String, k));
 	}
 };
 $Class* HeaderTable$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -86,7 +86,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return HeaderTable::lambda$add$2($cast($String, k));
+		return HeaderTable::lambda$add$2($cast($String, k));
 	}
 };
 $Class* HeaderTable$$Lambda$lambda$add$2$1::load$($String* name, bool initialize) {

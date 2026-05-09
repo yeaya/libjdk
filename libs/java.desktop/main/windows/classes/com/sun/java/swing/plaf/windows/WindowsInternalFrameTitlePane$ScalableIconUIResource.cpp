@@ -35,19 +35,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsInternalFrameTitlePane$ScalableIconUIResource::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool WindowsInternalFrameTitlePane$ScalableIconUIResource::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* WindowsInternalFrameTitlePane$ScalableIconUIResource::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* WindowsInternalFrameTitlePane$ScalableIconUIResource::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void WindowsInternalFrameTitlePane$ScalableIconUIResource::finalize() {

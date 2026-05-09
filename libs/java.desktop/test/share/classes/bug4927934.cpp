@@ -90,19 +90,19 @@ $Class* bug4927934$$Lambda$dispose::load$($String* name, bool initialize) {
 $Class* bug4927934$$Lambda$dispose::class$ = nullptr;
 
 int32_t bug4927934::hashCode() {
-	 return this->$TreeSelectionListener::hashCode();
+	return this->$TreeSelectionListener::hashCode();
 }
 
 bool bug4927934::equals(Object$* arg0) {
-	 return this->$TreeSelectionListener::equals(arg0);
+	return this->$TreeSelectionListener::equals(arg0);
 }
 
 $Object* bug4927934::clone() {
-	 return this->$TreeSelectionListener::clone();
+	return this->$TreeSelectionListener::clone();
 }
 
 $String* bug4927934::toString() {
-	 return this->$TreeSelectionListener::toString();
+	return this->$TreeSelectionListener::toString();
 }
 
 void bug4927934::finalize() {

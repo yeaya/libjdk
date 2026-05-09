@@ -65,7 +65,7 @@ namespace sun {
 	namespace font {
 
 $Object* CFont::clone() {
-	 return this->$PhysicalFont::clone();
+	return this->$PhysicalFont::clone();
 }
 
 $FontRenderContext* CFont::DEFAULT_FRC = nullptr;

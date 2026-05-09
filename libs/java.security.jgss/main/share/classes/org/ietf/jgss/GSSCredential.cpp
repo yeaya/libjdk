@@ -23,11 +23,11 @@ namespace org {
 		namespace jgss {
 
 bool GSSCredential::equals(Object$* another) {
-	 return this->$Cloneable::equals(another);
+	return this->$Cloneable::equals(another);
 }
 
 int32_t GSSCredential::hashCode() {
-	 return this->$Cloneable::hashCode();
+	return this->$Cloneable::hashCode();
 }
 
 $Class* GSSCredential::load$($String* name, bool initialize) {

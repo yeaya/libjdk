@@ -23,19 +23,19 @@ namespace sun {
 	namespace management {
 
 int32_t MemoryManagerImpl::hashCode() {
-	 return this->$NotificationEmitterSupport::hashCode();
+	return this->$NotificationEmitterSupport::hashCode();
 }
 
 bool MemoryManagerImpl::equals(Object$* arg0) {
-	 return this->$NotificationEmitterSupport::equals(arg0);
+	return this->$NotificationEmitterSupport::equals(arg0);
 }
 
 $Object* MemoryManagerImpl::clone() {
-	 return this->$NotificationEmitterSupport::clone();
+	return this->$NotificationEmitterSupport::clone();
 }
 
 $String* MemoryManagerImpl::toString() {
-	 return this->$NotificationEmitterSupport::toString();
+	return this->$NotificationEmitterSupport::toString();
 }
 
 void MemoryManagerImpl::finalize() {

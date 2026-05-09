@@ -99,7 +99,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* itemName) override {
-		 return $nc(inst$)->containsKey($cast($String, itemName));
+		return $nc(inst$)->containsKey($cast($String, itemName));
 	}
 	$CompositeType* inst$ = nullptr;
 };

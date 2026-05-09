@@ -64,7 +64,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$String* inst$ = nullptr;
 };
@@ -100,7 +100,7 @@ public:
 		this->interestOps = interestOps;
 	}
 	virtual bool test(Object$* ev) override {
-		 return HttpClientImpl$SelectorAttachment::lambda$events$0(interestOps, $cast($AsyncEvent, ev));
+		return HttpClientImpl$SelectorAttachment::lambda$events$0(interestOps, $cast($AsyncEvent, ev));
 	}
 	int32_t interestOps = 0;
 };

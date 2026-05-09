@@ -167,7 +167,7 @@ void DTDConfiguration::setDocumentHandler($XMLDocumentHandler* documentHandler) 
 }
 
 $XMLDocumentHandler* DTDConfiguration::getDocumentHandler() {
-	 return this->$BasicParserConfiguration::getDocumentHandler();
+	return this->$BasicParserConfiguration::getDocumentHandler();
 }
 
 void DTDConfiguration::setDTDHandler($XMLDTDHandler* dtdHandler) {
@@ -175,7 +175,7 @@ void DTDConfiguration::setDTDHandler($XMLDTDHandler* dtdHandler) {
 }
 
 $XMLDTDHandler* DTDConfiguration::getDTDHandler() {
-	 return this->$BasicParserConfiguration::getDTDHandler();
+	return this->$BasicParserConfiguration::getDTDHandler();
 }
 
 void DTDConfiguration::setDTDContentModelHandler($XMLDTDContentModelHandler* handler) {
@@ -183,7 +183,7 @@ void DTDConfiguration::setDTDContentModelHandler($XMLDTDContentModelHandler* han
 }
 
 $XMLDTDContentModelHandler* DTDConfiguration::getDTDContentModelHandler() {
-	 return this->$BasicParserConfiguration::getDTDContentModelHandler();
+	return this->$BasicParserConfiguration::getDTDContentModelHandler();
 }
 
 void DTDConfiguration::setEntityResolver($XMLEntityResolver* resolver) {
@@ -191,7 +191,7 @@ void DTDConfiguration::setEntityResolver($XMLEntityResolver* resolver) {
 }
 
 $XMLEntityResolver* DTDConfiguration::getEntityResolver() {
-	 return this->$BasicParserConfiguration::getEntityResolver();
+	return this->$BasicParserConfiguration::getEntityResolver();
 }
 
 void DTDConfiguration::setErrorHandler($XMLErrorHandler* errorHandler) {
@@ -199,7 +199,7 @@ void DTDConfiguration::setErrorHandler($XMLErrorHandler* errorHandler) {
 }
 
 $XMLErrorHandler* DTDConfiguration::getErrorHandler() {
-	 return this->$BasicParserConfiguration::getErrorHandler();
+	return this->$BasicParserConfiguration::getErrorHandler();
 }
 
 void DTDConfiguration::setFeature($String* featureId, bool state) {
@@ -207,7 +207,7 @@ void DTDConfiguration::setFeature($String* featureId, bool state) {
 }
 
 $Locale* DTDConfiguration::getLocale() {
-	 return this->$BasicParserConfiguration::getLocale();
+	return this->$BasicParserConfiguration::getLocale();
 }
 
 void DTDConfiguration::addRecognizedFeatures($StringArray* featureIds) {
@@ -219,39 +219,39 @@ void DTDConfiguration::addRecognizedProperties($StringArray* propertyIds) {
 }
 
 bool DTDConfiguration::getFeature($String* featureId) {
-	 return this->$BasicParserConfiguration::getFeature(featureId);
+	return this->$BasicParserConfiguration::getFeature(featureId);
 }
 
 bool DTDConfiguration::getFeature($String* featureId, bool defaultValue) {
-	 return this->$BasicParserConfiguration::getFeature(featureId, defaultValue);
+	return this->$BasicParserConfiguration::getFeature(featureId, defaultValue);
 }
 
 $FeatureState* DTDConfiguration::getFeatureState($String* featureId) {
-	 return this->$BasicParserConfiguration::getFeatureState(featureId);
+	return this->$BasicParserConfiguration::getFeatureState(featureId);
 }
 
 $Object* DTDConfiguration::getProperty($String* propertyId) {
-	 return this->$BasicParserConfiguration::getProperty(propertyId);
+	return this->$BasicParserConfiguration::getProperty(propertyId);
 }
 
 $Object* DTDConfiguration::getProperty($String* propertyId, Object$* defaultValue) {
-	 return this->$BasicParserConfiguration::getProperty(propertyId, defaultValue);
+	return this->$BasicParserConfiguration::getProperty(propertyId, defaultValue);
 }
 
 int32_t DTDConfiguration::hashCode() {
-	 return this->$BasicParserConfiguration::hashCode();
+	return this->$BasicParserConfiguration::hashCode();
 }
 
 bool DTDConfiguration::equals(Object$* arg0) {
-	 return this->$BasicParserConfiguration::equals(arg0);
+	return this->$BasicParserConfiguration::equals(arg0);
 }
 
 $Object* DTDConfiguration::clone() {
-	 return this->$BasicParserConfiguration::clone();
+	return this->$BasicParserConfiguration::clone();
 }
 
 $String* DTDConfiguration::toString() {
-	 return this->$BasicParserConfiguration::toString();
+	return this->$BasicParserConfiguration::toString();
 }
 
 void DTDConfiguration::finalize() {

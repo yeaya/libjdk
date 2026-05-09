@@ -36,19 +36,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t XTrayIconPeer$TrayIconEventProxy::hashCode() {
-	 return this->$MouseListener::hashCode();
+	return this->$MouseListener::hashCode();
 }
 
 bool XTrayIconPeer$TrayIconEventProxy::equals(Object$* arg0) {
-	 return this->$MouseListener::equals(arg0);
+	return this->$MouseListener::equals(arg0);
 }
 
 $Object* XTrayIconPeer$TrayIconEventProxy::clone() {
-	 return this->$MouseListener::clone();
+	return this->$MouseListener::clone();
 }
 
 $String* XTrayIconPeer$TrayIconEventProxy::toString() {
-	 return this->$MouseListener::toString();
+	return this->$MouseListener::toString();
 }
 
 void XTrayIconPeer$TrayIconEventProxy::finalize() {

@@ -179,7 +179,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return Flow$AliveAnalyzer::lambda$visitSwitch$0($cast($JCTree$JCCase, c));
+		return Flow$AliveAnalyzer::lambda$visitSwitch$0($cast($JCTree$JCCase, c));
 	}
 };
 $Class* Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0::load$($String* name, bool initialize) {
@@ -209,7 +209,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* l) override {
-		 return Flow$AliveAnalyzer::lambda$visitSwitch$1($cast($JCTree$JCCaseLabel, l));
+		return Flow$AliveAnalyzer::lambda$visitSwitch$1($cast($JCTree$JCCaseLabel, l));
 	}
 };
 $Class* Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1::load$($String* name, bool initialize) {
@@ -239,7 +239,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return Flow$AliveAnalyzer::lambda$transitiveCovers$2($cast($Symbol, s));
+		return Flow$AliveAnalyzer::lambda$transitiveCovers$2($cast($Symbol, s));
 	}
 };
 $Class* Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2::load$($String* name, bool initialize) {
@@ -270,7 +270,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* arg0) override {
-		 return $nc(inst$)->contains(arg0);
+		return $nc(inst$)->contains(arg0);
 	}
 	$Set* inst$ = nullptr;
 };
@@ -307,7 +307,7 @@ public:
 		$set(this, covered, covered);
 	}
 	virtual bool test(Object$* t) override {
-		 return $nc(inst$)->lambda$isExhaustive$3(covered, $cast($Type, t));
+		return $nc(inst$)->lambda$isExhaustive$3(covered, $cast($Type, t));
 	}
 	Flow$AliveAnalyzer* inst$ = nullptr;
 	$Set* covered = nullptr;

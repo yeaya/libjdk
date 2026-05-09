@@ -30,15 +30,15 @@ namespace com {
 						namespace classfile {
 
 int32_t CodeException::hashCode() {
-	 return this->$Cloneable::hashCode();
+	return this->$Cloneable::hashCode();
 }
 
 bool CodeException::equals(Object$* arg0) {
-	 return this->$Cloneable::equals(arg0);
+	return this->$Cloneable::equals(arg0);
 }
 
 $Object* CodeException::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 void CodeException::finalize() {

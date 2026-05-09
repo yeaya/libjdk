@@ -224,7 +224,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return TransPatterns::lambda$handleSwitch$0($cast($JCTree$JCCase, c));
+		return TransPatterns::lambda$handleSwitch$0($cast($JCTree$JCCase, c));
 	}
 };
 $Class* TransPatterns$$Lambda$lambda$handleSwitch$0::load$($String* name, bool initialize) {
@@ -254,7 +254,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* p) override {
-		 return TransPatterns::lambda$handleSwitch$1($cast($JCTree$JCCaseLabel, p));
+		return TransPatterns::lambda$handleSwitch$1($cast($JCTree$JCCaseLabel, p));
 	}
 };
 $Class* TransPatterns$$Lambda$lambda$handleSwitch$1$1::load$($String* name, bool initialize) {
@@ -284,7 +284,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* l) override {
-		 return TransPatterns::lambda$handleSwitch$2($cast($JCTree$JCCaseLabel, l));
+		return TransPatterns::lambda$handleSwitch$2($cast($JCTree$JCCaseLabel, l));
 	}
 };
 $Class* TransPatterns$$Lambda$lambda$handleSwitch$2$2::load$($String* name, bool initialize) {
@@ -316,7 +316,7 @@ public:
 		$set(this, seltype, seltype);
 	}
 	virtual $Object* apply(Object$* l) override {
-		 return $nc(inst$)->lambda$handleSwitch$4(seltype, $cast($JCTree$JCCaseLabel, l));
+		return $nc(inst$)->lambda$handleSwitch$4(seltype, $cast($JCTree$JCCaseLabel, l));
 	}
 	TransPatterns* inst$ = nullptr;
 	$Type* seltype = nullptr;
@@ -353,7 +353,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* c) override {
-		 return TransPatterns::lambda$handleSwitch$5($cast($PoolConstant$LoadableConstant, c));
+		return TransPatterns::lambda$handleSwitch$5($cast($PoolConstant$LoadableConstant, c));
 	}
 };
 $Class* TransPatterns$$Lambda$lambda$handleSwitch$5$4::load$($String* name, bool initialize) {
@@ -383,7 +383,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t s) override {
-		 return TransPatterns::lambda$handleSwitch$6(s);
+		return TransPatterns::lambda$handleSwitch$6(s);
 	}
 };
 $Class* TransPatterns$$Lambda$lambda$handleSwitch$6$5::load$($String* name, bool initialize) {
@@ -413,7 +413,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* l) override {
-		 return TransPatterns::lambda$handleSwitch$7($cast($JCTree$JCCaseLabel, l));
+		return TransPatterns::lambda$handleSwitch$7($cast($JCTree$JCCaseLabel, l));
 	}
 };
 $Class* TransPatterns$$Lambda$lambda$handleSwitch$7$6::load$($String* name, bool initialize) {
@@ -443,7 +443,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* l) override {
-		 return TransPatterns::lambda$handleSwitch$8($cast($JCTree$JCCaseLabel, l));
+		return TransPatterns::lambda$handleSwitch$8($cast($JCTree$JCCaseLabel, l));
 	}
 };
 $Class* TransPatterns$$Lambda$lambda$handleSwitch$8$7::load$($String* name, bool initialize) {

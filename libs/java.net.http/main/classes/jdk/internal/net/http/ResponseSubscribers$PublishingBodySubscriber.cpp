@@ -68,7 +68,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $nc(inst$)->lambda$new$0($cast($Flow$Subscription, s));
+		return $nc(inst$)->lambda$new$0($cast($Flow$Subscription, s));
 	}
 	ResponseSubscribers$PublishingBodySubscriber* inst$ = nullptr;
 };

@@ -110,7 +110,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(BasicJavacTask::lambda$initPlugins$0($cast($Map$Entry, e)));
+		return $of(BasicJavacTask::lambda$initPlugins$0($cast($Map$Entry, e)));
 	}
 };
 $Class* BasicJavacTask$$Lambda$lambda$initPlugins$0::load$($String* name, bool initialize) {

@@ -134,7 +134,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* d) override {
-		 return JavacProcessingEnvironment$Round::lambda$new$1($cast($JCDiagnostic, d));
+		return JavacProcessingEnvironment$Round::lambda$new$1($cast($JCDiagnostic, d));
 	}
 };
 $Class* JavacProcessingEnvironment$Round$$Lambda$lambda$new$1::load$($String* name, bool initialize) {
@@ -164,7 +164,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* d) override {
-		 return JavacProcessingEnvironment$Round::lambda$new$2($cast($JCDiagnostic, d));
+		return JavacProcessingEnvironment$Round::lambda$new$2($cast($JCDiagnostic, d));
 	}
 };
 $Class* JavacProcessingEnvironment$Round$$Lambda$lambda$new$2$1::load$($String* name, bool initialize) {
@@ -194,7 +194,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* m) override {
-		 return JavacProcessingEnvironment$Round::lambda$new$0($cast($Symbol$ModuleSymbol, m));
+		return JavacProcessingEnvironment$Round::lambda$new$0($cast($Symbol$ModuleSymbol, m));
 	}
 };
 $Class* JavacProcessingEnvironment$Round$$Lambda$lambda$new$0$2::load$($String* name, bool initialize) {

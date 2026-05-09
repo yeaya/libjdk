@@ -32,27 +32,27 @@ namespace com {
 						namespace dom {
 
 bool CDATASectionImpl::isElementContentWhitespace() {
-	 return this->$TextImpl::isElementContentWhitespace();
+	return this->$TextImpl::isElementContentWhitespace();
 }
 
 $String* CDATASectionImpl::getWholeText() {
-	 return this->$TextImpl::getWholeText();
+	return this->$TextImpl::getWholeText();
 }
 
 $Text* CDATASectionImpl::replaceWholeText($String* content) {
-	 return this->$TextImpl::replaceWholeText(content);
+	return this->$TextImpl::replaceWholeText(content);
 }
 
 $Text* CDATASectionImpl::splitText(int32_t offset) {
-	 return this->$TextImpl::splitText(offset);
+	return this->$TextImpl::splitText(offset);
 }
 
 $NodeList* CDATASectionImpl::getChildNodes() {
-	 return this->$TextImpl::getChildNodes();
+	return this->$TextImpl::getChildNodes();
 }
 
 $String* CDATASectionImpl::getNodeValue() {
-	 return this->$TextImpl::getNodeValue();
+	return this->$TextImpl::getNodeValue();
 }
 
 void CDATASectionImpl::setNodeValue($String* value) {
@@ -60,11 +60,11 @@ void CDATASectionImpl::setNodeValue($String* value) {
 }
 
 $String* CDATASectionImpl::getData() {
-	 return this->$TextImpl::getData();
+	return this->$TextImpl::getData();
 }
 
 int32_t CDATASectionImpl::getLength() {
-	 return this->$TextImpl::getLength();
+	return this->$TextImpl::getLength();
 }
 
 void CDATASectionImpl::appendData($String* data) {
@@ -88,63 +88,63 @@ void CDATASectionImpl::setData($String* value) {
 }
 
 $String* CDATASectionImpl::substringData(int32_t offset, int32_t count) {
-	 return this->$TextImpl::substringData(offset, count);
+	return this->$TextImpl::substringData(offset, count);
 }
 
 $Node* CDATASectionImpl::cloneNode(bool deep) {
-	 return this->$TextImpl::cloneNode(deep);
+	return this->$TextImpl::cloneNode(deep);
 }
 
 $Node* CDATASectionImpl::getParentNode() {
-	 return this->$TextImpl::getParentNode();
+	return this->$TextImpl::getParentNode();
 }
 
 $Node* CDATASectionImpl::getNextSibling() {
-	 return this->$TextImpl::getNextSibling();
+	return this->$TextImpl::getNextSibling();
 }
 
 $Node* CDATASectionImpl::getPreviousSibling() {
-	 return this->$TextImpl::getPreviousSibling();
+	return this->$TextImpl::getPreviousSibling();
 }
 
 $Node* CDATASectionImpl::appendChild($Node* newChild) {
-	 return this->$TextImpl::appendChild(newChild);
+	return this->$TextImpl::appendChild(newChild);
 }
 
 $Document* CDATASectionImpl::getOwnerDocument() {
-	 return this->$TextImpl::getOwnerDocument();
+	return this->$TextImpl::getOwnerDocument();
 }
 
 $NamedNodeMap* CDATASectionImpl::getAttributes() {
-	 return this->$TextImpl::getAttributes();
+	return this->$TextImpl::getAttributes();
 }
 
 bool CDATASectionImpl::hasAttributes() {
-	 return this->$TextImpl::hasAttributes();
+	return this->$TextImpl::hasAttributes();
 }
 
 bool CDATASectionImpl::hasChildNodes() {
-	 return this->$TextImpl::hasChildNodes();
+	return this->$TextImpl::hasChildNodes();
 }
 
 $Node* CDATASectionImpl::getFirstChild() {
-	 return this->$TextImpl::getFirstChild();
+	return this->$TextImpl::getFirstChild();
 }
 
 $Node* CDATASectionImpl::getLastChild() {
-	 return this->$TextImpl::getLastChild();
+	return this->$TextImpl::getLastChild();
 }
 
 $Node* CDATASectionImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$TextImpl::insertBefore(newChild, refChild);
+	return this->$TextImpl::insertBefore(newChild, refChild);
 }
 
 $Node* CDATASectionImpl::removeChild($Node* oldChild) {
-	 return this->$TextImpl::removeChild(oldChild);
+	return this->$TextImpl::removeChild(oldChild);
 }
 
 $Node* CDATASectionImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$TextImpl::replaceChild(newChild, oldChild);
+	return this->$TextImpl::replaceChild(newChild, oldChild);
 }
 
 void CDATASectionImpl::normalize() {
@@ -152,15 +152,15 @@ void CDATASectionImpl::normalize() {
 }
 
 bool CDATASectionImpl::isSupported($String* feature, $String* version) {
-	 return this->$TextImpl::isSupported(feature, version);
+	return this->$TextImpl::isSupported(feature, version);
 }
 
 $String* CDATASectionImpl::getNamespaceURI() {
-	 return this->$TextImpl::getNamespaceURI();
+	return this->$TextImpl::getNamespaceURI();
 }
 
 $String* CDATASectionImpl::getPrefix() {
-	 return this->$TextImpl::getPrefix();
+	return this->$TextImpl::getPrefix();
 }
 
 void CDATASectionImpl::setPrefix($String* prefix) {
@@ -168,19 +168,19 @@ void CDATASectionImpl::setPrefix($String* prefix) {
 }
 
 $String* CDATASectionImpl::getLocalName() {
-	 return this->$TextImpl::getLocalName();
+	return this->$TextImpl::getLocalName();
 }
 
 $String* CDATASectionImpl::getBaseURI() {
-	 return this->$TextImpl::getBaseURI();
+	return this->$TextImpl::getBaseURI();
 }
 
 int16_t CDATASectionImpl::compareDocumentPosition($Node* other) {
-	 return this->$TextImpl::compareDocumentPosition(other);
+	return this->$TextImpl::compareDocumentPosition(other);
 }
 
 $String* CDATASectionImpl::getTextContent() {
-	 return this->$TextImpl::getTextContent();
+	return this->$TextImpl::getTextContent();
 }
 
 void CDATASectionImpl::setTextContent($String* textContent) {
@@ -188,51 +188,51 @@ void CDATASectionImpl::setTextContent($String* textContent) {
 }
 
 bool CDATASectionImpl::isSameNode($Node* other) {
-	 return this->$TextImpl::isSameNode(other);
+	return this->$TextImpl::isSameNode(other);
 }
 
 bool CDATASectionImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$TextImpl::isDefaultNamespace(namespaceURI);
+	return this->$TextImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* CDATASectionImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$TextImpl::lookupPrefix(namespaceURI);
+	return this->$TextImpl::lookupPrefix(namespaceURI);
 }
 
 $String* CDATASectionImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$TextImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$TextImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 bool CDATASectionImpl::isEqualNode($Node* arg) {
-	 return this->$TextImpl::isEqualNode(arg);
+	return this->$TextImpl::isEqualNode(arg);
 }
 
 $Object* CDATASectionImpl::getFeature($String* feature, $String* version) {
-	 return this->$TextImpl::getFeature(feature, version);
+	return this->$TextImpl::getFeature(feature, version);
 }
 
 $Object* CDATASectionImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$TextImpl::setUserData(key, data, handler);
+	return this->$TextImpl::setUserData(key, data, handler);
 }
 
 $Object* CDATASectionImpl::getUserData($String* key) {
-	 return this->$TextImpl::getUserData(key);
+	return this->$TextImpl::getUserData(key);
 }
 
 $String* CDATASectionImpl::toString() {
-	 return this->$TextImpl::toString();
+	return this->$TextImpl::toString();
 }
 
 int32_t CDATASectionImpl::hashCode() {
-	 return this->$TextImpl::hashCode();
+	return this->$TextImpl::hashCode();
 }
 
 bool CDATASectionImpl::equals(Object$* arg0) {
-	 return this->$TextImpl::equals(arg0);
+	return this->$TextImpl::equals(arg0);
 }
 
 $Object* CDATASectionImpl::clone() {
-	 return this->$TextImpl::clone();
+	return this->$TextImpl::clone();
 }
 
 void CDATASectionImpl::finalize() {

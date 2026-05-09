@@ -38,31 +38,31 @@ void XMLEntityDescriptionImpl::setNamespace($String* namespace$) {
 }
 
 $String* XMLEntityDescriptionImpl::getPublicId() {
-	 return this->$XMLResourceIdentifierImpl::getPublicId();
+	return this->$XMLResourceIdentifierImpl::getPublicId();
 }
 
 $String* XMLEntityDescriptionImpl::getLiteralSystemId() {
-	 return this->$XMLResourceIdentifierImpl::getLiteralSystemId();
+	return this->$XMLResourceIdentifierImpl::getLiteralSystemId();
 }
 
 $String* XMLEntityDescriptionImpl::getBaseSystemId() {
-	 return this->$XMLResourceIdentifierImpl::getBaseSystemId();
+	return this->$XMLResourceIdentifierImpl::getBaseSystemId();
 }
 
 $String* XMLEntityDescriptionImpl::getExpandedSystemId() {
-	 return this->$XMLResourceIdentifierImpl::getExpandedSystemId();
+	return this->$XMLResourceIdentifierImpl::getExpandedSystemId();
 }
 
 $String* XMLEntityDescriptionImpl::getNamespace() {
-	 return this->$XMLResourceIdentifierImpl::getNamespace();
+	return this->$XMLResourceIdentifierImpl::getNamespace();
 }
 
 bool XMLEntityDescriptionImpl::equals(Object$* arg0) {
-	 return this->$XMLResourceIdentifierImpl::equals(arg0);
+	return this->$XMLResourceIdentifierImpl::equals(arg0);
 }
 
 $Object* XMLEntityDescriptionImpl::clone() {
-	 return this->$XMLResourceIdentifierImpl::clone();
+	return this->$XMLResourceIdentifierImpl::clone();
 }
 
 void XMLEntityDescriptionImpl::finalize() {

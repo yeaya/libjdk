@@ -108,19 +108,19 @@ void XTextFieldPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool XTextFieldPeer::isReparentSupported() {
-	 return this->$XComponentPeer::isReparentSupported();
+	return this->$XComponentPeer::isReparentSupported();
 }
 
 bool XTextFieldPeer::isObscured() {
-	 return this->$XComponentPeer::isObscured();
+	return this->$XComponentPeer::isObscured();
 }
 
 bool XTextFieldPeer::canDetermineObscurity() {
-	 return this->$XComponentPeer::canDetermineObscurity();
+	return this->$XComponentPeer::canDetermineObscurity();
 }
 
 bool XTextFieldPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void XTextFieldPeer::paint($Graphics* g) {
@@ -128,7 +128,7 @@ void XTextFieldPeer::paint($Graphics* g) {
 }
 
 $Graphics* XTextFieldPeer::getGraphics() {
-	 return this->$XComponentPeer::getGraphics();
+	return this->$XComponentPeer::getGraphics();
 }
 
 void XTextFieldPeer::coalescePaintEvent($PaintEvent* e) {
@@ -144,7 +144,7 @@ void XTextFieldPeer::layout() {
 }
 
 $FontMetrics* XTextFieldPeer::getFontMetrics($Font* font) {
-	 return this->$XComponentPeer::getFontMetrics(font);
+	return this->$XComponentPeer::getFontMetrics(font);
 }
 
 void XTextFieldPeer::updateCursorImmediately() {
@@ -152,15 +152,15 @@ void XTextFieldPeer::updateCursorImmediately() {
 }
 
 $Image* XTextFieldPeer::createImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createImage(width, height);
+	return this->$XComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* XTextFieldPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createVolatileImage(width, height);
+	return this->$XComponentPeer::createVolatileImage(width, height);
 }
 
 bool XTextFieldPeer::handlesWheelScrolling() {
-	 return this->$XComponentPeer::handlesWheelScrolling();
+	return this->$XComponentPeer::handlesWheelScrolling();
 }
 
 void XTextFieldPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -172,7 +172,7 @@ void XTextFieldPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $Buffe
 }
 
 $Image* XTextFieldPeer::getBackBuffer() {
-	 return this->$XComponentPeer::getBackBuffer();
+	return this->$XComponentPeer::getBackBuffer();
 }
 
 void XTextFieldPeer::destroyBuffers() {
@@ -188,35 +188,35 @@ void XTextFieldPeer::applyShape($Region* shape) {
 }
 
 bool XTextFieldPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XComponentPeer::updateGraphicsData(gc);
+	return this->$XComponentPeer::updateGraphicsData(gc);
 }
 
 $Point* XTextFieldPeer::getLocationOnScreen() {
-	 return this->$XComponentPeer::getLocationOnScreen();
+	return this->$XComponentPeer::getLocationOnScreen();
 }
 
 $ColorModel* XTextFieldPeer::getColorModel() {
-	 return this->$XComponentPeer::getColorModel();
+	return this->$XComponentPeer::getColorModel();
 }
 
 $GraphicsConfiguration* XTextFieldPeer::getGraphicsConfiguration() {
-	 return this->$XComponentPeer::getGraphicsConfiguration();
+	return this->$XComponentPeer::getGraphicsConfiguration();
 }
 
 $String* XTextFieldPeer::toString() {
-	 return this->$XComponentPeer::toString();
+	return this->$XComponentPeer::toString();
 }
 
 int32_t XTextFieldPeer::hashCode() {
-	 return this->$XComponentPeer::hashCode();
+	return this->$XComponentPeer::hashCode();
 }
 
 bool XTextFieldPeer::equals(Object$* arg0) {
-	 return this->$XComponentPeer::equals(arg0);
+	return this->$XComponentPeer::equals(arg0);
 }
 
 $Object* XTextFieldPeer::clone() {
-	 return this->$XComponentPeer::clone();
+	return this->$XComponentPeer::clone();
 }
 
 void XTextFieldPeer::finalize() {

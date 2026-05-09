@@ -80,7 +80,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return WindowsPreferences::lambda$static$0();
+		return WindowsPreferences::lambda$static$0();
 	}
 };
 $Class* WindowsPreferences$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

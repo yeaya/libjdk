@@ -40,55 +40,55 @@ namespace com {
 				namespace processing {
 
 $OutputStream* JavacFiler$FilerOutputJavaFileObject::openOutputStream() {
-	 return this->$JavacFiler$FilerOutputFileObject::openOutputStream();
+	return this->$JavacFiler$FilerOutputFileObject::openOutputStream();
 }
 
 $Writer* JavacFiler$FilerOutputJavaFileObject::openWriter() {
-	 return this->$JavacFiler$FilerOutputFileObject::openWriter();
+	return this->$JavacFiler$FilerOutputFileObject::openWriter();
 }
 
 $InputStream* JavacFiler$FilerOutputJavaFileObject::openInputStream() {
-	 return this->$JavacFiler$FilerOutputFileObject::openInputStream();
+	return this->$JavacFiler$FilerOutputFileObject::openInputStream();
 }
 
 $Reader* JavacFiler$FilerOutputJavaFileObject::openReader(bool ignoreEncodingErrors) {
-	 return this->$JavacFiler$FilerOutputFileObject::openReader(ignoreEncodingErrors);
+	return this->$JavacFiler$FilerOutputFileObject::openReader(ignoreEncodingErrors);
 }
 
 $CharSequence* JavacFiler$FilerOutputJavaFileObject::getCharContent(bool ignoreEncodingErrors) {
-	 return this->$JavacFiler$FilerOutputFileObject::getCharContent(ignoreEncodingErrors);
+	return this->$JavacFiler$FilerOutputFileObject::getCharContent(ignoreEncodingErrors);
 }
 
 bool JavacFiler$FilerOutputJavaFileObject::delete$() {
-	 return this->$JavacFiler$FilerOutputFileObject::delete$();
+	return this->$JavacFiler$FilerOutputFileObject::delete$();
 }
 
 $URI* JavacFiler$FilerOutputJavaFileObject::toUri() {
-	 return this->$JavacFiler$FilerOutputFileObject::toUri();
+	return this->$JavacFiler$FilerOutputFileObject::toUri();
 }
 
 $String* JavacFiler$FilerOutputJavaFileObject::getName() {
-	 return this->$JavacFiler$FilerOutputFileObject::getName();
+	return this->$JavacFiler$FilerOutputFileObject::getName();
 }
 
 int64_t JavacFiler$FilerOutputJavaFileObject::getLastModified() {
-	 return this->$JavacFiler$FilerOutputFileObject::getLastModified();
+	return this->$JavacFiler$FilerOutputFileObject::getLastModified();
 }
 
 int32_t JavacFiler$FilerOutputJavaFileObject::hashCode() {
-	 return this->$JavacFiler$FilerOutputFileObject::hashCode();
+	return this->$JavacFiler$FilerOutputFileObject::hashCode();
 }
 
 bool JavacFiler$FilerOutputJavaFileObject::equals(Object$* arg0) {
-	 return this->$JavacFiler$FilerOutputFileObject::equals(arg0);
+	return this->$JavacFiler$FilerOutputFileObject::equals(arg0);
 }
 
 $Object* JavacFiler$FilerOutputJavaFileObject::clone() {
-	 return this->$JavacFiler$FilerOutputFileObject::clone();
+	return this->$JavacFiler$FilerOutputFileObject::clone();
 }
 
 $String* JavacFiler$FilerOutputJavaFileObject::toString() {
-	 return this->$JavacFiler$FilerOutputFileObject::toString();
+	return this->$JavacFiler$FilerOutputFileObject::toString();
 }
 
 void JavacFiler$FilerOutputJavaFileObject::finalize() {

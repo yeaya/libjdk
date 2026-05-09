@@ -16,19 +16,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JViewport$ViewListener::hashCode() {
-	 return this->$ComponentAdapter::hashCode();
+	return this->$ComponentAdapter::hashCode();
 }
 
 bool JViewport$ViewListener::equals(Object$* arg0) {
-	 return this->$ComponentAdapter::equals(arg0);
+	return this->$ComponentAdapter::equals(arg0);
 }
 
 $Object* JViewport$ViewListener::clone() {
-	 return this->$ComponentAdapter::clone();
+	return this->$ComponentAdapter::clone();
 }
 
 $String* JViewport$ViewListener::toString() {
-	 return this->$ComponentAdapter::toString();
+	return this->$ComponentAdapter::toString();
 }
 
 void JViewport$ViewListener::finalize() {

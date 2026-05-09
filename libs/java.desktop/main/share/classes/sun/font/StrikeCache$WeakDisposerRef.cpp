@@ -23,19 +23,19 @@ namespace sun {
 	namespace font {
 
 $Object* StrikeCache$WeakDisposerRef::clone() {
-	 return this->$WeakReference::clone();
+	return this->$WeakReference::clone();
 }
 
 int32_t StrikeCache$WeakDisposerRef::hashCode() {
-	 return this->$WeakReference::hashCode();
+	return this->$WeakReference::hashCode();
 }
 
 bool StrikeCache$WeakDisposerRef::equals(Object$* arg0) {
-	 return this->$WeakReference::equals(arg0);
+	return this->$WeakReference::equals(arg0);
 }
 
 $String* StrikeCache$WeakDisposerRef::toString() {
-	 return this->$WeakReference::toString();
+	return this->$WeakReference::toString();
 }
 
 void StrikeCache$WeakDisposerRef::finalize() {

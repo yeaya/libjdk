@@ -69,7 +69,7 @@ public:
 		$set(this, PROPERTY, PROPERTY);
 	}
 	virtual $Object* run() override {
-		 return $of(HPACK::lambda$static$0(PROPERTY));
+		return $of(HPACK::lambda$static$0(PROPERTY));
 	}
 	$String* PROPERTY = nullptr;
 };
@@ -106,7 +106,7 @@ public:
 		$set(this, value, value);
 	}
 	virtual $Object* get() override {
-		 return $of(HPACK::lambda$static$1(PROPERTY, value));
+		return $of(HPACK::lambda$static$1(PROPERTY, value));
 	}
 	$String* PROPERTY = nullptr;
 	$String* value = nullptr;
@@ -144,7 +144,7 @@ public:
 		$set(this, l, l);
 	}
 	virtual $Object* get() override {
-		 return $of(HPACK::lambda$static$2(l));
+		return $of(HPACK::lambda$static$2(l));
 	}
 	$HPACK$Logger$Level* l = nullptr;
 };

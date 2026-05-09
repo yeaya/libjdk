@@ -27,27 +27,27 @@ namespace com {
 						namespace generic {
 
 $String* DCMPL::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t DCMPL::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::consumeStack(cpg);
+	return this->$Instruction::consumeStack(cpg);
 }
 
 int32_t DCMPL::produceStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::produceStack(cpg);
+	return this->$Instruction::produceStack(cpg);
 }
 
 bool DCMPL::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t DCMPL::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* DCMPL::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void DCMPL::finalize() {

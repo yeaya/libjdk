@@ -17,19 +17,19 @@ namespace javax {
 		namespace directory {
 
 $Object* Attribute::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 int32_t Attribute::hashCode() {
-	 return this->$Cloneable::hashCode();
+	return this->$Cloneable::hashCode();
 }
 
 bool Attribute::equals(Object$* arg0) {
-	 return this->$Cloneable::equals(arg0);
+	return this->$Cloneable::equals(arg0);
 }
 
 $String* Attribute::toString() {
-	 return this->$Cloneable::toString();
+	return this->$Cloneable::toString();
 }
 
 void Attribute::finalize() {

@@ -33,19 +33,19 @@ namespace com {
 					namespace motif {
 
 int32_t MotifBorders$ButtonBorder::hashCode() {
-	 return this->$AbstractBorder::hashCode();
+	return this->$AbstractBorder::hashCode();
 }
 
 bool MotifBorders$ButtonBorder::equals(Object$* arg0) {
-	 return this->$AbstractBorder::equals(arg0);
+	return this->$AbstractBorder::equals(arg0);
 }
 
 $Object* MotifBorders$ButtonBorder::clone() {
-	 return this->$AbstractBorder::clone();
+	return this->$AbstractBorder::clone();
 }
 
 $String* MotifBorders$ButtonBorder::toString() {
-	 return this->$AbstractBorder::toString();
+	return this->$AbstractBorder::toString();
 }
 
 void MotifBorders$ButtonBorder::finalize() {

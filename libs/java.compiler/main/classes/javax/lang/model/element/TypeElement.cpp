@@ -18,19 +18,19 @@ namespace javax {
 			namespace element {
 
 bool TypeElement::equals(Object$* obj) {
-	 return this->$Parameterizable::equals(obj);
+	return this->$Parameterizable::equals(obj);
 }
 
 int32_t TypeElement::hashCode() {
-	 return this->$Parameterizable::hashCode();
+	return this->$Parameterizable::hashCode();
 }
 
 $Object* TypeElement::clone() {
-	 return this->$Parameterizable::clone();
+	return this->$Parameterizable::clone();
 }
 
 $String* TypeElement::toString() {
-	 return this->$Parameterizable::toString();
+	return this->$Parameterizable::toString();
 }
 
 void TypeElement::finalize() {

@@ -49,7 +49,7 @@ public:
 		$set(this, moduleName, moduleName);
 	}
 	virtual $Object* run() override {
-		 return $of(ToolProvider::lambda$matches$0(tool, moduleName));
+		return $of(ToolProvider::lambda$matches$0(tool, moduleName));
 	}
 	$Object* tool = nullptr;
 	$String* moduleName = nullptr;

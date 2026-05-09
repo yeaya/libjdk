@@ -107,19 +107,19 @@ namespace com {
 			namespace internal {
 
 $SQLXML* SyncResolverImpl::getSQLXML(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getSQLXML(columnIndex);
+	return this->$CachedRowSetImpl::getSQLXML(columnIndex);
 }
 
 $SQLXML* SyncResolverImpl::getSQLXML($String* colName) {
-	 return this->$CachedRowSetImpl::getSQLXML(colName);
+	return this->$CachedRowSetImpl::getSQLXML(colName);
 }
 
 $RowId* SyncResolverImpl::getRowId(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getRowId(columnIndex);
+	return this->$CachedRowSetImpl::getRowId(columnIndex);
 }
 
 $RowId* SyncResolverImpl::getRowId($String* columnName) {
-	 return this->$CachedRowSetImpl::getRowId(columnName);
+	return this->$CachedRowSetImpl::getRowId(columnName);
 }
 
 void SyncResolverImpl::updateRowId(int32_t columnIndex, $RowId* x) {
@@ -131,11 +131,11 @@ void SyncResolverImpl::updateRowId($String* columnName, $RowId* x) {
 }
 
 int32_t SyncResolverImpl::getHoldability() {
-	 return this->$CachedRowSetImpl::getHoldability();
+	return this->$CachedRowSetImpl::getHoldability();
 }
 
 bool SyncResolverImpl::isClosed() {
-	 return this->$CachedRowSetImpl::isClosed();
+	return this->$CachedRowSetImpl::isClosed();
 }
 
 void SyncResolverImpl::updateNString(int32_t columnIndex, $String* nString) {
@@ -155,19 +155,19 @@ void SyncResolverImpl::updateNClob($String* columnName, $NClob* nClob) {
 }
 
 $NClob* SyncResolverImpl::getNClob(int32_t i) {
-	 return this->$CachedRowSetImpl::getNClob(i);
+	return this->$CachedRowSetImpl::getNClob(i);
 }
 
 $NClob* SyncResolverImpl::getNClob($String* colName) {
-	 return this->$CachedRowSetImpl::getNClob(colName);
+	return this->$CachedRowSetImpl::getNClob(colName);
 }
 
 $Object* SyncResolverImpl::unwrap($Class* iface) {
-	 return this->$CachedRowSetImpl::unwrap(iface);
+	return this->$CachedRowSetImpl::unwrap(iface);
 }
 
 bool SyncResolverImpl::isWrapperFor($Class* interfaces) {
-	 return this->$CachedRowSetImpl::isWrapperFor(interfaces);
+	return this->$CachedRowSetImpl::isWrapperFor(interfaces);
 }
 
 void SyncResolverImpl::setSQLXML(int32_t parameterIndex, $SQLXML* xmlObject) {
@@ -195,11 +195,11 @@ void SyncResolverImpl::setNClob($String* parameterName, $NClob* value) {
 }
 
 $Reader* SyncResolverImpl::getNCharacterStream(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getNCharacterStream(columnIndex);
+	return this->$CachedRowSetImpl::getNCharacterStream(columnIndex);
 }
 
 $Reader* SyncResolverImpl::getNCharacterStream($String* columnName) {
-	 return this->$CachedRowSetImpl::getNCharacterStream(columnName);
+	return this->$CachedRowSetImpl::getNCharacterStream(columnName);
 }
 
 void SyncResolverImpl::updateSQLXML(int32_t columnIndex, $SQLXML* xmlObject) {
@@ -211,11 +211,11 @@ void SyncResolverImpl::updateSQLXML($String* columnName, $SQLXML* xmlObject) {
 }
 
 $String* SyncResolverImpl::getNString(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getNString(columnIndex);
+	return this->$CachedRowSetImpl::getNString(columnIndex);
 }
 
 $String* SyncResolverImpl::getNString($String* columnName) {
-	 return this->$CachedRowSetImpl::getNString(columnName);
+	return this->$CachedRowSetImpl::getNString(columnName);
 }
 
 void SyncResolverImpl::updateNCharacterStream(int32_t columnIndex, $Reader* x, int64_t length) {
@@ -523,11 +523,11 @@ void SyncResolverImpl::setDouble($String* parameterName, double x) {
 }
 
 $Object* SyncResolverImpl::getObject(int32_t columnIndex, $Class* type) {
-	 return this->$CachedRowSetImpl::getObject(columnIndex, type);
+	return this->$CachedRowSetImpl::getObject(columnIndex, type);
 }
 
 $Object* SyncResolverImpl::getObject($String* columnLabel, $Class* type) {
-	 return this->$CachedRowSetImpl::getObject(columnLabel, type);
+	return this->$CachedRowSetImpl::getObject(columnLabel, type);
 }
 
 void SyncResolverImpl::addRowSetListener($RowSetListener* listener) {
@@ -539,11 +539,11 @@ void SyncResolverImpl::removeRowSetListener($RowSetListener* listener) {
 }
 
 $String* SyncResolverImpl::getCommand() {
-	 return this->$CachedRowSetImpl::getCommand();
+	return this->$CachedRowSetImpl::getCommand();
 }
 
 $String* SyncResolverImpl::getUrl() {
-	 return this->$CachedRowSetImpl::getUrl();
+	return this->$CachedRowSetImpl::getUrl();
 }
 
 void SyncResolverImpl::setUrl($String* url) {
@@ -551,7 +551,7 @@ void SyncResolverImpl::setUrl($String* url) {
 }
 
 $String* SyncResolverImpl::getDataSourceName() {
-	 return this->$CachedRowSetImpl::getDataSourceName();
+	return this->$CachedRowSetImpl::getDataSourceName();
 }
 
 void SyncResolverImpl::setDataSourceName($String* name) {
@@ -559,7 +559,7 @@ void SyncResolverImpl::setDataSourceName($String* name) {
 }
 
 $String* SyncResolverImpl::getUsername() {
-	 return this->$CachedRowSetImpl::getUsername();
+	return this->$CachedRowSetImpl::getUsername();
 }
 
 void SyncResolverImpl::setUsername($String* name) {
@@ -567,7 +567,7 @@ void SyncResolverImpl::setUsername($String* name) {
 }
 
 $String* SyncResolverImpl::getPassword() {
-	 return this->$CachedRowSetImpl::getPassword();
+	return this->$CachedRowSetImpl::getPassword();
 }
 
 void SyncResolverImpl::setPassword($String* pass) {
@@ -579,7 +579,7 @@ void SyncResolverImpl::setType(int32_t type) {
 }
 
 int32_t SyncResolverImpl::getType() {
-	 return this->$CachedRowSetImpl::getType();
+	return this->$CachedRowSetImpl::getType();
 }
 
 void SyncResolverImpl::setConcurrency(int32_t concurrency) {
@@ -587,7 +587,7 @@ void SyncResolverImpl::setConcurrency(int32_t concurrency) {
 }
 
 bool SyncResolverImpl::isReadOnly() {
-	 return this->$CachedRowSetImpl::isReadOnly();
+	return this->$CachedRowSetImpl::isReadOnly();
 }
 
 void SyncResolverImpl::setReadOnly(bool value) {
@@ -595,7 +595,7 @@ void SyncResolverImpl::setReadOnly(bool value) {
 }
 
 int32_t SyncResolverImpl::getTransactionIsolation() {
-	 return this->$CachedRowSetImpl::getTransactionIsolation();
+	return this->$CachedRowSetImpl::getTransactionIsolation();
 }
 
 void SyncResolverImpl::setTransactionIsolation(int32_t level) {
@@ -603,7 +603,7 @@ void SyncResolverImpl::setTransactionIsolation(int32_t level) {
 }
 
 $Map* SyncResolverImpl::getTypeMap() {
-	 return this->$CachedRowSetImpl::getTypeMap();
+	return this->$CachedRowSetImpl::getTypeMap();
 }
 
 void SyncResolverImpl::setTypeMap($Map* map) {
@@ -611,7 +611,7 @@ void SyncResolverImpl::setTypeMap($Map* map) {
 }
 
 int32_t SyncResolverImpl::getMaxFieldSize() {
-	 return this->$CachedRowSetImpl::getMaxFieldSize();
+	return this->$CachedRowSetImpl::getMaxFieldSize();
 }
 
 void SyncResolverImpl::setMaxFieldSize(int32_t max) {
@@ -619,7 +619,7 @@ void SyncResolverImpl::setMaxFieldSize(int32_t max) {
 }
 
 int32_t SyncResolverImpl::getMaxRows() {
-	 return this->$CachedRowSetImpl::getMaxRows();
+	return this->$CachedRowSetImpl::getMaxRows();
 }
 
 void SyncResolverImpl::setMaxRows(int32_t max) {
@@ -631,7 +631,7 @@ void SyncResolverImpl::setEscapeProcessing(bool enable) {
 }
 
 int32_t SyncResolverImpl::getQueryTimeout() {
-	 return this->$CachedRowSetImpl::getQueryTimeout();
+	return this->$CachedRowSetImpl::getQueryTimeout();
 }
 
 void SyncResolverImpl::setQueryTimeout(int32_t seconds) {
@@ -639,7 +639,7 @@ void SyncResolverImpl::setQueryTimeout(int32_t seconds) {
 }
 
 bool SyncResolverImpl::getEscapeProcessing() {
-	 return this->$CachedRowSetImpl::getEscapeProcessing();
+	return this->$CachedRowSetImpl::getEscapeProcessing();
 }
 
 void SyncResolverImpl::setFetchDirection(int32_t direction) {
@@ -647,7 +647,7 @@ void SyncResolverImpl::setFetchDirection(int32_t direction) {
 }
 
 int32_t SyncResolverImpl::getFetchDirection() {
-	 return this->$CachedRowSetImpl::getFetchDirection();
+	return this->$CachedRowSetImpl::getFetchDirection();
 }
 
 void SyncResolverImpl::setFetchSize(int32_t rows) {
@@ -655,11 +655,11 @@ void SyncResolverImpl::setFetchSize(int32_t rows) {
 }
 
 int32_t SyncResolverImpl::getFetchSize() {
-	 return this->$CachedRowSetImpl::getFetchSize();
+	return this->$CachedRowSetImpl::getFetchSize();
 }
 
 int32_t SyncResolverImpl::getConcurrency() {
-	 return this->$CachedRowSetImpl::getConcurrency();
+	return this->$CachedRowSetImpl::getConcurrency();
 }
 
 void SyncResolverImpl::setNull(int32_t parameterIndex, int32_t sqlType) {
@@ -791,15 +791,15 @@ void SyncResolverImpl::clearParameters() {
 }
 
 int32_t SyncResolverImpl::hashCode() {
-	 return this->$CachedRowSetImpl::hashCode();
+	return this->$CachedRowSetImpl::hashCode();
 }
 
 bool SyncResolverImpl::equals(Object$* arg0) {
-	 return this->$CachedRowSetImpl::equals(arg0);
+	return this->$CachedRowSetImpl::equals(arg0);
 }
 
 $String* SyncResolverImpl::toString() {
-	 return this->$CachedRowSetImpl::toString();
+	return this->$CachedRowSetImpl::toString();
 }
 
 void SyncResolverImpl::finalize() {

@@ -45,19 +45,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicFileChooserUI$Handler::hashCode() {
-	 return this->$MouseListener::hashCode();
+	return this->$MouseListener::hashCode();
 }
 
 bool BasicFileChooserUI$Handler::equals(Object$* arg0) {
-	 return this->$MouseListener::equals(arg0);
+	return this->$MouseListener::equals(arg0);
 }
 
 $Object* BasicFileChooserUI$Handler::clone() {
-	 return this->$MouseListener::clone();
+	return this->$MouseListener::clone();
 }
 
 $String* BasicFileChooserUI$Handler::toString() {
-	 return this->$MouseListener::toString();
+	return this->$MouseListener::toString();
 }
 
 void BasicFileChooserUI$Handler::finalize() {

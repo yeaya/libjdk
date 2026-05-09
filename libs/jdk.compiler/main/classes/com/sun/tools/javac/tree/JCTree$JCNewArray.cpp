@@ -34,19 +34,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCNewArray::toString() {
-	 return this->$JCTree$JCExpression::toString();
+	return this->$JCTree$JCExpression::toString();
 }
 
 $Object* JCTree$JCNewArray::clone() {
-	 return this->$JCTree$JCExpression::clone();
+	return this->$JCTree$JCExpression::clone();
 }
 
 int32_t JCTree$JCNewArray::hashCode() {
-	 return this->$JCTree$JCExpression::hashCode();
+	return this->$JCTree$JCExpression::hashCode();
 }
 
 bool JCTree$JCNewArray::equals(Object$* arg0) {
-	 return this->$JCTree$JCExpression::equals(arg0);
+	return this->$JCTree$JCExpression::equals(arg0);
 }
 
 void JCTree$JCNewArray::finalize() {

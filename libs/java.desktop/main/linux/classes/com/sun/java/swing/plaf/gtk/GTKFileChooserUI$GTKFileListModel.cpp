@@ -24,19 +24,19 @@ namespace com {
 					namespace gtk {
 
 int32_t GTKFileChooserUI$GTKFileListModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool GTKFileChooserUI$GTKFileListModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* GTKFileChooserUI$GTKFileListModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* GTKFileChooserUI$GTKFileListModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void GTKFileChooserUI$GTKFileListModel::finalize() {

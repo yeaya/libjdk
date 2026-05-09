@@ -27,19 +27,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JFileChooser$FCHierarchyListener::hashCode() {
-	 return this->$HierarchyListener::hashCode();
+	return this->$HierarchyListener::hashCode();
 }
 
 bool JFileChooser$FCHierarchyListener::equals(Object$* arg0) {
-	 return this->$HierarchyListener::equals(arg0);
+	return this->$HierarchyListener::equals(arg0);
 }
 
 $Object* JFileChooser$FCHierarchyListener::clone() {
-	 return this->$HierarchyListener::clone();
+	return this->$HierarchyListener::clone();
 }
 
 $String* JFileChooser$FCHierarchyListener::toString() {
-	 return this->$HierarchyListener::toString();
+	return this->$HierarchyListener::toString();
 }
 
 void JFileChooser$FCHierarchyListener::finalize() {

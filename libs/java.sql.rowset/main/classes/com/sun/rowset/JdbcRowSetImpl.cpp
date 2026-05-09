@@ -115,27 +115,27 @@ void JdbcRowSetImpl::removeRowSetListener($RowSetListener* listener) {
 }
 
 $String* JdbcRowSetImpl::getCommand() {
-	 return this->$BaseRowSet::getCommand();
+	return this->$BaseRowSet::getCommand();
 }
 
 $String* JdbcRowSetImpl::getUrl() {
-	 return this->$BaseRowSet::getUrl();
+	return this->$BaseRowSet::getUrl();
 }
 
 $String* JdbcRowSetImpl::getDataSourceName() {
-	 return this->$BaseRowSet::getDataSourceName();
+	return this->$BaseRowSet::getDataSourceName();
 }
 
 $String* JdbcRowSetImpl::getUsername() {
-	 return this->$BaseRowSet::getUsername();
+	return this->$BaseRowSet::getUsername();
 }
 
 $String* JdbcRowSetImpl::getPassword() {
-	 return this->$BaseRowSet::getPassword();
+	return this->$BaseRowSet::getPassword();
 }
 
 bool JdbcRowSetImpl::isReadOnly() {
-	 return this->$BaseRowSet::isReadOnly();
+	return this->$BaseRowSet::isReadOnly();
 }
 
 void JdbcRowSetImpl::setReadOnly(bool value) {
@@ -143,7 +143,7 @@ void JdbcRowSetImpl::setReadOnly(bool value) {
 }
 
 int32_t JdbcRowSetImpl::getTransactionIsolation() {
-	 return this->$BaseRowSet::getTransactionIsolation();
+	return this->$BaseRowSet::getTransactionIsolation();
 }
 
 void JdbcRowSetImpl::setTransactionIsolation(int32_t level) {
@@ -151,7 +151,7 @@ void JdbcRowSetImpl::setTransactionIsolation(int32_t level) {
 }
 
 $Map* JdbcRowSetImpl::getTypeMap() {
-	 return this->$BaseRowSet::getTypeMap();
+	return this->$BaseRowSet::getTypeMap();
 }
 
 void JdbcRowSetImpl::setTypeMap($Map* map) {
@@ -159,7 +159,7 @@ void JdbcRowSetImpl::setTypeMap($Map* map) {
 }
 
 int32_t JdbcRowSetImpl::getMaxFieldSize() {
-	 return this->$BaseRowSet::getMaxFieldSize();
+	return this->$BaseRowSet::getMaxFieldSize();
 }
 
 void JdbcRowSetImpl::setMaxFieldSize(int32_t max) {
@@ -167,7 +167,7 @@ void JdbcRowSetImpl::setMaxFieldSize(int32_t max) {
 }
 
 int32_t JdbcRowSetImpl::getMaxRows() {
-	 return this->$BaseRowSet::getMaxRows();
+	return this->$BaseRowSet::getMaxRows();
 }
 
 void JdbcRowSetImpl::setMaxRows(int32_t max) {
@@ -179,7 +179,7 @@ void JdbcRowSetImpl::setEscapeProcessing(bool enable) {
 }
 
 int32_t JdbcRowSetImpl::getQueryTimeout() {
-	 return this->$BaseRowSet::getQueryTimeout();
+	return this->$BaseRowSet::getQueryTimeout();
 }
 
 void JdbcRowSetImpl::setQueryTimeout(int32_t seconds) {
@@ -187,7 +187,7 @@ void JdbcRowSetImpl::setQueryTimeout(int32_t seconds) {
 }
 
 bool JdbcRowSetImpl::getShowDeleted() {
-	 return this->$BaseRowSet::getShowDeleted();
+	return this->$BaseRowSet::getShowDeleted();
 }
 
 void JdbcRowSetImpl::setShowDeleted(bool value) {
@@ -195,11 +195,11 @@ void JdbcRowSetImpl::setShowDeleted(bool value) {
 }
 
 bool JdbcRowSetImpl::getEscapeProcessing() {
-	 return this->$BaseRowSet::getEscapeProcessing();
+	return this->$BaseRowSet::getEscapeProcessing();
 }
 
 int32_t JdbcRowSetImpl::getFetchSize() {
-	 return this->$BaseRowSet::getFetchSize();
+	return this->$BaseRowSet::getFetchSize();
 }
 
 void JdbcRowSetImpl::setNull(int32_t parameterIndex, int32_t sqlType) {
@@ -331,19 +331,19 @@ void JdbcRowSetImpl::clearParameters() {
 }
 
 int32_t JdbcRowSetImpl::hashCode() {
-	 return this->$BaseRowSet::hashCode();
+	return this->$BaseRowSet::hashCode();
 }
 
 bool JdbcRowSetImpl::equals(Object$* arg0) {
-	 return this->$BaseRowSet::equals(arg0);
+	return this->$BaseRowSet::equals(arg0);
 }
 
 $Object* JdbcRowSetImpl::clone() {
-	 return this->$BaseRowSet::clone();
+	return this->$BaseRowSet::clone();
 }
 
 $String* JdbcRowSetImpl::toString() {
-	 return this->$BaseRowSet::toString();
+	return this->$BaseRowSet::toString();
 }
 
 void JdbcRowSetImpl::finalize() {

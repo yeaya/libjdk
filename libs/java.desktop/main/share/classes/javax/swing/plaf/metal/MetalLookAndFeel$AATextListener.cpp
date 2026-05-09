@@ -48,19 +48,19 @@ namespace javax {
 			namespace metal {
 
 $Object* MetalLookAndFeel$AATextListener::clone() {
-	 return this->$WeakReference::clone();
+	return this->$WeakReference::clone();
 }
 
 int32_t MetalLookAndFeel$AATextListener::hashCode() {
-	 return this->$WeakReference::hashCode();
+	return this->$WeakReference::hashCode();
 }
 
 bool MetalLookAndFeel$AATextListener::equals(Object$* arg0) {
-	 return this->$WeakReference::equals(arg0);
+	return this->$WeakReference::equals(arg0);
 }
 
 $String* MetalLookAndFeel$AATextListener::toString() {
-	 return this->$WeakReference::toString();
+	return this->$WeakReference::toString();
 }
 
 void MetalLookAndFeel$AATextListener::finalize() {

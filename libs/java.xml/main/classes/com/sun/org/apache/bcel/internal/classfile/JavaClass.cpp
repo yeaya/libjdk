@@ -93,7 +93,7 @@ namespace com {
 						namespace classfile {
 
 $Object* JavaClass::clone() {
-	 return this->$AccessFlags::clone();
+	return this->$AccessFlags::clone();
 }
 
 void JavaClass::finalize() {

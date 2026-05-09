@@ -11,19 +11,19 @@ namespace javax {
 	namespace swing {
 
 $String* DefaultListCellRenderer$UIResource::toString() {
-	 return this->$DefaultListCellRenderer::toString();
+	return this->$DefaultListCellRenderer::toString();
 }
 
 int32_t DefaultListCellRenderer$UIResource::hashCode() {
-	 return this->$DefaultListCellRenderer::hashCode();
+	return this->$DefaultListCellRenderer::hashCode();
 }
 
 bool DefaultListCellRenderer$UIResource::equals(Object$* arg0) {
-	 return this->$DefaultListCellRenderer::equals(arg0);
+	return this->$DefaultListCellRenderer::equals(arg0);
 }
 
 $Object* DefaultListCellRenderer$UIResource::clone() {
-	 return this->$DefaultListCellRenderer::clone();
+	return this->$DefaultListCellRenderer::clone();
 }
 
 void DefaultListCellRenderer$UIResource::finalize() {

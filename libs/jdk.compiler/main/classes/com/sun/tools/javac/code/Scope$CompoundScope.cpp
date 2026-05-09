@@ -52,7 +52,7 @@ public:
 		$set(this, lookupKind, lookupKind);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$getSymbols$1(sf, lookupKind);
+		return $nc(inst$)->lambda$getSymbols$1(sf, lookupKind);
 	}
 	Scope$CompoundScope* inst$ = nullptr;
 	$Predicate* sf = nullptr;
@@ -95,7 +95,7 @@ public:
 		$set(this, lookupKind, lookupKind);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$getSymbolsByName$3(name, sf, lookupKind);
+		return $nc(inst$)->lambda$getSymbolsByName$3(name, sf, lookupKind);
 	}
 	Scope$CompoundScope* inst$ = nullptr;
 	$Name* name = nullptr;
@@ -139,7 +139,7 @@ public:
 		$set(this, lookupKind, lookupKind);
 	}
 	virtual $Object* apply(Object$* scope) override {
-		 return Scope$CompoundScope::lambda$getSymbolsByName$2(name, sf, lookupKind, $cast($Scope, scope));
+		return Scope$CompoundScope::lambda$getSymbolsByName$2(name, sf, lookupKind, $cast($Scope, scope));
 	}
 	$Name* name = nullptr;
 	$Predicate* sf = nullptr;
@@ -180,7 +180,7 @@ public:
 		$set(this, lookupKind, lookupKind);
 	}
 	virtual $Object* apply(Object$* scope) override {
-		 return Scope$CompoundScope::lambda$getSymbols$0(sf, lookupKind, $cast($Scope, scope));
+		return Scope$CompoundScope::lambda$getSymbols$0(sf, lookupKind, $cast($Scope, scope));
 	}
 	$Predicate* sf = nullptr;
 	$Scope$LookupKind* lookupKind = nullptr;
@@ -212,15 +212,15 @@ $Class* Scope$CompoundScope$$Lambda$lambda$getSymbols$0$3::load$($String* name, 
 $Class* Scope$CompoundScope$$Lambda$lambda$getSymbols$0$3::class$ = nullptr;
 
 int32_t Scope$CompoundScope::hashCode() {
-	 return this->$Scope::hashCode();
+	return this->$Scope::hashCode();
 }
 
 bool Scope$CompoundScope::equals(Object$* arg0) {
-	 return this->$Scope::equals(arg0);
+	return this->$Scope::equals(arg0);
 }
 
 $Object* Scope$CompoundScope::clone() {
-	 return this->$Scope::clone();
+	return this->$Scope::clone();
 }
 
 void Scope$CompoundScope::finalize() {

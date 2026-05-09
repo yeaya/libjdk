@@ -28,55 +28,55 @@ namespace javax {
 			namespace html {
 
 int32_t StyleSheet$ResolvedStyle::getAttributeCount() {
-	 return this->$MuxingAttributeSet::getAttributeCount();
+	return this->$MuxingAttributeSet::getAttributeCount();
 }
 
 bool StyleSheet$ResolvedStyle::isDefined(Object$* key) {
-	 return this->$MuxingAttributeSet::isDefined(key);
+	return this->$MuxingAttributeSet::isDefined(key);
 }
 
 bool StyleSheet$ResolvedStyle::isEqual($AttributeSet* attr) {
-	 return this->$MuxingAttributeSet::isEqual(attr);
+	return this->$MuxingAttributeSet::isEqual(attr);
 }
 
 $AttributeSet* StyleSheet$ResolvedStyle::copyAttributes() {
-	 return this->$MuxingAttributeSet::copyAttributes();
+	return this->$MuxingAttributeSet::copyAttributes();
 }
 
 $Object* StyleSheet$ResolvedStyle::getAttribute(Object$* key) {
-	 return this->$MuxingAttributeSet::getAttribute(key);
+	return this->$MuxingAttributeSet::getAttribute(key);
 }
 
 $Enumeration* StyleSheet$ResolvedStyle::getAttributeNames() {
-	 return this->$MuxingAttributeSet::getAttributeNames();
+	return this->$MuxingAttributeSet::getAttributeNames();
 }
 
 bool StyleSheet$ResolvedStyle::containsAttribute(Object$* name, Object$* value) {
-	 return this->$MuxingAttributeSet::containsAttribute(name, value);
+	return this->$MuxingAttributeSet::containsAttribute(name, value);
 }
 
 bool StyleSheet$ResolvedStyle::containsAttributes($AttributeSet* attrs) {
-	 return this->$MuxingAttributeSet::containsAttributes(attrs);
+	return this->$MuxingAttributeSet::containsAttributes(attrs);
 }
 
 $AttributeSet* StyleSheet$ResolvedStyle::getResolveParent() {
-	 return this->$MuxingAttributeSet::getResolveParent();
+	return this->$MuxingAttributeSet::getResolveParent();
 }
 
 int32_t StyleSheet$ResolvedStyle::hashCode() {
-	 return this->$MuxingAttributeSet::hashCode();
+	return this->$MuxingAttributeSet::hashCode();
 }
 
 bool StyleSheet$ResolvedStyle::equals(Object$* arg0) {
-	 return this->$MuxingAttributeSet::equals(arg0);
+	return this->$MuxingAttributeSet::equals(arg0);
 }
 
 $Object* StyleSheet$ResolvedStyle::clone() {
-	 return this->$MuxingAttributeSet::clone();
+	return this->$MuxingAttributeSet::clone();
 }
 
 $String* StyleSheet$ResolvedStyle::toString() {
-	 return this->$MuxingAttributeSet::toString();
+	return this->$MuxingAttributeSet::toString();
 }
 
 void StyleSheet$ResolvedStyle::finalize() {

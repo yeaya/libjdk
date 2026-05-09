@@ -24,11 +24,11 @@ namespace javax {
 			namespace element {
 
 bool Element::equals(Object$* obj) {
-	 return this->$AnnotatedConstruct::equals(obj);
+	return this->$AnnotatedConstruct::equals(obj);
 }
 
 int32_t Element::hashCode() {
-	 return this->$AnnotatedConstruct::hashCode();
+	return this->$AnnotatedConstruct::hashCode();
 }
 
 $Class* Element::load$($String* name, bool initialize) {

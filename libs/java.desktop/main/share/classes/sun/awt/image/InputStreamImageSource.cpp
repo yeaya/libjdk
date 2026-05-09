@@ -45,19 +45,19 @@ namespace sun {
 		namespace image {
 
 int32_t InputStreamImageSource::hashCode() {
-	 return this->$ImageProducer::hashCode();
+	return this->$ImageProducer::hashCode();
 }
 
 bool InputStreamImageSource::equals(Object$* arg0) {
-	 return this->$ImageProducer::equals(arg0);
+	return this->$ImageProducer::equals(arg0);
 }
 
 $Object* InputStreamImageSource::clone() {
-	 return this->$ImageProducer::clone();
+	return this->$ImageProducer::clone();
 }
 
 $String* InputStreamImageSource::toString() {
-	 return this->$ImageProducer::toString();
+	return this->$ImageProducer::toString();
 }
 
 void InputStreamImageSource::finalize() {

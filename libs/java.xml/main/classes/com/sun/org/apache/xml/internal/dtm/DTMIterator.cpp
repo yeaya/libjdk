@@ -22,7 +22,7 @@ namespace com {
 						namespace dtm {
 
 $Object* DTMIterator::clone() {
-	 return this->$Object::clone();
+	return this->$Object::clone();
 }
 
 $Class* DTMIterator::load$($String* name, bool initialize) {

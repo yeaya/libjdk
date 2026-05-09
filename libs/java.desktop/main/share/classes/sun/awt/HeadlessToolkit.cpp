@@ -96,19 +96,19 @@ namespace sun {
 	namespace awt {
 
 int32_t HeadlessToolkit::hashCode() {
-	 return this->$Toolkit::hashCode();
+	return this->$Toolkit::hashCode();
 }
 
 bool HeadlessToolkit::equals(Object$* arg0) {
-	 return this->$Toolkit::equals(arg0);
+	return this->$Toolkit::equals(arg0);
 }
 
 $Object* HeadlessToolkit::clone() {
-	 return this->$Toolkit::clone();
+	return this->$Toolkit::clone();
 }
 
 $String* HeadlessToolkit::toString() {
-	 return this->$Toolkit::toString();
+	return this->$Toolkit::toString();
 }
 
 void HeadlessToolkit::finalize() {

@@ -61,7 +61,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual int64_t run(int64_t ptr) override {
-		 return $nc(inst$)->lambda$createModel$0(ptr);
+		return $nc(inst$)->lambda$createModel$0(ptr);
 	}
 	CMenuItem* inst$ = nullptr;
 };
@@ -307,19 +307,19 @@ void CMenuItem::finalize() {
 }
 
 int32_t CMenuItem::hashCode() {
-	 return this->$CMenuComponent::hashCode();
+	return this->$CMenuComponent::hashCode();
 }
 
 bool CMenuItem::equals(Object$* arg0) {
-	 return this->$CMenuComponent::equals(arg0);
+	return this->$CMenuComponent::equals(arg0);
 }
 
 $Object* CMenuItem::clone() {
-	 return this->$CMenuComponent::clone();
+	return this->$CMenuComponent::clone();
 }
 
 $String* CMenuItem::toString() {
-	 return this->$CMenuComponent::toString();
+	return this->$CMenuComponent::toString();
 }
 
 void CMenuItem::init$($MenuItem* target) {

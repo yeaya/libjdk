@@ -38,7 +38,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* obj) override {
-		 return $nc(inst$)->equals(obj);
+		return $nc(inst$)->equals(obj);
 	}
 	$AudioFormat$Encoding* inst$ = nullptr;
 };
@@ -74,7 +74,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* format) override {
-		 return $nc(inst$)->matches($cast($AudioFormat, format));
+		return $nc(inst$)->matches($cast($AudioFormat, format));
 	}
 	$AudioFormat* inst$ = nullptr;
 };

@@ -20,7 +20,7 @@ namespace org {
 			namespace ranges {
 
 $String* Range::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $Class* Range::load$($String* name, bool initialize) {

@@ -35,19 +35,19 @@ namespace com {
 					namespace windows {
 
 int32_t XPStyle$XPEmptyBorder::hashCode() {
-	 return this->$EmptyBorder::hashCode();
+	return this->$EmptyBorder::hashCode();
 }
 
 bool XPStyle$XPEmptyBorder::equals(Object$* arg0) {
-	 return this->$EmptyBorder::equals(arg0);
+	return this->$EmptyBorder::equals(arg0);
 }
 
 $Object* XPStyle$XPEmptyBorder::clone() {
-	 return this->$EmptyBorder::clone();
+	return this->$EmptyBorder::clone();
 }
 
 $String* XPStyle$XPEmptyBorder::toString() {
-	 return this->$EmptyBorder::toString();
+	return this->$EmptyBorder::toString();
 }
 
 void XPStyle$XPEmptyBorder::finalize() {

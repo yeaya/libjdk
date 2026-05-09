@@ -95,7 +95,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return $of($nc(inst$)->lambda$visitVarDef$1($cast($Symbol, k)));
+		return $of($nc(inst$)->lambda$visitVarDef$1($cast($Symbol, k)));
 	}
 	TreeHasher* inst$ = nullptr;
 };

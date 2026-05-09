@@ -32,19 +32,19 @@ namespace java {
 		namespace logging {
 
 int32_t LogManager$LoggingProviderAccess::hashCode() {
-	 return this->$LoggingProviderImpl$LogManagerAccess::hashCode();
+	return this->$LoggingProviderImpl$LogManagerAccess::hashCode();
 }
 
 bool LogManager$LoggingProviderAccess::equals(Object$* arg0) {
-	 return this->$LoggingProviderImpl$LogManagerAccess::equals(arg0);
+	return this->$LoggingProviderImpl$LogManagerAccess::equals(arg0);
 }
 
 $Object* LogManager$LoggingProviderAccess::clone() {
-	 return this->$LoggingProviderImpl$LogManagerAccess::clone();
+	return this->$LoggingProviderImpl$LogManagerAccess::clone();
 }
 
 $String* LogManager$LoggingProviderAccess::toString() {
-	 return this->$LoggingProviderImpl$LogManagerAccess::toString();
+	return this->$LoggingProviderImpl$LogManagerAccess::toString();
 }
 
 void LogManager$LoggingProviderAccess::finalize() {

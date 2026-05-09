@@ -214,7 +214,7 @@ namespace sun {
 	namespace print {
 
 $Object* UnixPrintService::clone() {
-	 return this->$PrintService::clone();
+	return this->$PrintService::clone();
 }
 
 void UnixPrintService::finalize() {

@@ -26,7 +26,7 @@ namespace javax {
 		namespace modelmbean {
 
 $Object* ModelMBeanInfo::clone() {
-	 return this->$Object::clone();
+	return this->$Object::clone();
 }
 
 $Class* ModelMBeanInfo::load$($String* name, bool initialize) {

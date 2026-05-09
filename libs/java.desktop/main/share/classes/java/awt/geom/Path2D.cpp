@@ -80,19 +80,19 @@ namespace java {
 		namespace geom {
 
 $Object* Path2D::clone() {
-	 return this->$Shape::clone();
+	return this->$Shape::clone();
 }
 
 int32_t Path2D::hashCode() {
-	 return this->$Shape::hashCode();
+	return this->$Shape::hashCode();
 }
 
 bool Path2D::equals(Object$* arg0) {
-	 return this->$Shape::equals(arg0);
+	return this->$Shape::equals(arg0);
 }
 
 $String* Path2D::toString() {
-	 return this->$Shape::toString();
+	return this->$Shape::toString();
 }
 
 void Path2D::finalize() {

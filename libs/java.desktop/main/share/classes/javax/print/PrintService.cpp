@@ -25,11 +25,11 @@ namespace javax {
 	namespace print {
 
 bool PrintService::equals(Object$* obj) {
-	 return this->$Object::equals(obj);
+	return this->$Object::equals(obj);
 }
 
 int32_t PrintService::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $Class* PrintService::load$($String* name, bool initialize) {

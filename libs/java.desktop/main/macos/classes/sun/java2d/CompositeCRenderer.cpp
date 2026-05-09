@@ -85,19 +85,19 @@ namespace sun {
 	namespace java2d {
 
 int32_t CompositeCRenderer::hashCode() {
-	 return this->$CRenderer::hashCode();
+	return this->$CRenderer::hashCode();
 }
 
 bool CompositeCRenderer::equals(Object$* arg0) {
-	 return this->$CRenderer::equals(arg0);
+	return this->$CRenderer::equals(arg0);
 }
 
 $Object* CompositeCRenderer::clone() {
-	 return this->$CRenderer::clone();
+	return this->$CRenderer::clone();
 }
 
 $String* CompositeCRenderer::toString() {
-	 return this->$CRenderer::toString();
+	return this->$CRenderer::toString();
 }
 
 void CompositeCRenderer::finalize() {

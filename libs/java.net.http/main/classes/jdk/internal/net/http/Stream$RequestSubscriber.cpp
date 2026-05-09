@@ -98,7 +98,7 @@ public:
 		$set(this, throwable, throwable);
 	}
 	virtual $Object* get() override {
-		 return $of(Stream$RequestSubscriber::lambda$onError$0(throwable));
+		return $of(Stream$RequestSubscriber::lambda$onError$0(throwable));
 	}
 	$Throwable* throwable = nullptr;
 };

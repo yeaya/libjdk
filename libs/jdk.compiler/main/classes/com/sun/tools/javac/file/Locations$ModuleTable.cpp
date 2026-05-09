@@ -52,7 +52,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return Locations$ModuleTable::lambda$explicitLocations$0($cast($Map$Entry, e));
+		return Locations$ModuleTable::lambda$explicitLocations$0($cast($Map$Entry, e));
 	}
 };
 $Class* Locations$ModuleTable$$Lambda$lambda$explicitLocations$0::load$($String* name, bool initialize) {
@@ -82,7 +82,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(Locations$ModuleTable::lambda$explicitLocations$1($cast($Map$Entry, e)));
+		return $of(Locations$ModuleTable::lambda$explicitLocations$1($cast($Map$Entry, e)));
 	}
 };
 $Class* Locations$ModuleTable$$Lambda$lambda$explicitLocations$1$1::load$($String* name, bool initialize) {

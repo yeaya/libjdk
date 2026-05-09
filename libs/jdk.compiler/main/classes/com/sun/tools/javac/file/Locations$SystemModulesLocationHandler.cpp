@@ -91,7 +91,7 @@ public:
 	void init$() {
 	}
 	virtual bool accept(Object$* x$0) override {
-		 return Locations$SystemModulesLocationHandler::lambda$initSystemModules$0($cast($Path, x$0));
+		return Locations$SystemModulesLocationHandler::lambda$initSystemModules$0($cast($Path, x$0));
 	}
 };
 $Class* Locations$SystemModulesLocationHandler$$Lambda$lambda$initSystemModules$0::load$($String* name, bool initialize) {

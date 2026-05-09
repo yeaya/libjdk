@@ -56,31 +56,31 @@ void XSDDescription::setNamespace($String* namespace$) {
 }
 
 $String* XSDDescription::getPublicId() {
-	 return this->$XMLResourceIdentifierImpl::getPublicId();
+	return this->$XMLResourceIdentifierImpl::getPublicId();
 }
 
 $String* XSDDescription::getLiteralSystemId() {
-	 return this->$XMLResourceIdentifierImpl::getLiteralSystemId();
+	return this->$XMLResourceIdentifierImpl::getLiteralSystemId();
 }
 
 $String* XSDDescription::getBaseSystemId() {
-	 return this->$XMLResourceIdentifierImpl::getBaseSystemId();
+	return this->$XMLResourceIdentifierImpl::getBaseSystemId();
 }
 
 $String* XSDDescription::getExpandedSystemId() {
-	 return this->$XMLResourceIdentifierImpl::getExpandedSystemId();
+	return this->$XMLResourceIdentifierImpl::getExpandedSystemId();
 }
 
 $String* XSDDescription::getNamespace() {
-	 return this->$XMLResourceIdentifierImpl::getNamespace();
+	return this->$XMLResourceIdentifierImpl::getNamespace();
 }
 
 $String* XSDDescription::toString() {
-	 return this->$XMLResourceIdentifierImpl::toString();
+	return this->$XMLResourceIdentifierImpl::toString();
 }
 
 $Object* XSDDescription::clone() {
-	 return this->$XMLResourceIdentifierImpl::clone();
+	return this->$XMLResourceIdentifierImpl::clone();
 }
 
 void XSDDescription::finalize() {

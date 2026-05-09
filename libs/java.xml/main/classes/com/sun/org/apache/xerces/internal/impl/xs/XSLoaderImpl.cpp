@@ -43,19 +43,19 @@ namespace com {
 							namespace xs {
 
 int32_t XSLoaderImpl::hashCode() {
-	 return this->$XSLoader::hashCode();
+	return this->$XSLoader::hashCode();
 }
 
 bool XSLoaderImpl::equals(Object$* arg0) {
-	 return this->$XSLoader::equals(arg0);
+	return this->$XSLoader::equals(arg0);
 }
 
 $Object* XSLoaderImpl::clone() {
-	 return this->$XSLoader::clone();
+	return this->$XSLoader::clone();
 }
 
 $String* XSLoaderImpl::toString() {
-	 return this->$XSLoader::toString();
+	return this->$XSLoader::toString();
 }
 
 void XSLoaderImpl::finalize() {

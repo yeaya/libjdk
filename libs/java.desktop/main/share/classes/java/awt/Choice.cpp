@@ -50,19 +50,19 @@ namespace java {
 	namespace awt {
 
 $String* Choice::toString() {
-	 return this->$Component::toString();
+	return this->$Component::toString();
 }
 
 int32_t Choice::hashCode() {
-	 return this->$Component::hashCode();
+	return this->$Component::hashCode();
 }
 
 bool Choice::equals(Object$* arg0) {
-	 return this->$Component::equals(arg0);
+	return this->$Component::equals(arg0);
 }
 
 $Object* Choice::clone() {
-	 return this->$Component::clone();
+	return this->$Component::clone();
 }
 
 void Choice::finalize() {

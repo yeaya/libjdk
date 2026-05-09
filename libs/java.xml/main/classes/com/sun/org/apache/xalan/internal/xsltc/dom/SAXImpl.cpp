@@ -197,19 +197,19 @@ namespace com {
 							namespace dom {
 
 int32_t SAXImpl::getExpandedTypeID2(int32_t nodeHandle) {
-	 return this->$SAX2DTM2::getExpandedTypeID2(nodeHandle);
+	return this->$SAX2DTM2::getExpandedTypeID2(nodeHandle);
 }
 
 $String* SAXImpl::getNodeNameX(int32_t nodeHandle) {
-	 return this->$SAX2DTM2::getNodeNameX(nodeHandle);
+	return this->$SAX2DTM2::getNodeNameX(nodeHandle);
 }
 
 $String* SAXImpl::getStringValueX(int32_t nodeHandle) {
-	 return this->$SAX2DTM2::getStringValueX(nodeHandle);
+	return this->$SAX2DTM2::getStringValueX(nodeHandle);
 }
 
 $String* SAXImpl::getStringValue() {
-	 return this->$SAX2DTM2::getStringValue();
+	return this->$SAX2DTM2::getStringValue();
 }
 
 void SAXImpl::notationDecl($String* name, $String* publicId, $String* systemId) {
@@ -273,39 +273,39 @@ void SAXImpl::endCDATA() {
 }
 
 int32_t SAXImpl::getParent(int32_t nodeHandle) {
-	 return this->$SAX2DTM2::getParent(nodeHandle);
+	return this->$SAX2DTM2::getParent(nodeHandle);
 }
 
 int32_t SAXImpl::getDocument() {
-	 return this->$SAX2DTM2::getDocument();
+	return this->$SAX2DTM2::getDocument();
 }
 
 int32_t SAXImpl::getExpandedTypeID(int32_t nodeHandle) {
-	 return this->$SAX2DTM2::getExpandedTypeID(nodeHandle);
+	return this->$SAX2DTM2::getExpandedTypeID(nodeHandle);
 }
 
 int32_t SAXImpl::getNodeIdent(int32_t nodeHandle) {
-	 return this->$SAX2DTM2::getNodeIdent(nodeHandle);
+	return this->$SAX2DTM2::getNodeIdent(nodeHandle);
 }
 
 int32_t SAXImpl::getNodeHandle(int32_t nodeId) {
-	 return this->$SAX2DTM2::getNodeHandle(nodeId);
+	return this->$SAX2DTM2::getNodeHandle(nodeId);
 }
 
 int32_t SAXImpl::hashCode() {
-	 return this->$SAX2DTM2::hashCode();
+	return this->$SAX2DTM2::hashCode();
 }
 
 bool SAXImpl::equals(Object$* arg0) {
-	 return this->$SAX2DTM2::equals(arg0);
+	return this->$SAX2DTM2::equals(arg0);
 }
 
 $Object* SAXImpl::clone() {
-	 return this->$SAX2DTM2::clone();
+	return this->$SAX2DTM2::clone();
 }
 
 $String* SAXImpl::toString() {
-	 return this->$SAX2DTM2::toString();
+	return this->$SAX2DTM2::toString();
 }
 
 void SAXImpl::finalize() {

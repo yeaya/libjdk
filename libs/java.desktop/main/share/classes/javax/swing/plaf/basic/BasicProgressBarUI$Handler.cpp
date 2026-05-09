@@ -28,19 +28,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicProgressBarUI$Handler::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool BasicProgressBarUI$Handler::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* BasicProgressBarUI$Handler::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* BasicProgressBarUI$Handler::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void BasicProgressBarUI$Handler::finalize() {

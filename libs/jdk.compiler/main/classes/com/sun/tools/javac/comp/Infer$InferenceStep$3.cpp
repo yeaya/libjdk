@@ -51,7 +51,7 @@ public:
 		$set(this, inferenceContext, inferenceContext);
 	}
 	virtual bool test(Object$* b) override {
-		 return Infer$InferenceStep$3::lambda$accepts$0(inferenceContext, $cast($Type, b));
+		return Infer$InferenceStep$3::lambda$accepts$0(inferenceContext, $cast($Type, b));
 	}
 	$InferenceContext* inferenceContext = nullptr;
 };
@@ -88,7 +88,7 @@ public:
 		$set(this, syms, syms);
 	}
 	virtual bool test(Object$* u) override {
-		 return Infer$InferenceStep$3::lambda$accepts$1(types, syms, $cast($Type, u));
+		return Infer$InferenceStep$3::lambda$accepts$1(types, syms, $cast($Type, u));
 	}
 	$Types* types = nullptr;
 	$Symtab* syms = nullptr;

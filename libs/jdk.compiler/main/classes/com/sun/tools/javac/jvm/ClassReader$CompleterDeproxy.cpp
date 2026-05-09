@@ -54,7 +54,7 @@ public:
 		$set(this, e, e);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$complete$0(e);
+		return $nc(inst$)->lambda$complete$0(e);
 	}
 	ClassReader$CompleterDeproxy* inst$ = nullptr;
 	$Exception* e = nullptr;

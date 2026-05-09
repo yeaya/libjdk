@@ -43,19 +43,19 @@ namespace sun {
 		namespace X11 {
 
 $String* XTextAreaPeer$AWTTextArea::toString() {
-	 return this->$JTextArea::toString();
+	return this->$JTextArea::toString();
 }
 
 int32_t XTextAreaPeer$AWTTextArea::hashCode() {
-	 return this->$JTextArea::hashCode();
+	return this->$JTextArea::hashCode();
 }
 
 bool XTextAreaPeer$AWTTextArea::equals(Object$* arg0) {
-	 return this->$JTextArea::equals(arg0);
+	return this->$JTextArea::equals(arg0);
 }
 
 $Object* XTextAreaPeer$AWTTextArea::clone() {
-	 return this->$JTextArea::clone();
+	return this->$JTextArea::clone();
 }
 
 void XTextAreaPeer$AWTTextArea::finalize() {

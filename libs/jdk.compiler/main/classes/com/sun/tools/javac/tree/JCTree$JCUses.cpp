@@ -30,19 +30,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCUses::toString() {
-	 return this->$JCTree$JCDirective::toString();
+	return this->$JCTree$JCDirective::toString();
 }
 
 $Object* JCTree$JCUses::clone() {
-	 return this->$JCTree$JCDirective::clone();
+	return this->$JCTree$JCDirective::clone();
 }
 
 int32_t JCTree$JCUses::hashCode() {
-	 return this->$JCTree$JCDirective::hashCode();
+	return this->$JCTree$JCDirective::hashCode();
 }
 
 bool JCTree$JCUses::equals(Object$* arg0) {
-	 return this->$JCTree$JCDirective::equals(arg0);
+	return this->$JCTree$JCDirective::equals(arg0);
 }
 
 void JCTree$JCUses::finalize() {

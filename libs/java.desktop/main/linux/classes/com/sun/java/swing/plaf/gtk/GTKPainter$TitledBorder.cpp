@@ -51,19 +51,19 @@ namespace com {
 					namespace gtk {
 
 int32_t GTKPainter$TitledBorder::hashCode() {
-	 return this->$AbstractBorder::hashCode();
+	return this->$AbstractBorder::hashCode();
 }
 
 bool GTKPainter$TitledBorder::equals(Object$* arg0) {
-	 return this->$AbstractBorder::equals(arg0);
+	return this->$AbstractBorder::equals(arg0);
 }
 
 $Object* GTKPainter$TitledBorder::clone() {
-	 return this->$AbstractBorder::clone();
+	return this->$AbstractBorder::clone();
 }
 
 $String* GTKPainter$TitledBorder::toString() {
-	 return this->$AbstractBorder::toString();
+	return this->$AbstractBorder::toString();
 }
 
 void GTKPainter$TitledBorder::finalize() {

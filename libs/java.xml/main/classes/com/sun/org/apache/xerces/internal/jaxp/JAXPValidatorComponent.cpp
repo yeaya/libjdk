@@ -64,19 +64,19 @@ namespace com {
 						namespace jaxp {
 
 int32_t JAXPValidatorComponent::hashCode() {
-	 return this->$TeeXMLDocumentFilterImpl::hashCode();
+	return this->$TeeXMLDocumentFilterImpl::hashCode();
 }
 
 bool JAXPValidatorComponent::equals(Object$* arg0) {
-	 return this->$TeeXMLDocumentFilterImpl::equals(arg0);
+	return this->$TeeXMLDocumentFilterImpl::equals(arg0);
 }
 
 $Object* JAXPValidatorComponent::clone() {
-	 return this->$TeeXMLDocumentFilterImpl::clone();
+	return this->$TeeXMLDocumentFilterImpl::clone();
 }
 
 $String* JAXPValidatorComponent::toString() {
-	 return this->$TeeXMLDocumentFilterImpl::toString();
+	return this->$TeeXMLDocumentFilterImpl::toString();
 }
 
 void JAXPValidatorComponent::finalize() {

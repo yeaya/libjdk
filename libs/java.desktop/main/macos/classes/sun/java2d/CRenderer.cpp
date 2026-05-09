@@ -86,19 +86,19 @@ namespace sun {
 	namespace java2d {
 
 int32_t CRenderer::hashCode() {
-	 return this->$PixelDrawPipe::hashCode();
+	return this->$PixelDrawPipe::hashCode();
 }
 
 bool CRenderer::equals(Object$* arg0) {
-	 return this->$PixelDrawPipe::equals(arg0);
+	return this->$PixelDrawPipe::equals(arg0);
 }
 
 $Object* CRenderer::clone() {
-	 return this->$PixelDrawPipe::clone();
+	return this->$PixelDrawPipe::clone();
 }
 
 $String* CRenderer::toString() {
-	 return this->$PixelDrawPipe::toString();
+	return this->$PixelDrawPipe::toString();
 }
 
 void CRenderer::finalize() {

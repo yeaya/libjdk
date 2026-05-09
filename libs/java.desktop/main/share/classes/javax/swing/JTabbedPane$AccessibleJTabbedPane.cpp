@@ -37,19 +37,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JTabbedPane$AccessibleJTabbedPane::hashCode() {
-	 return this->$JComponent$AccessibleJComponent::hashCode();
+	return this->$JComponent$AccessibleJComponent::hashCode();
 }
 
 bool JTabbedPane$AccessibleJTabbedPane::equals(Object$* arg0) {
-	 return this->$JComponent$AccessibleJComponent::equals(arg0);
+	return this->$JComponent$AccessibleJComponent::equals(arg0);
 }
 
 $Object* JTabbedPane$AccessibleJTabbedPane::clone() {
-	 return this->$JComponent$AccessibleJComponent::clone();
+	return this->$JComponent$AccessibleJComponent::clone();
 }
 
 $String* JTabbedPane$AccessibleJTabbedPane::toString() {
-	 return this->$JComponent$AccessibleJComponent::toString();
+	return this->$JComponent$AccessibleJComponent::toString();
 }
 
 void JTabbedPane$AccessibleJTabbedPane::finalize() {

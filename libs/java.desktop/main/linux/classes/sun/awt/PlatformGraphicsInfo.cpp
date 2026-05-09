@@ -34,7 +34,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(PlatformGraphicsInfo::lambda$getDefaultHeadlessProperty$0());
+		return $of(PlatformGraphicsInfo::lambda$getDefaultHeadlessProperty$0());
 	}
 };
 $Class* PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0::load$($String* name, bool initialize) {

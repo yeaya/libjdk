@@ -39,11 +39,11 @@ namespace com {
 			namespace sound {
 
 $Line$Info* PortMixer$PortMixerPort::getLineInfo() {
-	 return this->$AbstractLine::getLineInfo();
+	return this->$AbstractLine::getLineInfo();
 }
 
 bool PortMixer$PortMixerPort::isOpen() {
-	 return this->$AbstractLine::isOpen();
+	return this->$AbstractLine::isOpen();
 }
 
 void PortMixer$PortMixerPort::addLineListener($LineListener* listener) {
@@ -55,31 +55,31 @@ void PortMixer$PortMixerPort::removeLineListener($LineListener* listener) {
 }
 
 $ControlArray* PortMixer$PortMixerPort::getControls() {
-	 return this->$AbstractLine::getControls();
+	return this->$AbstractLine::getControls();
 }
 
 bool PortMixer$PortMixerPort::isControlSupported($Control$Type* controlType) {
-	 return this->$AbstractLine::isControlSupported(controlType);
+	return this->$AbstractLine::isControlSupported(controlType);
 }
 
 $Control* PortMixer$PortMixerPort::getControl($Control$Type* controlType) {
-	 return this->$AbstractLine::getControl(controlType);
+	return this->$AbstractLine::getControl(controlType);
 }
 
 int32_t PortMixer$PortMixerPort::hashCode() {
-	 return this->$AbstractLine::hashCode();
+	return this->$AbstractLine::hashCode();
 }
 
 bool PortMixer$PortMixerPort::equals(Object$* arg0) {
-	 return this->$AbstractLine::equals(arg0);
+	return this->$AbstractLine::equals(arg0);
 }
 
 $Object* PortMixer$PortMixerPort::clone() {
-	 return this->$AbstractLine::clone();
+	return this->$AbstractLine::clone();
 }
 
 $String* PortMixer$PortMixerPort::toString() {
-	 return this->$AbstractLine::toString();
+	return this->$AbstractLine::toString();
 }
 
 void PortMixer$PortMixerPort::finalize() {

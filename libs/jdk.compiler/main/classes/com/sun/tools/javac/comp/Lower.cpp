@@ -358,7 +358,7 @@ public:
 		this->acode = acode;
 	}
 	virtual bool test(Object$* op) override {
-		 return Lower::lambda$binaryAccessOperator$0(tag, acode, $cast($Symbol$OperatorSymbol, op));
+		return Lower::lambda$binaryAccessOperator$0(tag, acode, $cast($Symbol$OperatorSymbol, op));
 	}
 	$JCTree$Tag* tag = nullptr;
 	int32_t acode = 0;
@@ -398,7 +398,7 @@ public:
 		$set(this, s, s);
 	}
 	virtual $JCTree$JCExpression* build($JCTree$JCExpression* selected) override {
-		 return $nc(inst$)->lambda$abstractLval$1(builder, s, selected);
+		return $nc(inst$)->lambda$abstractLval$1(builder, s, selected);
 	}
 	Lower* inst$ = nullptr;
 	$Lower$TreeBuilder* builder = nullptr;
@@ -440,7 +440,7 @@ public:
 		$set(this, builder, builder);
 	}
 	virtual $JCTree$JCExpression* build($JCTree$JCExpression* indexed) override {
-		 return $nc(inst$)->lambda$abstractLval$3(i, builder, indexed);
+		return $nc(inst$)->lambda$abstractLval$3(i, builder, indexed);
 	}
 	Lower* inst$ = nullptr;
 	$JCTree$JCArrayAccess* i = nullptr;
@@ -479,7 +479,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* rc) override {
-		 return Lower::lambda$generateMandatedAccessors$4($cast($Symbol$RecordComponent, rc));
+		return Lower::lambda$generateMandatedAccessors$4($cast($Symbol$RecordComponent, rc));
 	}
 };
 $Class* Lower$$Lambda$lambda$generateMandatedAccessors$4$3::load$($String* name, bool initialize) {
@@ -512,7 +512,7 @@ public:
 		$set(this, tree, tree);
 	}
 	virtual $Object* apply(Object$* rc) override {
-		 return $of($nc(inst$)->lambda$generateMandatedAccessors$6(fields, tree, $cast($Symbol$RecordComponent, rc)));
+		return $of($nc(inst$)->lambda$generateMandatedAccessors$6(fields, tree, $cast($Symbol$RecordComponent, rc)));
 	}
 	Lower* inst$ = nullptr;
 	$List* fields = nullptr;
@@ -551,7 +551,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return Lower::lambda$recordVars$7($cast($Symbol, s));
+		return Lower::lambda$recordVars$7($cast($Symbol, s));
 	}
 };
 $Class* Lower$$Lambda$lambda$recordVars$7$5::load$($String* name, bool initialize) {
@@ -581,7 +581,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* v) override {
-		 return $of(Lower::lambda$generateRecordMethod$8($cast($Symbol$VarSymbol, v)));
+		return $of(Lower::lambda$generateRecordMethod$8($cast($Symbol$VarSymbol, v)));
 	}
 };
 $Class* Lower$$Lambda$lambda$generateRecordMethod$8$6::load$($String* name, bool initialize) {
@@ -612,7 +612,7 @@ public:
 		$set(this, field, field);
 	}
 	virtual bool test(Object$* p) override {
-		 return Lower::lambda$visitMethodDefInternal$9(field, $cast($JCTree$JCVariableDecl, p));
+		return Lower::lambda$visitMethodDefInternal$9(field, $cast($JCTree$JCVariableDecl, p));
 	}
 	$Symbol$VarSymbol* field = nullptr;
 };
@@ -650,7 +650,7 @@ public:
 		this->boxingReq = boxingReq;
 	}
 	virtual $JCTree$JCExpression* build($JCTree$JCExpression* lhs) override {
-		 return $nc(inst$)->lambda$visitAssignop$10(tree, boxingReq, lhs);
+		return $nc(inst$)->lambda$visitAssignop$10(tree, boxingReq, lhs);
 	}
 	Lower* inst$ = nullptr;
 	$JCTree$JCAssignOp* tree = nullptr;
@@ -692,7 +692,7 @@ public:
 		this->cast = cast;
 	}
 	virtual $JCTree$JCExpression* build($JCTree$JCExpression* tmp1) override {
-		 return $nc(inst$)->lambda$lowerBoxedPostop$12(tree, cast, tmp1);
+		return $nc(inst$)->lambda$lowerBoxedPostop$12(tree, cast, tmp1);
 	}
 	Lower* inst$ = nullptr;
 	$JCTree$JCUnary* tree = nullptr;
@@ -731,7 +731,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return Lower::lambda$addDefaultIfNeeded$13($cast($JCTree$JCCase, c));
+		return Lower::lambda$addDefaultIfNeeded$13($cast($JCTree$JCCase, c));
 	}
 };
 $Class* Lower$$Lambda$lambda$addDefaultIfNeeded$13$10::load$($String* name, bool initialize) {
@@ -761,7 +761,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* p) override {
-		 return Lower::lambda$addDefaultIfNeeded$14($cast($JCTree$JCCaseLabel, p));
+		return Lower::lambda$addDefaultIfNeeded$14($cast($JCTree$JCCaseLabel, p));
 	}
 };
 $Class* Lower$$Lambda$lambda$addDefaultIfNeeded$14$11::load$($String* name, bool initialize) {
@@ -791,7 +791,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* c) override {
-		 return Lower::lambda$visitEnumSwitch$15($cast($JCTree$JCCase, c));
+		return Lower::lambda$visitEnumSwitch$15($cast($JCTree$JCCase, c));
 	}
 };
 $Class* Lower$$Lambda$lambda$visitEnumSwitch$15$12::load$($String* name, bool initialize) {
@@ -825,7 +825,7 @@ public:
 		this->cast = cast;
 	}
 	virtual $JCTree$JCExpression* build($JCTree$JCExpression* tmp2) override {
-		 return $nc(inst$)->lambda$lowerBoxedPostop$11(tree, tmp1, cast, tmp2);
+		return $nc(inst$)->lambda$lowerBoxedPostop$11(tree, tmp1, cast, tmp2);
 	}
 	Lower* inst$ = nullptr;
 	$JCTree$JCUnary* tree = nullptr;
@@ -867,7 +867,7 @@ public:
 		$set(this, rc, rc);
 	}
 	virtual bool test(Object$* f) override {
-		 return Lower::lambda$generateMandatedAccessors$5(rc, $cast($JCTree$JCVariableDecl, f));
+		return Lower::lambda$generateMandatedAccessors$5(rc, $cast($JCTree$JCVariableDecl, f));
 	}
 	$Symbol$RecordComponent* rc = nullptr;
 };
@@ -906,7 +906,7 @@ public:
 		$set(this, builder, builder);
 	}
 	virtual $JCTree$JCExpression* build($JCTree$JCExpression* index) override {
-		 return $nc(inst$)->lambda$abstractLval$2(indexed, i, builder, index);
+		return $nc(inst$)->lambda$abstractLval$2(indexed, i, builder, index);
 	}
 	Lower* inst$ = nullptr;
 	$JCTree$JCExpression* indexed = nullptr;

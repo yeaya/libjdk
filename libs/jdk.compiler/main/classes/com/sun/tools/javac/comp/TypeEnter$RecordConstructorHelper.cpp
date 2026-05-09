@@ -73,7 +73,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* rc) override {
-		 return TypeEnter$RecordConstructorHelper::lambda$new$0($cast($Symbol$RecordComponent, rc));
+		return TypeEnter$RecordConstructorHelper::lambda$new$0($cast($Symbol$RecordComponent, rc));
 	}
 };
 $Class* TypeEnter$RecordConstructorHelper$$Lambda$lambda$new$0::load$($String* name, bool initialize) {

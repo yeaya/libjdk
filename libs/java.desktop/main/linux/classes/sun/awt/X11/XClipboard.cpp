@@ -64,19 +64,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t XClipboard::hashCode() {
-	 return this->$SunClipboard::hashCode();
+	return this->$SunClipboard::hashCode();
 }
 
 bool XClipboard::equals(Object$* arg0) {
-	 return this->$SunClipboard::equals(arg0);
+	return this->$SunClipboard::equals(arg0);
 }
 
 $Object* XClipboard::clone() {
-	 return this->$SunClipboard::clone();
+	return this->$SunClipboard::clone();
 }
 
 $String* XClipboard::toString() {
-	 return this->$SunClipboard::toString();
+	return this->$SunClipboard::toString();
 }
 
 void XClipboard::finalize() {

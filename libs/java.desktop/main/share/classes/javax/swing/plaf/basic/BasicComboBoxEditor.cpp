@@ -32,19 +32,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicComboBoxEditor::hashCode() {
-	 return this->$ComboBoxEditor::hashCode();
+	return this->$ComboBoxEditor::hashCode();
 }
 
 bool BasicComboBoxEditor::equals(Object$* arg0) {
-	 return this->$ComboBoxEditor::equals(arg0);
+	return this->$ComboBoxEditor::equals(arg0);
 }
 
 $Object* BasicComboBoxEditor::clone() {
-	 return this->$ComboBoxEditor::clone();
+	return this->$ComboBoxEditor::clone();
 }
 
 $String* BasicComboBoxEditor::toString() {
-	 return this->$ComboBoxEditor::toString();
+	return this->$ComboBoxEditor::toString();
 }
 
 void BasicComboBoxEditor::finalize() {

@@ -14,15 +14,15 @@ namespace javax {
 			namespace standard {
 
 int32_t JobImpressionsSupported::hashCode() {
-	 return this->$SetOfIntegerSyntax::hashCode();
+	return this->$SetOfIntegerSyntax::hashCode();
 }
 
 $String* JobImpressionsSupported::toString() {
-	 return this->$SetOfIntegerSyntax::toString();
+	return this->$SetOfIntegerSyntax::toString();
 }
 
 $Object* JobImpressionsSupported::clone() {
-	 return this->$SetOfIntegerSyntax::clone();
+	return this->$SetOfIntegerSyntax::clone();
 }
 
 void JobImpressionsSupported::finalize() {

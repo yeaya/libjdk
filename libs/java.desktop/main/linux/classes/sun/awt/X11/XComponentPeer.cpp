@@ -183,19 +183,19 @@ namespace sun {
 		namespace X11 {
 
 $String* XComponentPeer::toString() {
-	 return this->$XWindow::toString();
+	return this->$XWindow::toString();
 }
 
 int32_t XComponentPeer::hashCode() {
-	 return this->$XWindow::hashCode();
+	return this->$XWindow::hashCode();
 }
 
 bool XComponentPeer::equals(Object$* arg0) {
-	 return this->$XWindow::equals(arg0);
+	return this->$XWindow::equals(arg0);
 }
 
 $Object* XComponentPeer::clone() {
-	 return this->$XWindow::clone();
+	return this->$XWindow::clone();
 }
 
 void XComponentPeer::finalize() {

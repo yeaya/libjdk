@@ -38,19 +38,19 @@ void WindowsFileChooserUI$FilterComboBoxModel::removeListDataListener($ListDataL
 }
 
 int32_t WindowsFileChooserUI$FilterComboBoxModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool WindowsFileChooserUI$FilterComboBoxModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* WindowsFileChooserUI$FilterComboBoxModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* WindowsFileChooserUI$FilterComboBoxModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void WindowsFileChooserUI$FilterComboBoxModel::finalize() {

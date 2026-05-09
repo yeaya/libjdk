@@ -54,7 +54,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->currentStateMessage());
+		return $of($nc(inst$)->currentStateMessage());
 	}
 	$Http1HeaderParser* inst$ = nullptr;
 };

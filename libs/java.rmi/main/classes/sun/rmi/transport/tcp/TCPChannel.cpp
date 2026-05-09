@@ -97,7 +97,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(TCPChannel::lambda$static$0());
+		return $of(TCPChannel::lambda$static$0());
 	}
 };
 $Class* TCPChannel$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -127,7 +127,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(TCPChannel::lambda$static$1());
+		return $of(TCPChannel::lambda$static$1());
 	}
 };
 $Class* TCPChannel$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
@@ -157,7 +157,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(TCPChannel::lambda$static$2());
+		return $of(TCPChannel::lambda$static$2());
 	}
 };
 $Class* TCPChannel$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {

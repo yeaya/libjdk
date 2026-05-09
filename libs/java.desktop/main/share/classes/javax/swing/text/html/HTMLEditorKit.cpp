@@ -152,15 +152,15 @@ namespace javax {
 			namespace html {
 
 int32_t HTMLEditorKit::hashCode() {
-	 return this->$StyledEditorKit::hashCode();
+	return this->$StyledEditorKit::hashCode();
 }
 
 bool HTMLEditorKit::equals(Object$* arg0) {
-	 return this->$StyledEditorKit::equals(arg0);
+	return this->$StyledEditorKit::equals(arg0);
 }
 
 $String* HTMLEditorKit::toString() {
-	 return this->$StyledEditorKit::toString();
+	return this->$StyledEditorKit::toString();
 }
 
 void HTMLEditorKit::finalize() {

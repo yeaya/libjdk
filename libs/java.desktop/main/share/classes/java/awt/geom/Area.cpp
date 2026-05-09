@@ -58,15 +58,15 @@ namespace java {
 		namespace geom {
 
 int32_t Area::hashCode() {
-	 return this->$Shape::hashCode();
+	return this->$Shape::hashCode();
 }
 
 bool Area::equals(Object$* arg0) {
-	 return this->$Shape::equals(arg0);
+	return this->$Shape::equals(arg0);
 }
 
 $String* Area::toString() {
-	 return this->$Shape::toString();
+	return this->$Shape::toString();
 }
 
 void Area::finalize() {

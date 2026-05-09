@@ -146,7 +146,7 @@ void WPrintDialogPeer::updateWindow() {
 }
 
 $Insets* WPrintDialogPeer::getInsets() {
-	 return this->$WWindowPeer::getInsets();
+	return this->$WWindowPeer::getInsets();
 }
 
 void WPrintDialogPeer::paint($Graphics* g) {
@@ -154,15 +154,15 @@ void WPrintDialogPeer::paint($Graphics* g) {
 }
 
 bool WPrintDialogPeer::isObscured() {
-	 return this->$WWindowPeer::isObscured();
+	return this->$WWindowPeer::isObscured();
 }
 
 bool WPrintDialogPeer::canDetermineObscurity() {
-	 return this->$WWindowPeer::canDetermineObscurity();
+	return this->$WWindowPeer::canDetermineObscurity();
 }
 
 $Point* WPrintDialogPeer::getLocationOnScreen() {
-	 return this->$WWindowPeer::getLocationOnScreen();
+	return this->$WWindowPeer::getLocationOnScreen();
 }
 
 void WPrintDialogPeer::setVisible(bool b) {
@@ -186,11 +186,11 @@ void WPrintDialogPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* WPrintDialogPeer::getMinimumSize() {
-	 return this->$WWindowPeer::getMinimumSize();
+	return this->$WWindowPeer::getMinimumSize();
 }
 
 $Dimension* WPrintDialogPeer::getPreferredSize() {
-	 return this->$WWindowPeer::getPreferredSize();
+	return this->$WWindowPeer::getPreferredSize();
 }
 
 void WPrintDialogPeer::layout() {
@@ -198,27 +198,27 @@ void WPrintDialogPeer::layout() {
 }
 
 bool WPrintDialogPeer::isFocusable() {
-	 return this->$WWindowPeer::isFocusable();
+	return this->$WWindowPeer::isFocusable();
 }
 
 $GraphicsConfiguration* WPrintDialogPeer::getGraphicsConfiguration() {
-	 return this->$WWindowPeer::getGraphicsConfiguration();
+	return this->$WWindowPeer::getGraphicsConfiguration();
 }
 
 bool WPrintDialogPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$WWindowPeer::updateGraphicsData(gc);
+	return this->$WWindowPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* WPrintDialogPeer::getColorModel() {
-	 return this->$WWindowPeer::getColorModel();
+	return this->$WWindowPeer::getColorModel();
 }
 
 $Graphics* WPrintDialogPeer::getGraphics() {
-	 return this->$WWindowPeer::getGraphics();
+	return this->$WWindowPeer::getGraphics();
 }
 
 $FontMetrics* WPrintDialogPeer::getFontMetrics($Font* font) {
-	 return this->$WWindowPeer::getFontMetrics(font);
+	return this->$WWindowPeer::getFontMetrics(font);
 }
 
 void WPrintDialogPeer::updateCursorImmediately() {
@@ -226,15 +226,15 @@ void WPrintDialogPeer::updateCursorImmediately() {
 }
 
 $Image* WPrintDialogPeer::createImage(int32_t width, int32_t height) {
-	 return this->$WWindowPeer::createImage(width, height);
+	return this->$WWindowPeer::createImage(width, height);
 }
 
 $VolatileImage* WPrintDialogPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$WWindowPeer::createVolatileImage(width, height);
+	return this->$WWindowPeer::createVolatileImage(width, height);
 }
 
 $String* WPrintDialogPeer::toString() {
-	 return this->$WWindowPeer::toString();
+	return this->$WWindowPeer::toString();
 }
 
 void WPrintDialogPeer::beginLayout() {
@@ -246,7 +246,7 @@ void WPrintDialogPeer::endLayout() {
 }
 
 bool WPrintDialogPeer::handlesWheelScrolling() {
-	 return this->$WWindowPeer::handlesWheelScrolling();
+	return this->$WWindowPeer::handlesWheelScrolling();
 }
 
 void WPrintDialogPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -262,7 +262,7 @@ void WPrintDialogPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $Buf
 }
 
 $Image* WPrintDialogPeer::getBackBuffer() {
-	 return this->$WWindowPeer::getBackBuffer();
+	return this->$WWindowPeer::getBackBuffer();
 }
 
 void WPrintDialogPeer::reparent($ContainerPeer* newNativeParent) {
@@ -270,7 +270,7 @@ void WPrintDialogPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool WPrintDialogPeer::isReparentSupported() {
-	 return this->$WWindowPeer::isReparentSupported();
+	return this->$WWindowPeer::isReparentSupported();
 }
 
 void WPrintDialogPeer::dispose() {
@@ -278,15 +278,15 @@ void WPrintDialogPeer::dispose() {
 }
 
 int32_t WPrintDialogPeer::hashCode() {
-	 return this->$WWindowPeer::hashCode();
+	return this->$WWindowPeer::hashCode();
 }
 
 bool WPrintDialogPeer::equals(Object$* arg0) {
-	 return this->$WWindowPeer::equals(arg0);
+	return this->$WWindowPeer::equals(arg0);
 }
 
 $Object* WPrintDialogPeer::clone() {
-	 return this->$WWindowPeer::clone();
+	return this->$WWindowPeer::clone();
 }
 
 void WPrintDialogPeer::finalize() {

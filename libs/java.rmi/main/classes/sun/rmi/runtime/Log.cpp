@@ -62,7 +62,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return Log::lambda$getSource$1($cast($Stream, s));
+		return Log::lambda$getSource$1($cast($Stream, s));
 	}
 };
 $Class* Log$$Lambda$lambda$getSource$1::load$($String* name, bool initialize) {
@@ -92,7 +92,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(Log::lambda$static$0());
+		return $of(Log::lambda$static$0());
 	}
 };
 $Class* Log$$Lambda$lambda$static$0$1::load$($String* name, bool initialize) {

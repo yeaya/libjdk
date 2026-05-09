@@ -45,7 +45,7 @@ public:
 		$set(this, is, is);
 	}
 	virtual $Iterator* iterator() override {
-		 return RequestPublishers$InputStreamPublisher::lambda$iterableOf$0(is);
+		return RequestPublishers$InputStreamPublisher::lambda$iterableOf$0(is);
 	}
 	$InputStream* is = nullptr;
 };

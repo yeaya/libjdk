@@ -23,19 +23,19 @@ namespace sun {
 	namespace swing {
 
 int32_t FilePane$SortableListModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool FilePane$SortableListModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* FilePane$SortableListModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* FilePane$SortableListModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void FilePane$SortableListModel::finalize() {

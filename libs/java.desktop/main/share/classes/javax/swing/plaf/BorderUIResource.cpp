@@ -33,19 +33,19 @@ namespace javax {
 		namespace plaf {
 
 int32_t BorderUIResource::hashCode() {
-	 return this->$Border::hashCode();
+	return this->$Border::hashCode();
 }
 
 bool BorderUIResource::equals(Object$* arg0) {
-	 return this->$Border::equals(arg0);
+	return this->$Border::equals(arg0);
 }
 
 $Object* BorderUIResource::clone() {
-	 return this->$Border::clone();
+	return this->$Border::clone();
 }
 
 $String* BorderUIResource::toString() {
-	 return this->$Border::toString();
+	return this->$Border::toString();
 }
 
 void BorderUIResource::finalize() {

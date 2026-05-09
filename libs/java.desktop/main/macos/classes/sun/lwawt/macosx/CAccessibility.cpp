@@ -176,7 +176,7 @@ public:
 		this->info = info;
 	}
 	virtual $Object* call() override {
-		 return $of(CAccessibility::lambda$getTableInfo$0(a, info));
+		return $of(CAccessibility::lambda$getTableInfo$0(a, info));
 	}
 	$Accessible* a = nullptr;
 	int32_t info = 0;

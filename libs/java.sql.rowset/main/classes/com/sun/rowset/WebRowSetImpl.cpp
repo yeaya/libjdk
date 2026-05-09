@@ -138,39 +138,39 @@ void WebRowSetImpl::undoUpdate() {
 }
 
 $RowSet* WebRowSetImpl::createShared() {
-	 return this->$CachedRowSetImpl::createShared();
+	return this->$CachedRowSetImpl::createShared();
 }
 
 $Object* WebRowSetImpl::clone() {
-	 return this->$CachedRowSetImpl::clone();
+	return this->$CachedRowSetImpl::clone();
 }
 
 $CachedRowSet* WebRowSetImpl::createCopy() {
-	 return this->$CachedRowSetImpl::createCopy();
+	return this->$CachedRowSetImpl::createCopy();
 }
 
 $CachedRowSet* WebRowSetImpl::createCopySchema() {
-	 return this->$CachedRowSetImpl::createCopySchema();
+	return this->$CachedRowSetImpl::createCopySchema();
 }
 
 $CachedRowSet* WebRowSetImpl::createCopyNoConstraints() {
-	 return this->$CachedRowSetImpl::createCopyNoConstraints();
+	return this->$CachedRowSetImpl::createCopyNoConstraints();
 }
 
 $Collection* WebRowSetImpl::toCollection() {
-	 return this->$CachedRowSetImpl::toCollection();
+	return this->$CachedRowSetImpl::toCollection();
 }
 
 $Collection* WebRowSetImpl::toCollection(int32_t column) {
-	 return this->$CachedRowSetImpl::toCollection(column);
+	return this->$CachedRowSetImpl::toCollection(column);
 }
 
 $Collection* WebRowSetImpl::toCollection($String* column) {
-	 return this->$CachedRowSetImpl::toCollection(column);
+	return this->$CachedRowSetImpl::toCollection(column);
 }
 
 $SyncProvider* WebRowSetImpl::getSyncProvider() {
-	 return this->$CachedRowSetImpl::getSyncProvider();
+	return this->$CachedRowSetImpl::getSyncProvider();
 }
 
 void WebRowSetImpl::setSyncProvider($String* providerStr) {
@@ -182,7 +182,7 @@ void WebRowSetImpl::execute() {
 }
 
 bool WebRowSetImpl::next() {
-	 return this->$CachedRowSetImpl::next();
+	return this->$CachedRowSetImpl::next();
 }
 
 void WebRowSetImpl::close() {
@@ -190,139 +190,139 @@ void WebRowSetImpl::close() {
 }
 
 bool WebRowSetImpl::wasNull() {
-	 return this->$CachedRowSetImpl::wasNull();
+	return this->$CachedRowSetImpl::wasNull();
 }
 
 $String* WebRowSetImpl::getString(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getString(columnIndex);
+	return this->$CachedRowSetImpl::getString(columnIndex);
 }
 
 bool WebRowSetImpl::getBoolean(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getBoolean(columnIndex);
+	return this->$CachedRowSetImpl::getBoolean(columnIndex);
 }
 
 int8_t WebRowSetImpl::getByte(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getByte(columnIndex);
+	return this->$CachedRowSetImpl::getByte(columnIndex);
 }
 
 int16_t WebRowSetImpl::getShort(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getShort(columnIndex);
+	return this->$CachedRowSetImpl::getShort(columnIndex);
 }
 
 int32_t WebRowSetImpl::getInt(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getInt(columnIndex);
+	return this->$CachedRowSetImpl::getInt(columnIndex);
 }
 
 int64_t WebRowSetImpl::getLong(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getLong(columnIndex);
+	return this->$CachedRowSetImpl::getLong(columnIndex);
 }
 
 float WebRowSetImpl::getFloat(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getFloat(columnIndex);
+	return this->$CachedRowSetImpl::getFloat(columnIndex);
 }
 
 double WebRowSetImpl::getDouble(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getDouble(columnIndex);
+	return this->$CachedRowSetImpl::getDouble(columnIndex);
 }
 
 $BigDecimal* WebRowSetImpl::getBigDecimal(int32_t columnIndex, int32_t scale) {
-	 return this->$CachedRowSetImpl::getBigDecimal(columnIndex, scale);
+	return this->$CachedRowSetImpl::getBigDecimal(columnIndex, scale);
 }
 
 $bytes* WebRowSetImpl::getBytes(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getBytes(columnIndex);
+	return this->$CachedRowSetImpl::getBytes(columnIndex);
 }
 
 $Date* WebRowSetImpl::getDate(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getDate(columnIndex);
+	return this->$CachedRowSetImpl::getDate(columnIndex);
 }
 
 $Time* WebRowSetImpl::getTime(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getTime(columnIndex);
+	return this->$CachedRowSetImpl::getTime(columnIndex);
 }
 
 $Timestamp* WebRowSetImpl::getTimestamp(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getTimestamp(columnIndex);
+	return this->$CachedRowSetImpl::getTimestamp(columnIndex);
 }
 
 $InputStream* WebRowSetImpl::getAsciiStream(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getAsciiStream(columnIndex);
+	return this->$CachedRowSetImpl::getAsciiStream(columnIndex);
 }
 
 $InputStream* WebRowSetImpl::getUnicodeStream(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getUnicodeStream(columnIndex);
+	return this->$CachedRowSetImpl::getUnicodeStream(columnIndex);
 }
 
 $InputStream* WebRowSetImpl::getBinaryStream(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getBinaryStream(columnIndex);
+	return this->$CachedRowSetImpl::getBinaryStream(columnIndex);
 }
 
 $String* WebRowSetImpl::getString($String* columnName) {
-	 return this->$CachedRowSetImpl::getString(columnName);
+	return this->$CachedRowSetImpl::getString(columnName);
 }
 
 bool WebRowSetImpl::getBoolean($String* columnName) {
-	 return this->$CachedRowSetImpl::getBoolean(columnName);
+	return this->$CachedRowSetImpl::getBoolean(columnName);
 }
 
 int8_t WebRowSetImpl::getByte($String* columnName) {
-	 return this->$CachedRowSetImpl::getByte(columnName);
+	return this->$CachedRowSetImpl::getByte(columnName);
 }
 
 int16_t WebRowSetImpl::getShort($String* columnName) {
-	 return this->$CachedRowSetImpl::getShort(columnName);
+	return this->$CachedRowSetImpl::getShort(columnName);
 }
 
 int32_t WebRowSetImpl::getInt($String* columnName) {
-	 return this->$CachedRowSetImpl::getInt(columnName);
+	return this->$CachedRowSetImpl::getInt(columnName);
 }
 
 int64_t WebRowSetImpl::getLong($String* columnName) {
-	 return this->$CachedRowSetImpl::getLong(columnName);
+	return this->$CachedRowSetImpl::getLong(columnName);
 }
 
 float WebRowSetImpl::getFloat($String* columnName) {
-	 return this->$CachedRowSetImpl::getFloat(columnName);
+	return this->$CachedRowSetImpl::getFloat(columnName);
 }
 
 double WebRowSetImpl::getDouble($String* columnName) {
-	 return this->$CachedRowSetImpl::getDouble(columnName);
+	return this->$CachedRowSetImpl::getDouble(columnName);
 }
 
 $BigDecimal* WebRowSetImpl::getBigDecimal($String* columnName, int32_t scale) {
-	 return this->$CachedRowSetImpl::getBigDecimal(columnName, scale);
+	return this->$CachedRowSetImpl::getBigDecimal(columnName, scale);
 }
 
 $bytes* WebRowSetImpl::getBytes($String* columnName) {
-	 return this->$CachedRowSetImpl::getBytes(columnName);
+	return this->$CachedRowSetImpl::getBytes(columnName);
 }
 
 $Date* WebRowSetImpl::getDate($String* columnName) {
-	 return this->$CachedRowSetImpl::getDate(columnName);
+	return this->$CachedRowSetImpl::getDate(columnName);
 }
 
 $Time* WebRowSetImpl::getTime($String* columnName) {
-	 return this->$CachedRowSetImpl::getTime(columnName);
+	return this->$CachedRowSetImpl::getTime(columnName);
 }
 
 $Timestamp* WebRowSetImpl::getTimestamp($String* columnName) {
-	 return this->$CachedRowSetImpl::getTimestamp(columnName);
+	return this->$CachedRowSetImpl::getTimestamp(columnName);
 }
 
 $InputStream* WebRowSetImpl::getAsciiStream($String* columnName) {
-	 return this->$CachedRowSetImpl::getAsciiStream(columnName);
+	return this->$CachedRowSetImpl::getAsciiStream(columnName);
 }
 
 $InputStream* WebRowSetImpl::getUnicodeStream($String* columnName) {
-	 return this->$CachedRowSetImpl::getUnicodeStream(columnName);
+	return this->$CachedRowSetImpl::getUnicodeStream(columnName);
 }
 
 $InputStream* WebRowSetImpl::getBinaryStream($String* columnName) {
-	 return this->$CachedRowSetImpl::getBinaryStream(columnName);
+	return this->$CachedRowSetImpl::getBinaryStream(columnName);
 }
 
 $SQLWarning* WebRowSetImpl::getWarnings() {
-	 return this->$CachedRowSetImpl::getWarnings();
+	return this->$CachedRowSetImpl::getWarnings();
 }
 
 void WebRowSetImpl::clearWarnings() {
@@ -330,59 +330,59 @@ void WebRowSetImpl::clearWarnings() {
 }
 
 $String* WebRowSetImpl::getCursorName() {
-	 return this->$CachedRowSetImpl::getCursorName();
+	return this->$CachedRowSetImpl::getCursorName();
 }
 
 $ResultSetMetaData* WebRowSetImpl::getMetaData() {
-	 return this->$CachedRowSetImpl::getMetaData();
+	return this->$CachedRowSetImpl::getMetaData();
 }
 
 $Object* WebRowSetImpl::getObject(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getObject(columnIndex);
+	return this->$CachedRowSetImpl::getObject(columnIndex);
 }
 
 $Object* WebRowSetImpl::getObject($String* columnName) {
-	 return this->$CachedRowSetImpl::getObject(columnName);
+	return this->$CachedRowSetImpl::getObject(columnName);
 }
 
 int32_t WebRowSetImpl::findColumn($String* columnName) {
-	 return this->$CachedRowSetImpl::findColumn(columnName);
+	return this->$CachedRowSetImpl::findColumn(columnName);
 }
 
 $Reader* WebRowSetImpl::getCharacterStream(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getCharacterStream(columnIndex);
+	return this->$CachedRowSetImpl::getCharacterStream(columnIndex);
 }
 
 $Reader* WebRowSetImpl::getCharacterStream($String* columnName) {
-	 return this->$CachedRowSetImpl::getCharacterStream(columnName);
+	return this->$CachedRowSetImpl::getCharacterStream(columnName);
 }
 
 $BigDecimal* WebRowSetImpl::getBigDecimal(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getBigDecimal(columnIndex);
+	return this->$CachedRowSetImpl::getBigDecimal(columnIndex);
 }
 
 $BigDecimal* WebRowSetImpl::getBigDecimal($String* columnName) {
-	 return this->$CachedRowSetImpl::getBigDecimal(columnName);
+	return this->$CachedRowSetImpl::getBigDecimal(columnName);
 }
 
 int32_t WebRowSetImpl::size() {
-	 return this->$CachedRowSetImpl::size();
+	return this->$CachedRowSetImpl::size();
 }
 
 bool WebRowSetImpl::isBeforeFirst() {
-	 return this->$CachedRowSetImpl::isBeforeFirst();
+	return this->$CachedRowSetImpl::isBeforeFirst();
 }
 
 bool WebRowSetImpl::isAfterLast() {
-	 return this->$CachedRowSetImpl::isAfterLast();
+	return this->$CachedRowSetImpl::isAfterLast();
 }
 
 bool WebRowSetImpl::isFirst() {
-	 return this->$CachedRowSetImpl::isFirst();
+	return this->$CachedRowSetImpl::isFirst();
 }
 
 bool WebRowSetImpl::isLast() {
-	 return this->$CachedRowSetImpl::isLast();
+	return this->$CachedRowSetImpl::isLast();
 }
 
 void WebRowSetImpl::beforeFirst() {
@@ -394,47 +394,47 @@ void WebRowSetImpl::afterLast() {
 }
 
 bool WebRowSetImpl::first() {
-	 return this->$CachedRowSetImpl::first();
+	return this->$CachedRowSetImpl::first();
 }
 
 bool WebRowSetImpl::last() {
-	 return this->$CachedRowSetImpl::last();
+	return this->$CachedRowSetImpl::last();
 }
 
 int32_t WebRowSetImpl::getRow() {
-	 return this->$CachedRowSetImpl::getRow();
+	return this->$CachedRowSetImpl::getRow();
 }
 
 bool WebRowSetImpl::absolute(int32_t row) {
-	 return this->$CachedRowSetImpl::absolute(row);
+	return this->$CachedRowSetImpl::absolute(row);
 }
 
 bool WebRowSetImpl::relative(int32_t rows) {
-	 return this->$CachedRowSetImpl::relative(rows);
+	return this->$CachedRowSetImpl::relative(rows);
 }
 
 bool WebRowSetImpl::previous() {
-	 return this->$CachedRowSetImpl::previous();
+	return this->$CachedRowSetImpl::previous();
 }
 
 bool WebRowSetImpl::rowUpdated() {
-	 return this->$CachedRowSetImpl::rowUpdated();
+	return this->$CachedRowSetImpl::rowUpdated();
 }
 
 bool WebRowSetImpl::columnUpdated(int32_t idx) {
-	 return this->$CachedRowSetImpl::columnUpdated(idx);
+	return this->$CachedRowSetImpl::columnUpdated(idx);
 }
 
 bool WebRowSetImpl::columnUpdated($String* columnName) {
-	 return this->$CachedRowSetImpl::columnUpdated(columnName);
+	return this->$CachedRowSetImpl::columnUpdated(columnName);
 }
 
 bool WebRowSetImpl::rowInserted() {
-	 return this->$CachedRowSetImpl::rowInserted();
+	return this->$CachedRowSetImpl::rowInserted();
 }
 
 bool WebRowSetImpl::rowDeleted() {
-	 return this->$CachedRowSetImpl::rowDeleted();
+	return this->$CachedRowSetImpl::rowDeleted();
 }
 
 void WebRowSetImpl::updateNull(int32_t columnIndex) {
@@ -618,71 +618,71 @@ void WebRowSetImpl::moveToCurrentRow() {
 }
 
 $Statement* WebRowSetImpl::getStatement() {
-	 return this->$CachedRowSetImpl::getStatement();
+	return this->$CachedRowSetImpl::getStatement();
 }
 
 $Object* WebRowSetImpl::getObject(int32_t columnIndex, $Map* map) {
-	 return this->$CachedRowSetImpl::getObject(columnIndex, map);
+	return this->$CachedRowSetImpl::getObject(columnIndex, map);
 }
 
 $Ref* WebRowSetImpl::getRef(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getRef(columnIndex);
+	return this->$CachedRowSetImpl::getRef(columnIndex);
 }
 
 $Blob* WebRowSetImpl::getBlob(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getBlob(columnIndex);
+	return this->$CachedRowSetImpl::getBlob(columnIndex);
 }
 
 $Clob* WebRowSetImpl::getClob(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getClob(columnIndex);
+	return this->$CachedRowSetImpl::getClob(columnIndex);
 }
 
 $1Array* WebRowSetImpl::getArray(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getArray(columnIndex);
+	return this->$CachedRowSetImpl::getArray(columnIndex);
 }
 
 $Object* WebRowSetImpl::getObject($String* columnName, $Map* map) {
-	 return this->$CachedRowSetImpl::getObject(columnName, map);
+	return this->$CachedRowSetImpl::getObject(columnName, map);
 }
 
 $Ref* WebRowSetImpl::getRef($String* colName) {
-	 return this->$CachedRowSetImpl::getRef(colName);
+	return this->$CachedRowSetImpl::getRef(colName);
 }
 
 $Blob* WebRowSetImpl::getBlob($String* colName) {
-	 return this->$CachedRowSetImpl::getBlob(colName);
+	return this->$CachedRowSetImpl::getBlob(colName);
 }
 
 $Clob* WebRowSetImpl::getClob($String* colName) {
-	 return this->$CachedRowSetImpl::getClob(colName);
+	return this->$CachedRowSetImpl::getClob(colName);
 }
 
 $1Array* WebRowSetImpl::getArray($String* colName) {
-	 return this->$CachedRowSetImpl::getArray(colName);
+	return this->$CachedRowSetImpl::getArray(colName);
 }
 
 $Date* WebRowSetImpl::getDate(int32_t columnIndex, $Calendar* cal) {
-	 return this->$CachedRowSetImpl::getDate(columnIndex, cal);
+	return this->$CachedRowSetImpl::getDate(columnIndex, cal);
 }
 
 $Date* WebRowSetImpl::getDate($String* columnName, $Calendar* cal) {
-	 return this->$CachedRowSetImpl::getDate(columnName, cal);
+	return this->$CachedRowSetImpl::getDate(columnName, cal);
 }
 
 $Time* WebRowSetImpl::getTime(int32_t columnIndex, $Calendar* cal) {
-	 return this->$CachedRowSetImpl::getTime(columnIndex, cal);
+	return this->$CachedRowSetImpl::getTime(columnIndex, cal);
 }
 
 $Time* WebRowSetImpl::getTime($String* columnName, $Calendar* cal) {
-	 return this->$CachedRowSetImpl::getTime(columnName, cal);
+	return this->$CachedRowSetImpl::getTime(columnName, cal);
 }
 
 $Timestamp* WebRowSetImpl::getTimestamp(int32_t columnIndex, $Calendar* cal) {
-	 return this->$CachedRowSetImpl::getTimestamp(columnIndex, cal);
+	return this->$CachedRowSetImpl::getTimestamp(columnIndex, cal);
 }
 
 $Timestamp* WebRowSetImpl::getTimestamp($String* columnName, $Calendar* cal) {
-	 return this->$CachedRowSetImpl::getTimestamp(columnName, cal);
+	return this->$CachedRowSetImpl::getTimestamp(columnName, cal);
 }
 
 void WebRowSetImpl::setMetaData($RowSetMetaData* md) {
@@ -690,11 +690,11 @@ void WebRowSetImpl::setMetaData($RowSetMetaData* md) {
 }
 
 $ResultSet* WebRowSetImpl::getOriginal() {
-	 return this->$CachedRowSetImpl::getOriginal();
+	return this->$CachedRowSetImpl::getOriginal();
 }
 
 $ResultSet* WebRowSetImpl::getOriginalRow() {
-	 return this->$CachedRowSetImpl::getOriginalRow();
+	return this->$CachedRowSetImpl::getOriginalRow();
 }
 
 void WebRowSetImpl::setOriginalRow() {
@@ -702,7 +702,7 @@ void WebRowSetImpl::setOriginalRow() {
 }
 
 $String* WebRowSetImpl::getTableName() {
-	 return this->$CachedRowSetImpl::getTableName();
+	return this->$CachedRowSetImpl::getTableName();
 }
 
 void WebRowSetImpl::setTableName($String* tabName) {
@@ -710,7 +710,7 @@ void WebRowSetImpl::setTableName($String* tabName) {
 }
 
 $ints* WebRowSetImpl::getKeyColumns() {
-	 return this->$CachedRowSetImpl::getKeyColumns();
+	return this->$CachedRowSetImpl::getKeyColumns();
 }
 
 void WebRowSetImpl::setKeyColumns($ints* keys) {
@@ -750,15 +750,15 @@ void WebRowSetImpl::updateArray($String* columnName, $1Array* a) {
 }
 
 $URL* WebRowSetImpl::getURL(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getURL(columnIndex);
+	return this->$CachedRowSetImpl::getURL(columnIndex);
 }
 
 $URL* WebRowSetImpl::getURL($String* columnName) {
-	 return this->$CachedRowSetImpl::getURL(columnName);
+	return this->$CachedRowSetImpl::getURL(columnName);
 }
 
 $RowSetWarning* WebRowSetImpl::getRowSetWarnings() {
-	 return this->$CachedRowSetImpl::getRowSetWarnings();
+	return this->$CachedRowSetImpl::getRowSetWarnings();
 }
 
 void WebRowSetImpl::commit() {
@@ -782,11 +782,11 @@ void WebRowSetImpl::unsetMatchColumn($StringArray* columnIdxes) {
 }
 
 $StringArray* WebRowSetImpl::getMatchColumnNames() {
-	 return this->$CachedRowSetImpl::getMatchColumnNames();
+	return this->$CachedRowSetImpl::getMatchColumnNames();
 }
 
 $ints* WebRowSetImpl::getMatchColumnIndexes() {
-	 return this->$CachedRowSetImpl::getMatchColumnIndexes();
+	return this->$CachedRowSetImpl::getMatchColumnIndexes();
 }
 
 void WebRowSetImpl::setMatchColumn($ints* columnIdxes) {
@@ -822,7 +822,7 @@ void WebRowSetImpl::populate($ResultSet* data, int32_t start) {
 }
 
 bool WebRowSetImpl::nextPage() {
-	 return this->$CachedRowSetImpl::nextPage();
+	return this->$CachedRowSetImpl::nextPage();
 }
 
 void WebRowSetImpl::setPageSize(int32_t size) {
@@ -830,27 +830,27 @@ void WebRowSetImpl::setPageSize(int32_t size) {
 }
 
 int32_t WebRowSetImpl::getPageSize() {
-	 return this->$CachedRowSetImpl::getPageSize();
+	return this->$CachedRowSetImpl::getPageSize();
 }
 
 bool WebRowSetImpl::previousPage() {
-	 return this->$CachedRowSetImpl::previousPage();
+	return this->$CachedRowSetImpl::previousPage();
 }
 
 $SQLXML* WebRowSetImpl::getSQLXML(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getSQLXML(columnIndex);
+	return this->$CachedRowSetImpl::getSQLXML(columnIndex);
 }
 
 $SQLXML* WebRowSetImpl::getSQLXML($String* colName) {
-	 return this->$CachedRowSetImpl::getSQLXML(colName);
+	return this->$CachedRowSetImpl::getSQLXML(colName);
 }
 
 $RowId* WebRowSetImpl::getRowId(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getRowId(columnIndex);
+	return this->$CachedRowSetImpl::getRowId(columnIndex);
 }
 
 $RowId* WebRowSetImpl::getRowId($String* columnName) {
-	 return this->$CachedRowSetImpl::getRowId(columnName);
+	return this->$CachedRowSetImpl::getRowId(columnName);
 }
 
 void WebRowSetImpl::updateRowId(int32_t columnIndex, $RowId* x) {
@@ -862,11 +862,11 @@ void WebRowSetImpl::updateRowId($String* columnName, $RowId* x) {
 }
 
 int32_t WebRowSetImpl::getHoldability() {
-	 return this->$CachedRowSetImpl::getHoldability();
+	return this->$CachedRowSetImpl::getHoldability();
 }
 
 bool WebRowSetImpl::isClosed() {
-	 return this->$CachedRowSetImpl::isClosed();
+	return this->$CachedRowSetImpl::isClosed();
 }
 
 void WebRowSetImpl::updateNString(int32_t columnIndex, $String* nString) {
@@ -886,19 +886,19 @@ void WebRowSetImpl::updateNClob($String* columnName, $NClob* nClob) {
 }
 
 $NClob* WebRowSetImpl::getNClob(int32_t i) {
-	 return this->$CachedRowSetImpl::getNClob(i);
+	return this->$CachedRowSetImpl::getNClob(i);
 }
 
 $NClob* WebRowSetImpl::getNClob($String* colName) {
-	 return this->$CachedRowSetImpl::getNClob(colName);
+	return this->$CachedRowSetImpl::getNClob(colName);
 }
 
 $Object* WebRowSetImpl::unwrap($Class* iface) {
-	 return this->$CachedRowSetImpl::unwrap(iface);
+	return this->$CachedRowSetImpl::unwrap(iface);
 }
 
 bool WebRowSetImpl::isWrapperFor($Class* interfaces) {
-	 return this->$CachedRowSetImpl::isWrapperFor(interfaces);
+	return this->$CachedRowSetImpl::isWrapperFor(interfaces);
 }
 
 void WebRowSetImpl::setSQLXML(int32_t parameterIndex, $SQLXML* xmlObject) {
@@ -926,11 +926,11 @@ void WebRowSetImpl::setNClob($String* parameterName, $NClob* value) {
 }
 
 $Reader* WebRowSetImpl::getNCharacterStream(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getNCharacterStream(columnIndex);
+	return this->$CachedRowSetImpl::getNCharacterStream(columnIndex);
 }
 
 $Reader* WebRowSetImpl::getNCharacterStream($String* columnName) {
-	 return this->$CachedRowSetImpl::getNCharacterStream(columnName);
+	return this->$CachedRowSetImpl::getNCharacterStream(columnName);
 }
 
 void WebRowSetImpl::updateSQLXML(int32_t columnIndex, $SQLXML* xmlObject) {
@@ -942,11 +942,11 @@ void WebRowSetImpl::updateSQLXML($String* columnName, $SQLXML* xmlObject) {
 }
 
 $String* WebRowSetImpl::getNString(int32_t columnIndex) {
-	 return this->$CachedRowSetImpl::getNString(columnIndex);
+	return this->$CachedRowSetImpl::getNString(columnIndex);
 }
 
 $String* WebRowSetImpl::getNString($String* columnName) {
-	 return this->$CachedRowSetImpl::getNString(columnName);
+	return this->$CachedRowSetImpl::getNString(columnName);
 }
 
 void WebRowSetImpl::updateNCharacterStream(int32_t columnIndex, $Reader* x, int64_t length) {
@@ -1254,11 +1254,11 @@ void WebRowSetImpl::setDouble($String* parameterName, double x) {
 }
 
 $Object* WebRowSetImpl::getObject(int32_t columnIndex, $Class* type) {
-	 return this->$CachedRowSetImpl::getObject(columnIndex, type);
+	return this->$CachedRowSetImpl::getObject(columnIndex, type);
 }
 
 $Object* WebRowSetImpl::getObject($String* columnLabel, $Class* type) {
-	 return this->$CachedRowSetImpl::getObject(columnLabel, type);
+	return this->$CachedRowSetImpl::getObject(columnLabel, type);
 }
 
 void WebRowSetImpl::addRowSetListener($RowSetListener* listener) {
@@ -1270,11 +1270,11 @@ void WebRowSetImpl::removeRowSetListener($RowSetListener* listener) {
 }
 
 $String* WebRowSetImpl::getCommand() {
-	 return this->$CachedRowSetImpl::getCommand();
+	return this->$CachedRowSetImpl::getCommand();
 }
 
 $String* WebRowSetImpl::getUrl() {
-	 return this->$CachedRowSetImpl::getUrl();
+	return this->$CachedRowSetImpl::getUrl();
 }
 
 void WebRowSetImpl::setUrl($String* url) {
@@ -1282,7 +1282,7 @@ void WebRowSetImpl::setUrl($String* url) {
 }
 
 $String* WebRowSetImpl::getDataSourceName() {
-	 return this->$CachedRowSetImpl::getDataSourceName();
+	return this->$CachedRowSetImpl::getDataSourceName();
 }
 
 void WebRowSetImpl::setDataSourceName($String* name) {
@@ -1290,7 +1290,7 @@ void WebRowSetImpl::setDataSourceName($String* name) {
 }
 
 $String* WebRowSetImpl::getUsername() {
-	 return this->$CachedRowSetImpl::getUsername();
+	return this->$CachedRowSetImpl::getUsername();
 }
 
 void WebRowSetImpl::setUsername($String* name) {
@@ -1298,7 +1298,7 @@ void WebRowSetImpl::setUsername($String* name) {
 }
 
 $String* WebRowSetImpl::getPassword() {
-	 return this->$CachedRowSetImpl::getPassword();
+	return this->$CachedRowSetImpl::getPassword();
 }
 
 void WebRowSetImpl::setPassword($String* pass) {
@@ -1310,7 +1310,7 @@ void WebRowSetImpl::setType(int32_t type) {
 }
 
 int32_t WebRowSetImpl::getType() {
-	 return this->$CachedRowSetImpl::getType();
+	return this->$CachedRowSetImpl::getType();
 }
 
 void WebRowSetImpl::setConcurrency(int32_t concurrency) {
@@ -1318,7 +1318,7 @@ void WebRowSetImpl::setConcurrency(int32_t concurrency) {
 }
 
 bool WebRowSetImpl::isReadOnly() {
-	 return this->$CachedRowSetImpl::isReadOnly();
+	return this->$CachedRowSetImpl::isReadOnly();
 }
 
 void WebRowSetImpl::setReadOnly(bool value) {
@@ -1326,7 +1326,7 @@ void WebRowSetImpl::setReadOnly(bool value) {
 }
 
 int32_t WebRowSetImpl::getTransactionIsolation() {
-	 return this->$CachedRowSetImpl::getTransactionIsolation();
+	return this->$CachedRowSetImpl::getTransactionIsolation();
 }
 
 void WebRowSetImpl::setTransactionIsolation(int32_t level) {
@@ -1334,7 +1334,7 @@ void WebRowSetImpl::setTransactionIsolation(int32_t level) {
 }
 
 $Map* WebRowSetImpl::getTypeMap() {
-	 return this->$CachedRowSetImpl::getTypeMap();
+	return this->$CachedRowSetImpl::getTypeMap();
 }
 
 void WebRowSetImpl::setTypeMap($Map* map) {
@@ -1342,7 +1342,7 @@ void WebRowSetImpl::setTypeMap($Map* map) {
 }
 
 int32_t WebRowSetImpl::getMaxFieldSize() {
-	 return this->$CachedRowSetImpl::getMaxFieldSize();
+	return this->$CachedRowSetImpl::getMaxFieldSize();
 }
 
 void WebRowSetImpl::setMaxFieldSize(int32_t max) {
@@ -1350,7 +1350,7 @@ void WebRowSetImpl::setMaxFieldSize(int32_t max) {
 }
 
 int32_t WebRowSetImpl::getMaxRows() {
-	 return this->$CachedRowSetImpl::getMaxRows();
+	return this->$CachedRowSetImpl::getMaxRows();
 }
 
 void WebRowSetImpl::setMaxRows(int32_t max) {
@@ -1362,7 +1362,7 @@ void WebRowSetImpl::setEscapeProcessing(bool enable) {
 }
 
 int32_t WebRowSetImpl::getQueryTimeout() {
-	 return this->$CachedRowSetImpl::getQueryTimeout();
+	return this->$CachedRowSetImpl::getQueryTimeout();
 }
 
 void WebRowSetImpl::setQueryTimeout(int32_t seconds) {
@@ -1370,7 +1370,7 @@ void WebRowSetImpl::setQueryTimeout(int32_t seconds) {
 }
 
 bool WebRowSetImpl::getShowDeleted() {
-	 return this->$CachedRowSetImpl::getShowDeleted();
+	return this->$CachedRowSetImpl::getShowDeleted();
 }
 
 void WebRowSetImpl::setShowDeleted(bool value) {
@@ -1378,7 +1378,7 @@ void WebRowSetImpl::setShowDeleted(bool value) {
 }
 
 bool WebRowSetImpl::getEscapeProcessing() {
-	 return this->$CachedRowSetImpl::getEscapeProcessing();
+	return this->$CachedRowSetImpl::getEscapeProcessing();
 }
 
 void WebRowSetImpl::setFetchDirection(int32_t direction) {
@@ -1386,7 +1386,7 @@ void WebRowSetImpl::setFetchDirection(int32_t direction) {
 }
 
 int32_t WebRowSetImpl::getFetchDirection() {
-	 return this->$CachedRowSetImpl::getFetchDirection();
+	return this->$CachedRowSetImpl::getFetchDirection();
 }
 
 void WebRowSetImpl::setFetchSize(int32_t rows) {
@@ -1394,11 +1394,11 @@ void WebRowSetImpl::setFetchSize(int32_t rows) {
 }
 
 int32_t WebRowSetImpl::getFetchSize() {
-	 return this->$CachedRowSetImpl::getFetchSize();
+	return this->$CachedRowSetImpl::getFetchSize();
 }
 
 int32_t WebRowSetImpl::getConcurrency() {
-	 return this->$CachedRowSetImpl::getConcurrency();
+	return this->$CachedRowSetImpl::getConcurrency();
 }
 
 void WebRowSetImpl::setNull(int32_t parameterIndex, int32_t sqlType) {
@@ -1530,15 +1530,15 @@ void WebRowSetImpl::clearParameters() {
 }
 
 int32_t WebRowSetImpl::hashCode() {
-	 return this->$CachedRowSetImpl::hashCode();
+	return this->$CachedRowSetImpl::hashCode();
 }
 
 bool WebRowSetImpl::equals(Object$* arg0) {
-	 return this->$CachedRowSetImpl::equals(arg0);
+	return this->$CachedRowSetImpl::equals(arg0);
 }
 
 $String* WebRowSetImpl::toString() {
-	 return this->$CachedRowSetImpl::toString();
+	return this->$CachedRowSetImpl::toString();
 }
 
 void WebRowSetImpl::finalize() {

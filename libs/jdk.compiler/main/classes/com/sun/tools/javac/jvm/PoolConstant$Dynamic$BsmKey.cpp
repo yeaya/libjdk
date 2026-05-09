@@ -42,7 +42,7 @@ public:
 		$set(this, types, types);
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return PoolConstant$Dynamic$BsmKey::lambda$new$0(types, $cast($PoolConstant$LoadableConstant, p));
+		return PoolConstant$Dynamic$BsmKey::lambda$new$0(types, $cast($PoolConstant$LoadableConstant, p));
 	}
 	$Types* types = nullptr;
 };

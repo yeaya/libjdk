@@ -14,19 +14,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaImageFactory$SystemColorProxy::hashCode() {
-	 return this->$Color::hashCode();
+	return this->$Color::hashCode();
 }
 
 bool AquaImageFactory$SystemColorProxy::equals(Object$* obj) {
-	 return this->$Color::equals(obj);
+	return this->$Color::equals(obj);
 }
 
 $String* AquaImageFactory$SystemColorProxy::toString() {
-	 return this->$Color::toString();
+	return this->$Color::toString();
 }
 
 $Object* AquaImageFactory$SystemColorProxy::clone() {
-	 return this->$Color::clone();
+	return this->$Color::clone();
 }
 
 void AquaImageFactory$SystemColorProxy::finalize() {

@@ -339,19 +339,19 @@ namespace com {
 							namespace xs {
 
 int32_t XMLSchemaValidator::hashCode() {
-	 return this->$XMLComponent::hashCode();
+	return this->$XMLComponent::hashCode();
 }
 
 bool XMLSchemaValidator::equals(Object$* arg0) {
-	 return this->$XMLComponent::equals(arg0);
+	return this->$XMLComponent::equals(arg0);
 }
 
 $Object* XMLSchemaValidator::clone() {
-	 return this->$XMLComponent::clone();
+	return this->$XMLComponent::clone();
 }
 
 $String* XMLSchemaValidator::toString() {
-	 return this->$XMLComponent::toString();
+	return this->$XMLComponent::toString();
 }
 
 void XMLSchemaValidator::finalize() {

@@ -70,19 +70,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthProgressBarUI::hashCode() {
-	 return this->$BasicProgressBarUI::hashCode();
+	return this->$BasicProgressBarUI::hashCode();
 }
 
 bool SynthProgressBarUI::equals(Object$* arg0) {
-	 return this->$BasicProgressBarUI::equals(arg0);
+	return this->$BasicProgressBarUI::equals(arg0);
 }
 
 $Object* SynthProgressBarUI::clone() {
-	 return this->$BasicProgressBarUI::clone();
+	return this->$BasicProgressBarUI::clone();
 }
 
 $String* SynthProgressBarUI::toString() {
-	 return this->$BasicProgressBarUI::toString();
+	return this->$BasicProgressBarUI::toString();
 }
 
 void SynthProgressBarUI::finalize() {

@@ -129,11 +129,11 @@ namespace com {
 							namespace xs {
 
 bool XSModelImpl::add(Object$* arg0) {
-	 return this->$AbstractList::add(arg0);
+	return this->$AbstractList::add(arg0);
 }
 
 $Object* XSModelImpl::set(int32_t arg0, Object$* arg1) {
-	 return this->$AbstractList::set(arg0, arg1);
+	return this->$AbstractList::set(arg0, arg1);
 }
 
 void XSModelImpl::add(int32_t arg0, Object$* arg1) {
@@ -141,15 +141,15 @@ void XSModelImpl::add(int32_t arg0, Object$* arg1) {
 }
 
 $Object* XSModelImpl::remove(int32_t arg0) {
-	 return this->$AbstractList::remove(arg0);
+	return this->$AbstractList::remove(arg0);
 }
 
 int32_t XSModelImpl::indexOf(Object$* arg0) {
-	 return this->$AbstractList::indexOf(arg0);
+	return this->$AbstractList::indexOf(arg0);
 }
 
 int32_t XSModelImpl::lastIndexOf(Object$* arg0) {
-	 return this->$AbstractList::lastIndexOf(arg0);
+	return this->$AbstractList::lastIndexOf(arg0);
 }
 
 void XSModelImpl::clear() {
@@ -157,71 +157,71 @@ void XSModelImpl::clear() {
 }
 
 bool XSModelImpl::addAll(int32_t arg0, $Collection* arg1) {
-	 return this->$AbstractList::addAll(arg0, arg1);
+	return this->$AbstractList::addAll(arg0, arg1);
 }
 
 $List* XSModelImpl::subList(int32_t arg0, int32_t arg1) {
-	 return this->$AbstractList::subList(arg0, arg1);
+	return this->$AbstractList::subList(arg0, arg1);
 }
 
 bool XSModelImpl::equals(Object$* arg0) {
-	 return this->$AbstractList::equals(arg0);
+	return this->$AbstractList::equals(arg0);
 }
 
 int32_t XSModelImpl::hashCode() {
-	 return this->$AbstractList::hashCode();
+	return this->$AbstractList::hashCode();
 }
 
 bool XSModelImpl::isEmpty() {
-	 return this->$AbstractList::isEmpty();
+	return this->$AbstractList::isEmpty();
 }
 
 bool XSModelImpl::contains(Object$* arg0) {
-	 return this->$AbstractList::contains(arg0);
+	return this->$AbstractList::contains(arg0);
 }
 
 bool XSModelImpl::remove(Object$* arg0) {
-	 return this->$AbstractList::remove(arg0);
+	return this->$AbstractList::remove(arg0);
 }
 
 bool XSModelImpl::containsAll($Collection* arg0) {
-	 return this->$AbstractList::containsAll(arg0);
+	return this->$AbstractList::containsAll(arg0);
 }
 
 bool XSModelImpl::addAll($Collection* arg0) {
-	 return this->$AbstractList::addAll(arg0);
+	return this->$AbstractList::addAll(arg0);
 }
 
 bool XSModelImpl::removeAll($Collection* arg0) {
-	 return this->$AbstractList::removeAll(arg0);
+	return this->$AbstractList::removeAll(arg0);
 }
 
 bool XSModelImpl::retainAll($Collection* arg0) {
-	 return this->$AbstractList::retainAll(arg0);
+	return this->$AbstractList::retainAll(arg0);
 }
 
 $String* XSModelImpl::toString() {
-	 return this->$AbstractList::toString();
+	return this->$AbstractList::toString();
 }
 
 $ObjectArray* XSModelImpl::toArray($IntFunction* arg0) {
-	 return this->$AbstractList::toArray(arg0);
+	return this->$AbstractList::toArray(arg0);
 }
 
 bool XSModelImpl::removeIf($Predicate* arg0) {
-	 return this->$AbstractList::removeIf(arg0);
+	return this->$AbstractList::removeIf(arg0);
 }
 
 $Spliterator* XSModelImpl::spliterator() {
-	 return this->$AbstractList::spliterator();
+	return this->$AbstractList::spliterator();
 }
 
 $Stream* XSModelImpl::stream() {
-	 return this->$AbstractList::stream();
+	return this->$AbstractList::stream();
 }
 
 $Stream* XSModelImpl::parallelStream() {
-	 return this->$AbstractList::parallelStream();
+	return this->$AbstractList::parallelStream();
 }
 
 void XSModelImpl::forEach($Consumer* arg0) {
@@ -229,7 +229,7 @@ void XSModelImpl::forEach($Consumer* arg0) {
 }
 
 $Object* XSModelImpl::clone() {
-	 return this->$AbstractList::clone();
+	return this->$AbstractList::clone();
 }
 
 void XSModelImpl::finalize() {

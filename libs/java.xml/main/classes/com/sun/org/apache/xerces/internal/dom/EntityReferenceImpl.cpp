@@ -43,39 +43,39 @@ namespace com {
 						namespace dom {
 
 $Document* EntityReferenceImpl::getOwnerDocument() {
-	 return this->$ParentNode::getOwnerDocument();
+	return this->$ParentNode::getOwnerDocument();
 }
 
 bool EntityReferenceImpl::hasChildNodes() {
-	 return this->$ParentNode::hasChildNodes();
+	return this->$ParentNode::hasChildNodes();
 }
 
 $NodeList* EntityReferenceImpl::getChildNodes() {
-	 return this->$ParentNode::getChildNodes();
+	return this->$ParentNode::getChildNodes();
 }
 
 $Node* EntityReferenceImpl::getFirstChild() {
-	 return this->$ParentNode::getFirstChild();
+	return this->$ParentNode::getFirstChild();
 }
 
 $Node* EntityReferenceImpl::getLastChild() {
-	 return this->$ParentNode::getLastChild();
+	return this->$ParentNode::getLastChild();
 }
 
 $Node* EntityReferenceImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$ParentNode::insertBefore(newChild, refChild);
+	return this->$ParentNode::insertBefore(newChild, refChild);
 }
 
 $Node* EntityReferenceImpl::removeChild($Node* oldChild) {
-	 return this->$ParentNode::removeChild(oldChild);
+	return this->$ParentNode::removeChild(oldChild);
 }
 
 $Node* EntityReferenceImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$ParentNode::replaceChild(newChild, oldChild);
+	return this->$ParentNode::replaceChild(newChild, oldChild);
 }
 
 $String* EntityReferenceImpl::getTextContent() {
-	 return this->$ParentNode::getTextContent();
+	return this->$ParentNode::getTextContent();
 }
 
 void EntityReferenceImpl::setTextContent($String* textContent) {
@@ -87,23 +87,23 @@ void EntityReferenceImpl::normalize() {
 }
 
 bool EntityReferenceImpl::isEqualNode($Node* arg) {
-	 return this->$ParentNode::isEqualNode(arg);
+	return this->$ParentNode::isEqualNode(arg);
 }
 
 $Node* EntityReferenceImpl::getParentNode() {
-	 return this->$ParentNode::getParentNode();
+	return this->$ParentNode::getParentNode();
 }
 
 $Node* EntityReferenceImpl::getNextSibling() {
-	 return this->$ParentNode::getNextSibling();
+	return this->$ParentNode::getNextSibling();
 }
 
 $Node* EntityReferenceImpl::getPreviousSibling() {
-	 return this->$ParentNode::getPreviousSibling();
+	return this->$ParentNode::getPreviousSibling();
 }
 
 $String* EntityReferenceImpl::getNodeValue() {
-	 return this->$ParentNode::getNodeValue();
+	return this->$ParentNode::getNodeValue();
 }
 
 void EntityReferenceImpl::setNodeValue($String* x) {
@@ -111,27 +111,27 @@ void EntityReferenceImpl::setNodeValue($String* x) {
 }
 
 $Node* EntityReferenceImpl::appendChild($Node* newChild) {
-	 return this->$ParentNode::appendChild(newChild);
+	return this->$ParentNode::appendChild(newChild);
 }
 
 $NamedNodeMap* EntityReferenceImpl::getAttributes() {
-	 return this->$ParentNode::getAttributes();
+	return this->$ParentNode::getAttributes();
 }
 
 bool EntityReferenceImpl::hasAttributes() {
-	 return this->$ParentNode::hasAttributes();
+	return this->$ParentNode::hasAttributes();
 }
 
 bool EntityReferenceImpl::isSupported($String* feature, $String* version) {
-	 return this->$ParentNode::isSupported(feature, version);
+	return this->$ParentNode::isSupported(feature, version);
 }
 
 $String* EntityReferenceImpl::getNamespaceURI() {
-	 return this->$ParentNode::getNamespaceURI();
+	return this->$ParentNode::getNamespaceURI();
 }
 
 $String* EntityReferenceImpl::getPrefix() {
-	 return this->$ParentNode::getPrefix();
+	return this->$ParentNode::getPrefix();
 }
 
 void EntityReferenceImpl::setPrefix($String* prefix) {
@@ -139,55 +139,55 @@ void EntityReferenceImpl::setPrefix($String* prefix) {
 }
 
 $String* EntityReferenceImpl::getLocalName() {
-	 return this->$ParentNode::getLocalName();
+	return this->$ParentNode::getLocalName();
 }
 
 int16_t EntityReferenceImpl::compareDocumentPosition($Node* other) {
-	 return this->$ParentNode::compareDocumentPosition(other);
+	return this->$ParentNode::compareDocumentPosition(other);
 }
 
 bool EntityReferenceImpl::isSameNode($Node* other) {
-	 return this->$ParentNode::isSameNode(other);
+	return this->$ParentNode::isSameNode(other);
 }
 
 bool EntityReferenceImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$ParentNode::isDefaultNamespace(namespaceURI);
+	return this->$ParentNode::isDefaultNamespace(namespaceURI);
 }
 
 $String* EntityReferenceImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$ParentNode::lookupPrefix(namespaceURI);
+	return this->$ParentNode::lookupPrefix(namespaceURI);
 }
 
 $String* EntityReferenceImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$ParentNode::lookupNamespaceURI(specifiedPrefix);
+	return this->$ParentNode::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* EntityReferenceImpl::getFeature($String* feature, $String* version) {
-	 return this->$ParentNode::getFeature(feature, version);
+	return this->$ParentNode::getFeature(feature, version);
 }
 
 $Object* EntityReferenceImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$ParentNode::setUserData(key, data, handler);
+	return this->$ParentNode::setUserData(key, data, handler);
 }
 
 $Object* EntityReferenceImpl::getUserData($String* key) {
-	 return this->$ParentNode::getUserData(key);
+	return this->$ParentNode::getUserData(key);
 }
 
 $String* EntityReferenceImpl::toString() {
-	 return this->$ParentNode::toString();
+	return this->$ParentNode::toString();
 }
 
 int32_t EntityReferenceImpl::hashCode() {
-	 return this->$ParentNode::hashCode();
+	return this->$ParentNode::hashCode();
 }
 
 bool EntityReferenceImpl::equals(Object$* arg0) {
-	 return this->$ParentNode::equals(arg0);
+	return this->$ParentNode::equals(arg0);
 }
 
 $Object* EntityReferenceImpl::clone() {
-	 return this->$ParentNode::clone();
+	return this->$ParentNode::clone();
 }
 
 void EntityReferenceImpl::finalize() {

@@ -18,19 +18,19 @@ namespace javax {
 			namespace nimbus {
 
 int32_t NimbusLookAndFeel$NimbusProperty::hashCode() {
-	 return this->$UIDefaults$ActiveValue::hashCode();
+	return this->$UIDefaults$ActiveValue::hashCode();
 }
 
 bool NimbusLookAndFeel$NimbusProperty::equals(Object$* arg0) {
-	 return this->$UIDefaults$ActiveValue::equals(arg0);
+	return this->$UIDefaults$ActiveValue::equals(arg0);
 }
 
 $Object* NimbusLookAndFeel$NimbusProperty::clone() {
-	 return this->$UIDefaults$ActiveValue::clone();
+	return this->$UIDefaults$ActiveValue::clone();
 }
 
 $String* NimbusLookAndFeel$NimbusProperty::toString() {
-	 return this->$UIDefaults$ActiveValue::toString();
+	return this->$UIDefaults$ActiveValue::toString();
 }
 
 void NimbusLookAndFeel$NimbusProperty::finalize() {

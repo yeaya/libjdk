@@ -52,19 +52,19 @@ namespace sun {
 	namespace print {
 
 $String* ServiceDialog$SidesPanel::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t ServiceDialog$SidesPanel::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool ServiceDialog$SidesPanel::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* ServiceDialog$SidesPanel::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void ServiceDialog$SidesPanel::finalize() {

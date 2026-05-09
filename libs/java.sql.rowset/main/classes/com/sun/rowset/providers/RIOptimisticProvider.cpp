@@ -36,19 +36,19 @@ namespace com {
 			namespace providers {
 
 int32_t RIOptimisticProvider::hashCode() {
-	 return this->$SyncProvider::hashCode();
+	return this->$SyncProvider::hashCode();
 }
 
 bool RIOptimisticProvider::equals(Object$* arg0) {
-	 return this->$SyncProvider::equals(arg0);
+	return this->$SyncProvider::equals(arg0);
 }
 
 $Object* RIOptimisticProvider::clone() {
-	 return this->$SyncProvider::clone();
+	return this->$SyncProvider::clone();
 }
 
 $String* RIOptimisticProvider::toString() {
-	 return this->$SyncProvider::toString();
+	return this->$SyncProvider::toString();
 }
 
 void RIOptimisticProvider::finalize() {

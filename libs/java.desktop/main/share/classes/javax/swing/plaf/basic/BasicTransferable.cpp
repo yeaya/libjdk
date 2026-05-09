@@ -30,19 +30,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicTransferable::hashCode() {
-	 return this->$Transferable::hashCode();
+	return this->$Transferable::hashCode();
 }
 
 bool BasicTransferable::equals(Object$* arg0) {
-	 return this->$Transferable::equals(arg0);
+	return this->$Transferable::equals(arg0);
 }
 
 $Object* BasicTransferable::clone() {
-	 return this->$Transferable::clone();
+	return this->$Transferable::clone();
 }
 
 $String* BasicTransferable::toString() {
-	 return this->$Transferable::toString();
+	return this->$Transferable::toString();
 }
 
 void BasicTransferable::finalize() {

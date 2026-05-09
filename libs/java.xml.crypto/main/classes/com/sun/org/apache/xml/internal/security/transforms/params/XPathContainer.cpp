@@ -29,19 +29,19 @@ namespace com {
 								namespace params {
 
 int32_t XPathContainer::hashCode() {
-	 return this->$SignatureElementProxy::hashCode();
+	return this->$SignatureElementProxy::hashCode();
 }
 
 bool XPathContainer::equals(Object$* arg0) {
-	 return this->$SignatureElementProxy::equals(arg0);
+	return this->$SignatureElementProxy::equals(arg0);
 }
 
 $Object* XPathContainer::clone() {
-	 return this->$SignatureElementProxy::clone();
+	return this->$SignatureElementProxy::clone();
 }
 
 $String* XPathContainer::toString() {
-	 return this->$SignatureElementProxy::toString();
+	return this->$SignatureElementProxy::toString();
 }
 
 void XPathContainer::finalize() {

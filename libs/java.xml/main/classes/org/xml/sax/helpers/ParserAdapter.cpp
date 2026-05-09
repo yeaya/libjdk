@@ -70,19 +70,19 @@ namespace org {
 			namespace helpers {
 
 int32_t ParserAdapter::hashCode() {
-	 return this->$XMLReader::hashCode();
+	return this->$XMLReader::hashCode();
 }
 
 bool ParserAdapter::equals(Object$* arg0) {
-	 return this->$XMLReader::equals(arg0);
+	return this->$XMLReader::equals(arg0);
 }
 
 $Object* ParserAdapter::clone() {
-	 return this->$XMLReader::clone();
+	return this->$XMLReader::clone();
 }
 
 $String* ParserAdapter::toString() {
-	 return this->$XMLReader::toString();
+	return this->$XMLReader::toString();
 }
 
 void ParserAdapter::finalize() {

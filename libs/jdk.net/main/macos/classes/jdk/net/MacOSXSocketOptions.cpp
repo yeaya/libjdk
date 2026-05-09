@@ -40,7 +40,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return MacOSXSocketOptions::lambda$static$0();
+		return MacOSXSocketOptions::lambda$static$0();
 	}
 };
 $Class* MacOSXSocketOptions$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

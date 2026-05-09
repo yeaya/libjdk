@@ -13,15 +13,15 @@ namespace javax {
 		namespace openmbean {
 
 bool CompositeData::equals(Object$* obj) {
-	 return this->$Object::equals(obj);
+	return this->$Object::equals(obj);
 }
 
 int32_t CompositeData::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $String* CompositeData::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $Class* CompositeData::load$($String* name, bool initialize) {

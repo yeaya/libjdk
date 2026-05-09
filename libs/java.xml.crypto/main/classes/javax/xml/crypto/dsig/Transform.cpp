@@ -25,19 +25,19 @@ namespace javax {
 			namespace dsig {
 
 int32_t Transform::hashCode() {
-	 return this->$XMLStructure::hashCode();
+	return this->$XMLStructure::hashCode();
 }
 
 bool Transform::equals(Object$* arg0) {
-	 return this->$XMLStructure::equals(arg0);
+	return this->$XMLStructure::equals(arg0);
 }
 
 $Object* Transform::clone() {
-	 return this->$XMLStructure::clone();
+	return this->$XMLStructure::clone();
 }
 
 $String* Transform::toString() {
-	 return this->$XMLStructure::toString();
+	return this->$XMLStructure::toString();
 }
 
 void Transform::finalize() {

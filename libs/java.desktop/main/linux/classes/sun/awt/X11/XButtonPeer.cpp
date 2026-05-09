@@ -93,19 +93,19 @@ void XButtonPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool XButtonPeer::isReparentSupported() {
-	 return this->$XComponentPeer::isReparentSupported();
+	return this->$XComponentPeer::isReparentSupported();
 }
 
 bool XButtonPeer::isObscured() {
-	 return this->$XComponentPeer::isObscured();
+	return this->$XComponentPeer::isObscured();
 }
 
 bool XButtonPeer::canDetermineObscurity() {
-	 return this->$XComponentPeer::canDetermineObscurity();
+	return this->$XComponentPeer::canDetermineObscurity();
 }
 
 bool XButtonPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void XButtonPeer::setVisible(bool b) {
@@ -121,7 +121,7 @@ void XButtonPeer::paint($Graphics* g) {
 }
 
 $Graphics* XButtonPeer::getGraphics() {
-	 return this->$XComponentPeer::getGraphics();
+	return this->$XComponentPeer::getGraphics();
 }
 
 void XButtonPeer::print($Graphics* g) {
@@ -141,7 +141,7 @@ void XButtonPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* XButtonPeer::getPreferredSize() {
-	 return this->$XComponentPeer::getPreferredSize();
+	return this->$XComponentPeer::getPreferredSize();
 }
 
 void XButtonPeer::layout() {
@@ -153,7 +153,7 @@ void XButtonPeer::setForeground($Color* c) {
 }
 
 $FontMetrics* XButtonPeer::getFontMetrics($Font* font) {
-	 return this->$XComponentPeer::getFontMetrics(font);
+	return this->$XComponentPeer::getFontMetrics(font);
 }
 
 void XButtonPeer::setFont($Font* f) {
@@ -165,15 +165,15 @@ void XButtonPeer::updateCursorImmediately() {
 }
 
 $Image* XButtonPeer::createImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createImage(width, height);
+	return this->$XComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* XButtonPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createVolatileImage(width, height);
+	return this->$XComponentPeer::createVolatileImage(width, height);
 }
 
 bool XButtonPeer::handlesWheelScrolling() {
-	 return this->$XComponentPeer::handlesWheelScrolling();
+	return this->$XComponentPeer::handlesWheelScrolling();
 }
 
 void XButtonPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -185,7 +185,7 @@ void XButtonPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCa
 }
 
 $Image* XButtonPeer::getBackBuffer() {
-	 return this->$XComponentPeer::getBackBuffer();
+	return this->$XComponentPeer::getBackBuffer();
 }
 
 void XButtonPeer::destroyBuffers() {
@@ -201,35 +201,35 @@ void XButtonPeer::applyShape($Region* shape) {
 }
 
 bool XButtonPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XComponentPeer::updateGraphicsData(gc);
+	return this->$XComponentPeer::updateGraphicsData(gc);
 }
 
 $Point* XButtonPeer::getLocationOnScreen() {
-	 return this->$XComponentPeer::getLocationOnScreen();
+	return this->$XComponentPeer::getLocationOnScreen();
 }
 
 $ColorModel* XButtonPeer::getColorModel() {
-	 return this->$XComponentPeer::getColorModel();
+	return this->$XComponentPeer::getColorModel();
 }
 
 $GraphicsConfiguration* XButtonPeer::getGraphicsConfiguration() {
-	 return this->$XComponentPeer::getGraphicsConfiguration();
+	return this->$XComponentPeer::getGraphicsConfiguration();
 }
 
 $String* XButtonPeer::toString() {
-	 return this->$XComponentPeer::toString();
+	return this->$XComponentPeer::toString();
 }
 
 int32_t XButtonPeer::hashCode() {
-	 return this->$XComponentPeer::hashCode();
+	return this->$XComponentPeer::hashCode();
 }
 
 bool XButtonPeer::equals(Object$* arg0) {
-	 return this->$XComponentPeer::equals(arg0);
+	return this->$XComponentPeer::equals(arg0);
 }
 
 $Object* XButtonPeer::clone() {
-	 return this->$XComponentPeer::clone();
+	return this->$XComponentPeer::clone();
 }
 
 void XButtonPeer::finalize() {

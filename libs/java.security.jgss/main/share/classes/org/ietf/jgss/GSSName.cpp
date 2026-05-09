@@ -19,15 +19,15 @@ namespace org {
 		namespace jgss {
 
 bool GSSName::equals(Object$* another) {
-	 return this->$Object::equals(another);
+	return this->$Object::equals(another);
 }
 
 int32_t GSSName::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $String* GSSName::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $Oid* GSSName::NT_HOSTBASED_SERVICE = nullptr;

@@ -106,7 +106,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getClassLoader();
+		return $nc(inst$)->getClassLoader();
 	}
 	$Class* inst$ = nullptr;
 };
@@ -141,7 +141,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c, Object$* v) override {
-		 return Level$KnownLevel::lambda$registerWithClassLoader$2($cast($ClassLoader, c), $cast($ClassLoaderValue, v));
+		return Level$KnownLevel::lambda$registerWithClassLoader$2($cast($ClassLoader, c), $cast($ClassLoaderValue, v));
 	}
 };
 $Class* Level$KnownLevel$$Lambda$lambda$registerWithClassLoader$2$2::load$($String* name, bool initialize) {
@@ -171,7 +171,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return Level$KnownLevel::lambda$add$3($cast($String, k));
+		return Level$KnownLevel::lambda$add$3($cast($String, k));
 	}
 };
 $Class* Level$KnownLevel$$Lambda$lambda$add$3$3::load$($String* name, bool initialize) {
@@ -201,7 +201,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return Level$KnownLevel::lambda$add$4($cast($Integer, k));
+		return Level$KnownLevel::lambda$add$4($cast($Integer, k));
 	}
 };
 $Class* Level$KnownLevel$$Lambda$lambda$add$4$4::load$($String* name, bool initialize) {
@@ -231,7 +231,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Optional, inst$)->stream();
+		return $sure($Optional, inst$)->stream();
 	}
 };
 $Class* Level$KnownLevel$$Lambda$stream$5::load$($String* name, bool initialize) {
@@ -261,7 +261,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Collection, inst$)->stream();
+		return $sure($Collection, inst$)->stream();
 	}
 };
 $Class* Level$KnownLevel$$Lambda$stream$6::load$($String* name, bool initialize) {
@@ -292,7 +292,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual bool test(Object$* l) override {
-		 return Level$KnownLevel::lambda$findByLocalizedLevelName$5(name, $cast($Level, l));
+		return Level$KnownLevel::lambda$findByLocalizedLevelName$5(name, $cast($Level, l));
 	}
 	$String* name = nullptr;
 };

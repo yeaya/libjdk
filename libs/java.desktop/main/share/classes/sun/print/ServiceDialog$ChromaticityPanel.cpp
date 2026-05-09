@@ -49,19 +49,19 @@ namespace sun {
 	namespace print {
 
 $String* ServiceDialog$ChromaticityPanel::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t ServiceDialog$ChromaticityPanel::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool ServiceDialog$ChromaticityPanel::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* ServiceDialog$ChromaticityPanel::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void ServiceDialog$ChromaticityPanel::finalize() {

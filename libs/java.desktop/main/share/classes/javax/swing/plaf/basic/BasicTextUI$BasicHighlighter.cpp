@@ -14,19 +14,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicTextUI$BasicHighlighter::hashCode() {
-	 return this->$DefaultHighlighter::hashCode();
+	return this->$DefaultHighlighter::hashCode();
 }
 
 bool BasicTextUI$BasicHighlighter::equals(Object$* arg0) {
-	 return this->$DefaultHighlighter::equals(arg0);
+	return this->$DefaultHighlighter::equals(arg0);
 }
 
 $Object* BasicTextUI$BasicHighlighter::clone() {
-	 return this->$DefaultHighlighter::clone();
+	return this->$DefaultHighlighter::clone();
 }
 
 $String* BasicTextUI$BasicHighlighter::toString() {
-	 return this->$DefaultHighlighter::toString();
+	return this->$DefaultHighlighter::toString();
 }
 
 void BasicTextUI$BasicHighlighter::finalize() {

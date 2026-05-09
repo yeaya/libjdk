@@ -329,19 +329,19 @@ $Class* SunToolkit$$Lambda$lambda$realSync$0::load$($String* name, bool initiali
 $Class* SunToolkit$$Lambda$lambda$realSync$0::class$ = nullptr;
 
 int32_t SunToolkit::hashCode() {
-	 return this->$Toolkit::hashCode();
+	return this->$Toolkit::hashCode();
 }
 
 bool SunToolkit::equals(Object$* arg0) {
-	 return this->$Toolkit::equals(arg0);
+	return this->$Toolkit::equals(arg0);
 }
 
 $Object* SunToolkit::clone() {
-	 return this->$Toolkit::clone();
+	return this->$Toolkit::clone();
 }
 
 $String* SunToolkit::toString() {
-	 return this->$Toolkit::toString();
+	return this->$Toolkit::toString();
 }
 
 void SunToolkit::finalize() {

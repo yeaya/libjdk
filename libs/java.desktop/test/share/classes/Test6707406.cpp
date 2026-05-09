@@ -26,19 +26,19 @@ using $ColorChooserUI = ::javax::swing::plaf::ColorChooserUI;
 using $BasicColorChooserUI = ::javax::swing::plaf::basic::BasicColorChooserUI;
 
 int32_t Test6707406::hashCode() {
-	 return this->$BasicColorChooserUI::hashCode();
+	return this->$BasicColorChooserUI::hashCode();
 }
 
 bool Test6707406::equals(Object$* arg0) {
-	 return this->$BasicColorChooserUI::equals(arg0);
+	return this->$BasicColorChooserUI::equals(arg0);
 }
 
 $Object* Test6707406::clone() {
-	 return this->$BasicColorChooserUI::clone();
+	return this->$BasicColorChooserUI::clone();
 }
 
 $String* Test6707406::toString() {
-	 return this->$BasicColorChooserUI::toString();
+	return this->$BasicColorChooserUI::toString();
 }
 
 void Test6707406::finalize() {

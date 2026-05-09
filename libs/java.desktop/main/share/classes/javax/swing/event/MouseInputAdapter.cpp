@@ -41,19 +41,19 @@ void MouseInputAdapter::mouseMoved($MouseEvent* e) {
 }
 
 int32_t MouseInputAdapter::hashCode() {
-	 return this->$MouseAdapter::hashCode();
+	return this->$MouseAdapter::hashCode();
 }
 
 bool MouseInputAdapter::equals(Object$* arg0) {
-	 return this->$MouseAdapter::equals(arg0);
+	return this->$MouseAdapter::equals(arg0);
 }
 
 $Object* MouseInputAdapter::clone() {
-	 return this->$MouseAdapter::clone();
+	return this->$MouseAdapter::clone();
 }
 
 $String* MouseInputAdapter::toString() {
-	 return this->$MouseAdapter::toString();
+	return this->$MouseAdapter::toString();
 }
 
 void MouseInputAdapter::finalize() {

@@ -43,7 +43,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(RuntimeUtil::lambda$static$0());
+		return $of(RuntimeUtil::lambda$static$0());
 	}
 };
 $Class* RuntimeUtil$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

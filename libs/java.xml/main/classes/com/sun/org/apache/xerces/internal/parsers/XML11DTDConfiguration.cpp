@@ -177,39 +177,39 @@ void XML11DTDConfiguration::addRecognizedProperties($StringArray* propertyIds) {
 }
 
 bool XML11DTDConfiguration::getFeature($String* featureId) {
-	 return this->$ParserConfigurationSettings::getFeature(featureId);
+	return this->$ParserConfigurationSettings::getFeature(featureId);
 }
 
 bool XML11DTDConfiguration::getFeature($String* featureId, bool defaultValue) {
-	 return this->$ParserConfigurationSettings::getFeature(featureId, defaultValue);
+	return this->$ParserConfigurationSettings::getFeature(featureId, defaultValue);
 }
 
 $Object* XML11DTDConfiguration::getProperty($String* propertyId) {
-	 return this->$ParserConfigurationSettings::getProperty(propertyId);
+	return this->$ParserConfigurationSettings::getProperty(propertyId);
 }
 
 $Object* XML11DTDConfiguration::getProperty($String* propertyId, Object$* defaultValue) {
-	 return this->$ParserConfigurationSettings::getProperty(propertyId, defaultValue);
+	return this->$ParserConfigurationSettings::getProperty(propertyId, defaultValue);
 }
 
 $PropertyState* XML11DTDConfiguration::getPropertyState($String* propertyId) {
-	 return this->$ParserConfigurationSettings::getPropertyState(propertyId);
+	return this->$ParserConfigurationSettings::getPropertyState(propertyId);
 }
 
 int32_t XML11DTDConfiguration::hashCode() {
-	 return this->$ParserConfigurationSettings::hashCode();
+	return this->$ParserConfigurationSettings::hashCode();
 }
 
 bool XML11DTDConfiguration::equals(Object$* arg0) {
-	 return this->$ParserConfigurationSettings::equals(arg0);
+	return this->$ParserConfigurationSettings::equals(arg0);
 }
 
 $Object* XML11DTDConfiguration::clone() {
-	 return this->$ParserConfigurationSettings::clone();
+	return this->$ParserConfigurationSettings::clone();
 }
 
 $String* XML11DTDConfiguration::toString() {
-	 return this->$ParserConfigurationSettings::toString();
+	return this->$ParserConfigurationSettings::toString();
 }
 
 void XML11DTDConfiguration::finalize() {

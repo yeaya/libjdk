@@ -25,11 +25,11 @@ namespace javax {
 		namespace attribute {
 
 $Object* HashAttributeSet::clone() {
-	 return this->$AttributeSet::clone();
+	return this->$AttributeSet::clone();
 }
 
 $String* HashAttributeSet::toString() {
-	 return this->$AttributeSet::toString();
+	return this->$AttributeSet::toString();
 }
 
 void HashAttributeSet::finalize() {

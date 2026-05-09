@@ -21,19 +21,19 @@ namespace org {
 		namespace sax {
 
 int32_t HandlerBase::hashCode() {
-	 return this->$EntityResolver::hashCode();
+	return this->$EntityResolver::hashCode();
 }
 
 bool HandlerBase::equals(Object$* arg0) {
-	 return this->$EntityResolver::equals(arg0);
+	return this->$EntityResolver::equals(arg0);
 }
 
 $Object* HandlerBase::clone() {
-	 return this->$EntityResolver::clone();
+	return this->$EntityResolver::clone();
 }
 
 $String* HandlerBase::toString() {
-	 return this->$EntityResolver::toString();
+	return this->$EntityResolver::toString();
 }
 
 void HandlerBase::finalize() {

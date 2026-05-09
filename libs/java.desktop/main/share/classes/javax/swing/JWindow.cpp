@@ -52,19 +52,19 @@ namespace javax {
 	namespace swing {
 
 $String* JWindow::toString() {
-	 return this->$Window::toString();
+	return this->$Window::toString();
 }
 
 int32_t JWindow::hashCode() {
-	 return this->$Window::hashCode();
+	return this->$Window::hashCode();
 }
 
 bool JWindow::equals(Object$* arg0) {
-	 return this->$Window::equals(arg0);
+	return this->$Window::equals(arg0);
 }
 
 $Object* JWindow::clone() {
-	 return this->$Window::clone();
+	return this->$Window::clone();
 }
 
 void JWindow::finalize() {

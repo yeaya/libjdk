@@ -28,23 +28,23 @@ namespace com {
 			namespace sasl {
 
 $String* CramMD5Client::getMechanismName() {
-	 return this->$CramMD5Base::getMechanismName();
+	return this->$CramMD5Base::getMechanismName();
 }
 
 bool CramMD5Client::isComplete() {
-	 return this->$CramMD5Base::isComplete();
+	return this->$CramMD5Base::isComplete();
 }
 
 $bytes* CramMD5Client::unwrap($bytes* incoming, int32_t offset, int32_t len) {
-	 return this->$CramMD5Base::unwrap(incoming, offset, len);
+	return this->$CramMD5Base::unwrap(incoming, offset, len);
 }
 
 $bytes* CramMD5Client::wrap($bytes* outgoing, int32_t offset, int32_t len) {
-	 return this->$CramMD5Base::wrap(outgoing, offset, len);
+	return this->$CramMD5Base::wrap(outgoing, offset, len);
 }
 
 $Object* CramMD5Client::getNegotiatedProperty($String* propName) {
-	 return this->$CramMD5Base::getNegotiatedProperty(propName);
+	return this->$CramMD5Base::getNegotiatedProperty(propName);
 }
 
 void CramMD5Client::dispose() {
@@ -56,19 +56,19 @@ void CramMD5Client::finalize() {
 }
 
 int32_t CramMD5Client::hashCode() {
-	 return this->$CramMD5Base::hashCode();
+	return this->$CramMD5Base::hashCode();
 }
 
 bool CramMD5Client::equals(Object$* arg0) {
-	 return this->$CramMD5Base::equals(arg0);
+	return this->$CramMD5Base::equals(arg0);
 }
 
 $Object* CramMD5Client::clone() {
-	 return this->$CramMD5Base::clone();
+	return this->$CramMD5Base::clone();
 }
 
 $String* CramMD5Client::toString() {
-	 return this->$CramMD5Base::toString();
+	return this->$CramMD5Base::toString();
 }
 
 void CramMD5Client::init$($String* authID, $bytes* pw) {

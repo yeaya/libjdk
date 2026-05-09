@@ -18,19 +18,19 @@ namespace com {
 				namespace util {
 
 $String* GraphUtils$TarjanNode::toString() {
-	 return this->$GraphUtils$AbstractNode::toString();
+	return this->$GraphUtils$AbstractNode::toString();
 }
 
 int32_t GraphUtils$TarjanNode::hashCode() {
-	 return this->$GraphUtils$AbstractNode::hashCode();
+	return this->$GraphUtils$AbstractNode::hashCode();
 }
 
 bool GraphUtils$TarjanNode::equals(Object$* arg0) {
-	 return this->$GraphUtils$AbstractNode::equals(arg0);
+	return this->$GraphUtils$AbstractNode::equals(arg0);
 }
 
 $Object* GraphUtils$TarjanNode::clone() {
-	 return this->$GraphUtils$AbstractNode::clone();
+	return this->$GraphUtils$AbstractNode::clone();
 }
 
 void GraphUtils$TarjanNode::finalize() {

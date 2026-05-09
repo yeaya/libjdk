@@ -78,19 +78,19 @@ namespace com {
 									namespace keyvalues {
 
 int32_t ECKeyValue::hashCode() {
-	 return this->$Signature11ElementProxy::hashCode();
+	return this->$Signature11ElementProxy::hashCode();
 }
 
 bool ECKeyValue::equals(Object$* arg0) {
-	 return this->$Signature11ElementProxy::equals(arg0);
+	return this->$Signature11ElementProxy::equals(arg0);
 }
 
 $Object* ECKeyValue::clone() {
-	 return this->$Signature11ElementProxy::clone();
+	return this->$Signature11ElementProxy::clone();
 }
 
 $String* ECKeyValue::toString() {
-	 return this->$Signature11ElementProxy::toString();
+	return this->$Signature11ElementProxy::toString();
 }
 
 void ECKeyValue::finalize() {

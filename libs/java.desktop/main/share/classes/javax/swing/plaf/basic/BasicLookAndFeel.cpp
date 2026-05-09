@@ -148,7 +148,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$0(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$0(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$0::load$($String* name, bool initialize) {
@@ -178,7 +178,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$1(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$1(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::load$($String* name, bool initialize) {
@@ -208,7 +208,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$2(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$2(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::load$($String* name, bool initialize) {
@@ -238,7 +238,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$3(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$3(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::load$($String* name, bool initialize) {
@@ -268,7 +268,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$4(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$4(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::load$($String* name, bool initialize) {
@@ -298,7 +298,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$5(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$5(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::load$($String* name, bool initialize) {
@@ -328,7 +328,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$6(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$6(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::load$($String* name, bool initialize) {
@@ -358,7 +358,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$7(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$7(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::load$($String* name, bool initialize) {
@@ -388,7 +388,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$8(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$8(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::load$($String* name, bool initialize) {
@@ -418,7 +418,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$9(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$9(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::load$($String* name, bool initialize) {
@@ -449,7 +449,7 @@ public:
 		$set(this, yellow, yellow);
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$10(yellow, t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$10(yellow, t);
 	}
 	$ColorUIResource* yellow = nullptr;
 };
@@ -488,7 +488,7 @@ public:
 		$set(this, controlShadow, controlShadow);
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$11(controlLtHighlight, control, controlDkShadow, controlShadow, t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$11(controlLtHighlight, control, controlDkShadow, controlShadow, t);
 	}
 	$Color* controlLtHighlight = nullptr;
 	$Color* control = nullptr;
@@ -529,7 +529,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$12(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$12(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::load$($String* name, bool initialize) {
@@ -559,7 +559,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$13(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$13(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13::load$($String* name, bool initialize) {
@@ -589,7 +589,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$14(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$14(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14::load$($String* name, bool initialize) {
@@ -619,7 +619,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$16(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$16(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$16$15::load$($String* name, bool initialize) {
@@ -649,7 +649,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$17(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$17(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$17$16::load$($String* name, bool initialize) {
@@ -679,7 +679,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$18(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$18(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$18$17::load$($String* name, bool initialize) {
@@ -709,7 +709,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$19(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$19(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$19$18::load$($String* name, bool initialize) {
@@ -739,7 +739,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$20(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$20(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$20$19::load$($String* name, bool initialize) {
@@ -769,7 +769,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$21(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$21(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$21$20::load$($String* name, bool initialize) {
@@ -799,7 +799,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$22(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$22(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$22$21::load$($String* name, bool initialize) {
@@ -829,7 +829,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$23(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$23(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22::load$($String* name, bool initialize) {
@@ -860,7 +860,7 @@ public:
 		this->zero = zero;
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$24(zero, t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$24(zero, t);
 	}
 	int32_t zero = 0;
 };
@@ -896,7 +896,7 @@ public:
 		this->ten = ten;
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$25(ten, t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$25(ten, t);
 	}
 	int32_t ten = 0;
 };
@@ -932,7 +932,7 @@ public:
 		this->zero = zero;
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$26(zero, t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$26(zero, t);
 	}
 	int32_t zero = 0;
 };
@@ -967,7 +967,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$27(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$27(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26::load$($String* name, bool initialize) {
@@ -997,7 +997,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$28(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$28(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27::load$($String* name, bool initialize) {
@@ -1027,7 +1027,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$29(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$29(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28::load$($String* name, bool initialize) {
@@ -1057,7 +1057,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$30(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$30(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29::load$($String* name, bool initialize) {
@@ -1087,7 +1087,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$31(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$31(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30::load$($String* name, bool initialize) {
@@ -1117,7 +1117,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$35(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$35(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$35$31::load$($String* name, bool initialize) {
@@ -1147,7 +1147,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return BasicLookAndFeel::lambda$initComponentDefaults$36(t);
+		return BasicLookAndFeel::lambda$initComponentDefaults$36(t);
 	}
 };
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$36$32::load$($String* name, bool initialize) {
@@ -1172,19 +1172,19 @@ $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$36$32::load$($Stri
 $Class* BasicLookAndFeel$$Lambda$lambda$initComponentDefaults$36$32::class$ = nullptr;
 
 $String* BasicLookAndFeel::toString() {
-	 return this->$LookAndFeel::toString();
+	return this->$LookAndFeel::toString();
 }
 
 int32_t BasicLookAndFeel::hashCode() {
-	 return this->$LookAndFeel::hashCode();
+	return this->$LookAndFeel::hashCode();
 }
 
 bool BasicLookAndFeel::equals(Object$* arg0) {
-	 return this->$LookAndFeel::equals(arg0);
+	return this->$LookAndFeel::equals(arg0);
 }
 
 $Object* BasicLookAndFeel::clone() {
-	 return this->$LookAndFeel::clone();
+	return this->$LookAndFeel::clone();
 }
 
 void BasicLookAndFeel::finalize() {

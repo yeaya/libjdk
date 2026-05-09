@@ -28,59 +28,59 @@ namespace javax {
 		namespace metadata {
 
 $Node* IIOAttr::getParentNode() {
-	 return this->$IIOMetadataNode::getParentNode();
+	return this->$IIOMetadataNode::getParentNode();
 }
 
 $NodeList* IIOAttr::getChildNodes() {
-	 return this->$IIOMetadataNode::getChildNodes();
+	return this->$IIOMetadataNode::getChildNodes();
 }
 
 $Node* IIOAttr::getFirstChild() {
-	 return this->$IIOMetadataNode::getFirstChild();
+	return this->$IIOMetadataNode::getFirstChild();
 }
 
 $Node* IIOAttr::getLastChild() {
-	 return this->$IIOMetadataNode::getLastChild();
+	return this->$IIOMetadataNode::getLastChild();
 }
 
 $Node* IIOAttr::getPreviousSibling() {
-	 return this->$IIOMetadataNode::getPreviousSibling();
+	return this->$IIOMetadataNode::getPreviousSibling();
 }
 
 $Node* IIOAttr::getNextSibling() {
-	 return this->$IIOMetadataNode::getNextSibling();
+	return this->$IIOMetadataNode::getNextSibling();
 }
 
 $NamedNodeMap* IIOAttr::getAttributes() {
-	 return this->$IIOMetadataNode::getAttributes();
+	return this->$IIOMetadataNode::getAttributes();
 }
 
 $Document* IIOAttr::getOwnerDocument() {
-	 return this->$IIOMetadataNode::getOwnerDocument();
+	return this->$IIOMetadataNode::getOwnerDocument();
 }
 
 $Node* IIOAttr::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$IIOMetadataNode::insertBefore(newChild, refChild);
+	return this->$IIOMetadataNode::insertBefore(newChild, refChild);
 }
 
 $Node* IIOAttr::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$IIOMetadataNode::replaceChild(newChild, oldChild);
+	return this->$IIOMetadataNode::replaceChild(newChild, oldChild);
 }
 
 $Node* IIOAttr::removeChild($Node* oldChild) {
-	 return this->$IIOMetadataNode::removeChild(oldChild);
+	return this->$IIOMetadataNode::removeChild(oldChild);
 }
 
 $Node* IIOAttr::appendChild($Node* newChild) {
-	 return this->$IIOMetadataNode::appendChild(newChild);
+	return this->$IIOMetadataNode::appendChild(newChild);
 }
 
 bool IIOAttr::hasChildNodes() {
-	 return this->$IIOMetadataNode::hasChildNodes();
+	return this->$IIOMetadataNode::hasChildNodes();
 }
 
 $Node* IIOAttr::cloneNode(bool deep) {
-	 return this->$IIOMetadataNode::cloneNode(deep);
+	return this->$IIOMetadataNode::cloneNode(deep);
 }
 
 void IIOAttr::normalize() {
@@ -88,15 +88,15 @@ void IIOAttr::normalize() {
 }
 
 bool IIOAttr::isSupported($String* feature, $String* version) {
-	 return this->$IIOMetadataNode::isSupported(feature, version);
+	return this->$IIOMetadataNode::isSupported(feature, version);
 }
 
 $String* IIOAttr::getNamespaceURI() {
-	 return this->$IIOMetadataNode::getNamespaceURI();
+	return this->$IIOMetadataNode::getNamespaceURI();
 }
 
 $String* IIOAttr::getPrefix() {
-	 return this->$IIOMetadataNode::getPrefix();
+	return this->$IIOMetadataNode::getPrefix();
 }
 
 void IIOAttr::setPrefix($String* prefix) {
@@ -104,51 +104,51 @@ void IIOAttr::setPrefix($String* prefix) {
 }
 
 $String* IIOAttr::getLocalName() {
-	 return this->$IIOMetadataNode::getLocalName();
+	return this->$IIOMetadataNode::getLocalName();
 }
 
 bool IIOAttr::hasAttributes() {
-	 return this->$IIOMetadataNode::hasAttributes();
+	return this->$IIOMetadataNode::hasAttributes();
 }
 
 $TypeInfo* IIOAttr::getSchemaTypeInfo() {
-	 return this->$IIOMetadataNode::getSchemaTypeInfo();
+	return this->$IIOMetadataNode::getSchemaTypeInfo();
 }
 
 $Object* IIOAttr::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$IIOMetadataNode::setUserData(key, data, handler);
+	return this->$IIOMetadataNode::setUserData(key, data, handler);
 }
 
 $Object* IIOAttr::getUserData($String* key) {
-	 return this->$IIOMetadataNode::getUserData(key);
+	return this->$IIOMetadataNode::getUserData(key);
 }
 
 $Object* IIOAttr::getFeature($String* feature, $String* version) {
-	 return this->$IIOMetadataNode::getFeature(feature, version);
+	return this->$IIOMetadataNode::getFeature(feature, version);
 }
 
 bool IIOAttr::isSameNode($Node* node) {
-	 return this->$IIOMetadataNode::isSameNode(node);
+	return this->$IIOMetadataNode::isSameNode(node);
 }
 
 bool IIOAttr::isEqualNode($Node* node) {
-	 return this->$IIOMetadataNode::isEqualNode(node);
+	return this->$IIOMetadataNode::isEqualNode(node);
 }
 
 $String* IIOAttr::lookupNamespaceURI($String* prefix) {
-	 return this->$IIOMetadataNode::lookupNamespaceURI(prefix);
+	return this->$IIOMetadataNode::lookupNamespaceURI(prefix);
 }
 
 bool IIOAttr::isDefaultNamespace($String* namespaceURI) {
-	 return this->$IIOMetadataNode::isDefaultNamespace(namespaceURI);
+	return this->$IIOMetadataNode::isDefaultNamespace(namespaceURI);
 }
 
 $String* IIOAttr::lookupPrefix($String* namespaceURI) {
-	 return this->$IIOMetadataNode::lookupPrefix(namespaceURI);
+	return this->$IIOMetadataNode::lookupPrefix(namespaceURI);
 }
 
 $String* IIOAttr::getTextContent() {
-	 return this->$IIOMetadataNode::getTextContent();
+	return this->$IIOMetadataNode::getTextContent();
 }
 
 void IIOAttr::setTextContent($String* textContent) {
@@ -156,27 +156,27 @@ void IIOAttr::setTextContent($String* textContent) {
 }
 
 int16_t IIOAttr::compareDocumentPosition($Node* other) {
-	 return this->$IIOMetadataNode::compareDocumentPosition(other);
+	return this->$IIOMetadataNode::compareDocumentPosition(other);
 }
 
 $String* IIOAttr::getBaseURI() {
-	 return this->$IIOMetadataNode::getBaseURI();
+	return this->$IIOMetadataNode::getBaseURI();
 }
 
 int32_t IIOAttr::hashCode() {
-	 return this->$IIOMetadataNode::hashCode();
+	return this->$IIOMetadataNode::hashCode();
 }
 
 bool IIOAttr::equals(Object$* arg0) {
-	 return this->$IIOMetadataNode::equals(arg0);
+	return this->$IIOMetadataNode::equals(arg0);
 }
 
 $Object* IIOAttr::clone() {
-	 return this->$IIOMetadataNode::clone();
+	return this->$IIOMetadataNode::clone();
 }
 
 $String* IIOAttr::toString() {
-	 return this->$IIOMetadataNode::toString();
+	return this->$IIOMetadataNode::toString();
 }
 
 void IIOAttr::finalize() {

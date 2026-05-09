@@ -91,15 +91,15 @@ namespace sun {
 	namespace awt {
 
 int32_t X11GraphicsConfig::hashCode() {
-	 return this->$GraphicsConfiguration::hashCode();
+	return this->$GraphicsConfiguration::hashCode();
 }
 
 bool X11GraphicsConfig::equals(Object$* arg0) {
-	 return this->$GraphicsConfiguration::equals(arg0);
+	return this->$GraphicsConfiguration::equals(arg0);
 }
 
 $Object* X11GraphicsConfig::clone() {
-	 return this->$GraphicsConfiguration::clone();
+	return this->$GraphicsConfiguration::clone();
 }
 
 void X11GraphicsConfig::finalize() {

@@ -55,19 +55,19 @@ namespace javax {
 		namespace colorchooser {
 
 $String* ColorPanel::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t ColorPanel::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool ColorPanel::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* ColorPanel::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void ColorPanel::finalize() {

@@ -34,19 +34,19 @@ namespace com {
 							namespace xs {
 
 int32_t XSImplementationImpl::hashCode() {
-	 return this->$CoreDOMImplementationImpl::hashCode();
+	return this->$CoreDOMImplementationImpl::hashCode();
 }
 
 bool XSImplementationImpl::equals(Object$* arg0) {
-	 return this->$CoreDOMImplementationImpl::equals(arg0);
+	return this->$CoreDOMImplementationImpl::equals(arg0);
 }
 
 $Object* XSImplementationImpl::clone() {
-	 return this->$CoreDOMImplementationImpl::clone();
+	return this->$CoreDOMImplementationImpl::clone();
 }
 
 $String* XSImplementationImpl::toString() {
-	 return this->$CoreDOMImplementationImpl::toString();
+	return this->$CoreDOMImplementationImpl::toString();
 }
 
 void XSImplementationImpl::finalize() {

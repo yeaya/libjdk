@@ -73,7 +73,7 @@ public:
 		$set(this, attrs, attrs);
 	}
 	virtual $Object* run() override {
-		 return LdapBindingEnumeration::lambda$createItem$0(attrs);
+		return LdapBindingEnumeration::lambda$createItem$0(attrs);
 	}
 	$Attributes* attrs = nullptr;
 };

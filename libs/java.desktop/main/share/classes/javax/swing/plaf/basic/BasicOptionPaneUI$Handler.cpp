@@ -51,19 +51,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicOptionPaneUI$Handler::hashCode() {
-	 return this->$ActionListener::hashCode();
+	return this->$ActionListener::hashCode();
 }
 
 bool BasicOptionPaneUI$Handler::equals(Object$* arg0) {
-	 return this->$ActionListener::equals(arg0);
+	return this->$ActionListener::equals(arg0);
 }
 
 $Object* BasicOptionPaneUI$Handler::clone() {
-	 return this->$ActionListener::clone();
+	return this->$ActionListener::clone();
 }
 
 $String* BasicOptionPaneUI$Handler::toString() {
-	 return this->$ActionListener::toString();
+	return this->$ActionListener::toString();
 }
 
 void BasicOptionPaneUI$Handler::finalize() {

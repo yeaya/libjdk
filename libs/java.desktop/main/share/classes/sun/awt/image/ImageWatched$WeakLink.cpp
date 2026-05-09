@@ -49,7 +49,7 @@ public:
 		this->h = h;
 	}
 	virtual $Object* run() override {
-		 return $of(ImageWatched$WeakLink::lambda$update$0(iw, img, info, x, y, w, h));
+		return $of(ImageWatched$WeakLink::lambda$update$0(iw, img, info, x, y, w, h));
 	}
 	$ImageObserver* iw = nullptr;
 	$Image* img = nullptr;

@@ -45,19 +45,19 @@ namespace javax {
 	namespace swing {
 
 $String* JToggleButton::toString() {
-	 return this->$AbstractButton::toString();
+	return this->$AbstractButton::toString();
 }
 
 int32_t JToggleButton::hashCode() {
-	 return this->$AbstractButton::hashCode();
+	return this->$AbstractButton::hashCode();
 }
 
 bool JToggleButton::equals(Object$* arg0) {
-	 return this->$AbstractButton::equals(arg0);
+	return this->$AbstractButton::equals(arg0);
 }
 
 $Object* JToggleButton::clone() {
-	 return this->$AbstractButton::clone();
+	return this->$AbstractButton::clone();
 }
 
 void JToggleButton::finalize() {

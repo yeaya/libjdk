@@ -41,19 +41,19 @@ namespace com {
 							namespace trax {
 
 int32_t SAX2StAXBaseWriter::hashCode() {
-	 return this->$DefaultHandler::hashCode();
+	return this->$DefaultHandler::hashCode();
 }
 
 bool SAX2StAXBaseWriter::equals(Object$* arg0) {
-	 return this->$DefaultHandler::equals(arg0);
+	return this->$DefaultHandler::equals(arg0);
 }
 
 $Object* SAX2StAXBaseWriter::clone() {
-	 return this->$DefaultHandler::clone();
+	return this->$DefaultHandler::clone();
 }
 
 $String* SAX2StAXBaseWriter::toString() {
-	 return this->$DefaultHandler::toString();
+	return this->$DefaultHandler::toString();
 }
 
 void SAX2StAXBaseWriter::finalize() {

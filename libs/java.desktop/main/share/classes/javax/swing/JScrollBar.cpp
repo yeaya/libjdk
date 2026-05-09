@@ -61,19 +61,19 @@ namespace javax {
 	namespace swing {
 
 $String* JScrollBar::toString() {
-	 return this->$JComponent::toString();
+	return this->$JComponent::toString();
 }
 
 int32_t JScrollBar::hashCode() {
-	 return this->$JComponent::hashCode();
+	return this->$JComponent::hashCode();
 }
 
 bool JScrollBar::equals(Object$* arg0) {
-	 return this->$JComponent::equals(arg0);
+	return this->$JComponent::equals(arg0);
 }
 
 $Object* JScrollBar::clone() {
-	 return this->$JComponent::clone();
+	return this->$JComponent::clone();
 }
 
 void JScrollBar::finalize() {

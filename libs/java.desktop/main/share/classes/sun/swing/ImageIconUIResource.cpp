@@ -12,19 +12,19 @@ namespace sun {
 	namespace swing {
 
 $String* ImageIconUIResource::toString() {
-	 return this->$ImageIcon::toString();
+	return this->$ImageIcon::toString();
 }
 
 int32_t ImageIconUIResource::hashCode() {
-	 return this->$ImageIcon::hashCode();
+	return this->$ImageIcon::hashCode();
 }
 
 bool ImageIconUIResource::equals(Object$* arg0) {
-	 return this->$ImageIcon::equals(arg0);
+	return this->$ImageIcon::equals(arg0);
 }
 
 $Object* ImageIconUIResource::clone() {
-	 return this->$ImageIcon::clone();
+	return this->$ImageIcon::clone();
 }
 
 void ImageIconUIResource::finalize() {

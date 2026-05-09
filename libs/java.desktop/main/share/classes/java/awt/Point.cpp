@@ -15,11 +15,11 @@ namespace java {
 	namespace awt {
 
 $Object* Point::clone() {
-	 return this->$Point2D::clone();
+	return this->$Point2D::clone();
 }
 
 int32_t Point::hashCode() {
-	 return this->$Point2D::hashCode();
+	return this->$Point2D::hashCode();
 }
 
 void Point::finalize() {

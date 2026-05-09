@@ -16,15 +16,15 @@ namespace javax {
 			namespace standard {
 
 int32_t QueuedJobCount::hashCode() {
-	 return this->$IntegerSyntax::hashCode();
+	return this->$IntegerSyntax::hashCode();
 }
 
 $String* QueuedJobCount::toString() {
-	 return this->$IntegerSyntax::toString();
+	return this->$IntegerSyntax::toString();
 }
 
 $Object* QueuedJobCount::clone() {
-	 return this->$IntegerSyntax::clone();
+	return this->$IntegerSyntax::clone();
 }
 
 void QueuedJobCount::finalize() {

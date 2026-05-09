@@ -23,19 +23,19 @@ namespace javax {
 		namespace colorchooser {
 
 int32_t SmartGridLayout::hashCode() {
-	 return this->$LayoutManager::hashCode();
+	return this->$LayoutManager::hashCode();
 }
 
 bool SmartGridLayout::equals(Object$* arg0) {
-	 return this->$LayoutManager::equals(arg0);
+	return this->$LayoutManager::equals(arg0);
 }
 
 $Object* SmartGridLayout::clone() {
-	 return this->$LayoutManager::clone();
+	return this->$LayoutManager::clone();
 }
 
 $String* SmartGridLayout::toString() {
-	 return this->$LayoutManager::toString();
+	return this->$LayoutManager::toString();
 }
 
 void SmartGridLayout::finalize() {

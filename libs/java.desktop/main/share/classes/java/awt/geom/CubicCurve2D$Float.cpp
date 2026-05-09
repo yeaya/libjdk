@@ -23,19 +23,19 @@ namespace java {
 		namespace geom {
 
 $Object* CubicCurve2D$Float::clone() {
-	 return this->$CubicCurve2D::clone();
+	return this->$CubicCurve2D::clone();
 }
 
 int32_t CubicCurve2D$Float::hashCode() {
-	 return this->$CubicCurve2D::hashCode();
+	return this->$CubicCurve2D::hashCode();
 }
 
 bool CubicCurve2D$Float::equals(Object$* arg0) {
-	 return this->$CubicCurve2D::equals(arg0);
+	return this->$CubicCurve2D::equals(arg0);
 }
 
 $String* CubicCurve2D$Float::toString() {
-	 return this->$CubicCurve2D::toString();
+	return this->$CubicCurve2D::toString();
 }
 
 void CubicCurve2D$Float::finalize() {

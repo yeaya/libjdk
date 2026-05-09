@@ -51,19 +51,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicComboPopup$Handler::hashCode() {
-	 return this->$ItemListener::hashCode();
+	return this->$ItemListener::hashCode();
 }
 
 bool BasicComboPopup$Handler::equals(Object$* arg0) {
-	 return this->$ItemListener::equals(arg0);
+	return this->$ItemListener::equals(arg0);
 }
 
 $Object* BasicComboPopup$Handler::clone() {
-	 return this->$ItemListener::clone();
+	return this->$ItemListener::clone();
 }
 
 $String* BasicComboPopup$Handler::toString() {
-	 return this->$ItemListener::toString();
+	return this->$ItemListener::toString();
 }
 
 void BasicComboPopup$Handler::finalize() {

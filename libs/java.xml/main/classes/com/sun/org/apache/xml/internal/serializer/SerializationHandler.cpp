@@ -21,19 +21,19 @@ namespace com {
 						namespace serializer {
 
 int32_t SerializationHandler::hashCode() {
-	 return this->$ExtendedContentHandler::hashCode();
+	return this->$ExtendedContentHandler::hashCode();
 }
 
 bool SerializationHandler::equals(Object$* arg0) {
-	 return this->$ExtendedContentHandler::equals(arg0);
+	return this->$ExtendedContentHandler::equals(arg0);
 }
 
 $Object* SerializationHandler::clone() {
-	 return this->$ExtendedContentHandler::clone();
+	return this->$ExtendedContentHandler::clone();
 }
 
 $String* SerializationHandler::toString() {
-	 return this->$ExtendedContentHandler::toString();
+	return this->$ExtendedContentHandler::toString();
 }
 
 void SerializationHandler::finalize() {

@@ -60,7 +60,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $of($URI::create($cast($String, arg0)));
+		return $of($URI::create($cast($String, arg0)));
 	}
 };
 $Class* RedirectFilter$$Lambda$create::load$($String* name, bool initialize) {
@@ -90,7 +90,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return RedirectFilter::lambda$getRedirectedURI$0();
+		return RedirectFilter::lambda$getRedirectedURI$0();
 	}
 };
 $Class* RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1::load$($String* name, bool initialize) {

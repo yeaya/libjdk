@@ -69,15 +69,15 @@ namespace com {
 							namespace xs {
 
 int32_t XSComplexTypeDecl::hashCode() {
-	 return this->$XSComplexTypeDefinition::hashCode();
+	return this->$XSComplexTypeDefinition::hashCode();
 }
 
 bool XSComplexTypeDecl::equals(Object$* arg0) {
-	 return this->$XSComplexTypeDefinition::equals(arg0);
+	return this->$XSComplexTypeDefinition::equals(arg0);
 }
 
 $Object* XSComplexTypeDecl::clone() {
-	 return this->$XSComplexTypeDefinition::clone();
+	return this->$XSComplexTypeDefinition::clone();
 }
 
 void XSComplexTypeDecl::finalize() {

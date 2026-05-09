@@ -32,19 +32,19 @@ namespace javax {
 			namespace metal {
 
 int32_t MetalIconFactory$InternalFrameCloseIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool MetalIconFactory$InternalFrameCloseIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* MetalIconFactory$InternalFrameCloseIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* MetalIconFactory$InternalFrameCloseIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void MetalIconFactory$InternalFrameCloseIcon::finalize() {

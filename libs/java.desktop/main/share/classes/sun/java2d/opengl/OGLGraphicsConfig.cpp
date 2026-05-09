@@ -14,19 +14,19 @@ namespace sun {
 		namespace opengl {
 
 int32_t OGLGraphicsConfig::hashCode() {
-	 return this->$AccelGraphicsConfig::hashCode();
+	return this->$AccelGraphicsConfig::hashCode();
 }
 
 bool OGLGraphicsConfig::equals(Object$* arg0) {
-	 return this->$AccelGraphicsConfig::equals(arg0);
+	return this->$AccelGraphicsConfig::equals(arg0);
 }
 
 $Object* OGLGraphicsConfig::clone() {
-	 return this->$AccelGraphicsConfig::clone();
+	return this->$AccelGraphicsConfig::clone();
 }
 
 $String* OGLGraphicsConfig::toString() {
-	 return this->$AccelGraphicsConfig::toString();
+	return this->$AccelGraphicsConfig::toString();
 }
 
 void OGLGraphicsConfig::finalize() {

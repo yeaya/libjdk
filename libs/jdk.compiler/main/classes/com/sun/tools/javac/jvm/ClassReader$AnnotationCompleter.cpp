@@ -46,15 +46,15 @@ namespace com {
 				namespace jvm {
 
 int32_t ClassReader$AnnotationCompleter::hashCode() {
-	 return this->$ClassReader$AnnotationDeproxy::hashCode();
+	return this->$ClassReader$AnnotationDeproxy::hashCode();
 }
 
 bool ClassReader$AnnotationCompleter::equals(Object$* arg0) {
-	 return this->$ClassReader$AnnotationDeproxy::equals(arg0);
+	return this->$ClassReader$AnnotationDeproxy::equals(arg0);
 }
 
 $Object* ClassReader$AnnotationCompleter::clone() {
-	 return this->$ClassReader$AnnotationDeproxy::clone();
+	return this->$ClassReader$AnnotationDeproxy::clone();
 }
 
 void ClassReader$AnnotationCompleter::finalize() {

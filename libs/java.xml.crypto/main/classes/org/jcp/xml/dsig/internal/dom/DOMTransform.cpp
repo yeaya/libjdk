@@ -54,15 +54,15 @@ namespace org {
 					namespace dom {
 
 bool DOMTransform::isFeatureSupported($String* feature) {
-	 return this->$DOMStructure::isFeatureSupported(feature);
+	return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMTransform::clone() {
-	 return this->$DOMStructure::clone();
+	return this->$DOMStructure::clone();
 }
 
 $String* DOMTransform::toString() {
-	 return this->$DOMStructure::toString();
+	return this->$DOMStructure::toString();
 }
 
 void DOMTransform::finalize() {

@@ -95,7 +95,7 @@ public:
 		$set(this, callerModule, callerModule);
 	}
 	virtual $Object* run() override {
-		 return Logger::lambda$findResourceBundle$0(callerModule);
+		return Logger::lambda$findResourceBundle$0(callerModule);
 	}
 	$Module* callerModule = nullptr;
 };

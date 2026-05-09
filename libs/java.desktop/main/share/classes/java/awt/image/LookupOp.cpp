@@ -57,19 +57,19 @@ namespace java {
 		namespace image {
 
 int32_t LookupOp::hashCode() {
-	 return this->$BufferedImageOp::hashCode();
+	return this->$BufferedImageOp::hashCode();
 }
 
 bool LookupOp::equals(Object$* arg0) {
-	 return this->$BufferedImageOp::equals(arg0);
+	return this->$BufferedImageOp::equals(arg0);
 }
 
 $Object* LookupOp::clone() {
-	 return this->$BufferedImageOp::clone();
+	return this->$BufferedImageOp::clone();
 }
 
 $String* LookupOp::toString() {
-	 return this->$BufferedImageOp::toString();
+	return this->$BufferedImageOp::toString();
 }
 
 void LookupOp::finalize() {

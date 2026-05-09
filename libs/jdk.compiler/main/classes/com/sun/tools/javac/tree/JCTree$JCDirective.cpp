@@ -14,19 +14,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCDirective::toString() {
-	 return this->$JCTree::toString();
+	return this->$JCTree::toString();
 }
 
 $Object* JCTree$JCDirective::clone() {
-	 return this->$JCTree::clone();
+	return this->$JCTree::clone();
 }
 
 int32_t JCTree$JCDirective::hashCode() {
-	 return this->$JCTree::hashCode();
+	return this->$JCTree::hashCode();
 }
 
 bool JCTree$JCDirective::equals(Object$* arg0) {
-	 return this->$JCTree::equals(arg0);
+	return this->$JCTree::equals(arg0);
 }
 
 void JCTree$JCDirective::finalize() {

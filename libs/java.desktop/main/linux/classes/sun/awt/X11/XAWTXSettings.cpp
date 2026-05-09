@@ -49,19 +49,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t XAWTXSettings::hashCode() {
-	 return this->$XSettings::hashCode();
+	return this->$XSettings::hashCode();
 }
 
 bool XAWTXSettings::equals(Object$* arg0) {
-	 return this->$XSettings::equals(arg0);
+	return this->$XSettings::equals(arg0);
 }
 
 $Object* XAWTXSettings::clone() {
-	 return this->$XSettings::clone();
+	return this->$XSettings::clone();
 }
 
 $String* XAWTXSettings::toString() {
-	 return this->$XSettings::toString();
+	return this->$XSettings::toString();
 }
 
 void XAWTXSettings::finalize() {

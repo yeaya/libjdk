@@ -252,15 +252,15 @@ namespace com {
 								namespace xs {
 
 int32_t XSSimpleTypeDecl::hashCode() {
-	 return this->$XSSimpleType::hashCode();
+	return this->$XSSimpleType::hashCode();
 }
 
 bool XSSimpleTypeDecl::equals(Object$* arg0) {
-	 return this->$XSSimpleType::equals(arg0);
+	return this->$XSSimpleType::equals(arg0);
 }
 
 $Object* XSSimpleTypeDecl::clone() {
-	 return this->$XSSimpleType::clone();
+	return this->$XSSimpleType::clone();
 }
 
 void XSSimpleTypeDecl::finalize() {

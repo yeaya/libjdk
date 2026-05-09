@@ -44,7 +44,7 @@ namespace javax {
 			namespace kerberos {
 
 $Object* KerberosPrincipal::clone() {
-	 return this->$Principal::clone();
+	return this->$Principal::clone();
 }
 
 void KerberosPrincipal::finalize() {

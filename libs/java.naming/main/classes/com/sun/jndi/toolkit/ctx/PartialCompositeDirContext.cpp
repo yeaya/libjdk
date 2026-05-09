@@ -50,11 +50,11 @@ namespace com {
 				namespace ctx {
 
 $Object* PartialCompositeDirContext::lookup($String* name) {
-	 return this->$AtomicContext::lookup(name);
+	return this->$AtomicContext::lookup(name);
 }
 
 $Object* PartialCompositeDirContext::lookup($Name* name) {
-	 return this->$AtomicContext::lookup(name);
+	return this->$AtomicContext::lookup(name);
 }
 
 void PartialCompositeDirContext::bind($String* name, Object$* newObj) {
@@ -90,19 +90,19 @@ void PartialCompositeDirContext::rename($Name* oldName, $Name* newName) {
 }
 
 $NamingEnumeration* PartialCompositeDirContext::list($String* name) {
-	 return this->$AtomicContext::list(name);
+	return this->$AtomicContext::list(name);
 }
 
 $NamingEnumeration* PartialCompositeDirContext::list($Name* name) {
-	 return this->$AtomicContext::list(name);
+	return this->$AtomicContext::list(name);
 }
 
 $NamingEnumeration* PartialCompositeDirContext::listBindings($String* name) {
-	 return this->$AtomicContext::listBindings(name);
+	return this->$AtomicContext::listBindings(name);
 }
 
 $NamingEnumeration* PartialCompositeDirContext::listBindings($Name* name) {
-	 return this->$AtomicContext::listBindings(name);
+	return this->$AtomicContext::listBindings(name);
 }
 
 void PartialCompositeDirContext::destroySubcontext($String* name) {
@@ -114,51 +114,51 @@ void PartialCompositeDirContext::destroySubcontext($Name* name) {
 }
 
 $Context* PartialCompositeDirContext::createSubcontext($String* name) {
-	 return this->$AtomicContext::createSubcontext(name);
+	return this->$AtomicContext::createSubcontext(name);
 }
 
 $Context* PartialCompositeDirContext::createSubcontext($Name* name) {
-	 return this->$AtomicContext::createSubcontext(name);
+	return this->$AtomicContext::createSubcontext(name);
 }
 
 $Object* PartialCompositeDirContext::lookupLink($String* name) {
-	 return this->$AtomicContext::lookupLink(name);
+	return this->$AtomicContext::lookupLink(name);
 }
 
 $Object* PartialCompositeDirContext::lookupLink($Name* name) {
-	 return this->$AtomicContext::lookupLink(name);
+	return this->$AtomicContext::lookupLink(name);
 }
 
 $NameParser* PartialCompositeDirContext::getNameParser($String* name) {
-	 return this->$AtomicContext::getNameParser(name);
+	return this->$AtomicContext::getNameParser(name);
 }
 
 $NameParser* PartialCompositeDirContext::getNameParser($Name* name) {
-	 return this->$AtomicContext::getNameParser(name);
+	return this->$AtomicContext::getNameParser(name);
 }
 
 $String* PartialCompositeDirContext::composeName($String* name, $String* prefix) {
-	 return this->$AtomicContext::composeName(name, prefix);
+	return this->$AtomicContext::composeName(name, prefix);
 }
 
 $Name* PartialCompositeDirContext::composeName($Name* name, $Name* prefix) {
-	 return this->$AtomicContext::composeName(name, prefix);
+	return this->$AtomicContext::composeName(name, prefix);
 }
 
 int32_t PartialCompositeDirContext::hashCode() {
-	 return this->$AtomicContext::hashCode();
+	return this->$AtomicContext::hashCode();
 }
 
 bool PartialCompositeDirContext::equals(Object$* arg0) {
-	 return this->$AtomicContext::equals(arg0);
+	return this->$AtomicContext::equals(arg0);
 }
 
 $Object* PartialCompositeDirContext::clone() {
-	 return this->$AtomicContext::clone();
+	return this->$AtomicContext::clone();
 }
 
 $String* PartialCompositeDirContext::toString() {
-	 return this->$AtomicContext::toString();
+	return this->$AtomicContext::toString();
 }
 
 void PartialCompositeDirContext::finalize() {

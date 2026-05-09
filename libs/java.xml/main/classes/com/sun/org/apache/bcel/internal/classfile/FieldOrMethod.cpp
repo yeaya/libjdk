@@ -40,19 +40,19 @@ namespace com {
 						namespace classfile {
 
 int32_t FieldOrMethod::hashCode() {
-	 return this->$AccessFlags::hashCode();
+	return this->$AccessFlags::hashCode();
 }
 
 bool FieldOrMethod::equals(Object$* arg0) {
-	 return this->$AccessFlags::equals(arg0);
+	return this->$AccessFlags::equals(arg0);
 }
 
 $Object* FieldOrMethod::clone() {
-	 return this->$AccessFlags::clone();
+	return this->$AccessFlags::clone();
 }
 
 $String* FieldOrMethod::toString() {
-	 return this->$AccessFlags::toString();
+	return this->$AccessFlags::toString();
 }
 
 void FieldOrMethod::finalize() {

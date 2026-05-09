@@ -88,19 +88,19 @@ namespace com {
 						namespace serializer {
 
 int32_t SerializerBase::hashCode() {
-	 return this->$SerializationHandler::hashCode();
+	return this->$SerializationHandler::hashCode();
 }
 
 bool SerializerBase::equals(Object$* arg0) {
-	 return this->$SerializationHandler::equals(arg0);
+	return this->$SerializationHandler::equals(arg0);
 }
 
 $Object* SerializerBase::clone() {
-	 return this->$SerializationHandler::clone();
+	return this->$SerializationHandler::clone();
 }
 
 $String* SerializerBase::toString() {
-	 return this->$SerializationHandler::toString();
+	return this->$SerializationHandler::toString();
 }
 
 void SerializerBase::finalize() {

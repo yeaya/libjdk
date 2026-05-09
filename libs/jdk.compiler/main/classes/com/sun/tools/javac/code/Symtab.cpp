@@ -167,7 +167,7 @@ public:
 		$set(this, types, types);
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return $of($nc(inst$)->lambda$getClassField$0(type, types, $cast($Types$UniqueType, k)));
+		return $of($nc(inst$)->lambda$getClassField$0(type, types, $cast($Types$UniqueType, k)));
 	}
 	Symtab* inst$ = nullptr;
 	$Type* type = nullptr;
@@ -243,7 +243,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$Name* inst$ = nullptr;
 };
@@ -278,7 +278,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* rd) override {
-		 return $of(Symtab::lambda$lookupPackage$1($cast($Directive$RequiresDirective, rd)));
+		return $of(Symtab::lambda$lookupPackage$1($cast($Directive$RequiresDirective, rd)));
 	}
 };
 $Class* Symtab$$Lambda$lambda$lookupPackage$1$3::load$($String* name, bool initialize) {
@@ -309,7 +309,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* mod) override {
-		 return $nc(inst$)->lambda$lookupPackage$2($cast($Symbol$ModuleSymbol, mod));
+		return $nc(inst$)->lambda$lookupPackage$2($cast($Symbol$ModuleSymbol, mod));
 	}
 	Symtab* inst$ = nullptr;
 };
@@ -345,7 +345,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$getAllClasses$4();
+		return $nc(inst$)->lambda$getAllClasses$4();
 	}
 	Symtab* inst$ = nullptr;
 };
@@ -380,7 +380,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* n) override {
-		 return Symtab::lambda$doEnterClass$5($cast($Name, n));
+		return Symtab::lambda$doEnterClass$5($cast($Name, n));
 	}
 };
 $Class* Symtab$$Lambda$lambda$doEnterClass$5$6::load$($String* name, bool initialize) {
@@ -411,7 +411,7 @@ public:
 		$set(this, currModule, currModule);
 	}
 	virtual $Object* get() override {
-		 return $of(Symtab::lambda$enterPackage$6(currModule));
+		return $of(Symtab::lambda$enterPackage$6(currModule));
 	}
 	$Symbol$ModuleSymbol* currModule = nullptr;
 };
@@ -518,7 +518,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* v) override {
-		 return Symtab::lambda$getAllClasses$3($cast($Map, v));
+		return Symtab::lambda$getAllClasses$3($cast($Map, v));
 	}
 };
 $Class* Symtab$$Lambda$lambda$getAllClasses$3$10::load$($String* name, bool initialize) {

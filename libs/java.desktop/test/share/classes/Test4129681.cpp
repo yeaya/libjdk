@@ -27,19 +27,19 @@ using $JCheckBox = ::javax::swing::JCheckBox;
 using $JLabel = ::javax::swing::JLabel;
 
 $String* Test4129681::toString() {
-	 return this->$JApplet::toString();
+	return this->$JApplet::toString();
 }
 
 int32_t Test4129681::hashCode() {
-	 return this->$JApplet::hashCode();
+	return this->$JApplet::hashCode();
 }
 
 bool Test4129681::equals(Object$* arg0) {
-	 return this->$JApplet::equals(arg0);
+	return this->$JApplet::equals(arg0);
 }
 
 $Object* Test4129681::clone() {
-	 return this->$JApplet::clone();
+	return this->$JApplet::clone();
 }
 
 void Test4129681::finalize() {

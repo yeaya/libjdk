@@ -44,19 +44,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicMenuItemUI$Handler::hashCode() {
-	 return this->$MenuDragMouseListener::hashCode();
+	return this->$MenuDragMouseListener::hashCode();
 }
 
 bool BasicMenuItemUI$Handler::equals(Object$* arg0) {
-	 return this->$MenuDragMouseListener::equals(arg0);
+	return this->$MenuDragMouseListener::equals(arg0);
 }
 
 $Object* BasicMenuItemUI$Handler::clone() {
-	 return this->$MenuDragMouseListener::clone();
+	return this->$MenuDragMouseListener::clone();
 }
 
 $String* BasicMenuItemUI$Handler::toString() {
-	 return this->$MenuDragMouseListener::toString();
+	return this->$MenuDragMouseListener::toString();
 }
 
 void BasicMenuItemUI$Handler::finalize() {

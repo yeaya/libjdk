@@ -17,19 +17,19 @@ namespace javax {
 	namespace swing {
 
 int32_t ColorTracker::hashCode() {
-	 return this->$ActionListener::hashCode();
+	return this->$ActionListener::hashCode();
 }
 
 bool ColorTracker::equals(Object$* arg0) {
-	 return this->$ActionListener::equals(arg0);
+	return this->$ActionListener::equals(arg0);
 }
 
 $Object* ColorTracker::clone() {
-	 return this->$ActionListener::clone();
+	return this->$ActionListener::clone();
 }
 
 $String* ColorTracker::toString() {
-	 return this->$ActionListener::toString();
+	return this->$ActionListener::toString();
 }
 
 void ColorTracker::finalize() {

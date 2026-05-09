@@ -33,63 +33,63 @@ namespace com {
 					namespace events {
 
 int32_t DTDEvent::getEventType() {
-	 return this->$DummyEvent::getEventType();
+	return this->$DummyEvent::getEventType();
 }
 
 bool DTDEvent::isStartElement() {
-	 return this->$DummyEvent::isStartElement();
+	return this->$DummyEvent::isStartElement();
 }
 
 bool DTDEvent::isEndElement() {
-	 return this->$DummyEvent::isEndElement();
+	return this->$DummyEvent::isEndElement();
 }
 
 bool DTDEvent::isEntityReference() {
-	 return this->$DummyEvent::isEntityReference();
+	return this->$DummyEvent::isEntityReference();
 }
 
 bool DTDEvent::isProcessingInstruction() {
-	 return this->$DummyEvent::isProcessingInstruction();
+	return this->$DummyEvent::isProcessingInstruction();
 }
 
 bool DTDEvent::isStartDocument() {
-	 return this->$DummyEvent::isStartDocument();
+	return this->$DummyEvent::isStartDocument();
 }
 
 bool DTDEvent::isEndDocument() {
-	 return this->$DummyEvent::isEndDocument();
+	return this->$DummyEvent::isEndDocument();
 }
 
 $Location* DTDEvent::getLocation() {
-	 return this->$DummyEvent::getLocation();
+	return this->$DummyEvent::getLocation();
 }
 
 $Characters* DTDEvent::asCharacters() {
-	 return this->$DummyEvent::asCharacters();
+	return this->$DummyEvent::asCharacters();
 }
 
 $EndElement* DTDEvent::asEndElement() {
-	 return this->$DummyEvent::asEndElement();
+	return this->$DummyEvent::asEndElement();
 }
 
 $StartElement* DTDEvent::asStartElement() {
-	 return this->$DummyEvent::asStartElement();
+	return this->$DummyEvent::asStartElement();
 }
 
 $QName* DTDEvent::getSchemaType() {
-	 return this->$DummyEvent::getSchemaType();
+	return this->$DummyEvent::getSchemaType();
 }
 
 bool DTDEvent::isAttribute() {
-	 return this->$DummyEvent::isAttribute();
+	return this->$DummyEvent::isAttribute();
 }
 
 bool DTDEvent::isCharacters() {
-	 return this->$DummyEvent::isCharacters();
+	return this->$DummyEvent::isCharacters();
 }
 
 bool DTDEvent::isNamespace() {
-	 return this->$DummyEvent::isNamespace();
+	return this->$DummyEvent::isNamespace();
 }
 
 void DTDEvent::writeAsEncodedUnicode($Writer* writer) {
@@ -97,15 +97,15 @@ void DTDEvent::writeAsEncodedUnicode($Writer* writer) {
 }
 
 int32_t DTDEvent::hashCode() {
-	 return this->$DummyEvent::hashCode();
+	return this->$DummyEvent::hashCode();
 }
 
 bool DTDEvent::equals(Object$* arg0) {
-	 return this->$DummyEvent::equals(arg0);
+	return this->$DummyEvent::equals(arg0);
 }
 
 $Object* DTDEvent::clone() {
-	 return this->$DummyEvent::clone();
+	return this->$DummyEvent::clone();
 }
 
 void DTDEvent::finalize() {

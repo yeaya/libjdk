@@ -27,19 +27,19 @@ using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $PlainDocument = ::javax::swing::text::PlainDocument;
 
 int32_t Test8030118::hashCode() {
-	 return this->$DocumentListener::hashCode();
+	return this->$DocumentListener::hashCode();
 }
 
 bool Test8030118::equals(Object$* arg0) {
-	 return this->$DocumentListener::equals(arg0);
+	return this->$DocumentListener::equals(arg0);
 }
 
 $Object* Test8030118::clone() {
-	 return this->$DocumentListener::clone();
+	return this->$DocumentListener::clone();
 }
 
 $String* Test8030118::toString() {
-	 return this->$DocumentListener::toString();
+	return this->$DocumentListener::toString();
 }
 
 void Test8030118::finalize() {

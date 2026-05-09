@@ -55,19 +55,19 @@ namespace com {
 		namespace laf {
 
 bool AquaCaret::equals(Object$* obj) {
-	 return this->$DefaultCaret::equals(obj);
+	return this->$DefaultCaret::equals(obj);
 }
 
 $String* AquaCaret::toString() {
-	 return this->$DefaultCaret::toString();
+	return this->$DefaultCaret::toString();
 }
 
 int32_t AquaCaret::hashCode() {
-	 return this->$DefaultCaret::hashCode();
+	return this->$DefaultCaret::hashCode();
 }
 
 $Object* AquaCaret::clone() {
-	 return this->$DefaultCaret::clone();
+	return this->$DefaultCaret::clone();
 }
 
 void AquaCaret::finalize() {

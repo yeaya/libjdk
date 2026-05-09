@@ -16,15 +16,15 @@ namespace javax {
 			namespace standard {
 
 int32_t NumberUp::hashCode() {
-	 return this->$IntegerSyntax::hashCode();
+	return this->$IntegerSyntax::hashCode();
 }
 
 $String* NumberUp::toString() {
-	 return this->$IntegerSyntax::toString();
+	return this->$IntegerSyntax::toString();
 }
 
 $Object* NumberUp::clone() {
-	 return this->$IntegerSyntax::clone();
+	return this->$IntegerSyntax::clone();
 }
 
 void NumberUp::finalize() {

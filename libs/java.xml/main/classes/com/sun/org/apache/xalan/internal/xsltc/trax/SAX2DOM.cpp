@@ -57,19 +57,19 @@ namespace com {
 							namespace trax {
 
 int32_t SAX2DOM::hashCode() {
-	 return this->$ContentHandler::hashCode();
+	return this->$ContentHandler::hashCode();
 }
 
 bool SAX2DOM::equals(Object$* arg0) {
-	 return this->$ContentHandler::equals(arg0);
+	return this->$ContentHandler::equals(arg0);
 }
 
 $Object* SAX2DOM::clone() {
-	 return this->$ContentHandler::clone();
+	return this->$ContentHandler::clone();
 }
 
 $String* SAX2DOM::toString() {
-	 return this->$ContentHandler::toString();
+	return this->$ContentHandler::toString();
 }
 
 void SAX2DOM::finalize() {

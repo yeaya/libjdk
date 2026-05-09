@@ -16,19 +16,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JFormattedTextField$DocumentHandler::hashCode() {
-	 return this->$DocumentListener::hashCode();
+	return this->$DocumentListener::hashCode();
 }
 
 bool JFormattedTextField$DocumentHandler::equals(Object$* arg0) {
-	 return this->$DocumentListener::equals(arg0);
+	return this->$DocumentListener::equals(arg0);
 }
 
 $Object* JFormattedTextField$DocumentHandler::clone() {
-	 return this->$DocumentListener::clone();
+	return this->$DocumentListener::clone();
 }
 
 $String* JFormattedTextField$DocumentHandler::toString() {
-	 return this->$DocumentListener::toString();
+	return this->$DocumentListener::toString();
 }
 
 void JFormattedTextField$DocumentHandler::finalize() {

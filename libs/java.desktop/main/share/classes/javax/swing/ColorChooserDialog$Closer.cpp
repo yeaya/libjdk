@@ -20,19 +20,19 @@ namespace javax {
 	namespace swing {
 
 int32_t ColorChooserDialog$Closer::hashCode() {
-	 return this->$WindowAdapter::hashCode();
+	return this->$WindowAdapter::hashCode();
 }
 
 bool ColorChooserDialog$Closer::equals(Object$* arg0) {
-	 return this->$WindowAdapter::equals(arg0);
+	return this->$WindowAdapter::equals(arg0);
 }
 
 $Object* ColorChooserDialog$Closer::clone() {
-	 return this->$WindowAdapter::clone();
+	return this->$WindowAdapter::clone();
 }
 
 $String* ColorChooserDialog$Closer::toString() {
-	 return this->$WindowAdapter::toString();
+	return this->$WindowAdapter::toString();
 }
 
 void ColorChooserDialog$Closer::finalize() {

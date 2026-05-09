@@ -38,7 +38,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* make($Context* context) override {
-		 return $new(JavacTaskPool$ReusableContext$ReusableLog, context);
+		return $new(JavacTaskPool$ReusableContext$ReusableLog, context);
 	}
 };
 $Class* JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog::load$($String* name, bool initialize) {

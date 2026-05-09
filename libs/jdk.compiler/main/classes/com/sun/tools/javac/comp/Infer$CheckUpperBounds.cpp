@@ -62,7 +62,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* t, Object$* s) override {
-		 return $nc(inst$)->isSameType($cast($Type, t), $cast($Type, s));
+		return $nc(inst$)->isSameType($cast($Type, t), $cast($Type, s));
 	}
 	$Types* inst$ = nullptr;
 };

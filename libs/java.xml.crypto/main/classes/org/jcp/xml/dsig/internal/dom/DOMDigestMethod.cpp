@@ -66,15 +66,15 @@ namespace org {
 					namespace dom {
 
 bool DOMDigestMethod::isFeatureSupported($String* feature) {
-	 return this->$DOMStructure::isFeatureSupported(feature);
+	return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMDigestMethod::clone() {
-	 return this->$DOMStructure::clone();
+	return this->$DOMStructure::clone();
 }
 
 $String* DOMDigestMethod::toString() {
-	 return this->$DOMStructure::toString();
+	return this->$DOMStructure::toString();
 }
 
 void DOMDigestMethod::finalize() {

@@ -35,43 +35,43 @@ namespace com {
 						namespace dom {
 
 $Node* DocumentFragmentImpl::cloneNode(bool deep) {
-	 return this->$ParentNode::cloneNode(deep);
+	return this->$ParentNode::cloneNode(deep);
 }
 
 $Document* DocumentFragmentImpl::getOwnerDocument() {
-	 return this->$ParentNode::getOwnerDocument();
+	return this->$ParentNode::getOwnerDocument();
 }
 
 bool DocumentFragmentImpl::hasChildNodes() {
-	 return this->$ParentNode::hasChildNodes();
+	return this->$ParentNode::hasChildNodes();
 }
 
 $NodeList* DocumentFragmentImpl::getChildNodes() {
-	 return this->$ParentNode::getChildNodes();
+	return this->$ParentNode::getChildNodes();
 }
 
 $Node* DocumentFragmentImpl::getFirstChild() {
-	 return this->$ParentNode::getFirstChild();
+	return this->$ParentNode::getFirstChild();
 }
 
 $Node* DocumentFragmentImpl::getLastChild() {
-	 return this->$ParentNode::getLastChild();
+	return this->$ParentNode::getLastChild();
 }
 
 $Node* DocumentFragmentImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$ParentNode::insertBefore(newChild, refChild);
+	return this->$ParentNode::insertBefore(newChild, refChild);
 }
 
 $Node* DocumentFragmentImpl::removeChild($Node* oldChild) {
-	 return this->$ParentNode::removeChild(oldChild);
+	return this->$ParentNode::removeChild(oldChild);
 }
 
 $Node* DocumentFragmentImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$ParentNode::replaceChild(newChild, oldChild);
+	return this->$ParentNode::replaceChild(newChild, oldChild);
 }
 
 $String* DocumentFragmentImpl::getTextContent() {
-	 return this->$ParentNode::getTextContent();
+	return this->$ParentNode::getTextContent();
 }
 
 void DocumentFragmentImpl::setTextContent($String* textContent) {
@@ -79,23 +79,23 @@ void DocumentFragmentImpl::setTextContent($String* textContent) {
 }
 
 bool DocumentFragmentImpl::isEqualNode($Node* arg) {
-	 return this->$ParentNode::isEqualNode(arg);
+	return this->$ParentNode::isEqualNode(arg);
 }
 
 $Node* DocumentFragmentImpl::getParentNode() {
-	 return this->$ParentNode::getParentNode();
+	return this->$ParentNode::getParentNode();
 }
 
 $Node* DocumentFragmentImpl::getNextSibling() {
-	 return this->$ParentNode::getNextSibling();
+	return this->$ParentNode::getNextSibling();
 }
 
 $Node* DocumentFragmentImpl::getPreviousSibling() {
-	 return this->$ParentNode::getPreviousSibling();
+	return this->$ParentNode::getPreviousSibling();
 }
 
 $String* DocumentFragmentImpl::getNodeValue() {
-	 return this->$ParentNode::getNodeValue();
+	return this->$ParentNode::getNodeValue();
 }
 
 void DocumentFragmentImpl::setNodeValue($String* x) {
@@ -103,27 +103,27 @@ void DocumentFragmentImpl::setNodeValue($String* x) {
 }
 
 $Node* DocumentFragmentImpl::appendChild($Node* newChild) {
-	 return this->$ParentNode::appendChild(newChild);
+	return this->$ParentNode::appendChild(newChild);
 }
 
 $NamedNodeMap* DocumentFragmentImpl::getAttributes() {
-	 return this->$ParentNode::getAttributes();
+	return this->$ParentNode::getAttributes();
 }
 
 bool DocumentFragmentImpl::hasAttributes() {
-	 return this->$ParentNode::hasAttributes();
+	return this->$ParentNode::hasAttributes();
 }
 
 bool DocumentFragmentImpl::isSupported($String* feature, $String* version) {
-	 return this->$ParentNode::isSupported(feature, version);
+	return this->$ParentNode::isSupported(feature, version);
 }
 
 $String* DocumentFragmentImpl::getNamespaceURI() {
-	 return this->$ParentNode::getNamespaceURI();
+	return this->$ParentNode::getNamespaceURI();
 }
 
 $String* DocumentFragmentImpl::getPrefix() {
-	 return this->$ParentNode::getPrefix();
+	return this->$ParentNode::getPrefix();
 }
 
 void DocumentFragmentImpl::setPrefix($String* prefix) {
@@ -131,59 +131,59 @@ void DocumentFragmentImpl::setPrefix($String* prefix) {
 }
 
 $String* DocumentFragmentImpl::getLocalName() {
-	 return this->$ParentNode::getLocalName();
+	return this->$ParentNode::getLocalName();
 }
 
 $String* DocumentFragmentImpl::getBaseURI() {
-	 return this->$ParentNode::getBaseURI();
+	return this->$ParentNode::getBaseURI();
 }
 
 int16_t DocumentFragmentImpl::compareDocumentPosition($Node* other) {
-	 return this->$ParentNode::compareDocumentPosition(other);
+	return this->$ParentNode::compareDocumentPosition(other);
 }
 
 bool DocumentFragmentImpl::isSameNode($Node* other) {
-	 return this->$ParentNode::isSameNode(other);
+	return this->$ParentNode::isSameNode(other);
 }
 
 bool DocumentFragmentImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$ParentNode::isDefaultNamespace(namespaceURI);
+	return this->$ParentNode::isDefaultNamespace(namespaceURI);
 }
 
 $String* DocumentFragmentImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$ParentNode::lookupPrefix(namespaceURI);
+	return this->$ParentNode::lookupPrefix(namespaceURI);
 }
 
 $String* DocumentFragmentImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$ParentNode::lookupNamespaceURI(specifiedPrefix);
+	return this->$ParentNode::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* DocumentFragmentImpl::getFeature($String* feature, $String* version) {
-	 return this->$ParentNode::getFeature(feature, version);
+	return this->$ParentNode::getFeature(feature, version);
 }
 
 $Object* DocumentFragmentImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$ParentNode::setUserData(key, data, handler);
+	return this->$ParentNode::setUserData(key, data, handler);
 }
 
 $Object* DocumentFragmentImpl::getUserData($String* key) {
-	 return this->$ParentNode::getUserData(key);
+	return this->$ParentNode::getUserData(key);
 }
 
 $String* DocumentFragmentImpl::toString() {
-	 return this->$ParentNode::toString();
+	return this->$ParentNode::toString();
 }
 
 int32_t DocumentFragmentImpl::hashCode() {
-	 return this->$ParentNode::hashCode();
+	return this->$ParentNode::hashCode();
 }
 
 bool DocumentFragmentImpl::equals(Object$* arg0) {
-	 return this->$ParentNode::equals(arg0);
+	return this->$ParentNode::equals(arg0);
 }
 
 $Object* DocumentFragmentImpl::clone() {
-	 return this->$ParentNode::clone();
+	return this->$ParentNode::clone();
 }
 
 void DocumentFragmentImpl::finalize() {

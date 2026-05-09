@@ -58,7 +58,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* i) override {
-		 return MockListener::closeOrError($cast($MockListener$Invocation, i));
+		return MockListener::closeOrError($cast($MockListener$Invocation, i));
 	}
 };
 $Class* MockListener$$Lambda$closeOrError::load$($String* name, bool initialize) {

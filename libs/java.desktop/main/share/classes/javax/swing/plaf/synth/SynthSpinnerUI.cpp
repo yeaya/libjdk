@@ -61,19 +61,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthSpinnerUI::hashCode() {
-	 return this->$BasicSpinnerUI::hashCode();
+	return this->$BasicSpinnerUI::hashCode();
 }
 
 bool SynthSpinnerUI::equals(Object$* arg0) {
-	 return this->$BasicSpinnerUI::equals(arg0);
+	return this->$BasicSpinnerUI::equals(arg0);
 }
 
 $Object* SynthSpinnerUI::clone() {
-	 return this->$BasicSpinnerUI::clone();
+	return this->$BasicSpinnerUI::clone();
 }
 
 $String* SynthSpinnerUI::toString() {
-	 return this->$BasicSpinnerUI::toString();
+	return this->$BasicSpinnerUI::toString();
 }
 
 void SynthSpinnerUI::finalize() {

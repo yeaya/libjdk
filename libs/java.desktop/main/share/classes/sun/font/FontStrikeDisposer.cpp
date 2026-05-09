@@ -21,19 +21,19 @@ namespace sun {
 	namespace font {
 
 int32_t FontStrikeDisposer::hashCode() {
-	 return this->$DisposerRecord::hashCode();
+	return this->$DisposerRecord::hashCode();
 }
 
 bool FontStrikeDisposer::equals(Object$* arg0) {
-	 return this->$DisposerRecord::equals(arg0);
+	return this->$DisposerRecord::equals(arg0);
 }
 
 $Object* FontStrikeDisposer::clone() {
-	 return this->$DisposerRecord::clone();
+	return this->$DisposerRecord::clone();
 }
 
 $String* FontStrikeDisposer::toString() {
-	 return this->$DisposerRecord::toString();
+	return this->$DisposerRecord::toString();
 }
 
 void FontStrikeDisposer::finalize() {

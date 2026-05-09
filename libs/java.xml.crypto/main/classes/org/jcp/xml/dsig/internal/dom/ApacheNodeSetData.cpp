@@ -36,19 +36,19 @@ namespace org {
 					namespace dom {
 
 int32_t ApacheNodeSetData::hashCode() {
-	 return this->$ApacheData::hashCode();
+	return this->$ApacheData::hashCode();
 }
 
 bool ApacheNodeSetData::equals(Object$* arg0) {
-	 return this->$ApacheData::equals(arg0);
+	return this->$ApacheData::equals(arg0);
 }
 
 $Object* ApacheNodeSetData::clone() {
-	 return this->$ApacheData::clone();
+	return this->$ApacheData::clone();
 }
 
 $String* ApacheNodeSetData::toString() {
-	 return this->$ApacheData::toString();
+	return this->$ApacheData::toString();
 }
 
 void ApacheNodeSetData::finalize() {

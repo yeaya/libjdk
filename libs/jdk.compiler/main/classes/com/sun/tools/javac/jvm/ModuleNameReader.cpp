@@ -51,7 +51,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* map($bytes* buf, int32_t offset, int32_t len) override {
-		 return $of(ModuleNameReader::lambda$utf8Mapper$0(buf, offset, len));
+		return $of(ModuleNameReader::lambda$utf8Mapper$0(buf, offset, len));
 	}
 };
 $Class* ModuleNameReader$$Lambda$lambda$utf8Mapper$0::load$($String* name, bool initialize) {
@@ -81,7 +81,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* map($bytes* src, int32_t sindex, int32_t len) override {
-		 return $of($Convert::utf2string(src, sindex, len));
+		return $of($Convert::utf2string(src, sindex, len));
 	}
 };
 $Class* ModuleNameReader$$Lambda$utf2string$1::load$($String* name, bool initialize) {

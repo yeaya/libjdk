@@ -86,7 +86,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* x$0) override {
-		 return $of($nc(inst$)->lambda$buildStuckGraph$0($cast($DeferredAttr$DeferredAttrNode, x$0)));
+		return $of($nc(inst$)->lambda$buildStuckGraph$0($cast($DeferredAttr$DeferredAttrNode, x$0)));
 	}
 	DeferredAttr$DeferredAttrContext* inst$ = nullptr;
 };
@@ -122,7 +122,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of($nc(inst$)->findNode($cast($Type, t)));
+		return $of($nc(inst$)->findNode($cast($Type, t)));
 	}
 	$Infer$GraphSolver$InferenceGraph* inst$ = nullptr;
 };
@@ -158,7 +158,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* arg0) override {
-		 return $nc(inst$)->contains(arg0);
+		return $nc(inst$)->contains(arg0);
 	}
 	$Set* inst$ = nullptr;
 };

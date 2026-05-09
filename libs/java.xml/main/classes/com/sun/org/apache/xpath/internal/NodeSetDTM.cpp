@@ -44,15 +44,15 @@ namespace com {
 					namespace internal {
 
 int32_t NodeSetDTM::hashCode() {
-	 return this->$NodeVector::hashCode();
+	return this->$NodeVector::hashCode();
 }
 
 bool NodeSetDTM::equals(Object$* arg0) {
-	 return this->$NodeVector::equals(arg0);
+	return this->$NodeVector::equals(arg0);
 }
 
 $String* NodeSetDTM::toString() {
-	 return this->$NodeVector::toString();
+	return this->$NodeVector::toString();
 }
 
 void NodeSetDTM::finalize() {

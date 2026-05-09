@@ -92,19 +92,19 @@ namespace sun {
 		namespace dnd {
 
 int32_t SunDropTargetContextPeer::hashCode() {
-	 return this->$DropTargetContextPeer::hashCode();
+	return this->$DropTargetContextPeer::hashCode();
 }
 
 bool SunDropTargetContextPeer::equals(Object$* arg0) {
-	 return this->$DropTargetContextPeer::equals(arg0);
+	return this->$DropTargetContextPeer::equals(arg0);
 }
 
 $Object* SunDropTargetContextPeer::clone() {
-	 return this->$DropTargetContextPeer::clone();
+	return this->$DropTargetContextPeer::clone();
 }
 
 $String* SunDropTargetContextPeer::toString() {
-	 return this->$DropTargetContextPeer::toString();
+	return this->$DropTargetContextPeer::toString();
 }
 
 void SunDropTargetContextPeer::finalize() {

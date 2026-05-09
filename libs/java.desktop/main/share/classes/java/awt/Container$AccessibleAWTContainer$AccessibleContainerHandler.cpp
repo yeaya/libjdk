@@ -24,19 +24,19 @@ namespace java {
 	namespace awt {
 
 int32_t Container$AccessibleAWTContainer$AccessibleContainerHandler::hashCode() {
-	 return this->$ContainerListener::hashCode();
+	return this->$ContainerListener::hashCode();
 }
 
 bool Container$AccessibleAWTContainer$AccessibleContainerHandler::equals(Object$* arg0) {
-	 return this->$ContainerListener::equals(arg0);
+	return this->$ContainerListener::equals(arg0);
 }
 
 $Object* Container$AccessibleAWTContainer$AccessibleContainerHandler::clone() {
-	 return this->$ContainerListener::clone();
+	return this->$ContainerListener::clone();
 }
 
 $String* Container$AccessibleAWTContainer$AccessibleContainerHandler::toString() {
-	 return this->$ContainerListener::toString();
+	return this->$ContainerListener::toString();
 }
 
 void Container$AccessibleAWTContainer$AccessibleContainerHandler::finalize() {

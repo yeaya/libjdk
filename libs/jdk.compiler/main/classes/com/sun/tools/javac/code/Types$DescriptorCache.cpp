@@ -77,7 +77,7 @@ public:
 		$set(this, sym, sym);
 	}
 	virtual bool test(Object$* msym) override {
-		 return $nc(inst$)->lambda$findDescriptorInternal$0(sym, $cast($Symbol, msym));
+		return $nc(inst$)->lambda$findDescriptorInternal$0(sym, $cast($Symbol, msym));
 	}
 	Types$DescriptorCache* inst$ = nullptr;
 	$Symbol* sym = nullptr;
@@ -116,7 +116,7 @@ public:
 		$set(this, origin, origin);
 	}
 	virtual $Object* apply(Object$* msym) override {
-		 return $of($nc(inst$)->lambda$findDescriptorInternal$1(origin, $cast($Symbol, msym)));
+		return $of($nc(inst$)->lambda$findDescriptorInternal$1(origin, $cast($Symbol, msym)));
 	}
 	Types$DescriptorCache* inst$ = nullptr;
 	$Symbol$TypeSymbol* origin = nullptr;
@@ -155,7 +155,7 @@ public:
 		$set(this, mtype, mtype);
 	}
 	virtual bool test(Object$* abstractMType) override {
-		 return $nc(inst$)->lambda$findDescriptorInternal$2(mtype, $cast($Type, abstractMType));
+		return $nc(inst$)->lambda$findDescriptorInternal$2(mtype, $cast($Type, abstractMType));
 	}
 	Types$DescriptorCache* inst$ = nullptr;
 	$Type* mtype = nullptr;
@@ -193,7 +193,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* bestSoFar) override {
-		 return $nc(inst$)->lambda$mergeDescriptors$3($cast($Symbol, bestSoFar));
+		return $nc(inst$)->lambda$mergeDescriptors$3($cast($Symbol, bestSoFar));
 	}
 	Types$DescriptorCache* inst$ = nullptr;
 };

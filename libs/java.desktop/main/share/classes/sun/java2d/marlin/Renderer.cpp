@@ -124,19 +124,19 @@ namespace sun {
 		namespace marlin {
 
 int32_t Renderer::hashCode() {
-	 return this->$DPathConsumer2D::hashCode();
+	return this->$DPathConsumer2D::hashCode();
 }
 
 bool Renderer::equals(Object$* arg0) {
-	 return this->$DPathConsumer2D::equals(arg0);
+	return this->$DPathConsumer2D::equals(arg0);
 }
 
 $Object* Renderer::clone() {
-	 return this->$DPathConsumer2D::clone();
+	return this->$DPathConsumer2D::clone();
 }
 
 $String* Renderer::toString() {
-	 return this->$DPathConsumer2D::toString();
+	return this->$DPathConsumer2D::toString();
 }
 
 void Renderer::finalize() {

@@ -90,7 +90,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(UNIXToolkit::lambda$getDesktop$0());
+		return $of(UNIXToolkit::lambda$getDesktop$0());
 	}
 };
 $Class* UNIXToolkit$$Lambda$lambda$getDesktop$0::load$($String* name, bool initialize) {
@@ -120,7 +120,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(UNIXToolkit::lambda$getDesktop$1());
+		return $of(UNIXToolkit::lambda$getDesktop$1());
 	}
 };
 $Class* UNIXToolkit$$Lambda$lambda$getDesktop$1$1::load$($String* name, bool initialize) {
@@ -150,7 +150,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(UNIXToolkit::lambda$isGtkVerbose$2());
+		return $of(UNIXToolkit::lambda$isGtkVerbose$2());
 	}
 };
 $Class* UNIXToolkit$$Lambda$lambda$isGtkVerbose$2$2::load$($String* name, bool initialize) {

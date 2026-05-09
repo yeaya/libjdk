@@ -29,19 +29,19 @@ namespace sun {
 			namespace ext {
 
 int32_t IBM949C::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool IBM949C::equals(Object$* arg0) {
-	 return this->$Charset::equals(arg0);
+	return this->$Charset::equals(arg0);
 }
 
 $String* IBM949C::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* IBM949C::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void IBM949C::finalize() {

@@ -13,19 +13,19 @@ namespace javax {
 			namespace metal {
 
 int32_t MetalComboBoxEditor$UIResource::hashCode() {
-	 return this->$MetalComboBoxEditor::hashCode();
+	return this->$MetalComboBoxEditor::hashCode();
 }
 
 bool MetalComboBoxEditor$UIResource::equals(Object$* arg0) {
-	 return this->$MetalComboBoxEditor::equals(arg0);
+	return this->$MetalComboBoxEditor::equals(arg0);
 }
 
 $Object* MetalComboBoxEditor$UIResource::clone() {
-	 return this->$MetalComboBoxEditor::clone();
+	return this->$MetalComboBoxEditor::clone();
 }
 
 $String* MetalComboBoxEditor$UIResource::toString() {
-	 return this->$MetalComboBoxEditor::toString();
+	return this->$MetalComboBoxEditor::toString();
 }
 
 void MetalComboBoxEditor$UIResource::finalize() {

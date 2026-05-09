@@ -18,19 +18,19 @@ namespace javax {
 		namespace plaf {
 
 int32_t BorderUIResource$LineBorderUIResource::hashCode() {
-	 return this->$LineBorder::hashCode();
+	return this->$LineBorder::hashCode();
 }
 
 bool BorderUIResource$LineBorderUIResource::equals(Object$* arg0) {
-	 return this->$LineBorder::equals(arg0);
+	return this->$LineBorder::equals(arg0);
 }
 
 $Object* BorderUIResource$LineBorderUIResource::clone() {
-	 return this->$LineBorder::clone();
+	return this->$LineBorder::clone();
 }
 
 $String* BorderUIResource$LineBorderUIResource::toString() {
-	 return this->$LineBorder::toString();
+	return this->$LineBorder::toString();
 }
 
 void BorderUIResource$LineBorderUIResource::finalize() {

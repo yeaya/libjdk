@@ -324,7 +324,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(LdapCtx::lambda$getMechsAllowedToSendCredentials$0());
+		return $of(LdapCtx::lambda$getMechsAllowedToSendCredentials$0());
 	}
 };
 $Class* LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0::load$($String* name, bool initialize) {
@@ -354,7 +354,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($String, inst$)->trim());
+		return $of($sure($String, inst$)->trim());
 	}
 };
 $Class* LdapCtx$$Lambda$trim$1::load$($String* name, bool initialize) {
@@ -384,7 +384,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($String, inst$)->isBlank();
+		return $sure($String, inst$)->isBlank();
 	}
 };
 $Class* LdapCtx$$Lambda$isBlank$2::load$($String* name, bool initialize) {
@@ -409,19 +409,19 @@ $Class* LdapCtx$$Lambda$isBlank$2::load$($String* name, bool initialize) {
 $Class* LdapCtx$$Lambda$isBlank$2::class$ = nullptr;
 
 $Attributes* LdapCtx::getAttributes($String* name) {
-	 return this->$ComponentDirContext::getAttributes(name);
+	return this->$ComponentDirContext::getAttributes(name);
 }
 
 $Attributes* LdapCtx::getAttributes($Name* name) {
-	 return this->$ComponentDirContext::getAttributes(name);
+	return this->$ComponentDirContext::getAttributes(name);
 }
 
 $Attributes* LdapCtx::getAttributes($String* name, $StringArray* attrIds) {
-	 return this->$ComponentDirContext::getAttributes(name, attrIds);
+	return this->$ComponentDirContext::getAttributes(name, attrIds);
 }
 
 $Attributes* LdapCtx::getAttributes($Name* name, $StringArray* attrIds) {
-	 return this->$ComponentDirContext::getAttributes(name, attrIds);
+	return this->$ComponentDirContext::getAttributes(name, attrIds);
 }
 
 void LdapCtx::modifyAttributes($String* name, int32_t mod_op, $Attributes* attrs) {
@@ -457,67 +457,67 @@ void LdapCtx::rebind($Name* name, Object$* obj, $Attributes* attrs) {
 }
 
 $DirContext* LdapCtx::createSubcontext($String* name, $Attributes* attrs) {
-	 return this->$ComponentDirContext::createSubcontext(name, attrs);
+	return this->$ComponentDirContext::createSubcontext(name, attrs);
 }
 
 $DirContext* LdapCtx::createSubcontext($Name* name, $Attributes* attrs) {
-	 return this->$ComponentDirContext::createSubcontext(name, attrs);
+	return this->$ComponentDirContext::createSubcontext(name, attrs);
 }
 
 $NamingEnumeration* LdapCtx::search($String* name, $Attributes* matchingAttributes) {
-	 return this->$ComponentDirContext::search(name, matchingAttributes);
+	return this->$ComponentDirContext::search(name, matchingAttributes);
 }
 
 $NamingEnumeration* LdapCtx::search($Name* name, $Attributes* matchingAttributes) {
-	 return this->$ComponentDirContext::search(name, matchingAttributes);
+	return this->$ComponentDirContext::search(name, matchingAttributes);
 }
 
 $NamingEnumeration* LdapCtx::search($String* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	 return this->$ComponentDirContext::search(name, matchingAttributes, attributesToReturn);
+	return this->$ComponentDirContext::search(name, matchingAttributes, attributesToReturn);
 }
 
 $NamingEnumeration* LdapCtx::search($Name* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	 return this->$ComponentDirContext::search(name, matchingAttributes, attributesToReturn);
+	return this->$ComponentDirContext::search(name, matchingAttributes, attributesToReturn);
 }
 
 $NamingEnumeration* LdapCtx::search($String* name, $String* filter, $SearchControls* cons) {
-	 return this->$ComponentDirContext::search(name, filter, cons);
+	return this->$ComponentDirContext::search(name, filter, cons);
 }
 
 $NamingEnumeration* LdapCtx::search($Name* name, $String* filter, $SearchControls* cons) {
-	 return this->$ComponentDirContext::search(name, filter, cons);
+	return this->$ComponentDirContext::search(name, filter, cons);
 }
 
 $NamingEnumeration* LdapCtx::search($String* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
-	 return this->$ComponentDirContext::search(name, filterExpr, filterArgs, cons);
+	return this->$ComponentDirContext::search(name, filterExpr, filterArgs, cons);
 }
 
 $NamingEnumeration* LdapCtx::search($Name* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
-	 return this->$ComponentDirContext::search(name, filterExpr, filterArgs, cons);
+	return this->$ComponentDirContext::search(name, filterExpr, filterArgs, cons);
 }
 
 $DirContext* LdapCtx::getSchema($String* name) {
-	 return this->$ComponentDirContext::getSchema(name);
+	return this->$ComponentDirContext::getSchema(name);
 }
 
 $DirContext* LdapCtx::getSchema($Name* name) {
-	 return this->$ComponentDirContext::getSchema(name);
+	return this->$ComponentDirContext::getSchema(name);
 }
 
 $DirContext* LdapCtx::getSchemaClassDefinition($String* name) {
-	 return this->$ComponentDirContext::getSchemaClassDefinition(name);
+	return this->$ComponentDirContext::getSchemaClassDefinition(name);
 }
 
 $DirContext* LdapCtx::getSchemaClassDefinition($Name* name) {
-	 return this->$ComponentDirContext::getSchemaClassDefinition(name);
+	return this->$ComponentDirContext::getSchemaClassDefinition(name);
 }
 
 $Object* LdapCtx::lookup($String* name) {
-	 return this->$ComponentDirContext::lookup(name);
+	return this->$ComponentDirContext::lookup(name);
 }
 
 $Object* LdapCtx::lookup($Name* name) {
-	 return this->$ComponentDirContext::lookup(name);
+	return this->$ComponentDirContext::lookup(name);
 }
 
 void LdapCtx::bind($String* name, Object$* newObj) {
@@ -553,19 +553,19 @@ void LdapCtx::rename($Name* oldName, $Name* newName) {
 }
 
 $NamingEnumeration* LdapCtx::list($String* name) {
-	 return this->$ComponentDirContext::list(name);
+	return this->$ComponentDirContext::list(name);
 }
 
 $NamingEnumeration* LdapCtx::list($Name* name) {
-	 return this->$ComponentDirContext::list(name);
+	return this->$ComponentDirContext::list(name);
 }
 
 $NamingEnumeration* LdapCtx::listBindings($String* name) {
-	 return this->$ComponentDirContext::listBindings(name);
+	return this->$ComponentDirContext::listBindings(name);
 }
 
 $NamingEnumeration* LdapCtx::listBindings($Name* name) {
-	 return this->$ComponentDirContext::listBindings(name);
+	return this->$ComponentDirContext::listBindings(name);
 }
 
 void LdapCtx::destroySubcontext($String* name) {
@@ -577,47 +577,47 @@ void LdapCtx::destroySubcontext($Name* name) {
 }
 
 $Context* LdapCtx::createSubcontext($String* name) {
-	 return this->$ComponentDirContext::createSubcontext(name);
+	return this->$ComponentDirContext::createSubcontext(name);
 }
 
 $Context* LdapCtx::createSubcontext($Name* name) {
-	 return this->$ComponentDirContext::createSubcontext(name);
+	return this->$ComponentDirContext::createSubcontext(name);
 }
 
 $Object* LdapCtx::lookupLink($String* name) {
-	 return this->$ComponentDirContext::lookupLink(name);
+	return this->$ComponentDirContext::lookupLink(name);
 }
 
 $Object* LdapCtx::lookupLink($Name* name) {
-	 return this->$ComponentDirContext::lookupLink(name);
+	return this->$ComponentDirContext::lookupLink(name);
 }
 
 $NameParser* LdapCtx::getNameParser($String* name) {
-	 return this->$ComponentDirContext::getNameParser(name);
+	return this->$ComponentDirContext::getNameParser(name);
 }
 
 $NameParser* LdapCtx::getNameParser($Name* name) {
-	 return this->$ComponentDirContext::getNameParser(name);
+	return this->$ComponentDirContext::getNameParser(name);
 }
 
 $String* LdapCtx::composeName($String* name, $String* prefix) {
-	 return this->$ComponentDirContext::composeName(name, prefix);
+	return this->$ComponentDirContext::composeName(name, prefix);
 }
 
 int32_t LdapCtx::hashCode() {
-	 return this->$ComponentDirContext::hashCode();
+	return this->$ComponentDirContext::hashCode();
 }
 
 bool LdapCtx::equals(Object$* arg0) {
-	 return this->$ComponentDirContext::equals(arg0);
+	return this->$ComponentDirContext::equals(arg0);
 }
 
 $Object* LdapCtx::clone() {
-	 return this->$ComponentDirContext::clone();
+	return this->$ComponentDirContext::clone();
 }
 
 $String* LdapCtx::toString() {
-	 return this->$ComponentDirContext::toString();
+	return this->$ComponentDirContext::toString();
 }
 
 $String* LdapCtx::DEFAULT_HOST = nullptr;

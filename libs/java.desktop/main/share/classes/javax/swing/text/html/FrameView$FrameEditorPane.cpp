@@ -18,19 +18,19 @@ namespace javax {
 			namespace html {
 
 $String* FrameView$FrameEditorPane::toString() {
-	 return this->$JEditorPane::toString();
+	return this->$JEditorPane::toString();
 }
 
 int32_t FrameView$FrameEditorPane::hashCode() {
-	 return this->$JEditorPane::hashCode();
+	return this->$JEditorPane::hashCode();
 }
 
 bool FrameView$FrameEditorPane::equals(Object$* arg0) {
-	 return this->$JEditorPane::equals(arg0);
+	return this->$JEditorPane::equals(arg0);
 }
 
 $Object* FrameView$FrameEditorPane::clone() {
-	 return this->$JEditorPane::clone();
+	return this->$JEditorPane::clone();
 }
 
 void FrameView$FrameEditorPane::finalize() {

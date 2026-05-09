@@ -51,15 +51,15 @@ namespace com {
 						namespace axes {
 
 int32_t AxesWalker::hashCode() {
-	 return this->$PredicatedNodeTest::hashCode();
+	return this->$PredicatedNodeTest::hashCode();
 }
 
 bool AxesWalker::equals(Object$* arg0) {
-	 return this->$PredicatedNodeTest::equals(arg0);
+	return this->$PredicatedNodeTest::equals(arg0);
 }
 
 $String* AxesWalker::toString() {
-	 return this->$PredicatedNodeTest::toString();
+	return this->$PredicatedNodeTest::toString();
 }
 
 void AxesWalker::finalize() {

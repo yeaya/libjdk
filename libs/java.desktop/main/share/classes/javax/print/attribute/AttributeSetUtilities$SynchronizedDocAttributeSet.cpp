@@ -21,39 +21,39 @@ namespace javax {
 		namespace attribute {
 
 $Attribute* AttributeSetUtilities$SynchronizedDocAttributeSet::get($Class* category) {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::get(category);
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::get(category);
 }
 
 bool AttributeSetUtilities$SynchronizedDocAttributeSet::add($Attribute* attribute) {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::add(attribute);
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::add(attribute);
 }
 
 bool AttributeSetUtilities$SynchronizedDocAttributeSet::remove($Class* category) {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::remove(category);
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::remove(category);
 }
 
 bool AttributeSetUtilities$SynchronizedDocAttributeSet::remove($Attribute* attribute) {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::remove(attribute);
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::remove(attribute);
 }
 
 bool AttributeSetUtilities$SynchronizedDocAttributeSet::containsKey($Class* category) {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::containsKey(category);
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::containsKey(category);
 }
 
 bool AttributeSetUtilities$SynchronizedDocAttributeSet::containsValue($Attribute* attribute) {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::containsValue(attribute);
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::containsValue(attribute);
 }
 
 bool AttributeSetUtilities$SynchronizedDocAttributeSet::addAll($AttributeSet* attributes) {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::addAll(attributes);
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::addAll(attributes);
 }
 
 int32_t AttributeSetUtilities$SynchronizedDocAttributeSet::size() {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::size();
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::size();
 }
 
 $AttributeArray* AttributeSetUtilities$SynchronizedDocAttributeSet::toArray() {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::toArray();
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::toArray();
 }
 
 void AttributeSetUtilities$SynchronizedDocAttributeSet::clear() {
@@ -61,23 +61,23 @@ void AttributeSetUtilities$SynchronizedDocAttributeSet::clear() {
 }
 
 bool AttributeSetUtilities$SynchronizedDocAttributeSet::isEmpty() {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::isEmpty();
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::isEmpty();
 }
 
 bool AttributeSetUtilities$SynchronizedDocAttributeSet::equals(Object$* o) {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::equals(o);
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::equals(o);
 }
 
 int32_t AttributeSetUtilities$SynchronizedDocAttributeSet::hashCode() {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::hashCode();
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::hashCode();
 }
 
 $Object* AttributeSetUtilities$SynchronizedDocAttributeSet::clone() {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::clone();
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::clone();
 }
 
 $String* AttributeSetUtilities$SynchronizedDocAttributeSet::toString() {
-	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::toString();
+	return this->$AttributeSetUtilities$SynchronizedAttributeSet::toString();
 }
 
 void AttributeSetUtilities$SynchronizedDocAttributeSet::finalize() {

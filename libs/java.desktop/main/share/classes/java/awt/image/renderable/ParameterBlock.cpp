@@ -29,15 +29,15 @@ namespace java {
 			namespace renderable {
 
 int32_t ParameterBlock::hashCode() {
-	 return this->$Cloneable::hashCode();
+	return this->$Cloneable::hashCode();
 }
 
 bool ParameterBlock::equals(Object$* arg0) {
-	 return this->$Cloneable::equals(arg0);
+	return this->$Cloneable::equals(arg0);
 }
 
 $String* ParameterBlock::toString() {
-	 return this->$Cloneable::toString();
+	return this->$Cloneable::toString();
 }
 
 void ParameterBlock::finalize() {

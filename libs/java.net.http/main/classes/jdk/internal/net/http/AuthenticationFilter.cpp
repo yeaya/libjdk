@@ -96,7 +96,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return AuthenticationFilter::lambda$getCredentials$0();
+		return AuthenticationFilter::lambda$getCredentials$0();
 	}
 };
 $Class* AuthenticationFilter$$Lambda$lambda$getCredentials$0::load$($String* name, bool initialize) {

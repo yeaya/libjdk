@@ -146,11 +146,11 @@ namespace javax {
 		namespace text {
 
 int32_t DefaultCaret::hashCode() {
-	 return this->$Rectangle::hashCode();
+	return this->$Rectangle::hashCode();
 }
 
 $Object* DefaultCaret::clone() {
-	 return this->$Rectangle::clone();
+	return this->$Rectangle::clone();
 }
 
 void DefaultCaret::finalize() {

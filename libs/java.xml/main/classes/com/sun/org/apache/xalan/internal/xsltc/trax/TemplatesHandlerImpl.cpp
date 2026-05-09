@@ -75,19 +75,19 @@ namespace com {
 							namespace trax {
 
 int32_t TemplatesHandlerImpl::hashCode() {
-	 return this->$TemplatesHandler::hashCode();
+	return this->$TemplatesHandler::hashCode();
 }
 
 bool TemplatesHandlerImpl::equals(Object$* arg0) {
-	 return this->$TemplatesHandler::equals(arg0);
+	return this->$TemplatesHandler::equals(arg0);
 }
 
 $Object* TemplatesHandlerImpl::clone() {
-	 return this->$TemplatesHandler::clone();
+	return this->$TemplatesHandler::clone();
 }
 
 $String* TemplatesHandlerImpl::toString() {
-	 return this->$TemplatesHandler::toString();
+	return this->$TemplatesHandler::toString();
 }
 
 void TemplatesHandlerImpl::finalize() {

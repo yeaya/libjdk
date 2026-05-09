@@ -83,19 +83,19 @@ namespace com {
 		namespace laf {
 
 $Object* AquaSpinnerUI$ArrowButtonHandler::clone() {
-	 return this->$AbstractAction::clone();
+	return this->$AbstractAction::clone();
 }
 
 int32_t AquaSpinnerUI$ArrowButtonHandler::hashCode() {
-	 return this->$AbstractAction::hashCode();
+	return this->$AbstractAction::hashCode();
 }
 
 bool AquaSpinnerUI$ArrowButtonHandler::equals(Object$* arg0) {
-	 return this->$AbstractAction::equals(arg0);
+	return this->$AbstractAction::equals(arg0);
 }
 
 $String* AquaSpinnerUI$ArrowButtonHandler::toString() {
-	 return this->$AbstractAction::toString();
+	return this->$AbstractAction::toString();
 }
 
 void AquaSpinnerUI$ArrowButtonHandler::finalize() {

@@ -17,19 +17,19 @@ namespace javax {
 	namespace swing {
 
 int32_t AbstractButton$ButtonChangeListener::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool AbstractButton$ButtonChangeListener::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* AbstractButton$ButtonChangeListener::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* AbstractButton$ButtonChangeListener::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void AbstractButton$ButtonChangeListener::finalize() {

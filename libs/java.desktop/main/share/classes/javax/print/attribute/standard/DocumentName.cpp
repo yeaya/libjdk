@@ -15,15 +15,15 @@ namespace javax {
 			namespace standard {
 
 int32_t DocumentName::hashCode() {
-	 return this->$TextSyntax::hashCode();
+	return this->$TextSyntax::hashCode();
 }
 
 $String* DocumentName::toString() {
-	 return this->$TextSyntax::toString();
+	return this->$TextSyntax::toString();
 }
 
 $Object* DocumentName::clone() {
-	 return this->$TextSyntax::clone();
+	return this->$TextSyntax::clone();
 }
 
 void DocumentName::finalize() {

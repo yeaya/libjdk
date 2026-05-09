@@ -56,7 +56,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(Policy::lambda$initialize$0());
+		return $of(Policy::lambda$initialize$0());
 	}
 };
 $Class* Policy$$Lambda$lambda$initialize$0::load$($String* name, bool initialize) {

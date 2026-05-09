@@ -27,19 +27,19 @@ namespace javax {
 	namespace swing {
 
 int32_t ActionPropertyChangeListener::hashCode() {
-	 return this->$PropertyChangeListener::hashCode();
+	return this->$PropertyChangeListener::hashCode();
 }
 
 bool ActionPropertyChangeListener::equals(Object$* arg0) {
-	 return this->$PropertyChangeListener::equals(arg0);
+	return this->$PropertyChangeListener::equals(arg0);
 }
 
 $Object* ActionPropertyChangeListener::clone() {
-	 return this->$PropertyChangeListener::clone();
+	return this->$PropertyChangeListener::clone();
 }
 
 $String* ActionPropertyChangeListener::toString() {
-	 return this->$PropertyChangeListener::toString();
+	return this->$PropertyChangeListener::toString();
 }
 
 void ActionPropertyChangeListener::finalize() {

@@ -34,19 +34,19 @@ namespace javax {
 			namespace standard {
 
 $Object* Finishings::clone() {
-	 return this->$EnumSyntax::clone();
+	return this->$EnumSyntax::clone();
 }
 
 int32_t Finishings::hashCode() {
-	 return this->$EnumSyntax::hashCode();
+	return this->$EnumSyntax::hashCode();
 }
 
 $String* Finishings::toString() {
-	 return this->$EnumSyntax::toString();
+	return this->$EnumSyntax::toString();
 }
 
 bool Finishings::equals(Object$* arg0) {
-	 return this->$EnumSyntax::equals(arg0);
+	return this->$EnumSyntax::equals(arg0);
 }
 
 void Finishings::finalize() {

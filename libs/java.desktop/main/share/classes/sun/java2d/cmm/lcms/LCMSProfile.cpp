@@ -39,7 +39,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* key) override {
-		 return $nc(inst$)->lambda$getTag$0($cast($Integer, key));
+		return $nc(inst$)->lambda$getTag$0($cast($Integer, key));
 	}
 	LCMSProfile* inst$ = nullptr;
 };

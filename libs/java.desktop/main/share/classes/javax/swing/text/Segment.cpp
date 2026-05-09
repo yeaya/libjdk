@@ -21,11 +21,11 @@ namespace javax {
 		namespace text {
 
 int32_t Segment::hashCode() {
-	 return this->$CharacterIterator::hashCode();
+	return this->$CharacterIterator::hashCode();
 }
 
 bool Segment::equals(Object$* arg0) {
-	 return this->$CharacterIterator::equals(arg0);
+	return this->$CharacterIterator::equals(arg0);
 }
 
 void Segment::finalize() {

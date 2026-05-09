@@ -184,7 +184,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$StringBuilder* inst$ = nullptr;
 };
@@ -214,19 +214,19 @@ $Class* RequiredModelMBean$$Lambda$toString::load$($String* name, bool initializ
 $Class* RequiredModelMBean$$Lambda$toString::class$ = nullptr;
 
 int32_t RequiredModelMBean::hashCode() {
-	 return this->$ModelMBean::hashCode();
+	return this->$ModelMBean::hashCode();
 }
 
 bool RequiredModelMBean::equals(Object$* arg0) {
-	 return this->$ModelMBean::equals(arg0);
+	return this->$ModelMBean::equals(arg0);
 }
 
 $Object* RequiredModelMBean::clone() {
-	 return this->$ModelMBean::clone();
+	return this->$ModelMBean::clone();
 }
 
 $String* RequiredModelMBean::toString() {
-	 return this->$ModelMBean::toString();
+	return this->$ModelMBean::toString();
 }
 
 void RequiredModelMBean::finalize() {

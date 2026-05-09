@@ -57,7 +57,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(ProxyServer::lambda$static$0());
+		return $of(ProxyServer::lambda$static$0());
 	}
 };
 $Class* ProxyServer$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -82,19 +82,19 @@ $Class* ProxyServer$$Lambda$lambda$static$0::load$($String* name, bool initializ
 $Class* ProxyServer$$Lambda$lambda$static$0::class$ = nullptr;
 
 $Object* ProxyServer::clone() {
-	 return this->$Thread::clone();
+	return this->$Thread::clone();
 }
 
 $String* ProxyServer::toString() {
-	 return this->$Thread::toString();
+	return this->$Thread::toString();
 }
 
 int32_t ProxyServer::hashCode() {
-	 return this->$Thread::hashCode();
+	return this->$Thread::hashCode();
 }
 
 bool ProxyServer::equals(Object$* arg0) {
-	 return this->$Thread::equals(arg0);
+	return this->$Thread::equals(arg0);
 }
 
 void ProxyServer::finalize() {

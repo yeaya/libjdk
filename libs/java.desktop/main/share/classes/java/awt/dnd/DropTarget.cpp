@@ -66,19 +66,19 @@ namespace java {
 		namespace dnd {
 
 int32_t DropTarget::hashCode() {
-	 return this->$DropTargetListener::hashCode();
+	return this->$DropTargetListener::hashCode();
 }
 
 bool DropTarget::equals(Object$* arg0) {
-	 return this->$DropTargetListener::equals(arg0);
+	return this->$DropTargetListener::equals(arg0);
 }
 
 $Object* DropTarget::clone() {
-	 return this->$DropTargetListener::clone();
+	return this->$DropTargetListener::clone();
 }
 
 $String* DropTarget::toString() {
-	 return this->$DropTargetListener::toString();
+	return this->$DropTargetListener::toString();
 }
 
 void DropTarget::finalize() {

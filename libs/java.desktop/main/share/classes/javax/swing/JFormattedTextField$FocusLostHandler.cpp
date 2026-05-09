@@ -20,19 +20,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JFormattedTextField$FocusLostHandler::hashCode() {
-	 return this->$Runnable::hashCode();
+	return this->$Runnable::hashCode();
 }
 
 bool JFormattedTextField$FocusLostHandler::equals(Object$* arg0) {
-	 return this->$Runnable::equals(arg0);
+	return this->$Runnable::equals(arg0);
 }
 
 $Object* JFormattedTextField$FocusLostHandler::clone() {
-	 return this->$Runnable::clone();
+	return this->$Runnable::clone();
 }
 
 $String* JFormattedTextField$FocusLostHandler::toString() {
-	 return this->$Runnable::toString();
+	return this->$Runnable::toString();
 }
 
 void JFormattedTextField$FocusLostHandler::finalize() {

@@ -24,23 +24,23 @@ namespace com {
 						namespace generic {
 
 $String* POP2::toString() {
-	 return this->$StackInstruction::toString();
+	return this->$StackInstruction::toString();
 }
 
 int32_t POP2::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$StackInstruction::consumeStack(cpg);
+	return this->$StackInstruction::consumeStack(cpg);
 }
 
 bool POP2::equals(Object$* that) {
-	 return this->$StackInstruction::equals(that);
+	return this->$StackInstruction::equals(that);
 }
 
 int32_t POP2::hashCode() {
-	 return this->$StackInstruction::hashCode();
+	return this->$StackInstruction::hashCode();
 }
 
 $Object* POP2::clone() {
-	 return this->$StackInstruction::clone();
+	return this->$StackInstruction::clone();
 }
 
 void POP2::finalize() {

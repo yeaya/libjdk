@@ -60,11 +60,11 @@ namespace sun {
 			namespace synth {
 
 int32_t DefaultSynthStyle::hashCode() {
-	 return this->$SynthStyle::hashCode();
+	return this->$SynthStyle::hashCode();
 }
 
 bool DefaultSynthStyle::equals(Object$* arg0) {
-	 return this->$SynthStyle::equals(arg0);
+	return this->$SynthStyle::equals(arg0);
 }
 
 void DefaultSynthStyle::finalize() {

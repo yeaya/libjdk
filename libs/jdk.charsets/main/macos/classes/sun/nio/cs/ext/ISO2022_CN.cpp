@@ -38,19 +38,19 @@ namespace sun {
 			namespace ext {
 
 int32_t ISO2022_CN::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool ISO2022_CN::equals(Object$* arg0) {
-	 return this->$Charset::equals(arg0);
+	return this->$Charset::equals(arg0);
 }
 
 $String* ISO2022_CN::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* ISO2022_CN::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void ISO2022_CN::finalize() {

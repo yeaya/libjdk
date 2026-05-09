@@ -38,15 +38,15 @@ namespace com {
 						namespace generic {
 
 int32_t FieldGenOrMethodGen::hashCode() {
-	 return this->$AccessFlags::hashCode();
+	return this->$AccessFlags::hashCode();
 }
 
 bool FieldGenOrMethodGen::equals(Object$* arg0) {
-	 return this->$AccessFlags::equals(arg0);
+	return this->$AccessFlags::equals(arg0);
 }
 
 $String* FieldGenOrMethodGen::toString() {
-	 return this->$AccessFlags::toString();
+	return this->$AccessFlags::toString();
 }
 
 void FieldGenOrMethodGen::finalize() {

@@ -31,19 +31,19 @@ namespace com {
 					namespace gtk {
 
 $Object* GTKLookAndFeel$WeakPCL::clone() {
-	 return this->$WeakReference::clone();
+	return this->$WeakReference::clone();
 }
 
 int32_t GTKLookAndFeel$WeakPCL::hashCode() {
-	 return this->$WeakReference::hashCode();
+	return this->$WeakReference::hashCode();
 }
 
 bool GTKLookAndFeel$WeakPCL::equals(Object$* arg0) {
-	 return this->$WeakReference::equals(arg0);
+	return this->$WeakReference::equals(arg0);
 }
 
 $String* GTKLookAndFeel$WeakPCL::toString() {
-	 return this->$WeakReference::toString();
+	return this->$WeakReference::toString();
 }
 
 void GTKLookAndFeel$WeakPCL::finalize() {

@@ -26,19 +26,19 @@ namespace com {
 				namespace tree {
 
 $String* DCTree$DCUnknownInlineTag::toString() {
-	 return this->$DCTree$DCInlineTag::toString();
+	return this->$DCTree$DCInlineTag::toString();
 }
 
 int32_t DCTree$DCUnknownInlineTag::hashCode() {
-	 return this->$DCTree$DCInlineTag::hashCode();
+	return this->$DCTree$DCInlineTag::hashCode();
 }
 
 bool DCTree$DCUnknownInlineTag::equals(Object$* arg0) {
-	 return this->$DCTree$DCInlineTag::equals(arg0);
+	return this->$DCTree$DCInlineTag::equals(arg0);
 }
 
 $Object* DCTree$DCUnknownInlineTag::clone() {
-	 return this->$DCTree$DCInlineTag::clone();
+	return this->$DCTree$DCInlineTag::clone();
 }
 
 void DCTree$DCUnknownInlineTag::finalize() {

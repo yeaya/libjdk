@@ -135,19 +135,19 @@ namespace com {
 							namespace dtd {
 
 int32_t DTDGrammar::hashCode() {
-	 return this->$XMLDTDHandler::hashCode();
+	return this->$XMLDTDHandler::hashCode();
 }
 
 bool DTDGrammar::equals(Object$* arg0) {
-	 return this->$XMLDTDHandler::equals(arg0);
+	return this->$XMLDTDHandler::equals(arg0);
 }
 
 $Object* DTDGrammar::clone() {
-	 return this->$XMLDTDHandler::clone();
+	return this->$XMLDTDHandler::clone();
 }
 
 $String* DTDGrammar::toString() {
-	 return this->$XMLDTDHandler::toString();
+	return this->$XMLDTDHandler::toString();
 }
 
 void DTDGrammar::finalize() {

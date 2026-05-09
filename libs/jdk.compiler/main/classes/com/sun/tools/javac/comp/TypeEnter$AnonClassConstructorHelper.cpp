@@ -60,7 +60,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* vd) override {
-		 return $of(TypeEnter$AnonClassConstructorHelper::lambda$superArgs$0($cast($JCTree$JCVariableDecl, vd)));
+		return $of(TypeEnter$AnonClassConstructorHelper::lambda$superArgs$0($cast($JCTree$JCVariableDecl, vd)));
 	}
 };
 $Class* TypeEnter$AnonClassConstructorHelper$$Lambda$lambda$superArgs$0::load$($String* name, bool initialize) {

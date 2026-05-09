@@ -13,19 +13,19 @@ namespace com {
 		namespace laf {
 
 $String* AquaComboBoxRenderer::toString() {
-	 return this->$AquaComboBoxRendererInternal::toString();
+	return this->$AquaComboBoxRendererInternal::toString();
 }
 
 int32_t AquaComboBoxRenderer::hashCode() {
-	 return this->$AquaComboBoxRendererInternal::hashCode();
+	return this->$AquaComboBoxRendererInternal::hashCode();
 }
 
 bool AquaComboBoxRenderer::equals(Object$* arg0) {
-	 return this->$AquaComboBoxRendererInternal::equals(arg0);
+	return this->$AquaComboBoxRendererInternal::equals(arg0);
 }
 
 $Object* AquaComboBoxRenderer::clone() {
-	 return this->$AquaComboBoxRendererInternal::clone();
+	return this->$AquaComboBoxRendererInternal::clone();
 }
 
 void AquaComboBoxRenderer::finalize() {

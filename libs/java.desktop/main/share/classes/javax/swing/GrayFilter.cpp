@@ -40,7 +40,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* img) override {
-		 return GrayFilter::lambda$createDisabledImage$0($cast($Image, img));
+		return GrayFilter::lambda$createDisabledImage$0($cast($Image, img));
 	}
 };
 $Class* GrayFilter$$Lambda$lambda$createDisabledImage$0::load$($String* name, bool initialize) {

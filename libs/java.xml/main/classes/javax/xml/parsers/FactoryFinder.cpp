@@ -59,7 +59,7 @@ public:
 		$set(this, clD, clD);
 	}
 	virtual $Object* get() override {
-		 return $of(FactoryFinder::lambda$newInstance$0(providerClass, clD));
+		return $of(FactoryFinder::lambda$newInstance$0(providerClass, clD));
 	}
 	$Class* providerClass = nullptr;
 	$ClassLoader* clD = nullptr;
@@ -97,7 +97,7 @@ public:
 		$set(this, factoryId, factoryId);
 	}
 	virtual $Object* get() override {
-		 return $of(FactoryFinder::lambda$find$1(factoryId));
+		return $of(FactoryFinder::lambda$find$1(factoryId));
 	}
 	$String* factoryId = nullptr;
 };
@@ -133,7 +133,7 @@ public:
 		$set(this, systemProp, systemProp);
 	}
 	virtual $Object* get() override {
-		 return $of(FactoryFinder::lambda$find$2(systemProp));
+		return $of(FactoryFinder::lambda$find$2(systemProp));
 	}
 	$String* systemProp = nullptr;
 };
@@ -169,7 +169,7 @@ public:
 		$set(this, f, f);
 	}
 	virtual $Object* get() override {
-		 return $of(FactoryFinder::lambda$find$3(f));
+		return $of(FactoryFinder::lambda$find$3(f));
 	}
 	$File* f = nullptr;
 };
@@ -205,7 +205,7 @@ public:
 		$set(this, factoryClassName, factoryClassName);
 	}
 	virtual $Object* get() override {
-		 return $of(FactoryFinder::lambda$find$4(factoryClassName));
+		return $of(FactoryFinder::lambda$find$4(factoryClassName));
 	}
 	$String* factoryClassName = nullptr;
 };
@@ -241,7 +241,7 @@ public:
 		$set(this, fallbackClassName, fallbackClassName);
 	}
 	virtual $Object* get() override {
-		 return $of(FactoryFinder::lambda$find$5(fallbackClassName));
+		return $of(FactoryFinder::lambda$find$5(fallbackClassName));
 	}
 	$String* fallbackClassName = nullptr;
 };

@@ -37,23 +37,23 @@ namespace com {
 						namespace generic {
 
 $String* NEWARRAY::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t NEWARRAY::produceStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::produceStack(cpg);
+	return this->$Instruction::produceStack(cpg);
 }
 
 bool NEWARRAY::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t NEWARRAY::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* NEWARRAY::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void NEWARRAY::finalize() {

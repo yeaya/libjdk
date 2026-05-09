@@ -26,19 +26,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthSpinnerUI$SpinnerLayout::hashCode() {
-	 return this->$LayoutManager::hashCode();
+	return this->$LayoutManager::hashCode();
 }
 
 bool SynthSpinnerUI$SpinnerLayout::equals(Object$* arg0) {
-	 return this->$LayoutManager::equals(arg0);
+	return this->$LayoutManager::equals(arg0);
 }
 
 $Object* SynthSpinnerUI$SpinnerLayout::clone() {
-	 return this->$LayoutManager::clone();
+	return this->$LayoutManager::clone();
 }
 
 $String* SynthSpinnerUI$SpinnerLayout::toString() {
-	 return this->$LayoutManager::toString();
+	return this->$LayoutManager::toString();
 }
 
 void SynthSpinnerUI$SpinnerLayout::finalize() {

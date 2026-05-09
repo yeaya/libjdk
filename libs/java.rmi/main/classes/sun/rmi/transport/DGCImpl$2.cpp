@@ -71,7 +71,7 @@ public:
 	void init$() {
 	}
 	virtual $ObjectInputFilter$Status* checkInput($ObjectInputFilter$FilterInfo* filterInfo) override {
-		 return $DGCImpl::checkInput(filterInfo);
+		return $DGCImpl::checkInput(filterInfo);
 	}
 };
 $Class* DGCImpl$2$$Lambda$checkInput::load$($String* name, bool initialize) {

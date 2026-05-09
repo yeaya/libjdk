@@ -24,19 +24,19 @@ namespace sun {
 		namespace icon {
 
 int32_t SortArrowIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool SortArrowIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* SortArrowIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* SortArrowIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void SortArrowIcon::finalize() {

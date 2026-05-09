@@ -29,19 +29,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JToolBar$DefaultToolBarLayout::hashCode() {
-	 return this->$LayoutManager2::hashCode();
+	return this->$LayoutManager2::hashCode();
 }
 
 bool JToolBar$DefaultToolBarLayout::equals(Object$* arg0) {
-	 return this->$LayoutManager2::equals(arg0);
+	return this->$LayoutManager2::equals(arg0);
 }
 
 $Object* JToolBar$DefaultToolBarLayout::clone() {
-	 return this->$LayoutManager2::clone();
+	return this->$LayoutManager2::clone();
 }
 
 $String* JToolBar$DefaultToolBarLayout::toString() {
-	 return this->$LayoutManager2::toString();
+	return this->$LayoutManager2::toString();
 }
 
 void JToolBar$DefaultToolBarLayout::finalize() {

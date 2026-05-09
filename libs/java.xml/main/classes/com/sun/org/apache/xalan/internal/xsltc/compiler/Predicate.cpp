@@ -134,15 +134,15 @@ namespace com {
 							namespace compiler {
 
 int32_t Predicate::hashCode() {
-	 return this->$Expression::hashCode();
+	return this->$Expression::hashCode();
 }
 
 bool Predicate::equals(Object$* arg0) {
-	 return this->$Expression::equals(arg0);
+	return this->$Expression::equals(arg0);
 }
 
 $Object* Predicate::clone() {
-	 return this->$Expression::clone();
+	return this->$Expression::clone();
 }
 
 void Predicate::finalize() {

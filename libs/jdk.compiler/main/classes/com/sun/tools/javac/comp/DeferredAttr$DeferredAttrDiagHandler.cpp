@@ -41,7 +41,7 @@ public:
 		$set(this, newTree, newTree);
 	}
 	virtual bool test(Object$* d) override {
-		 return DeferredAttr$DeferredAttrDiagHandler::lambda$new$0(newTree, $cast($JCDiagnostic, d));
+		return DeferredAttr$DeferredAttrDiagHandler::lambda$new$0(newTree, $cast($JCDiagnostic, d));
 	}
 	$JCTree* newTree = nullptr;
 };

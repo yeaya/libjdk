@@ -31,19 +31,19 @@ using $ViewFactory = ::javax::swing::text::ViewFactory;
 using $tableView$trView = ::tableView$trView;
 
 int32_t tableView::hashCode() {
-	 return this->$TableView::hashCode();
+	return this->$TableView::hashCode();
 }
 
 bool tableView::equals(Object$* arg0) {
-	 return this->$TableView::equals(arg0);
+	return this->$TableView::equals(arg0);
 }
 
 $Object* tableView::clone() {
-	 return this->$TableView::clone();
+	return this->$TableView::clone();
 }
 
 $String* tableView::toString() {
-	 return this->$TableView::toString();
+	return this->$TableView::toString();
 }
 
 void tableView::finalize() {

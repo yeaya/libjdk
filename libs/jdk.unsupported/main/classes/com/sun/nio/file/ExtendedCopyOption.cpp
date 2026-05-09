@@ -18,19 +18,19 @@ namespace com {
 			namespace file {
 
 $String* ExtendedCopyOption::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool ExtendedCopyOption::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t ExtendedCopyOption::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* ExtendedCopyOption::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void ExtendedCopyOption::finalize() {

@@ -91,7 +91,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return RMIJRMPServerImpl::lambda$new$0($cast($String, s));
+		return RMIJRMPServerImpl::lambda$new$0($cast($String, s));
 	}
 };
 $Class* RMIJRMPServerImpl$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
@@ -152,7 +152,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $ObjectInputFilter$Status* checkInput($ObjectInputFilter$FilterInfo* filterInfo) override {
-		 return $nc(inst$)->newClientCheckInput(filterInfo);
+		return $nc(inst$)->newClientCheckInput(filterInfo);
 	}
 	RMIJRMPServerImpl* inst$ = nullptr;
 };

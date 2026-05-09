@@ -46,19 +46,19 @@ namespace com {
 					namespace gtk {
 
 int32_t GTKPainter$ListTableFocusBorder::hashCode() {
-	 return this->$AbstractBorder::hashCode();
+	return this->$AbstractBorder::hashCode();
 }
 
 bool GTKPainter$ListTableFocusBorder::equals(Object$* arg0) {
-	 return this->$AbstractBorder::equals(arg0);
+	return this->$AbstractBorder::equals(arg0);
 }
 
 $Object* GTKPainter$ListTableFocusBorder::clone() {
-	 return this->$AbstractBorder::clone();
+	return this->$AbstractBorder::clone();
 }
 
 $String* GTKPainter$ListTableFocusBorder::toString() {
-	 return this->$AbstractBorder::toString();
+	return this->$AbstractBorder::toString();
 }
 
 void GTKPainter$ListTableFocusBorder::finalize() {

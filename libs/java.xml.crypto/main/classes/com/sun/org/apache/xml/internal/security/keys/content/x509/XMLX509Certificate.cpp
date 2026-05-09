@@ -53,11 +53,11 @@ namespace com {
 									namespace x509 {
 
 $Object* XMLX509Certificate::clone() {
-	 return this->$SignatureElementProxy::clone();
+	return this->$SignatureElementProxy::clone();
 }
 
 $String* XMLX509Certificate::toString() {
-	 return this->$SignatureElementProxy::toString();
+	return this->$SignatureElementProxy::toString();
 }
 
 void XMLX509Certificate::finalize() {

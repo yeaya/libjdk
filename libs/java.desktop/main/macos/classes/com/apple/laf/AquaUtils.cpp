@@ -98,7 +98,7 @@ public:
 		$set(this, filter, filter);
 	}
 	virtual $Object* apply(Object$* img) override {
-		 return AquaUtils::lambda$map$0(filter, $cast($Image, img));
+		return AquaUtils::lambda$map$0(filter, $cast($Image, img));
 	}
 	$ImageFilter* filter = nullptr;
 };

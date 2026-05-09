@@ -249,7 +249,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* w1, Object$* w2) override {
-		 return CPlatformWindow::lambda$new$0($cast($Window, w1), $cast($Window, w2));
+		return CPlatformWindow::lambda$new$0($cast($Window, w1), $cast($Window, w2));
 	}
 };
 $Class* CPlatformWindow$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
@@ -1910,7 +1910,7 @@ public:
 		$set(this, bounds, bounds);
 	}
 	virtual int64_t run(int64_t ownerPtr) override {
-		 return $nc(inst$)->lambda$initialize$1(ref, viewPtr, styleBits, bounds, ownerPtr);
+		return $nc(inst$)->lambda$initialize$1(ref, viewPtr, styleBits, bounds, ownerPtr);
 	}
 	CPlatformWindow* inst$ = nullptr;
 	$AtomicLong* ref = nullptr;
@@ -1952,19 +1952,19 @@ void CPlatformWindow::finalize() {
 }
 
 int32_t CPlatformWindow::hashCode() {
-	 return this->$CFRetainedResource::hashCode();
+	return this->$CFRetainedResource::hashCode();
 }
 
 bool CPlatformWindow::equals(Object$* arg0) {
-	 return this->$CFRetainedResource::equals(arg0);
+	return this->$CFRetainedResource::equals(arg0);
 }
 
 $Object* CPlatformWindow::clone() {
-	 return this->$CFRetainedResource::clone();
+	return this->$CFRetainedResource::clone();
 }
 
 $String* CPlatformWindow::toString() {
-	 return this->$CFRetainedResource::toString();
+	return this->$CFRetainedResource::toString();
 }
 
 $PlatformLogger* CPlatformWindow::logger = nullptr;

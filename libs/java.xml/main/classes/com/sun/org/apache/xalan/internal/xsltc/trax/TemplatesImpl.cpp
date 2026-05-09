@@ -174,7 +174,7 @@ public:
 		$set(this, loader, loader);
 	}
 	virtual $Object* run() override {
-		 return TemplatesImpl::lambda$createModule$1(bootLayer, cf, loader);
+		return TemplatesImpl::lambda$createModule$1(bootLayer, cf, loader);
 	}
 	$ModuleLayer* bootLayer = nullptr;
 	$Configuration* cf = nullptr;
@@ -256,7 +256,7 @@ public:
 		$set(this, loader, loader);
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return TemplatesImpl::lambda$createModule$0(loader, $cast($String, name));
+		return TemplatesImpl::lambda$createModule$0(loader, $cast($String, name));
 	}
 	$ClassLoader* loader = nullptr;
 };
@@ -286,19 +286,19 @@ $Class* TemplatesImpl$$Lambda$lambda$createModule$0$2::load$($String* name, bool
 $Class* TemplatesImpl$$Lambda$lambda$createModule$0$2::class$ = nullptr;
 
 int32_t TemplatesImpl::hashCode() {
-	 return this->$Templates::hashCode();
+	return this->$Templates::hashCode();
 }
 
 bool TemplatesImpl::equals(Object$* arg0) {
-	 return this->$Templates::equals(arg0);
+	return this->$Templates::equals(arg0);
 }
 
 $Object* TemplatesImpl::clone() {
-	 return this->$Templates::clone();
+	return this->$Templates::clone();
 }
 
 $String* TemplatesImpl::toString() {
-	 return this->$Templates::toString();
+	return this->$Templates::toString();
 }
 
 void TemplatesImpl::finalize() {

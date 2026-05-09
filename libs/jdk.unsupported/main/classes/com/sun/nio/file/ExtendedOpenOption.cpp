@@ -21,19 +21,19 @@ namespace com {
 			namespace file {
 
 $String* ExtendedOpenOption::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool ExtendedOpenOption::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t ExtendedOpenOption::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* ExtendedOpenOption::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void ExtendedOpenOption::finalize() {

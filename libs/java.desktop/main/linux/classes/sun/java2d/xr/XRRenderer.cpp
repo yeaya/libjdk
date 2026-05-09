@@ -77,19 +77,19 @@ namespace sun {
 		namespace xr {
 
 int32_t XRRenderer::hashCode() {
-	 return this->$PixelDrawPipe::hashCode();
+	return this->$PixelDrawPipe::hashCode();
 }
 
 bool XRRenderer::equals(Object$* arg0) {
-	 return this->$PixelDrawPipe::equals(arg0);
+	return this->$PixelDrawPipe::equals(arg0);
 }
 
 $Object* XRRenderer::clone() {
-	 return this->$PixelDrawPipe::clone();
+	return this->$PixelDrawPipe::clone();
 }
 
 $String* XRRenderer::toString() {
-	 return this->$PixelDrawPipe::toString();
+	return this->$PixelDrawPipe::toString();
 }
 
 void XRRenderer::finalize() {

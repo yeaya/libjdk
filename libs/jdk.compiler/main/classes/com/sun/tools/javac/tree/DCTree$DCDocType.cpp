@@ -21,19 +21,19 @@ namespace com {
 				namespace tree {
 
 $String* DCTree$DCDocType::toString() {
-	 return this->$DCTree::toString();
+	return this->$DCTree::toString();
 }
 
 int32_t DCTree$DCDocType::hashCode() {
-	 return this->$DCTree::hashCode();
+	return this->$DCTree::hashCode();
 }
 
 bool DCTree$DCDocType::equals(Object$* arg0) {
-	 return this->$DCTree::equals(arg0);
+	return this->$DCTree::equals(arg0);
 }
 
 $Object* DCTree$DCDocType::clone() {
-	 return this->$DCTree::clone();
+	return this->$DCTree::clone();
 }
 
 void DCTree$DCDocType::finalize() {

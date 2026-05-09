@@ -43,11 +43,11 @@ namespace com {
 								namespace xs {
 
 bool XSSimpleTypeDecl$AbstractObjectList::add(Object$* arg0) {
-	 return this->$AbstractList::add(arg0);
+	return this->$AbstractList::add(arg0);
 }
 
 $Object* XSSimpleTypeDecl$AbstractObjectList::set(int32_t arg0, Object$* arg1) {
-	 return this->$AbstractList::set(arg0, arg1);
+	return this->$AbstractList::set(arg0, arg1);
 }
 
 void XSSimpleTypeDecl$AbstractObjectList::add(int32_t arg0, Object$* arg1) {
@@ -55,15 +55,15 @@ void XSSimpleTypeDecl$AbstractObjectList::add(int32_t arg0, Object$* arg1) {
 }
 
 $Object* XSSimpleTypeDecl$AbstractObjectList::remove(int32_t arg0) {
-	 return this->$AbstractList::remove(arg0);
+	return this->$AbstractList::remove(arg0);
 }
 
 int32_t XSSimpleTypeDecl$AbstractObjectList::indexOf(Object$* arg0) {
-	 return this->$AbstractList::indexOf(arg0);
+	return this->$AbstractList::indexOf(arg0);
 }
 
 int32_t XSSimpleTypeDecl$AbstractObjectList::lastIndexOf(Object$* arg0) {
-	 return this->$AbstractList::lastIndexOf(arg0);
+	return this->$AbstractList::lastIndexOf(arg0);
 }
 
 void XSSimpleTypeDecl$AbstractObjectList::clear() {
@@ -71,91 +71,91 @@ void XSSimpleTypeDecl$AbstractObjectList::clear() {
 }
 
 bool XSSimpleTypeDecl$AbstractObjectList::addAll(int32_t arg0, $Collection* arg1) {
-	 return this->$AbstractList::addAll(arg0, arg1);
+	return this->$AbstractList::addAll(arg0, arg1);
 }
 
 $Iterator* XSSimpleTypeDecl$AbstractObjectList::iterator() {
-	 return this->$AbstractList::iterator();
+	return this->$AbstractList::iterator();
 }
 
 $ListIterator* XSSimpleTypeDecl$AbstractObjectList::listIterator() {
-	 return this->$AbstractList::listIterator();
+	return this->$AbstractList::listIterator();
 }
 
 $ListIterator* XSSimpleTypeDecl$AbstractObjectList::listIterator(int32_t arg0) {
-	 return this->$AbstractList::listIterator(arg0);
+	return this->$AbstractList::listIterator(arg0);
 }
 
 $List* XSSimpleTypeDecl$AbstractObjectList::subList(int32_t arg0, int32_t arg1) {
-	 return this->$AbstractList::subList(arg0, arg1);
+	return this->$AbstractList::subList(arg0, arg1);
 }
 
 bool XSSimpleTypeDecl$AbstractObjectList::equals(Object$* arg0) {
-	 return this->$AbstractList::equals(arg0);
+	return this->$AbstractList::equals(arg0);
 }
 
 int32_t XSSimpleTypeDecl$AbstractObjectList::hashCode() {
-	 return this->$AbstractList::hashCode();
+	return this->$AbstractList::hashCode();
 }
 
 bool XSSimpleTypeDecl$AbstractObjectList::isEmpty() {
-	 return this->$AbstractList::isEmpty();
+	return this->$AbstractList::isEmpty();
 }
 
 bool XSSimpleTypeDecl$AbstractObjectList::contains(Object$* arg0) {
-	 return this->$AbstractList::contains(arg0);
+	return this->$AbstractList::contains(arg0);
 }
 
 $ObjectArray* XSSimpleTypeDecl$AbstractObjectList::toArray() {
-	 return this->$AbstractList::toArray();
+	return this->$AbstractList::toArray();
 }
 
 $ObjectArray* XSSimpleTypeDecl$AbstractObjectList::toArray($ObjectArray* arg0) {
-	 return this->$AbstractList::toArray(arg0);
+	return this->$AbstractList::toArray(arg0);
 }
 
 bool XSSimpleTypeDecl$AbstractObjectList::remove(Object$* arg0) {
-	 return this->$AbstractList::remove(arg0);
+	return this->$AbstractList::remove(arg0);
 }
 
 bool XSSimpleTypeDecl$AbstractObjectList::containsAll($Collection* arg0) {
-	 return this->$AbstractList::containsAll(arg0);
+	return this->$AbstractList::containsAll(arg0);
 }
 
 bool XSSimpleTypeDecl$AbstractObjectList::addAll($Collection* arg0) {
-	 return this->$AbstractList::addAll(arg0);
+	return this->$AbstractList::addAll(arg0);
 }
 
 bool XSSimpleTypeDecl$AbstractObjectList::removeAll($Collection* arg0) {
-	 return this->$AbstractList::removeAll(arg0);
+	return this->$AbstractList::removeAll(arg0);
 }
 
 bool XSSimpleTypeDecl$AbstractObjectList::retainAll($Collection* arg0) {
-	 return this->$AbstractList::retainAll(arg0);
+	return this->$AbstractList::retainAll(arg0);
 }
 
 $String* XSSimpleTypeDecl$AbstractObjectList::toString() {
-	 return this->$AbstractList::toString();
+	return this->$AbstractList::toString();
 }
 
 $ObjectArray* XSSimpleTypeDecl$AbstractObjectList::toArray($IntFunction* arg0) {
-	 return this->$AbstractList::toArray(arg0);
+	return this->$AbstractList::toArray(arg0);
 }
 
 bool XSSimpleTypeDecl$AbstractObjectList::removeIf($Predicate* arg0) {
-	 return this->$AbstractList::removeIf(arg0);
+	return this->$AbstractList::removeIf(arg0);
 }
 
 $Spliterator* XSSimpleTypeDecl$AbstractObjectList::spliterator() {
-	 return this->$AbstractList::spliterator();
+	return this->$AbstractList::spliterator();
 }
 
 $Stream* XSSimpleTypeDecl$AbstractObjectList::stream() {
-	 return this->$AbstractList::stream();
+	return this->$AbstractList::stream();
 }
 
 $Stream* XSSimpleTypeDecl$AbstractObjectList::parallelStream() {
-	 return this->$AbstractList::parallelStream();
+	return this->$AbstractList::parallelStream();
 }
 
 void XSSimpleTypeDecl$AbstractObjectList::forEach($Consumer* arg0) {
@@ -163,7 +163,7 @@ void XSSimpleTypeDecl$AbstractObjectList::forEach($Consumer* arg0) {
 }
 
 $Object* XSSimpleTypeDecl$AbstractObjectList::clone() {
-	 return this->$AbstractList::clone();
+	return this->$AbstractList::clone();
 }
 
 void XSSimpleTypeDecl$AbstractObjectList::finalize() {

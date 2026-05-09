@@ -86,15 +86,15 @@ namespace sun {
 		namespace d3d {
 
 int32_t D3DGraphicsConfig::hashCode() {
-	 return this->$Win32GraphicsConfig::hashCode();
+	return this->$Win32GraphicsConfig::hashCode();
 }
 
 bool D3DGraphicsConfig::equals(Object$* arg0) {
-	 return this->$Win32GraphicsConfig::equals(arg0);
+	return this->$Win32GraphicsConfig::equals(arg0);
 }
 
 $Object* D3DGraphicsConfig::clone() {
-	 return this->$Win32GraphicsConfig::clone();
+	return this->$Win32GraphicsConfig::clone();
 }
 
 void D3DGraphicsConfig::finalize() {

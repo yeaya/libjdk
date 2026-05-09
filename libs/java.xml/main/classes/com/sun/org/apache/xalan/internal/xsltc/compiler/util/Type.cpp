@@ -91,7 +91,7 @@ namespace com {
 								namespace util {
 
 $String* Type::toString() {
-	 return this->$Constants::toString();
+	return this->$Constants::toString();
 }
 
 Type* Type::Int = nullptr;

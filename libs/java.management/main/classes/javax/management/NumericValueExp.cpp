@@ -43,15 +43,15 @@ namespace javax {
 	namespace management {
 
 int32_t NumericValueExp::hashCode() {
-	 return this->$QueryEval::hashCode();
+	return this->$QueryEval::hashCode();
 }
 
 bool NumericValueExp::equals(Object$* arg0) {
-	 return this->$QueryEval::equals(arg0);
+	return this->$QueryEval::equals(arg0);
 }
 
 $Object* NumericValueExp::clone() {
-	 return this->$QueryEval::clone();
+	return this->$QueryEval::clone();
 }
 
 void NumericValueExp::finalize() {

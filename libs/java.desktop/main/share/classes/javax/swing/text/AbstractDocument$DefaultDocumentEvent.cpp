@@ -35,15 +35,15 @@ namespace javax {
 		namespace text {
 
 int32_t AbstractDocument$DefaultDocumentEvent::hashCode() {
-	 return this->$CompoundEdit::hashCode();
+	return this->$CompoundEdit::hashCode();
 }
 
 bool AbstractDocument$DefaultDocumentEvent::equals(Object$* arg0) {
-	 return this->$CompoundEdit::equals(arg0);
+	return this->$CompoundEdit::equals(arg0);
 }
 
 $Object* AbstractDocument$DefaultDocumentEvent::clone() {
-	 return this->$CompoundEdit::clone();
+	return this->$CompoundEdit::clone();
 }
 
 void AbstractDocument$DefaultDocumentEvent::finalize() {

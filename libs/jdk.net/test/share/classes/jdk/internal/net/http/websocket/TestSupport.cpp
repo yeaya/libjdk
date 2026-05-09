@@ -71,7 +71,7 @@ public:
 		$set(this, f2, f2);
 	}
 	virtual $Object* apply($ObjectArray* p) override {
-		 return TestSupport::lambda$cartesianIterator$0(f2, p);
+		return TestSupport::lambda$cartesianIterator$0(f2, p);
 	}
 	$TestSupport$F2* f2 = nullptr;
 };
@@ -107,7 +107,7 @@ public:
 		$set(this, f3, f3);
 	}
 	virtual $Object* apply($ObjectArray* p) override {
-		 return TestSupport::lambda$cartesianIterator$1(f3, p);
+		return TestSupport::lambda$cartesianIterator$1(f3, p);
 	}
 	$TestSupport$F3* f3 = nullptr;
 };
@@ -143,7 +143,7 @@ public:
 		$set(this, f4, f4);
 	}
 	virtual $Object* apply($ObjectArray* p) override {
-		 return TestSupport::lambda$cartesianIterator$2(f4, p);
+		return TestSupport::lambda$cartesianIterator$2(f4, p);
 	}
 	$TestSupport$F4* f4 = nullptr;
 };
@@ -179,7 +179,7 @@ public:
 		$set(this, f5, f5);
 	}
 	virtual $Object* apply($ObjectArray* p) override {
-		 return TestSupport::lambda$cartesianIterator$3(f5, p);
+		return TestSupport::lambda$cartesianIterator$3(f5, p);
 	}
 	$TestSupport$F5* f5 = nullptr;
 };
@@ -254,7 +254,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* arg0) override {
-		 return $nc(inst$)->isInstance(arg0);
+		return $nc(inst$)->isInstance(arg0);
 	}
 	$Class* inst$ = nullptr;
 };
@@ -291,7 +291,7 @@ public:
 		$set(this, messageRegex, messageRegex);
 	}
 	virtual bool test(Object$* e) override {
-		 return TestSupport::lambda$assertThrows$5(clazz, messageRegex, $cast($Throwable, e));
+		return TestSupport::lambda$assertThrows$5(clazz, messageRegex, $cast($Throwable, e));
 	}
 	$Class* clazz = nullptr;
 	$String* messageRegex = nullptr;

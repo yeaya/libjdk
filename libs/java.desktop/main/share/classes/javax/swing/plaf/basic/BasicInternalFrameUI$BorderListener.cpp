@@ -68,19 +68,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicInternalFrameUI$BorderListener::hashCode() {
-	 return this->$MouseInputAdapter::hashCode();
+	return this->$MouseInputAdapter::hashCode();
 }
 
 bool BasicInternalFrameUI$BorderListener::equals(Object$* arg0) {
-	 return this->$MouseInputAdapter::equals(arg0);
+	return this->$MouseInputAdapter::equals(arg0);
 }
 
 $Object* BasicInternalFrameUI$BorderListener::clone() {
-	 return this->$MouseInputAdapter::clone();
+	return this->$MouseInputAdapter::clone();
 }
 
 $String* BasicInternalFrameUI$BorderListener::toString() {
-	 return this->$MouseInputAdapter::toString();
+	return this->$MouseInputAdapter::toString();
 }
 
 void BasicInternalFrameUI$BorderListener::finalize() {

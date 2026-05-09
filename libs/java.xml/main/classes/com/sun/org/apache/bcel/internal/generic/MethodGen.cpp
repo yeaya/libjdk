@@ -158,7 +158,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* o1, Object$* o2) override {
-		 return MethodGen::lambda$getLocalVariables$0($cast($LocalVariableGen, o1), $cast($LocalVariableGen, o2));
+		return MethodGen::lambda$getLocalVariables$0($cast($LocalVariableGen, o1), $cast($LocalVariableGen, o2));
 	}
 };
 $Class* MethodGen$$Lambda$lambda$getLocalVariables$0::load$($String* name, bool initialize) {

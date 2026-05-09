@@ -60,19 +60,19 @@ namespace javax {
 	namespace swing {
 
 int32_t BufferStrategyPaintManager$BufferInfo::hashCode() {
-	 return this->$ComponentAdapter::hashCode();
+	return this->$ComponentAdapter::hashCode();
 }
 
 bool BufferStrategyPaintManager$BufferInfo::equals(Object$* arg0) {
-	 return this->$ComponentAdapter::equals(arg0);
+	return this->$ComponentAdapter::equals(arg0);
 }
 
 $Object* BufferStrategyPaintManager$BufferInfo::clone() {
-	 return this->$ComponentAdapter::clone();
+	return this->$ComponentAdapter::clone();
 }
 
 $String* BufferStrategyPaintManager$BufferInfo::toString() {
-	 return this->$ComponentAdapter::toString();
+	return this->$ComponentAdapter::toString();
 }
 
 void BufferStrategyPaintManager$BufferInfo::finalize() {

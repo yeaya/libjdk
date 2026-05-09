@@ -255,7 +255,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(ZipFileSystem::lambda$static$0());
+		return $of(ZipFileSystem::lambda$static$0());
 	}
 };
 $Class* ZipFileSystem$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -286,7 +286,7 @@ public:
 		$set(this, zfpath, zfpath);
 	}
 	virtual $Object* run() override {
-		 return $of(ZipFileSystem::lambda$new$1(zfpath));
+		return $of(ZipFileSystem::lambda$new$1(zfpath));
 	}
 	$Path* zfpath = nullptr;
 };
@@ -322,7 +322,7 @@ public:
 		$set(this, zfpath, zfpath);
 	}
 	virtual $Object* run() override {
-		 return ZipFileSystem::lambda$initOwner$2(zfpath);
+		return ZipFileSystem::lambda$initOwner$2(zfpath);
 	}
 	$Path* zfpath = nullptr;
 };
@@ -357,7 +357,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(ZipFileSystem::lambda$initOwner$3());
+		return $of(ZipFileSystem::lambda$initOwner$3());
 	}
 };
 $Class* ZipFileSystem$$Lambda$lambda$initOwner$3$3::load$($String* name, bool initialize) {
@@ -388,7 +388,7 @@ public:
 		$set(this, userName, userName);
 	}
 	virtual $String* getName() override {
-		 return ZipFileSystem::lambda$initOwner$4(userName);
+		return ZipFileSystem::lambda$initOwner$4(userName);
 	}
 	$String* userName = nullptr;
 };
@@ -424,7 +424,7 @@ public:
 		$set(this, o, o);
 	}
 	virtual $String* getName() override {
-		 return ZipFileSystem::lambda$initOwner$5(o);
+		return ZipFileSystem::lambda$initOwner$5(o);
 	}
 	$Object* o = nullptr;
 };
@@ -460,7 +460,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $String* getName() override {
-		 return $nc(inst$)->getName();
+		return $nc(inst$)->getName();
 	}
 	$Principal* inst$ = nullptr;
 };
@@ -496,7 +496,7 @@ public:
 		$set(this, zfpv, zfpv);
 	}
 	virtual $Object* run() override {
-		 return ZipFileSystem::lambda$initGroup$6(zfpv);
+		return ZipFileSystem::lambda$initGroup$6(zfpv);
 	}
 	$PosixFileAttributeView* zfpv = nullptr;
 };
@@ -532,7 +532,7 @@ public:
 		$set(this, pattern, pattern);
 	}
 	virtual bool matches($Path* path) override {
-		 return ZipFileSystem::lambda$getPathMatcher$8(pattern, path);
+		return ZipFileSystem::lambda$getPathMatcher$8(pattern, path);
 	}
 	$Pattern* pattern = nullptr;
 };
@@ -568,7 +568,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$close$9();
+		return $nc(inst$)->lambda$close$9();
 	}
 	ZipFileSystem* inst$ = nullptr;
 };
@@ -604,7 +604,7 @@ public:
 		$set(this, p, p);
 	}
 	virtual $Object* run() override {
-		 return $of(ZipFileSystem::lambda$close$10(p));
+		return $of(ZipFileSystem::lambda$close$10(p));
 	}
 	$Path* p = nullptr;
 };
@@ -679,7 +679,7 @@ public:
 		$set(this, aliasMap, aliasMap);
 	}
 	virtual $Object* apply(Object$* path) override {
-		 return ZipFileSystem::lambda$createVersionedLinks$13(aliasMap, $cast($bytes, path));
+		return ZipFileSystem::lambda$createVersionedLinks$13(aliasMap, $cast($bytes, path));
 	}
 	$HashMap* aliasMap = nullptr;
 };

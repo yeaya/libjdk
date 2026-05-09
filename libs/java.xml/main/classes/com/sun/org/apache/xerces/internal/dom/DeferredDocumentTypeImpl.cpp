@@ -42,19 +42,19 @@ namespace com {
 						namespace dom {
 
 int16_t DeferredDocumentTypeImpl::getNodeType() {
-	 return this->$DocumentTypeImpl::getNodeType();
+	return this->$DocumentTypeImpl::getNodeType();
 }
 
 $String* DeferredDocumentTypeImpl::getNodeName() {
-	 return this->$DocumentTypeImpl::getNodeName();
+	return this->$DocumentTypeImpl::getNodeName();
 }
 
 $Node* DeferredDocumentTypeImpl::cloneNode(bool deep) {
-	 return this->$DocumentTypeImpl::cloneNode(deep);
+	return this->$DocumentTypeImpl::cloneNode(deep);
 }
 
 $String* DeferredDocumentTypeImpl::getTextContent() {
-	 return this->$DocumentTypeImpl::getTextContent();
+	return this->$DocumentTypeImpl::getTextContent();
 }
 
 void DeferredDocumentTypeImpl::setTextContent($String* textContent) {
@@ -62,47 +62,47 @@ void DeferredDocumentTypeImpl::setTextContent($String* textContent) {
 }
 
 bool DeferredDocumentTypeImpl::isEqualNode($Node* arg) {
-	 return this->$DocumentTypeImpl::isEqualNode(arg);
+	return this->$DocumentTypeImpl::isEqualNode(arg);
 }
 
 $Object* DeferredDocumentTypeImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$DocumentTypeImpl::setUserData(key, data, handler);
+	return this->$DocumentTypeImpl::setUserData(key, data, handler);
 }
 
 $Object* DeferredDocumentTypeImpl::getUserData($String* key) {
-	 return this->$DocumentTypeImpl::getUserData(key);
+	return this->$DocumentTypeImpl::getUserData(key);
 }
 
 $Document* DeferredDocumentTypeImpl::getOwnerDocument() {
-	 return this->$DocumentTypeImpl::getOwnerDocument();
+	return this->$DocumentTypeImpl::getOwnerDocument();
 }
 
 bool DeferredDocumentTypeImpl::hasChildNodes() {
-	 return this->$DocumentTypeImpl::hasChildNodes();
+	return this->$DocumentTypeImpl::hasChildNodes();
 }
 
 $NodeList* DeferredDocumentTypeImpl::getChildNodes() {
-	 return this->$DocumentTypeImpl::getChildNodes();
+	return this->$DocumentTypeImpl::getChildNodes();
 }
 
 $Node* DeferredDocumentTypeImpl::getFirstChild() {
-	 return this->$DocumentTypeImpl::getFirstChild();
+	return this->$DocumentTypeImpl::getFirstChild();
 }
 
 $Node* DeferredDocumentTypeImpl::getLastChild() {
-	 return this->$DocumentTypeImpl::getLastChild();
+	return this->$DocumentTypeImpl::getLastChild();
 }
 
 $Node* DeferredDocumentTypeImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$DocumentTypeImpl::insertBefore(newChild, refChild);
+	return this->$DocumentTypeImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DeferredDocumentTypeImpl::removeChild($Node* oldChild) {
-	 return this->$DocumentTypeImpl::removeChild(oldChild);
+	return this->$DocumentTypeImpl::removeChild(oldChild);
 }
 
 $Node* DeferredDocumentTypeImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$DocumentTypeImpl::replaceChild(newChild, oldChild);
+	return this->$DocumentTypeImpl::replaceChild(newChild, oldChild);
 }
 
 void DeferredDocumentTypeImpl::normalize() {
@@ -110,19 +110,19 @@ void DeferredDocumentTypeImpl::normalize() {
 }
 
 $Node* DeferredDocumentTypeImpl::getParentNode() {
-	 return this->$DocumentTypeImpl::getParentNode();
+	return this->$DocumentTypeImpl::getParentNode();
 }
 
 $Node* DeferredDocumentTypeImpl::getNextSibling() {
-	 return this->$DocumentTypeImpl::getNextSibling();
+	return this->$DocumentTypeImpl::getNextSibling();
 }
 
 $Node* DeferredDocumentTypeImpl::getPreviousSibling() {
-	 return this->$DocumentTypeImpl::getPreviousSibling();
+	return this->$DocumentTypeImpl::getPreviousSibling();
 }
 
 $String* DeferredDocumentTypeImpl::getNodeValue() {
-	 return this->$DocumentTypeImpl::getNodeValue();
+	return this->$DocumentTypeImpl::getNodeValue();
 }
 
 void DeferredDocumentTypeImpl::setNodeValue($String* x) {
@@ -130,27 +130,27 @@ void DeferredDocumentTypeImpl::setNodeValue($String* x) {
 }
 
 $Node* DeferredDocumentTypeImpl::appendChild($Node* newChild) {
-	 return this->$DocumentTypeImpl::appendChild(newChild);
+	return this->$DocumentTypeImpl::appendChild(newChild);
 }
 
 $NamedNodeMap* DeferredDocumentTypeImpl::getAttributes() {
-	 return this->$DocumentTypeImpl::getAttributes();
+	return this->$DocumentTypeImpl::getAttributes();
 }
 
 bool DeferredDocumentTypeImpl::hasAttributes() {
-	 return this->$DocumentTypeImpl::hasAttributes();
+	return this->$DocumentTypeImpl::hasAttributes();
 }
 
 bool DeferredDocumentTypeImpl::isSupported($String* feature, $String* version) {
-	 return this->$DocumentTypeImpl::isSupported(feature, version);
+	return this->$DocumentTypeImpl::isSupported(feature, version);
 }
 
 $String* DeferredDocumentTypeImpl::getNamespaceURI() {
-	 return this->$DocumentTypeImpl::getNamespaceURI();
+	return this->$DocumentTypeImpl::getNamespaceURI();
 }
 
 $String* DeferredDocumentTypeImpl::getPrefix() {
-	 return this->$DocumentTypeImpl::getPrefix();
+	return this->$DocumentTypeImpl::getPrefix();
 }
 
 void DeferredDocumentTypeImpl::setPrefix($String* prefix) {
@@ -158,51 +158,51 @@ void DeferredDocumentTypeImpl::setPrefix($String* prefix) {
 }
 
 $String* DeferredDocumentTypeImpl::getLocalName() {
-	 return this->$DocumentTypeImpl::getLocalName();
+	return this->$DocumentTypeImpl::getLocalName();
 }
 
 $String* DeferredDocumentTypeImpl::getBaseURI() {
-	 return this->$DocumentTypeImpl::getBaseURI();
+	return this->$DocumentTypeImpl::getBaseURI();
 }
 
 int16_t DeferredDocumentTypeImpl::compareDocumentPosition($Node* other) {
-	 return this->$DocumentTypeImpl::compareDocumentPosition(other);
+	return this->$DocumentTypeImpl::compareDocumentPosition(other);
 }
 
 bool DeferredDocumentTypeImpl::isSameNode($Node* other) {
-	 return this->$DocumentTypeImpl::isSameNode(other);
+	return this->$DocumentTypeImpl::isSameNode(other);
 }
 
 bool DeferredDocumentTypeImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$DocumentTypeImpl::isDefaultNamespace(namespaceURI);
+	return this->$DocumentTypeImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DeferredDocumentTypeImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$DocumentTypeImpl::lookupPrefix(namespaceURI);
+	return this->$DocumentTypeImpl::lookupPrefix(namespaceURI);
 }
 
 $String* DeferredDocumentTypeImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$DocumentTypeImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$DocumentTypeImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* DeferredDocumentTypeImpl::getFeature($String* feature, $String* version) {
-	 return this->$DocumentTypeImpl::getFeature(feature, version);
+	return this->$DocumentTypeImpl::getFeature(feature, version);
 }
 
 $String* DeferredDocumentTypeImpl::toString() {
-	 return this->$DocumentTypeImpl::toString();
+	return this->$DocumentTypeImpl::toString();
 }
 
 int32_t DeferredDocumentTypeImpl::hashCode() {
-	 return this->$DocumentTypeImpl::hashCode();
+	return this->$DocumentTypeImpl::hashCode();
 }
 
 bool DeferredDocumentTypeImpl::equals(Object$* arg0) {
-	 return this->$DocumentTypeImpl::equals(arg0);
+	return this->$DocumentTypeImpl::equals(arg0);
 }
 
 $Object* DeferredDocumentTypeImpl::clone() {
-	 return this->$DocumentTypeImpl::clone();
+	return this->$DocumentTypeImpl::clone();
 }
 
 void DeferredDocumentTypeImpl::finalize() {

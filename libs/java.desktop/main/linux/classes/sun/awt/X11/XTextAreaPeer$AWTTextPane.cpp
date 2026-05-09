@@ -50,19 +50,19 @@ namespace sun {
 		namespace X11 {
 
 $String* XTextAreaPeer$AWTTextPane::toString() {
-	 return this->$JScrollPane::toString();
+	return this->$JScrollPane::toString();
 }
 
 int32_t XTextAreaPeer$AWTTextPane::hashCode() {
-	 return this->$JScrollPane::hashCode();
+	return this->$JScrollPane::hashCode();
 }
 
 bool XTextAreaPeer$AWTTextPane::equals(Object$* arg0) {
-	 return this->$JScrollPane::equals(arg0);
+	return this->$JScrollPane::equals(arg0);
 }
 
 $Object* XTextAreaPeer$AWTTextPane::clone() {
-	 return this->$JScrollPane::clone();
+	return this->$JScrollPane::clone();
 }
 
 void XTextAreaPeer$AWTTextPane::finalize() {

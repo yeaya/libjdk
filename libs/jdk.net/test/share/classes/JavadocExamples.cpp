@@ -90,7 +90,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($HttpResponse, inst$)->body();
+		return $sure($HttpResponse, inst$)->body();
 	}
 };
 $Class* JavadocExamples$$Lambda$body::load$($String* name, bool initialize) {
@@ -156,7 +156,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* n, Object$* v) override {
-		 return JavadocExamples::lambda$fromHttpRequest$0($cast($String, n), $cast($String, v));
+		return JavadocExamples::lambda$fromHttpRequest$0($cast($String, n), $cast($String, v));
 	}
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2::load$($String* name, bool initialize) {
@@ -186,7 +186,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* n, Object$* v) override {
-		 return JavadocExamples::lambda$fromHttpRequest$1($cast($String, n), $cast($String, v));
+		return JavadocExamples::lambda$fromHttpRequest$1($cast($String, n), $cast($String, v));
 	}
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3::load$($String* name, bool initialize) {
@@ -216,7 +216,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* name, Object$* value) override {
-		 return JavadocExamples::lambda$fromHttpRequest$2($cast($String, name), $cast($String, value));
+		return JavadocExamples::lambda$fromHttpRequest$2($cast($String, name), $cast($String, value));
 	}
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4::load$($String* name, bool initialize) {
@@ -282,7 +282,7 @@ public:
 	void init$() {
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* info) override {
-		 return JavadocExamples::lambda$fromHttpResponse$3(info);
+		return JavadocExamples::lambda$fromHttpResponse$3(info);
 	}
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6::load$($String* name, bool initialize) {
@@ -312,7 +312,7 @@ public:
 	void init$() {
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return JavadocExamples::lambda$fromHttpResponse$4(responseInfo);
+		return JavadocExamples::lambda$fromHttpResponse$4(responseInfo);
 	}
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7::load$($String* name, bool initialize) {
@@ -342,7 +342,7 @@ public:
 	void init$() {
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return JavadocExamples::lambda$fromHttpResponse$5(responseInfo);
+		return JavadocExamples::lambda$fromHttpResponse$5(responseInfo);
 	}
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8::load$($String* name, bool initialize) {
@@ -372,7 +372,7 @@ public:
 	void init$() {
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return JavadocExamples::lambda$fromHttpResponse$6(responseInfo);
+		return JavadocExamples::lambda$fromHttpResponse$6(responseInfo);
 	}
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9::load$($String* name, bool initialize) {
@@ -402,7 +402,7 @@ public:
 	void init$() {
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return JavadocExamples::lambda$fromHttpResponse$7(responseInfo);
+		return JavadocExamples::lambda$fromHttpResponse$7(responseInfo);
 	}
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10::load$($String* name, bool initialize) {
@@ -432,7 +432,7 @@ public:
 	void init$() {
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* resp) override {
-		 return JavadocExamples::lambda$fromHttpResponse$8(resp);
+		return JavadocExamples::lambda$fromHttpResponse$8(resp);
 	}
 };
 $Class* JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11::load$($String* name, bool initialize) {
@@ -462,7 +462,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($HttpResponse, inst$)->statusCode());
+		return $of($sure($HttpResponse, inst$)->statusCode());
 	}
 };
 $Class* JavadocExamples$$Lambda$statusCode$12::load$($String* name, bool initialize) {
@@ -522,7 +522,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return JavadocExamples::lambda$fromLineSubscriber2$10($cast($JavadocExamples$LineParserSubscriber, s));
+		return JavadocExamples::lambda$fromLineSubscriber2$10($cast($JavadocExamples$LineParserSubscriber, s));
 	}
 };
 $Class* JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14::load$($String* name, bool initialize) {
@@ -552,7 +552,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($String, inst$)->getBytes();
+		return $sure($String, inst$)->getBytes();
 	}
 };
 $Class* JavadocExamples$$Lambda$getBytes$15::load$($String* name, bool initialize) {

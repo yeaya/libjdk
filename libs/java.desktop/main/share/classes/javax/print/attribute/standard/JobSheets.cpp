@@ -18,19 +18,19 @@ namespace javax {
 			namespace standard {
 
 $Object* JobSheets::clone() {
-	 return this->$EnumSyntax::clone();
+	return this->$EnumSyntax::clone();
 }
 
 int32_t JobSheets::hashCode() {
-	 return this->$EnumSyntax::hashCode();
+	return this->$EnumSyntax::hashCode();
 }
 
 $String* JobSheets::toString() {
-	 return this->$EnumSyntax::toString();
+	return this->$EnumSyntax::toString();
 }
 
 bool JobSheets::equals(Object$* arg0) {
-	 return this->$EnumSyntax::equals(arg0);
+	return this->$EnumSyntax::equals(arg0);
 }
 
 void JobSheets::finalize() {

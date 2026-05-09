@@ -172,7 +172,7 @@ public:
 		$set(this, packge, packge);
 	}
 	virtual bool accepts($Scope* origin, $Symbol* sym) override {
-		 return $nc(inst$)->lambda$resolveImports$1(packge, origin, sym);
+		return $nc(inst$)->lambda$resolveImports$1(packge, origin, sym);
 	}
 	TypeEnter$ImportsPhase* inst$ = nullptr;
 	$Symbol$PackageSymbol* packge = nullptr;
@@ -211,7 +211,7 @@ public:
 		$set(this, packge, packge);
 	}
 	virtual bool accepts($Scope* origin, $Symbol* sym) override {
-		 return $nc(inst$)->lambda$resolveImports$2(packge, origin, sym);
+		return $nc(inst$)->lambda$resolveImports$2(packge, origin, sym);
 	}
 	TypeEnter$ImportsPhase* inst$ = nullptr;
 	$Symbol$PackageSymbol* packge = nullptr;

@@ -55,19 +55,19 @@ namespace sun {
 	namespace print {
 
 $String* ServiceDialog$OrientationPanel::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t ServiceDialog$OrientationPanel::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool ServiceDialog$OrientationPanel::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* ServiceDialog$OrientationPanel::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void ServiceDialog$OrientationPanel::finalize() {

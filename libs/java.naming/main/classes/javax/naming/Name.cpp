@@ -14,19 +14,19 @@ namespace javax {
 	namespace naming {
 
 $Object* Name::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 int32_t Name::hashCode() {
-	 return this->$Cloneable::hashCode();
+	return this->$Cloneable::hashCode();
 }
 
 bool Name::equals(Object$* arg0) {
-	 return this->$Cloneable::equals(arg0);
+	return this->$Cloneable::equals(arg0);
 }
 
 $String* Name::toString() {
-	 return this->$Cloneable::toString();
+	return this->$Cloneable::toString();
 }
 
 void Name::finalize() {

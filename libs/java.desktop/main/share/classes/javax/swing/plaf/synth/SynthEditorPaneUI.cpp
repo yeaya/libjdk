@@ -44,19 +44,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthEditorPaneUI::hashCode() {
-	 return this->$BasicEditorPaneUI::hashCode();
+	return this->$BasicEditorPaneUI::hashCode();
 }
 
 bool SynthEditorPaneUI::equals(Object$* arg0) {
-	 return this->$BasicEditorPaneUI::equals(arg0);
+	return this->$BasicEditorPaneUI::equals(arg0);
 }
 
 $Object* SynthEditorPaneUI::clone() {
-	 return this->$BasicEditorPaneUI::clone();
+	return this->$BasicEditorPaneUI::clone();
 }
 
 $String* SynthEditorPaneUI::toString() {
-	 return this->$BasicEditorPaneUI::toString();
+	return this->$BasicEditorPaneUI::toString();
 }
 
 void SynthEditorPaneUI::finalize() {

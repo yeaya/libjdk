@@ -116,7 +116,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* o) override {
-		 return $nc(inst$)->lambda$normalize$1(o);
+		return $nc(inst$)->lambda$normalize$1(o);
 	}
 	JCDiagnostic$Factory* inst$ = nullptr;
 };

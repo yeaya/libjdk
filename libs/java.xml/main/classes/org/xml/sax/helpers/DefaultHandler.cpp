@@ -20,19 +20,19 @@ namespace org {
 			namespace helpers {
 
 int32_t DefaultHandler::hashCode() {
-	 return this->$EntityResolver::hashCode();
+	return this->$EntityResolver::hashCode();
 }
 
 bool DefaultHandler::equals(Object$* arg0) {
-	 return this->$EntityResolver::equals(arg0);
+	return this->$EntityResolver::equals(arg0);
 }
 
 $Object* DefaultHandler::clone() {
-	 return this->$EntityResolver::clone();
+	return this->$EntityResolver::clone();
 }
 
 $String* DefaultHandler::toString() {
-	 return this->$EntityResolver::toString();
+	return this->$EntityResolver::toString();
 }
 
 void DefaultHandler::finalize() {

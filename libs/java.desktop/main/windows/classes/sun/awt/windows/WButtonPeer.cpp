@@ -62,15 +62,15 @@ namespace sun {
 		namespace windows {
 
 bool WButtonPeer::isObscured() {
-	 return this->$WComponentPeer::isObscured();
+	return this->$WComponentPeer::isObscured();
 }
 
 bool WButtonPeer::canDetermineObscurity() {
-	 return this->$WComponentPeer::canDetermineObscurity();
+	return this->$WComponentPeer::canDetermineObscurity();
 }
 
 $Point* WButtonPeer::getLocationOnScreen() {
-	 return this->$WComponentPeer::getLocationOnScreen();
+	return this->$WComponentPeer::getLocationOnScreen();
 }
 
 void WButtonPeer::setVisible(bool b) {
@@ -102,7 +102,7 @@ void WButtonPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* WButtonPeer::getPreferredSize() {
-	 return this->$WComponentPeer::getPreferredSize();
+	return this->$WComponentPeer::getPreferredSize();
 }
 
 void WButtonPeer::layout() {
@@ -110,23 +110,23 @@ void WButtonPeer::layout() {
 }
 
 $GraphicsConfiguration* WButtonPeer::getGraphicsConfiguration() {
-	 return this->$WComponentPeer::getGraphicsConfiguration();
+	return this->$WComponentPeer::getGraphicsConfiguration();
 }
 
 bool WButtonPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$WComponentPeer::updateGraphicsData(gc);
+	return this->$WComponentPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* WButtonPeer::getColorModel() {
-	 return this->$WComponentPeer::getColorModel();
+	return this->$WComponentPeer::getColorModel();
 }
 
 $Graphics* WButtonPeer::getGraphics() {
-	 return this->$WComponentPeer::getGraphics();
+	return this->$WComponentPeer::getGraphics();
 }
 
 $FontMetrics* WButtonPeer::getFontMetrics($Font* font) {
-	 return this->$WComponentPeer::getFontMetrics(font);
+	return this->$WComponentPeer::getFontMetrics(font);
 }
 
 void WButtonPeer::setForeground($Color* c) {
@@ -146,23 +146,23 @@ void WButtonPeer::updateCursorImmediately() {
 }
 
 bool WButtonPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$WComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$WComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* WButtonPeer::createImage(int32_t width, int32_t height) {
-	 return this->$WComponentPeer::createImage(width, height);
+	return this->$WComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* WButtonPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$WComponentPeer::createVolatileImage(width, height);
+	return this->$WComponentPeer::createVolatileImage(width, height);
 }
 
 $String* WButtonPeer::toString() {
-	 return this->$WComponentPeer::toString();
+	return this->$WComponentPeer::toString();
 }
 
 bool WButtonPeer::handlesWheelScrolling() {
-	 return this->$WComponentPeer::handlesWheelScrolling();
+	return this->$WComponentPeer::handlesWheelScrolling();
 }
 
 void WButtonPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -178,7 +178,7 @@ void WButtonPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCa
 }
 
 $Image* WButtonPeer::getBackBuffer() {
-	 return this->$WComponentPeer::getBackBuffer();
+	return this->$WComponentPeer::getBackBuffer();
 }
 
 void WButtonPeer::reparent($ContainerPeer* newNativeParent) {
@@ -186,7 +186,7 @@ void WButtonPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool WButtonPeer::isReparentSupported() {
-	 return this->$WComponentPeer::isReparentSupported();
+	return this->$WComponentPeer::isReparentSupported();
 }
 
 void WButtonPeer::applyShape($Region* shape) {
@@ -202,15 +202,15 @@ void WButtonPeer::dispose() {
 }
 
 int32_t WButtonPeer::hashCode() {
-	 return this->$WComponentPeer::hashCode();
+	return this->$WComponentPeer::hashCode();
 }
 
 bool WButtonPeer::equals(Object$* arg0) {
-	 return this->$WComponentPeer::equals(arg0);
+	return this->$WComponentPeer::equals(arg0);
 }
 
 $Object* WButtonPeer::clone() {
-	 return this->$WComponentPeer::clone();
+	return this->$WComponentPeer::clone();
 }
 
 void WButtonPeer::finalize() {

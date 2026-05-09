@@ -56,15 +56,15 @@ namespace sun {
 		namespace windows {
 
 bool WTextComponentPeer::isObscured() {
-	 return this->$WComponentPeer::isObscured();
+	return this->$WComponentPeer::isObscured();
 }
 
 bool WTextComponentPeer::canDetermineObscurity() {
-	 return this->$WComponentPeer::canDetermineObscurity();
+	return this->$WComponentPeer::canDetermineObscurity();
 }
 
 $Point* WTextComponentPeer::getLocationOnScreen() {
-	 return this->$WComponentPeer::getLocationOnScreen();
+	return this->$WComponentPeer::getLocationOnScreen();
 }
 
 void WTextComponentPeer::setVisible(bool b) {
@@ -96,11 +96,11 @@ void WTextComponentPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* WTextComponentPeer::getMinimumSize() {
-	 return this->$WComponentPeer::getMinimumSize();
+	return this->$WComponentPeer::getMinimumSize();
 }
 
 $Dimension* WTextComponentPeer::getPreferredSize() {
-	 return this->$WComponentPeer::getPreferredSize();
+	return this->$WComponentPeer::getPreferredSize();
 }
 
 void WTextComponentPeer::layout() {
@@ -108,23 +108,23 @@ void WTextComponentPeer::layout() {
 }
 
 $GraphicsConfiguration* WTextComponentPeer::getGraphicsConfiguration() {
-	 return this->$WComponentPeer::getGraphicsConfiguration();
+	return this->$WComponentPeer::getGraphicsConfiguration();
 }
 
 bool WTextComponentPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$WComponentPeer::updateGraphicsData(gc);
+	return this->$WComponentPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* WTextComponentPeer::getColorModel() {
-	 return this->$WComponentPeer::getColorModel();
+	return this->$WComponentPeer::getColorModel();
 }
 
 $Graphics* WTextComponentPeer::getGraphics() {
-	 return this->$WComponentPeer::getGraphics();
+	return this->$WComponentPeer::getGraphics();
 }
 
 $FontMetrics* WTextComponentPeer::getFontMetrics($Font* font) {
-	 return this->$WComponentPeer::getFontMetrics(font);
+	return this->$WComponentPeer::getFontMetrics(font);
 }
 
 void WTextComponentPeer::setForeground($Color* c) {
@@ -144,23 +144,23 @@ void WTextComponentPeer::updateCursorImmediately() {
 }
 
 bool WTextComponentPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$WComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$WComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* WTextComponentPeer::createImage(int32_t width, int32_t height) {
-	 return this->$WComponentPeer::createImage(width, height);
+	return this->$WComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* WTextComponentPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$WComponentPeer::createVolatileImage(width, height);
+	return this->$WComponentPeer::createVolatileImage(width, height);
 }
 
 $String* WTextComponentPeer::toString() {
-	 return this->$WComponentPeer::toString();
+	return this->$WComponentPeer::toString();
 }
 
 bool WTextComponentPeer::handlesWheelScrolling() {
-	 return this->$WComponentPeer::handlesWheelScrolling();
+	return this->$WComponentPeer::handlesWheelScrolling();
 }
 
 void WTextComponentPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -176,7 +176,7 @@ void WTextComponentPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $B
 }
 
 $Image* WTextComponentPeer::getBackBuffer() {
-	 return this->$WComponentPeer::getBackBuffer();
+	return this->$WComponentPeer::getBackBuffer();
 }
 
 void WTextComponentPeer::reparent($ContainerPeer* newNativeParent) {
@@ -184,7 +184,7 @@ void WTextComponentPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool WTextComponentPeer::isReparentSupported() {
-	 return this->$WComponentPeer::isReparentSupported();
+	return this->$WComponentPeer::isReparentSupported();
 }
 
 void WTextComponentPeer::applyShape($Region* shape) {
@@ -200,15 +200,15 @@ void WTextComponentPeer::dispose() {
 }
 
 int32_t WTextComponentPeer::hashCode() {
-	 return this->$WComponentPeer::hashCode();
+	return this->$WComponentPeer::hashCode();
 }
 
 bool WTextComponentPeer::equals(Object$* arg0) {
-	 return this->$WComponentPeer::equals(arg0);
+	return this->$WComponentPeer::equals(arg0);
 }
 
 $Object* WTextComponentPeer::clone() {
-	 return this->$WComponentPeer::clone();
+	return this->$WComponentPeer::clone();
 }
 
 void WTextComponentPeer::finalize() {

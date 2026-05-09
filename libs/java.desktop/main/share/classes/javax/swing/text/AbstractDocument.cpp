@@ -128,19 +128,19 @@ namespace javax {
 		namespace text {
 
 int32_t AbstractDocument::hashCode() {
-	 return this->$Document::hashCode();
+	return this->$Document::hashCode();
 }
 
 bool AbstractDocument::equals(Object$* arg0) {
-	 return this->$Document::equals(arg0);
+	return this->$Document::equals(arg0);
 }
 
 $Object* AbstractDocument::clone() {
-	 return this->$Document::clone();
+	return this->$Document::clone();
 }
 
 $String* AbstractDocument::toString() {
-	 return this->$Document::toString();
+	return this->$Document::toString();
 }
 
 void AbstractDocument::finalize() {

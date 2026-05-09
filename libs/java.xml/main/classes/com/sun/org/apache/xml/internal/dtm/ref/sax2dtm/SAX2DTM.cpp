@@ -127,19 +127,19 @@ namespace com {
 								namespace sax2dtm {
 
 int32_t SAX2DTM::hashCode() {
-	 return this->$DTMDefaultBaseIterators::hashCode();
+	return this->$DTMDefaultBaseIterators::hashCode();
 }
 
 bool SAX2DTM::equals(Object$* arg0) {
-	 return this->$DTMDefaultBaseIterators::equals(arg0);
+	return this->$DTMDefaultBaseIterators::equals(arg0);
 }
 
 $Object* SAX2DTM::clone() {
-	 return this->$DTMDefaultBaseIterators::clone();
+	return this->$DTMDefaultBaseIterators::clone();
 }
 
 $String* SAX2DTM::toString() {
-	 return this->$DTMDefaultBaseIterators::toString();
+	return this->$DTMDefaultBaseIterators::toString();
 }
 
 void SAX2DTM::finalize() {

@@ -45,7 +45,7 @@ public:
 		$set(this, service, service);
 	}
 	virtual $Object* run() override {
-		 return HttpClientImpl$DelegatingExecutor::lambda$shutdown$0(service);
+		return HttpClientImpl$DelegatingExecutor::lambda$shutdown$0(service);
 	}
 	$ExecutorService* service = nullptr;
 };

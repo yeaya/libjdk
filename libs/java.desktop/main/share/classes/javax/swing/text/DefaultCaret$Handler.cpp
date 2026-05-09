@@ -53,19 +53,19 @@ namespace javax {
 		namespace text {
 
 int32_t DefaultCaret$Handler::hashCode() {
-	 return this->$PropertyChangeListener::hashCode();
+	return this->$PropertyChangeListener::hashCode();
 }
 
 bool DefaultCaret$Handler::equals(Object$* arg0) {
-	 return this->$PropertyChangeListener::equals(arg0);
+	return this->$PropertyChangeListener::equals(arg0);
 }
 
 $Object* DefaultCaret$Handler::clone() {
-	 return this->$PropertyChangeListener::clone();
+	return this->$PropertyChangeListener::clone();
 }
 
 $String* DefaultCaret$Handler::toString() {
-	 return this->$PropertyChangeListener::toString();
+	return this->$PropertyChangeListener::toString();
 }
 
 void DefaultCaret$Handler::finalize() {

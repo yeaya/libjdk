@@ -23,19 +23,19 @@ namespace javax {
 			namespace html {
 
 int32_t MuxingAttributeSet::hashCode() {
-	 return this->$AttributeSet::hashCode();
+	return this->$AttributeSet::hashCode();
 }
 
 bool MuxingAttributeSet::equals(Object$* arg0) {
-	 return this->$AttributeSet::equals(arg0);
+	return this->$AttributeSet::equals(arg0);
 }
 
 $Object* MuxingAttributeSet::clone() {
-	 return this->$AttributeSet::clone();
+	return this->$AttributeSet::clone();
 }
 
 $String* MuxingAttributeSet::toString() {
-	 return this->$AttributeSet::toString();
+	return this->$AttributeSet::toString();
 }
 
 void MuxingAttributeSet::finalize() {

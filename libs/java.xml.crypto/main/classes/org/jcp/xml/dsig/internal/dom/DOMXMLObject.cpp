@@ -60,15 +60,15 @@ namespace org {
 					namespace dom {
 
 bool DOMXMLObject::isFeatureSupported($String* feature) {
-	 return this->$DOMStructure::isFeatureSupported(feature);
+	return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMXMLObject::clone() {
-	 return this->$DOMStructure::clone();
+	return this->$DOMStructure::clone();
 }
 
 $String* DOMXMLObject::toString() {
-	 return this->$DOMStructure::toString();
+	return this->$DOMStructure::toString();
 }
 
 void DOMXMLObject::finalize() {

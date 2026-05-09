@@ -16,19 +16,19 @@ using $Element = ::javax::swing::text::Element;
 using $WrappedPlainView = ::javax::swing::text::WrappedPlainView;
 
 int32_t FPMethodCalledTest$WrappedPlainViewMixedAPI::hashCode() {
-	 return this->$WrappedPlainView::hashCode();
+	return this->$WrappedPlainView::hashCode();
 }
 
 bool FPMethodCalledTest$WrappedPlainViewMixedAPI::equals(Object$* arg0) {
-	 return this->$WrappedPlainView::equals(arg0);
+	return this->$WrappedPlainView::equals(arg0);
 }
 
 $Object* FPMethodCalledTest$WrappedPlainViewMixedAPI::clone() {
-	 return this->$WrappedPlainView::clone();
+	return this->$WrappedPlainView::clone();
 }
 
 $String* FPMethodCalledTest$WrappedPlainViewMixedAPI::toString() {
-	 return this->$WrappedPlainView::toString();
+	return this->$WrappedPlainView::toString();
 }
 
 void FPMethodCalledTest$WrappedPlainViewMixedAPI::finalize() {

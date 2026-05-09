@@ -27,19 +27,19 @@ namespace java {
 		namespace geom {
 
 int32_t Arc2D$Float::hashCode() {
-	 return this->$Arc2D::hashCode();
+	return this->$Arc2D::hashCode();
 }
 
 bool Arc2D$Float::equals(Object$* obj) {
-	 return this->$Arc2D::equals(obj);
+	return this->$Arc2D::equals(obj);
 }
 
 $Object* Arc2D$Float::clone() {
-	 return this->$Arc2D::clone();
+	return this->$Arc2D::clone();
 }
 
 $String* Arc2D$Float::toString() {
-	 return this->$Arc2D::toString();
+	return this->$Arc2D::toString();
 }
 
 void Arc2D$Float::finalize() {

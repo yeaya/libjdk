@@ -94,19 +94,19 @@ namespace javax {
 			namespace synth {
 
 $String* SynthInternalFrameTitlePane::toString() {
-	 return this->$BasicInternalFrameTitlePane::toString();
+	return this->$BasicInternalFrameTitlePane::toString();
 }
 
 int32_t SynthInternalFrameTitlePane::hashCode() {
-	 return this->$BasicInternalFrameTitlePane::hashCode();
+	return this->$BasicInternalFrameTitlePane::hashCode();
 }
 
 bool SynthInternalFrameTitlePane::equals(Object$* arg0) {
-	 return this->$BasicInternalFrameTitlePane::equals(arg0);
+	return this->$BasicInternalFrameTitlePane::equals(arg0);
 }
 
 $Object* SynthInternalFrameTitlePane::clone() {
-	 return this->$BasicInternalFrameTitlePane::clone();
+	return this->$BasicInternalFrameTitlePane::clone();
 }
 
 void SynthInternalFrameTitlePane::finalize() {

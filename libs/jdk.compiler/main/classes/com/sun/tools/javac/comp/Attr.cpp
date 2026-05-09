@@ -682,7 +682,7 @@ public:
 		$set(this, tree, tree);
 	}
 	virtual bool test(Object$* rc) override {
-		 return Attr::lambda$visitMethodDef$1(tree, $cast($Symbol$RecordComponent, rc));
+		return Attr::lambda$visitMethodDef$1(tree, $cast($Symbol$RecordComponent, rc));
 	}
 	$JCTree$JCMethodDecl* tree = nullptr;
 };
@@ -717,7 +717,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* vd) override {
-		 return $of(Attr::lambda$visitMethodDef$2($cast($JCTree$JCVariableDecl, vd)));
+		return $of(Attr::lambda$visitMethodDef$2($cast($JCTree$JCVariableDecl, vd)));
 	}
 };
 $Class* Attr$$Lambda$lambda$visitMethodDef$2$3::load$($String* name, bool initialize) {
@@ -747,7 +747,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* vd) override {
-		 return $of(Attr::lambda$visitMethodDef$3($cast($JCTree$JCVariableDecl, vd)));
+		return $of(Attr::lambda$visitMethodDef$3($cast($JCTree$JCVariableDecl, vd)));
 	}
 };
 $Class* Attr$$Lambda$lambda$visitMethodDef$3$4::load$($String* name, bool initialize) {
@@ -777,7 +777,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return $of(Attr::lambda$visitMethodDef$4($cast($Symbol$VarSymbol, p)));
+		return $of(Attr::lambda$visitMethodDef$4($cast($Symbol$VarSymbol, p)));
 	}
 };
 $Class* Attr$$Lambda$lambda$visitMethodDef$4$5::load$($String* name, bool initialize) {
@@ -807,7 +807,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return Attr::lambda$isNonArgsMethodInObject$5($cast($Symbol, s));
+		return Attr::lambda$isNonArgsMethodInObject$5($cast($Symbol, s));
 	}
 };
 $Class* Attr$$Lambda$lambda$isNonArgsMethodInObject$5$6::load$($String* name, bool initialize) {
@@ -987,7 +987,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return Attr::lambda$handleSwitch$8($cast($JCTree$JCCase, c));
+		return Attr::lambda$handleSwitch$8($cast($JCTree$JCCase, c));
 	}
 };
 $Class* Attr$$Lambda$lambda$handleSwitch$8$11::load$($String* name, bool initialize) {
@@ -1017,7 +1017,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* l) override {
-		 return Attr::lambda$handleSwitch$9($cast($JCTree$JCCaseLabel, l));
+		return Attr::lambda$handleSwitch$9($cast($JCTree$JCCaseLabel, l));
 	}
 };
 $Class* Attr$$Lambda$lambda$handleSwitch$9$12::load$($String* name, bool initialize) {
@@ -1049,7 +1049,7 @@ public:
 		$set(this, first, first);
 	}
 	virtual bool test(Object$* t) override {
-		 return $nc(inst$)->lambda$condType$10(first, $cast($Type, t));
+		return $nc(inst$)->lambda$condType$10(first, $cast($Type, t));
 	}
 	Attr* inst$ = nullptr;
 	$Type* first = nullptr;
@@ -1087,7 +1087,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of($nc(inst$)->lambda$condType$11($cast($Type, t)));
+		return $of($nc(inst$)->lambda$condType$11($cast($Type, t)));
 	}
 	Attr* inst$ = nullptr;
 };
@@ -1122,7 +1122,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* t) override {
-		 return Attr::lambda$condType$12($cast($Type, t));
+		return Attr::lambda$condType$12($cast($Type, t));
 	}
 };
 $Class* Attr$$Lambda$lambda$condType$12$15::load$($String* name, bool initialize) {
@@ -1153,7 +1153,7 @@ public:
 		$set(this, type, type);
 	}
 	virtual bool test(Object$* t) override {
-		 return Attr::lambda$condType$13(type, $cast($Type, t));
+		return Attr::lambda$condType$13(type, $cast($Type, t));
 	}
 	$Type* type = nullptr;
 };
@@ -1190,7 +1190,7 @@ public:
 		$set(this, type, type);
 	}
 	virtual bool test(Object$* t) override {
-		 return $nc(inst$)->lambda$condType$14(type, $cast($Type, t));
+		return $nc(inst$)->lambda$condType$14(type, $cast($Type, t));
 	}
 	Attr* inst$ = nullptr;
 	$Type* type = nullptr;
@@ -1229,7 +1229,7 @@ public:
 		$set(this, candidate, candidate);
 	}
 	virtual bool test(Object$* t) override {
-		 return $nc(inst$)->lambda$condType$15(candidate, $cast($Type, t));
+		return $nc(inst$)->lambda$condType$15(candidate, $cast($Type, t));
 	}
 	Attr* inst$ = nullptr;
 	$Type* candidate = nullptr;
@@ -1267,7 +1267,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of($nc(inst$)->lambda$condType$16($cast($Type, t)));
+		return $of($nc(inst$)->lambda$condType$16($cast($Type, t)));
 	}
 	Attr* inst$ = nullptr;
 };
@@ -1304,7 +1304,7 @@ public:
 		$set(this, type, type);
 	}
 	virtual bool test(Object$* t) override {
-		 return $nc(inst$)->lambda$condType$18(type, $cast($Type, t));
+		return $nc(inst$)->lambda$condType$18(type, $cast($Type, t));
 	}
 	Attr* inst$ = nullptr;
 	$Type* type = nullptr;
@@ -1343,7 +1343,7 @@ public:
 		$set(this, posIt, posIt);
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of($nc(inst$)->lambda$condType$19(posIt, $cast($Type, t)));
+		return $of($nc(inst$)->lambda$condType$19(posIt, $cast($Type, t)));
 	}
 	Attr* inst$ = nullptr;
 	$Iterator* posIt = nullptr;
@@ -1380,7 +1380,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of(Attr::lambda$condType$20($cast($Type, t)));
+		return $of(Attr::lambda$condType$20($cast($Type, t)));
 	}
 };
 $Class* Attr$$Lambda$lambda$condType$20$22::load$($String* name, bool initialize) {
@@ -1410,7 +1410,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* t) override {
-		 return Attr::lambda$condType$21($cast($Type, t));
+		return Attr::lambda$condType$21($cast($Type, t));
 	}
 };
 $Class* Attr$$Lambda$lambda$condType$21$23::load$($String* name, bool initialize) {
@@ -1621,7 +1621,7 @@ public:
 		$set(this, inferenceContext, inferenceContext);
 	}
 	virtual bool test(Object$* e) override {
-		 return Attr::lambda$checkExConstraints$26(inferenceContext, $cast($Type, e));
+		return Attr::lambda$checkExConstraints$26(inferenceContext, $cast($Type, e));
 	}
 	$InferenceContext* inferenceContext = nullptr;
 };
@@ -1657,7 +1657,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* e) override {
-		 return $nc(inst$)->lambda$checkExConstraints$27($cast($Type, e));
+		return $nc(inst$)->lambda$checkExConstraints$27($cast($Type, e));
 	}
 	Attr* inst$ = nullptr;
 };
@@ -1731,7 +1731,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* t) override {
-		 return Attr::lambda$checkExConstraints$30($cast($Type, t));
+		return Attr::lambda$checkExConstraints$30($cast($Type, t));
 	}
 };
 $Class* Attr$$Lambda$lambda$checkExConstraints$30$31::load$($String* name, bool initialize) {
@@ -1846,7 +1846,7 @@ public:
 		$set(this, subTypeSym, subTypeSym);
 	}
 	virtual bool test(Object$* permittedExpr) override {
-		 return Attr::lambda$attribClass$33(subTypeSym, $cast($JCTree$JCExpression, permittedExpr));
+		return Attr::lambda$attribClass$33(subTypeSym, $cast($JCTree$JCExpression, permittedExpr));
 	}
 	$Symbol* subTypeSym = nullptr;
 };
@@ -1882,7 +1882,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* d) override {
-		 return Attr::lambda$attribClass$34(c, $cast($Type, d));
+		return Attr::lambda$attribClass$34(c, $cast($Type, d));
 	}
 	$Symbol$ClassSymbol* c = nullptr;
 };
@@ -1917,7 +1917,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return Attr::lambda$attribClass$35($cast($Type, s));
+		return Attr::lambda$attribClass$35($cast($Type, s));
 	}
 };
 $Class* Attr$$Lambda$lambda$attribClass$35$36::load$($String* name, bool initialize) {
@@ -1947,7 +1947,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(Attr::lambda$attribClass$36($cast($Type, s)));
+		return $of(Attr::lambda$attribClass$36($cast($Type, s)));
 	}
 };
 $Class* Attr$$Lambda$lambda$attribClass$36$37::load$($String* name, bool initialize) {
@@ -1977,7 +1977,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return Attr::lambda$attribClass$37($cast($Type, s));
+		return Attr::lambda$attribClass$37($cast($Type, s));
 	}
 };
 $Class* Attr$$Lambda$lambda$attribClass$37$38::load$($String* name, bool initialize) {

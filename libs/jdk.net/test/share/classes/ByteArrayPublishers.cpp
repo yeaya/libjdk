@@ -101,7 +101,7 @@ public:
 		$set(this, results, results);
 	}
 	virtual $Object* apply(Object$* v, Object$* t) override {
-		 return ByteArrayPublishers::lambda$main$1(results, $cast($HttpResponse, v), $cast($Throwable, t));
+		return ByteArrayPublishers::lambda$main$1(results, $cast($HttpResponse, v), $cast($Throwable, t));
 	}
 	$LinkedBlockingQueue* results = nullptr;
 };

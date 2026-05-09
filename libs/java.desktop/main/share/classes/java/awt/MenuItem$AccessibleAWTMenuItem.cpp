@@ -33,19 +33,19 @@ namespace java {
 	namespace awt {
 
 int32_t MenuItem$AccessibleAWTMenuItem::hashCode() {
-	 return this->$MenuComponent$AccessibleAWTMenuComponent::hashCode();
+	return this->$MenuComponent$AccessibleAWTMenuComponent::hashCode();
 }
 
 bool MenuItem$AccessibleAWTMenuItem::equals(Object$* arg0) {
-	 return this->$MenuComponent$AccessibleAWTMenuComponent::equals(arg0);
+	return this->$MenuComponent$AccessibleAWTMenuComponent::equals(arg0);
 }
 
 $Object* MenuItem$AccessibleAWTMenuItem::clone() {
-	 return this->$MenuComponent$AccessibleAWTMenuComponent::clone();
+	return this->$MenuComponent$AccessibleAWTMenuComponent::clone();
 }
 
 $String* MenuItem$AccessibleAWTMenuItem::toString() {
-	 return this->$MenuComponent$AccessibleAWTMenuComponent::toString();
+	return this->$MenuComponent$AccessibleAWTMenuComponent::toString();
 }
 
 void MenuItem$AccessibleAWTMenuItem::finalize() {

@@ -35,7 +35,7 @@ namespace javax {
 			namespace serial {
 
 $String* SerialRef::toString() {
-	 return this->$Ref::toString();
+	return this->$Ref::toString();
 }
 
 void SerialRef::finalize() {

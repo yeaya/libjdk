@@ -20,19 +20,19 @@ namespace javax {
 	namespace tools {
 
 $String* DocumentationTool$Location::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool DocumentationTool$Location::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t DocumentationTool$Location::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* DocumentationTool$Location::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void DocumentationTool$Location::finalize() {

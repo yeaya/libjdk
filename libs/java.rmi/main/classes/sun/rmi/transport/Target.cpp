@@ -118,7 +118,7 @@ public:
 		$set(this, unrefObj, unrefObj);
 	}
 	virtual $Object* run() override {
-		 return Target::lambda$refSetRemove$0(unrefObj);
+		return Target::lambda$refSetRemove$0(unrefObj);
 	}
 	$Unreferenced* unrefObj = nullptr;
 };

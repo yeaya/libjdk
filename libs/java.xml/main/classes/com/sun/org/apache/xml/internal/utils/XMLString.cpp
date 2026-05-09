@@ -19,15 +19,15 @@ namespace com {
 						namespace utils {
 
 bool XMLString::equals(Object$* anObject) {
-	 return this->$Object::equals(anObject);
+	return this->$Object::equals(anObject);
 }
 
 int32_t XMLString::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $String* XMLString::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $Class* XMLString::load$($String* name, bool initialize) {

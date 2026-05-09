@@ -120,19 +120,19 @@ void XMenuBarPeer::dispose() {
 }
 
 $String* XMenuBarPeer::toString() {
-	 return this->$XBaseMenuWindow::toString();
+	return this->$XBaseMenuWindow::toString();
 }
 
 int32_t XMenuBarPeer::hashCode() {
-	 return this->$XBaseMenuWindow::hashCode();
+	return this->$XBaseMenuWindow::hashCode();
 }
 
 bool XMenuBarPeer::equals(Object$* arg0) {
-	 return this->$XBaseMenuWindow::equals(arg0);
+	return this->$XBaseMenuWindow::equals(arg0);
 }
 
 $Object* XMenuBarPeer::clone() {
-	 return this->$XBaseMenuWindow::clone();
+	return this->$XBaseMenuWindow::clone();
 }
 
 void XMenuBarPeer::finalize() {

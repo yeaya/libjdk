@@ -94,7 +94,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(Sasl::lambda$static$0());
+		return $of(Sasl::lambda$static$0());
 	}
 };
 $Class* Sasl$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

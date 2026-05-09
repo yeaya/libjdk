@@ -58,19 +58,19 @@ namespace javax {
 	namespace swing {
 
 int32_t ScrollPaneLayout::hashCode() {
-	 return this->$LayoutManager::hashCode();
+	return this->$LayoutManager::hashCode();
 }
 
 bool ScrollPaneLayout::equals(Object$* arg0) {
-	 return this->$LayoutManager::equals(arg0);
+	return this->$LayoutManager::equals(arg0);
 }
 
 $Object* ScrollPaneLayout::clone() {
-	 return this->$LayoutManager::clone();
+	return this->$LayoutManager::clone();
 }
 
 $String* ScrollPaneLayout::toString() {
-	 return this->$LayoutManager::toString();
+	return this->$LayoutManager::toString();
 }
 
 void ScrollPaneLayout::finalize() {

@@ -62,15 +62,15 @@ namespace sun {
 		namespace windows {
 
 bool WListPeer::isObscured() {
-	 return this->$WComponentPeer::isObscured();
+	return this->$WComponentPeer::isObscured();
 }
 
 bool WListPeer::canDetermineObscurity() {
-	 return this->$WComponentPeer::canDetermineObscurity();
+	return this->$WComponentPeer::canDetermineObscurity();
 }
 
 $Point* WListPeer::getLocationOnScreen() {
-	 return this->$WComponentPeer::getLocationOnScreen();
+	return this->$WComponentPeer::getLocationOnScreen();
 }
 
 void WListPeer::setVisible(bool b) {
@@ -102,11 +102,11 @@ void WListPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* WListPeer::getMinimumSize() {
-	 return this->$WComponentPeer::getMinimumSize();
+	return this->$WComponentPeer::getMinimumSize();
 }
 
 $Dimension* WListPeer::getPreferredSize() {
-	 return this->$WComponentPeer::getPreferredSize();
+	return this->$WComponentPeer::getPreferredSize();
 }
 
 void WListPeer::layout() {
@@ -114,23 +114,23 @@ void WListPeer::layout() {
 }
 
 $GraphicsConfiguration* WListPeer::getGraphicsConfiguration() {
-	 return this->$WComponentPeer::getGraphicsConfiguration();
+	return this->$WComponentPeer::getGraphicsConfiguration();
 }
 
 bool WListPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$WComponentPeer::updateGraphicsData(gc);
+	return this->$WComponentPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* WListPeer::getColorModel() {
-	 return this->$WComponentPeer::getColorModel();
+	return this->$WComponentPeer::getColorModel();
 }
 
 $Graphics* WListPeer::getGraphics() {
-	 return this->$WComponentPeer::getGraphics();
+	return this->$WComponentPeer::getGraphics();
 }
 
 $FontMetrics* WListPeer::getFontMetrics($Font* font) {
-	 return this->$WComponentPeer::getFontMetrics(font);
+	return this->$WComponentPeer::getFontMetrics(font);
 }
 
 void WListPeer::setForeground($Color* c) {
@@ -150,23 +150,23 @@ void WListPeer::updateCursorImmediately() {
 }
 
 bool WListPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$WComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$WComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* WListPeer::createImage(int32_t width, int32_t height) {
-	 return this->$WComponentPeer::createImage(width, height);
+	return this->$WComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* WListPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$WComponentPeer::createVolatileImage(width, height);
+	return this->$WComponentPeer::createVolatileImage(width, height);
 }
 
 $String* WListPeer::toString() {
-	 return this->$WComponentPeer::toString();
+	return this->$WComponentPeer::toString();
 }
 
 bool WListPeer::handlesWheelScrolling() {
-	 return this->$WComponentPeer::handlesWheelScrolling();
+	return this->$WComponentPeer::handlesWheelScrolling();
 }
 
 void WListPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -182,7 +182,7 @@ void WListPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapa
 }
 
 $Image* WListPeer::getBackBuffer() {
-	 return this->$WComponentPeer::getBackBuffer();
+	return this->$WComponentPeer::getBackBuffer();
 }
 
 void WListPeer::reparent($ContainerPeer* newNativeParent) {
@@ -190,7 +190,7 @@ void WListPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool WListPeer::isReparentSupported() {
-	 return this->$WComponentPeer::isReparentSupported();
+	return this->$WComponentPeer::isReparentSupported();
 }
 
 void WListPeer::applyShape($Region* shape) {
@@ -206,15 +206,15 @@ void WListPeer::dispose() {
 }
 
 int32_t WListPeer::hashCode() {
-	 return this->$WComponentPeer::hashCode();
+	return this->$WComponentPeer::hashCode();
 }
 
 bool WListPeer::equals(Object$* arg0) {
-	 return this->$WComponentPeer::equals(arg0);
+	return this->$WComponentPeer::equals(arg0);
 }
 
 $Object* WListPeer::clone() {
-	 return this->$WComponentPeer::clone();
+	return this->$WComponentPeer::clone();
 }
 
 void WListPeer::finalize() {

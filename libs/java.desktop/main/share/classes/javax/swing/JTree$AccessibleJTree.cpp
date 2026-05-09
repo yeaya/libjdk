@@ -57,19 +57,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JTree$AccessibleJTree::hashCode() {
-	 return this->$JComponent$AccessibleJComponent::hashCode();
+	return this->$JComponent$AccessibleJComponent::hashCode();
 }
 
 bool JTree$AccessibleJTree::equals(Object$* arg0) {
-	 return this->$JComponent$AccessibleJComponent::equals(arg0);
+	return this->$JComponent$AccessibleJComponent::equals(arg0);
 }
 
 $Object* JTree$AccessibleJTree::clone() {
-	 return this->$JComponent$AccessibleJComponent::clone();
+	return this->$JComponent$AccessibleJComponent::clone();
 }
 
 $String* JTree$AccessibleJTree::toString() {
-	 return this->$JComponent$AccessibleJComponent::toString();
+	return this->$JComponent$AccessibleJComponent::toString();
 }
 
 void JTree$AccessibleJTree::finalize() {

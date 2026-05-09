@@ -22,19 +22,19 @@ namespace com {
 						namespace utils {
 
 int32_t SAXSourceLocator::hashCode() {
-	 return this->$LocatorImpl::hashCode();
+	return this->$LocatorImpl::hashCode();
 }
 
 bool SAXSourceLocator::equals(Object$* arg0) {
-	 return this->$LocatorImpl::equals(arg0);
+	return this->$LocatorImpl::equals(arg0);
 }
 
 $Object* SAXSourceLocator::clone() {
-	 return this->$LocatorImpl::clone();
+	return this->$LocatorImpl::clone();
 }
 
 $String* SAXSourceLocator::toString() {
-	 return this->$LocatorImpl::toString();
+	return this->$LocatorImpl::toString();
 }
 
 void SAXSourceLocator::finalize() {

@@ -18,11 +18,11 @@ namespace javax {
 			namespace html {
 
 $String* HTML$UnknownTag::toString() {
-	 return this->$HTML$Tag::toString();
+	return this->$HTML$Tag::toString();
 }
 
 $Object* HTML$UnknownTag::clone() {
-	 return this->$HTML$Tag::clone();
+	return this->$HTML$Tag::clone();
 }
 
 void HTML$UnknownTag::finalize() {

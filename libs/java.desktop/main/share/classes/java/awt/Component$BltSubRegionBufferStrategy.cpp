@@ -16,19 +16,19 @@ namespace java {
 	namespace awt {
 
 int32_t Component$BltSubRegionBufferStrategy::hashCode() {
-	 return this->$Component$BltBufferStrategy::hashCode();
+	return this->$Component$BltBufferStrategy::hashCode();
 }
 
 bool Component$BltSubRegionBufferStrategy::equals(Object$* arg0) {
-	 return this->$Component$BltBufferStrategy::equals(arg0);
+	return this->$Component$BltBufferStrategy::equals(arg0);
 }
 
 $Object* Component$BltSubRegionBufferStrategy::clone() {
-	 return this->$Component$BltBufferStrategy::clone();
+	return this->$Component$BltBufferStrategy::clone();
 }
 
 $String* Component$BltSubRegionBufferStrategy::toString() {
-	 return this->$Component$BltBufferStrategy::toString();
+	return this->$Component$BltBufferStrategy::toString();
 }
 
 void Component$BltSubRegionBufferStrategy::finalize() {

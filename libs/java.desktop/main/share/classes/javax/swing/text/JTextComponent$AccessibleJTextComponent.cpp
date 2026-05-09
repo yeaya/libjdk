@@ -121,19 +121,19 @@ namespace javax {
 		namespace text {
 
 int32_t JTextComponent$AccessibleJTextComponent::hashCode() {
-	 return this->$JComponent$AccessibleJComponent::hashCode();
+	return this->$JComponent$AccessibleJComponent::hashCode();
 }
 
 bool JTextComponent$AccessibleJTextComponent::equals(Object$* arg0) {
-	 return this->$JComponent$AccessibleJComponent::equals(arg0);
+	return this->$JComponent$AccessibleJComponent::equals(arg0);
 }
 
 $Object* JTextComponent$AccessibleJTextComponent::clone() {
-	 return this->$JComponent$AccessibleJComponent::clone();
+	return this->$JComponent$AccessibleJComponent::clone();
 }
 
 $String* JTextComponent$AccessibleJTextComponent::toString() {
-	 return this->$JComponent$AccessibleJComponent::toString();
+	return this->$JComponent$AccessibleJComponent::toString();
 }
 
 void JTextComponent$AccessibleJTextComponent::finalize() {

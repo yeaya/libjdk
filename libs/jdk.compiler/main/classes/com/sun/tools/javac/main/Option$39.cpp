@@ -65,7 +65,7 @@ public:
 		$set(this, arg, arg);
 	}
 	virtual $Object* get() override {
-		 return $of(Option$39::lambda$process$0(arg));
+		return $of(Option$39::lambda$process$0(arg));
 	}
 	$String* arg = nullptr;
 };
@@ -100,7 +100,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return Option$39::lambda$process$1($cast($String, s));
+		return Option$39::lambda$process$1($cast($String, s));
 	}
 };
 $Class* Option$39$$Lambda$lambda$process$1$1::load$($String* name, bool initialize) {

@@ -21,19 +21,19 @@ namespace javax {
 			namespace metal {
 
 int32_t MetalIconFactory$FileChooserNewFolderIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool MetalIconFactory$FileChooserNewFolderIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* MetalIconFactory$FileChooserNewFolderIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* MetalIconFactory$FileChooserNewFolderIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void MetalIconFactory$FileChooserNewFolderIcon::finalize() {

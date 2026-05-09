@@ -108,7 +108,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return Symbol$MethodSymbol::lambda$static$0($cast($Symbol, s));
+		return Symbol$MethodSymbol::lambda$static$0($cast($Symbol, s));
 	}
 };
 $Class* Symbol$MethodSymbol$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -133,27 +133,27 @@ $Class* Symbol$MethodSymbol$$Lambda$lambda$static$0::load$($String* name, bool i
 $Class* Symbol$MethodSymbol$$Lambda$lambda$static$0::class$ = nullptr;
 
 $List* Symbol$MethodSymbol::getEnclosedElements() {
-	 return this->$Symbol::getEnclosedElements();
+	return this->$Symbol::getEnclosedElements();
 }
 
 $AnnotationArray* Symbol$MethodSymbol::getAnnotationsByType($Class* annoType) {
-	 return this->$Symbol::getAnnotationsByType(annoType);
+	return this->$Symbol::getAnnotationsByType(annoType);
 }
 
 $Annotation* Symbol$MethodSymbol::getAnnotation($Class* annoType) {
-	 return this->$Symbol::getAnnotation(annoType);
+	return this->$Symbol::getAnnotation(annoType);
 }
 
 int32_t Symbol$MethodSymbol::hashCode() {
-	 return this->$Symbol::hashCode();
+	return this->$Symbol::hashCode();
 }
 
 bool Symbol$MethodSymbol::equals(Object$* arg0) {
-	 return this->$Symbol::equals(arg0);
+	return this->$Symbol::equals(arg0);
 }
 
 $Object* Symbol$MethodSymbol::clone() {
-	 return this->$Symbol::clone();
+	return this->$Symbol::clone();
 }
 
 void Symbol$MethodSymbol::finalize() {

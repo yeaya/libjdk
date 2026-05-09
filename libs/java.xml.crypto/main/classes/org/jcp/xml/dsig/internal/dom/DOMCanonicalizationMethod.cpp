@@ -54,31 +54,31 @@ namespace org {
 					namespace dom {
 
 $AlgorithmParameterSpec* DOMCanonicalizationMethod::getParameterSpec() {
-	 return this->$DOMTransform::getParameterSpec();
+	return this->$DOMTransform::getParameterSpec();
 }
 
 $String* DOMCanonicalizationMethod::getAlgorithm() {
-	 return this->$DOMTransform::getAlgorithm();
+	return this->$DOMTransform::getAlgorithm();
 }
 
 $Data* DOMCanonicalizationMethod::transform($Data* data, $XMLCryptoContext* xc) {
-	 return this->$DOMTransform::transform(data, xc);
+	return this->$DOMTransform::transform(data, xc);
 }
 
 $Data* DOMCanonicalizationMethod::transform($Data* data, $XMLCryptoContext* xc, $OutputStream* os) {
-	 return this->$DOMTransform::transform(data, xc, os);
+	return this->$DOMTransform::transform(data, xc, os);
 }
 
 bool DOMCanonicalizationMethod::isFeatureSupported($String* feature) {
-	 return this->$DOMTransform::isFeatureSupported(feature);
+	return this->$DOMTransform::isFeatureSupported(feature);
 }
 
 $Object* DOMCanonicalizationMethod::clone() {
-	 return this->$DOMTransform::clone();
+	return this->$DOMTransform::clone();
 }
 
 $String* DOMCanonicalizationMethod::toString() {
-	 return this->$DOMTransform::toString();
+	return this->$DOMTransform::toString();
 }
 
 void DOMCanonicalizationMethod::finalize() {

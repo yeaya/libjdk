@@ -58,19 +58,19 @@ namespace com {
 							namespace trax {
 
 int32_t DOM2TO::hashCode() {
-	 return this->$XMLReader::hashCode();
+	return this->$XMLReader::hashCode();
 }
 
 bool DOM2TO::equals(Object$* arg0) {
-	 return this->$XMLReader::equals(arg0);
+	return this->$XMLReader::equals(arg0);
 }
 
 $Object* DOM2TO::clone() {
-	 return this->$XMLReader::clone();
+	return this->$XMLReader::clone();
 }
 
 $String* DOM2TO::toString() {
-	 return this->$XMLReader::toString();
+	return this->$XMLReader::toString();
 }
 
 void DOM2TO::finalize() {

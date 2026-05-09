@@ -38,55 +38,55 @@ namespace com {
 				namespace processing {
 
 $OutputStream* JavacFiler$FilerInputJavaFileObject::openOutputStream() {
-	 return this->$JavacFiler$FilerInputFileObject::openOutputStream();
+	return this->$JavacFiler$FilerInputFileObject::openOutputStream();
 }
 
 $Writer* JavacFiler$FilerInputJavaFileObject::openWriter() {
-	 return this->$JavacFiler$FilerInputFileObject::openWriter();
+	return this->$JavacFiler$FilerInputFileObject::openWriter();
 }
 
 bool JavacFiler$FilerInputJavaFileObject::delete$() {
-	 return this->$JavacFiler$FilerInputFileObject::delete$();
+	return this->$JavacFiler$FilerInputFileObject::delete$();
 }
 
 $URI* JavacFiler$FilerInputJavaFileObject::toUri() {
-	 return this->$JavacFiler$FilerInputFileObject::toUri();
+	return this->$JavacFiler$FilerInputFileObject::toUri();
 }
 
 $String* JavacFiler$FilerInputJavaFileObject::getName() {
-	 return this->$JavacFiler$FilerInputFileObject::getName();
+	return this->$JavacFiler$FilerInputFileObject::getName();
 }
 
 $InputStream* JavacFiler$FilerInputJavaFileObject::openInputStream() {
-	 return this->$JavacFiler$FilerInputFileObject::openInputStream();
+	return this->$JavacFiler$FilerInputFileObject::openInputStream();
 }
 
 $Reader* JavacFiler$FilerInputJavaFileObject::openReader(bool arg0) {
-	 return this->$JavacFiler$FilerInputFileObject::openReader(arg0);
+	return this->$JavacFiler$FilerInputFileObject::openReader(arg0);
 }
 
 $CharSequence* JavacFiler$FilerInputJavaFileObject::getCharContent(bool arg0) {
-	 return this->$JavacFiler$FilerInputFileObject::getCharContent(arg0);
+	return this->$JavacFiler$FilerInputFileObject::getCharContent(arg0);
 }
 
 int64_t JavacFiler$FilerInputJavaFileObject::getLastModified() {
-	 return this->$JavacFiler$FilerInputFileObject::getLastModified();
+	return this->$JavacFiler$FilerInputFileObject::getLastModified();
 }
 
 int32_t JavacFiler$FilerInputJavaFileObject::hashCode() {
-	 return this->$JavacFiler$FilerInputFileObject::hashCode();
+	return this->$JavacFiler$FilerInputFileObject::hashCode();
 }
 
 bool JavacFiler$FilerInputJavaFileObject::equals(Object$* arg0) {
-	 return this->$JavacFiler$FilerInputFileObject::equals(arg0);
+	return this->$JavacFiler$FilerInputFileObject::equals(arg0);
 }
 
 $Object* JavacFiler$FilerInputJavaFileObject::clone() {
-	 return this->$JavacFiler$FilerInputFileObject::clone();
+	return this->$JavacFiler$FilerInputFileObject::clone();
 }
 
 $String* JavacFiler$FilerInputJavaFileObject::toString() {
-	 return this->$JavacFiler$FilerInputFileObject::toString();
+	return this->$JavacFiler$FilerInputFileObject::toString();
 }
 
 void JavacFiler$FilerInputJavaFileObject::finalize() {

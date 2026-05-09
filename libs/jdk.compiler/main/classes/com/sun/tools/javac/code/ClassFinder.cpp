@@ -193,7 +193,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return ClassFinder::lambda$new$0();
+		return ClassFinder::lambda$new$0();
 	}
 };
 $Class* ClassFinder$$Lambda$lambda$new$0$1::load$($String* name, bool initialize) {
@@ -225,7 +225,7 @@ public:
 		$set(this, ex, ex);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$complete$1(ex);
+		return $nc(inst$)->lambda$complete$1(ex);
 	}
 	ClassFinder* inst$ = nullptr;
 	$IOException* ex = nullptr;
@@ -263,7 +263,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$fillIn$2();
+		return $nc(inst$)->lambda$fillIn$2();
 	}
 	ClassFinder* inst$ = nullptr;
 };
@@ -298,7 +298,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* sym) override {
-		 return ClassFinder::lambda$fillIn$3($cast($Symbol, sym));
+		return ClassFinder::lambda$fillIn$3($cast($Symbol, sym));
 	}
 };
 $Class* ClassFinder$$Lambda$lambda$fillIn$3$4::load$($String* name, bool initialize) {
@@ -360,7 +360,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$classFileNotFound$5(c);
+		return $nc(inst$)->lambda$classFileNotFound$5(c);
 	}
 	ClassFinder* inst$ = nullptr;
 	$Symbol$ClassSymbol* c = nullptr;
@@ -399,7 +399,7 @@ public:
 		$set(this, flatname, flatname);
 	}
 	virtual $Object* get() override {
-		 return $of(ClassFinder::lambda$loadClass$6(msym, flatname));
+		return $of(ClassFinder::lambda$loadClass$6(msym, flatname));
 	}
 	$Symbol$ModuleSymbol* msym = nullptr;
 	$Name* flatname = nullptr;
@@ -437,7 +437,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$Symbol$PackageSymbol* inst$ = nullptr;
 };
@@ -476,7 +476,7 @@ public:
 		$set(this, kinds, kinds);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$list$7(listed, p, kinds);
+		return $nc(inst$)->lambda$list$7(listed, p, kinds);
 	}
 	ClassFinder* inst$ = nullptr;
 	$Iterable* listed = nullptr;

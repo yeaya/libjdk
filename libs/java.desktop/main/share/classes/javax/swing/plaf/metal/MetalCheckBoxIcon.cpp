@@ -26,19 +26,19 @@ namespace javax {
 			namespace metal {
 
 int32_t MetalCheckBoxIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool MetalCheckBoxIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* MetalCheckBoxIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* MetalCheckBoxIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void MetalCheckBoxIcon::finalize() {

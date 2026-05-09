@@ -19,19 +19,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaHighlighter::hashCode() {
-	 return this->$DefaultHighlighter::hashCode();
+	return this->$DefaultHighlighter::hashCode();
 }
 
 bool AquaHighlighter::equals(Object$* arg0) {
-	 return this->$DefaultHighlighter::equals(arg0);
+	return this->$DefaultHighlighter::equals(arg0);
 }
 
 $Object* AquaHighlighter::clone() {
-	 return this->$DefaultHighlighter::clone();
+	return this->$DefaultHighlighter::clone();
 }
 
 $String* AquaHighlighter::toString() {
-	 return this->$DefaultHighlighter::toString();
+	return this->$DefaultHighlighter::toString();
 }
 
 void AquaHighlighter::finalize() {

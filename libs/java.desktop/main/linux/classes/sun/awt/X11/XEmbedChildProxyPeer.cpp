@@ -105,19 +105,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t XEmbedChildProxyPeer::hashCode() {
-	 return this->$ComponentPeer::hashCode();
+	return this->$ComponentPeer::hashCode();
 }
 
 bool XEmbedChildProxyPeer::equals(Object$* arg0) {
-	 return this->$ComponentPeer::equals(arg0);
+	return this->$ComponentPeer::equals(arg0);
 }
 
 $Object* XEmbedChildProxyPeer::clone() {
-	 return this->$ComponentPeer::clone();
+	return this->$ComponentPeer::clone();
 }
 
 $String* XEmbedChildProxyPeer::toString() {
-	 return this->$ComponentPeer::toString();
+	return this->$ComponentPeer::toString();
 }
 
 void XEmbedChildProxyPeer::finalize() {

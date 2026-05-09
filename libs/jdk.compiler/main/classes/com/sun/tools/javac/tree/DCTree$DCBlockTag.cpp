@@ -16,19 +16,19 @@ namespace com {
 				namespace tree {
 
 $String* DCTree$DCBlockTag::toString() {
-	 return this->$DCTree::toString();
+	return this->$DCTree::toString();
 }
 
 int32_t DCTree$DCBlockTag::hashCode() {
-	 return this->$DCTree::hashCode();
+	return this->$DCTree::hashCode();
 }
 
 bool DCTree$DCBlockTag::equals(Object$* arg0) {
-	 return this->$DCTree::equals(arg0);
+	return this->$DCTree::equals(arg0);
 }
 
 $Object* DCTree$DCBlockTag::clone() {
-	 return this->$DCTree::clone();
+	return this->$DCTree::clone();
 }
 
 void DCTree$DCBlockTag::finalize() {

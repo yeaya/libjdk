@@ -30,19 +30,19 @@ namespace sun {
 	namespace awt {
 
 int32_t CGraphicsConfig::hashCode() {
-	 return this->$GraphicsConfiguration::hashCode();
+	return this->$GraphicsConfiguration::hashCode();
 }
 
 bool CGraphicsConfig::equals(Object$* arg0) {
-	 return this->$GraphicsConfiguration::equals(arg0);
+	return this->$GraphicsConfiguration::equals(arg0);
 }
 
 $Object* CGraphicsConfig::clone() {
-	 return this->$GraphicsConfiguration::clone();
+	return this->$GraphicsConfiguration::clone();
 }
 
 $String* CGraphicsConfig::toString() {
-	 return this->$GraphicsConfiguration::toString();
+	return this->$GraphicsConfiguration::toString();
 }
 
 void CGraphicsConfig::finalize() {

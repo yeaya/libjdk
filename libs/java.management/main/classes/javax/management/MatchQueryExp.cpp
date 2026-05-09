@@ -25,15 +25,15 @@ void MatchQueryExp::setMBeanServer($MBeanServer* s) {
 }
 
 int32_t MatchQueryExp::hashCode() {
-	 return this->$QueryEval::hashCode();
+	return this->$QueryEval::hashCode();
 }
 
 bool MatchQueryExp::equals(Object$* arg0) {
-	 return this->$QueryEval::equals(arg0);
+	return this->$QueryEval::equals(arg0);
 }
 
 $Object* MatchQueryExp::clone() {
-	 return this->$QueryEval::clone();
+	return this->$QueryEval::clone();
 }
 
 void MatchQueryExp::finalize() {

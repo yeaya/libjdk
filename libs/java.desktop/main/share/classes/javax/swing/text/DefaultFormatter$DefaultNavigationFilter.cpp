@@ -26,19 +26,19 @@ namespace javax {
 		namespace text {
 
 int32_t DefaultFormatter$DefaultNavigationFilter::hashCode() {
-	 return this->$NavigationFilter::hashCode();
+	return this->$NavigationFilter::hashCode();
 }
 
 bool DefaultFormatter$DefaultNavigationFilter::equals(Object$* arg0) {
-	 return this->$NavigationFilter::equals(arg0);
+	return this->$NavigationFilter::equals(arg0);
 }
 
 $Object* DefaultFormatter$DefaultNavigationFilter::clone() {
-	 return this->$NavigationFilter::clone();
+	return this->$NavigationFilter::clone();
 }
 
 $String* DefaultFormatter$DefaultNavigationFilter::toString() {
-	 return this->$NavigationFilter::toString();
+	return this->$NavigationFilter::toString();
 }
 
 void DefaultFormatter$DefaultNavigationFilter::finalize() {

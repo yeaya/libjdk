@@ -66,19 +66,19 @@ namespace com {
 			namespace internal {
 
 int32_t CachedRowSetReader::hashCode() {
-	 return this->$RowSetReader::hashCode();
+	return this->$RowSetReader::hashCode();
 }
 
 bool CachedRowSetReader::equals(Object$* arg0) {
-	 return this->$RowSetReader::equals(arg0);
+	return this->$RowSetReader::equals(arg0);
 }
 
 $Object* CachedRowSetReader::clone() {
-	 return this->$RowSetReader::clone();
+	return this->$RowSetReader::clone();
 }
 
 $String* CachedRowSetReader::toString() {
-	 return this->$RowSetReader::toString();
+	return this->$RowSetReader::toString();
 }
 
 void CachedRowSetReader::finalize() {

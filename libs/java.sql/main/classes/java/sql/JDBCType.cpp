@@ -56,19 +56,19 @@ namespace java {
 	namespace sql {
 
 $String* JDBCType::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool JDBCType::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t JDBCType::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* JDBCType::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void JDBCType::finalize() {

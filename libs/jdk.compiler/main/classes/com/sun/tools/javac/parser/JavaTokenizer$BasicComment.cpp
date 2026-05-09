@@ -23,19 +23,19 @@ namespace com {
 				namespace parser {
 
 int32_t JavaTokenizer$BasicComment::hashCode() {
-	 return this->$UnicodeReader$PositionTrackingReader::hashCode();
+	return this->$UnicodeReader$PositionTrackingReader::hashCode();
 }
 
 bool JavaTokenizer$BasicComment::equals(Object$* arg0) {
-	 return this->$UnicodeReader$PositionTrackingReader::equals(arg0);
+	return this->$UnicodeReader$PositionTrackingReader::equals(arg0);
 }
 
 $Object* JavaTokenizer$BasicComment::clone() {
-	 return this->$UnicodeReader$PositionTrackingReader::clone();
+	return this->$UnicodeReader$PositionTrackingReader::clone();
 }
 
 $String* JavaTokenizer$BasicComment::toString() {
-	 return this->$UnicodeReader$PositionTrackingReader::toString();
+	return this->$UnicodeReader$PositionTrackingReader::toString();
 }
 
 void JavaTokenizer$BasicComment::finalize() {

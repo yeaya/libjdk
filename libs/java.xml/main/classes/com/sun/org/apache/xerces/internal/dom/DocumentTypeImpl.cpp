@@ -58,35 +58,35 @@ namespace com {
 						namespace dom {
 
 $Document* DocumentTypeImpl::getOwnerDocument() {
-	 return this->$ParentNode::getOwnerDocument();
+	return this->$ParentNode::getOwnerDocument();
 }
 
 bool DocumentTypeImpl::hasChildNodes() {
-	 return this->$ParentNode::hasChildNodes();
+	return this->$ParentNode::hasChildNodes();
 }
 
 $NodeList* DocumentTypeImpl::getChildNodes() {
-	 return this->$ParentNode::getChildNodes();
+	return this->$ParentNode::getChildNodes();
 }
 
 $Node* DocumentTypeImpl::getFirstChild() {
-	 return this->$ParentNode::getFirstChild();
+	return this->$ParentNode::getFirstChild();
 }
 
 $Node* DocumentTypeImpl::getLastChild() {
-	 return this->$ParentNode::getLastChild();
+	return this->$ParentNode::getLastChild();
 }
 
 $Node* DocumentTypeImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$ParentNode::insertBefore(newChild, refChild);
+	return this->$ParentNode::insertBefore(newChild, refChild);
 }
 
 $Node* DocumentTypeImpl::removeChild($Node* oldChild) {
-	 return this->$ParentNode::removeChild(oldChild);
+	return this->$ParentNode::removeChild(oldChild);
 }
 
 $Node* DocumentTypeImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$ParentNode::replaceChild(newChild, oldChild);
+	return this->$ParentNode::replaceChild(newChild, oldChild);
 }
 
 void DocumentTypeImpl::normalize() {
@@ -94,19 +94,19 @@ void DocumentTypeImpl::normalize() {
 }
 
 $Node* DocumentTypeImpl::getParentNode() {
-	 return this->$ParentNode::getParentNode();
+	return this->$ParentNode::getParentNode();
 }
 
 $Node* DocumentTypeImpl::getNextSibling() {
-	 return this->$ParentNode::getNextSibling();
+	return this->$ParentNode::getNextSibling();
 }
 
 $Node* DocumentTypeImpl::getPreviousSibling() {
-	 return this->$ParentNode::getPreviousSibling();
+	return this->$ParentNode::getPreviousSibling();
 }
 
 $String* DocumentTypeImpl::getNodeValue() {
-	 return this->$ParentNode::getNodeValue();
+	return this->$ParentNode::getNodeValue();
 }
 
 void DocumentTypeImpl::setNodeValue($String* x) {
@@ -114,27 +114,27 @@ void DocumentTypeImpl::setNodeValue($String* x) {
 }
 
 $Node* DocumentTypeImpl::appendChild($Node* newChild) {
-	 return this->$ParentNode::appendChild(newChild);
+	return this->$ParentNode::appendChild(newChild);
 }
 
 $NamedNodeMap* DocumentTypeImpl::getAttributes() {
-	 return this->$ParentNode::getAttributes();
+	return this->$ParentNode::getAttributes();
 }
 
 bool DocumentTypeImpl::hasAttributes() {
-	 return this->$ParentNode::hasAttributes();
+	return this->$ParentNode::hasAttributes();
 }
 
 bool DocumentTypeImpl::isSupported($String* feature, $String* version) {
-	 return this->$ParentNode::isSupported(feature, version);
+	return this->$ParentNode::isSupported(feature, version);
 }
 
 $String* DocumentTypeImpl::getNamespaceURI() {
-	 return this->$ParentNode::getNamespaceURI();
+	return this->$ParentNode::getNamespaceURI();
 }
 
 $String* DocumentTypeImpl::getPrefix() {
-	 return this->$ParentNode::getPrefix();
+	return this->$ParentNode::getPrefix();
 }
 
 void DocumentTypeImpl::setPrefix($String* prefix) {
@@ -142,51 +142,51 @@ void DocumentTypeImpl::setPrefix($String* prefix) {
 }
 
 $String* DocumentTypeImpl::getLocalName() {
-	 return this->$ParentNode::getLocalName();
+	return this->$ParentNode::getLocalName();
 }
 
 $String* DocumentTypeImpl::getBaseURI() {
-	 return this->$ParentNode::getBaseURI();
+	return this->$ParentNode::getBaseURI();
 }
 
 int16_t DocumentTypeImpl::compareDocumentPosition($Node* other) {
-	 return this->$ParentNode::compareDocumentPosition(other);
+	return this->$ParentNode::compareDocumentPosition(other);
 }
 
 bool DocumentTypeImpl::isSameNode($Node* other) {
-	 return this->$ParentNode::isSameNode(other);
+	return this->$ParentNode::isSameNode(other);
 }
 
 bool DocumentTypeImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$ParentNode::isDefaultNamespace(namespaceURI);
+	return this->$ParentNode::isDefaultNamespace(namespaceURI);
 }
 
 $String* DocumentTypeImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$ParentNode::lookupPrefix(namespaceURI);
+	return this->$ParentNode::lookupPrefix(namespaceURI);
 }
 
 $String* DocumentTypeImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$ParentNode::lookupNamespaceURI(specifiedPrefix);
+	return this->$ParentNode::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* DocumentTypeImpl::getFeature($String* feature, $String* version) {
-	 return this->$ParentNode::getFeature(feature, version);
+	return this->$ParentNode::getFeature(feature, version);
 }
 
 $String* DocumentTypeImpl::toString() {
-	 return this->$ParentNode::toString();
+	return this->$ParentNode::toString();
 }
 
 int32_t DocumentTypeImpl::hashCode() {
-	 return this->$ParentNode::hashCode();
+	return this->$ParentNode::hashCode();
 }
 
 bool DocumentTypeImpl::equals(Object$* arg0) {
-	 return this->$ParentNode::equals(arg0);
+	return this->$ParentNode::equals(arg0);
 }
 
 $Object* DocumentTypeImpl::clone() {
-	 return this->$ParentNode::clone();
+	return this->$ParentNode::clone();
 }
 
 void DocumentTypeImpl::finalize() {

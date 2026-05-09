@@ -37,19 +37,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCSwitch::toString() {
-	 return this->$JCTree$JCStatement::toString();
+	return this->$JCTree$JCStatement::toString();
 }
 
 $Object* JCTree$JCSwitch::clone() {
-	 return this->$JCTree$JCStatement::clone();
+	return this->$JCTree$JCStatement::clone();
 }
 
 int32_t JCTree$JCSwitch::hashCode() {
-	 return this->$JCTree$JCStatement::hashCode();
+	return this->$JCTree$JCStatement::hashCode();
 }
 
 bool JCTree$JCSwitch::equals(Object$* arg0) {
-	 return this->$JCTree$JCStatement::equals(arg0);
+	return this->$JCTree$JCStatement::equals(arg0);
 }
 
 void JCTree$JCSwitch::finalize() {

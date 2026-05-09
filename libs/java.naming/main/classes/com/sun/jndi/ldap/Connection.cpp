@@ -103,7 +103,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(Connection::lambda$hostnameVerificationDisabledValue$0());
+		return $of(Connection::lambda$hostnameVerificationDisabledValue$0());
 	}
 };
 $Class* Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0::load$($String* name, bool initialize) {

@@ -44,7 +44,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $of(SimpleFormatter::getLoggingProperty($cast($String, name)));
+		return $of(SimpleFormatter::getLoggingProperty($cast($String, name)));
 	}
 };
 $Class* SimpleFormatter$$Lambda$getLoggingProperty::load$($String* name, bool initialize) {

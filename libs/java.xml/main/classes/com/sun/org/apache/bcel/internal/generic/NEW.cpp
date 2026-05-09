@@ -35,27 +35,27 @@ namespace com {
 						namespace generic {
 
 $Type* NEW::getType($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::getType(cpg);
+	return this->$CPInstruction::getType(cpg);
 }
 
 $String* NEW::toString() {
-	 return this->$CPInstruction::toString();
+	return this->$CPInstruction::toString();
 }
 
 int32_t NEW::produceStack($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::produceStack(cpg);
+	return this->$CPInstruction::produceStack(cpg);
 }
 
 bool NEW::equals(Object$* that) {
-	 return this->$CPInstruction::equals(that);
+	return this->$CPInstruction::equals(that);
 }
 
 int32_t NEW::hashCode() {
-	 return this->$CPInstruction::hashCode();
+	return this->$CPInstruction::hashCode();
 }
 
 $Object* NEW::clone() {
-	 return this->$CPInstruction::clone();
+	return this->$CPInstruction::clone();
 }
 
 void NEW::finalize() {

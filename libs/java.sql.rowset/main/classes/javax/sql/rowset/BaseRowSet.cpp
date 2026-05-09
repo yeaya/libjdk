@@ -98,19 +98,19 @@ namespace javax {
 		namespace rowset {
 
 int32_t BaseRowSet::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 bool BaseRowSet::equals(Object$* arg0) {
-	 return this->$Serializable::equals(arg0);
+	return this->$Serializable::equals(arg0);
 }
 
 $Object* BaseRowSet::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 $String* BaseRowSet::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void BaseRowSet::finalize() {

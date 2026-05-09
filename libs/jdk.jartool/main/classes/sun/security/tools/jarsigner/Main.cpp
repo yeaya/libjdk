@@ -266,7 +266,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* x) override {
-		 return Main::lambda$parseArgs$0($cast($String, x));
+		return Main::lambda$parseArgs$0($cast($String, x));
 	}
 };
 $Class* Main$$Lambda$lambda$parseArgs$0::load$($String* name, bool initialize) {
@@ -392,7 +392,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return Main::lambda$loadKeyStore$3($cast($X509Certificate, c));
+		return Main::lambda$loadKeyStore$3($cast($X509Certificate, c));
 	}
 };
 $Class* Main$$Lambda$lambda$loadKeyStore$3$4::load$($String* name, bool initialize) {

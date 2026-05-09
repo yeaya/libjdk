@@ -67,19 +67,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicButtonListener::hashCode() {
-	 return this->$MouseListener::hashCode();
+	return this->$MouseListener::hashCode();
 }
 
 bool BasicButtonListener::equals(Object$* arg0) {
-	 return this->$MouseListener::equals(arg0);
+	return this->$MouseListener::equals(arg0);
 }
 
 $Object* BasicButtonListener::clone() {
-	 return this->$MouseListener::clone();
+	return this->$MouseListener::clone();
 }
 
 $String* BasicButtonListener::toString() {
-	 return this->$MouseListener::toString();
+	return this->$MouseListener::toString();
 }
 
 void BasicButtonListener::finalize() {

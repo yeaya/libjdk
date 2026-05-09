@@ -139,7 +139,7 @@ public:
 		$set(this, argumentTypeFactory, argumentTypeFactory);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$processArg$0(that, pos, argumentTypeFactory));
+		return $of($nc(inst$)->lambda$processArg$0(that, pos, argumentTypeFactory));
 	}
 	ArgumentAttr* inst$ = nullptr;
 	$JCTree$JCExpression* that = nullptr;
@@ -182,7 +182,7 @@ public:
 		$set(this, that, that);
 	}
 	virtual $Object* apply(Object$* speculativeTree) override {
-		 return $of($nc(inst$)->lambda$visitParens$1(that, $cast($JCTree$JCParens, speculativeTree)));
+		return $of($nc(inst$)->lambda$visitParens$1(that, $cast($JCTree$JCParens, speculativeTree)));
 	}
 	ArgumentAttr* inst$ = nullptr;
 	$JCTree$JCParens* that = nullptr;
@@ -221,7 +221,7 @@ public:
 		$set(this, that, that);
 	}
 	virtual $Object* apply(Object$* speculativeTree) override {
-		 return $of($nc(inst$)->lambda$visitConditional$2(that, $cast($JCTree$JCConditional, speculativeTree)));
+		return $of($nc(inst$)->lambda$visitConditional$2(that, $cast($JCTree$JCConditional, speculativeTree)));
 	}
 	ArgumentAttr* inst$ = nullptr;
 	$JCTree$JCConditional* that = nullptr;
@@ -260,7 +260,7 @@ public:
 		$set(this, that, that);
 	}
 	virtual $Object* apply(Object$* speculativeTree) override {
-		 return $of($nc(inst$)->lambda$visitSwitchExpression$3(that, $cast($JCTree$JCSwitchExpression, speculativeTree)));
+		return $of($nc(inst$)->lambda$visitSwitchExpression$3(that, $cast($JCTree$JCSwitchExpression, speculativeTree)));
 	}
 	ArgumentAttr* inst$ = nullptr;
 	$JCTree$JCSwitchExpression* that = nullptr;
@@ -299,7 +299,7 @@ public:
 		$set(this, that, that);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$visitLambda$4(that));
+		return $of($nc(inst$)->lambda$visitLambda$4(that));
 	}
 	ArgumentAttr* inst$ = nullptr;
 	$JCTree$JCLambda* that = nullptr;
@@ -338,7 +338,7 @@ public:
 		$set(this, that, that);
 	}
 	virtual $Object* apply(Object$* speculativeTree) override {
-		 return $of($nc(inst$)->lambda$visitApply$5(that, $cast($JCTree$JCMethodInvocation, speculativeTree)));
+		return $of($nc(inst$)->lambda$visitApply$5(that, $cast($JCTree$JCMethodInvocation, speculativeTree)));
 	}
 	ArgumentAttr* inst$ = nullptr;
 	$JCTree$JCMethodInvocation* that = nullptr;
@@ -377,7 +377,7 @@ public:
 		$set(this, that, that);
 	}
 	virtual $Object* apply(Object$* speculativeTree) override {
-		 return $of($nc(inst$)->lambda$visitNewClass$6(that, $cast($JCTree$JCNewClass, speculativeTree)));
+		return $of($nc(inst$)->lambda$visitNewClass$6(that, $cast($JCTree$JCNewClass, speculativeTree)));
 	}
 	ArgumentAttr* inst$ = nullptr;
 	$JCTree$JCNewClass* that = nullptr;

@@ -26,23 +26,23 @@ namespace com {
 						namespace generic {
 
 $String* JsrInstruction::toString() {
-	 return this->$BranchInstruction::toString();
+	return this->$BranchInstruction::toString();
 }
 
 int32_t JsrInstruction::produceStack($ConstantPoolGen* cpg) {
-	 return this->$BranchInstruction::produceStack(cpg);
+	return this->$BranchInstruction::produceStack(cpg);
 }
 
 bool JsrInstruction::equals(Object$* that) {
-	 return this->$BranchInstruction::equals(that);
+	return this->$BranchInstruction::equals(that);
 }
 
 int32_t JsrInstruction::hashCode() {
-	 return this->$BranchInstruction::hashCode();
+	return this->$BranchInstruction::hashCode();
 }
 
 $Object* JsrInstruction::clone() {
-	 return this->$BranchInstruction::clone();
+	return this->$BranchInstruction::clone();
 }
 
 void JsrInstruction::finalize() {

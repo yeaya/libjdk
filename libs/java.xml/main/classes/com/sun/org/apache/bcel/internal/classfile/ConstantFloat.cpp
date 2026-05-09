@@ -27,15 +27,15 @@ namespace com {
 						namespace classfile {
 
 $Object* ConstantFloat::clone() {
-	 return this->$Constant::clone();
+	return this->$Constant::clone();
 }
 
 bool ConstantFloat::equals(Object$* obj) {
-	 return this->$Constant::equals(obj);
+	return this->$Constant::equals(obj);
 }
 
 int32_t ConstantFloat::hashCode() {
-	 return this->$Constant::hashCode();
+	return this->$Constant::hashCode();
 }
 
 void ConstantFloat::finalize() {

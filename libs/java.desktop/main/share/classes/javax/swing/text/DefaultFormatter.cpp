@@ -58,15 +58,15 @@ namespace javax {
 		namespace text {
 
 int32_t DefaultFormatter::hashCode() {
-	 return this->$JFormattedTextField$AbstractFormatter::hashCode();
+	return this->$JFormattedTextField$AbstractFormatter::hashCode();
 }
 
 bool DefaultFormatter::equals(Object$* arg0) {
-	 return this->$JFormattedTextField$AbstractFormatter::equals(arg0);
+	return this->$JFormattedTextField$AbstractFormatter::equals(arg0);
 }
 
 $String* DefaultFormatter::toString() {
-	 return this->$JFormattedTextField$AbstractFormatter::toString();
+	return this->$JFormattedTextField$AbstractFormatter::toString();
 }
 
 void DefaultFormatter::finalize() {

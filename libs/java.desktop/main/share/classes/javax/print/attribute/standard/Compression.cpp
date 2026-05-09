@@ -20,19 +20,19 @@ namespace javax {
 			namespace standard {
 
 $Object* Compression::clone() {
-	 return this->$EnumSyntax::clone();
+	return this->$EnumSyntax::clone();
 }
 
 int32_t Compression::hashCode() {
-	 return this->$EnumSyntax::hashCode();
+	return this->$EnumSyntax::hashCode();
 }
 
 $String* Compression::toString() {
-	 return this->$EnumSyntax::toString();
+	return this->$EnumSyntax::toString();
 }
 
 bool Compression::equals(Object$* arg0) {
-	 return this->$EnumSyntax::equals(arg0);
+	return this->$EnumSyntax::equals(arg0);
 }
 
 void Compression::finalize() {

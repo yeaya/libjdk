@@ -64,19 +64,19 @@ namespace javax {
 		namespace rowset {
 
 int32_t RowSetMetaDataImpl::hashCode() {
-	 return this->$RowSetMetaData::hashCode();
+	return this->$RowSetMetaData::hashCode();
 }
 
 bool RowSetMetaDataImpl::equals(Object$* arg0) {
-	 return this->$RowSetMetaData::equals(arg0);
+	return this->$RowSetMetaData::equals(arg0);
 }
 
 $Object* RowSetMetaDataImpl::clone() {
-	 return this->$RowSetMetaData::clone();
+	return this->$RowSetMetaData::clone();
 }
 
 $String* RowSetMetaDataImpl::toString() {
-	 return this->$RowSetMetaData::toString();
+	return this->$RowSetMetaData::toString();
 }
 
 void RowSetMetaDataImpl::finalize() {

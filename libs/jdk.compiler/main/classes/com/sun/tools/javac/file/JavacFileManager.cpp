@@ -186,7 +186,7 @@ public:
 	void init$() {
 	}
 	virtual $Path* getPath($String* arg0, $StringArray* arg1) override {
-		 return $Paths::get(arg0, arg1);
+		return $Paths::get(arg0, arg1);
 	}
 };
 $Class* JavacFileManager$$Lambda$get::load$($String* name, bool initialize) {
@@ -216,7 +216,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* make($Context* c) override {
-		 return $of(JavacFileManager::lambda$preRegister$0(c));
+		return $of(JavacFileManager::lambda$preRegister$0(c));
 	}
 };
 $Class* JavacFileManager$$Lambda$lambda$preRegister$0$1::load$($String* name, bool initialize) {
@@ -247,7 +247,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* location) override {
-		 return $nc(inst$)->indexPathsAndContainersByRelativeDirectory($cast($JavaFileManager$Location, location));
+		return $nc(inst$)->indexPathsAndContainersByRelativeDirectory($cast($JavaFileManager$Location, location));
 	}
 	JavacFileManager* inst$ = nullptr;
 };
@@ -284,7 +284,7 @@ public:
 		$set(this, location, location);
 	}
 	virtual $Object* apply(Object$* d) override {
-		 return $nc(inst$)->lambda$pathsAndContainers$1(location, $cast($RelativePath$RelativeDirectory, d));
+		return $nc(inst$)->lambda$pathsAndContainers$1(location, $cast($RelativePath$RelativeDirectory, d));
 	}
 	JavacFileManager* inst$ = nullptr;
 	$JavaFileManager$Location* location = nullptr;
@@ -322,7 +322,7 @@ public:
 		$set(this, nonIndexingContainers, nonIndexingContainers);
 	}
 	virtual $Object* apply(Object$* d) override {
-		 return JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$2(nonIndexingContainers, $cast($RelativePath$RelativeDirectory, d));
+		return JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$2(nonIndexingContainers, $cast($RelativePath$RelativeDirectory, d));
 	}
 	$List* nonIndexingContainers = nullptr;
 };
@@ -388,7 +388,7 @@ public:
 		$set(this, files, files);
 	}
 	virtual $Iterator* iterator() override {
-		 return JavacFileManager::lambda$asPaths$4(files);
+		return JavacFileManager::lambda$asPaths$4(files);
 	}
 	$Iterable* files = nullptr;
 };
@@ -424,7 +424,7 @@ public:
 		$set(this, paths, paths);
 	}
 	virtual $Iterator* iterator() override {
-		 return JavacFileManager::lambda$asFiles$5(paths);
+		return JavacFileManager::lambda$asFiles$5(paths);
 	}
 	$Iterable* paths = nullptr;
 };
@@ -454,27 +454,27 @@ $Class* JavacFileManager$$Lambda$lambda$asFiles$5$7::load$($String* name, bool i
 $Class* JavacFileManager$$Lambda$lambda$asFiles$5$7::class$ = nullptr;
 
 bool JavacFileManager::handleOption($String* current, $Iterator* remaining) {
-	 return this->$BaseFileManager::handleOption(current, remaining);
+	return this->$BaseFileManager::handleOption(current, remaining);
 }
 
 int32_t JavacFileManager::isSupportedOption($String* option) {
-	 return this->$BaseFileManager::isSupportedOption(option);
+	return this->$BaseFileManager::isSupportedOption(option);
 }
 
 int32_t JavacFileManager::hashCode() {
-	 return this->$BaseFileManager::hashCode();
+	return this->$BaseFileManager::hashCode();
 }
 
 bool JavacFileManager::equals(Object$* arg0) {
-	 return this->$BaseFileManager::equals(arg0);
+	return this->$BaseFileManager::equals(arg0);
 }
 
 $Object* JavacFileManager::clone() {
-	 return this->$BaseFileManager::clone();
+	return this->$BaseFileManager::clone();
 }
 
 $String* JavacFileManager::toString() {
-	 return this->$BaseFileManager::toString();
+	return this->$BaseFileManager::toString();
 }
 
 void JavacFileManager::finalize() {

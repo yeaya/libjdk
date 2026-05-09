@@ -40,31 +40,31 @@ namespace javax {
 		namespace openmbean {
 
 $Object* OpenMBeanInfoSupport::clone() {
-	 return this->$MBeanInfo::clone();
+	return this->$MBeanInfo::clone();
 }
 
 $String* OpenMBeanInfoSupport::getClassName() {
-	 return this->$MBeanInfo::getClassName();
+	return this->$MBeanInfo::getClassName();
 }
 
 $String* OpenMBeanInfoSupport::getDescription() {
-	 return this->$MBeanInfo::getDescription();
+	return this->$MBeanInfo::getDescription();
 }
 
 $MBeanAttributeInfoArray* OpenMBeanInfoSupport::getAttributes() {
-	 return this->$MBeanInfo::getAttributes();
+	return this->$MBeanInfo::getAttributes();
 }
 
 $MBeanOperationInfoArray* OpenMBeanInfoSupport::getOperations() {
-	 return this->$MBeanInfo::getOperations();
+	return this->$MBeanInfo::getOperations();
 }
 
 $MBeanConstructorInfoArray* OpenMBeanInfoSupport::getConstructors() {
-	 return this->$MBeanInfo::getConstructors();
+	return this->$MBeanInfo::getConstructors();
 }
 
 $MBeanNotificationInfoArray* OpenMBeanInfoSupport::getNotifications() {
-	 return this->$MBeanInfo::getNotifications();
+	return this->$MBeanInfo::getNotifications();
 }
 
 void OpenMBeanInfoSupport::finalize() {

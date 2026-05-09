@@ -58,19 +58,19 @@ namespace com {
 			namespace mbeanserver {
 
 int32_t MBeanServerDelegateImpl::hashCode() {
-	 return this->$MBeanServerDelegate::hashCode();
+	return this->$MBeanServerDelegate::hashCode();
 }
 
 bool MBeanServerDelegateImpl::equals(Object$* arg0) {
-	 return this->$MBeanServerDelegate::equals(arg0);
+	return this->$MBeanServerDelegate::equals(arg0);
 }
 
 $Object* MBeanServerDelegateImpl::clone() {
-	 return this->$MBeanServerDelegate::clone();
+	return this->$MBeanServerDelegate::clone();
 }
 
 $String* MBeanServerDelegateImpl::toString() {
-	 return this->$MBeanServerDelegate::toString();
+	return this->$MBeanServerDelegate::toString();
 }
 
 void MBeanServerDelegateImpl::finalize() {

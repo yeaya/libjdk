@@ -24,19 +24,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaMenuBorder::hashCode() {
-	 return this->$Border::hashCode();
+	return this->$Border::hashCode();
 }
 
 bool AquaMenuBorder::equals(Object$* arg0) {
-	 return this->$Border::equals(arg0);
+	return this->$Border::equals(arg0);
 }
 
 $Object* AquaMenuBorder::clone() {
-	 return this->$Border::clone();
+	return this->$Border::clone();
 }
 
 $String* AquaMenuBorder::toString() {
-	 return this->$Border::toString();
+	return this->$Border::toString();
 }
 
 void AquaMenuBorder::finalize() {

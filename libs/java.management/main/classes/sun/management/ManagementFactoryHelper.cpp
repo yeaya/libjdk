@@ -147,7 +147,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($MemoryPoolMXBean, inst$)->getName());
+		return $of($sure($MemoryPoolMXBean, inst$)->getName());
 	}
 };
 $Class* ManagementFactoryHelper$$Lambda$getName::load$($String* name, bool initialize) {
@@ -177,7 +177,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return ManagementFactoryHelper::lambda$getAllMemoryPoolNames$0(x$0);
+		return ManagementFactoryHelper::lambda$getAllMemoryPoolNames$0(x$0);
 	}
 };
 $Class* ManagementFactoryHelper$$Lambda$lambda$getAllMemoryPoolNames$0$1::load$($String* name, bool initialize) {
@@ -207,7 +207,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* pool) override {
-		 return ManagementFactoryHelper::createBufferPoolMXBean($cast($VM$BufferPool, pool));
+		return ManagementFactoryHelper::createBufferPoolMXBean($cast($VM$BufferPool, pool));
 	}
 };
 $Class* ManagementFactoryHelper$$Lambda$createBufferPoolMXBean$2::load$($String* name, bool initialize) {

@@ -30,19 +30,19 @@ namespace javax {
 			namespace basic {
 
 $String* BasicTabbedPaneUI$TabContainer::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t BasicTabbedPaneUI$TabContainer::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool BasicTabbedPaneUI$TabContainer::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* BasicTabbedPaneUI$TabContainer::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void BasicTabbedPaneUI$TabContainer::finalize() {

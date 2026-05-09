@@ -69,19 +69,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicTextUI$TextTransferHandler::hashCode() {
-	 return this->$TransferHandler::hashCode();
+	return this->$TransferHandler::hashCode();
 }
 
 bool BasicTextUI$TextTransferHandler::equals(Object$* arg0) {
-	 return this->$TransferHandler::equals(arg0);
+	return this->$TransferHandler::equals(arg0);
 }
 
 $Object* BasicTextUI$TextTransferHandler::clone() {
-	 return this->$TransferHandler::clone();
+	return this->$TransferHandler::clone();
 }
 
 $String* BasicTextUI$TextTransferHandler::toString() {
-	 return this->$TransferHandler::toString();
+	return this->$TransferHandler::toString();
 }
 
 void BasicTextUI$TextTransferHandler::finalize() {

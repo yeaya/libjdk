@@ -14,19 +14,19 @@ namespace org {
 			namespace ext {
 
 int32_t DefaultHandler2::hashCode() {
-	 return this->$DefaultHandler::hashCode();
+	return this->$DefaultHandler::hashCode();
 }
 
 bool DefaultHandler2::equals(Object$* arg0) {
-	 return this->$DefaultHandler::equals(arg0);
+	return this->$DefaultHandler::equals(arg0);
 }
 
 $Object* DefaultHandler2::clone() {
-	 return this->$DefaultHandler::clone();
+	return this->$DefaultHandler::clone();
 }
 
 $String* DefaultHandler2::toString() {
-	 return this->$DefaultHandler::toString();
+	return this->$DefaultHandler::toString();
 }
 
 void DefaultHandler2::finalize() {

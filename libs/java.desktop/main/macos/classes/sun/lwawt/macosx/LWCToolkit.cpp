@@ -341,7 +341,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return LWCToolkit::lambda$new$0();
+		return LWCToolkit::lambda$new$0();
 	}
 };
 $Class* LWCToolkit$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
@@ -401,7 +401,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return LWCToolkit::lambda$installToolkitThreadInJava$3();
+		return LWCToolkit::lambda$installToolkitThreadInJava$3();
 	}
 };
 $Class* LWCToolkit$$Lambda$lambda$installToolkitThreadInJava$3$2::load$($String* name, bool initialize) {
@@ -467,7 +467,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return LWCToolkit::lambda$systemColorsChanged$1();
+		return LWCToolkit::lambda$systemColorsChanged$1();
 	}
 };
 $Class* LWCToolkit$$Lambda$lambda$systemColorsChanged$1$4::load$($String* name, bool initialize) {

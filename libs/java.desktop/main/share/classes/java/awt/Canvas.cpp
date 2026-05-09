@@ -28,19 +28,19 @@ namespace java {
 	namespace awt {
 
 $String* Canvas::toString() {
-	 return this->$Component::toString();
+	return this->$Component::toString();
 }
 
 int32_t Canvas::hashCode() {
-	 return this->$Component::hashCode();
+	return this->$Component::hashCode();
 }
 
 bool Canvas::equals(Object$* arg0) {
-	 return this->$Component::equals(arg0);
+	return this->$Component::equals(arg0);
 }
 
 $Object* Canvas::clone() {
-	 return this->$Component::clone();
+	return this->$Component::clone();
 }
 
 void Canvas::finalize() {

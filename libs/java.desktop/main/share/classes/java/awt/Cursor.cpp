@@ -93,7 +93,7 @@ public:
 		$set(this, file, file);
 	}
 	virtual $Object* run() override {
-		 return Cursor::lambda$getSystemCustomCursor$0(file);
+		return Cursor::lambda$getSystemCustomCursor$0(file);
 	}
 	$String* file = nullptr;
 };
@@ -128,7 +128,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return Cursor::lambda$loadSystemCustomCursorProperties$1();
+		return Cursor::lambda$loadSystemCustomCursorProperties$1();
 	}
 };
 $Class* Cursor$$Lambda$lambda$loadSystemCustomCursorProperties$1$1::load$($String* name, bool initialize) {

@@ -68,15 +68,15 @@ namespace com {
 			namespace sound {
 
 int32_t JavaSoundAudioClip::hashCode() {
-	 return this->$AudioClip::hashCode();
+	return this->$AudioClip::hashCode();
 }
 
 bool JavaSoundAudioClip::equals(Object$* arg0) {
-	 return this->$AudioClip::equals(arg0);
+	return this->$AudioClip::equals(arg0);
 }
 
 $Object* JavaSoundAudioClip::clone() {
-	 return this->$AudioClip::clone();
+	return this->$AudioClip::clone();
 }
 
 void JavaSoundAudioClip::init$() {

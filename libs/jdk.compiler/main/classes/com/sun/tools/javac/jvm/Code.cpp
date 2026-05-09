@@ -143,7 +143,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* r) override {
-		 return Code::lambda$fillLocalVarPosition$0($cast($Code$LocalVar$Range, r));
+		return Code::lambda$fillLocalVarPosition$0($cast($Code$LocalVar$Range, r));
 	}
 };
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$0::load$($String* name, bool initialize) {
@@ -173,7 +173,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t s) override {
-		 return Code::lambda$fillLocalVarPosition$1(s);
+		return Code::lambda$fillLocalVarPosition$1(s);
 	}
 };
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$1$1::load$($String* name, bool initialize) {
@@ -203,7 +203,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(Object$* r) override {
-		 return Code::lambda$fillLocalVarPosition$2($cast($Code$LocalVar$Range, r));
+		return Code::lambda$fillLocalVarPosition$2($cast($Code$LocalVar$Range, r));
 	}
 };
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$2$2::load$($String* name, bool initialize) {
@@ -233,7 +233,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(Object$* r) override {
-		 return Code::lambda$fillLocalVarPosition$3($cast($Code$LocalVar$Range, r));
+		return Code::lambda$fillLocalVarPosition$3($cast($Code$LocalVar$Range, r));
 	}
 };
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$3$3::load$($String* name, bool initialize) {
@@ -264,7 +264,7 @@ public:
 		$set(this, lv, lv);
 	}
 	virtual int32_t applyAsInt(Object$* r) override {
-		 return Code::lambda$fillLocalVarPosition$4(lv, $cast($Code$LocalVar$Range, r));
+		return Code::lambda$fillLocalVarPosition$4(lv, $cast($Code$LocalVar$Range, r));
 	}
 	$Code$LocalVar* lv = nullptr;
 };

@@ -23,7 +23,7 @@ namespace com {
 				namespace jvm {
 
 $String* Items$Item::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 void Items$Item::init$($Items* this$0, int32_t typecode) {

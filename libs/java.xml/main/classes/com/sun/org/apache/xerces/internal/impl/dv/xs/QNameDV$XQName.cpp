@@ -21,11 +21,11 @@ namespace com {
 								namespace xs {
 
 $Object* QNameDV$XQName::clone() {
-	 return this->$QName::clone();
+	return this->$QName::clone();
 }
 
 int32_t QNameDV$XQName::hashCode() {
-	 return this->$QName::hashCode();
+	return this->$QName::hashCode();
 }
 
 void QNameDV$XQName::finalize() {

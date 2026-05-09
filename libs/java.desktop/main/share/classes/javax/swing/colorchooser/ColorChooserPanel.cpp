@@ -60,19 +60,19 @@ namespace javax {
 		namespace colorchooser {
 
 $String* ColorChooserPanel::toString() {
-	 return this->$AbstractColorChooserPanel::toString();
+	return this->$AbstractColorChooserPanel::toString();
 }
 
 int32_t ColorChooserPanel::hashCode() {
-	 return this->$AbstractColorChooserPanel::hashCode();
+	return this->$AbstractColorChooserPanel::hashCode();
 }
 
 bool ColorChooserPanel::equals(Object$* arg0) {
-	 return this->$AbstractColorChooserPanel::equals(arg0);
+	return this->$AbstractColorChooserPanel::equals(arg0);
 }
 
 $Object* ColorChooserPanel::clone() {
-	 return this->$AbstractColorChooserPanel::clone();
+	return this->$AbstractColorChooserPanel::clone();
 }
 
 void ColorChooserPanel::finalize() {

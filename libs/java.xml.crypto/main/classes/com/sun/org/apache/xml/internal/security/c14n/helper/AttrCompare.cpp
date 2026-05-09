@@ -26,19 +26,19 @@ namespace com {
 								namespace helper {
 
 bool AttrCompare::equals(Object$* arg0) {
-	 return this->$Comparator::equals(arg0);
+	return this->$Comparator::equals(arg0);
 }
 
 int32_t AttrCompare::hashCode() {
-	 return this->$Comparator::hashCode();
+	return this->$Comparator::hashCode();
 }
 
 $Object* AttrCompare::clone() {
-	 return this->$Comparator::clone();
+	return this->$Comparator::clone();
 }
 
 $String* AttrCompare::toString() {
-	 return this->$Comparator::toString();
+	return this->$Comparator::toString();
 }
 
 void AttrCompare::finalize() {

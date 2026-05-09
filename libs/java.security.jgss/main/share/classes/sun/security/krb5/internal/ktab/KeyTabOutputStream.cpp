@@ -28,19 +28,19 @@ namespace sun {
 				namespace ktab {
 
 int32_t KeyTabOutputStream::hashCode() {
-	 return this->$KrbDataOutputStream::hashCode();
+	return this->$KrbDataOutputStream::hashCode();
 }
 
 bool KeyTabOutputStream::equals(Object$* arg0) {
-	 return this->$KrbDataOutputStream::equals(arg0);
+	return this->$KrbDataOutputStream::equals(arg0);
 }
 
 $Object* KeyTabOutputStream::clone() {
-	 return this->$KrbDataOutputStream::clone();
+	return this->$KrbDataOutputStream::clone();
 }
 
 $String* KeyTabOutputStream::toString() {
-	 return this->$KrbDataOutputStream::toString();
+	return this->$KrbDataOutputStream::toString();
 }
 
 void KeyTabOutputStream::finalize() {

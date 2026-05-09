@@ -26,19 +26,19 @@ namespace com {
 								namespace content {
 
 int32_t KeyName::hashCode() {
-	 return this->$SignatureElementProxy::hashCode();
+	return this->$SignatureElementProxy::hashCode();
 }
 
 bool KeyName::equals(Object$* arg0) {
-	 return this->$SignatureElementProxy::equals(arg0);
+	return this->$SignatureElementProxy::equals(arg0);
 }
 
 $Object* KeyName::clone() {
-	 return this->$SignatureElementProxy::clone();
+	return this->$SignatureElementProxy::clone();
 }
 
 $String* KeyName::toString() {
-	 return this->$SignatureElementProxy::toString();
+	return this->$SignatureElementProxy::toString();
 }
 
 void KeyName::finalize() {

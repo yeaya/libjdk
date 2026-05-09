@@ -31,15 +31,15 @@ namespace com {
 				namespace jvm {
 
 int32_t ClassReader$AnnotationDefaultCompleter::hashCode() {
-	 return this->$ClassReader$AnnotationDeproxy::hashCode();
+	return this->$ClassReader$AnnotationDeproxy::hashCode();
 }
 
 bool ClassReader$AnnotationDefaultCompleter::equals(Object$* arg0) {
-	 return this->$ClassReader$AnnotationDeproxy::equals(arg0);
+	return this->$ClassReader$AnnotationDeproxy::equals(arg0);
 }
 
 $Object* ClassReader$AnnotationDefaultCompleter::clone() {
-	 return this->$ClassReader$AnnotationDeproxy::clone();
+	return this->$ClassReader$AnnotationDeproxy::clone();
 }
 
 void ClassReader$AnnotationDefaultCompleter::finalize() {

@@ -60,7 +60,7 @@ public:
 		$set(this, kinds, kinds);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$list$0(listed, kinds);
+		return $nc(inst$)->lambda$list$0(listed, kinds);
 	}
 	JDKPlatformProvider$PlatformDescriptionImpl$1* inst$ = nullptr;
 	$Iterable* listed = nullptr;

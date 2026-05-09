@@ -72,7 +72,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(ObjectTable::lambda$static$0());
+		return $of(ObjectTable::lambda$static$0());
 	}
 };
 $Class* ObjectTable$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

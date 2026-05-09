@@ -174,7 +174,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $nc(inst$)->lambda$sign0$0($cast($bytes, s));
+		return $nc(inst$)->lambda$sign0$0($cast($bytes, s));
 	}
 	JarSigner* inst$ = nullptr;
 };

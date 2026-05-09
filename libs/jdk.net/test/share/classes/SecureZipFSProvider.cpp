@@ -77,7 +77,7 @@ public:
 		$set(this, fs, fs);
 	}
 	virtual $Object* apply(Object$* sfs) override {
-		 return $nc(inst$)->lambda$newFileSystem$0(fs, $cast($FileSystem, sfs));
+		return $nc(inst$)->lambda$newFileSystem$0(fs, $cast($FileSystem, sfs));
 	}
 	SecureZipFSProvider* inst$ = nullptr;
 	$FileSystem* fs = nullptr;

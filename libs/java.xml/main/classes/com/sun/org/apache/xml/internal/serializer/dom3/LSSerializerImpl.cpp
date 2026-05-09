@@ -174,19 +174,19 @@ namespace com {
 							namespace dom3 {
 
 int32_t LSSerializerImpl::hashCode() {
-	 return this->$DOMConfiguration::hashCode();
+	return this->$DOMConfiguration::hashCode();
 }
 
 bool LSSerializerImpl::equals(Object$* arg0) {
-	 return this->$DOMConfiguration::equals(arg0);
+	return this->$DOMConfiguration::equals(arg0);
 }
 
 $Object* LSSerializerImpl::clone() {
-	 return this->$DOMConfiguration::clone();
+	return this->$DOMConfiguration::clone();
 }
 
 $String* LSSerializerImpl::toString() {
-	 return this->$DOMConfiguration::toString();
+	return this->$DOMConfiguration::toString();
 }
 
 void LSSerializerImpl::finalize() {

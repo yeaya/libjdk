@@ -49,19 +49,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicLookAndFeel$AWTEventHelper::hashCode() {
-	 return this->$AWTEventListener::hashCode();
+	return this->$AWTEventListener::hashCode();
 }
 
 bool BasicLookAndFeel$AWTEventHelper::equals(Object$* arg0) {
-	 return this->$AWTEventListener::equals(arg0);
+	return this->$AWTEventListener::equals(arg0);
 }
 
 $Object* BasicLookAndFeel$AWTEventHelper::clone() {
-	 return this->$AWTEventListener::clone();
+	return this->$AWTEventListener::clone();
 }
 
 $String* BasicLookAndFeel$AWTEventHelper::toString() {
-	 return this->$AWTEventListener::toString();
+	return this->$AWTEventListener::toString();
 }
 
 void BasicLookAndFeel$AWTEventHelper::finalize() {

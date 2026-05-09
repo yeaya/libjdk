@@ -22,19 +22,19 @@ namespace sun {
 	namespace management {
 
 int32_t HotspotInternal::hashCode() {
-	 return this->$HotspotInternalMBean::hashCode();
+	return this->$HotspotInternalMBean::hashCode();
 }
 
 bool HotspotInternal::equals(Object$* arg0) {
-	 return this->$HotspotInternalMBean::equals(arg0);
+	return this->$HotspotInternalMBean::equals(arg0);
 }
 
 $Object* HotspotInternal::clone() {
-	 return this->$HotspotInternalMBean::clone();
+	return this->$HotspotInternalMBean::clone();
 }
 
 $String* HotspotInternal::toString() {
-	 return this->$HotspotInternalMBean::toString();
+	return this->$HotspotInternalMBean::toString();
 }
 
 void HotspotInternal::finalize() {

@@ -35,7 +35,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* obj) override {
-		 return $nc(inst$)->equals(obj);
+		return $nc(inst$)->equals(obj);
 	}
 	$Mixer$Info* inst$ = nullptr;
 };

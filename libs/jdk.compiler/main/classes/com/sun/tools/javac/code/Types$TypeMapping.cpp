@@ -40,7 +40,7 @@ public:
 		$set(this, s, s);
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of($nc(inst$)->lambda$visit$0(s, $cast($Type, t)));
+		return $of($nc(inst$)->lambda$visit$0(s, $cast($Type, t)));
 	}
 	Types$TypeMapping* inst$ = nullptr;
 	$Object* s = nullptr;
@@ -72,19 +72,19 @@ $Class* Types$TypeMapping$$Lambda$lambda$visit$0::load$($String* name, bool init
 $Class* Types$TypeMapping$$Lambda$lambda$visit$0::class$ = nullptr;
 
 int32_t Types$TypeMapping::hashCode() {
-	 return this->$Types$MapVisitor::hashCode();
+	return this->$Types$MapVisitor::hashCode();
 }
 
 bool Types$TypeMapping::equals(Object$* arg0) {
-	 return this->$Types$MapVisitor::equals(arg0);
+	return this->$Types$MapVisitor::equals(arg0);
 }
 
 $Object* Types$TypeMapping::clone() {
-	 return this->$Types$MapVisitor::clone();
+	return this->$Types$MapVisitor::clone();
 }
 
 $String* Types$TypeMapping::toString() {
-	 return this->$Types$MapVisitor::toString();
+	return this->$Types$MapVisitor::toString();
 }
 
 void Types$TypeMapping::finalize() {

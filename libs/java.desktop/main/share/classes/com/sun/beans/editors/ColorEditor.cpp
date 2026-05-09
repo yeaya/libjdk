@@ -42,19 +42,19 @@ namespace com {
 			namespace editors {
 
 $String* ColorEditor::toString() {
-	 return this->$Panel::toString();
+	return this->$Panel::toString();
 }
 
 int32_t ColorEditor::hashCode() {
-	 return this->$Panel::hashCode();
+	return this->$Panel::hashCode();
 }
 
 bool ColorEditor::equals(Object$* arg0) {
-	 return this->$Panel::equals(arg0);
+	return this->$Panel::equals(arg0);
 }
 
 $Object* ColorEditor::clone() {
-	 return this->$Panel::clone();
+	return this->$Panel::clone();
 }
 
 void ColorEditor::finalize() {

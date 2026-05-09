@@ -22,19 +22,19 @@ namespace sun {
 			namespace hw {
 
 int32_t AccelSurface::hashCode() {
-	 return this->$BufferedContextProvider::hashCode();
+	return this->$BufferedContextProvider::hashCode();
 }
 
 bool AccelSurface::equals(Object$* arg0) {
-	 return this->$BufferedContextProvider::equals(arg0);
+	return this->$BufferedContextProvider::equals(arg0);
 }
 
 $Object* AccelSurface::clone() {
-	 return this->$BufferedContextProvider::clone();
+	return this->$BufferedContextProvider::clone();
 }
 
 $String* AccelSurface::toString() {
-	 return this->$BufferedContextProvider::toString();
+	return this->$BufferedContextProvider::toString();
 }
 
 void AccelSurface::finalize() {

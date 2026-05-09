@@ -60,43 +60,43 @@ namespace com {
 				namespace code {
 
 $List* Symbol$PackageSymbol::getEnclosedElements() {
-	 return this->$Symbol$TypeSymbol::getEnclosedElements();
+	return this->$Symbol$TypeSymbol::getEnclosedElements();
 }
 
 $List* Symbol$PackageSymbol::getAnnotationMirrors() {
-	 return this->$Symbol$TypeSymbol::getAnnotationMirrors();
+	return this->$Symbol$TypeSymbol::getAnnotationMirrors();
 }
 
 $Name* Symbol$PackageSymbol::getSimpleName() {
-	 return this->$Symbol$TypeSymbol::getSimpleName();
+	return this->$Symbol$TypeSymbol::getSimpleName();
 }
 
 $TypeMirror* Symbol$PackageSymbol::asType() {
-	 return this->$Symbol$TypeSymbol::asType();
+	return this->$Symbol$TypeSymbol::asType();
 }
 
 $Set* Symbol$PackageSymbol::getModifiers() {
-	 return this->$Symbol$TypeSymbol::getModifiers();
+	return this->$Symbol$TypeSymbol::getModifiers();
 }
 
 $AnnotationArray* Symbol$PackageSymbol::getAnnotationsByType($Class* annoType) {
-	 return this->$Symbol$TypeSymbol::getAnnotationsByType(annoType);
+	return this->$Symbol$TypeSymbol::getAnnotationsByType(annoType);
 }
 
 $Annotation* Symbol$PackageSymbol::getAnnotation($Class* annoType) {
-	 return this->$Symbol$TypeSymbol::getAnnotation(annoType);
+	return this->$Symbol$TypeSymbol::getAnnotation(annoType);
 }
 
 int32_t Symbol$PackageSymbol::hashCode() {
-	 return this->$Symbol$TypeSymbol::hashCode();
+	return this->$Symbol$TypeSymbol::hashCode();
 }
 
 bool Symbol$PackageSymbol::equals(Object$* arg0) {
-	 return this->$Symbol$TypeSymbol::equals(arg0);
+	return this->$Symbol$TypeSymbol::equals(arg0);
 }
 
 $Object* Symbol$PackageSymbol::clone() {
-	 return this->$Symbol$TypeSymbol::clone();
+	return this->$Symbol$TypeSymbol::clone();
 }
 
 void Symbol$PackageSymbol::finalize() {

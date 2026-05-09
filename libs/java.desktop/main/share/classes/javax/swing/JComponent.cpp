@@ -298,19 +298,19 @@ $Class* JComponent$$Lambda$lambda$revalidate$0::load$($String* name, bool initia
 $Class* JComponent$$Lambda$lambda$revalidate$0::class$ = nullptr;
 
 $String* JComponent::toString() {
-	 return this->$Container::toString();
+	return this->$Container::toString();
 }
 
 int32_t JComponent::hashCode() {
-	 return this->$Container::hashCode();
+	return this->$Container::hashCode();
 }
 
 bool JComponent::equals(Object$* arg0) {
-	 return this->$Container::equals(arg0);
+	return this->$Container::equals(arg0);
 }
 
 $Object* JComponent::clone() {
-	 return this->$Container::clone();
+	return this->$Container::clone();
 }
 
 void JComponent::finalize() {

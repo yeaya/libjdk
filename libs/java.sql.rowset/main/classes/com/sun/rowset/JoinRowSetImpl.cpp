@@ -147,27 +147,27 @@ void JoinRowSetImpl::undoUpdate() {
 }
 
 $RowSet* JoinRowSetImpl::createShared() {
-	 return this->$WebRowSetImpl::createShared();
+	return this->$WebRowSetImpl::createShared();
 }
 
 $Object* JoinRowSetImpl::clone() {
-	 return this->$WebRowSetImpl::clone();
+	return this->$WebRowSetImpl::clone();
 }
 
 $CachedRowSet* JoinRowSetImpl::createCopy() {
-	 return this->$WebRowSetImpl::createCopy();
+	return this->$WebRowSetImpl::createCopy();
 }
 
 $CachedRowSet* JoinRowSetImpl::createCopyNoConstraints() {
-	 return this->$WebRowSetImpl::createCopyNoConstraints();
+	return this->$WebRowSetImpl::createCopyNoConstraints();
 }
 
 bool JoinRowSetImpl::columnUpdated($String* columnName) {
-	 return this->$WebRowSetImpl::columnUpdated(columnName);
+	return this->$WebRowSetImpl::columnUpdated(columnName);
 }
 
 $String* JoinRowSetImpl::getTableName() {
-	 return this->$WebRowSetImpl::getTableName();
+	return this->$WebRowSetImpl::getTableName();
 }
 
 void JoinRowSetImpl::setTableName($String* tabName) {
@@ -175,7 +175,7 @@ void JoinRowSetImpl::setTableName($String* tabName) {
 }
 
 $RowSetWarning* JoinRowSetImpl::getRowSetWarnings() {
-	 return this->$WebRowSetImpl::getRowSetWarnings();
+	return this->$WebRowSetImpl::getRowSetWarnings();
 }
 
 void JoinRowSetImpl::commit() {
@@ -199,11 +199,11 @@ void JoinRowSetImpl::unsetMatchColumn($StringArray* columnIdxes) {
 }
 
 $StringArray* JoinRowSetImpl::getMatchColumnNames() {
-	 return this->$WebRowSetImpl::getMatchColumnNames();
+	return this->$WebRowSetImpl::getMatchColumnNames();
 }
 
 $ints* JoinRowSetImpl::getMatchColumnIndexes() {
-	 return this->$WebRowSetImpl::getMatchColumnIndexes();
+	return this->$WebRowSetImpl::getMatchColumnIndexes();
 }
 
 void JoinRowSetImpl::setMatchColumn($ints* columnIdxes) {
@@ -239,7 +239,7 @@ void JoinRowSetImpl::populate($ResultSet* data, int32_t start) {
 }
 
 bool JoinRowSetImpl::nextPage() {
-	 return this->$WebRowSetImpl::nextPage();
+	return this->$WebRowSetImpl::nextPage();
 }
 
 void JoinRowSetImpl::setPageSize(int32_t size) {
@@ -247,27 +247,27 @@ void JoinRowSetImpl::setPageSize(int32_t size) {
 }
 
 int32_t JoinRowSetImpl::getPageSize() {
-	 return this->$WebRowSetImpl::getPageSize();
+	return this->$WebRowSetImpl::getPageSize();
 }
 
 bool JoinRowSetImpl::previousPage() {
-	 return this->$WebRowSetImpl::previousPage();
+	return this->$WebRowSetImpl::previousPage();
 }
 
 $SQLXML* JoinRowSetImpl::getSQLXML(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getSQLXML(columnIndex);
+	return this->$WebRowSetImpl::getSQLXML(columnIndex);
 }
 
 $SQLXML* JoinRowSetImpl::getSQLXML($String* colName) {
-	 return this->$WebRowSetImpl::getSQLXML(colName);
+	return this->$WebRowSetImpl::getSQLXML(colName);
 }
 
 $RowId* JoinRowSetImpl::getRowId(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getRowId(columnIndex);
+	return this->$WebRowSetImpl::getRowId(columnIndex);
 }
 
 $RowId* JoinRowSetImpl::getRowId($String* columnName) {
-	 return this->$WebRowSetImpl::getRowId(columnName);
+	return this->$WebRowSetImpl::getRowId(columnName);
 }
 
 void JoinRowSetImpl::updateRowId(int32_t columnIndex, $RowId* x) {
@@ -279,11 +279,11 @@ void JoinRowSetImpl::updateRowId($String* columnName, $RowId* x) {
 }
 
 int32_t JoinRowSetImpl::getHoldability() {
-	 return this->$WebRowSetImpl::getHoldability();
+	return this->$WebRowSetImpl::getHoldability();
 }
 
 bool JoinRowSetImpl::isClosed() {
-	 return this->$WebRowSetImpl::isClosed();
+	return this->$WebRowSetImpl::isClosed();
 }
 
 void JoinRowSetImpl::updateNString(int32_t columnIndex, $String* nString) {
@@ -303,19 +303,19 @@ void JoinRowSetImpl::updateNClob($String* columnName, $NClob* nClob) {
 }
 
 $NClob* JoinRowSetImpl::getNClob(int32_t i) {
-	 return this->$WebRowSetImpl::getNClob(i);
+	return this->$WebRowSetImpl::getNClob(i);
 }
 
 $NClob* JoinRowSetImpl::getNClob($String* colName) {
-	 return this->$WebRowSetImpl::getNClob(colName);
+	return this->$WebRowSetImpl::getNClob(colName);
 }
 
 $Object* JoinRowSetImpl::unwrap($Class* iface) {
-	 return this->$WebRowSetImpl::unwrap(iface);
+	return this->$WebRowSetImpl::unwrap(iface);
 }
 
 bool JoinRowSetImpl::isWrapperFor($Class* interfaces) {
-	 return this->$WebRowSetImpl::isWrapperFor(interfaces);
+	return this->$WebRowSetImpl::isWrapperFor(interfaces);
 }
 
 void JoinRowSetImpl::setSQLXML(int32_t parameterIndex, $SQLXML* xmlObject) {
@@ -343,11 +343,11 @@ void JoinRowSetImpl::setNClob($String* parameterName, $NClob* value) {
 }
 
 $Reader* JoinRowSetImpl::getNCharacterStream(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getNCharacterStream(columnIndex);
+	return this->$WebRowSetImpl::getNCharacterStream(columnIndex);
 }
 
 $Reader* JoinRowSetImpl::getNCharacterStream($String* columnName) {
-	 return this->$WebRowSetImpl::getNCharacterStream(columnName);
+	return this->$WebRowSetImpl::getNCharacterStream(columnName);
 }
 
 void JoinRowSetImpl::updateSQLXML(int32_t columnIndex, $SQLXML* xmlObject) {
@@ -359,11 +359,11 @@ void JoinRowSetImpl::updateSQLXML($String* columnName, $SQLXML* xmlObject) {
 }
 
 $String* JoinRowSetImpl::getNString(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getNString(columnIndex);
+	return this->$WebRowSetImpl::getNString(columnIndex);
 }
 
 $String* JoinRowSetImpl::getNString($String* columnName) {
-	 return this->$WebRowSetImpl::getNString(columnName);
+	return this->$WebRowSetImpl::getNString(columnName);
 }
 
 void JoinRowSetImpl::updateNCharacterStream(int32_t columnIndex, $Reader* x, int64_t length) {
@@ -671,19 +671,19 @@ void JoinRowSetImpl::setDouble($String* parameterName, double x) {
 }
 
 $Object* JoinRowSetImpl::getObject(int32_t columnIndex, $Class* type) {
-	 return this->$WebRowSetImpl::getObject(columnIndex, type);
+	return this->$WebRowSetImpl::getObject(columnIndex, type);
 }
 
 $Object* JoinRowSetImpl::getObject($String* columnLabel, $Class* type) {
-	 return this->$WebRowSetImpl::getObject(columnLabel, type);
+	return this->$WebRowSetImpl::getObject(columnLabel, type);
 }
 
 $String* JoinRowSetImpl::getCommand() {
-	 return this->$WebRowSetImpl::getCommand();
+	return this->$WebRowSetImpl::getCommand();
 }
 
 $String* JoinRowSetImpl::getUrl() {
-	 return this->$WebRowSetImpl::getUrl();
+	return this->$WebRowSetImpl::getUrl();
 }
 
 void JoinRowSetImpl::setUrl($String* url) {
@@ -691,7 +691,7 @@ void JoinRowSetImpl::setUrl($String* url) {
 }
 
 $String* JoinRowSetImpl::getDataSourceName() {
-	 return this->$WebRowSetImpl::getDataSourceName();
+	return this->$WebRowSetImpl::getDataSourceName();
 }
 
 void JoinRowSetImpl::setDataSourceName($String* name) {
@@ -699,7 +699,7 @@ void JoinRowSetImpl::setDataSourceName($String* name) {
 }
 
 $String* JoinRowSetImpl::getUsername() {
-	 return this->$WebRowSetImpl::getUsername();
+	return this->$WebRowSetImpl::getUsername();
 }
 
 void JoinRowSetImpl::setUsername($String* name) {
@@ -707,7 +707,7 @@ void JoinRowSetImpl::setUsername($String* name) {
 }
 
 $String* JoinRowSetImpl::getPassword() {
-	 return this->$WebRowSetImpl::getPassword();
+	return this->$WebRowSetImpl::getPassword();
 }
 
 void JoinRowSetImpl::setPassword($String* pass) {
@@ -719,7 +719,7 @@ void JoinRowSetImpl::setType(int32_t type) {
 }
 
 int32_t JoinRowSetImpl::getType() {
-	 return this->$WebRowSetImpl::getType();
+	return this->$WebRowSetImpl::getType();
 }
 
 void JoinRowSetImpl::setConcurrency(int32_t concurrency) {
@@ -727,7 +727,7 @@ void JoinRowSetImpl::setConcurrency(int32_t concurrency) {
 }
 
 bool JoinRowSetImpl::isReadOnly() {
-	 return this->$WebRowSetImpl::isReadOnly();
+	return this->$WebRowSetImpl::isReadOnly();
 }
 
 void JoinRowSetImpl::setReadOnly(bool value) {
@@ -735,7 +735,7 @@ void JoinRowSetImpl::setReadOnly(bool value) {
 }
 
 int32_t JoinRowSetImpl::getTransactionIsolation() {
-	 return this->$WebRowSetImpl::getTransactionIsolation();
+	return this->$WebRowSetImpl::getTransactionIsolation();
 }
 
 void JoinRowSetImpl::setTransactionIsolation(int32_t level) {
@@ -743,7 +743,7 @@ void JoinRowSetImpl::setTransactionIsolation(int32_t level) {
 }
 
 $Map* JoinRowSetImpl::getTypeMap() {
-	 return this->$WebRowSetImpl::getTypeMap();
+	return this->$WebRowSetImpl::getTypeMap();
 }
 
 void JoinRowSetImpl::setTypeMap($Map* map) {
@@ -751,7 +751,7 @@ void JoinRowSetImpl::setTypeMap($Map* map) {
 }
 
 int32_t JoinRowSetImpl::getMaxFieldSize() {
-	 return this->$WebRowSetImpl::getMaxFieldSize();
+	return this->$WebRowSetImpl::getMaxFieldSize();
 }
 
 void JoinRowSetImpl::setMaxFieldSize(int32_t max) {
@@ -759,7 +759,7 @@ void JoinRowSetImpl::setMaxFieldSize(int32_t max) {
 }
 
 int32_t JoinRowSetImpl::getMaxRows() {
-	 return this->$WebRowSetImpl::getMaxRows();
+	return this->$WebRowSetImpl::getMaxRows();
 }
 
 void JoinRowSetImpl::setMaxRows(int32_t max) {
@@ -771,7 +771,7 @@ void JoinRowSetImpl::setEscapeProcessing(bool enable) {
 }
 
 int32_t JoinRowSetImpl::getQueryTimeout() {
-	 return this->$WebRowSetImpl::getQueryTimeout();
+	return this->$WebRowSetImpl::getQueryTimeout();
 }
 
 void JoinRowSetImpl::setQueryTimeout(int32_t seconds) {
@@ -779,7 +779,7 @@ void JoinRowSetImpl::setQueryTimeout(int32_t seconds) {
 }
 
 bool JoinRowSetImpl::getShowDeleted() {
-	 return this->$WebRowSetImpl::getShowDeleted();
+	return this->$WebRowSetImpl::getShowDeleted();
 }
 
 void JoinRowSetImpl::setShowDeleted(bool value) {
@@ -787,7 +787,7 @@ void JoinRowSetImpl::setShowDeleted(bool value) {
 }
 
 bool JoinRowSetImpl::getEscapeProcessing() {
-	 return this->$WebRowSetImpl::getEscapeProcessing();
+	return this->$WebRowSetImpl::getEscapeProcessing();
 }
 
 void JoinRowSetImpl::setFetchDirection(int32_t direction) {
@@ -795,7 +795,7 @@ void JoinRowSetImpl::setFetchDirection(int32_t direction) {
 }
 
 int32_t JoinRowSetImpl::getFetchDirection() {
-	 return this->$WebRowSetImpl::getFetchDirection();
+	return this->$WebRowSetImpl::getFetchDirection();
 }
 
 void JoinRowSetImpl::setFetchSize(int32_t rows) {
@@ -803,11 +803,11 @@ void JoinRowSetImpl::setFetchSize(int32_t rows) {
 }
 
 int32_t JoinRowSetImpl::getFetchSize() {
-	 return this->$WebRowSetImpl::getFetchSize();
+	return this->$WebRowSetImpl::getFetchSize();
 }
 
 int32_t JoinRowSetImpl::getConcurrency() {
-	 return this->$WebRowSetImpl::getConcurrency();
+	return this->$WebRowSetImpl::getConcurrency();
 }
 
 void JoinRowSetImpl::setNull(int32_t parameterIndex, int32_t sqlType) {
@@ -939,15 +939,15 @@ void JoinRowSetImpl::clearParameters() {
 }
 
 int32_t JoinRowSetImpl::hashCode() {
-	 return this->$WebRowSetImpl::hashCode();
+	return this->$WebRowSetImpl::hashCode();
 }
 
 bool JoinRowSetImpl::equals(Object$* arg0) {
-	 return this->$WebRowSetImpl::equals(arg0);
+	return this->$WebRowSetImpl::equals(arg0);
 }
 
 $String* JoinRowSetImpl::toString() {
-	 return this->$WebRowSetImpl::toString();
+	return this->$WebRowSetImpl::toString();
 }
 
 void JoinRowSetImpl::finalize() {

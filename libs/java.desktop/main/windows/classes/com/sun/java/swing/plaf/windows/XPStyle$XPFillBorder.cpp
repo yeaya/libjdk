@@ -30,19 +30,19 @@ namespace com {
 					namespace windows {
 
 int32_t XPStyle$XPFillBorder::hashCode() {
-	 return this->$LineBorder::hashCode();
+	return this->$LineBorder::hashCode();
 }
 
 bool XPStyle$XPFillBorder::equals(Object$* arg0) {
-	 return this->$LineBorder::equals(arg0);
+	return this->$LineBorder::equals(arg0);
 }
 
 $Object* XPStyle$XPFillBorder::clone() {
-	 return this->$LineBorder::clone();
+	return this->$LineBorder::clone();
 }
 
 $String* XPStyle$XPFillBorder::toString() {
-	 return this->$LineBorder::toString();
+	return this->$LineBorder::toString();
 }
 
 void XPStyle$XPFillBorder::finalize() {

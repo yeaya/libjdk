@@ -112,15 +112,15 @@ namespace sun {
 		namespace opengl {
 
 int32_t WGLGraphicsConfig::hashCode() {
-	 return this->$Win32GraphicsConfig::hashCode();
+	return this->$Win32GraphicsConfig::hashCode();
 }
 
 bool WGLGraphicsConfig::equals(Object$* arg0) {
-	 return this->$Win32GraphicsConfig::equals(arg0);
+	return this->$Win32GraphicsConfig::equals(arg0);
 }
 
 $Object* WGLGraphicsConfig::clone() {
-	 return this->$Win32GraphicsConfig::clone();
+	return this->$Win32GraphicsConfig::clone();
 }
 
 void WGLGraphicsConfig::finalize() {

@@ -54,7 +54,7 @@ public:
 		$set(this, property, property);
 	}
 	virtual bool test(Object$* p) override {
-		 return LogManager$ConfigProperty::lambda$find$0(property, $cast(LogManager$ConfigProperty, p));
+		return LogManager$ConfigProperty::lambda$find$0(property, $cast(LogManager$ConfigProperty, p));
 	}
 	$String* property = nullptr;
 };

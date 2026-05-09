@@ -16,19 +16,19 @@ namespace javax {
 			namespace sax {
 
 int32_t TransformerHandler::hashCode() {
-	 return this->$ContentHandler::hashCode();
+	return this->$ContentHandler::hashCode();
 }
 
 bool TransformerHandler::equals(Object$* arg0) {
-	 return this->$ContentHandler::equals(arg0);
+	return this->$ContentHandler::equals(arg0);
 }
 
 $Object* TransformerHandler::clone() {
-	 return this->$ContentHandler::clone();
+	return this->$ContentHandler::clone();
 }
 
 $String* TransformerHandler::toString() {
-	 return this->$ContentHandler::toString();
+	return this->$ContentHandler::toString();
 }
 
 void TransformerHandler::finalize() {

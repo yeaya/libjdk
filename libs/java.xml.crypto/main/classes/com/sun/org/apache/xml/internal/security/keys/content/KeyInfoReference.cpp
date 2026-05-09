@@ -30,19 +30,19 @@ namespace com {
 								namespace content {
 
 int32_t KeyInfoReference::hashCode() {
-	 return this->$Signature11ElementProxy::hashCode();
+	return this->$Signature11ElementProxy::hashCode();
 }
 
 bool KeyInfoReference::equals(Object$* arg0) {
-	 return this->$Signature11ElementProxy::equals(arg0);
+	return this->$Signature11ElementProxy::equals(arg0);
 }
 
 $Object* KeyInfoReference::clone() {
-	 return this->$Signature11ElementProxy::clone();
+	return this->$Signature11ElementProxy::clone();
 }
 
 $String* KeyInfoReference::toString() {
-	 return this->$Signature11ElementProxy::toString();
+	return this->$Signature11ElementProxy::toString();
 }
 
 void KeyInfoReference::finalize() {

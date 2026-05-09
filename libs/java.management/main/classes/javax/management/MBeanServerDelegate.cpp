@@ -52,19 +52,19 @@ namespace javax {
 	namespace management {
 
 int32_t MBeanServerDelegate::hashCode() {
-	 return this->$MBeanServerDelegateMBean::hashCode();
+	return this->$MBeanServerDelegateMBean::hashCode();
 }
 
 bool MBeanServerDelegate::equals(Object$* arg0) {
-	 return this->$MBeanServerDelegateMBean::equals(arg0);
+	return this->$MBeanServerDelegateMBean::equals(arg0);
 }
 
 $Object* MBeanServerDelegate::clone() {
-	 return this->$MBeanServerDelegateMBean::clone();
+	return this->$MBeanServerDelegateMBean::clone();
 }
 
 $String* MBeanServerDelegate::toString() {
-	 return this->$MBeanServerDelegateMBean::toString();
+	return this->$MBeanServerDelegateMBean::toString();
 }
 
 void MBeanServerDelegate::finalize() {

@@ -65,7 +65,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* provider) override {
-		 return Option$14::lambda$help$0($cast($PlatformProvider, provider));
+		return Option$14::lambda$help$0($cast($PlatformProvider, provider));
 	}
 };
 $Class* Option$14$$Lambda$lambda$help$0::load$($String* name, bool initialize) {
@@ -95,7 +95,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($LinkedHashSet));
+		return $of($new($LinkedHashSet));
 	}
 };
 $Class* Option$14$$Lambda$LinkedHashSet$1::load$($String* name, bool initialize) {

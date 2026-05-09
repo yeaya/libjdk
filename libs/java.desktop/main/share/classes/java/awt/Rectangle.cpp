@@ -37,11 +37,11 @@ namespace java {
 	namespace awt {
 
 int32_t Rectangle::hashCode() {
-	 return this->$Rectangle2D::hashCode();
+	return this->$Rectangle2D::hashCode();
 }
 
 $Object* Rectangle::clone() {
-	 return this->$Rectangle2D::clone();
+	return this->$Rectangle2D::clone();
 }
 
 void Rectangle::finalize() {

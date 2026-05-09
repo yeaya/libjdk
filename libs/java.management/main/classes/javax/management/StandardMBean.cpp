@@ -107,19 +107,19 @@ namespace javax {
 	namespace management {
 
 int32_t StandardMBean::hashCode() {
-	 return this->$DynamicMBean::hashCode();
+	return this->$DynamicMBean::hashCode();
 }
 
 bool StandardMBean::equals(Object$* arg0) {
-	 return this->$DynamicMBean::equals(arg0);
+	return this->$DynamicMBean::equals(arg0);
 }
 
 $Object* StandardMBean::clone() {
-	 return this->$DynamicMBean::clone();
+	return this->$DynamicMBean::clone();
 }
 
 $String* StandardMBean::toString() {
-	 return this->$DynamicMBean::toString();
+	return this->$DynamicMBean::toString();
 }
 
 void StandardMBean::finalize() {

@@ -22,19 +22,19 @@ namespace sun {
 		namespace pipe {
 
 int32_t SpanShapeRenderer$Simple::hashCode() {
-	 return this->$SpanShapeRenderer::hashCode();
+	return this->$SpanShapeRenderer::hashCode();
 }
 
 bool SpanShapeRenderer$Simple::equals(Object$* arg0) {
-	 return this->$SpanShapeRenderer::equals(arg0);
+	return this->$SpanShapeRenderer::equals(arg0);
 }
 
 $Object* SpanShapeRenderer$Simple::clone() {
-	 return this->$SpanShapeRenderer::clone();
+	return this->$SpanShapeRenderer::clone();
 }
 
 $String* SpanShapeRenderer$Simple::toString() {
-	 return this->$SpanShapeRenderer::toString();
+	return this->$SpanShapeRenderer::toString();
 }
 
 void SpanShapeRenderer$Simple::finalize() {

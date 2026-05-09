@@ -91,7 +91,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* entry) override {
-		 return GroupEntry::lambda$loadDelegateCatalogs$0($cast($BaseEntry, entry));
+		return GroupEntry::lambda$loadDelegateCatalogs$0($cast($BaseEntry, entry));
 	}
 };
 $Class* GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0::load$($String* name, bool initialize) {
@@ -121,7 +121,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* entry) override {
-		 return GroupEntry::lambda$loadDelegateCatalogs$1($cast($BaseEntry, entry));
+		return GroupEntry::lambda$loadDelegateCatalogs$1($cast($BaseEntry, entry));
 	}
 };
 $Class* GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1::load$($String* name, bool initialize) {

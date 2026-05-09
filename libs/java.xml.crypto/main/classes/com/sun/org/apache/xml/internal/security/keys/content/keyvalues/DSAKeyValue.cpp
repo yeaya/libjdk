@@ -59,19 +59,19 @@ namespace com {
 									namespace keyvalues {
 
 int32_t DSAKeyValue::hashCode() {
-	 return this->$SignatureElementProxy::hashCode();
+	return this->$SignatureElementProxy::hashCode();
 }
 
 bool DSAKeyValue::equals(Object$* arg0) {
-	 return this->$SignatureElementProxy::equals(arg0);
+	return this->$SignatureElementProxy::equals(arg0);
 }
 
 $Object* DSAKeyValue::clone() {
-	 return this->$SignatureElementProxy::clone();
+	return this->$SignatureElementProxy::clone();
 }
 
 $String* DSAKeyValue::toString() {
-	 return this->$SignatureElementProxy::toString();
+	return this->$SignatureElementProxy::toString();
 }
 
 void DSAKeyValue::finalize() {

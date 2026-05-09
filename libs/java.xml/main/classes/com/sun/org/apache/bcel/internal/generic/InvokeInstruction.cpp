@@ -36,19 +36,19 @@ namespace com {
 						namespace generic {
 
 $String* InvokeInstruction::toString() {
-	 return this->$FieldOrMethod::toString();
+	return this->$FieldOrMethod::toString();
 }
 
 bool InvokeInstruction::equals(Object$* that) {
-	 return this->$FieldOrMethod::equals(that);
+	return this->$FieldOrMethod::equals(that);
 }
 
 int32_t InvokeInstruction::hashCode() {
-	 return this->$FieldOrMethod::hashCode();
+	return this->$FieldOrMethod::hashCode();
 }
 
 $Object* InvokeInstruction::clone() {
-	 return this->$FieldOrMethod::clone();
+	return this->$FieldOrMethod::clone();
 }
 
 void InvokeInstruction::finalize() {

@@ -47,7 +47,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return MemoryCache::lambda$checkAndStore$0($cast($String, k));
+		return MemoryCache::lambda$checkAndStore$0($cast($String, k));
 	}
 };
 $Class* MemoryCache$$Lambda$lambda$checkAndStore$0::load$($String* name, bool initialize) {

@@ -42,15 +42,15 @@ namespace javax {
 				namespace parser {
 
 int32_t AttributeList::hashCode() {
-	 return this->$DTDConstants::hashCode();
+	return this->$DTDConstants::hashCode();
 }
 
 bool AttributeList::equals(Object$* arg0) {
-	 return this->$DTDConstants::equals(arg0);
+	return this->$DTDConstants::equals(arg0);
 }
 
 $Object* AttributeList::clone() {
-	 return this->$DTDConstants::clone();
+	return this->$DTDConstants::clone();
 }
 
 void AttributeList::finalize() {

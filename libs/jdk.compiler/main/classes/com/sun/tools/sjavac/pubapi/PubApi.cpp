@@ -92,7 +92,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Enum, inst$)->name());
+		return $of($sure($Enum, inst$)->name());
 	}
 };
 $Class* PubApi$$Lambda$name::load$($String* name, bool initialize) {
@@ -122,7 +122,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* source) override {
-		 return $of($StringUtils::toLowerCase($cast($String, source)));
+		return $of($StringUtils::toLowerCase($cast($String, source)));
 	}
 };
 $Class* PubApi$$Lambda$toLowerCase$1::load$($String* name, bool initialize) {
@@ -260,7 +260,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* v) override {
-		 return $of(PubApi::lambda$varLine$0($cast($String, v)));
+		return $of(PubApi::lambda$varLine$0($cast($String, v)));
 	}
 };
 $Class* PubApi$$Lambda$lambda$varLine$0$5::load$($String* name, bool initialize) {
@@ -290,7 +290,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($PubApiTypeParam, inst$)->asString());
+		return $of($sure($PubApiTypeParam, inst$)->asString());
 	}
 };
 $Class* PubApi$$Lambda$asString$6::load$($String* name, bool initialize) {
@@ -320,7 +320,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* type) override {
-		 return $of(PubApi::typeLine($cast($PubType, type)));
+		return $of(PubApi::typeLine($cast($PubType, type)));
 	}
 };
 $Class* PubApi$$Lambda$typeLine$7::load$($String* name, bool initialize) {
@@ -386,7 +386,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* var) override {
-		 return $of(PubApi::varLine($cast($PubVar, var)));
+		return $of(PubApi::varLine($cast($PubVar, var)));
 	}
 };
 $Class* PubApi$$Lambda$varLine$9::load$($String* name, bool initialize) {
@@ -452,7 +452,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* method) override {
-		 return $of(PubApi::methodLine($cast($PubMethod, method)));
+		return $of(PubApi::methodLine($cast($PubMethod, method)));
 	}
 };
 $Class* PubApi$$Lambda$methodLine$11::load$($String* name, bool initialize) {
@@ -482,7 +482,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* td) override {
-		 return $of($TypeDesc::encodeAsString($cast($TypeDesc, td)));
+		return $of($TypeDesc::encodeAsString($cast($TypeDesc, td)));
 	}
 };
 $Class* PubApi$$Lambda$encodeAsString$12::load$($String* name, bool initialize) {
@@ -512,7 +512,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* mod) override {
-		 return $of(PubApi::lambda$asString$2($cast($Modifier, mod)));
+		return $of(PubApi::lambda$asString$2($cast($Modifier, mod)));
 	}
 };
 $Class* PubApi$$Lambda$lambda$asString$2$13::load$($String* name, bool initialize) {
@@ -542,7 +542,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $TypeDesc::decodeString($cast($String, s));
+		return $TypeDesc::decodeString($cast($String, s));
 	}
 };
 $Class* PubApi$$Lambda$decodeString$14::load$($String* name, bool initialize) {
@@ -572,7 +572,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* typeParamString) override {
-		 return PubApi::parseTypeParam($cast($String, typeParamString));
+		return PubApi::parseTypeParam($cast($String, typeParamString));
 	}
 };
 $Class* PubApi$$Lambda$parseTypeParam$15::load$($String* name, bool initialize) {
@@ -602,7 +602,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($String, inst$)->trim());
+		return $of($sure($String, inst$)->trim());
 	}
 };
 $Class* PubApi$$Lambda$trim$16::load$($String* name, bool initialize) {
@@ -632,7 +632,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* source) override {
-		 return $of($StringUtils::toUpperCase($cast($String, source)));
+		return $of($StringUtils::toUpperCase($cast($String, source)));
 	}
 };
 $Class* PubApi$$Lambda$toUpperCase$17::load$($String* name, bool initialize) {
@@ -662,7 +662,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return PubApi::lambda$parseModifiers$3($cast($String, s));
+		return PubApi::lambda$parseModifiers$3($cast($String, s));
 	}
 };
 $Class* PubApi$$Lambda$lambda$parseModifiers$3$18::load$($String* name, bool initialize) {
@@ -692,7 +692,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $of($Modifier::valueOf($cast($String, arg0)));
+		return $of($Modifier::valueOf($cast($String, arg0)));
 	}
 };
 $Class* PubApi$$Lambda$valueOf$19::load$($String* name, bool initialize) {

@@ -88,19 +88,19 @@ namespace com {
 							namespace trax {
 
 int32_t StAXEvent2SAX::hashCode() {
-	 return this->$XMLReader::hashCode();
+	return this->$XMLReader::hashCode();
 }
 
 bool StAXEvent2SAX::equals(Object$* arg0) {
-	 return this->$XMLReader::equals(arg0);
+	return this->$XMLReader::equals(arg0);
 }
 
 $Object* StAXEvent2SAX::clone() {
-	 return this->$XMLReader::clone();
+	return this->$XMLReader::clone();
 }
 
 $String* StAXEvent2SAX::toString() {
-	 return this->$XMLReader::toString();
+	return this->$XMLReader::toString();
 }
 
 void StAXEvent2SAX::finalize() {

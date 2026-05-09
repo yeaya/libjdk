@@ -199,19 +199,19 @@ $Class* SunClipboard$$Lambda$lambda$checkChange$2$2::load$($String* name, bool i
 $Class* SunClipboard$$Lambda$lambda$checkChange$2$2::class$ = nullptr;
 
 int32_t SunClipboard::hashCode() {
-	 return this->$Clipboard::hashCode();
+	return this->$Clipboard::hashCode();
 }
 
 bool SunClipboard::equals(Object$* arg0) {
-	 return this->$Clipboard::equals(arg0);
+	return this->$Clipboard::equals(arg0);
 }
 
 $Object* SunClipboard::clone() {
-	 return this->$Clipboard::clone();
+	return this->$Clipboard::clone();
 }
 
 $String* SunClipboard::toString() {
-	 return this->$Clipboard::toString();
+	return this->$Clipboard::toString();
 }
 
 void SunClipboard::finalize() {

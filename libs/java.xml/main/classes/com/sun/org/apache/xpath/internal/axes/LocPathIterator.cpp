@@ -62,19 +62,19 @@ namespace com {
 						namespace axes {
 
 $Object* LocPathIterator::clone() {
-	 return this->$PredicatedNodeTest::clone();
+	return this->$PredicatedNodeTest::clone();
 }
 
 int32_t LocPathIterator::hashCode() {
-	 return this->$PredicatedNodeTest::hashCode();
+	return this->$PredicatedNodeTest::hashCode();
 }
 
 bool LocPathIterator::equals(Object$* arg0) {
-	 return this->$PredicatedNodeTest::equals(arg0);
+	return this->$PredicatedNodeTest::equals(arg0);
 }
 
 $String* LocPathIterator::toString() {
-	 return this->$PredicatedNodeTest::toString();
+	return this->$PredicatedNodeTest::toString();
 }
 
 void LocPathIterator::finalize() {

@@ -151,7 +151,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DOMReference::lambda$static$0());
+		return $of(DOMReference::lambda$static$0());
 	}
 };
 $Class* DOMReference$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -176,15 +176,15 @@ $Class* DOMReference$$Lambda$lambda$static$0::load$($String* name, bool initiali
 $Class* DOMReference$$Lambda$lambda$static$0::class$ = nullptr;
 
 bool DOMReference::isFeatureSupported($String* feature) {
-	 return this->$DOMStructure::isFeatureSupported(feature);
+	return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMReference::clone() {
-	 return this->$DOMStructure::clone();
+	return this->$DOMStructure::clone();
 }
 
 $String* DOMReference::toString() {
-	 return this->$DOMStructure::toString();
+	return this->$DOMStructure::toString();
 }
 
 void DOMReference::finalize() {

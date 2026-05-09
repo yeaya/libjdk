@@ -117,7 +117,7 @@ namespace com {
 					namespace writers {
 
 $Object* XMLStreamWriterImpl::clone() {
-	 return this->$AbstractMap::clone();
+	return this->$AbstractMap::clone();
 }
 
 void XMLStreamWriterImpl::finalize() {

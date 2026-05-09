@@ -48,19 +48,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t XEmbedCanvasPeer$XEmbedServer::hashCode() {
-	 return this->$XEmbedHelper::hashCode();
+	return this->$XEmbedHelper::hashCode();
 }
 
 bool XEmbedCanvasPeer$XEmbedServer::equals(Object$* arg0) {
-	 return this->$XEmbedHelper::equals(arg0);
+	return this->$XEmbedHelper::equals(arg0);
 }
 
 $Object* XEmbedCanvasPeer$XEmbedServer::clone() {
-	 return this->$XEmbedHelper::clone();
+	return this->$XEmbedHelper::clone();
 }
 
 $String* XEmbedCanvasPeer$XEmbedServer::toString() {
-	 return this->$XEmbedHelper::toString();
+	return this->$XEmbedHelper::toString();
 }
 
 void XEmbedCanvasPeer$XEmbedServer::finalize() {

@@ -47,19 +47,19 @@ namespace com {
 						namespace util {
 
 int32_t SAX2XNI::hashCode() {
-	 return this->$ContentHandler::hashCode();
+	return this->$ContentHandler::hashCode();
 }
 
 bool SAX2XNI::equals(Object$* arg0) {
-	 return this->$ContentHandler::equals(arg0);
+	return this->$ContentHandler::equals(arg0);
 }
 
 $Object* SAX2XNI::clone() {
-	 return this->$ContentHandler::clone();
+	return this->$ContentHandler::clone();
 }
 
 $String* SAX2XNI::toString() {
-	 return this->$ContentHandler::toString();
+	return this->$ContentHandler::toString();
 }
 
 void SAX2XNI::finalize() {

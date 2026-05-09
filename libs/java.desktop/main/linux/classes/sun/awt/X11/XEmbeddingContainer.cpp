@@ -59,19 +59,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t XEmbeddingContainer::hashCode() {
-	 return this->$XEmbedHelper::hashCode();
+	return this->$XEmbedHelper::hashCode();
 }
 
 bool XEmbeddingContainer::equals(Object$* arg0) {
-	 return this->$XEmbedHelper::equals(arg0);
+	return this->$XEmbedHelper::equals(arg0);
 }
 
 $Object* XEmbeddingContainer::clone() {
-	 return this->$XEmbedHelper::clone();
+	return this->$XEmbedHelper::clone();
 }
 
 $String* XEmbeddingContainer::toString() {
-	 return this->$XEmbedHelper::toString();
+	return this->$XEmbedHelper::toString();
 }
 
 void XEmbeddingContainer::finalize() {

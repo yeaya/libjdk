@@ -29,19 +29,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCParenthesizedPattern::toString() {
-	 return this->$JCTree$JCPattern::toString();
+	return this->$JCTree$JCPattern::toString();
 }
 
 $Object* JCTree$JCParenthesizedPattern::clone() {
-	 return this->$JCTree$JCPattern::clone();
+	return this->$JCTree$JCPattern::clone();
 }
 
 int32_t JCTree$JCParenthesizedPattern::hashCode() {
-	 return this->$JCTree$JCPattern::hashCode();
+	return this->$JCTree$JCPattern::hashCode();
 }
 
 bool JCTree$JCParenthesizedPattern::equals(Object$* arg0) {
-	 return this->$JCTree$JCPattern::equals(arg0);
+	return this->$JCTree$JCPattern::equals(arg0);
 }
 
 void JCTree$JCParenthesizedPattern::finalize() {

@@ -41,19 +41,19 @@ namespace javax {
 			namespace metal {
 
 int32_t MetalIconFactory$TreeControlIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool MetalIconFactory$TreeControlIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* MetalIconFactory$TreeControlIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* MetalIconFactory$TreeControlIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void MetalIconFactory$TreeControlIcon::finalize() {

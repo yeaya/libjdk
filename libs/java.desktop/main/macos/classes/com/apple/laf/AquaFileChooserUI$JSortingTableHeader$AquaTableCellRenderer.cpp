@@ -34,19 +34,19 @@ namespace com {
 		namespace laf {
 
 $String* AquaFileChooserUI$JSortingTableHeader$AquaTableCellRenderer::toString() {
-	 return this->$DefaultTableCellRenderer::toString();
+	return this->$DefaultTableCellRenderer::toString();
 }
 
 int32_t AquaFileChooserUI$JSortingTableHeader$AquaTableCellRenderer::hashCode() {
-	 return this->$DefaultTableCellRenderer::hashCode();
+	return this->$DefaultTableCellRenderer::hashCode();
 }
 
 bool AquaFileChooserUI$JSortingTableHeader$AquaTableCellRenderer::equals(Object$* arg0) {
-	 return this->$DefaultTableCellRenderer::equals(arg0);
+	return this->$DefaultTableCellRenderer::equals(arg0);
 }
 
 $Object* AquaFileChooserUI$JSortingTableHeader$AquaTableCellRenderer::clone() {
-	 return this->$DefaultTableCellRenderer::clone();
+	return this->$DefaultTableCellRenderer::clone();
 }
 
 void AquaFileChooserUI$JSortingTableHeader$AquaTableCellRenderer::finalize() {

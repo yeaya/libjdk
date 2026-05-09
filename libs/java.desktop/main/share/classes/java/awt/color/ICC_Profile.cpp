@@ -123,7 +123,7 @@ public:
 		$set(this, fileName, fileName);
 	}
 	virtual $Object* run() override {
-		 return ICC_Profile::lambda$getStandardProfileInputStream$0(fileName);
+		return ICC_Profile::lambda$getStandardProfileInputStream$0(fileName);
 	}
 	$String* fileName = nullptr;
 };

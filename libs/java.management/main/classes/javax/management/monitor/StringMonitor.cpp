@@ -45,7 +45,7 @@ namespace javax {
 		namespace monitor {
 
 $ObjectName* StringMonitor::getObservedObject() {
-	 return this->$Monitor::getObservedObject();
+	return this->$Monitor::getObservedObject();
 }
 
 void StringMonitor::setObservedObject($ObjectName* object) {
@@ -61,15 +61,15 @@ void StringMonitor::removeObservedObject($ObjectName* object) {
 }
 
 bool StringMonitor::containsObservedObject($ObjectName* object) {
-	 return this->$Monitor::containsObservedObject(object);
+	return this->$Monitor::containsObservedObject(object);
 }
 
 $ObjectNameArray* StringMonitor::getObservedObjects() {
-	 return this->$Monitor::getObservedObjects();
+	return this->$Monitor::getObservedObjects();
 }
 
 $String* StringMonitor::getObservedAttribute() {
-	 return this->$Monitor::getObservedAttribute();
+	return this->$Monitor::getObservedAttribute();
 }
 
 void StringMonitor::setObservedAttribute($String* attribute) {
@@ -77,7 +77,7 @@ void StringMonitor::setObservedAttribute($String* attribute) {
 }
 
 int64_t StringMonitor::getGranularityPeriod() {
-	 return this->$Monitor::getGranularityPeriod();
+	return this->$Monitor::getGranularityPeriod();
 }
 
 void StringMonitor::setGranularityPeriod(int64_t period) {
@@ -85,23 +85,23 @@ void StringMonitor::setGranularityPeriod(int64_t period) {
 }
 
 bool StringMonitor::isActive() {
-	 return this->$Monitor::isActive();
+	return this->$Monitor::isActive();
 }
 
 int32_t StringMonitor::hashCode() {
-	 return this->$Monitor::hashCode();
+	return this->$Monitor::hashCode();
 }
 
 bool StringMonitor::equals(Object$* arg0) {
-	 return this->$Monitor::equals(arg0);
+	return this->$Monitor::equals(arg0);
 }
 
 $Object* StringMonitor::clone() {
-	 return this->$Monitor::clone();
+	return this->$Monitor::clone();
 }
 
 $String* StringMonitor::toString() {
-	 return this->$Monitor::toString();
+	return this->$Monitor::toString();
 }
 
 void StringMonitor::finalize() {

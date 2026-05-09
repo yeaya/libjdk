@@ -214,11 +214,11 @@ void LWWindowPeer::print($Graphics* g) {
 }
 
 $Dimension* LWWindowPeer::getPreferredSize() {
-	 return this->$LWContainerPeer::getPreferredSize();
+	return this->$LWContainerPeer::getPreferredSize();
 }
 
 $Dimension* LWWindowPeer::getMinimumSize() {
-	 return this->$LWContainerPeer::getMinimumSize();
+	return this->$LWContainerPeer::getMinimumSize();
 }
 
 void LWWindowPeer::dispose() {
@@ -226,11 +226,11 @@ void LWWindowPeer::dispose() {
 }
 
 $Graphics* LWWindowPeer::getGraphics() {
-	 return this->$LWContainerPeer::getGraphics();
+	return this->$LWContainerPeer::getGraphics();
 }
 
 $ColorModel* LWWindowPeer::getColorModel() {
-	 return this->$LWContainerPeer::getColorModel();
+	return this->$LWContainerPeer::getColorModel();
 }
 
 void LWWindowPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -238,7 +238,7 @@ void LWWindowPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) 
 }
 
 $Image* LWWindowPeer::getBackBuffer() {
-	 return this->$LWContainerPeer::getBackBuffer();
+	return this->$LWContainerPeer::getBackBuffer();
 }
 
 void LWWindowPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -258,7 +258,7 @@ void LWWindowPeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWWindowPeer::isReparentSupported() {
-	 return this->$LWContainerPeer::isReparentSupported();
+	return this->$LWContainerPeer::isReparentSupported();
 }
 
 void LWWindowPeer::coalescePaintEvent($PaintEvent* e) {
@@ -270,11 +270,11 @@ void LWWindowPeer::layout() {
 }
 
 bool LWWindowPeer::isObscured() {
-	 return this->$LWContainerPeer::isObscured();
+	return this->$LWContainerPeer::isObscured();
 }
 
 bool LWWindowPeer::canDetermineObscurity() {
-	 return this->$LWContainerPeer::canDetermineObscurity();
+	return this->$LWContainerPeer::canDetermineObscurity();
 }
 
 void LWWindowPeer::updateCursorImmediately() {
@@ -282,23 +282,23 @@ void LWWindowPeer::updateCursorImmediately() {
 }
 
 bool LWWindowPeer::isFocusable() {
-	 return this->$LWContainerPeer::isFocusable();
+	return this->$LWContainerPeer::isFocusable();
 }
 
 bool LWWindowPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWContainerPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWContainerPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWWindowPeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWContainerPeer::createImage(width, height);
+	return this->$LWContainerPeer::createImage(width, height);
 }
 
 $VolatileImage* LWWindowPeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWContainerPeer::createVolatileImage(w, h);
+	return this->$LWContainerPeer::createVolatileImage(w, h);
 }
 
 bool LWWindowPeer::handlesWheelScrolling() {
-	 return this->$LWContainerPeer::handlesWheelScrolling();
+	return this->$LWContainerPeer::handlesWheelScrolling();
 }
 
 void LWWindowPeer::applyShape($Region* shape) {
@@ -310,15 +310,15 @@ void LWWindowPeer::handleEvent($AWTEvent* e) {
 }
 
 int32_t LWWindowPeer::hashCode() {
-	 return this->$LWContainerPeer::hashCode();
+	return this->$LWContainerPeer::hashCode();
 }
 
 bool LWWindowPeer::equals(Object$* arg0) {
-	 return this->$LWContainerPeer::equals(arg0);
+	return this->$LWContainerPeer::equals(arg0);
 }
 
 $Object* LWWindowPeer::clone() {
-	 return this->$LWContainerPeer::clone();
+	return this->$LWContainerPeer::clone();
 }
 
 void LWWindowPeer::finalize() {

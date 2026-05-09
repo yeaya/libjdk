@@ -69,19 +69,19 @@ namespace com {
 					namespace motif {
 
 $String* MotifInternalFrameTitlePane::toString() {
-	 return this->$BasicInternalFrameTitlePane::toString();
+	return this->$BasicInternalFrameTitlePane::toString();
 }
 
 int32_t MotifInternalFrameTitlePane::hashCode() {
-	 return this->$BasicInternalFrameTitlePane::hashCode();
+	return this->$BasicInternalFrameTitlePane::hashCode();
 }
 
 bool MotifInternalFrameTitlePane::equals(Object$* arg0) {
-	 return this->$BasicInternalFrameTitlePane::equals(arg0);
+	return this->$BasicInternalFrameTitlePane::equals(arg0);
 }
 
 $Object* MotifInternalFrameTitlePane::clone() {
-	 return this->$BasicInternalFrameTitlePane::clone();
+	return this->$BasicInternalFrameTitlePane::clone();
 }
 
 void MotifInternalFrameTitlePane::finalize() {

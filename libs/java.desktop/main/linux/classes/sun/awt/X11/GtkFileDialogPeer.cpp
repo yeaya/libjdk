@@ -135,7 +135,7 @@ void GtkFileDialogPeer::updateMinimumSize() {
 }
 
 $Graphics* GtkFileDialogPeer::getGraphics() {
-	 return this->$XDialogPeer::getGraphics();
+	return this->$XDialogPeer::getGraphics();
 }
 
 void GtkFileDialogPeer::setTitle($String* title) {
@@ -143,7 +143,7 @@ void GtkFileDialogPeer::setTitle($String* title) {
 }
 
 $Insets* GtkFileDialogPeer::getInsets() {
-	 return this->$XDialogPeer::getInsets();
+	return this->$XDialogPeer::getInsets();
 }
 
 void GtkFileDialogPeer::setResizable(bool resizable) {
@@ -151,7 +151,7 @@ void GtkFileDialogPeer::setResizable(bool resizable) {
 }
 
 $Point* GtkFileDialogPeer::getLocationOnScreen() {
-	 return this->$XDialogPeer::getLocationOnScreen();
+	return this->$XDialogPeer::getLocationOnScreen();
 }
 
 void GtkFileDialogPeer::updateIconImages() {
@@ -211,23 +211,23 @@ void GtkFileDialogPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool GtkFileDialogPeer::isReparentSupported() {
-	 return this->$XDialogPeer::isReparentSupported();
+	return this->$XDialogPeer::isReparentSupported();
 }
 
 bool GtkFileDialogPeer::isObscured() {
-	 return this->$XDialogPeer::isObscured();
+	return this->$XDialogPeer::isObscured();
 }
 
 bool GtkFileDialogPeer::canDetermineObscurity() {
-	 return this->$XDialogPeer::canDetermineObscurity();
+	return this->$XDialogPeer::canDetermineObscurity();
 }
 
 bool GtkFileDialogPeer::isFocusable() {
-	 return this->$XDialogPeer::isFocusable();
+	return this->$XDialogPeer::isFocusable();
 }
 
 bool GtkFileDialogPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XDialogPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XDialogPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void GtkFileDialogPeer::setEnabled(bool value) {
@@ -243,11 +243,11 @@ void GtkFileDialogPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* GtkFileDialogPeer::getMinimumSize() {
-	 return this->$XDialogPeer::getMinimumSize();
+	return this->$XDialogPeer::getMinimumSize();
 }
 
 $Dimension* GtkFileDialogPeer::getPreferredSize() {
-	 return this->$XDialogPeer::getPreferredSize();
+	return this->$XDialogPeer::getPreferredSize();
 }
 
 void GtkFileDialogPeer::layout() {
@@ -255,7 +255,7 @@ void GtkFileDialogPeer::layout() {
 }
 
 $FontMetrics* GtkFileDialogPeer::getFontMetrics($Font* font) {
-	 return this->$XDialogPeer::getFontMetrics(font);
+	return this->$XDialogPeer::getFontMetrics(font);
 }
 
 void GtkFileDialogPeer::setFont($Font* f) {
@@ -267,11 +267,11 @@ void GtkFileDialogPeer::updateCursorImmediately() {
 }
 
 $Image* GtkFileDialogPeer::createImage(int32_t width, int32_t height) {
-	 return this->$XDialogPeer::createImage(width, height);
+	return this->$XDialogPeer::createImage(width, height);
 }
 
 $VolatileImage* GtkFileDialogPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XDialogPeer::createVolatileImage(width, height);
+	return this->$XDialogPeer::createVolatileImage(width, height);
 }
 
 void GtkFileDialogPeer::beginValidate() {
@@ -283,7 +283,7 @@ void GtkFileDialogPeer::endValidate() {
 }
 
 bool GtkFileDialogPeer::handlesWheelScrolling() {
-	 return this->$XDialogPeer::handlesWheelScrolling();
+	return this->$XDialogPeer::handlesWheelScrolling();
 }
 
 void GtkFileDialogPeer::beginLayout() {
@@ -303,7 +303,7 @@ void GtkFileDialogPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $Bu
 }
 
 $Image* GtkFileDialogPeer::getBackBuffer() {
-	 return this->$XDialogPeer::getBackBuffer();
+	return this->$XDialogPeer::getBackBuffer();
 }
 
 void GtkFileDialogPeer::destroyBuffers() {
@@ -319,31 +319,31 @@ void GtkFileDialogPeer::applyShape($Region* shape) {
 }
 
 bool GtkFileDialogPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XDialogPeer::updateGraphicsData(gc);
+	return this->$XDialogPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* GtkFileDialogPeer::getColorModel() {
-	 return this->$XDialogPeer::getColorModel();
+	return this->$XDialogPeer::getColorModel();
 }
 
 $GraphicsConfiguration* GtkFileDialogPeer::getGraphicsConfiguration() {
-	 return this->$XDialogPeer::getGraphicsConfiguration();
+	return this->$XDialogPeer::getGraphicsConfiguration();
 }
 
 $String* GtkFileDialogPeer::toString() {
-	 return this->$XDialogPeer::toString();
+	return this->$XDialogPeer::toString();
 }
 
 int32_t GtkFileDialogPeer::hashCode() {
-	 return this->$XDialogPeer::hashCode();
+	return this->$XDialogPeer::hashCode();
 }
 
 bool GtkFileDialogPeer::equals(Object$* arg0) {
-	 return this->$XDialogPeer::equals(arg0);
+	return this->$XDialogPeer::equals(arg0);
 }
 
 $Object* GtkFileDialogPeer::clone() {
-	 return this->$XDialogPeer::clone();
+	return this->$XDialogPeer::clone();
 }
 
 void GtkFileDialogPeer::finalize() {

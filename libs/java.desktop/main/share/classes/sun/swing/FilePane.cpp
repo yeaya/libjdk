@@ -209,19 +209,19 @@ namespace sun {
 	namespace swing {
 
 $String* FilePane::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t FilePane::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool FilePane::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* FilePane::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void FilePane::finalize() {

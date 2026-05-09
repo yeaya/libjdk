@@ -31,19 +31,19 @@ namespace javax {
 	namespace management {
 
 int32_t StandardEmitterMBean::hashCode() {
-	 return this->$StandardMBean::hashCode();
+	return this->$StandardMBean::hashCode();
 }
 
 bool StandardEmitterMBean::equals(Object$* arg0) {
-	 return this->$StandardMBean::equals(arg0);
+	return this->$StandardMBean::equals(arg0);
 }
 
 $Object* StandardEmitterMBean::clone() {
-	 return this->$StandardMBean::clone();
+	return this->$StandardMBean::clone();
 }
 
 $String* StandardEmitterMBean::toString() {
-	 return this->$StandardMBean::toString();
+	return this->$StandardMBean::toString();
 }
 
 void StandardEmitterMBean::finalize() {

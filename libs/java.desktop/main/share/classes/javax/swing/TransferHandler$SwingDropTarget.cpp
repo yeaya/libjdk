@@ -30,19 +30,19 @@ namespace javax {
 	namespace swing {
 
 int32_t TransferHandler$SwingDropTarget::hashCode() {
-	 return this->$DropTarget::hashCode();
+	return this->$DropTarget::hashCode();
 }
 
 bool TransferHandler$SwingDropTarget::equals(Object$* arg0) {
-	 return this->$DropTarget::equals(arg0);
+	return this->$DropTarget::equals(arg0);
 }
 
 $Object* TransferHandler$SwingDropTarget::clone() {
-	 return this->$DropTarget::clone();
+	return this->$DropTarget::clone();
 }
 
 $String* TransferHandler$SwingDropTarget::toString() {
-	 return this->$DropTarget::toString();
+	return this->$DropTarget::toString();
 }
 
 void TransferHandler$SwingDropTarget::finalize() {

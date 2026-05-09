@@ -49,7 +49,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($Vector));
+		return $of($new($Vector));
 	}
 };
 $Class* DefaultComboBoxModelAddAllElementsTest$$Lambda$Vector::load$($String* name, bool initialize) {
@@ -139,7 +139,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($TreeSet));
+		return $of($new($TreeSet));
 	}
 };
 $Class* DefaultComboBoxModelAddAllElementsTest$$Lambda$TreeSet$3::load$($String* name, bool initialize) {
@@ -229,7 +229,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($ArrayList));
+		return $of($new($ArrayList));
 	}
 };
 $Class* DefaultComboBoxModelAddAllElementsTest$$Lambda$ArrayList$6::load$($String* name, bool initialize) {

@@ -203,7 +203,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($String, inst$)->trim());
+		return $of($sure($String, inst$)->trim());
 	}
 };
 $Class* Toolkit$$Lambda$trim::load$($String* name, bool initialize) {
@@ -236,7 +236,7 @@ public:
 		$set(this, providers, providers);
 	}
 	virtual $Object* run() override {
-		 return Toolkit::lambda$loadAssistiveTechnologies$0(cl, names, providers);
+		return Toolkit::lambda$loadAssistiveTechnologies$0(cl, names, providers);
 	}
 	$ClassLoader* cl = nullptr;
 	$Set* names = nullptr;
@@ -276,7 +276,7 @@ public:
 		$set(this, providers, providers);
 	}
 	virtual bool test(Object$* n) override {
-		 return Toolkit::lambda$loadAssistiveTechnologies$1(providers, $cast($String, n));
+		return Toolkit::lambda$loadAssistiveTechnologies$1(providers, $cast($String, n));
 	}
 	$Map* providers = nullptr;
 };

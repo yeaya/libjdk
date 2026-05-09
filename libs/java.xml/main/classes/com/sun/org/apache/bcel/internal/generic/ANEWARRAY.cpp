@@ -36,31 +36,31 @@ namespace com {
 						namespace generic {
 
 $Type* ANEWARRAY::getType($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::getType(cpg);
+	return this->$CPInstruction::getType(cpg);
 }
 
 $String* ANEWARRAY::toString() {
-	 return this->$CPInstruction::toString();
+	return this->$CPInstruction::toString();
 }
 
 int32_t ANEWARRAY::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::consumeStack(cpg);
+	return this->$CPInstruction::consumeStack(cpg);
 }
 
 int32_t ANEWARRAY::produceStack($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::produceStack(cpg);
+	return this->$CPInstruction::produceStack(cpg);
 }
 
 bool ANEWARRAY::equals(Object$* that) {
-	 return this->$CPInstruction::equals(that);
+	return this->$CPInstruction::equals(that);
 }
 
 int32_t ANEWARRAY::hashCode() {
-	 return this->$CPInstruction::hashCode();
+	return this->$CPInstruction::hashCode();
 }
 
 $Object* ANEWARRAY::clone() {
-	 return this->$CPInstruction::clone();
+	return this->$CPInstruction::clone();
 }
 
 void ANEWARRAY::finalize() {

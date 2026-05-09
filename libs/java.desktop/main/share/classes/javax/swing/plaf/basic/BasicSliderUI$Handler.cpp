@@ -38,19 +38,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicSliderUI$Handler::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool BasicSliderUI$Handler::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* BasicSliderUI$Handler::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* BasicSliderUI$Handler::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void BasicSliderUI$Handler::finalize() {

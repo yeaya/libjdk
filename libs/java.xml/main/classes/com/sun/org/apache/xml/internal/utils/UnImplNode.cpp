@@ -61,19 +61,19 @@ namespace com {
 						namespace utils {
 
 int32_t UnImplNode::hashCode() {
-	 return this->$Element::hashCode();
+	return this->$Element::hashCode();
 }
 
 bool UnImplNode::equals(Object$* arg0) {
-	 return this->$Element::equals(arg0);
+	return this->$Element::equals(arg0);
 }
 
 $Object* UnImplNode::clone() {
-	 return this->$Element::clone();
+	return this->$Element::clone();
 }
 
 $String* UnImplNode::toString() {
-	 return this->$Element::toString();
+	return this->$Element::toString();
 }
 
 void UnImplNode::finalize() {

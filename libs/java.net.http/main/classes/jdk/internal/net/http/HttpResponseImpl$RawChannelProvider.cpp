@@ -50,7 +50,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->drainLeftOverBytes());
+		return $of($nc(inst$)->drainLeftOverBytes());
 	}
 	$Http1Exchange* inst$ = nullptr;
 };

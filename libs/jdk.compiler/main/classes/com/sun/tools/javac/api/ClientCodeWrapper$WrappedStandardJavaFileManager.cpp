@@ -54,47 +54,47 @@ namespace com {
 				namespace api {
 
 $ClassLoader* ClientCodeWrapper$WrappedStandardJavaFileManager::getClassLoader($JavaFileManager$Location* location) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::getClassLoader(location);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::getClassLoader(location);
 }
 
 $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::list($JavaFileManager$Location* location, $String* packageName, $Set* kinds, bool recurse) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::list(location, packageName, kinds, recurse);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::list(location, packageName, kinds, recurse);
 }
 
 $String* ClientCodeWrapper$WrappedStandardJavaFileManager::inferBinaryName($JavaFileManager$Location* location, $JavaFileObject* file) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::inferBinaryName(location, file);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::inferBinaryName(location, file);
 }
 
 bool ClientCodeWrapper$WrappedStandardJavaFileManager::isSameFile($FileObject* a, $FileObject* b) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::isSameFile(a, b);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::isSameFile(a, b);
 }
 
 bool ClientCodeWrapper$WrappedStandardJavaFileManager::handleOption($String* current, $Iterator* remaining) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::handleOption(current, remaining);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::handleOption(current, remaining);
 }
 
 bool ClientCodeWrapper$WrappedStandardJavaFileManager::hasLocation($JavaFileManager$Location* location) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::hasLocation(location);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::hasLocation(location);
 }
 
 $JavaFileObject* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileForInput($JavaFileManager$Location* location, $String* className, $JavaFileObject$Kind* kind) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::getJavaFileForInput(location, className, kind);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::getJavaFileForInput(location, className, kind);
 }
 
 $JavaFileObject* ClientCodeWrapper$WrappedStandardJavaFileManager::getJavaFileForOutput($JavaFileManager$Location* location, $String* className, $JavaFileObject$Kind* kind, $FileObject* sibling) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::getJavaFileForOutput(location, className, kind, sibling);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::getJavaFileForOutput(location, className, kind, sibling);
 }
 
 $FileObject* ClientCodeWrapper$WrappedStandardJavaFileManager::getFileForInput($JavaFileManager$Location* location, $String* packageName, $String* relativeName) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::getFileForInput(location, packageName, relativeName);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::getFileForInput(location, packageName, relativeName);
 }
 
 $FileObject* ClientCodeWrapper$WrappedStandardJavaFileManager::getFileForOutput($JavaFileManager$Location* location, $String* packageName, $String* relativeName, $FileObject* sibling) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::getFileForOutput(location, packageName, relativeName, sibling);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::getFileForOutput(location, packageName, relativeName, sibling);
 }
 
 bool ClientCodeWrapper$WrappedStandardJavaFileManager::contains($JavaFileManager$Location* location, $FileObject* file) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::contains(location, file);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::contains(location, file);
 }
 
 void ClientCodeWrapper$WrappedStandardJavaFileManager::flush() {
@@ -106,43 +106,43 @@ void ClientCodeWrapper$WrappedStandardJavaFileManager::close() {
 }
 
 $JavaFileManager$Location* ClientCodeWrapper$WrappedStandardJavaFileManager::getLocationForModule($JavaFileManager$Location* location, $String* moduleName) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::getLocationForModule(location, moduleName);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::getLocationForModule(location, moduleName);
 }
 
 $JavaFileManager$Location* ClientCodeWrapper$WrappedStandardJavaFileManager::getLocationForModule($JavaFileManager$Location* location, $JavaFileObject* fo) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::getLocationForModule(location, fo);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::getLocationForModule(location, fo);
 }
 
 $String* ClientCodeWrapper$WrappedStandardJavaFileManager::inferModuleName($JavaFileManager$Location* location) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::inferModuleName(location);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::inferModuleName(location);
 }
 
 $Iterable* ClientCodeWrapper$WrappedStandardJavaFileManager::listLocationsForModules($JavaFileManager$Location* location) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::listLocationsForModules(location);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::listLocationsForModules(location);
 }
 
 int32_t ClientCodeWrapper$WrappedStandardJavaFileManager::isSupportedOption($String* option) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::isSupportedOption(option);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::isSupportedOption(option);
 }
 
 $String* ClientCodeWrapper$WrappedStandardJavaFileManager::toString() {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::toString();
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::toString();
 }
 
 $ServiceLoader* ClientCodeWrapper$WrappedStandardJavaFileManager::getServiceLoader($JavaFileManager$Location* location, $Class* service) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::getServiceLoader(location, service);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::getServiceLoader(location, service);
 }
 
 int32_t ClientCodeWrapper$WrappedStandardJavaFileManager::hashCode() {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::hashCode();
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::hashCode();
 }
 
 bool ClientCodeWrapper$WrappedStandardJavaFileManager::equals(Object$* arg0) {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::equals(arg0);
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::equals(arg0);
 }
 
 $Object* ClientCodeWrapper$WrappedStandardJavaFileManager::clone() {
-	 return this->$ClientCodeWrapper$WrappedJavaFileManager::clone();
+	return this->$ClientCodeWrapper$WrappedJavaFileManager::clone();
 }
 
 void ClientCodeWrapper$WrappedStandardJavaFileManager::finalize() {

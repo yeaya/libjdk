@@ -135,7 +135,7 @@ void WDialogPeer::updateWindow() {
 }
 
 $Insets* WDialogPeer::getInsets() {
-	 return this->$WWindowPeer::getInsets();
+	return this->$WWindowPeer::getInsets();
 }
 
 void WDialogPeer::paint($Graphics* g) {
@@ -143,15 +143,15 @@ void WDialogPeer::paint($Graphics* g) {
 }
 
 bool WDialogPeer::isObscured() {
-	 return this->$WWindowPeer::isObscured();
+	return this->$WWindowPeer::isObscured();
 }
 
 bool WDialogPeer::canDetermineObscurity() {
-	 return this->$WWindowPeer::canDetermineObscurity();
+	return this->$WWindowPeer::canDetermineObscurity();
 }
 
 $Point* WDialogPeer::getLocationOnScreen() {
-	 return this->$WWindowPeer::getLocationOnScreen();
+	return this->$WWindowPeer::getLocationOnScreen();
 }
 
 void WDialogPeer::setVisible(bool b) {
@@ -175,7 +175,7 @@ void WDialogPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* WDialogPeer::getPreferredSize() {
-	 return this->$WWindowPeer::getPreferredSize();
+	return this->$WWindowPeer::getPreferredSize();
 }
 
 void WDialogPeer::layout() {
@@ -183,27 +183,27 @@ void WDialogPeer::layout() {
 }
 
 bool WDialogPeer::isFocusable() {
-	 return this->$WWindowPeer::isFocusable();
+	return this->$WWindowPeer::isFocusable();
 }
 
 $GraphicsConfiguration* WDialogPeer::getGraphicsConfiguration() {
-	 return this->$WWindowPeer::getGraphicsConfiguration();
+	return this->$WWindowPeer::getGraphicsConfiguration();
 }
 
 bool WDialogPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$WWindowPeer::updateGraphicsData(gc);
+	return this->$WWindowPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* WDialogPeer::getColorModel() {
-	 return this->$WWindowPeer::getColorModel();
+	return this->$WWindowPeer::getColorModel();
 }
 
 $Graphics* WDialogPeer::getGraphics() {
-	 return this->$WWindowPeer::getGraphics();
+	return this->$WWindowPeer::getGraphics();
 }
 
 $FontMetrics* WDialogPeer::getFontMetrics($Font* font) {
-	 return this->$WWindowPeer::getFontMetrics(font);
+	return this->$WWindowPeer::getFontMetrics(font);
 }
 
 void WDialogPeer::setForeground($Color* c) {
@@ -219,19 +219,19 @@ void WDialogPeer::updateCursorImmediately() {
 }
 
 bool WDialogPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$WWindowPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$WWindowPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* WDialogPeer::createImage(int32_t width, int32_t height) {
-	 return this->$WWindowPeer::createImage(width, height);
+	return this->$WWindowPeer::createImage(width, height);
 }
 
 $VolatileImage* WDialogPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$WWindowPeer::createVolatileImage(width, height);
+	return this->$WWindowPeer::createVolatileImage(width, height);
 }
 
 $String* WDialogPeer::toString() {
-	 return this->$WWindowPeer::toString();
+	return this->$WWindowPeer::toString();
 }
 
 void WDialogPeer::beginLayout() {
@@ -251,7 +251,7 @@ void WDialogPeer::endValidate() {
 }
 
 bool WDialogPeer::handlesWheelScrolling() {
-	 return this->$WWindowPeer::handlesWheelScrolling();
+	return this->$WWindowPeer::handlesWheelScrolling();
 }
 
 void WDialogPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -267,7 +267,7 @@ void WDialogPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCa
 }
 
 $Image* WDialogPeer::getBackBuffer() {
-	 return this->$WWindowPeer::getBackBuffer();
+	return this->$WWindowPeer::getBackBuffer();
 }
 
 void WDialogPeer::reparent($ContainerPeer* newNativeParent) {
@@ -275,7 +275,7 @@ void WDialogPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool WDialogPeer::isReparentSupported() {
-	 return this->$WWindowPeer::isReparentSupported();
+	return this->$WWindowPeer::isReparentSupported();
 }
 
 void WDialogPeer::applyShape($Region* shape) {
@@ -291,15 +291,15 @@ void WDialogPeer::dispose() {
 }
 
 int32_t WDialogPeer::hashCode() {
-	 return this->$WWindowPeer::hashCode();
+	return this->$WWindowPeer::hashCode();
 }
 
 bool WDialogPeer::equals(Object$* arg0) {
-	 return this->$WWindowPeer::equals(arg0);
+	return this->$WWindowPeer::equals(arg0);
 }
 
 $Object* WDialogPeer::clone() {
-	 return this->$WWindowPeer::clone();
+	return this->$WWindowPeer::clone();
 }
 
 void WDialogPeer::finalize() {

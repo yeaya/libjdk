@@ -39,23 +39,23 @@ namespace com {
 						namespace generic {
 
 $String* FCONST::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t FCONST::produceStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::produceStack(cpg);
+	return this->$Instruction::produceStack(cpg);
 }
 
 bool FCONST::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t FCONST::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* FCONST::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void FCONST::finalize() {

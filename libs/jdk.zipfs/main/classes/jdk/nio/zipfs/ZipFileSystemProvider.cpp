@@ -100,7 +100,7 @@ public:
 		$set(this, rec$, rec$);
 	}
 	virtual $Object* run() override {
-		 return $of(ZipFileSystemProvider::lambda$removeFileSystem$0(rec$));
+		return $of(ZipFileSystemProvider::lambda$removeFileSystem$0(rec$));
 	}
 	$Path* rec$ = nullptr;
 };

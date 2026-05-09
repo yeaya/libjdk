@@ -69,7 +69,7 @@ public:
 	void init$() {
 	}
 	virtual int64_t applyAsLong(Object$* arg0) override {
-		 return $longValue($Long::valueOf($cast($String, arg0)));
+		return $longValue($Long::valueOf($cast($String, arg0)));
 	}
 };
 $Class* HttpHeaders$$Lambda$valueOf::load$($String* name, bool initialize) {

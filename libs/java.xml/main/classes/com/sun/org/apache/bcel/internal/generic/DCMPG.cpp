@@ -27,27 +27,27 @@ namespace com {
 						namespace generic {
 
 $String* DCMPG::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t DCMPG::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::consumeStack(cpg);
+	return this->$Instruction::consumeStack(cpg);
 }
 
 int32_t DCMPG::produceStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::produceStack(cpg);
+	return this->$Instruction::produceStack(cpg);
 }
 
 bool DCMPG::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t DCMPG::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* DCMPG::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void DCMPG::finalize() {

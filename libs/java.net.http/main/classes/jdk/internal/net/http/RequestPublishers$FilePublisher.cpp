@@ -85,7 +85,7 @@ public:
 		this->finalDefaultFS = finalDefaultFS;
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return RequestPublishers$FilePublisher::lambda$create$0(acc, perm, finalDefaultFS, $cast($Path, p));
+		return RequestPublishers$FilePublisher::lambda$create$0(acc, perm, finalDefaultFS, $cast($Path, p));
 	}
 	$AccessControlContext* acc = nullptr;
 	$Permission* perm = nullptr;
@@ -125,7 +125,7 @@ public:
 		$set(this, path, path);
 	}
 	virtual $Object* run() override {
-		 return RequestPublishers$FilePublisher::lambda$createInputStream$1(path);
+		return RequestPublishers$FilePublisher::lambda$createInputStream$1(path);
 	}
 	$Path* path = nullptr;
 };
@@ -161,7 +161,7 @@ public:
 		$set(this, path, path);
 	}
 	virtual $Object* run() override {
-		 return RequestPublishers$FilePublisher::lambda$createInputStream$2(path);
+		return RequestPublishers$FilePublisher::lambda$createInputStream$2(path);
 	}
 	$Path* path = nullptr;
 };
@@ -197,7 +197,7 @@ public:
 		$set(this, fis, fis);
 	}
 	virtual $Iterator* iterator() override {
-		 return RequestPublishers$FilePublisher::lambda$subscribe$3(fis);
+		return RequestPublishers$FilePublisher::lambda$subscribe$3(fis);
 	}
 	$InputStream* fis = nullptr;
 };

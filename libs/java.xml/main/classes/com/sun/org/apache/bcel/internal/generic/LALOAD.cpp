@@ -25,23 +25,23 @@ namespace com {
 						namespace generic {
 
 $String* LALOAD::toString() {
-	 return this->$ArrayInstruction::toString();
+	return this->$ArrayInstruction::toString();
 }
 
 int32_t LALOAD::produceStack($ConstantPoolGen* cpg) {
-	 return this->$ArrayInstruction::produceStack(cpg);
+	return this->$ArrayInstruction::produceStack(cpg);
 }
 
 bool LALOAD::equals(Object$* that) {
-	 return this->$ArrayInstruction::equals(that);
+	return this->$ArrayInstruction::equals(that);
 }
 
 int32_t LALOAD::hashCode() {
-	 return this->$ArrayInstruction::hashCode();
+	return this->$ArrayInstruction::hashCode();
 }
 
 $Object* LALOAD::clone() {
-	 return this->$ArrayInstruction::clone();
+	return this->$ArrayInstruction::clone();
 }
 
 void LALOAD::finalize() {

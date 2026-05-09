@@ -45,15 +45,15 @@ namespace com {
 						namespace axes {
 
 $String* NodeSequence::toString() {
-	 return this->$XObject::toString();
+	return this->$XObject::toString();
 }
 
 int32_t NodeSequence::hashCode() {
-	 return this->$XObject::hashCode();
+	return this->$XObject::hashCode();
 }
 
 bool NodeSequence::equals(Object$* arg0) {
-	 return this->$XObject::equals(arg0);
+	return this->$XObject::equals(arg0);
 }
 
 void NodeSequence::finalize() {

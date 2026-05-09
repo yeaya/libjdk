@@ -101,7 +101,7 @@ public:
 		$set(this, sm, sm);
 	}
 	virtual bool test(Object$* file) override {
-		 return Win32ShellFolderManager2::lambda$checkFiles$0(sm, $cast($File, file));
+		return Win32ShellFolderManager2::lambda$checkFiles$0(sm, $cast($File, file));
 	}
 	$SecurityManager* sm = nullptr;
 };
@@ -136,7 +136,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return Win32ShellFolderManager2::lambda$checkFiles$1(x$0);
+		return Win32ShellFolderManager2::lambda$checkFiles$1(x$0);
 	}
 };
 $Class* Win32ShellFolderManager2$$Lambda$lambda$checkFiles$1$1::load$($String* name, bool initialize) {

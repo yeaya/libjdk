@@ -24,19 +24,19 @@ namespace javax {
 	namespace swing {
 
 int32_t AbstractListModel::hashCode() {
-	 return this->$ListModel::hashCode();
+	return this->$ListModel::hashCode();
 }
 
 bool AbstractListModel::equals(Object$* arg0) {
-	 return this->$ListModel::equals(arg0);
+	return this->$ListModel::equals(arg0);
 }
 
 $Object* AbstractListModel::clone() {
-	 return this->$ListModel::clone();
+	return this->$ListModel::clone();
 }
 
 $String* AbstractListModel::toString() {
-	 return this->$ListModel::toString();
+	return this->$ListModel::toString();
 }
 
 void AbstractListModel::finalize() {

@@ -15,19 +15,19 @@ namespace com {
 			namespace ldap {
 
 $String* NameClassPairWithControls::toString() {
-	 return this->$NameClassPair::toString();
+	return this->$NameClassPair::toString();
 }
 
 int32_t NameClassPairWithControls::hashCode() {
-	 return this->$NameClassPair::hashCode();
+	return this->$NameClassPair::hashCode();
 }
 
 bool NameClassPairWithControls::equals(Object$* arg0) {
-	 return this->$NameClassPair::equals(arg0);
+	return this->$NameClassPair::equals(arg0);
 }
 
 $Object* NameClassPairWithControls::clone() {
-	 return this->$NameClassPair::clone();
+	return this->$NameClassPair::clone();
 }
 
 void NameClassPairWithControls::finalize() {

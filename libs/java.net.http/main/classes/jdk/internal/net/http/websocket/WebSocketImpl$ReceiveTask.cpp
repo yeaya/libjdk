@@ -149,7 +149,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->clearAutomaticPong());
+		return $of($nc(inst$)->clearAutomaticPong());
 	}
 	$WebSocketImpl* inst$ = nullptr;
 };

@@ -11,19 +11,19 @@ namespace javax {
 		namespace plaf {
 
 int32_t FontUIResource::hashCode() {
-	 return this->$Font::hashCode();
+	return this->$Font::hashCode();
 }
 
 bool FontUIResource::equals(Object$* obj) {
-	 return this->$Font::equals(obj);
+	return this->$Font::equals(obj);
 }
 
 $String* FontUIResource::toString() {
-	 return this->$Font::toString();
+	return this->$Font::toString();
 }
 
 $Object* FontUIResource::clone() {
-	 return this->$Font::clone();
+	return this->$Font::clone();
 }
 
 void FontUIResource::finalize() {

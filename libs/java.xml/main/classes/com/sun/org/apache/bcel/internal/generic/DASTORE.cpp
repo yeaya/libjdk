@@ -25,23 +25,23 @@ namespace com {
 						namespace generic {
 
 $String* DASTORE::toString() {
-	 return this->$ArrayInstruction::toString();
+	return this->$ArrayInstruction::toString();
 }
 
 int32_t DASTORE::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$ArrayInstruction::consumeStack(cpg);
+	return this->$ArrayInstruction::consumeStack(cpg);
 }
 
 bool DASTORE::equals(Object$* that) {
-	 return this->$ArrayInstruction::equals(that);
+	return this->$ArrayInstruction::equals(that);
 }
 
 int32_t DASTORE::hashCode() {
-	 return this->$ArrayInstruction::hashCode();
+	return this->$ArrayInstruction::hashCode();
 }
 
 $Object* DASTORE::clone() {
-	 return this->$ArrayInstruction::clone();
+	return this->$ArrayInstruction::clone();
 }
 
 void DASTORE::finalize() {

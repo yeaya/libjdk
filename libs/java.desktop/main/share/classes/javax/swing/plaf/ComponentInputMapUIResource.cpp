@@ -13,19 +13,19 @@ namespace javax {
 		namespace plaf {
 
 int32_t ComponentInputMapUIResource::hashCode() {
-	 return this->$ComponentInputMap::hashCode();
+	return this->$ComponentInputMap::hashCode();
 }
 
 bool ComponentInputMapUIResource::equals(Object$* arg0) {
-	 return this->$ComponentInputMap::equals(arg0);
+	return this->$ComponentInputMap::equals(arg0);
 }
 
 $Object* ComponentInputMapUIResource::clone() {
-	 return this->$ComponentInputMap::clone();
+	return this->$ComponentInputMap::clone();
 }
 
 $String* ComponentInputMapUIResource::toString() {
-	 return this->$ComponentInputMap::toString();
+	return this->$ComponentInputMap::toString();
 }
 
 void ComponentInputMapUIResource::finalize() {

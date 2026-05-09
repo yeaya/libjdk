@@ -28,23 +28,23 @@ namespace com {
 						namespace generic {
 
 $String* ACONST_NULL::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t ACONST_NULL::produceStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::produceStack(cpg);
+	return this->$Instruction::produceStack(cpg);
 }
 
 bool ACONST_NULL::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t ACONST_NULL::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* ACONST_NULL::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void ACONST_NULL::finalize() {

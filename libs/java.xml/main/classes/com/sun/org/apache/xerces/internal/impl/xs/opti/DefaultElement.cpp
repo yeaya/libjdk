@@ -35,67 +35,67 @@ namespace com {
 								namespace opti {
 
 $String* DefaultElement::getNodeName() {
-	 return this->$NodeImpl::getNodeName();
+	return this->$NodeImpl::getNodeName();
 }
 
 $String* DefaultElement::getNamespaceURI() {
-	 return this->$NodeImpl::getNamespaceURI();
+	return this->$NodeImpl::getNamespaceURI();
 }
 
 $String* DefaultElement::getPrefix() {
-	 return this->$NodeImpl::getPrefix();
+	return this->$NodeImpl::getPrefix();
 }
 
 $String* DefaultElement::getLocalName() {
-	 return this->$NodeImpl::getLocalName();
+	return this->$NodeImpl::getLocalName();
 }
 
 int16_t DefaultElement::getNodeType() {
-	 return this->$NodeImpl::getNodeType();
+	return this->$NodeImpl::getNodeType();
 }
 
 $String* DefaultElement::getNodeValue() {
-	 return this->$NodeImpl::getNodeValue();
+	return this->$NodeImpl::getNodeValue();
 }
 
 $Node* DefaultElement::getParentNode() {
-	 return this->$NodeImpl::getParentNode();
+	return this->$NodeImpl::getParentNode();
 }
 
 $NodeList* DefaultElement::getChildNodes() {
-	 return this->$NodeImpl::getChildNodes();
+	return this->$NodeImpl::getChildNodes();
 }
 
 $Node* DefaultElement::getFirstChild() {
-	 return this->$NodeImpl::getFirstChild();
+	return this->$NodeImpl::getFirstChild();
 }
 
 $Node* DefaultElement::getLastChild() {
-	 return this->$NodeImpl::getLastChild();
+	return this->$NodeImpl::getLastChild();
 }
 
 $Node* DefaultElement::getPreviousSibling() {
-	 return this->$NodeImpl::getPreviousSibling();
+	return this->$NodeImpl::getPreviousSibling();
 }
 
 $Node* DefaultElement::getNextSibling() {
-	 return this->$NodeImpl::getNextSibling();
+	return this->$NodeImpl::getNextSibling();
 }
 
 $NamedNodeMap* DefaultElement::getAttributes() {
-	 return this->$NodeImpl::getAttributes();
+	return this->$NodeImpl::getAttributes();
 }
 
 $Document* DefaultElement::getOwnerDocument() {
-	 return this->$NodeImpl::getOwnerDocument();
+	return this->$NodeImpl::getOwnerDocument();
 }
 
 bool DefaultElement::hasChildNodes() {
-	 return this->$NodeImpl::hasChildNodes();
+	return this->$NodeImpl::hasChildNodes();
 }
 
 $Node* DefaultElement::cloneNode(bool deep) {
-	 return this->$NodeImpl::cloneNode(deep);
+	return this->$NodeImpl::cloneNode(deep);
 }
 
 void DefaultElement::normalize() {
@@ -103,15 +103,15 @@ void DefaultElement::normalize() {
 }
 
 bool DefaultElement::isSupported($String* feature, $String* version) {
-	 return this->$NodeImpl::isSupported(feature, version);
+	return this->$NodeImpl::isSupported(feature, version);
 }
 
 $String* DefaultElement::getBaseURI() {
-	 return this->$NodeImpl::getBaseURI();
+	return this->$NodeImpl::getBaseURI();
 }
 
 bool DefaultElement::hasAttributes() {
-	 return this->$NodeImpl::hasAttributes();
+	return this->$NodeImpl::hasAttributes();
 }
 
 void DefaultElement::setNodeValue($String* nodeValue) {
@@ -119,19 +119,19 @@ void DefaultElement::setNodeValue($String* nodeValue) {
 }
 
 $Node* DefaultElement::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$NodeImpl::insertBefore(newChild, refChild);
+	return this->$NodeImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DefaultElement::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$NodeImpl::replaceChild(newChild, oldChild);
+	return this->$NodeImpl::replaceChild(newChild, oldChild);
 }
 
 $Node* DefaultElement::removeChild($Node* oldChild) {
-	 return this->$NodeImpl::removeChild(oldChild);
+	return this->$NodeImpl::removeChild(oldChild);
 }
 
 $Node* DefaultElement::appendChild($Node* newChild) {
-	 return this->$NodeImpl::appendChild(newChild);
+	return this->$NodeImpl::appendChild(newChild);
 }
 
 void DefaultElement::setPrefix($String* prefix) {
@@ -139,11 +139,11 @@ void DefaultElement::setPrefix($String* prefix) {
 }
 
 int16_t DefaultElement::compareDocumentPosition($Node* other) {
-	 return this->$NodeImpl::compareDocumentPosition(other);
+	return this->$NodeImpl::compareDocumentPosition(other);
 }
 
 $String* DefaultElement::getTextContent() {
-	 return this->$NodeImpl::getTextContent();
+	return this->$NodeImpl::getTextContent();
 }
 
 void DefaultElement::setTextContent($String* textContent) {
@@ -151,51 +151,51 @@ void DefaultElement::setTextContent($String* textContent) {
 }
 
 bool DefaultElement::isSameNode($Node* other) {
-	 return this->$NodeImpl::isSameNode(other);
+	return this->$NodeImpl::isSameNode(other);
 }
 
 $String* DefaultElement::lookupPrefix($String* namespaceURI) {
-	 return this->$NodeImpl::lookupPrefix(namespaceURI);
+	return this->$NodeImpl::lookupPrefix(namespaceURI);
 }
 
 bool DefaultElement::isDefaultNamespace($String* namespaceURI) {
-	 return this->$NodeImpl::isDefaultNamespace(namespaceURI);
+	return this->$NodeImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DefaultElement::lookupNamespaceURI($String* prefix) {
-	 return this->$NodeImpl::lookupNamespaceURI(prefix);
+	return this->$NodeImpl::lookupNamespaceURI(prefix);
 }
 
 bool DefaultElement::isEqualNode($Node* arg) {
-	 return this->$NodeImpl::isEqualNode(arg);
+	return this->$NodeImpl::isEqualNode(arg);
 }
 
 $Object* DefaultElement::getFeature($String* feature, $String* version) {
-	 return this->$NodeImpl::getFeature(feature, version);
+	return this->$NodeImpl::getFeature(feature, version);
 }
 
 $Object* DefaultElement::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$NodeImpl::setUserData(key, data, handler);
+	return this->$NodeImpl::setUserData(key, data, handler);
 }
 
 $Object* DefaultElement::getUserData($String* key) {
-	 return this->$NodeImpl::getUserData(key);
+	return this->$NodeImpl::getUserData(key);
 }
 
 int32_t DefaultElement::hashCode() {
-	 return this->$NodeImpl::hashCode();
+	return this->$NodeImpl::hashCode();
 }
 
 bool DefaultElement::equals(Object$* arg0) {
-	 return this->$NodeImpl::equals(arg0);
+	return this->$NodeImpl::equals(arg0);
 }
 
 $Object* DefaultElement::clone() {
-	 return this->$NodeImpl::clone();
+	return this->$NodeImpl::clone();
 }
 
 $String* DefaultElement::toString() {
-	 return this->$NodeImpl::toString();
+	return this->$NodeImpl::toString();
 }
 
 void DefaultElement::finalize() {

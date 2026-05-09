@@ -21,15 +21,15 @@ namespace com {
 						namespace utils {
 
 int32_t NodeVector::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 bool NodeVector::equals(Object$* arg0) {
-	 return this->$Serializable::equals(arg0);
+	return this->$Serializable::equals(arg0);
 }
 
 $String* NodeVector::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void NodeVector::finalize() {

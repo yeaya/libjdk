@@ -15,19 +15,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaInternalFrameUI$CompoundUIBorder::hashCode() {
-	 return this->$CompoundBorder::hashCode();
+	return this->$CompoundBorder::hashCode();
 }
 
 bool AquaInternalFrameUI$CompoundUIBorder::equals(Object$* arg0) {
-	 return this->$CompoundBorder::equals(arg0);
+	return this->$CompoundBorder::equals(arg0);
 }
 
 $Object* AquaInternalFrameUI$CompoundUIBorder::clone() {
-	 return this->$CompoundBorder::clone();
+	return this->$CompoundBorder::clone();
 }
 
 $String* AquaInternalFrameUI$CompoundUIBorder::toString() {
-	 return this->$CompoundBorder::toString();
+	return this->$CompoundBorder::toString();
 }
 
 void AquaInternalFrameUI$CompoundUIBorder::finalize() {

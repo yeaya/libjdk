@@ -229,7 +229,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual bool test(Object$* comp) override {
-		 return Test8051548::lambda$findComponent$6(name, $cast($Component, comp));
+		return Test8051548::lambda$findComponent$6(name, $cast($Component, comp));
 	}
 	$String* name = nullptr;
 };
@@ -265,7 +265,7 @@ public:
 		$set(this, value, value);
 	}
 	virtual bool test(Object$* comp) override {
-		 return Test8051548::lambda$findTextField$7(value, $cast($Component, comp));
+		return Test8051548::lambda$findTextField$7(value, $cast($Component, comp));
 	}
 	$String* value = nullptr;
 };

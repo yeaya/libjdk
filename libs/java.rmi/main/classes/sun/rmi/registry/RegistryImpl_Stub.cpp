@@ -47,19 +47,19 @@ namespace sun {
 		namespace registry {
 
 int32_t RegistryImpl_Stub::hashCode() {
-	 return this->$RemoteStub::hashCode();
+	return this->$RemoteStub::hashCode();
 }
 
 bool RegistryImpl_Stub::equals(Object$* obj) {
-	 return this->$RemoteStub::equals(obj);
+	return this->$RemoteStub::equals(obj);
 }
 
 $String* RegistryImpl_Stub::toString() {
-	 return this->$RemoteStub::toString();
+	return this->$RemoteStub::toString();
 }
 
 $Object* RegistryImpl_Stub::clone() {
-	 return this->$RemoteStub::clone();
+	return this->$RemoteStub::clone();
 }
 
 void RegistryImpl_Stub::finalize() {

@@ -55,19 +55,19 @@ namespace sun {
 		namespace X11 {
 
 $String* XTextFieldPeer$XAWTTextField::toString() {
-	 return this->$JPasswordField::toString();
+	return this->$JPasswordField::toString();
 }
 
 int32_t XTextFieldPeer$XAWTTextField::hashCode() {
-	 return this->$JPasswordField::hashCode();
+	return this->$JPasswordField::hashCode();
 }
 
 bool XTextFieldPeer$XAWTTextField::equals(Object$* arg0) {
-	 return this->$JPasswordField::equals(arg0);
+	return this->$JPasswordField::equals(arg0);
 }
 
 $Object* XTextFieldPeer$XAWTTextField::clone() {
-	 return this->$JPasswordField::clone();
+	return this->$JPasswordField::clone();
 }
 
 void XTextFieldPeer$XAWTTextField::finalize() {

@@ -74,7 +74,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$StringBuilder* inst$ = nullptr;
 };
@@ -104,7 +104,7 @@ $Class* CounterMonitor$$Lambda$toString::load$($String* name, bool initialize) {
 $Class* CounterMonitor$$Lambda$toString::class$ = nullptr;
 
 $ObjectName* CounterMonitor::getObservedObject() {
-	 return this->$Monitor::getObservedObject();
+	return this->$Monitor::getObservedObject();
 }
 
 void CounterMonitor::setObservedObject($ObjectName* object) {
@@ -120,15 +120,15 @@ void CounterMonitor::removeObservedObject($ObjectName* object) {
 }
 
 bool CounterMonitor::containsObservedObject($ObjectName* object) {
-	 return this->$Monitor::containsObservedObject(object);
+	return this->$Monitor::containsObservedObject(object);
 }
 
 $ObjectNameArray* CounterMonitor::getObservedObjects() {
-	 return this->$Monitor::getObservedObjects();
+	return this->$Monitor::getObservedObjects();
 }
 
 $String* CounterMonitor::getObservedAttribute() {
-	 return this->$Monitor::getObservedAttribute();
+	return this->$Monitor::getObservedAttribute();
 }
 
 void CounterMonitor::setObservedAttribute($String* attribute) {
@@ -136,7 +136,7 @@ void CounterMonitor::setObservedAttribute($String* attribute) {
 }
 
 int64_t CounterMonitor::getGranularityPeriod() {
-	 return this->$Monitor::getGranularityPeriod();
+	return this->$Monitor::getGranularityPeriod();
 }
 
 void CounterMonitor::setGranularityPeriod(int64_t period) {
@@ -144,23 +144,23 @@ void CounterMonitor::setGranularityPeriod(int64_t period) {
 }
 
 bool CounterMonitor::isActive() {
-	 return this->$Monitor::isActive();
+	return this->$Monitor::isActive();
 }
 
 int32_t CounterMonitor::hashCode() {
-	 return this->$Monitor::hashCode();
+	return this->$Monitor::hashCode();
 }
 
 bool CounterMonitor::equals(Object$* arg0) {
-	 return this->$Monitor::equals(arg0);
+	return this->$Monitor::equals(arg0);
 }
 
 $Object* CounterMonitor::clone() {
-	 return this->$Monitor::clone();
+	return this->$Monitor::clone();
 }
 
 $String* CounterMonitor::toString() {
-	 return this->$Monitor::toString();
+	return this->$Monitor::toString();
 }
 
 void CounterMonitor::finalize() {

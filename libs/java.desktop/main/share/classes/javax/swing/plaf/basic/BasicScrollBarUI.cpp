@@ -111,19 +111,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicScrollBarUI::hashCode() {
-	 return this->$ScrollBarUI::hashCode();
+	return this->$ScrollBarUI::hashCode();
 }
 
 bool BasicScrollBarUI::equals(Object$* arg0) {
-	 return this->$ScrollBarUI::equals(arg0);
+	return this->$ScrollBarUI::equals(arg0);
 }
 
 $Object* BasicScrollBarUI::clone() {
-	 return this->$ScrollBarUI::clone();
+	return this->$ScrollBarUI::clone();
 }
 
 $String* BasicScrollBarUI::toString() {
-	 return this->$ScrollBarUI::toString();
+	return this->$ScrollBarUI::toString();
 }
 
 void BasicScrollBarUI::finalize() {

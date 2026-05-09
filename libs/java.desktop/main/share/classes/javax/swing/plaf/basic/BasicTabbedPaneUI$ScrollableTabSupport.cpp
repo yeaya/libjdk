@@ -44,15 +44,15 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicTabbedPaneUI$ScrollableTabSupport::hashCode() {
-	 return this->$ActionListener::hashCode();
+	return this->$ActionListener::hashCode();
 }
 
 bool BasicTabbedPaneUI$ScrollableTabSupport::equals(Object$* arg0) {
-	 return this->$ActionListener::equals(arg0);
+	return this->$ActionListener::equals(arg0);
 }
 
 $Object* BasicTabbedPaneUI$ScrollableTabSupport::clone() {
-	 return this->$ActionListener::clone();
+	return this->$ActionListener::clone();
 }
 
 void BasicTabbedPaneUI$ScrollableTabSupport::finalize() {

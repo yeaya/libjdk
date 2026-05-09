@@ -130,7 +130,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(XMLUtils::lambda$static$0());
+		return $of(XMLUtils::lambda$static$0());
 	}
 };
 $Class* XMLUtils$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -160,7 +160,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return XMLUtils::lambda$static$1();
+		return XMLUtils::lambda$static$1();
 	}
 };
 $Class* XMLUtils$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
@@ -191,7 +191,7 @@ public:
 		$set(this, signatureElement, signatureElement);
 	}
 	virtual bool test(Object$* inputNode) override {
-		 return XMLUtils::lambda$excludeNodeFromSet$2(signatureElement, $cast($Node, inputNode));
+		return XMLUtils::lambda$excludeNodeFromSet$2(signatureElement, $cast($Node, inputNode));
 	}
 	$Node* signatureElement = nullptr;
 };

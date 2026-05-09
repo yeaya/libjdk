@@ -46,19 +46,19 @@ namespace sun {
 		namespace im {
 
 int32_t CompositionAreaHandler::hashCode() {
-	 return this->$InputMethodListener::hashCode();
+	return this->$InputMethodListener::hashCode();
 }
 
 bool CompositionAreaHandler::equals(Object$* arg0) {
-	 return this->$InputMethodListener::equals(arg0);
+	return this->$InputMethodListener::equals(arg0);
 }
 
 $Object* CompositionAreaHandler::clone() {
-	 return this->$InputMethodListener::clone();
+	return this->$InputMethodListener::clone();
 }
 
 $String* CompositionAreaHandler::toString() {
-	 return this->$InputMethodListener::toString();
+	return this->$InputMethodListener::toString();
 }
 
 void CompositionAreaHandler::finalize() {

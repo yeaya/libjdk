@@ -19,19 +19,19 @@ namespace sun {
 		namespace util {
 
 bool IdentityArrayList::equals(Object$* arg0) {
-	 return this->$AbstractList::equals(arg0);
+	return this->$AbstractList::equals(arg0);
 }
 
 int32_t IdentityArrayList::hashCode() {
-	 return this->$AbstractList::hashCode();
+	return this->$AbstractList::hashCode();
 }
 
 $String* IdentityArrayList::toString() {
-	 return this->$AbstractList::toString();
+	return this->$AbstractList::toString();
 }
 
 $Object* IdentityArrayList::clone() {
-	 return this->$AbstractList::clone();
+	return this->$AbstractList::clone();
 }
 
 void IdentityArrayList::finalize() {

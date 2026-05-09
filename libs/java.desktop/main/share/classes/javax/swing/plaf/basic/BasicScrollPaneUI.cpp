@@ -97,19 +97,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicScrollPaneUI::hashCode() {
-	 return this->$ScrollPaneUI::hashCode();
+	return this->$ScrollPaneUI::hashCode();
 }
 
 bool BasicScrollPaneUI::equals(Object$* arg0) {
-	 return this->$ScrollPaneUI::equals(arg0);
+	return this->$ScrollPaneUI::equals(arg0);
 }
 
 $Object* BasicScrollPaneUI::clone() {
-	 return this->$ScrollPaneUI::clone();
+	return this->$ScrollPaneUI::clone();
 }
 
 $String* BasicScrollPaneUI::toString() {
-	 return this->$ScrollPaneUI::toString();
+	return this->$ScrollPaneUI::toString();
 }
 
 void BasicScrollPaneUI::finalize() {

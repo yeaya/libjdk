@@ -22,19 +22,19 @@ namespace javax {
 	namespace swing {
 
 $String* JSlider$1SmartHashtable$LabelUIResource::toString() {
-	 return this->$JLabel::toString();
+	return this->$JLabel::toString();
 }
 
 int32_t JSlider$1SmartHashtable$LabelUIResource::hashCode() {
-	 return this->$JLabel::hashCode();
+	return this->$JLabel::hashCode();
 }
 
 bool JSlider$1SmartHashtable$LabelUIResource::equals(Object$* arg0) {
-	 return this->$JLabel::equals(arg0);
+	return this->$JLabel::equals(arg0);
 }
 
 $Object* JSlider$1SmartHashtable$LabelUIResource::clone() {
-	 return this->$JLabel::clone();
+	return this->$JLabel::clone();
 }
 
 void JSlider$1SmartHashtable$LabelUIResource::finalize() {

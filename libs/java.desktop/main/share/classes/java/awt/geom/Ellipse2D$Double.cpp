@@ -18,19 +18,19 @@ namespace java {
 		namespace geom {
 
 int32_t Ellipse2D$Double::hashCode() {
-	 return this->$Ellipse2D::hashCode();
+	return this->$Ellipse2D::hashCode();
 }
 
 bool Ellipse2D$Double::equals(Object$* obj) {
-	 return this->$Ellipse2D::equals(obj);
+	return this->$Ellipse2D::equals(obj);
 }
 
 $Object* Ellipse2D$Double::clone() {
-	 return this->$Ellipse2D::clone();
+	return this->$Ellipse2D::clone();
 }
 
 $String* Ellipse2D$Double::toString() {
-	 return this->$Ellipse2D::toString();
+	return this->$Ellipse2D::toString();
 }
 
 void Ellipse2D$Double::finalize() {

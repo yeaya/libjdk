@@ -47,19 +47,19 @@ namespace com {
 				namespace code {
 
 $Object* Type$ArrayType::poolKey($Types* types) {
-	 return this->$Type::poolKey(types);
+	return this->$Type::poolKey(types);
 }
 
 $Annotation* Type$ArrayType::getAnnotation($Class* annotationType) {
-	 return this->$Type::getAnnotation(annotationType);
+	return this->$Type::getAnnotation(annotationType);
 }
 
 $AnnotationArray* Type$ArrayType::getAnnotationsByType($Class* annotationType) {
-	 return this->$Type::getAnnotationsByType(annotationType);
+	return this->$Type::getAnnotationsByType(annotationType);
 }
 
 $Object* Type$ArrayType::clone() {
-	 return this->$Type::clone();
+	return this->$Type::clone();
 }
 
 void Type$ArrayType::finalize() {

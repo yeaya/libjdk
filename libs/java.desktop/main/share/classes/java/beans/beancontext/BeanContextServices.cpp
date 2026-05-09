@@ -21,19 +21,19 @@ namespace java {
 		namespace beancontext {
 
 int32_t BeanContextServices::hashCode() {
-	 return this->$BeanContext::hashCode();
+	return this->$BeanContext::hashCode();
 }
 
 bool BeanContextServices::equals(Object$* arg0) {
-	 return this->$BeanContext::equals(arg0);
+	return this->$BeanContext::equals(arg0);
 }
 
 $Object* BeanContextServices::clone() {
-	 return this->$BeanContext::clone();
+	return this->$BeanContext::clone();
 }
 
 $String* BeanContextServices::toString() {
-	 return this->$BeanContext::toString();
+	return this->$BeanContext::toString();
 }
 
 void BeanContextServices::finalize() {

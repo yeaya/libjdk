@@ -16,19 +16,19 @@ namespace com {
 							namespace parser {
 
 int32_t XMLDTDContentModelFilter::hashCode() {
-	 return this->$XMLDTDContentModelHandler::hashCode();
+	return this->$XMLDTDContentModelHandler::hashCode();
 }
 
 bool XMLDTDContentModelFilter::equals(Object$* arg0) {
-	 return this->$XMLDTDContentModelHandler::equals(arg0);
+	return this->$XMLDTDContentModelHandler::equals(arg0);
 }
 
 $Object* XMLDTDContentModelFilter::clone() {
-	 return this->$XMLDTDContentModelHandler::clone();
+	return this->$XMLDTDContentModelHandler::clone();
 }
 
 $String* XMLDTDContentModelFilter::toString() {
-	 return this->$XMLDTDContentModelHandler::toString();
+	return this->$XMLDTDContentModelHandler::toString();
 }
 
 void XMLDTDContentModelFilter::finalize() {

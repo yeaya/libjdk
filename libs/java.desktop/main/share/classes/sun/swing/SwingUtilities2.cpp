@@ -256,7 +256,7 @@ public:
 		$set(this, imageFile, imageFile);
 	}
 	virtual $Object* createValue($UIDefaults* table) override {
-		 return SwingUtilities2::lambda$makeIcon$1(enablePrivileges, baseClass, rootClass, imageFile, table);
+		return SwingUtilities2::lambda$makeIcon$1(enablePrivileges, baseClass, rootClass, imageFile, table);
 	}
 	bool enablePrivileges = false;
 	$Class* baseClass = nullptr;
@@ -300,7 +300,7 @@ public:
 		$set(this, imageFile, imageFile);
 	}
 	virtual $Object* run() override {
-		 return SwingUtilities2::lambda$makeIcon$0(baseClass, rootClass, imageFile);
+		return SwingUtilities2::lambda$makeIcon$0(baseClass, rootClass, imageFile);
 	}
 	$Class* baseClass = nullptr;
 	$Class* rootClass = nullptr;

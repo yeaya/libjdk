@@ -24,19 +24,19 @@ namespace jdk {
 				namespace common {
 
 int32_t FlowTube::hashCode() {
-	 return this->$Flow$Publisher::hashCode();
+	return this->$Flow$Publisher::hashCode();
 }
 
 bool FlowTube::equals(Object$* arg0) {
-	 return this->$Flow$Publisher::equals(arg0);
+	return this->$Flow$Publisher::equals(arg0);
 }
 
 $Object* FlowTube::clone() {
-	 return this->$Flow$Publisher::clone();
+	return this->$Flow$Publisher::clone();
 }
 
 $String* FlowTube::toString() {
-	 return this->$Flow$Publisher::toString();
+	return this->$Flow$Publisher::toString();
 }
 
 void FlowTube::finalize() {

@@ -89,7 +89,7 @@ void BeanContextSupport::setBeanContext($BeanContext* bc) {
 }
 
 $BeanContext* BeanContextSupport::getBeanContext() {
-	 return this->$BeanContextChildSupport::getBeanContext();
+	return this->$BeanContextChildSupport::getBeanContext();
 }
 
 void BeanContextSupport::addPropertyChangeListener($String* name, $PropertyChangeListener* pcl) {
@@ -109,19 +109,19 @@ void BeanContextSupport::removeVetoableChangeListener($String* name, $VetoableCh
 }
 
 int32_t BeanContextSupport::hashCode() {
-	 return this->$BeanContextChildSupport::hashCode();
+	return this->$BeanContextChildSupport::hashCode();
 }
 
 bool BeanContextSupport::equals(Object$* arg0) {
-	 return this->$BeanContextChildSupport::equals(arg0);
+	return this->$BeanContextChildSupport::equals(arg0);
 }
 
 $Object* BeanContextSupport::clone() {
-	 return this->$BeanContextChildSupport::clone();
+	return this->$BeanContextChildSupport::clone();
 }
 
 $String* BeanContextSupport::toString() {
-	 return this->$BeanContextChildSupport::toString();
+	return this->$BeanContextChildSupport::toString();
 }
 
 void BeanContextSupport::finalize() {

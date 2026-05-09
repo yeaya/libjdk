@@ -63,19 +63,19 @@ namespace sun {
 		namespace im {
 
 int32_t InputMethodContext::hashCode() {
-	 return this->$InputContext::hashCode();
+	return this->$InputContext::hashCode();
 }
 
 bool InputMethodContext::equals(Object$* arg0) {
-	 return this->$InputContext::equals(arg0);
+	return this->$InputContext::equals(arg0);
 }
 
 $Object* InputMethodContext::clone() {
-	 return this->$InputContext::clone();
+	return this->$InputContext::clone();
 }
 
 $String* InputMethodContext::toString() {
-	 return this->$InputContext::toString();
+	return this->$InputContext::toString();
 }
 
 void InputMethodContext::finalize() {

@@ -18,19 +18,19 @@ namespace java {
 		namespace beancontext {
 
 int32_t BeanContext::hashCode() {
-	 return this->$BeanContextChild::hashCode();
+	return this->$BeanContextChild::hashCode();
 }
 
 bool BeanContext::equals(Object$* arg0) {
-	 return this->$BeanContextChild::equals(arg0);
+	return this->$BeanContextChild::equals(arg0);
 }
 
 $Object* BeanContext::clone() {
-	 return this->$BeanContextChild::clone();
+	return this->$BeanContextChild::clone();
 }
 
 $String* BeanContext::toString() {
-	 return this->$BeanContextChild::toString();
+	return this->$BeanContextChild::toString();
 }
 
 void BeanContext::finalize() {

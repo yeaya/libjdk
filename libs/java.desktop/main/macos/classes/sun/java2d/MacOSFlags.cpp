@@ -39,7 +39,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return MacOSFlags::lambda$initJavaFlags$0();
+		return MacOSFlags::lambda$initJavaFlags$0();
 	}
 };
 $Class* MacOSFlags$$Lambda$lambda$initJavaFlags$0::load$($String* name, bool initialize) {

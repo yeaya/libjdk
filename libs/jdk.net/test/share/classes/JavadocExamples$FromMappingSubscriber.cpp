@@ -38,7 +38,7 @@ public:
 		this->targetType = targetType;
 	}
 	virtual $Object* apply(Object$* is) override {
-		 return JavadocExamples$FromMappingSubscriber::lambda$asJSON$1(targetType, $cast($InputStream, is));
+		return JavadocExamples$FromMappingSubscriber::lambda$asJSON$1(targetType, $cast($InputStream, is));
 	}
 	$Class* targetType = nullptr;
 };
@@ -75,7 +75,7 @@ public:
 		this->targetType = targetType;
 	}
 	virtual $Object* get() override {
-		 return JavadocExamples$FromMappingSubscriber::lambda$asJSON$0(is, targetType);
+		return JavadocExamples$FromMappingSubscriber::lambda$asJSON$0(is, targetType);
 	}
 	$InputStream* is = nullptr;
 	$Class* targetType = nullptr;

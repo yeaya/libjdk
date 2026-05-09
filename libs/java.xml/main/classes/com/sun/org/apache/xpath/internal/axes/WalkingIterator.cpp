@@ -41,15 +41,15 @@ namespace com {
 						namespace axes {
 
 int32_t WalkingIterator::hashCode() {
-	 return this->$LocPathIterator::hashCode();
+	return this->$LocPathIterator::hashCode();
 }
 
 bool WalkingIterator::equals(Object$* arg0) {
-	 return this->$LocPathIterator::equals(arg0);
+	return this->$LocPathIterator::equals(arg0);
 }
 
 $String* WalkingIterator::toString() {
-	 return this->$LocPathIterator::toString();
+	return this->$LocPathIterator::toString();
 }
 
 void WalkingIterator::finalize() {

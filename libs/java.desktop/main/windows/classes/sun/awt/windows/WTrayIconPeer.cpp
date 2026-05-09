@@ -121,19 +121,19 @@ void WTrayIconPeer::dispose() {
 }
 
 int32_t WTrayIconPeer::hashCode() {
-	 return this->$WObjectPeer::hashCode();
+	return this->$WObjectPeer::hashCode();
 }
 
 bool WTrayIconPeer::equals(Object$* arg0) {
-	 return this->$WObjectPeer::equals(arg0);
+	return this->$WObjectPeer::equals(arg0);
 }
 
 $Object* WTrayIconPeer::clone() {
-	 return this->$WObjectPeer::clone();
+	return this->$WObjectPeer::clone();
 }
 
 $String* WTrayIconPeer::toString() {
-	 return this->$WObjectPeer::toString();
+	return this->$WObjectPeer::toString();
 }
 
 void WTrayIconPeer::finalize() {

@@ -151,7 +151,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$StringBuilder* inst$ = nullptr;
 };
@@ -181,31 +181,31 @@ $Class* MLet$$Lambda$toString::load$($String* name, bool initialize) {
 $Class* MLet$$Lambda$toString::class$ = nullptr;
 
 $InputStream* MLet::getResourceAsStream($String* arg0) {
-	 return this->$URLClassLoader::getResourceAsStream(arg0);
+	return this->$URLClassLoader::getResourceAsStream(arg0);
 }
 
 $URL* MLet::getResource($String* arg0) {
-	 return this->$URLClassLoader::getResource(arg0);
+	return this->$URLClassLoader::getResource(arg0);
 }
 
 $Enumeration* MLet::getResources($String* arg0) {
-	 return this->$URLClassLoader::getResources(arg0);
+	return this->$URLClassLoader::getResources(arg0);
 }
 
 int32_t MLet::hashCode() {
-	 return this->$URLClassLoader::hashCode();
+	return this->$URLClassLoader::hashCode();
 }
 
 bool MLet::equals(Object$* arg0) {
-	 return this->$URLClassLoader::equals(arg0);
+	return this->$URLClassLoader::equals(arg0);
 }
 
 $Object* MLet::clone() {
-	 return this->$URLClassLoader::clone();
+	return this->$URLClassLoader::clone();
 }
 
 $String* MLet::toString() {
-	 return this->$URLClassLoader::toString();
+	return this->$URLClassLoader::toString();
 }
 
 void MLet::finalize() {

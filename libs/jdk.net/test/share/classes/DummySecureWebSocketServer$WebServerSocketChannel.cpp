@@ -43,7 +43,7 @@ public:
 		$set(this, ss, ss);
 	}
 	virtual $DummySecureWebSocketServer$WebSocketChannel* accept() override {
-		 return DummySecureWebSocketServer$WebServerSocketChannel::lambda$of$0(ss);
+		return DummySecureWebSocketServer$WebServerSocketChannel::lambda$of$0(ss);
 	}
 	$ServerSocket* ss = nullptr;
 };
@@ -115,7 +115,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $SocketAddress* getLocalAddress() override {
-		 return $nc(inst$)->getLocalSocketAddress();
+		return $nc(inst$)->getLocalSocketAddress();
 	}
 	$ServerSocket* inst$ = nullptr;
 };

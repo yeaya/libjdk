@@ -37,15 +37,15 @@ namespace com {
 				namespace code {
 
 int32_t Directive$ExportsDirective::hashCode() {
-	 return this->$Directive::hashCode();
+	return this->$Directive::hashCode();
 }
 
 bool Directive$ExportsDirective::equals(Object$* arg0) {
-	 return this->$Directive::equals(arg0);
+	return this->$Directive::equals(arg0);
 }
 
 $Object* Directive$ExportsDirective::clone() {
-	 return this->$Directive::clone();
+	return this->$Directive::clone();
 }
 
 void Directive$ExportsDirective::finalize() {

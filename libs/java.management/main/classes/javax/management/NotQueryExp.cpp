@@ -21,15 +21,15 @@ void NotQueryExp::setMBeanServer($MBeanServer* s) {
 }
 
 int32_t NotQueryExp::hashCode() {
-	 return this->$QueryEval::hashCode();
+	return this->$QueryEval::hashCode();
 }
 
 bool NotQueryExp::equals(Object$* arg0) {
-	 return this->$QueryEval::equals(arg0);
+	return this->$QueryEval::equals(arg0);
 }
 
 $Object* NotQueryExp::clone() {
-	 return this->$QueryEval::clone();
+	return this->$QueryEval::clone();
 }
 
 void NotQueryExp::finalize() {

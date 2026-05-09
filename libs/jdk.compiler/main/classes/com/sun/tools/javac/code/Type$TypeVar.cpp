@@ -52,27 +52,27 @@ namespace com {
 				namespace code {
 
 $Annotation* Type$TypeVar::getAnnotation($Class* annotationType) {
-	 return this->$Type::getAnnotation(annotationType);
+	return this->$Type::getAnnotation(annotationType);
 }
 
 $AnnotationArray* Type$TypeVar::getAnnotationsByType($Class* annotationType) {
-	 return this->$Type::getAnnotationsByType(annotationType);
+	return this->$Type::getAnnotationsByType(annotationType);
 }
 
 $String* Type$TypeVar::toString() {
-	 return this->$Type::toString();
+	return this->$Type::toString();
 }
 
 bool Type$TypeVar::equals(Object$* t) {
-	 return this->$Type::equals(t);
+	return this->$Type::equals(t);
 }
 
 int32_t Type$TypeVar::hashCode() {
-	 return this->$Type::hashCode();
+	return this->$Type::hashCode();
 }
 
 $Object* Type$TypeVar::clone() {
-	 return this->$Type::clone();
+	return this->$Type::clone();
 }
 
 void Type$TypeVar::finalize() {

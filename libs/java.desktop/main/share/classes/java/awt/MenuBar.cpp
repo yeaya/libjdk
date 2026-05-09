@@ -54,27 +54,27 @@ namespace java {
 	namespace awt {
 
 $Font* MenuBar::getFont() {
-	 return this->$MenuComponent::getFont();
+	return this->$MenuComponent::getFont();
 }
 
 bool MenuBar::postEvent($Event* evt) {
-	 return this->$MenuComponent::postEvent(evt);
+	return this->$MenuComponent::postEvent(evt);
 }
 
 $String* MenuBar::toString() {
-	 return this->$MenuComponent::toString();
+	return this->$MenuComponent::toString();
 }
 
 int32_t MenuBar::hashCode() {
-	 return this->$MenuComponent::hashCode();
+	return this->$MenuComponent::hashCode();
 }
 
 bool MenuBar::equals(Object$* arg0) {
-	 return this->$MenuComponent::equals(arg0);
+	return this->$MenuComponent::equals(arg0);
 }
 
 $Object* MenuBar::clone() {
-	 return this->$MenuComponent::clone();
+	return this->$MenuComponent::clone();
 }
 
 void MenuBar::finalize() {

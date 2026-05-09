@@ -35,7 +35,7 @@ public:
 	void init$() {
 	}
 	virtual int64_t applyAsLong(int64_t p, int64_t i) override {
-		 return Demand::lambda$increase$0(p, i);
+		return Demand::lambda$increase$0(p, i);
 	}
 };
 $Class* Demand$$Lambda$lambda$increase$0::load$($String* name, bool initialize) {

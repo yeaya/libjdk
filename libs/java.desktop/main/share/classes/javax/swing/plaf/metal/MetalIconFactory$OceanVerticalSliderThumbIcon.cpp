@@ -45,19 +45,19 @@ namespace javax {
 			namespace metal {
 
 int32_t MetalIconFactory$OceanVerticalSliderThumbIcon::hashCode() {
-	 return this->$CachedPainter::hashCode();
+	return this->$CachedPainter::hashCode();
 }
 
 bool MetalIconFactory$OceanVerticalSliderThumbIcon::equals(Object$* arg0) {
-	 return this->$CachedPainter::equals(arg0);
+	return this->$CachedPainter::equals(arg0);
 }
 
 $Object* MetalIconFactory$OceanVerticalSliderThumbIcon::clone() {
-	 return this->$CachedPainter::clone();
+	return this->$CachedPainter::clone();
 }
 
 $String* MetalIconFactory$OceanVerticalSliderThumbIcon::toString() {
-	 return this->$CachedPainter::toString();
+	return this->$CachedPainter::toString();
 }
 
 void MetalIconFactory$OceanVerticalSliderThumbIcon::finalize() {

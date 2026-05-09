@@ -89,19 +89,19 @@ namespace com {
 						namespace dom {
 
 int32_t CoreDOMImplementationImpl::hashCode() {
-	 return this->$DOMImplementation::hashCode();
+	return this->$DOMImplementation::hashCode();
 }
 
 bool CoreDOMImplementationImpl::equals(Object$* arg0) {
-	 return this->$DOMImplementation::equals(arg0);
+	return this->$DOMImplementation::equals(arg0);
 }
 
 $Object* CoreDOMImplementationImpl::clone() {
-	 return this->$DOMImplementation::clone();
+	return this->$DOMImplementation::clone();
 }
 
 $String* CoreDOMImplementationImpl::toString() {
-	 return this->$DOMImplementation::toString();
+	return this->$DOMImplementation::toString();
 }
 
 void CoreDOMImplementationImpl::finalize() {

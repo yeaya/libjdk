@@ -77,19 +77,19 @@ namespace com {
 						namespace xpointer {
 
 int32_t XPointerHandler::hashCode() {
-	 return this->$XIncludeHandler::hashCode();
+	return this->$XIncludeHandler::hashCode();
 }
 
 bool XPointerHandler::equals(Object$* arg0) {
-	 return this->$XIncludeHandler::equals(arg0);
+	return this->$XIncludeHandler::equals(arg0);
 }
 
 $Object* XPointerHandler::clone() {
-	 return this->$XIncludeHandler::clone();
+	return this->$XIncludeHandler::clone();
 }
 
 $String* XPointerHandler::toString() {
-	 return this->$XIncludeHandler::toString();
+	return this->$XIncludeHandler::toString();
 }
 
 void XPointerHandler::finalize() {

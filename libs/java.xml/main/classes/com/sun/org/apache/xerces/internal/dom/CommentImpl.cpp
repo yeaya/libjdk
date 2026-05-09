@@ -30,11 +30,11 @@ namespace com {
 						namespace dom {
 
 $NodeList* CommentImpl::getChildNodes() {
-	 return this->$CharacterDataImpl::getChildNodes();
+	return this->$CharacterDataImpl::getChildNodes();
 }
 
 $String* CommentImpl::getNodeValue() {
-	 return this->$CharacterDataImpl::getNodeValue();
+	return this->$CharacterDataImpl::getNodeValue();
 }
 
 void CommentImpl::setNodeValue($String* value) {
@@ -42,11 +42,11 @@ void CommentImpl::setNodeValue($String* value) {
 }
 
 $String* CommentImpl::getData() {
-	 return this->$CharacterDataImpl::getData();
+	return this->$CharacterDataImpl::getData();
 }
 
 int32_t CommentImpl::getLength() {
-	 return this->$CharacterDataImpl::getLength();
+	return this->$CharacterDataImpl::getLength();
 }
 
 void CommentImpl::appendData($String* data) {
@@ -70,63 +70,63 @@ void CommentImpl::setData($String* value) {
 }
 
 $String* CommentImpl::substringData(int32_t offset, int32_t count) {
-	 return this->$CharacterDataImpl::substringData(offset, count);
+	return this->$CharacterDataImpl::substringData(offset, count);
 }
 
 $Node* CommentImpl::cloneNode(bool deep) {
-	 return this->$CharacterDataImpl::cloneNode(deep);
+	return this->$CharacterDataImpl::cloneNode(deep);
 }
 
 $Node* CommentImpl::getParentNode() {
-	 return this->$CharacterDataImpl::getParentNode();
+	return this->$CharacterDataImpl::getParentNode();
 }
 
 $Node* CommentImpl::getNextSibling() {
-	 return this->$CharacterDataImpl::getNextSibling();
+	return this->$CharacterDataImpl::getNextSibling();
 }
 
 $Node* CommentImpl::getPreviousSibling() {
-	 return this->$CharacterDataImpl::getPreviousSibling();
+	return this->$CharacterDataImpl::getPreviousSibling();
 }
 
 $Node* CommentImpl::appendChild($Node* newChild) {
-	 return this->$CharacterDataImpl::appendChild(newChild);
+	return this->$CharacterDataImpl::appendChild(newChild);
 }
 
 $Document* CommentImpl::getOwnerDocument() {
-	 return this->$CharacterDataImpl::getOwnerDocument();
+	return this->$CharacterDataImpl::getOwnerDocument();
 }
 
 $NamedNodeMap* CommentImpl::getAttributes() {
-	 return this->$CharacterDataImpl::getAttributes();
+	return this->$CharacterDataImpl::getAttributes();
 }
 
 bool CommentImpl::hasAttributes() {
-	 return this->$CharacterDataImpl::hasAttributes();
+	return this->$CharacterDataImpl::hasAttributes();
 }
 
 bool CommentImpl::hasChildNodes() {
-	 return this->$CharacterDataImpl::hasChildNodes();
+	return this->$CharacterDataImpl::hasChildNodes();
 }
 
 $Node* CommentImpl::getFirstChild() {
-	 return this->$CharacterDataImpl::getFirstChild();
+	return this->$CharacterDataImpl::getFirstChild();
 }
 
 $Node* CommentImpl::getLastChild() {
-	 return this->$CharacterDataImpl::getLastChild();
+	return this->$CharacterDataImpl::getLastChild();
 }
 
 $Node* CommentImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$CharacterDataImpl::insertBefore(newChild, refChild);
+	return this->$CharacterDataImpl::insertBefore(newChild, refChild);
 }
 
 $Node* CommentImpl::removeChild($Node* oldChild) {
-	 return this->$CharacterDataImpl::removeChild(oldChild);
+	return this->$CharacterDataImpl::removeChild(oldChild);
 }
 
 $Node* CommentImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$CharacterDataImpl::replaceChild(newChild, oldChild);
+	return this->$CharacterDataImpl::replaceChild(newChild, oldChild);
 }
 
 void CommentImpl::normalize() {
@@ -134,15 +134,15 @@ void CommentImpl::normalize() {
 }
 
 bool CommentImpl::isSupported($String* feature, $String* version) {
-	 return this->$CharacterDataImpl::isSupported(feature, version);
+	return this->$CharacterDataImpl::isSupported(feature, version);
 }
 
 $String* CommentImpl::getNamespaceURI() {
-	 return this->$CharacterDataImpl::getNamespaceURI();
+	return this->$CharacterDataImpl::getNamespaceURI();
 }
 
 $String* CommentImpl::getPrefix() {
-	 return this->$CharacterDataImpl::getPrefix();
+	return this->$CharacterDataImpl::getPrefix();
 }
 
 void CommentImpl::setPrefix($String* prefix) {
@@ -150,19 +150,19 @@ void CommentImpl::setPrefix($String* prefix) {
 }
 
 $String* CommentImpl::getLocalName() {
-	 return this->$CharacterDataImpl::getLocalName();
+	return this->$CharacterDataImpl::getLocalName();
 }
 
 $String* CommentImpl::getBaseURI() {
-	 return this->$CharacterDataImpl::getBaseURI();
+	return this->$CharacterDataImpl::getBaseURI();
 }
 
 int16_t CommentImpl::compareDocumentPosition($Node* other) {
-	 return this->$CharacterDataImpl::compareDocumentPosition(other);
+	return this->$CharacterDataImpl::compareDocumentPosition(other);
 }
 
 $String* CommentImpl::getTextContent() {
-	 return this->$CharacterDataImpl::getTextContent();
+	return this->$CharacterDataImpl::getTextContent();
 }
 
 void CommentImpl::setTextContent($String* textContent) {
@@ -170,51 +170,51 @@ void CommentImpl::setTextContent($String* textContent) {
 }
 
 bool CommentImpl::isSameNode($Node* other) {
-	 return this->$CharacterDataImpl::isSameNode(other);
+	return this->$CharacterDataImpl::isSameNode(other);
 }
 
 bool CommentImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$CharacterDataImpl::isDefaultNamespace(namespaceURI);
+	return this->$CharacterDataImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* CommentImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$CharacterDataImpl::lookupPrefix(namespaceURI);
+	return this->$CharacterDataImpl::lookupPrefix(namespaceURI);
 }
 
 $String* CommentImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$CharacterDataImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$CharacterDataImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 bool CommentImpl::isEqualNode($Node* arg) {
-	 return this->$CharacterDataImpl::isEqualNode(arg);
+	return this->$CharacterDataImpl::isEqualNode(arg);
 }
 
 $Object* CommentImpl::getFeature($String* feature, $String* version) {
-	 return this->$CharacterDataImpl::getFeature(feature, version);
+	return this->$CharacterDataImpl::getFeature(feature, version);
 }
 
 $Object* CommentImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$CharacterDataImpl::setUserData(key, data, handler);
+	return this->$CharacterDataImpl::setUserData(key, data, handler);
 }
 
 $Object* CommentImpl::getUserData($String* key) {
-	 return this->$CharacterDataImpl::getUserData(key);
+	return this->$CharacterDataImpl::getUserData(key);
 }
 
 $String* CommentImpl::toString() {
-	 return this->$CharacterDataImpl::toString();
+	return this->$CharacterDataImpl::toString();
 }
 
 int32_t CommentImpl::hashCode() {
-	 return this->$CharacterDataImpl::hashCode();
+	return this->$CharacterDataImpl::hashCode();
 }
 
 bool CommentImpl::equals(Object$* arg0) {
-	 return this->$CharacterDataImpl::equals(arg0);
+	return this->$CharacterDataImpl::equals(arg0);
 }
 
 $Object* CommentImpl::clone() {
-	 return this->$CharacterDataImpl::clone();
+	return this->$CharacterDataImpl::clone();
 }
 
 void CommentImpl::finalize() {

@@ -19,19 +19,19 @@ namespace javax {
 				namespace keyinfo {
 
 int32_t RetrievalMethod::hashCode() {
-	 return this->$URIReference::hashCode();
+	return this->$URIReference::hashCode();
 }
 
 bool RetrievalMethod::equals(Object$* arg0) {
-	 return this->$URIReference::equals(arg0);
+	return this->$URIReference::equals(arg0);
 }
 
 $Object* RetrievalMethod::clone() {
-	 return this->$URIReference::clone();
+	return this->$URIReference::clone();
 }
 
 $String* RetrievalMethod::toString() {
-	 return this->$URIReference::toString();
+	return this->$URIReference::toString();
 }
 
 void RetrievalMethod::finalize() {

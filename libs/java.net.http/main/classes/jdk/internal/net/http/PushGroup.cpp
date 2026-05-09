@@ -50,7 +50,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* bodyHandler) override {
-		 return $of($nc(inst$)->accept($cast($HttpResponse$BodyHandler, bodyHandler)));
+		return $of($nc(inst$)->accept($cast($HttpResponse$BodyHandler, bodyHandler)));
 	}
 	$PushGroup$AcceptorImpl* inst$ = nullptr;
 };

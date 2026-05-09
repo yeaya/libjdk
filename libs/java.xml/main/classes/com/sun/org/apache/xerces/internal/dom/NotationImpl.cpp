@@ -40,7 +40,7 @@ namespace com {
 						namespace dom {
 
 $String* NotationImpl::getNodeValue() {
-	 return this->$NodeImpl::getNodeValue();
+	return this->$NodeImpl::getNodeValue();
 }
 
 void NotationImpl::setNodeValue($String* x) {
@@ -48,63 +48,63 @@ void NotationImpl::setNodeValue($String* x) {
 }
 
 $Node* NotationImpl::appendChild($Node* newChild) {
-	 return this->$NodeImpl::appendChild(newChild);
+	return this->$NodeImpl::appendChild(newChild);
 }
 
 $Node* NotationImpl::cloneNode(bool deep) {
-	 return this->$NodeImpl::cloneNode(deep);
+	return this->$NodeImpl::cloneNode(deep);
 }
 
 $Document* NotationImpl::getOwnerDocument() {
-	 return this->$NodeImpl::getOwnerDocument();
+	return this->$NodeImpl::getOwnerDocument();
 }
 
 $Node* NotationImpl::getParentNode() {
-	 return this->$NodeImpl::getParentNode();
+	return this->$NodeImpl::getParentNode();
 }
 
 $Node* NotationImpl::getNextSibling() {
-	 return this->$NodeImpl::getNextSibling();
+	return this->$NodeImpl::getNextSibling();
 }
 
 $Node* NotationImpl::getPreviousSibling() {
-	 return this->$NodeImpl::getPreviousSibling();
+	return this->$NodeImpl::getPreviousSibling();
 }
 
 $NamedNodeMap* NotationImpl::getAttributes() {
-	 return this->$NodeImpl::getAttributes();
+	return this->$NodeImpl::getAttributes();
 }
 
 bool NotationImpl::hasAttributes() {
-	 return this->$NodeImpl::hasAttributes();
+	return this->$NodeImpl::hasAttributes();
 }
 
 bool NotationImpl::hasChildNodes() {
-	 return this->$NodeImpl::hasChildNodes();
+	return this->$NodeImpl::hasChildNodes();
 }
 
 $NodeList* NotationImpl::getChildNodes() {
-	 return this->$NodeImpl::getChildNodes();
+	return this->$NodeImpl::getChildNodes();
 }
 
 $Node* NotationImpl::getFirstChild() {
-	 return this->$NodeImpl::getFirstChild();
+	return this->$NodeImpl::getFirstChild();
 }
 
 $Node* NotationImpl::getLastChild() {
-	 return this->$NodeImpl::getLastChild();
+	return this->$NodeImpl::getLastChild();
 }
 
 $Node* NotationImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$NodeImpl::insertBefore(newChild, refChild);
+	return this->$NodeImpl::insertBefore(newChild, refChild);
 }
 
 $Node* NotationImpl::removeChild($Node* oldChild) {
-	 return this->$NodeImpl::removeChild(oldChild);
+	return this->$NodeImpl::removeChild(oldChild);
 }
 
 $Node* NotationImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$NodeImpl::replaceChild(newChild, oldChild);
+	return this->$NodeImpl::replaceChild(newChild, oldChild);
 }
 
 void NotationImpl::normalize() {
@@ -112,15 +112,15 @@ void NotationImpl::normalize() {
 }
 
 bool NotationImpl::isSupported($String* feature, $String* version) {
-	 return this->$NodeImpl::isSupported(feature, version);
+	return this->$NodeImpl::isSupported(feature, version);
 }
 
 $String* NotationImpl::getNamespaceURI() {
-	 return this->$NodeImpl::getNamespaceURI();
+	return this->$NodeImpl::getNamespaceURI();
 }
 
 $String* NotationImpl::getPrefix() {
-	 return this->$NodeImpl::getPrefix();
+	return this->$NodeImpl::getPrefix();
 }
 
 void NotationImpl::setPrefix($String* prefix) {
@@ -128,15 +128,15 @@ void NotationImpl::setPrefix($String* prefix) {
 }
 
 $String* NotationImpl::getLocalName() {
-	 return this->$NodeImpl::getLocalName();
+	return this->$NodeImpl::getLocalName();
 }
 
 int16_t NotationImpl::compareDocumentPosition($Node* other) {
-	 return this->$NodeImpl::compareDocumentPosition(other);
+	return this->$NodeImpl::compareDocumentPosition(other);
 }
 
 $String* NotationImpl::getTextContent() {
-	 return this->$NodeImpl::getTextContent();
+	return this->$NodeImpl::getTextContent();
 }
 
 void NotationImpl::setTextContent($String* textContent) {
@@ -144,51 +144,51 @@ void NotationImpl::setTextContent($String* textContent) {
 }
 
 bool NotationImpl::isSameNode($Node* other) {
-	 return this->$NodeImpl::isSameNode(other);
+	return this->$NodeImpl::isSameNode(other);
 }
 
 bool NotationImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$NodeImpl::isDefaultNamespace(namespaceURI);
+	return this->$NodeImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* NotationImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$NodeImpl::lookupPrefix(namespaceURI);
+	return this->$NodeImpl::lookupPrefix(namespaceURI);
 }
 
 $String* NotationImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$NodeImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$NodeImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 bool NotationImpl::isEqualNode($Node* arg) {
-	 return this->$NodeImpl::isEqualNode(arg);
+	return this->$NodeImpl::isEqualNode(arg);
 }
 
 $Object* NotationImpl::getFeature($String* feature, $String* version) {
-	 return this->$NodeImpl::getFeature(feature, version);
+	return this->$NodeImpl::getFeature(feature, version);
 }
 
 $Object* NotationImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$NodeImpl::setUserData(key, data, handler);
+	return this->$NodeImpl::setUserData(key, data, handler);
 }
 
 $Object* NotationImpl::getUserData($String* key) {
-	 return this->$NodeImpl::getUserData(key);
+	return this->$NodeImpl::getUserData(key);
 }
 
 $String* NotationImpl::toString() {
-	 return this->$NodeImpl::toString();
+	return this->$NodeImpl::toString();
 }
 
 int32_t NotationImpl::hashCode() {
-	 return this->$NodeImpl::hashCode();
+	return this->$NodeImpl::hashCode();
 }
 
 bool NotationImpl::equals(Object$* arg0) {
-	 return this->$NodeImpl::equals(arg0);
+	return this->$NodeImpl::equals(arg0);
 }
 
 $Object* NotationImpl::clone() {
-	 return this->$NodeImpl::clone();
+	return this->$NodeImpl::clone();
 }
 
 void NotationImpl::finalize() {

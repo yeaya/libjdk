@@ -85,7 +85,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($ListBuffer));
+		return $of($new($ListBuffer));
 	}
 };
 $Class* List$$Lambda$ListBuffer::load$($String* name, bool initialize) {
@@ -145,7 +145,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* buf1, Object$* buf2) override {
-		 return $of(List::lambda$collector$0($cast($ListBuffer, buf1), $cast($ListBuffer, buf2)));
+		return $of(List::lambda$collector$0($cast($ListBuffer, buf1), $cast($ListBuffer, buf2)));
 	}
 };
 $Class* List$$Lambda$lambda$collector$0$2::load$($String* name, bool initialize) {
@@ -175,7 +175,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ListBuffer, inst$)->toList());
+		return $of($sure($ListBuffer, inst$)->toList());
 	}
 };
 $Class* List$$Lambda$toList$3::load$($String* name, bool initialize) {
@@ -200,27 +200,27 @@ $Class* List$$Lambda$toList$3::load$($String* name, bool initialize) {
 $Class* List$$Lambda$toList$3::class$ = nullptr;
 
 bool List::add(Object$* arg0) {
-	 return this->$AbstractCollection::add(arg0);
+	return this->$AbstractCollection::add(arg0);
 }
 
 bool List::remove(Object$* arg0) {
-	 return this->$AbstractCollection::remove(arg0);
+	return this->$AbstractCollection::remove(arg0);
 }
 
 bool List::containsAll($Collection* arg0) {
-	 return this->$AbstractCollection::containsAll(arg0);
+	return this->$AbstractCollection::containsAll(arg0);
 }
 
 bool List::addAll($Collection* arg0) {
-	 return this->$AbstractCollection::addAll(arg0);
+	return this->$AbstractCollection::addAll(arg0);
 }
 
 bool List::removeAll($Collection* arg0) {
-	 return this->$AbstractCollection::removeAll(arg0);
+	return this->$AbstractCollection::removeAll(arg0);
 }
 
 bool List::retainAll($Collection* arg0) {
-	 return this->$AbstractCollection::retainAll(arg0);
+	return this->$AbstractCollection::retainAll(arg0);
 }
 
 void List::clear() {
@@ -228,23 +228,23 @@ void List::clear() {
 }
 
 $ObjectArray* List::toArray($IntFunction* arg0) {
-	 return this->$AbstractCollection::toArray(arg0);
+	return this->$AbstractCollection::toArray(arg0);
 }
 
 bool List::removeIf($Predicate* arg0) {
-	 return this->$AbstractCollection::removeIf(arg0);
+	return this->$AbstractCollection::removeIf(arg0);
 }
 
 $Spliterator* List::spliterator() {
-	 return this->$AbstractCollection::spliterator();
+	return this->$AbstractCollection::spliterator();
 }
 
 $Stream* List::stream() {
-	 return this->$AbstractCollection::stream();
+	return this->$AbstractCollection::stream();
 }
 
 $Stream* List::parallelStream() {
-	 return this->$AbstractCollection::parallelStream();
+	return this->$AbstractCollection::parallelStream();
 }
 
 void List::forEach($Consumer* arg0) {
@@ -252,7 +252,7 @@ void List::forEach($Consumer* arg0) {
 }
 
 $Object* List::clone() {
-	 return this->$AbstractCollection::clone();
+	return this->$AbstractCollection::clone();
 }
 
 void List::finalize() {

@@ -253,19 +253,19 @@ namespace sun {
 	namespace print {
 
 int32_t PrintJob2D::hashCode() {
-	 return this->$PrintJob::hashCode();
+	return this->$PrintJob::hashCode();
 }
 
 bool PrintJob2D::equals(Object$* arg0) {
-	 return this->$PrintJob::equals(arg0);
+	return this->$PrintJob::equals(arg0);
 }
 
 $Object* PrintJob2D::clone() {
-	 return this->$PrintJob::clone();
+	return this->$PrintJob::clone();
 }
 
 $String* PrintJob2D::toString() {
-	 return this->$PrintJob::toString();
+	return this->$PrintJob::toString();
 }
 
 $PageAttributes$MediaTypeArray* PrintJob2D::SIZES = nullptr;

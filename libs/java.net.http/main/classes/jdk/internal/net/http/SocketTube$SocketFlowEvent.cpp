@@ -42,7 +42,7 @@ public:
 		$set(this, error, error);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$abort$0(error));
+		return $of($nc(inst$)->lambda$abort$0(error));
 	}
 	SocketTube$SocketFlowEvent* inst$ = nullptr;
 	$IOException* error = nullptr;

@@ -32,19 +32,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JRootPane$RootLayout::hashCode() {
-	 return this->$LayoutManager2::hashCode();
+	return this->$LayoutManager2::hashCode();
 }
 
 bool JRootPane$RootLayout::equals(Object$* arg0) {
-	 return this->$LayoutManager2::equals(arg0);
+	return this->$LayoutManager2::equals(arg0);
 }
 
 $Object* JRootPane$RootLayout::clone() {
-	 return this->$LayoutManager2::clone();
+	return this->$LayoutManager2::clone();
 }
 
 $String* JRootPane$RootLayout::toString() {
-	 return this->$LayoutManager2::toString();
+	return this->$LayoutManager2::toString();
 }
 
 void JRootPane$RootLayout::finalize() {

@@ -33,15 +33,15 @@ namespace javax {
 	namespace management {
 
 int32_t BinaryOpValueExp::hashCode() {
-	 return this->$QueryEval::hashCode();
+	return this->$QueryEval::hashCode();
 }
 
 bool BinaryOpValueExp::equals(Object$* arg0) {
-	 return this->$QueryEval::equals(arg0);
+	return this->$QueryEval::equals(arg0);
 }
 
 $Object* BinaryOpValueExp::clone() {
-	 return this->$QueryEval::clone();
+	return this->$QueryEval::clone();
 }
 
 void BinaryOpValueExp::finalize() {

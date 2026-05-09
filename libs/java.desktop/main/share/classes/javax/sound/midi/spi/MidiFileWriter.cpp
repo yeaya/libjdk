@@ -36,7 +36,7 @@ public:
 		this->fileType = fileType;
 	}
 	virtual bool test(int32_t type) override {
-		 return MidiFileWriter::lambda$isFileTypeSupported$0(fileType, type);
+		return MidiFileWriter::lambda$isFileTypeSupported$0(fileType, type);
 	}
 	int32_t fileType = 0;
 };

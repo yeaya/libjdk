@@ -195,7 +195,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* a) override {
-		 return TypeAnnotations::lambda$annotationTargets$2($cast($Attribute, a));
+		return TypeAnnotations::lambda$annotationTargets$2($cast($Attribute, a));
 	}
 };
 $Class* TypeAnnotations$$Lambda$lambda$annotationTargets$2$2::load$($String* name, bool initialize) {
@@ -227,7 +227,7 @@ public:
 		$set(this, s, s);
 	}
 	virtual $Object* apply(Object$* attr) override {
-		 return $of($nc(inst$)->lambda$annotationTargetType$3(s, $cast($Attribute, attr)));
+		return $of($nc(inst$)->lambda$annotationTargetType$3(s, $cast($Attribute, attr)));
 	}
 	TypeAnnotations* inst$ = nullptr;
 	$Symbol* s = nullptr;
@@ -265,7 +265,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* at1, Object$* at2) override {
-		 return $of($nc(inst$)->combineAnnotationType($cast($TypeAnnotations$AnnotationType, at1), $cast($TypeAnnotations$AnnotationType, at2)));
+		return $of($nc(inst$)->combineAnnotationType($cast($TypeAnnotations$AnnotationType, at1), $cast($TypeAnnotations$AnnotationType, at2)));
 	}
 	TypeAnnotations* inst$ = nullptr;
 };

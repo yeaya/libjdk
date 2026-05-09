@@ -22,39 +22,39 @@ namespace javax {
 		namespace attribute {
 
 $Attribute* HashPrintRequestAttributeSet::get($Class* category) {
-	 return this->$HashAttributeSet::get(category);
+	return this->$HashAttributeSet::get(category);
 }
 
 bool HashPrintRequestAttributeSet::add($Attribute* attribute) {
-	 return this->$HashAttributeSet::add(attribute);
+	return this->$HashAttributeSet::add(attribute);
 }
 
 bool HashPrintRequestAttributeSet::remove($Class* category) {
-	 return this->$HashAttributeSet::remove(category);
+	return this->$HashAttributeSet::remove(category);
 }
 
 bool HashPrintRequestAttributeSet::remove($Attribute* attribute) {
-	 return this->$HashAttributeSet::remove(attribute);
+	return this->$HashAttributeSet::remove(attribute);
 }
 
 bool HashPrintRequestAttributeSet::containsKey($Class* category) {
-	 return this->$HashAttributeSet::containsKey(category);
+	return this->$HashAttributeSet::containsKey(category);
 }
 
 bool HashPrintRequestAttributeSet::containsValue($Attribute* attribute) {
-	 return this->$HashAttributeSet::containsValue(attribute);
+	return this->$HashAttributeSet::containsValue(attribute);
 }
 
 bool HashPrintRequestAttributeSet::addAll($AttributeSet* attributes) {
-	 return this->$HashAttributeSet::addAll(attributes);
+	return this->$HashAttributeSet::addAll(attributes);
 }
 
 int32_t HashPrintRequestAttributeSet::size() {
-	 return this->$HashAttributeSet::size();
+	return this->$HashAttributeSet::size();
 }
 
 $AttributeArray* HashPrintRequestAttributeSet::toArray() {
-	 return this->$HashAttributeSet::toArray();
+	return this->$HashAttributeSet::toArray();
 }
 
 void HashPrintRequestAttributeSet::clear() {
@@ -62,23 +62,23 @@ void HashPrintRequestAttributeSet::clear() {
 }
 
 bool HashPrintRequestAttributeSet::isEmpty() {
-	 return this->$HashAttributeSet::isEmpty();
+	return this->$HashAttributeSet::isEmpty();
 }
 
 bool HashPrintRequestAttributeSet::equals(Object$* object) {
-	 return this->$HashAttributeSet::equals(object);
+	return this->$HashAttributeSet::equals(object);
 }
 
 int32_t HashPrintRequestAttributeSet::hashCode() {
-	 return this->$HashAttributeSet::hashCode();
+	return this->$HashAttributeSet::hashCode();
 }
 
 $Object* HashPrintRequestAttributeSet::clone() {
-	 return this->$HashAttributeSet::clone();
+	return this->$HashAttributeSet::clone();
 }
 
 $String* HashPrintRequestAttributeSet::toString() {
-	 return this->$HashAttributeSet::toString();
+	return this->$HashAttributeSet::toString();
 }
 
 void HashPrintRequestAttributeSet::finalize() {

@@ -81,7 +81,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return Http1HeaderParser::lambda$addHeaderFromString$0($cast($String, k));
+		return Http1HeaderParser::lambda$addHeaderFromString$0($cast($String, k));
 	}
 };
 $Class* Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0::load$($String* name, bool initialize) {

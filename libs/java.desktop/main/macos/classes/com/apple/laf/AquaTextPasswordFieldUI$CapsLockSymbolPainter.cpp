@@ -47,19 +47,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaTextPasswordFieldUI$CapsLockSymbolPainter::hashCode() {
-	 return this->$KeyAdapter::hashCode();
+	return this->$KeyAdapter::hashCode();
 }
 
 bool AquaTextPasswordFieldUI$CapsLockSymbolPainter::equals(Object$* arg0) {
-	 return this->$KeyAdapter::equals(arg0);
+	return this->$KeyAdapter::equals(arg0);
 }
 
 $Object* AquaTextPasswordFieldUI$CapsLockSymbolPainter::clone() {
-	 return this->$KeyAdapter::clone();
+	return this->$KeyAdapter::clone();
 }
 
 $String* AquaTextPasswordFieldUI$CapsLockSymbolPainter::toString() {
-	 return this->$KeyAdapter::toString();
+	return this->$KeyAdapter::toString();
 }
 
 void AquaTextPasswordFieldUI$CapsLockSymbolPainter::finalize() {

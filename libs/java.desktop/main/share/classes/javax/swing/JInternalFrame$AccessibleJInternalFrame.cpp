@@ -28,19 +28,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JInternalFrame$AccessibleJInternalFrame::hashCode() {
-	 return this->$JComponent$AccessibleJComponent::hashCode();
+	return this->$JComponent$AccessibleJComponent::hashCode();
 }
 
 bool JInternalFrame$AccessibleJInternalFrame::equals(Object$* arg0) {
-	 return this->$JComponent$AccessibleJComponent::equals(arg0);
+	return this->$JComponent$AccessibleJComponent::equals(arg0);
 }
 
 $Object* JInternalFrame$AccessibleJInternalFrame::clone() {
-	 return this->$JComponent$AccessibleJComponent::clone();
+	return this->$JComponent$AccessibleJComponent::clone();
 }
 
 $String* JInternalFrame$AccessibleJInternalFrame::toString() {
-	 return this->$JComponent$AccessibleJComponent::toString();
+	return this->$JComponent$AccessibleJComponent::toString();
 }
 
 void JInternalFrame$AccessibleJInternalFrame::finalize() {

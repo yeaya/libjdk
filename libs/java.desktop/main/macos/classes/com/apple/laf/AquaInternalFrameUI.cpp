@@ -95,19 +95,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaInternalFrameUI::hashCode() {
-	 return this->$BasicInternalFrameUI::hashCode();
+	return this->$BasicInternalFrameUI::hashCode();
 }
 
 bool AquaInternalFrameUI::equals(Object$* arg0) {
-	 return this->$BasicInternalFrameUI::equals(arg0);
+	return this->$BasicInternalFrameUI::equals(arg0);
 }
 
 $Object* AquaInternalFrameUI::clone() {
-	 return this->$BasicInternalFrameUI::clone();
+	return this->$BasicInternalFrameUI::clone();
 }
 
 $String* AquaInternalFrameUI::toString() {
-	 return this->$BasicInternalFrameUI::toString();
+	return this->$BasicInternalFrameUI::toString();
 }
 
 void AquaInternalFrameUI::finalize() {

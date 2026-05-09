@@ -37,11 +37,11 @@ namespace javax {
 			namespace html {
 
 int32_t OptionListModel::hashCode() {
-	 return this->$DefaultListModel::hashCode();
+	return this->$DefaultListModel::hashCode();
 }
 
 bool OptionListModel::equals(Object$* arg0) {
-	 return this->$DefaultListModel::equals(arg0);
+	return this->$DefaultListModel::equals(arg0);
 }
 
 void OptionListModel::finalize() {

@@ -13,19 +13,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaNativeResources$CColorPaintUIResource::hashCode() {
-	 return this->$Color::hashCode();
+	return this->$Color::hashCode();
 }
 
 bool AquaNativeResources$CColorPaintUIResource::equals(Object$* obj) {
-	 return this->$Color::equals(obj);
+	return this->$Color::equals(obj);
 }
 
 $String* AquaNativeResources$CColorPaintUIResource::toString() {
-	 return this->$Color::toString();
+	return this->$Color::toString();
 }
 
 $Object* AquaNativeResources$CColorPaintUIResource::clone() {
-	 return this->$Color::clone();
+	return this->$Color::clone();
 }
 
 void AquaNativeResources$CColorPaintUIResource::finalize() {

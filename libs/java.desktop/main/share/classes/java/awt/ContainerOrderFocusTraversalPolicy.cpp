@@ -33,19 +33,19 @@ namespace java {
 	namespace awt {
 
 int32_t ContainerOrderFocusTraversalPolicy::hashCode() {
-	 return this->$FocusTraversalPolicy::hashCode();
+	return this->$FocusTraversalPolicy::hashCode();
 }
 
 bool ContainerOrderFocusTraversalPolicy::equals(Object$* arg0) {
-	 return this->$FocusTraversalPolicy::equals(arg0);
+	return this->$FocusTraversalPolicy::equals(arg0);
 }
 
 $Object* ContainerOrderFocusTraversalPolicy::clone() {
-	 return this->$FocusTraversalPolicy::clone();
+	return this->$FocusTraversalPolicy::clone();
 }
 
 $String* ContainerOrderFocusTraversalPolicy::toString() {
-	 return this->$FocusTraversalPolicy::toString();
+	return this->$FocusTraversalPolicy::toString();
 }
 
 void ContainerOrderFocusTraversalPolicy::finalize() {

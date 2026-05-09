@@ -31,19 +31,19 @@ namespace javax {
 	namespace tools {
 
 int32_t JavaFileManager::hashCode() {
-	 return this->$Closeable::hashCode();
+	return this->$Closeable::hashCode();
 }
 
 bool JavaFileManager::equals(Object$* arg0) {
-	 return this->$Closeable::equals(arg0);
+	return this->$Closeable::equals(arg0);
 }
 
 $Object* JavaFileManager::clone() {
-	 return this->$Closeable::clone();
+	return this->$Closeable::clone();
 }
 
 $String* JavaFileManager::toString() {
-	 return this->$Closeable::toString();
+	return this->$Closeable::toString();
 }
 
 void JavaFileManager::finalize() {

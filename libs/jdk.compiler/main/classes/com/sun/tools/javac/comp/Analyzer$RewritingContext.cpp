@@ -57,7 +57,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* d) override {
-		 return $nc(inst$)->lambda$diagHandler$0($cast($JCDiagnostic, d));
+		return $nc(inst$)->lambda$diagHandler$0($cast($JCDiagnostic, d));
 	}
 	Analyzer$RewritingContext* inst$ = nullptr;
 };

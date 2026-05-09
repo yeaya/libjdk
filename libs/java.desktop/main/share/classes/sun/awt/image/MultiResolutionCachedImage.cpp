@@ -72,7 +72,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* size) override {
-		 return $nc(inst$)->lambda$getResolutionVariants$0($cast($Dimension2D, size));
+		return $nc(inst$)->lambda$getResolutionVariants$0($cast($Dimension2D, size));
 	}
 	MultiResolutionCachedImage* inst$ = nullptr;
 };
@@ -109,7 +109,7 @@ public:
 		$set(this, mapper, mapper);
 	}
 	virtual $Object* apply(Object$* width, Object$* height) override {
-		 return $nc(inst$)->lambda$map$1(mapper, $cast($Integer, width), $cast($Integer, height));
+		return $nc(inst$)->lambda$map$1(mapper, $cast($Integer, width), $cast($Integer, height));
 	}
 	MultiResolutionCachedImage* inst$ = nullptr;
 	$Function* mapper = nullptr;
@@ -148,7 +148,7 @@ public:
 		$set(this, mrImage, mrImage);
 	}
 	virtual $Object* apply(Object$* w, Object$* h) override {
-		 return MultiResolutionCachedImage::lambda$map$2(mapper, mrImage, $cast($Integer, w), $cast($Integer, h));
+		return MultiResolutionCachedImage::lambda$map$2(mapper, mrImage, $cast($Integer, w), $cast($Integer, h));
 	}
 	$Function* mapper = nullptr;
 	$MultiResolutionImage* mrImage = nullptr;
@@ -185,7 +185,7 @@ public:
 	void init$() {
 	}
 	virtual bool imageUpdate($Image* img, int32_t infoflags, int32_t x, int32_t y, int32_t w, int32_t h) override {
-		 return MultiResolutionCachedImage::lambda$getInfo$3(img, infoflags, x, y, w, h);
+		return MultiResolutionCachedImage::lambda$getInfo$3(img, infoflags, x, y, w, h);
 	}
 };
 $Class* MultiResolutionCachedImage$$Lambda$lambda$getInfo$3$3::load$($String* name, bool initialize) {

@@ -22,15 +22,15 @@ namespace java {
 		namespace geom {
 
 int32_t Rectangle2D$Float::hashCode() {
-	 return this->$Rectangle2D::hashCode();
+	return this->$Rectangle2D::hashCode();
 }
 
 bool Rectangle2D$Float::equals(Object$* obj) {
-	 return this->$Rectangle2D::equals(obj);
+	return this->$Rectangle2D::equals(obj);
 }
 
 $Object* Rectangle2D$Float::clone() {
-	 return this->$Rectangle2D::clone();
+	return this->$Rectangle2D::clone();
 }
 
 void Rectangle2D$Float::finalize() {

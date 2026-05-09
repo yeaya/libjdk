@@ -57,7 +57,7 @@ namespace java {
 		namespace prefs {
 
 $String* Preferences::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $PreferencesFactory* Preferences::factory$ = nullptr;

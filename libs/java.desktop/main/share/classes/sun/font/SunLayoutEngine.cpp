@@ -54,7 +54,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* font) override {
-		 return $new($SunLayoutEngine$FaceRef, $cast($Font2D, font));
+		return $new($SunLayoutEngine$FaceRef, $cast($Font2D, font));
 	}
 };
 $Class* SunLayoutEngine$$Lambda$FaceRef::load$($String* name, bool initialize) {
@@ -79,19 +79,19 @@ $Class* SunLayoutEngine$$Lambda$FaceRef::load$($String* name, bool initialize) {
 $Class* SunLayoutEngine$$Lambda$FaceRef::class$ = nullptr;
 
 int32_t SunLayoutEngine::hashCode() {
-	 return this->$GlyphLayout$LayoutEngine::hashCode();
+	return this->$GlyphLayout$LayoutEngine::hashCode();
 }
 
 bool SunLayoutEngine::equals(Object$* arg0) {
-	 return this->$GlyphLayout$LayoutEngine::equals(arg0);
+	return this->$GlyphLayout$LayoutEngine::equals(arg0);
 }
 
 $Object* SunLayoutEngine::clone() {
-	 return this->$GlyphLayout$LayoutEngine::clone();
+	return this->$GlyphLayout$LayoutEngine::clone();
 }
 
 $String* SunLayoutEngine::toString() {
-	 return this->$GlyphLayout$LayoutEngine::toString();
+	return this->$GlyphLayout$LayoutEngine::toString();
 }
 
 void SunLayoutEngine::finalize() {

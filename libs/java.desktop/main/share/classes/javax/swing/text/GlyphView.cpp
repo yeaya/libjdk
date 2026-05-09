@@ -101,15 +101,15 @@ namespace javax {
 		namespace text {
 
 int32_t GlyphView::hashCode() {
-	 return this->$View::hashCode();
+	return this->$View::hashCode();
 }
 
 bool GlyphView::equals(Object$* arg0) {
-	 return this->$View::equals(arg0);
+	return this->$View::equals(arg0);
 }
 
 $String* GlyphView::toString() {
-	 return this->$View::toString();
+	return this->$View::toString();
 }
 
 void GlyphView::finalize() {

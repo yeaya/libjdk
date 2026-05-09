@@ -18,19 +18,19 @@ namespace com {
 						namespace utils {
 
 int32_t MutableAttrListImpl::hashCode() {
-	 return this->$AttributesImpl::hashCode();
+	return this->$AttributesImpl::hashCode();
 }
 
 bool MutableAttrListImpl::equals(Object$* arg0) {
-	 return this->$AttributesImpl::equals(arg0);
+	return this->$AttributesImpl::equals(arg0);
 }
 
 $Object* MutableAttrListImpl::clone() {
-	 return this->$AttributesImpl::clone();
+	return this->$AttributesImpl::clone();
 }
 
 $String* MutableAttrListImpl::toString() {
-	 return this->$AttributesImpl::toString();
+	return this->$AttributesImpl::toString();
 }
 
 void MutableAttrListImpl::finalize() {

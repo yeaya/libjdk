@@ -31,63 +31,63 @@ namespace com {
 					namespace events {
 
 int32_t ProcessingInstructionEvent::getEventType() {
-	 return this->$DummyEvent::getEventType();
+	return this->$DummyEvent::getEventType();
 }
 
 bool ProcessingInstructionEvent::isStartElement() {
-	 return this->$DummyEvent::isStartElement();
+	return this->$DummyEvent::isStartElement();
 }
 
 bool ProcessingInstructionEvent::isEndElement() {
-	 return this->$DummyEvent::isEndElement();
+	return this->$DummyEvent::isEndElement();
 }
 
 bool ProcessingInstructionEvent::isEntityReference() {
-	 return this->$DummyEvent::isEntityReference();
+	return this->$DummyEvent::isEntityReference();
 }
 
 bool ProcessingInstructionEvent::isProcessingInstruction() {
-	 return this->$DummyEvent::isProcessingInstruction();
+	return this->$DummyEvent::isProcessingInstruction();
 }
 
 bool ProcessingInstructionEvent::isStartDocument() {
-	 return this->$DummyEvent::isStartDocument();
+	return this->$DummyEvent::isStartDocument();
 }
 
 bool ProcessingInstructionEvent::isEndDocument() {
-	 return this->$DummyEvent::isEndDocument();
+	return this->$DummyEvent::isEndDocument();
 }
 
 $Location* ProcessingInstructionEvent::getLocation() {
-	 return this->$DummyEvent::getLocation();
+	return this->$DummyEvent::getLocation();
 }
 
 $Characters* ProcessingInstructionEvent::asCharacters() {
-	 return this->$DummyEvent::asCharacters();
+	return this->$DummyEvent::asCharacters();
 }
 
 $EndElement* ProcessingInstructionEvent::asEndElement() {
-	 return this->$DummyEvent::asEndElement();
+	return this->$DummyEvent::asEndElement();
 }
 
 $StartElement* ProcessingInstructionEvent::asStartElement() {
-	 return this->$DummyEvent::asStartElement();
+	return this->$DummyEvent::asStartElement();
 }
 
 $QName* ProcessingInstructionEvent::getSchemaType() {
-	 return this->$DummyEvent::getSchemaType();
+	return this->$DummyEvent::getSchemaType();
 }
 
 bool ProcessingInstructionEvent::isAttribute() {
-	 return this->$DummyEvent::isAttribute();
+	return this->$DummyEvent::isAttribute();
 }
 
 bool ProcessingInstructionEvent::isCharacters() {
-	 return this->$DummyEvent::isCharacters();
+	return this->$DummyEvent::isCharacters();
 }
 
 bool ProcessingInstructionEvent::isNamespace() {
-	 return this->$DummyEvent::isNamespace();
+	return this->$DummyEvent::isNamespace();
 }
 
 void ProcessingInstructionEvent::writeAsEncodedUnicode($Writer* writer) {
@@ -95,15 +95,15 @@ void ProcessingInstructionEvent::writeAsEncodedUnicode($Writer* writer) {
 }
 
 int32_t ProcessingInstructionEvent::hashCode() {
-	 return this->$DummyEvent::hashCode();
+	return this->$DummyEvent::hashCode();
 }
 
 bool ProcessingInstructionEvent::equals(Object$* arg0) {
-	 return this->$DummyEvent::equals(arg0);
+	return this->$DummyEvent::equals(arg0);
 }
 
 $Object* ProcessingInstructionEvent::clone() {
-	 return this->$DummyEvent::clone();
+	return this->$DummyEvent::clone();
 }
 
 void ProcessingInstructionEvent::finalize() {

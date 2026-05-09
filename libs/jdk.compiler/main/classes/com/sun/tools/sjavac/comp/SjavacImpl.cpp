@@ -106,7 +106,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* arg) override {
-		 return SjavacImpl::lambda$compile$0($cast($String, arg));
+		return SjavacImpl::lambda$compile$0($cast($String, arg));
 	}
 };
 $Class* SjavacImpl$$Lambda$lambda$compile$0::load$($String* name, bool initialize) {
@@ -136,7 +136,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return SjavacImpl::lambda$compile$1(x$0);
+		return SjavacImpl::lambda$compile$1(x$0);
 	}
 };
 $Class* SjavacImpl$$Lambda$lambda$compile$1$1::load$($String* name, bool initialize) {

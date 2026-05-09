@@ -62,15 +62,15 @@ namespace com {
 						namespace classfile {
 
 int32_t ConstantPool::hashCode() {
-	 return this->$Cloneable::hashCode();
+	return this->$Cloneable::hashCode();
 }
 
 bool ConstantPool::equals(Object$* arg0) {
-	 return this->$Cloneable::equals(arg0);
+	return this->$Cloneable::equals(arg0);
 }
 
 $Object* ConstantPool::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 void ConstantPool::finalize() {

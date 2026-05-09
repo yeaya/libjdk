@@ -32,19 +32,19 @@ using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 
 int32_t ALPNFailureTest$ReadOnlyServer::hashCode() {
-	 return this->$Runnable::hashCode();
+	return this->$Runnable::hashCode();
 }
 
 bool ALPNFailureTest$ReadOnlyServer::equals(Object$* arg0) {
-	 return this->$Runnable::equals(arg0);
+	return this->$Runnable::equals(arg0);
 }
 
 $Object* ALPNFailureTest$ReadOnlyServer::clone() {
-	 return this->$Runnable::clone();
+	return this->$Runnable::clone();
 }
 
 $String* ALPNFailureTest$ReadOnlyServer::toString() {
-	 return this->$Runnable::toString();
+	return this->$Runnable::toString();
 }
 
 void ALPNFailureTest$ReadOnlyServer::finalize() {

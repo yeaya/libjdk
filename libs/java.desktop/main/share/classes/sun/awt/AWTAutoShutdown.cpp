@@ -56,7 +56,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$activateBlockerThread$0();
+		return $nc(inst$)->lambda$activateBlockerThread$0();
 	}
 	AWTAutoShutdown* inst$ = nullptr;
 };

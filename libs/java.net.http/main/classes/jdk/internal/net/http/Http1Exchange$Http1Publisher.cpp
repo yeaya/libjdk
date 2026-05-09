@@ -59,7 +59,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	Http1Exchange$Http1Publisher* inst$ = nullptr;
 };

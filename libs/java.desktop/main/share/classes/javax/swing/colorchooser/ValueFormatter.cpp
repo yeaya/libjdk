@@ -43,19 +43,19 @@ namespace javax {
 		namespace colorchooser {
 
 $Object* ValueFormatter::clone() {
-	 return this->$JFormattedTextField$AbstractFormatter::clone();
+	return this->$JFormattedTextField$AbstractFormatter::clone();
 }
 
 int32_t ValueFormatter::hashCode() {
-	 return this->$JFormattedTextField$AbstractFormatter::hashCode();
+	return this->$JFormattedTextField$AbstractFormatter::hashCode();
 }
 
 bool ValueFormatter::equals(Object$* arg0) {
-	 return this->$JFormattedTextField$AbstractFormatter::equals(arg0);
+	return this->$JFormattedTextField$AbstractFormatter::equals(arg0);
 }
 
 $String* ValueFormatter::toString() {
-	 return this->$JFormattedTextField$AbstractFormatter::toString();
+	return this->$JFormattedTextField$AbstractFormatter::toString();
 }
 
 void ValueFormatter::finalize() {

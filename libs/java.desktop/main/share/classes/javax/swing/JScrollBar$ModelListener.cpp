@@ -23,19 +23,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JScrollBar$ModelListener::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool JScrollBar$ModelListener::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* JScrollBar$ModelListener::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* JScrollBar$ModelListener::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void JScrollBar$ModelListener::finalize() {

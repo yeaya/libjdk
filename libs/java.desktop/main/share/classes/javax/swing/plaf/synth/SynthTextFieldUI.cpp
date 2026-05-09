@@ -58,19 +58,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthTextFieldUI::hashCode() {
-	 return this->$BasicTextFieldUI::hashCode();
+	return this->$BasicTextFieldUI::hashCode();
 }
 
 bool SynthTextFieldUI::equals(Object$* arg0) {
-	 return this->$BasicTextFieldUI::equals(arg0);
+	return this->$BasicTextFieldUI::equals(arg0);
 }
 
 $Object* SynthTextFieldUI::clone() {
-	 return this->$BasicTextFieldUI::clone();
+	return this->$BasicTextFieldUI::clone();
 }
 
 $String* SynthTextFieldUI::toString() {
-	 return this->$BasicTextFieldUI::toString();
+	return this->$BasicTextFieldUI::toString();
 }
 
 void SynthTextFieldUI::finalize() {

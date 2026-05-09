@@ -95,7 +95,7 @@ public:
 		$set(this, variable, variable);
 	}
 	virtual $Object* call() override {
-		 return $nc(inst$)->lambda$setLazyConstValue$0(attr, env, variable);
+		return $nc(inst$)->lambda$setLazyConstValue$0(attr, env, variable);
 	}
 	Symbol$VarSymbol* inst$ = nullptr;
 	$Attr* attr = nullptr;
@@ -131,31 +131,31 @@ $Class* Symbol$VarSymbol$$Lambda$lambda$setLazyConstValue$0::load$($String* name
 $Class* Symbol$VarSymbol$$Lambda$lambda$setLazyConstValue$0::class$ = nullptr;
 
 $Set* Symbol$VarSymbol::getModifiers() {
-	 return this->$Symbol::getModifiers();
+	return this->$Symbol::getModifiers();
 }
 
 $List* Symbol$VarSymbol::getEnclosedElements() {
-	 return this->$Symbol::getEnclosedElements();
+	return this->$Symbol::getEnclosedElements();
 }
 
 $AnnotationArray* Symbol$VarSymbol::getAnnotationsByType($Class* annoType) {
-	 return this->$Symbol::getAnnotationsByType(annoType);
+	return this->$Symbol::getAnnotationsByType(annoType);
 }
 
 $Annotation* Symbol$VarSymbol::getAnnotation($Class* annoType) {
-	 return this->$Symbol::getAnnotation(annoType);
+	return this->$Symbol::getAnnotation(annoType);
 }
 
 int32_t Symbol$VarSymbol::hashCode() {
-	 return this->$Symbol::hashCode();
+	return this->$Symbol::hashCode();
 }
 
 bool Symbol$VarSymbol::equals(Object$* arg0) {
-	 return this->$Symbol::equals(arg0);
+	return this->$Symbol::equals(arg0);
 }
 
 $Object* Symbol$VarSymbol::clone() {
-	 return this->$Symbol::clone();
+	return this->$Symbol::clone();
 }
 
 void Symbol$VarSymbol::finalize() {

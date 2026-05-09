@@ -120,19 +120,19 @@ namespace com {
 						namespace jaxp {
 
 int32_t SAXParserImpl::hashCode() {
-	 return this->$SAXParser::hashCode();
+	return this->$SAXParser::hashCode();
 }
 
 bool SAXParserImpl::equals(Object$* arg0) {
-	 return this->$SAXParser::equals(arg0);
+	return this->$SAXParser::equals(arg0);
 }
 
 $Object* SAXParserImpl::clone() {
-	 return this->$SAXParser::clone();
+	return this->$SAXParser::clone();
 }
 
 $String* SAXParserImpl::toString() {
-	 return this->$SAXParser::toString();
+	return this->$SAXParser::toString();
 }
 
 void SAXParserImpl::finalize() {

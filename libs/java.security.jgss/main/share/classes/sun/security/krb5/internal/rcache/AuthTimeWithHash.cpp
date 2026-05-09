@@ -23,7 +23,7 @@ namespace sun {
 				namespace rcache {
 
 $Object* AuthTimeWithHash::clone() {
-	 return this->$AuthTime::clone();
+	return this->$AuthTime::clone();
 }
 
 void AuthTimeWithHash::finalize() {

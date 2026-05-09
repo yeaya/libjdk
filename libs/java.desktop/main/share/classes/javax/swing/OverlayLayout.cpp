@@ -27,19 +27,19 @@ namespace javax {
 	namespace swing {
 
 int32_t OverlayLayout::hashCode() {
-	 return this->$LayoutManager2::hashCode();
+	return this->$LayoutManager2::hashCode();
 }
 
 bool OverlayLayout::equals(Object$* arg0) {
-	 return this->$LayoutManager2::equals(arg0);
+	return this->$LayoutManager2::equals(arg0);
 }
 
 $Object* OverlayLayout::clone() {
-	 return this->$LayoutManager2::clone();
+	return this->$LayoutManager2::clone();
 }
 
 $String* OverlayLayout::toString() {
-	 return this->$LayoutManager2::toString();
+	return this->$LayoutManager2::toString();
 }
 
 void OverlayLayout::finalize() {

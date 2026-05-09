@@ -34,19 +34,19 @@ namespace com {
 		namespace laf {
 
 $String* AquaComboBoxRendererInternal::toString() {
-	 return this->$JLabel::toString();
+	return this->$JLabel::toString();
 }
 
 int32_t AquaComboBoxRendererInternal::hashCode() {
-	 return this->$JLabel::hashCode();
+	return this->$JLabel::hashCode();
 }
 
 bool AquaComboBoxRendererInternal::equals(Object$* arg0) {
-	 return this->$JLabel::equals(arg0);
+	return this->$JLabel::equals(arg0);
 }
 
 $Object* AquaComboBoxRendererInternal::clone() {
-	 return this->$JLabel::clone();
+	return this->$JLabel::clone();
 }
 
 void AquaComboBoxRendererInternal::finalize() {

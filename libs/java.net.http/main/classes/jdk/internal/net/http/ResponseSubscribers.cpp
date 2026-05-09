@@ -77,7 +77,7 @@ public:
 		$set(this, charset, charset);
 	}
 	virtual $Object* apply(Object$* stream) override {
-		 return ResponseSubscribers::lambda$createLineStream$1(charset, $cast($InputStream, stream));
+		return ResponseSubscribers::lambda$createLineStream$1(charset, $cast($InputStream, stream));
 	}
 	$Charset* charset = nullptr;
 };

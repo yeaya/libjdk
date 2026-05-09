@@ -25,15 +25,15 @@ namespace com {
 				namespace util {
 
 bool Name::equals(Object$* arg0) {
-	 return this->$Name::equals(arg0);
+	return this->$Name::equals(arg0);
 }
 
 int32_t Name::hashCode() {
-	 return this->$Name::hashCode();
+	return this->$Name::hashCode();
 }
 
 $Object* Name::clone() {
-	 return this->$Name::clone();
+	return this->$Name::clone();
 }
 
 void Name::finalize() {

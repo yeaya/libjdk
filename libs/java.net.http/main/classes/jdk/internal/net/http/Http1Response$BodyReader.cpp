@@ -57,7 +57,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->currentStateMessage());
+		return $of($nc(inst$)->currentStateMessage());
 	}
 	$ResponseContent$BodyParser* inst$ = nullptr;
 };

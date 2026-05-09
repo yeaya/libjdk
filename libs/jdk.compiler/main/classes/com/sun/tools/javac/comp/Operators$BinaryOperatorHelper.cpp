@@ -50,7 +50,7 @@ public:
 		$set(this, t2, t2);
 	}
 	virtual bool test(Object$* op) override {
-		 return $nc(inst$)->lambda$doLookup$0(t1, t2, $cast($Symbol$OperatorSymbol, op));
+		return $nc(inst$)->lambda$doLookup$0(t1, t2, $cast($Symbol$OperatorSymbol, op));
 	}
 	Operators$BinaryOperatorHelper* inst$ = nullptr;
 	$Type* t1 = nullptr;
@@ -94,7 +94,7 @@ public:
 		$set(this, opcode, opcode);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$addBinaryOperator$1(arg1, arg2, res, opcode));
+		return $of($nc(inst$)->lambda$addBinaryOperator$1(arg1, arg2, res, opcode));
 	}
 	Operators$BinaryOperatorHelper* inst$ = nullptr;
 	$Operators$OperatorType* arg1 = nullptr;
@@ -132,19 +132,19 @@ $Class* Operators$BinaryOperatorHelper$$Lambda$lambda$addBinaryOperator$1$1::loa
 $Class* Operators$BinaryOperatorHelper$$Lambda$lambda$addBinaryOperator$1$1::class$ = nullptr;
 
 int32_t Operators$BinaryOperatorHelper::hashCode() {
-	 return this->$Operators$OperatorHelper::hashCode();
+	return this->$Operators$OperatorHelper::hashCode();
 }
 
 bool Operators$BinaryOperatorHelper::equals(Object$* arg0) {
-	 return this->$Operators$OperatorHelper::equals(arg0);
+	return this->$Operators$OperatorHelper::equals(arg0);
 }
 
 $Object* Operators$BinaryOperatorHelper::clone() {
-	 return this->$Operators$OperatorHelper::clone();
+	return this->$Operators$OperatorHelper::clone();
 }
 
 $String* Operators$BinaryOperatorHelper::toString() {
-	 return this->$Operators$OperatorHelper::toString();
+	return this->$Operators$OperatorHelper::toString();
 }
 
 void Operators$BinaryOperatorHelper::finalize() {

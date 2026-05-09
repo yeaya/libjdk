@@ -49,23 +49,23 @@ namespace org {
 					namespace dom {
 
 bool DOMPGPData::isFeatureSupported($String* feature) {
-	 return this->$DOMStructure::isFeatureSupported(feature);
+	return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 int32_t DOMPGPData::hashCode() {
-	 return this->$DOMStructure::hashCode();
+	return this->$DOMStructure::hashCode();
 }
 
 bool DOMPGPData::equals(Object$* arg0) {
-	 return this->$DOMStructure::equals(arg0);
+	return this->$DOMStructure::equals(arg0);
 }
 
 $Object* DOMPGPData::clone() {
-	 return this->$DOMStructure::clone();
+	return this->$DOMStructure::clone();
 }
 
 $String* DOMPGPData::toString() {
-	 return this->$DOMStructure::toString();
+	return this->$DOMStructure::toString();
 }
 
 void DOMPGPData::finalize() {

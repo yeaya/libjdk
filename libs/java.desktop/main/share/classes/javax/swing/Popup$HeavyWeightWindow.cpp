@@ -24,19 +24,19 @@ namespace javax {
 	namespace swing {
 
 $String* Popup$HeavyWeightWindow::toString() {
-	 return this->$JWindow::toString();
+	return this->$JWindow::toString();
 }
 
 int32_t Popup$HeavyWeightWindow::hashCode() {
-	 return this->$JWindow::hashCode();
+	return this->$JWindow::hashCode();
 }
 
 bool Popup$HeavyWeightWindow::equals(Object$* arg0) {
-	 return this->$JWindow::equals(arg0);
+	return this->$JWindow::equals(arg0);
 }
 
 $Object* Popup$HeavyWeightWindow::clone() {
-	 return this->$JWindow::clone();
+	return this->$JWindow::clone();
 }
 
 void Popup$HeavyWeightWindow::finalize() {

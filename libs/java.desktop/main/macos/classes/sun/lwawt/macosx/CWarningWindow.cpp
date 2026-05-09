@@ -238,27 +238,27 @@ void CWarningWindow::setMenuBar($MenuBar* mb) {
 }
 
 $FontMetrics* CWarningWindow::getFontMetrics($Font* f) {
-	 return this->$CPlatformWindow::getFontMetrics(f);
+	return this->$CPlatformWindow::getFontMetrics(f);
 }
 
 $Insets* CWarningWindow::getInsets() {
-	 return this->$CPlatformWindow::getInsets();
+	return this->$CPlatformWindow::getInsets();
 }
 
 $Point* CWarningWindow::getLocationOnScreen() {
-	 return this->$CPlatformWindow::getLocationOnScreen();
+	return this->$CPlatformWindow::getLocationOnScreen();
 }
 
 $GraphicsDevice* CWarningWindow::getGraphicsDevice() {
-	 return this->$CPlatformWindow::getGraphicsDevice();
+	return this->$CPlatformWindow::getGraphicsDevice();
 }
 
 $SurfaceData* CWarningWindow::getScreenSurface() {
-	 return this->$CPlatformWindow::getScreenSurface();
+	return this->$CPlatformWindow::getScreenSurface();
 }
 
 $SurfaceData* CWarningWindow::replaceSurfaceData() {
-	 return this->$CPlatformWindow::replaceSurfaceData();
+	return this->$CPlatformWindow::replaceSurfaceData();
 }
 
 void CWarningWindow::setBounds(int32_t x, int32_t y, int32_t w, int32_t h) {
@@ -294,15 +294,15 @@ void CWarningWindow::setSizeConstraints(int32_t minW, int32_t minH, int32_t maxW
 }
 
 bool CWarningWindow::rejectFocusRequest($FocusEvent$Cause* cause) {
-	 return this->$CPlatformWindow::rejectFocusRequest(cause);
+	return this->$CPlatformWindow::rejectFocusRequest(cause);
 }
 
 bool CWarningWindow::requestWindowFocus() {
-	 return this->$CPlatformWindow::requestWindowFocus();
+	return this->$CPlatformWindow::requestWindowFocus();
 }
 
 bool CWarningWindow::isActive() {
-	 return this->$CPlatformWindow::isActive();
+	return this->$CPlatformWindow::isActive();
 }
 
 void CWarningWindow::updateFocusableWindowState() {
@@ -330,7 +330,7 @@ void CWarningWindow::exitFullScreenMode() {
 }
 
 bool CWarningWindow::isFullScreenMode() {
-	 return this->$CPlatformWindow::isFullScreenMode();
+	return this->$CPlatformWindow::isFullScreenMode();
 }
 
 void CWarningWindow::setWindowState(int32_t windowState) {
@@ -342,15 +342,15 @@ void CWarningWindow::setModalBlocked(bool blocked) {
 }
 
 $LWWindowPeer* CWarningWindow::getPeer() {
-	 return this->$CPlatformWindow::getPeer();
+	return this->$CPlatformWindow::getPeer();
 }
 
 bool CWarningWindow::isUnderMouse() {
-	 return this->$CPlatformWindow::isUnderMouse();
+	return this->$CPlatformWindow::isUnderMouse();
 }
 
 int64_t CWarningWindow::getLayerPtr() {
-	 return this->$CPlatformWindow::getLayerPtr();
+	return this->$CPlatformWindow::getLayerPtr();
 }
 
 void CWarningWindow::finalize() {
@@ -358,19 +358,19 @@ void CWarningWindow::finalize() {
 }
 
 int32_t CWarningWindow::hashCode() {
-	 return this->$CPlatformWindow::hashCode();
+	return this->$CPlatformWindow::hashCode();
 }
 
 bool CWarningWindow::equals(Object$* arg0) {
-	 return this->$CPlatformWindow::equals(arg0);
+	return this->$CPlatformWindow::equals(arg0);
 }
 
 $Object* CWarningWindow::clone() {
-	 return this->$CPlatformWindow::clone();
+	return this->$CPlatformWindow::clone();
 }
 
 $String* CWarningWindow::toString() {
-	 return this->$CPlatformWindow::toString();
+	return this->$CPlatformWindow::toString();
 }
 
 $IconInfoArray2* CWarningWindow::icons = nullptr;

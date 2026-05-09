@@ -32,19 +32,19 @@ namespace com {
 						namespace generic {
 
 $String* PUTFIELD::toString() {
-	 return this->$FieldInstruction::toString();
+	return this->$FieldInstruction::toString();
 }
 
 bool PUTFIELD::equals(Object$* that) {
-	 return this->$FieldInstruction::equals(that);
+	return this->$FieldInstruction::equals(that);
 }
 
 int32_t PUTFIELD::hashCode() {
-	 return this->$FieldInstruction::hashCode();
+	return this->$FieldInstruction::hashCode();
 }
 
 $Object* PUTFIELD::clone() {
-	 return this->$FieldInstruction::clone();
+	return this->$FieldInstruction::clone();
 }
 
 void PUTFIELD::finalize() {

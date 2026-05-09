@@ -43,7 +43,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* arg0) override {
-		 return $nc(inst$)->isInstance(arg0);
+		return $nc(inst$)->isInstance(arg0);
 	}
 	$Class* inst$ = nullptr;
 };
@@ -79,7 +79,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $nc(inst$)->cast(arg0);
+		return $nc(inst$)->cast(arg0);
 	}
 	$Class* inst$ = nullptr;
 };

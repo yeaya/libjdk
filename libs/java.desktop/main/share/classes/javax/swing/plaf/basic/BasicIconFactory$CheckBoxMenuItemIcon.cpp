@@ -22,19 +22,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicIconFactory$CheckBoxMenuItemIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool BasicIconFactory$CheckBoxMenuItemIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* BasicIconFactory$CheckBoxMenuItemIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* BasicIconFactory$CheckBoxMenuItemIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void BasicIconFactory$CheckBoxMenuItemIcon::finalize() {

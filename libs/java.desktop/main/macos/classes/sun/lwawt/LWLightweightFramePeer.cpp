@@ -44,19 +44,19 @@ namespace sun {
 	namespace lwawt {
 
 $String* LWLightweightFramePeer::toString() {
-	 return this->$LWWindowPeer::toString();
+	return this->$LWWindowPeer::toString();
 }
 
 int32_t LWLightweightFramePeer::hashCode() {
-	 return this->$LWWindowPeer::hashCode();
+	return this->$LWWindowPeer::hashCode();
 }
 
 bool LWLightweightFramePeer::equals(Object$* arg0) {
-	 return this->$LWWindowPeer::equals(arg0);
+	return this->$LWWindowPeer::equals(arg0);
 }
 
 $Object* LWLightweightFramePeer::clone() {
-	 return this->$LWWindowPeer::clone();
+	return this->$LWWindowPeer::clone();
 }
 
 void LWLightweightFramePeer::finalize() {

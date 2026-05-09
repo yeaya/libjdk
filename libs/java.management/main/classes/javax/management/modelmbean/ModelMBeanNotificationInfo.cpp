@@ -43,11 +43,11 @@ namespace javax {
 		namespace modelmbean {
 
 bool ModelMBeanNotificationInfo::equals(Object$* o) {
-	 return this->$MBeanNotificationInfo::equals(o);
+	return this->$MBeanNotificationInfo::equals(o);
 }
 
 int32_t ModelMBeanNotificationInfo::hashCode() {
-	 return this->$MBeanNotificationInfo::hashCode();
+	return this->$MBeanNotificationInfo::hashCode();
 }
 
 void ModelMBeanNotificationInfo::finalize() {

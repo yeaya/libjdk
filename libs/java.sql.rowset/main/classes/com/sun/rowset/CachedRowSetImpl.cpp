@@ -251,11 +251,11 @@ void CachedRowSetImpl::removeRowSetListener($RowSetListener* listener) {
 }
 
 $String* CachedRowSetImpl::getCommand() {
-	 return this->$BaseRowSet::getCommand();
+	return this->$BaseRowSet::getCommand();
 }
 
 $String* CachedRowSetImpl::getUrl() {
-	 return this->$BaseRowSet::getUrl();
+	return this->$BaseRowSet::getUrl();
 }
 
 void CachedRowSetImpl::setUrl($String* url) {
@@ -263,7 +263,7 @@ void CachedRowSetImpl::setUrl($String* url) {
 }
 
 $String* CachedRowSetImpl::getDataSourceName() {
-	 return this->$BaseRowSet::getDataSourceName();
+	return this->$BaseRowSet::getDataSourceName();
 }
 
 void CachedRowSetImpl::setDataSourceName($String* name) {
@@ -271,7 +271,7 @@ void CachedRowSetImpl::setDataSourceName($String* name) {
 }
 
 $String* CachedRowSetImpl::getUsername() {
-	 return this->$BaseRowSet::getUsername();
+	return this->$BaseRowSet::getUsername();
 }
 
 void CachedRowSetImpl::setUsername($String* name) {
@@ -279,7 +279,7 @@ void CachedRowSetImpl::setUsername($String* name) {
 }
 
 $String* CachedRowSetImpl::getPassword() {
-	 return this->$BaseRowSet::getPassword();
+	return this->$BaseRowSet::getPassword();
 }
 
 void CachedRowSetImpl::setPassword($String* pass) {
@@ -291,7 +291,7 @@ void CachedRowSetImpl::setType(int32_t type) {
 }
 
 int32_t CachedRowSetImpl::getType() {
-	 return this->$BaseRowSet::getType();
+	return this->$BaseRowSet::getType();
 }
 
 void CachedRowSetImpl::setConcurrency(int32_t concurrency) {
@@ -299,7 +299,7 @@ void CachedRowSetImpl::setConcurrency(int32_t concurrency) {
 }
 
 bool CachedRowSetImpl::isReadOnly() {
-	 return this->$BaseRowSet::isReadOnly();
+	return this->$BaseRowSet::isReadOnly();
 }
 
 void CachedRowSetImpl::setReadOnly(bool value) {
@@ -307,7 +307,7 @@ void CachedRowSetImpl::setReadOnly(bool value) {
 }
 
 int32_t CachedRowSetImpl::getTransactionIsolation() {
-	 return this->$BaseRowSet::getTransactionIsolation();
+	return this->$BaseRowSet::getTransactionIsolation();
 }
 
 void CachedRowSetImpl::setTransactionIsolation(int32_t level) {
@@ -315,7 +315,7 @@ void CachedRowSetImpl::setTransactionIsolation(int32_t level) {
 }
 
 $Map* CachedRowSetImpl::getTypeMap() {
-	 return this->$BaseRowSet::getTypeMap();
+	return this->$BaseRowSet::getTypeMap();
 }
 
 void CachedRowSetImpl::setTypeMap($Map* map) {
@@ -323,7 +323,7 @@ void CachedRowSetImpl::setTypeMap($Map* map) {
 }
 
 int32_t CachedRowSetImpl::getMaxFieldSize() {
-	 return this->$BaseRowSet::getMaxFieldSize();
+	return this->$BaseRowSet::getMaxFieldSize();
 }
 
 void CachedRowSetImpl::setMaxFieldSize(int32_t max) {
@@ -331,7 +331,7 @@ void CachedRowSetImpl::setMaxFieldSize(int32_t max) {
 }
 
 int32_t CachedRowSetImpl::getMaxRows() {
-	 return this->$BaseRowSet::getMaxRows();
+	return this->$BaseRowSet::getMaxRows();
 }
 
 void CachedRowSetImpl::setMaxRows(int32_t max) {
@@ -343,7 +343,7 @@ void CachedRowSetImpl::setEscapeProcessing(bool enable) {
 }
 
 int32_t CachedRowSetImpl::getQueryTimeout() {
-	 return this->$BaseRowSet::getQueryTimeout();
+	return this->$BaseRowSet::getQueryTimeout();
 }
 
 void CachedRowSetImpl::setQueryTimeout(int32_t seconds) {
@@ -351,7 +351,7 @@ void CachedRowSetImpl::setQueryTimeout(int32_t seconds) {
 }
 
 bool CachedRowSetImpl::getShowDeleted() {
-	 return this->$BaseRowSet::getShowDeleted();
+	return this->$BaseRowSet::getShowDeleted();
 }
 
 void CachedRowSetImpl::setShowDeleted(bool value) {
@@ -359,7 +359,7 @@ void CachedRowSetImpl::setShowDeleted(bool value) {
 }
 
 bool CachedRowSetImpl::getEscapeProcessing() {
-	 return this->$BaseRowSet::getEscapeProcessing();
+	return this->$BaseRowSet::getEscapeProcessing();
 }
 
 void CachedRowSetImpl::setFetchDirection(int32_t direction) {
@@ -367,7 +367,7 @@ void CachedRowSetImpl::setFetchDirection(int32_t direction) {
 }
 
 int32_t CachedRowSetImpl::getFetchDirection() {
-	 return this->$BaseRowSet::getFetchDirection();
+	return this->$BaseRowSet::getFetchDirection();
 }
 
 void CachedRowSetImpl::setFetchSize(int32_t rows) {
@@ -375,11 +375,11 @@ void CachedRowSetImpl::setFetchSize(int32_t rows) {
 }
 
 int32_t CachedRowSetImpl::getFetchSize() {
-	 return this->$BaseRowSet::getFetchSize();
+	return this->$BaseRowSet::getFetchSize();
 }
 
 int32_t CachedRowSetImpl::getConcurrency() {
-	 return this->$BaseRowSet::getConcurrency();
+	return this->$BaseRowSet::getConcurrency();
 }
 
 void CachedRowSetImpl::setNull(int32_t parameterIndex, int32_t sqlType) {
@@ -511,19 +511,19 @@ void CachedRowSetImpl::clearParameters() {
 }
 
 $ObjectArray* CachedRowSetImpl::getParams() {
-	 return this->$BaseRowSet::getParams();
+	return this->$BaseRowSet::getParams();
 }
 
 int32_t CachedRowSetImpl::hashCode() {
-	 return this->$BaseRowSet::hashCode();
+	return this->$BaseRowSet::hashCode();
 }
 
 bool CachedRowSetImpl::equals(Object$* arg0) {
-	 return this->$BaseRowSet::equals(arg0);
+	return this->$BaseRowSet::equals(arg0);
 }
 
 $String* CachedRowSetImpl::toString() {
-	 return this->$BaseRowSet::toString();
+	return this->$BaseRowSet::toString();
 }
 
 void CachedRowSetImpl::finalize() {

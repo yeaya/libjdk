@@ -16,15 +16,15 @@ namespace javax {
 			namespace standard {
 
 int32_t JobMediaSheetsCompleted::hashCode() {
-	 return this->$IntegerSyntax::hashCode();
+	return this->$IntegerSyntax::hashCode();
 }
 
 $String* JobMediaSheetsCompleted::toString() {
-	 return this->$IntegerSyntax::toString();
+	return this->$IntegerSyntax::toString();
 }
 
 $Object* JobMediaSheetsCompleted::clone() {
-	 return this->$IntegerSyntax::clone();
+	return this->$IntegerSyntax::clone();
 }
 
 void JobMediaSheetsCompleted::finalize() {

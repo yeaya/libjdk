@@ -30,19 +30,19 @@ namespace javax {
 	namespace swing {
 
 int32_t ViewportLayout::hashCode() {
-	 return this->$LayoutManager::hashCode();
+	return this->$LayoutManager::hashCode();
 }
 
 bool ViewportLayout::equals(Object$* arg0) {
-	 return this->$LayoutManager::equals(arg0);
+	return this->$LayoutManager::equals(arg0);
 }
 
 $Object* ViewportLayout::clone() {
-	 return this->$LayoutManager::clone();
+	return this->$LayoutManager::clone();
 }
 
 $String* ViewportLayout::toString() {
-	 return this->$LayoutManager::toString();
+	return this->$LayoutManager::toString();
 }
 
 void ViewportLayout::finalize() {

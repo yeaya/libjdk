@@ -29,19 +29,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCArrayAccess::toString() {
-	 return this->$JCTree$JCExpression::toString();
+	return this->$JCTree$JCExpression::toString();
 }
 
 $Object* JCTree$JCArrayAccess::clone() {
-	 return this->$JCTree$JCExpression::clone();
+	return this->$JCTree$JCExpression::clone();
 }
 
 int32_t JCTree$JCArrayAccess::hashCode() {
-	 return this->$JCTree$JCExpression::hashCode();
+	return this->$JCTree$JCExpression::hashCode();
 }
 
 bool JCTree$JCArrayAccess::equals(Object$* arg0) {
-	 return this->$JCTree$JCExpression::equals(arg0);
+	return this->$JCTree$JCExpression::equals(arg0);
 }
 
 void JCTree$JCArrayAccess::finalize() {

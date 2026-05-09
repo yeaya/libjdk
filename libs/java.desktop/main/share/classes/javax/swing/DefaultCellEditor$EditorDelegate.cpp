@@ -22,19 +22,19 @@ namespace javax {
 	namespace swing {
 
 int32_t DefaultCellEditor$EditorDelegate::hashCode() {
-	 return this->$ActionListener::hashCode();
+	return this->$ActionListener::hashCode();
 }
 
 bool DefaultCellEditor$EditorDelegate::equals(Object$* arg0) {
-	 return this->$ActionListener::equals(arg0);
+	return this->$ActionListener::equals(arg0);
 }
 
 $Object* DefaultCellEditor$EditorDelegate::clone() {
-	 return this->$ActionListener::clone();
+	return this->$ActionListener::clone();
 }
 
 $String* DefaultCellEditor$EditorDelegate::toString() {
-	 return this->$ActionListener::toString();
+	return this->$ActionListener::toString();
 }
 
 void DefaultCellEditor$EditorDelegate::finalize() {

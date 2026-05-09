@@ -142,7 +142,7 @@ void WFramePeer::updateWindow() {
 }
 
 $Insets* WFramePeer::getInsets() {
-	 return this->$WWindowPeer::getInsets();
+	return this->$WWindowPeer::getInsets();
 }
 
 void WFramePeer::paint($Graphics* g) {
@@ -150,15 +150,15 @@ void WFramePeer::paint($Graphics* g) {
 }
 
 bool WFramePeer::isObscured() {
-	 return this->$WWindowPeer::isObscured();
+	return this->$WWindowPeer::isObscured();
 }
 
 bool WFramePeer::canDetermineObscurity() {
-	 return this->$WWindowPeer::canDetermineObscurity();
+	return this->$WWindowPeer::canDetermineObscurity();
 }
 
 $Point* WFramePeer::getLocationOnScreen() {
-	 return this->$WWindowPeer::getLocationOnScreen();
+	return this->$WWindowPeer::getLocationOnScreen();
 }
 
 void WFramePeer::setVisible(bool b) {
@@ -182,7 +182,7 @@ void WFramePeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* WFramePeer::getPreferredSize() {
-	 return this->$WWindowPeer::getPreferredSize();
+	return this->$WWindowPeer::getPreferredSize();
 }
 
 void WFramePeer::layout() {
@@ -190,23 +190,23 @@ void WFramePeer::layout() {
 }
 
 bool WFramePeer::isFocusable() {
-	 return this->$WWindowPeer::isFocusable();
+	return this->$WWindowPeer::isFocusable();
 }
 
 $GraphicsConfiguration* WFramePeer::getGraphicsConfiguration() {
-	 return this->$WWindowPeer::getGraphicsConfiguration();
+	return this->$WWindowPeer::getGraphicsConfiguration();
 }
 
 $ColorModel* WFramePeer::getColorModel() {
-	 return this->$WWindowPeer::getColorModel();
+	return this->$WWindowPeer::getColorModel();
 }
 
 $Graphics* WFramePeer::getGraphics() {
-	 return this->$WWindowPeer::getGraphics();
+	return this->$WWindowPeer::getGraphics();
 }
 
 $FontMetrics* WFramePeer::getFontMetrics($Font* font) {
-	 return this->$WWindowPeer::getFontMetrics(font);
+	return this->$WWindowPeer::getFontMetrics(font);
 }
 
 void WFramePeer::setForeground($Color* c) {
@@ -222,19 +222,19 @@ void WFramePeer::updateCursorImmediately() {
 }
 
 bool WFramePeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$WWindowPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$WWindowPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* WFramePeer::createImage(int32_t width, int32_t height) {
-	 return this->$WWindowPeer::createImage(width, height);
+	return this->$WWindowPeer::createImage(width, height);
 }
 
 $VolatileImage* WFramePeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$WWindowPeer::createVolatileImage(width, height);
+	return this->$WWindowPeer::createVolatileImage(width, height);
 }
 
 $String* WFramePeer::toString() {
-	 return this->$WWindowPeer::toString();
+	return this->$WWindowPeer::toString();
 }
 
 void WFramePeer::beginLayout() {
@@ -254,7 +254,7 @@ void WFramePeer::endValidate() {
 }
 
 bool WFramePeer::handlesWheelScrolling() {
-	 return this->$WWindowPeer::handlesWheelScrolling();
+	return this->$WWindowPeer::handlesWheelScrolling();
 }
 
 void WFramePeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -270,7 +270,7 @@ void WFramePeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCap
 }
 
 $Image* WFramePeer::getBackBuffer() {
-	 return this->$WWindowPeer::getBackBuffer();
+	return this->$WWindowPeer::getBackBuffer();
 }
 
 void WFramePeer::reparent($ContainerPeer* newNativeParent) {
@@ -278,7 +278,7 @@ void WFramePeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool WFramePeer::isReparentSupported() {
-	 return this->$WWindowPeer::isReparentSupported();
+	return this->$WWindowPeer::isReparentSupported();
 }
 
 void WFramePeer::applyShape($Region* shape) {
@@ -294,15 +294,15 @@ void WFramePeer::dispose() {
 }
 
 int32_t WFramePeer::hashCode() {
-	 return this->$WWindowPeer::hashCode();
+	return this->$WWindowPeer::hashCode();
 }
 
 bool WFramePeer::equals(Object$* arg0) {
-	 return this->$WWindowPeer::equals(arg0);
+	return this->$WWindowPeer::equals(arg0);
 }
 
 $Object* WFramePeer::clone() {
-	 return this->$WWindowPeer::clone();
+	return this->$WWindowPeer::clone();
 }
 
 void WFramePeer::finalize() {

@@ -17,19 +17,19 @@ namespace com {
 						namespace generic {
 
 $String* GotoInstruction::toString() {
-	 return this->$BranchInstruction::toString();
+	return this->$BranchInstruction::toString();
 }
 
 bool GotoInstruction::equals(Object$* that) {
-	 return this->$BranchInstruction::equals(that);
+	return this->$BranchInstruction::equals(that);
 }
 
 int32_t GotoInstruction::hashCode() {
-	 return this->$BranchInstruction::hashCode();
+	return this->$BranchInstruction::hashCode();
 }
 
 $Object* GotoInstruction::clone() {
-	 return this->$BranchInstruction::clone();
+	return this->$BranchInstruction::clone();
 }
 
 void GotoInstruction::finalize() {

@@ -74,19 +74,19 @@ namespace java {
 	namespace awt {
 
 $String* ScrollPane::toString() {
-	 return this->$Container::toString();
+	return this->$Container::toString();
 }
 
 int32_t ScrollPane::hashCode() {
-	 return this->$Container::hashCode();
+	return this->$Container::hashCode();
 }
 
 bool ScrollPane::equals(Object$* arg0) {
-	 return this->$Container::equals(arg0);
+	return this->$Container::equals(arg0);
 }
 
 $Object* ScrollPane::clone() {
-	 return this->$Container::clone();
+	return this->$Container::clone();
 }
 
 void ScrollPane::finalize() {

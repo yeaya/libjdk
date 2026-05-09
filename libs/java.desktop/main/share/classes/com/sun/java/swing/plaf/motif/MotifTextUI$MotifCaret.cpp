@@ -33,19 +33,19 @@ namespace com {
 					namespace motif {
 
 bool MotifTextUI$MotifCaret::equals(Object$* obj) {
-	 return this->$DefaultCaret::equals(obj);
+	return this->$DefaultCaret::equals(obj);
 }
 
 $String* MotifTextUI$MotifCaret::toString() {
-	 return this->$DefaultCaret::toString();
+	return this->$DefaultCaret::toString();
 }
 
 int32_t MotifTextUI$MotifCaret::hashCode() {
-	 return this->$DefaultCaret::hashCode();
+	return this->$DefaultCaret::hashCode();
 }
 
 $Object* MotifTextUI$MotifCaret::clone() {
-	 return this->$DefaultCaret::clone();
+	return this->$DefaultCaret::clone();
 }
 
 void MotifTextUI$MotifCaret::finalize() {

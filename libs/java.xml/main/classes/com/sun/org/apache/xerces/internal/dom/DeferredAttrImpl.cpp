@@ -34,15 +34,15 @@ namespace com {
 						namespace dom {
 
 $Node* DeferredAttrImpl::cloneNode(bool deep) {
-	 return this->$AttrImpl::cloneNode(deep);
+	return this->$AttrImpl::cloneNode(deep);
 }
 
 int16_t DeferredAttrImpl::getNodeType() {
-	 return this->$AttrImpl::getNodeType();
+	return this->$AttrImpl::getNodeType();
 }
 
 $String* DeferredAttrImpl::getNodeName() {
-	 return this->$AttrImpl::getNodeName();
+	return this->$AttrImpl::getNodeName();
 }
 
 void DeferredAttrImpl::setNodeValue($String* value) {
@@ -50,7 +50,7 @@ void DeferredAttrImpl::setNodeValue($String* value) {
 }
 
 $String* DeferredAttrImpl::getNodeValue() {
-	 return this->$AttrImpl::getNodeValue();
+	return this->$AttrImpl::getNodeValue();
 }
 
 void DeferredAttrImpl::normalize() {
@@ -58,79 +58,79 @@ void DeferredAttrImpl::normalize() {
 }
 
 $String* DeferredAttrImpl::toString() {
-	 return this->$AttrImpl::toString();
+	return this->$AttrImpl::toString();
 }
 
 bool DeferredAttrImpl::hasChildNodes() {
-	 return this->$AttrImpl::hasChildNodes();
+	return this->$AttrImpl::hasChildNodes();
 }
 
 $NodeList* DeferredAttrImpl::getChildNodes() {
-	 return this->$AttrImpl::getChildNodes();
+	return this->$AttrImpl::getChildNodes();
 }
 
 $Node* DeferredAttrImpl::getFirstChild() {
-	 return this->$AttrImpl::getFirstChild();
+	return this->$AttrImpl::getFirstChild();
 }
 
 $Node* DeferredAttrImpl::getLastChild() {
-	 return this->$AttrImpl::getLastChild();
+	return this->$AttrImpl::getLastChild();
 }
 
 $Node* DeferredAttrImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$AttrImpl::insertBefore(newChild, refChild);
+	return this->$AttrImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DeferredAttrImpl::removeChild($Node* oldChild) {
-	 return this->$AttrImpl::removeChild(oldChild);
+	return this->$AttrImpl::removeChild(oldChild);
 }
 
 $Node* DeferredAttrImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$AttrImpl::replaceChild(newChild, oldChild);
+	return this->$AttrImpl::replaceChild(newChild, oldChild);
 }
 
 bool DeferredAttrImpl::isEqualNode($Node* arg) {
-	 return this->$AttrImpl::isEqualNode(arg);
+	return this->$AttrImpl::isEqualNode(arg);
 }
 
 $Node* DeferredAttrImpl::appendChild($Node* newChild) {
-	 return this->$AttrImpl::appendChild(newChild);
+	return this->$AttrImpl::appendChild(newChild);
 }
 
 $Document* DeferredAttrImpl::getOwnerDocument() {
-	 return this->$AttrImpl::getOwnerDocument();
+	return this->$AttrImpl::getOwnerDocument();
 }
 
 $Node* DeferredAttrImpl::getParentNode() {
-	 return this->$AttrImpl::getParentNode();
+	return this->$AttrImpl::getParentNode();
 }
 
 $Node* DeferredAttrImpl::getNextSibling() {
-	 return this->$AttrImpl::getNextSibling();
+	return this->$AttrImpl::getNextSibling();
 }
 
 $Node* DeferredAttrImpl::getPreviousSibling() {
-	 return this->$AttrImpl::getPreviousSibling();
+	return this->$AttrImpl::getPreviousSibling();
 }
 
 $NamedNodeMap* DeferredAttrImpl::getAttributes() {
-	 return this->$AttrImpl::getAttributes();
+	return this->$AttrImpl::getAttributes();
 }
 
 bool DeferredAttrImpl::hasAttributes() {
-	 return this->$AttrImpl::hasAttributes();
+	return this->$AttrImpl::hasAttributes();
 }
 
 bool DeferredAttrImpl::isSupported($String* feature, $String* version) {
-	 return this->$AttrImpl::isSupported(feature, version);
+	return this->$AttrImpl::isSupported(feature, version);
 }
 
 $String* DeferredAttrImpl::getNamespaceURI() {
-	 return this->$AttrImpl::getNamespaceURI();
+	return this->$AttrImpl::getNamespaceURI();
 }
 
 $String* DeferredAttrImpl::getPrefix() {
-	 return this->$AttrImpl::getPrefix();
+	return this->$AttrImpl::getPrefix();
 }
 
 void DeferredAttrImpl::setPrefix($String* prefix) {
@@ -138,19 +138,19 @@ void DeferredAttrImpl::setPrefix($String* prefix) {
 }
 
 $String* DeferredAttrImpl::getLocalName() {
-	 return this->$AttrImpl::getLocalName();
+	return this->$AttrImpl::getLocalName();
 }
 
 $String* DeferredAttrImpl::getBaseURI() {
-	 return this->$AttrImpl::getBaseURI();
+	return this->$AttrImpl::getBaseURI();
 }
 
 int16_t DeferredAttrImpl::compareDocumentPosition($Node* other) {
-	 return this->$AttrImpl::compareDocumentPosition(other);
+	return this->$AttrImpl::compareDocumentPosition(other);
 }
 
 $String* DeferredAttrImpl::getTextContent() {
-	 return this->$AttrImpl::getTextContent();
+	return this->$AttrImpl::getTextContent();
 }
 
 void DeferredAttrImpl::setTextContent($String* textContent) {
@@ -158,43 +158,43 @@ void DeferredAttrImpl::setTextContent($String* textContent) {
 }
 
 bool DeferredAttrImpl::isSameNode($Node* other) {
-	 return this->$AttrImpl::isSameNode(other);
+	return this->$AttrImpl::isSameNode(other);
 }
 
 bool DeferredAttrImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$AttrImpl::isDefaultNamespace(namespaceURI);
+	return this->$AttrImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DeferredAttrImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$AttrImpl::lookupPrefix(namespaceURI);
+	return this->$AttrImpl::lookupPrefix(namespaceURI);
 }
 
 $String* DeferredAttrImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$AttrImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$AttrImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* DeferredAttrImpl::getFeature($String* feature, $String* version) {
-	 return this->$AttrImpl::getFeature(feature, version);
+	return this->$AttrImpl::getFeature(feature, version);
 }
 
 $Object* DeferredAttrImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$AttrImpl::setUserData(key, data, handler);
+	return this->$AttrImpl::setUserData(key, data, handler);
 }
 
 $Object* DeferredAttrImpl::getUserData($String* key) {
-	 return this->$AttrImpl::getUserData(key);
+	return this->$AttrImpl::getUserData(key);
 }
 
 int32_t DeferredAttrImpl::hashCode() {
-	 return this->$AttrImpl::hashCode();
+	return this->$AttrImpl::hashCode();
 }
 
 bool DeferredAttrImpl::equals(Object$* arg0) {
-	 return this->$AttrImpl::equals(arg0);
+	return this->$AttrImpl::equals(arg0);
 }
 
 $Object* DeferredAttrImpl::clone() {
-	 return this->$AttrImpl::clone();
+	return this->$AttrImpl::clone();
 }
 
 void DeferredAttrImpl::finalize() {

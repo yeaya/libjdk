@@ -30,7 +30,7 @@ namespace javax {
 	namespace print {
 
 $Object* MimeType::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void MimeType::finalize() {

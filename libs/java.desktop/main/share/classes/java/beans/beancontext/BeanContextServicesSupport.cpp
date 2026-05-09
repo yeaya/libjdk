@@ -91,55 +91,55 @@ namespace java {
 		namespace beancontext {
 
 $Object* BeanContextServicesSupport::instantiateChild($String* beanName) {
-	 return this->$BeanContextSupport::instantiateChild(beanName);
+	return this->$BeanContextSupport::instantiateChild(beanName);
 }
 
 int32_t BeanContextServicesSupport::size() {
-	 return this->$BeanContextSupport::size();
+	return this->$BeanContextSupport::size();
 }
 
 bool BeanContextServicesSupport::isEmpty() {
-	 return this->$BeanContextSupport::isEmpty();
+	return this->$BeanContextSupport::isEmpty();
 }
 
 bool BeanContextServicesSupport::contains(Object$* o) {
-	 return this->$BeanContextSupport::contains(o);
+	return this->$BeanContextSupport::contains(o);
 }
 
 $Iterator* BeanContextServicesSupport::iterator() {
-	 return this->$BeanContextSupport::iterator();
+	return this->$BeanContextSupport::iterator();
 }
 
 $ObjectArray* BeanContextServicesSupport::toArray() {
-	 return this->$BeanContextSupport::toArray();
+	return this->$BeanContextSupport::toArray();
 }
 
 $ObjectArray* BeanContextServicesSupport::toArray($ObjectArray* arry) {
-	 return this->$BeanContextSupport::toArray(arry);
+	return this->$BeanContextSupport::toArray(arry);
 }
 
 bool BeanContextServicesSupport::add(Object$* targetChild) {
-	 return this->$BeanContextSupport::add(targetChild);
+	return this->$BeanContextSupport::add(targetChild);
 }
 
 bool BeanContextServicesSupport::remove(Object$* targetChild) {
-	 return this->$BeanContextSupport::remove(targetChild);
+	return this->$BeanContextSupport::remove(targetChild);
 }
 
 bool BeanContextServicesSupport::containsAll($Collection* c) {
-	 return this->$BeanContextSupport::containsAll(c);
+	return this->$BeanContextSupport::containsAll(c);
 }
 
 bool BeanContextServicesSupport::addAll($Collection* c) {
-	 return this->$BeanContextSupport::addAll(c);
+	return this->$BeanContextSupport::addAll(c);
 }
 
 bool BeanContextServicesSupport::removeAll($Collection* c) {
-	 return this->$BeanContextSupport::removeAll(c);
+	return this->$BeanContextSupport::removeAll(c);
 }
 
 bool BeanContextServicesSupport::retainAll($Collection* c) {
-	 return this->$BeanContextSupport::retainAll(c);
+	return this->$BeanContextSupport::retainAll(c);
 }
 
 void BeanContextServicesSupport::clear() {
@@ -155,11 +155,11 @@ void BeanContextServicesSupport::removeBeanContextMembershipListener($BeanContex
 }
 
 $InputStream* BeanContextServicesSupport::getResourceAsStream($String* name, $BeanContextChild* bcc) {
-	 return this->$BeanContextSupport::getResourceAsStream(name, bcc);
+	return this->$BeanContextSupport::getResourceAsStream(name, bcc);
 }
 
 $URL* BeanContextServicesSupport::getResource($String* name, $BeanContextChild* bcc) {
-	 return this->$BeanContextSupport::getResource(name, bcc);
+	return this->$BeanContextSupport::getResource(name, bcc);
 }
 
 void BeanContextServicesSupport::setDesignTime(bool dTime) {
@@ -167,11 +167,11 @@ void BeanContextServicesSupport::setDesignTime(bool dTime) {
 }
 
 bool BeanContextServicesSupport::isDesignTime() {
-	 return this->$BeanContextSupport::isDesignTime();
+	return this->$BeanContextSupport::isDesignTime();
 }
 
 bool BeanContextServicesSupport::needsGui() {
-	 return this->$BeanContextSupport::needsGui();
+	return this->$BeanContextSupport::needsGui();
 }
 
 void BeanContextServicesSupport::dontUseGui() {
@@ -183,7 +183,7 @@ void BeanContextServicesSupport::okToUseGui() {
 }
 
 bool BeanContextServicesSupport::avoidingGui() {
-	 return this->$BeanContextSupport::avoidingGui();
+	return this->$BeanContextSupport::avoidingGui();
 }
 
 void BeanContextServicesSupport::setBeanContext($BeanContext* bc) {
@@ -191,7 +191,7 @@ void BeanContextServicesSupport::setBeanContext($BeanContext* bc) {
 }
 
 $BeanContext* BeanContextServicesSupport::getBeanContext() {
-	 return this->$BeanContextSupport::getBeanContext();
+	return this->$BeanContextSupport::getBeanContext();
 }
 
 void BeanContextServicesSupport::addPropertyChangeListener($String* name, $PropertyChangeListener* pcl) {
@@ -211,19 +211,19 @@ void BeanContextServicesSupport::removeVetoableChangeListener($String* name, $Ve
 }
 
 int32_t BeanContextServicesSupport::hashCode() {
-	 return this->$BeanContextSupport::hashCode();
+	return this->$BeanContextSupport::hashCode();
 }
 
 bool BeanContextServicesSupport::equals(Object$* arg0) {
-	 return this->$BeanContextSupport::equals(arg0);
+	return this->$BeanContextSupport::equals(arg0);
 }
 
 $Object* BeanContextServicesSupport::clone() {
-	 return this->$BeanContextSupport::clone();
+	return this->$BeanContextSupport::clone();
 }
 
 $String* BeanContextServicesSupport::toString() {
-	 return this->$BeanContextSupport::toString();
+	return this->$BeanContextSupport::toString();
 }
 
 void BeanContextServicesSupport::finalize() {
@@ -231,23 +231,23 @@ void BeanContextServicesSupport::finalize() {
 }
 
 $ObjectArray* BeanContextServicesSupport::toArray($IntFunction* arg0) {
-	 return this->$BeanContextSupport::toArray(arg0);
+	return this->$BeanContextSupport::toArray(arg0);
 }
 
 bool BeanContextServicesSupport::removeIf($Predicate* arg0) {
-	 return this->$BeanContextSupport::removeIf(arg0);
+	return this->$BeanContextSupport::removeIf(arg0);
 }
 
 $Spliterator* BeanContextServicesSupport::spliterator() {
-	 return this->$BeanContextSupport::spliterator();
+	return this->$BeanContextSupport::spliterator();
 }
 
 $Stream* BeanContextServicesSupport::stream() {
-	 return this->$BeanContextSupport::stream();
+	return this->$BeanContextSupport::stream();
 }
 
 $Stream* BeanContextServicesSupport::parallelStream() {
-	 return this->$BeanContextSupport::parallelStream();
+	return this->$BeanContextSupport::parallelStream();
 }
 
 void BeanContextServicesSupport::forEach($Consumer* arg0) {

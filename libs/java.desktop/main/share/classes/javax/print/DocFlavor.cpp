@@ -24,7 +24,7 @@ namespace javax {
 	namespace print {
 
 $Object* DocFlavor::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void DocFlavor::finalize() {

@@ -41,11 +41,11 @@ namespace com {
 							namespace xs {
 
 bool PSVIErrorList::add(Object$* arg0) {
-	 return this->$AbstractList::add(arg0);
+	return this->$AbstractList::add(arg0);
 }
 
 $Object* PSVIErrorList::set(int32_t arg0, Object$* arg1) {
-	 return this->$AbstractList::set(arg0, arg1);
+	return this->$AbstractList::set(arg0, arg1);
 }
 
 void PSVIErrorList::add(int32_t arg0, Object$* arg1) {
@@ -53,15 +53,15 @@ void PSVIErrorList::add(int32_t arg0, Object$* arg1) {
 }
 
 $Object* PSVIErrorList::remove(int32_t arg0) {
-	 return this->$AbstractList::remove(arg0);
+	return this->$AbstractList::remove(arg0);
 }
 
 int32_t PSVIErrorList::indexOf(Object$* arg0) {
-	 return this->$AbstractList::indexOf(arg0);
+	return this->$AbstractList::indexOf(arg0);
 }
 
 int32_t PSVIErrorList::lastIndexOf(Object$* arg0) {
-	 return this->$AbstractList::lastIndexOf(arg0);
+	return this->$AbstractList::lastIndexOf(arg0);
 }
 
 void PSVIErrorList::clear() {
@@ -69,91 +69,91 @@ void PSVIErrorList::clear() {
 }
 
 bool PSVIErrorList::addAll(int32_t arg0, $Collection* arg1) {
-	 return this->$AbstractList::addAll(arg0, arg1);
+	return this->$AbstractList::addAll(arg0, arg1);
 }
 
 $Iterator* PSVIErrorList::iterator() {
-	 return this->$AbstractList::iterator();
+	return this->$AbstractList::iterator();
 }
 
 $ListIterator* PSVIErrorList::listIterator() {
-	 return this->$AbstractList::listIterator();
+	return this->$AbstractList::listIterator();
 }
 
 $ListIterator* PSVIErrorList::listIterator(int32_t arg0) {
-	 return this->$AbstractList::listIterator(arg0);
+	return this->$AbstractList::listIterator(arg0);
 }
 
 $List* PSVIErrorList::subList(int32_t arg0, int32_t arg1) {
-	 return this->$AbstractList::subList(arg0, arg1);
+	return this->$AbstractList::subList(arg0, arg1);
 }
 
 bool PSVIErrorList::equals(Object$* arg0) {
-	 return this->$AbstractList::equals(arg0);
+	return this->$AbstractList::equals(arg0);
 }
 
 int32_t PSVIErrorList::hashCode() {
-	 return this->$AbstractList::hashCode();
+	return this->$AbstractList::hashCode();
 }
 
 bool PSVIErrorList::isEmpty() {
-	 return this->$AbstractList::isEmpty();
+	return this->$AbstractList::isEmpty();
 }
 
 bool PSVIErrorList::contains(Object$* arg0) {
-	 return this->$AbstractList::contains(arg0);
+	return this->$AbstractList::contains(arg0);
 }
 
 $ObjectArray* PSVIErrorList::toArray() {
-	 return this->$AbstractList::toArray();
+	return this->$AbstractList::toArray();
 }
 
 $ObjectArray* PSVIErrorList::toArray($ObjectArray* arg0) {
-	 return this->$AbstractList::toArray(arg0);
+	return this->$AbstractList::toArray(arg0);
 }
 
 bool PSVIErrorList::remove(Object$* arg0) {
-	 return this->$AbstractList::remove(arg0);
+	return this->$AbstractList::remove(arg0);
 }
 
 bool PSVIErrorList::containsAll($Collection* arg0) {
-	 return this->$AbstractList::containsAll(arg0);
+	return this->$AbstractList::containsAll(arg0);
 }
 
 bool PSVIErrorList::addAll($Collection* arg0) {
-	 return this->$AbstractList::addAll(arg0);
+	return this->$AbstractList::addAll(arg0);
 }
 
 bool PSVIErrorList::removeAll($Collection* arg0) {
-	 return this->$AbstractList::removeAll(arg0);
+	return this->$AbstractList::removeAll(arg0);
 }
 
 bool PSVIErrorList::retainAll($Collection* arg0) {
-	 return this->$AbstractList::retainAll(arg0);
+	return this->$AbstractList::retainAll(arg0);
 }
 
 $String* PSVIErrorList::toString() {
-	 return this->$AbstractList::toString();
+	return this->$AbstractList::toString();
 }
 
 $ObjectArray* PSVIErrorList::toArray($IntFunction* arg0) {
-	 return this->$AbstractList::toArray(arg0);
+	return this->$AbstractList::toArray(arg0);
 }
 
 bool PSVIErrorList::removeIf($Predicate* arg0) {
-	 return this->$AbstractList::removeIf(arg0);
+	return this->$AbstractList::removeIf(arg0);
 }
 
 $Spliterator* PSVIErrorList::spliterator() {
-	 return this->$AbstractList::spliterator();
+	return this->$AbstractList::spliterator();
 }
 
 $Stream* PSVIErrorList::stream() {
-	 return this->$AbstractList::stream();
+	return this->$AbstractList::stream();
 }
 
 $Stream* PSVIErrorList::parallelStream() {
-	 return this->$AbstractList::parallelStream();
+	return this->$AbstractList::parallelStream();
 }
 
 void PSVIErrorList::forEach($Consumer* arg0) {
@@ -161,7 +161,7 @@ void PSVIErrorList::forEach($Consumer* arg0) {
 }
 
 $Object* PSVIErrorList::clone() {
-	 return this->$AbstractList::clone();
+	return this->$AbstractList::clone();
 }
 
 void PSVIErrorList::finalize() {

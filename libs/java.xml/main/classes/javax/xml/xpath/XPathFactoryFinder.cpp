@@ -76,7 +76,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$debugDisplayClassLoader$0());
+		return $of($nc(inst$)->lambda$debugDisplayClassLoader$0());
 	}
 	XPathFactoryFinder* inst$ = nullptr;
 };
@@ -112,7 +112,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$debugDisplayClassLoader$1());
+		return $of($nc(inst$)->lambda$debugDisplayClassLoader$1());
 	}
 	XPathFactoryFinder* inst$ = nullptr;
 };
@@ -148,7 +148,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$debugDisplayClassLoader$2());
+		return $of($nc(inst$)->lambda$debugDisplayClassLoader$2());
 	}
 	XPathFactoryFinder* inst$ = nullptr;
 };
@@ -185,7 +185,7 @@ public:
 		$set(this, uri, uri);
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$newFactory$3(f, uri));
+		return $of(XPathFactoryFinder::lambda$newFactory$3(f, uri));
 	}
 	$XPathFactory* f = nullptr;
 	$String* uri = nullptr;
@@ -223,7 +223,7 @@ public:
 		$set(this, uri, uri);
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$newFactory$4(uri));
+		return $of(XPathFactoryFinder::lambda$newFactory$4(uri));
 	}
 	$String* uri = nullptr;
 };
@@ -259,7 +259,7 @@ public:
 		$set(this, propertyName, propertyName);
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$_newFactory$5(propertyName));
+		return $of(XPathFactoryFinder::lambda$_newFactory$5(propertyName));
 	}
 	$String* propertyName = nullptr;
 };
@@ -295,7 +295,7 @@ public:
 		$set(this, r, r);
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$_newFactory$6(r));
+		return $of(XPathFactoryFinder::lambda$_newFactory$6(r));
 	}
 	$String* r = nullptr;
 };
@@ -330,7 +330,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$_newFactory$7());
+		return $of(XPathFactoryFinder::lambda$_newFactory$7());
 	}
 };
 $Class* XPathFactoryFinder$$Lambda$lambda$_newFactory$7$7::load$($String* name, bool initialize) {
@@ -361,7 +361,7 @@ public:
 		$set(this, propertyName, propertyName);
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$_newFactory$8(propertyName));
+		return $of(XPathFactoryFinder::lambda$_newFactory$8(propertyName));
 	}
 	$String* propertyName = nullptr;
 };
@@ -397,7 +397,7 @@ public:
 		$set(this, f, f);
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$_newFactory$9(f));
+		return $of(XPathFactoryFinder::lambda$_newFactory$9(f));
 	}
 	$File* f = nullptr;
 };
@@ -433,7 +433,7 @@ public:
 		$set(this, factoryClassName, factoryClassName);
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$_newFactory$10(factoryClassName));
+		return $of(XPathFactoryFinder::lambda$_newFactory$10(factoryClassName));
 	}
 	$String* factoryClassName = nullptr;
 };
@@ -468,7 +468,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$_newFactory$11());
+		return $of(XPathFactoryFinder::lambda$_newFactory$11());
 	}
 };
 $Class* XPathFactoryFinder$$Lambda$lambda$_newFactory$11$11::load$($String* name, bool initialize) {
@@ -498,7 +498,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$_newFactory$12());
+		return $of(XPathFactoryFinder::lambda$_newFactory$12());
 	}
 };
 $Class* XPathFactoryFinder$$Lambda$lambda$_newFactory$12$12::load$($String* name, bool initialize) {
@@ -529,7 +529,7 @@ public:
 		$set(this, className, className);
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$createInstance$13(className));
+		return $of(XPathFactoryFinder::lambda$createInstance$13(className));
 	}
 	$String* className = nullptr;
 };
@@ -565,7 +565,7 @@ public:
 		$set(this, className, className);
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$createInstance$14(className));
+		return $of(XPathFactoryFinder::lambda$createInstance$14(className));
 	}
 	$String* className = nullptr;
 };
@@ -602,7 +602,7 @@ public:
 		this->clazz = clazz;
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$createInstance$15(className, clazz));
+		return $of(XPathFactoryFinder::lambda$createInstance$15(className, clazz));
 	}
 	$String* className = nullptr;
 	$Class* clazz = nullptr;
@@ -640,7 +640,7 @@ public:
 		this->clazz = clazz;
 	}
 	virtual $Object* get() override {
-		 return $of(XPathFactoryFinder::lambda$createInstance$16(clazz));
+		return $of(XPathFactoryFinder::lambda$createInstance$16(clazz));
 	}
 	$Class* clazz = nullptr;
 };

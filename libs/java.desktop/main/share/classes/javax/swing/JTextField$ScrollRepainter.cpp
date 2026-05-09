@@ -17,19 +17,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JTextField$ScrollRepainter::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool JTextField$ScrollRepainter::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* JTextField$ScrollRepainter::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* JTextField$ScrollRepainter::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void JTextField$ScrollRepainter::finalize() {

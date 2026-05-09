@@ -45,7 +45,7 @@ namespace javax {
 		namespace openmbean {
 
 $Object* CompositeDataSupport::clone() {
-	 return this->$CompositeData::clone();
+	return this->$CompositeData::clone();
 }
 
 void CompositeDataSupport::finalize() {

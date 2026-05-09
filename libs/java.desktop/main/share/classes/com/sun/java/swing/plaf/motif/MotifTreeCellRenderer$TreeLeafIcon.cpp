@@ -24,19 +24,19 @@ namespace com {
 					namespace motif {
 
 int32_t MotifTreeCellRenderer$TreeLeafIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool MotifTreeCellRenderer$TreeLeafIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* MotifTreeCellRenderer$TreeLeafIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* MotifTreeCellRenderer$TreeLeafIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void MotifTreeCellRenderer$TreeLeafIcon::finalize() {

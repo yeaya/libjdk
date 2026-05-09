@@ -24,19 +24,19 @@ namespace java {
 	namespace awt {
 
 int32_t Component$AccessibleAWTComponent$AccessibleAWTFocusHandler::hashCode() {
-	 return this->$FocusListener::hashCode();
+	return this->$FocusListener::hashCode();
 }
 
 bool Component$AccessibleAWTComponent$AccessibleAWTFocusHandler::equals(Object$* arg0) {
-	 return this->$FocusListener::equals(arg0);
+	return this->$FocusListener::equals(arg0);
 }
 
 $Object* Component$AccessibleAWTComponent$AccessibleAWTFocusHandler::clone() {
-	 return this->$FocusListener::clone();
+	return this->$FocusListener::clone();
 }
 
 $String* Component$AccessibleAWTComponent$AccessibleAWTFocusHandler::toString() {
-	 return this->$FocusListener::toString();
+	return this->$FocusListener::toString();
 }
 
 void Component$AccessibleAWTComponent$AccessibleAWTFocusHandler::finalize() {

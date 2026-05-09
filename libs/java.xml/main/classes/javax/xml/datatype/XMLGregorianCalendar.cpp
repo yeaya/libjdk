@@ -32,7 +32,7 @@ namespace javax {
 		namespace datatype {
 
 $Object* XMLGregorianCalendar::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 void XMLGregorianCalendar::init$() {

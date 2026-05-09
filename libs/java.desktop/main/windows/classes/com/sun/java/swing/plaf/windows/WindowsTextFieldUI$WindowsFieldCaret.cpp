@@ -29,19 +29,19 @@ namespace com {
 					namespace windows {
 
 bool WindowsTextFieldUI$WindowsFieldCaret::equals(Object$* obj) {
-	 return this->$DefaultCaret::equals(obj);
+	return this->$DefaultCaret::equals(obj);
 }
 
 $String* WindowsTextFieldUI$WindowsFieldCaret::toString() {
-	 return this->$DefaultCaret::toString();
+	return this->$DefaultCaret::toString();
 }
 
 int32_t WindowsTextFieldUI$WindowsFieldCaret::hashCode() {
-	 return this->$DefaultCaret::hashCode();
+	return this->$DefaultCaret::hashCode();
 }
 
 $Object* WindowsTextFieldUI$WindowsFieldCaret::clone() {
-	 return this->$DefaultCaret::clone();
+	return this->$DefaultCaret::clone();
 }
 
 void WindowsTextFieldUI$WindowsFieldCaret::finalize() {

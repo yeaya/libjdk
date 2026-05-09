@@ -47,11 +47,11 @@ namespace com {
 								namespace util {
 
 bool ByteListImpl::add(Object$* arg0) {
-	 return this->$AbstractList::add(arg0);
+	return this->$AbstractList::add(arg0);
 }
 
 $Object* ByteListImpl::set(int32_t arg0, Object$* arg1) {
-	 return this->$AbstractList::set(arg0, arg1);
+	return this->$AbstractList::set(arg0, arg1);
 }
 
 void ByteListImpl::add(int32_t arg0, Object$* arg1) {
@@ -59,15 +59,15 @@ void ByteListImpl::add(int32_t arg0, Object$* arg1) {
 }
 
 $Object* ByteListImpl::remove(int32_t arg0) {
-	 return this->$AbstractList::remove(arg0);
+	return this->$AbstractList::remove(arg0);
 }
 
 int32_t ByteListImpl::indexOf(Object$* arg0) {
-	 return this->$AbstractList::indexOf(arg0);
+	return this->$AbstractList::indexOf(arg0);
 }
 
 int32_t ByteListImpl::lastIndexOf(Object$* arg0) {
-	 return this->$AbstractList::lastIndexOf(arg0);
+	return this->$AbstractList::lastIndexOf(arg0);
 }
 
 void ByteListImpl::clear() {
@@ -75,91 +75,91 @@ void ByteListImpl::clear() {
 }
 
 bool ByteListImpl::addAll(int32_t arg0, $Collection* arg1) {
-	 return this->$AbstractList::addAll(arg0, arg1);
+	return this->$AbstractList::addAll(arg0, arg1);
 }
 
 $Iterator* ByteListImpl::iterator() {
-	 return this->$AbstractList::iterator();
+	return this->$AbstractList::iterator();
 }
 
 $ListIterator* ByteListImpl::listIterator() {
-	 return this->$AbstractList::listIterator();
+	return this->$AbstractList::listIterator();
 }
 
 $ListIterator* ByteListImpl::listIterator(int32_t arg0) {
-	 return this->$AbstractList::listIterator(arg0);
+	return this->$AbstractList::listIterator(arg0);
 }
 
 $List* ByteListImpl::subList(int32_t arg0, int32_t arg1) {
-	 return this->$AbstractList::subList(arg0, arg1);
+	return this->$AbstractList::subList(arg0, arg1);
 }
 
 bool ByteListImpl::equals(Object$* arg0) {
-	 return this->$AbstractList::equals(arg0);
+	return this->$AbstractList::equals(arg0);
 }
 
 int32_t ByteListImpl::hashCode() {
-	 return this->$AbstractList::hashCode();
+	return this->$AbstractList::hashCode();
 }
 
 bool ByteListImpl::isEmpty() {
-	 return this->$AbstractList::isEmpty();
+	return this->$AbstractList::isEmpty();
 }
 
 bool ByteListImpl::contains(Object$* arg0) {
-	 return this->$AbstractList::contains(arg0);
+	return this->$AbstractList::contains(arg0);
 }
 
 $ObjectArray* ByteListImpl::toArray() {
-	 return this->$AbstractList::toArray();
+	return this->$AbstractList::toArray();
 }
 
 $ObjectArray* ByteListImpl::toArray($ObjectArray* arg0) {
-	 return this->$AbstractList::toArray(arg0);
+	return this->$AbstractList::toArray(arg0);
 }
 
 bool ByteListImpl::remove(Object$* arg0) {
-	 return this->$AbstractList::remove(arg0);
+	return this->$AbstractList::remove(arg0);
 }
 
 bool ByteListImpl::containsAll($Collection* arg0) {
-	 return this->$AbstractList::containsAll(arg0);
+	return this->$AbstractList::containsAll(arg0);
 }
 
 bool ByteListImpl::addAll($Collection* arg0) {
-	 return this->$AbstractList::addAll(arg0);
+	return this->$AbstractList::addAll(arg0);
 }
 
 bool ByteListImpl::removeAll($Collection* arg0) {
-	 return this->$AbstractList::removeAll(arg0);
+	return this->$AbstractList::removeAll(arg0);
 }
 
 bool ByteListImpl::retainAll($Collection* arg0) {
-	 return this->$AbstractList::retainAll(arg0);
+	return this->$AbstractList::retainAll(arg0);
 }
 
 $String* ByteListImpl::toString() {
-	 return this->$AbstractList::toString();
+	return this->$AbstractList::toString();
 }
 
 $ObjectArray* ByteListImpl::toArray($IntFunction* arg0) {
-	 return this->$AbstractList::toArray(arg0);
+	return this->$AbstractList::toArray(arg0);
 }
 
 bool ByteListImpl::removeIf($Predicate* arg0) {
-	 return this->$AbstractList::removeIf(arg0);
+	return this->$AbstractList::removeIf(arg0);
 }
 
 $Spliterator* ByteListImpl::spliterator() {
-	 return this->$AbstractList::spliterator();
+	return this->$AbstractList::spliterator();
 }
 
 $Stream* ByteListImpl::stream() {
-	 return this->$AbstractList::stream();
+	return this->$AbstractList::stream();
 }
 
 $Stream* ByteListImpl::parallelStream() {
-	 return this->$AbstractList::parallelStream();
+	return this->$AbstractList::parallelStream();
 }
 
 void ByteListImpl::forEach($Consumer* arg0) {
@@ -167,7 +167,7 @@ void ByteListImpl::forEach($Consumer* arg0) {
 }
 
 $Object* ByteListImpl::clone() {
-	 return this->$AbstractList::clone();
+	return this->$AbstractList::clone();
 }
 
 void ByteListImpl::finalize() {

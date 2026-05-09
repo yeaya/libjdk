@@ -104,19 +104,19 @@ namespace javax {
 	namespace swing {
 
 int32_t AbstractButton$AccessibleAbstractButton::hashCode() {
-	 return this->$JComponent$AccessibleJComponent::hashCode();
+	return this->$JComponent$AccessibleJComponent::hashCode();
 }
 
 bool AbstractButton$AccessibleAbstractButton::equals(Object$* arg0) {
-	 return this->$JComponent$AccessibleJComponent::equals(arg0);
+	return this->$JComponent$AccessibleJComponent::equals(arg0);
 }
 
 $Object* AbstractButton$AccessibleAbstractButton::clone() {
-	 return this->$JComponent$AccessibleJComponent::clone();
+	return this->$JComponent$AccessibleJComponent::clone();
 }
 
 $String* AbstractButton$AccessibleAbstractButton::toString() {
-	 return this->$JComponent$AccessibleJComponent::toString();
+	return this->$JComponent$AccessibleJComponent::toString();
 }
 
 void AbstractButton$AccessibleAbstractButton::finalize() {

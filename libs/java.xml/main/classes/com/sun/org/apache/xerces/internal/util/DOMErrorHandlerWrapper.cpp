@@ -42,19 +42,19 @@ namespace com {
 						namespace util {
 
 int32_t DOMErrorHandlerWrapper::hashCode() {
-	 return this->$XMLErrorHandler::hashCode();
+	return this->$XMLErrorHandler::hashCode();
 }
 
 bool DOMErrorHandlerWrapper::equals(Object$* arg0) {
-	 return this->$XMLErrorHandler::equals(arg0);
+	return this->$XMLErrorHandler::equals(arg0);
 }
 
 $Object* DOMErrorHandlerWrapper::clone() {
-	 return this->$XMLErrorHandler::clone();
+	return this->$XMLErrorHandler::clone();
 }
 
 $String* DOMErrorHandlerWrapper::toString() {
-	 return this->$XMLErrorHandler::toString();
+	return this->$XMLErrorHandler::toString();
 }
 
 void DOMErrorHandlerWrapper::finalize() {

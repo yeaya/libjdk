@@ -16,19 +16,19 @@ namespace com {
 						namespace utils {
 
 int32_t SerializableLocatorImpl::hashCode() {
-	 return this->$Locator::hashCode();
+	return this->$Locator::hashCode();
 }
 
 bool SerializableLocatorImpl::equals(Object$* arg0) {
-	 return this->$Locator::equals(arg0);
+	return this->$Locator::equals(arg0);
 }
 
 $Object* SerializableLocatorImpl::clone() {
-	 return this->$Locator::clone();
+	return this->$Locator::clone();
 }
 
 $String* SerializableLocatorImpl::toString() {
-	 return this->$Locator::toString();
+	return this->$Locator::toString();
 }
 
 void SerializableLocatorImpl::finalize() {

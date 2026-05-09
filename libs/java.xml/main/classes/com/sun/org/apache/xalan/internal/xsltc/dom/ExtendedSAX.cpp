@@ -16,19 +16,19 @@ namespace com {
 							namespace dom {
 
 int32_t ExtendedSAX::hashCode() {
-	 return this->$ContentHandler::hashCode();
+	return this->$ContentHandler::hashCode();
 }
 
 bool ExtendedSAX::equals(Object$* arg0) {
-	 return this->$ContentHandler::equals(arg0);
+	return this->$ContentHandler::equals(arg0);
 }
 
 $Object* ExtendedSAX::clone() {
-	 return this->$ContentHandler::clone();
+	return this->$ContentHandler::clone();
 }
 
 $String* ExtendedSAX::toString() {
-	 return this->$ContentHandler::toString();
+	return this->$ContentHandler::toString();
 }
 
 void ExtendedSAX::finalize() {

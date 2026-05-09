@@ -39,15 +39,15 @@ namespace com {
 				namespace code {
 
 bool Kinds$KindName::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t Kinds$KindName::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* Kinds$KindName::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void Kinds$KindName::finalize() {

@@ -230,7 +230,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->getRawTypeAttributes());
+		return $of($nc(inst$)->getRawTypeAttributes());
 	}
 	$Symbol* inst$ = nullptr;
 };
@@ -302,7 +302,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->getInitTypeAttributes());
+		return $of($nc(inst$)->getInitTypeAttributes());
 	}
 	$Symbol* inst$ = nullptr;
 };
@@ -338,7 +338,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->getClassInitTypeAttributes());
+		return $of($nc(inst$)->getClassInitTypeAttributes());
 	}
 	$Symbol* inst$ = nullptr;
 };
@@ -482,7 +482,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of($nc(inst$)->constantType($cast($PoolConstant$LoadableConstant, c)));
+		return $of($nc(inst$)->constantType($cast($PoolConstant$LoadableConstant, c)));
 	}
 	$Types* inst$ = nullptr;
 };

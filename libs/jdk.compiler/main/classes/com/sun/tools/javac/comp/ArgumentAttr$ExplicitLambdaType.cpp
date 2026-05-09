@@ -87,7 +87,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$argtypes$0());
+		return $of($nc(inst$)->lambda$argtypes$0());
 	}
 	ArgumentAttr$ExplicitLambdaType* inst$ = nullptr;
 };
@@ -123,7 +123,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$returnExpressions$1());
+		return $of($nc(inst$)->lambda$returnExpressions$1());
 	}
 	ArgumentAttr$ExplicitLambdaType* inst$ = nullptr;
 };

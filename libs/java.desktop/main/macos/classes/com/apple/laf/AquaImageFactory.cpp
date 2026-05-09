@@ -109,7 +109,7 @@ public:
 		this->width = width;
 	}
 	virtual $Object* apply(Object$* rv) override {
-		 return AquaImageFactory::lambda$getAppIconCompositedOn$0(width, $cast($Image, rv));
+		return AquaImageFactory::lambda$getAppIconCompositedOn$0(width, $cast($Image, rv));
 	}
 	int32_t width = 0;
 };

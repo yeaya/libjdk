@@ -45,11 +45,11 @@ namespace javax {
 		namespace spi {
 
 $Object* ContinuationDirContext::lookup($Name* name) {
-	 return this->$ContinuationContext::lookup(name);
+	return this->$ContinuationContext::lookup(name);
 }
 
 $Object* ContinuationDirContext::lookup($String* name) {
-	 return this->$ContinuationContext::lookup(name);
+	return this->$ContinuationContext::lookup(name);
 }
 
 void ContinuationDirContext::bind($Name* name, Object$* newObj) {
@@ -85,19 +85,19 @@ void ContinuationDirContext::rename($String* name, $String* newName) {
 }
 
 $NamingEnumeration* ContinuationDirContext::list($Name* name) {
-	 return this->$ContinuationContext::list(name);
+	return this->$ContinuationContext::list(name);
 }
 
 $NamingEnumeration* ContinuationDirContext::list($String* name) {
-	 return this->$ContinuationContext::list(name);
+	return this->$ContinuationContext::list(name);
 }
 
 $NamingEnumeration* ContinuationDirContext::listBindings($Name* name) {
-	 return this->$ContinuationContext::listBindings(name);
+	return this->$ContinuationContext::listBindings(name);
 }
 
 $NamingEnumeration* ContinuationDirContext::listBindings($String* name) {
-	 return this->$ContinuationContext::listBindings(name);
+	return this->$ContinuationContext::listBindings(name);
 }
 
 void ContinuationDirContext::destroySubcontext($Name* name) {
@@ -109,51 +109,51 @@ void ContinuationDirContext::destroySubcontext($String* name) {
 }
 
 $Context* ContinuationDirContext::createSubcontext($Name* name) {
-	 return this->$ContinuationContext::createSubcontext(name);
+	return this->$ContinuationContext::createSubcontext(name);
 }
 
 $Context* ContinuationDirContext::createSubcontext($String* name) {
-	 return this->$ContinuationContext::createSubcontext(name);
+	return this->$ContinuationContext::createSubcontext(name);
 }
 
 $Object* ContinuationDirContext::lookupLink($Name* name) {
-	 return this->$ContinuationContext::lookupLink(name);
+	return this->$ContinuationContext::lookupLink(name);
 }
 
 $Object* ContinuationDirContext::lookupLink($String* name) {
-	 return this->$ContinuationContext::lookupLink(name);
+	return this->$ContinuationContext::lookupLink(name);
 }
 
 $NameParser* ContinuationDirContext::getNameParser($Name* name) {
-	 return this->$ContinuationContext::getNameParser(name);
+	return this->$ContinuationContext::getNameParser(name);
 }
 
 $NameParser* ContinuationDirContext::getNameParser($String* name) {
-	 return this->$ContinuationContext::getNameParser(name);
+	return this->$ContinuationContext::getNameParser(name);
 }
 
 $Name* ContinuationDirContext::composeName($Name* name, $Name* prefix) {
-	 return this->$ContinuationContext::composeName(name, prefix);
+	return this->$ContinuationContext::composeName(name, prefix);
 }
 
 $String* ContinuationDirContext::composeName($String* name, $String* prefix) {
-	 return this->$ContinuationContext::composeName(name, prefix);
+	return this->$ContinuationContext::composeName(name, prefix);
 }
 
 $Object* ContinuationDirContext::addToEnvironment($String* propName, Object$* value) {
-	 return this->$ContinuationContext::addToEnvironment(propName, value);
+	return this->$ContinuationContext::addToEnvironment(propName, value);
 }
 
 $Object* ContinuationDirContext::removeFromEnvironment($String* propName) {
-	 return this->$ContinuationContext::removeFromEnvironment(propName);
+	return this->$ContinuationContext::removeFromEnvironment(propName);
 }
 
 $Hashtable* ContinuationDirContext::getEnvironment() {
-	 return this->$ContinuationContext::getEnvironment();
+	return this->$ContinuationContext::getEnvironment();
 }
 
 $String* ContinuationDirContext::getNameInNamespace() {
-	 return this->$ContinuationContext::getNameInNamespace();
+	return this->$ContinuationContext::getNameInNamespace();
 }
 
 void ContinuationDirContext::close() {
@@ -161,19 +161,19 @@ void ContinuationDirContext::close() {
 }
 
 int32_t ContinuationDirContext::hashCode() {
-	 return this->$ContinuationContext::hashCode();
+	return this->$ContinuationContext::hashCode();
 }
 
 bool ContinuationDirContext::equals(Object$* arg0) {
-	 return this->$ContinuationContext::equals(arg0);
+	return this->$ContinuationContext::equals(arg0);
 }
 
 $Object* ContinuationDirContext::clone() {
-	 return this->$ContinuationContext::clone();
+	return this->$ContinuationContext::clone();
 }
 
 $String* ContinuationDirContext::toString() {
-	 return this->$ContinuationContext::toString();
+	return this->$ContinuationContext::toString();
 }
 
 void ContinuationDirContext::finalize() {

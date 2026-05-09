@@ -50,15 +50,15 @@ namespace java {
 		namespace geom {
 
 int32_t CubicCurve2D::hashCode() {
-	 return this->$Shape::hashCode();
+	return this->$Shape::hashCode();
 }
 
 bool CubicCurve2D::equals(Object$* arg0) {
-	 return this->$Shape::equals(arg0);
+	return this->$Shape::equals(arg0);
 }
 
 $String* CubicCurve2D::toString() {
-	 return this->$Shape::toString();
+	return this->$Shape::toString();
 }
 
 void CubicCurve2D::finalize() {

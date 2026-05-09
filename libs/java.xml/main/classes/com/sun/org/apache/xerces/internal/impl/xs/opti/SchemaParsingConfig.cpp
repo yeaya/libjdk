@@ -169,7 +169,7 @@ void SchemaParsingConfig::setDocumentHandler($XMLDocumentHandler* documentHandle
 }
 
 $XMLDocumentHandler* SchemaParsingConfig::getDocumentHandler() {
-	 return this->$BasicParserConfiguration::getDocumentHandler();
+	return this->$BasicParserConfiguration::getDocumentHandler();
 }
 
 void SchemaParsingConfig::setDTDHandler($XMLDTDHandler* dtdHandler) {
@@ -177,7 +177,7 @@ void SchemaParsingConfig::setDTDHandler($XMLDTDHandler* dtdHandler) {
 }
 
 $XMLDTDHandler* SchemaParsingConfig::getDTDHandler() {
-	 return this->$BasicParserConfiguration::getDTDHandler();
+	return this->$BasicParserConfiguration::getDTDHandler();
 }
 
 void SchemaParsingConfig::setDTDContentModelHandler($XMLDTDContentModelHandler* handler) {
@@ -185,7 +185,7 @@ void SchemaParsingConfig::setDTDContentModelHandler($XMLDTDContentModelHandler* 
 }
 
 $XMLDTDContentModelHandler* SchemaParsingConfig::getDTDContentModelHandler() {
-	 return this->$BasicParserConfiguration::getDTDContentModelHandler();
+	return this->$BasicParserConfiguration::getDTDContentModelHandler();
 }
 
 void SchemaParsingConfig::setEntityResolver($XMLEntityResolver* resolver) {
@@ -193,7 +193,7 @@ void SchemaParsingConfig::setEntityResolver($XMLEntityResolver* resolver) {
 }
 
 $XMLEntityResolver* SchemaParsingConfig::getEntityResolver() {
-	 return this->$BasicParserConfiguration::getEntityResolver();
+	return this->$BasicParserConfiguration::getEntityResolver();
 }
 
 void SchemaParsingConfig::setErrorHandler($XMLErrorHandler* errorHandler) {
@@ -201,11 +201,11 @@ void SchemaParsingConfig::setErrorHandler($XMLErrorHandler* errorHandler) {
 }
 
 $XMLErrorHandler* SchemaParsingConfig::getErrorHandler() {
-	 return this->$BasicParserConfiguration::getErrorHandler();
+	return this->$BasicParserConfiguration::getErrorHandler();
 }
 
 $Locale* SchemaParsingConfig::getLocale() {
-	 return this->$BasicParserConfiguration::getLocale();
+	return this->$BasicParserConfiguration::getLocale();
 }
 
 void SchemaParsingConfig::addRecognizedFeatures($StringArray* featureIds) {
@@ -217,35 +217,35 @@ void SchemaParsingConfig::addRecognizedProperties($StringArray* propertyIds) {
 }
 
 bool SchemaParsingConfig::getFeature($String* featureId) {
-	 return this->$BasicParserConfiguration::getFeature(featureId);
+	return this->$BasicParserConfiguration::getFeature(featureId);
 }
 
 bool SchemaParsingConfig::getFeature($String* featureId, bool defaultValue) {
-	 return this->$BasicParserConfiguration::getFeature(featureId, defaultValue);
+	return this->$BasicParserConfiguration::getFeature(featureId, defaultValue);
 }
 
 $Object* SchemaParsingConfig::getProperty($String* propertyId) {
-	 return this->$BasicParserConfiguration::getProperty(propertyId);
+	return this->$BasicParserConfiguration::getProperty(propertyId);
 }
 
 $Object* SchemaParsingConfig::getProperty($String* propertyId, Object$* defaultValue) {
-	 return this->$BasicParserConfiguration::getProperty(propertyId, defaultValue);
+	return this->$BasicParserConfiguration::getProperty(propertyId, defaultValue);
 }
 
 int32_t SchemaParsingConfig::hashCode() {
-	 return this->$BasicParserConfiguration::hashCode();
+	return this->$BasicParserConfiguration::hashCode();
 }
 
 bool SchemaParsingConfig::equals(Object$* arg0) {
-	 return this->$BasicParserConfiguration::equals(arg0);
+	return this->$BasicParserConfiguration::equals(arg0);
 }
 
 $Object* SchemaParsingConfig::clone() {
-	 return this->$BasicParserConfiguration::clone();
+	return this->$BasicParserConfiguration::clone();
 }
 
 $String* SchemaParsingConfig::toString() {
-	 return this->$BasicParserConfiguration::toString();
+	return this->$BasicParserConfiguration::toString();
 }
 
 void SchemaParsingConfig::finalize() {

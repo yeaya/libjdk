@@ -41,7 +41,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($PubApiTypeParam, inst$)->asString());
+		return $of($sure($PubApiTypeParam, inst$)->asString());
 	}
 };
 $Class* PubMethod$$Lambda$asString::load$($String* name, bool initialize) {
@@ -71,7 +71,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* td) override {
-		 return $of($TypeDesc::encodeAsString($cast($TypeDesc, td)));
+		return $of($TypeDesc::encodeAsString($cast($TypeDesc, td)));
 	}
 };
 $Class* PubMethod$$Lambda$encodeAsString$1::load$($String* name, bool initialize) {

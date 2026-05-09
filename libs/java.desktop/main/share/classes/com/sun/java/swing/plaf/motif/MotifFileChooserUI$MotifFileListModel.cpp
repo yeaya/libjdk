@@ -24,19 +24,19 @@ namespace com {
 					namespace motif {
 
 int32_t MotifFileChooserUI$MotifFileListModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool MotifFileChooserUI$MotifFileListModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* MotifFileChooserUI$MotifFileListModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* MotifFileChooserUI$MotifFileListModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void MotifFileChooserUI$MotifFileListModel::finalize() {

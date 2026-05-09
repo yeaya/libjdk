@@ -46,19 +46,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaBorder::hashCode() {
-	 return this->$Border::hashCode();
+	return this->$Border::hashCode();
 }
 
 bool AquaBorder::equals(Object$* arg0) {
-	 return this->$Border::equals(arg0);
+	return this->$Border::equals(arg0);
 }
 
 $Object* AquaBorder::clone() {
-	 return this->$Border::clone();
+	return this->$Border::clone();
 }
 
 $String* AquaBorder::toString() {
-	 return this->$Border::toString();
+	return this->$Border::toString();
 }
 
 void AquaBorder::finalize() {

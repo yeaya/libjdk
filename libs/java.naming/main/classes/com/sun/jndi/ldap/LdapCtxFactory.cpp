@@ -73,19 +73,19 @@ namespace com {
 			namespace ldap {
 
 int32_t LdapCtxFactory::hashCode() {
-	 return this->$ObjectFactory::hashCode();
+	return this->$ObjectFactory::hashCode();
 }
 
 bool LdapCtxFactory::equals(Object$* arg0) {
-	 return this->$ObjectFactory::equals(arg0);
+	return this->$ObjectFactory::equals(arg0);
 }
 
 $Object* LdapCtxFactory::clone() {
-	 return this->$ObjectFactory::clone();
+	return this->$ObjectFactory::clone();
 }
 
 $String* LdapCtxFactory::toString() {
-	 return this->$ObjectFactory::toString();
+	return this->$ObjectFactory::toString();
 }
 
 void LdapCtxFactory::finalize() {

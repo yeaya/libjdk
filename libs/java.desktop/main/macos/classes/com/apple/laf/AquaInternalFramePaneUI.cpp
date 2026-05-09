@@ -38,19 +38,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaInternalFramePaneUI::hashCode() {
-	 return this->$BasicDesktopPaneUI::hashCode();
+	return this->$BasicDesktopPaneUI::hashCode();
 }
 
 bool AquaInternalFramePaneUI::equals(Object$* arg0) {
-	 return this->$BasicDesktopPaneUI::equals(arg0);
+	return this->$BasicDesktopPaneUI::equals(arg0);
 }
 
 $Object* AquaInternalFramePaneUI::clone() {
-	 return this->$BasicDesktopPaneUI::clone();
+	return this->$BasicDesktopPaneUI::clone();
 }
 
 $String* AquaInternalFramePaneUI::toString() {
-	 return this->$BasicDesktopPaneUI::toString();
+	return this->$BasicDesktopPaneUI::toString();
 }
 
 void AquaInternalFramePaneUI::finalize() {

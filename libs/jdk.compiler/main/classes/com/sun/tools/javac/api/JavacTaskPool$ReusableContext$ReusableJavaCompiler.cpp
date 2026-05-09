@@ -33,7 +33,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* make($Context* context) override {
-		 return $new(JavacTaskPool$ReusableContext$ReusableJavaCompiler, context);
+		return $new(JavacTaskPool$ReusableContext$ReusableJavaCompiler, context);
 	}
 };
 $Class* JavacTaskPool$ReusableContext$ReusableJavaCompiler$$Lambda$ReusableJavaCompiler::load$($String* name, bool initialize) {

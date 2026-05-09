@@ -24,19 +24,19 @@ namespace java {
 		namespace event {
 
 $String* InvocationEvent::toString() {
-	 return this->$AWTEvent::toString();
+	return this->$AWTEvent::toString();
 }
 
 int32_t InvocationEvent::hashCode() {
-	 return this->$AWTEvent::hashCode();
+	return this->$AWTEvent::hashCode();
 }
 
 bool InvocationEvent::equals(Object$* arg0) {
-	 return this->$AWTEvent::equals(arg0);
+	return this->$AWTEvent::equals(arg0);
 }
 
 $Object* InvocationEvent::clone() {
-	 return this->$AWTEvent::clone();
+	return this->$AWTEvent::clone();
 }
 
 void InvocationEvent::finalize() {

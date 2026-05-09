@@ -24,19 +24,19 @@ namespace javax {
 		namespace text {
 
 int32_t DefaultFormatter$DefaultDocumentFilter::hashCode() {
-	 return this->$DocumentFilter::hashCode();
+	return this->$DocumentFilter::hashCode();
 }
 
 bool DefaultFormatter$DefaultDocumentFilter::equals(Object$* arg0) {
-	 return this->$DocumentFilter::equals(arg0);
+	return this->$DocumentFilter::equals(arg0);
 }
 
 $Object* DefaultFormatter$DefaultDocumentFilter::clone() {
-	 return this->$DocumentFilter::clone();
+	return this->$DocumentFilter::clone();
 }
 
 $String* DefaultFormatter$DefaultDocumentFilter::toString() {
-	 return this->$DocumentFilter::toString();
+	return this->$DocumentFilter::toString();
 }
 
 void DefaultFormatter$DefaultDocumentFilter::finalize() {

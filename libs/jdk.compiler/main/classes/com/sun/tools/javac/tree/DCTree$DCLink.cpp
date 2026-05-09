@@ -31,23 +31,23 @@ namespace com {
 				namespace tree {
 
 $String* DCTree$DCLink::getTagName() {
-	 return this->$DCTree$DCInlineTag::getTagName();
+	return this->$DCTree$DCInlineTag::getTagName();
 }
 
 $String* DCTree$DCLink::toString() {
-	 return this->$DCTree$DCInlineTag::toString();
+	return this->$DCTree$DCInlineTag::toString();
 }
 
 int32_t DCTree$DCLink::hashCode() {
-	 return this->$DCTree$DCInlineTag::hashCode();
+	return this->$DCTree$DCInlineTag::hashCode();
 }
 
 bool DCTree$DCLink::equals(Object$* arg0) {
-	 return this->$DCTree$DCInlineTag::equals(arg0);
+	return this->$DCTree$DCInlineTag::equals(arg0);
 }
 
 $Object* DCTree$DCLink::clone() {
-	 return this->$DCTree$DCInlineTag::clone();
+	return this->$DCTree$DCInlineTag::clone();
 }
 
 void DCTree$DCLink::finalize() {

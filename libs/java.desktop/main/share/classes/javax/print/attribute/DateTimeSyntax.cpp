@@ -15,7 +15,7 @@ namespace javax {
 		namespace attribute {
 
 $Object* DateTimeSyntax::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void DateTimeSyntax::finalize() {

@@ -66,19 +66,19 @@ namespace com {
 							namespace trax {
 
 int32_t DOM2SAX::hashCode() {
-	 return this->$XMLReader::hashCode();
+	return this->$XMLReader::hashCode();
 }
 
 bool DOM2SAX::equals(Object$* arg0) {
-	 return this->$XMLReader::equals(arg0);
+	return this->$XMLReader::equals(arg0);
 }
 
 $Object* DOM2SAX::clone() {
-	 return this->$XMLReader::clone();
+	return this->$XMLReader::clone();
 }
 
 $String* DOM2SAX::toString() {
-	 return this->$XMLReader::toString();
+	return this->$XMLReader::toString();
 }
 
 void DOM2SAX::finalize() {

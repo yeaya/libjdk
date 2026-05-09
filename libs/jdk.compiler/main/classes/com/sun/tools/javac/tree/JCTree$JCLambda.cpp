@@ -46,19 +46,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCLambda::toString() {
-	 return this->$JCTree$JCFunctionalExpression::toString();
+	return this->$JCTree$JCFunctionalExpression::toString();
 }
 
 $Object* JCTree$JCLambda::clone() {
-	 return this->$JCTree$JCFunctionalExpression::clone();
+	return this->$JCTree$JCFunctionalExpression::clone();
 }
 
 int32_t JCTree$JCLambda::hashCode() {
-	 return this->$JCTree$JCFunctionalExpression::hashCode();
+	return this->$JCTree$JCFunctionalExpression::hashCode();
 }
 
 bool JCTree$JCLambda::equals(Object$* arg0) {
-	 return this->$JCTree$JCFunctionalExpression::equals(arg0);
+	return this->$JCTree$JCFunctionalExpression::equals(arg0);
 }
 
 void JCTree$JCLambda::finalize() {

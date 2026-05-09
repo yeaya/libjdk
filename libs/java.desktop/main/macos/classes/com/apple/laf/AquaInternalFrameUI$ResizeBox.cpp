@@ -51,19 +51,19 @@ namespace com {
 		namespace laf {
 
 $String* AquaInternalFrameUI$ResizeBox::toString() {
-	 return this->$JLabel::toString();
+	return this->$JLabel::toString();
 }
 
 int32_t AquaInternalFrameUI$ResizeBox::hashCode() {
-	 return this->$JLabel::hashCode();
+	return this->$JLabel::hashCode();
 }
 
 bool AquaInternalFrameUI$ResizeBox::equals(Object$* arg0) {
-	 return this->$JLabel::equals(arg0);
+	return this->$JLabel::equals(arg0);
 }
 
 $Object* AquaInternalFrameUI$ResizeBox::clone() {
-	 return this->$JLabel::clone();
+	return this->$JLabel::clone();
 }
 
 void AquaInternalFrameUI$ResizeBox::finalize() {

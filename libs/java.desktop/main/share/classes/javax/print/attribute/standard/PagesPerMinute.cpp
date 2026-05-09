@@ -16,15 +16,15 @@ namespace javax {
 			namespace standard {
 
 int32_t PagesPerMinute::hashCode() {
-	 return this->$IntegerSyntax::hashCode();
+	return this->$IntegerSyntax::hashCode();
 }
 
 $String* PagesPerMinute::toString() {
-	 return this->$IntegerSyntax::toString();
+	return this->$IntegerSyntax::toString();
 }
 
 $Object* PagesPerMinute::clone() {
-	 return this->$IntegerSyntax::clone();
+	return this->$IntegerSyntax::clone();
 }
 
 void PagesPerMinute::finalize() {

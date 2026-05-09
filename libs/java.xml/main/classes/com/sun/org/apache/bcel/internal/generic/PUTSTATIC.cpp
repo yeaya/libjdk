@@ -31,19 +31,19 @@ namespace com {
 						namespace generic {
 
 $String* PUTSTATIC::toString() {
-	 return this->$FieldInstruction::toString();
+	return this->$FieldInstruction::toString();
 }
 
 bool PUTSTATIC::equals(Object$* that) {
-	 return this->$FieldInstruction::equals(that);
+	return this->$FieldInstruction::equals(that);
 }
 
 int32_t PUTSTATIC::hashCode() {
-	 return this->$FieldInstruction::hashCode();
+	return this->$FieldInstruction::hashCode();
 }
 
 $Object* PUTSTATIC::clone() {
-	 return this->$FieldInstruction::clone();
+	return this->$FieldInstruction::clone();
 }
 
 void PUTSTATIC::finalize() {

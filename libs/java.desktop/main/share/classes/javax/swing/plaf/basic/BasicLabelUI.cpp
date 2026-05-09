@@ -91,19 +91,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicLabelUI::hashCode() {
-	 return this->$LabelUI::hashCode();
+	return this->$LabelUI::hashCode();
 }
 
 bool BasicLabelUI::equals(Object$* arg0) {
-	 return this->$LabelUI::equals(arg0);
+	return this->$LabelUI::equals(arg0);
 }
 
 $Object* BasicLabelUI::clone() {
-	 return this->$LabelUI::clone();
+	return this->$LabelUI::clone();
 }
 
 $String* BasicLabelUI::toString() {
-	 return this->$LabelUI::toString();
+	return this->$LabelUI::toString();
 }
 
 void BasicLabelUI::finalize() {

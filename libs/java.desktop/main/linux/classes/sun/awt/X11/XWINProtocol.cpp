@@ -58,19 +58,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t XWINProtocol::hashCode() {
-	 return this->$XProtocol::hashCode();
+	return this->$XProtocol::hashCode();
 }
 
 bool XWINProtocol::equals(Object$* arg0) {
-	 return this->$XProtocol::equals(arg0);
+	return this->$XProtocol::equals(arg0);
 }
 
 $Object* XWINProtocol::clone() {
-	 return this->$XProtocol::clone();
+	return this->$XProtocol::clone();
 }
 
 $String* XWINProtocol::toString() {
-	 return this->$XProtocol::toString();
+	return this->$XProtocol::toString();
 }
 
 void XWINProtocol::finalize() {

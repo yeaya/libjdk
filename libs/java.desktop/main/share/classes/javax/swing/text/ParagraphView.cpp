@@ -90,19 +90,19 @@ namespace javax {
 		namespace text {
 
 int32_t ParagraphView::hashCode() {
-	 return this->$FlowView::hashCode();
+	return this->$FlowView::hashCode();
 }
 
 bool ParagraphView::equals(Object$* arg0) {
-	 return this->$FlowView::equals(arg0);
+	return this->$FlowView::equals(arg0);
 }
 
 $Object* ParagraphView::clone() {
-	 return this->$FlowView::clone();
+	return this->$FlowView::clone();
 }
 
 $String* ParagraphView::toString() {
-	 return this->$FlowView::toString();
+	return this->$FlowView::toString();
 }
 
 void ParagraphView::finalize() {

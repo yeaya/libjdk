@@ -27,15 +27,15 @@ namespace javax {
 		namespace text {
 
 int32_t JTextComponent$MutableCaretEvent::hashCode() {
-	 return this->$CaretEvent::hashCode();
+	return this->$CaretEvent::hashCode();
 }
 
 bool JTextComponent$MutableCaretEvent::equals(Object$* arg0) {
-	 return this->$CaretEvent::equals(arg0);
+	return this->$CaretEvent::equals(arg0);
 }
 
 $Object* JTextComponent$MutableCaretEvent::clone() {
-	 return this->$CaretEvent::clone();
+	return this->$CaretEvent::clone();
 }
 
 void JTextComponent$MutableCaretEvent::finalize() {

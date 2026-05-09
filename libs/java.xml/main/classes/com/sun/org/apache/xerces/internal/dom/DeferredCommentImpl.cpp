@@ -31,19 +31,19 @@ namespace com {
 						namespace dom {
 
 int16_t DeferredCommentImpl::getNodeType() {
-	 return this->$CommentImpl::getNodeType();
+	return this->$CommentImpl::getNodeType();
 }
 
 $String* DeferredCommentImpl::getNodeName() {
-	 return this->$CommentImpl::getNodeName();
+	return this->$CommentImpl::getNodeName();
 }
 
 $NodeList* DeferredCommentImpl::getChildNodes() {
-	 return this->$CommentImpl::getChildNodes();
+	return this->$CommentImpl::getChildNodes();
 }
 
 $String* DeferredCommentImpl::getNodeValue() {
-	 return this->$CommentImpl::getNodeValue();
+	return this->$CommentImpl::getNodeValue();
 }
 
 void DeferredCommentImpl::setNodeValue($String* value) {
@@ -51,59 +51,59 @@ void DeferredCommentImpl::setNodeValue($String* value) {
 }
 
 $Node* DeferredCommentImpl::cloneNode(bool deep) {
-	 return this->$CommentImpl::cloneNode(deep);
+	return this->$CommentImpl::cloneNode(deep);
 }
 
 $Node* DeferredCommentImpl::getParentNode() {
-	 return this->$CommentImpl::getParentNode();
+	return this->$CommentImpl::getParentNode();
 }
 
 $Node* DeferredCommentImpl::getNextSibling() {
-	 return this->$CommentImpl::getNextSibling();
+	return this->$CommentImpl::getNextSibling();
 }
 
 $Node* DeferredCommentImpl::getPreviousSibling() {
-	 return this->$CommentImpl::getPreviousSibling();
+	return this->$CommentImpl::getPreviousSibling();
 }
 
 $Node* DeferredCommentImpl::appendChild($Node* newChild) {
-	 return this->$CommentImpl::appendChild(newChild);
+	return this->$CommentImpl::appendChild(newChild);
 }
 
 $Document* DeferredCommentImpl::getOwnerDocument() {
-	 return this->$CommentImpl::getOwnerDocument();
+	return this->$CommentImpl::getOwnerDocument();
 }
 
 $NamedNodeMap* DeferredCommentImpl::getAttributes() {
-	 return this->$CommentImpl::getAttributes();
+	return this->$CommentImpl::getAttributes();
 }
 
 bool DeferredCommentImpl::hasAttributes() {
-	 return this->$CommentImpl::hasAttributes();
+	return this->$CommentImpl::hasAttributes();
 }
 
 bool DeferredCommentImpl::hasChildNodes() {
-	 return this->$CommentImpl::hasChildNodes();
+	return this->$CommentImpl::hasChildNodes();
 }
 
 $Node* DeferredCommentImpl::getFirstChild() {
-	 return this->$CommentImpl::getFirstChild();
+	return this->$CommentImpl::getFirstChild();
 }
 
 $Node* DeferredCommentImpl::getLastChild() {
-	 return this->$CommentImpl::getLastChild();
+	return this->$CommentImpl::getLastChild();
 }
 
 $Node* DeferredCommentImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$CommentImpl::insertBefore(newChild, refChild);
+	return this->$CommentImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DeferredCommentImpl::removeChild($Node* oldChild) {
-	 return this->$CommentImpl::removeChild(oldChild);
+	return this->$CommentImpl::removeChild(oldChild);
 }
 
 $Node* DeferredCommentImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$CommentImpl::replaceChild(newChild, oldChild);
+	return this->$CommentImpl::replaceChild(newChild, oldChild);
 }
 
 void DeferredCommentImpl::normalize() {
@@ -111,15 +111,15 @@ void DeferredCommentImpl::normalize() {
 }
 
 bool DeferredCommentImpl::isSupported($String* feature, $String* version) {
-	 return this->$CommentImpl::isSupported(feature, version);
+	return this->$CommentImpl::isSupported(feature, version);
 }
 
 $String* DeferredCommentImpl::getNamespaceURI() {
-	 return this->$CommentImpl::getNamespaceURI();
+	return this->$CommentImpl::getNamespaceURI();
 }
 
 $String* DeferredCommentImpl::getPrefix() {
-	 return this->$CommentImpl::getPrefix();
+	return this->$CommentImpl::getPrefix();
 }
 
 void DeferredCommentImpl::setPrefix($String* prefix) {
@@ -127,19 +127,19 @@ void DeferredCommentImpl::setPrefix($String* prefix) {
 }
 
 $String* DeferredCommentImpl::getLocalName() {
-	 return this->$CommentImpl::getLocalName();
+	return this->$CommentImpl::getLocalName();
 }
 
 $String* DeferredCommentImpl::getBaseURI() {
-	 return this->$CommentImpl::getBaseURI();
+	return this->$CommentImpl::getBaseURI();
 }
 
 int16_t DeferredCommentImpl::compareDocumentPosition($Node* other) {
-	 return this->$CommentImpl::compareDocumentPosition(other);
+	return this->$CommentImpl::compareDocumentPosition(other);
 }
 
 $String* DeferredCommentImpl::getTextContent() {
-	 return this->$CommentImpl::getTextContent();
+	return this->$CommentImpl::getTextContent();
 }
 
 void DeferredCommentImpl::setTextContent($String* textContent) {
@@ -147,51 +147,51 @@ void DeferredCommentImpl::setTextContent($String* textContent) {
 }
 
 bool DeferredCommentImpl::isSameNode($Node* other) {
-	 return this->$CommentImpl::isSameNode(other);
+	return this->$CommentImpl::isSameNode(other);
 }
 
 bool DeferredCommentImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$CommentImpl::isDefaultNamespace(namespaceURI);
+	return this->$CommentImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DeferredCommentImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$CommentImpl::lookupPrefix(namespaceURI);
+	return this->$CommentImpl::lookupPrefix(namespaceURI);
 }
 
 $String* DeferredCommentImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$CommentImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$CommentImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 bool DeferredCommentImpl::isEqualNode($Node* arg) {
-	 return this->$CommentImpl::isEqualNode(arg);
+	return this->$CommentImpl::isEqualNode(arg);
 }
 
 $Object* DeferredCommentImpl::getFeature($String* feature, $String* version) {
-	 return this->$CommentImpl::getFeature(feature, version);
+	return this->$CommentImpl::getFeature(feature, version);
 }
 
 $Object* DeferredCommentImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$CommentImpl::setUserData(key, data, handler);
+	return this->$CommentImpl::setUserData(key, data, handler);
 }
 
 $Object* DeferredCommentImpl::getUserData($String* key) {
-	 return this->$CommentImpl::getUserData(key);
+	return this->$CommentImpl::getUserData(key);
 }
 
 $String* DeferredCommentImpl::toString() {
-	 return this->$CommentImpl::toString();
+	return this->$CommentImpl::toString();
 }
 
 int32_t DeferredCommentImpl::hashCode() {
-	 return this->$CommentImpl::hashCode();
+	return this->$CommentImpl::hashCode();
 }
 
 bool DeferredCommentImpl::equals(Object$* arg0) {
-	 return this->$CommentImpl::equals(arg0);
+	return this->$CommentImpl::equals(arg0);
 }
 
 $Object* DeferredCommentImpl::clone() {
-	 return this->$CommentImpl::clone();
+	return this->$CommentImpl::clone();
 }
 
 void DeferredCommentImpl::finalize() {

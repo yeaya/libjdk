@@ -22,15 +22,15 @@ namespace java {
 		namespace image {
 
 int32_t ImageFilter::hashCode() {
-	 return this->$ImageConsumer::hashCode();
+	return this->$ImageConsumer::hashCode();
 }
 
 bool ImageFilter::equals(Object$* arg0) {
-	 return this->$ImageConsumer::equals(arg0);
+	return this->$ImageConsumer::equals(arg0);
 }
 
 $String* ImageFilter::toString() {
-	 return this->$ImageConsumer::toString();
+	return this->$ImageConsumer::toString();
 }
 
 void ImageFilter::finalize() {

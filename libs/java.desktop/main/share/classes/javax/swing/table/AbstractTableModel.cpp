@@ -27,19 +27,19 @@ namespace javax {
 		namespace table {
 
 int32_t AbstractTableModel::hashCode() {
-	 return this->$TableModel::hashCode();
+	return this->$TableModel::hashCode();
 }
 
 bool AbstractTableModel::equals(Object$* arg0) {
-	 return this->$TableModel::equals(arg0);
+	return this->$TableModel::equals(arg0);
 }
 
 $Object* AbstractTableModel::clone() {
-	 return this->$TableModel::clone();
+	return this->$TableModel::clone();
 }
 
 $String* AbstractTableModel::toString() {
-	 return this->$TableModel::toString();
+	return this->$TableModel::toString();
 }
 
 void AbstractTableModel::finalize() {

@@ -205,7 +205,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$init$1();
+		return $nc(inst$)->lambda$init$1();
 	}
 	LWToolkit* inst$ = nullptr;
 };
@@ -271,19 +271,19 @@ $Class* LWToolkit$$Lambda$lambda$init$0$1::load$($String* name, bool initialize)
 $Class* LWToolkit$$Lambda$lambda$init$0$1::class$ = nullptr;
 
 int32_t LWToolkit::hashCode() {
-	 return this->$SunToolkit::hashCode();
+	return this->$SunToolkit::hashCode();
 }
 
 bool LWToolkit::equals(Object$* arg0) {
-	 return this->$SunToolkit::equals(arg0);
+	return this->$SunToolkit::equals(arg0);
 }
 
 $Object* LWToolkit::clone() {
-	 return this->$SunToolkit::clone();
+	return this->$SunToolkit::clone();
 }
 
 $String* LWToolkit::toString() {
-	 return this->$SunToolkit::toString();
+	return this->$SunToolkit::toString();
 }
 
 void LWToolkit::finalize() {

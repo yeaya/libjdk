@@ -157,19 +157,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicTabbedPaneUI::hashCode() {
-	 return this->$TabbedPaneUI::hashCode();
+	return this->$TabbedPaneUI::hashCode();
 }
 
 bool BasicTabbedPaneUI::equals(Object$* arg0) {
-	 return this->$TabbedPaneUI::equals(arg0);
+	return this->$TabbedPaneUI::equals(arg0);
 }
 
 $Object* BasicTabbedPaneUI::clone() {
-	 return this->$TabbedPaneUI::clone();
+	return this->$TabbedPaneUI::clone();
 }
 
 $String* BasicTabbedPaneUI::toString() {
-	 return this->$TabbedPaneUI::toString();
+	return this->$TabbedPaneUI::toString();
 }
 
 void BasicTabbedPaneUI::finalize() {

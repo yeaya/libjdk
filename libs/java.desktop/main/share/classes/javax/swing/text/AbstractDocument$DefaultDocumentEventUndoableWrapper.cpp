@@ -21,19 +21,19 @@ namespace javax {
 		namespace text {
 
 $String* AbstractDocument$DefaultDocumentEventUndoableWrapper::toString() {
-	 return this->$AbstractDocument$DefaultDocumentEvent::toString();
+	return this->$AbstractDocument$DefaultDocumentEvent::toString();
 }
 
 int32_t AbstractDocument$DefaultDocumentEventUndoableWrapper::hashCode() {
-	 return this->$AbstractDocument$DefaultDocumentEvent::hashCode();
+	return this->$AbstractDocument$DefaultDocumentEvent::hashCode();
 }
 
 bool AbstractDocument$DefaultDocumentEventUndoableWrapper::equals(Object$* arg0) {
-	 return this->$AbstractDocument$DefaultDocumentEvent::equals(arg0);
+	return this->$AbstractDocument$DefaultDocumentEvent::equals(arg0);
 }
 
 $Object* AbstractDocument$DefaultDocumentEventUndoableWrapper::clone() {
-	 return this->$AbstractDocument$DefaultDocumentEvent::clone();
+	return this->$AbstractDocument$DefaultDocumentEvent::clone();
 }
 
 void AbstractDocument$DefaultDocumentEventUndoableWrapper::finalize() {

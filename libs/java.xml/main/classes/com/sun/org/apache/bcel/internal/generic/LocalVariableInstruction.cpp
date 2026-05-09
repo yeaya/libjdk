@@ -53,19 +53,19 @@ namespace com {
 						namespace generic {
 
 $String* LocalVariableInstruction::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 bool LocalVariableInstruction::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t LocalVariableInstruction::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* LocalVariableInstruction::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void LocalVariableInstruction::finalize() {

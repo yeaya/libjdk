@@ -17,19 +17,19 @@ namespace com {
 			namespace ldap {
 
 $String* SearchResultWithControls::toString() {
-	 return this->$SearchResult::toString();
+	return this->$SearchResult::toString();
 }
 
 int32_t SearchResultWithControls::hashCode() {
-	 return this->$SearchResult::hashCode();
+	return this->$SearchResult::hashCode();
 }
 
 bool SearchResultWithControls::equals(Object$* arg0) {
-	 return this->$SearchResult::equals(arg0);
+	return this->$SearchResult::equals(arg0);
 }
 
 $Object* SearchResultWithControls::clone() {
-	 return this->$SearchResult::clone();
+	return this->$SearchResult::clone();
 }
 
 void SearchResultWithControls::finalize() {

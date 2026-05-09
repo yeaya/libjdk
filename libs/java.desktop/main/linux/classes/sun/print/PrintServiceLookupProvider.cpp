@@ -83,19 +83,19 @@ namespace sun {
 	namespace print {
 
 int32_t PrintServiceLookupProvider::hashCode() {
-	 return this->$PrintServiceLookup::hashCode();
+	return this->$PrintServiceLookup::hashCode();
 }
 
 bool PrintServiceLookupProvider::equals(Object$* arg0) {
-	 return this->$PrintServiceLookup::equals(arg0);
+	return this->$PrintServiceLookup::equals(arg0);
 }
 
 $Object* PrintServiceLookupProvider::clone() {
-	 return this->$PrintServiceLookup::clone();
+	return this->$PrintServiceLookup::clone();
 }
 
 $String* PrintServiceLookupProvider::toString() {
-	 return this->$PrintServiceLookup::toString();
+	return this->$PrintServiceLookup::toString();
 }
 
 void PrintServiceLookupProvider::finalize() {

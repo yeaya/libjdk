@@ -20,67 +20,67 @@ namespace org {
 			namespace ext {
 
 int32_t Attributes2Impl::getLength() {
-	 return this->$AttributesImpl::getLength();
+	return this->$AttributesImpl::getLength();
 }
 
 $String* Attributes2Impl::getURI(int32_t index) {
-	 return this->$AttributesImpl::getURI(index);
+	return this->$AttributesImpl::getURI(index);
 }
 
 $String* Attributes2Impl::getLocalName(int32_t index) {
-	 return this->$AttributesImpl::getLocalName(index);
+	return this->$AttributesImpl::getLocalName(index);
 }
 
 $String* Attributes2Impl::getQName(int32_t index) {
-	 return this->$AttributesImpl::getQName(index);
+	return this->$AttributesImpl::getQName(index);
 }
 
 $String* Attributes2Impl::getType(int32_t index) {
-	 return this->$AttributesImpl::getType(index);
+	return this->$AttributesImpl::getType(index);
 }
 
 $String* Attributes2Impl::getValue(int32_t index) {
-	 return this->$AttributesImpl::getValue(index);
+	return this->$AttributesImpl::getValue(index);
 }
 
 int32_t Attributes2Impl::getIndex($String* uri, $String* localName) {
-	 return this->$AttributesImpl::getIndex(uri, localName);
+	return this->$AttributesImpl::getIndex(uri, localName);
 }
 
 int32_t Attributes2Impl::getIndex($String* qName) {
-	 return this->$AttributesImpl::getIndex(qName);
+	return this->$AttributesImpl::getIndex(qName);
 }
 
 $String* Attributes2Impl::getType($String* uri, $String* localName) {
-	 return this->$AttributesImpl::getType(uri, localName);
+	return this->$AttributesImpl::getType(uri, localName);
 }
 
 $String* Attributes2Impl::getType($String* qName) {
-	 return this->$AttributesImpl::getType(qName);
+	return this->$AttributesImpl::getType(qName);
 }
 
 $String* Attributes2Impl::getValue($String* uri, $String* localName) {
-	 return this->$AttributesImpl::getValue(uri, localName);
+	return this->$AttributesImpl::getValue(uri, localName);
 }
 
 $String* Attributes2Impl::getValue($String* qName) {
-	 return this->$AttributesImpl::getValue(qName);
+	return this->$AttributesImpl::getValue(qName);
 }
 
 int32_t Attributes2Impl::hashCode() {
-	 return this->$AttributesImpl::hashCode();
+	return this->$AttributesImpl::hashCode();
 }
 
 bool Attributes2Impl::equals(Object$* arg0) {
-	 return this->$AttributesImpl::equals(arg0);
+	return this->$AttributesImpl::equals(arg0);
 }
 
 $Object* Attributes2Impl::clone() {
-	 return this->$AttributesImpl::clone();
+	return this->$AttributesImpl::clone();
 }
 
 $String* Attributes2Impl::toString() {
-	 return this->$AttributesImpl::toString();
+	return this->$AttributesImpl::toString();
 }
 
 void Attributes2Impl::finalize() {

@@ -20,19 +20,19 @@ namespace javax {
 	namespace swing {
 
 int32_t DefaultSingleSelectionModel::hashCode() {
-	 return this->$SingleSelectionModel::hashCode();
+	return this->$SingleSelectionModel::hashCode();
 }
 
 bool DefaultSingleSelectionModel::equals(Object$* arg0) {
-	 return this->$SingleSelectionModel::equals(arg0);
+	return this->$SingleSelectionModel::equals(arg0);
 }
 
 $Object* DefaultSingleSelectionModel::clone() {
-	 return this->$SingleSelectionModel::clone();
+	return this->$SingleSelectionModel::clone();
 }
 
 $String* DefaultSingleSelectionModel::toString() {
-	 return this->$SingleSelectionModel::toString();
+	return this->$SingleSelectionModel::toString();
 }
 
 void DefaultSingleSelectionModel::finalize() {

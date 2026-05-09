@@ -23,19 +23,19 @@ namespace com {
 								namespace content {
 
 int32_t SPKIData::hashCode() {
-	 return this->$SignatureElementProxy::hashCode();
+	return this->$SignatureElementProxy::hashCode();
 }
 
 bool SPKIData::equals(Object$* arg0) {
-	 return this->$SignatureElementProxy::equals(arg0);
+	return this->$SignatureElementProxy::equals(arg0);
 }
 
 $Object* SPKIData::clone() {
-	 return this->$SignatureElementProxy::clone();
+	return this->$SignatureElementProxy::clone();
 }
 
 $String* SPKIData::toString() {
-	 return this->$SignatureElementProxy::toString();
+	return this->$SignatureElementProxy::toString();
 }
 
 void SPKIData::finalize() {

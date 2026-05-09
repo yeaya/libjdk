@@ -83,7 +83,7 @@ void LWTextFieldPeer::setEditable(bool editable) {
 }
 
 $String* LWTextFieldPeer::getText() {
-	 return this->$LWTextComponentPeer::getText();
+	return this->$LWTextComponentPeer::getText();
 }
 
 void LWTextFieldPeer::setText($String* text) {
@@ -91,11 +91,11 @@ void LWTextFieldPeer::setText($String* text) {
 }
 
 int32_t LWTextFieldPeer::getSelectionStart() {
-	 return this->$LWTextComponentPeer::getSelectionStart();
+	return this->$LWTextComponentPeer::getSelectionStart();
 }
 
 int32_t LWTextFieldPeer::getSelectionEnd() {
-	 return this->$LWTextComponentPeer::getSelectionEnd();
+	return this->$LWTextComponentPeer::getSelectionEnd();
 }
 
 void LWTextFieldPeer::select(int32_t selStart, int32_t selEnd) {
@@ -107,15 +107,15 @@ void LWTextFieldPeer::setCaretPosition(int32_t pos) {
 }
 
 int32_t LWTextFieldPeer::getCaretPosition() {
-	 return this->$LWTextComponentPeer::getCaretPosition();
+	return this->$LWTextComponentPeer::getCaretPosition();
 }
 
 $InputMethodRequests* LWTextFieldPeer::getInputMethodRequests() {
-	 return this->$LWTextComponentPeer::getInputMethodRequests();
+	return this->$LWTextComponentPeer::getInputMethodRequests();
 }
 
 bool LWTextFieldPeer::isFocusable() {
-	 return this->$LWTextComponentPeer::isFocusable();
+	return this->$LWTextComponentPeer::isFocusable();
 }
 
 void LWTextFieldPeer::dispose() {
@@ -123,19 +123,19 @@ void LWTextFieldPeer::dispose() {
 }
 
 $GraphicsConfiguration* LWTextFieldPeer::getGraphicsConfiguration() {
-	 return this->$LWTextComponentPeer::getGraphicsConfiguration();
+	return this->$LWTextComponentPeer::getGraphicsConfiguration();
 }
 
 bool LWTextFieldPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$LWTextComponentPeer::updateGraphicsData(gc);
+	return this->$LWTextComponentPeer::updateGraphicsData(gc);
 }
 
 $Graphics* LWTextFieldPeer::getGraphics() {
-	 return this->$LWTextComponentPeer::getGraphics();
+	return this->$LWTextComponentPeer::getGraphics();
 }
 
 $ColorModel* LWTextFieldPeer::getColorModel() {
-	 return this->$LWTextComponentPeer::getColorModel();
+	return this->$LWTextComponentPeer::getColorModel();
 }
 
 void LWTextFieldPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -143,7 +143,7 @@ void LWTextFieldPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* cap
 }
 
 $Image* LWTextFieldPeer::getBackBuffer() {
-	 return this->$LWTextComponentPeer::getBackBuffer();
+	return this->$LWTextComponentPeer::getBackBuffer();
 }
 
 void LWTextFieldPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -159,7 +159,7 @@ void LWTextFieldPeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int3
 }
 
 $Point* LWTextFieldPeer::getLocationOnScreen() {
-	 return this->$LWTextComponentPeer::getLocationOnScreen();
+	return this->$LWTextComponentPeer::getLocationOnScreen();
 }
 
 void LWTextFieldPeer::setBackground($Color* c) {
@@ -175,7 +175,7 @@ void LWTextFieldPeer::setFont($Font* f) {
 }
 
 $FontMetrics* LWTextFieldPeer::getFontMetrics($Font* f) {
-	 return this->$LWTextComponentPeer::getFontMetrics(f);
+	return this->$LWTextComponentPeer::getFontMetrics(f);
 }
 
 void LWTextFieldPeer::setEnabled(bool e) {
@@ -199,7 +199,7 @@ void LWTextFieldPeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWTextFieldPeer::isReparentSupported() {
-	 return this->$LWTextComponentPeer::isReparentSupported();
+	return this->$LWTextComponentPeer::isReparentSupported();
 }
 
 void LWTextFieldPeer::setZOrder($ComponentPeer* above) {
@@ -215,19 +215,19 @@ void LWTextFieldPeer::layout() {
 }
 
 bool LWTextFieldPeer::isObscured() {
-	 return this->$LWTextComponentPeer::isObscured();
+	return this->$LWTextComponentPeer::isObscured();
 }
 
 bool LWTextFieldPeer::canDetermineObscurity() {
-	 return this->$LWTextComponentPeer::canDetermineObscurity();
+	return this->$LWTextComponentPeer::canDetermineObscurity();
 }
 
 $Dimension* LWTextFieldPeer::getPreferredSize() {
-	 return this->$LWTextComponentPeer::getPreferredSize();
+	return this->$LWTextComponentPeer::getPreferredSize();
 }
 
 $Dimension* LWTextFieldPeer::getMinimumSize() {
-	 return this->$LWTextComponentPeer::getMinimumSize();
+	return this->$LWTextComponentPeer::getMinimumSize();
 }
 
 void LWTextFieldPeer::updateCursorImmediately() {
@@ -235,19 +235,19 @@ void LWTextFieldPeer::updateCursorImmediately() {
 }
 
 bool LWTextFieldPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWTextComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWTextComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWTextFieldPeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWTextComponentPeer::createImage(width, height);
+	return this->$LWTextComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* LWTextFieldPeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWTextComponentPeer::createVolatileImage(w, h);
+	return this->$LWTextComponentPeer::createVolatileImage(w, h);
 }
 
 bool LWTextFieldPeer::handlesWheelScrolling() {
-	 return this->$LWTextComponentPeer::handlesWheelScrolling();
+	return this->$LWTextComponentPeer::handlesWheelScrolling();
 }
 
 void LWTextFieldPeer::applyShape($Region* shape) {
@@ -259,19 +259,19 @@ void LWTextFieldPeer::handleEvent($AWTEvent* e) {
 }
 
 int32_t LWTextFieldPeer::hashCode() {
-	 return this->$LWTextComponentPeer::hashCode();
+	return this->$LWTextComponentPeer::hashCode();
 }
 
 bool LWTextFieldPeer::equals(Object$* arg0) {
-	 return this->$LWTextComponentPeer::equals(arg0);
+	return this->$LWTextComponentPeer::equals(arg0);
 }
 
 $Object* LWTextFieldPeer::clone() {
-	 return this->$LWTextComponentPeer::clone();
+	return this->$LWTextComponentPeer::clone();
 }
 
 $String* LWTextFieldPeer::toString() {
-	 return this->$LWTextComponentPeer::toString();
+	return this->$LWTextComponentPeer::toString();
 }
 
 void LWTextFieldPeer::finalize() {

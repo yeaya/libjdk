@@ -29,19 +29,19 @@ using $JColorChooser = ::javax::swing::JColorChooser;
 using $DefaultColorSelectionModel = ::javax::swing::colorchooser::DefaultColorSelectionModel;
 
 $String* Test6348456::toString() {
-	 return this->$JApplet::toString();
+	return this->$JApplet::toString();
 }
 
 int32_t Test6348456::hashCode() {
-	 return this->$JApplet::hashCode();
+	return this->$JApplet::hashCode();
 }
 
 bool Test6348456::equals(Object$* arg0) {
-	 return this->$JApplet::equals(arg0);
+	return this->$JApplet::equals(arg0);
 }
 
 $Object* Test6348456::clone() {
-	 return this->$JApplet::clone();
+	return this->$JApplet::clone();
 }
 
 void Test6348456::finalize() {

@@ -117,7 +117,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* param) override {
-		 return $of(JavadocHelper$OnDemandJavadocHelper$1::lambda$visitDocComment$0($cast($VariableElement, param)));
+		return $of(JavadocHelper$OnDemandJavadocHelper$1::lambda$visitDocComment$0($cast($VariableElement, param)));
 	}
 };
 $Class* JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitDocComment$0::load$($String* name, bool initialize) {
@@ -147,7 +147,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($TypeMirror, inst$)->toString());
+		return $of($sure($TypeMirror, inst$)->toString());
 	}
 };
 $Class* JavadocHelper$OnDemandJavadocHelper$1$$Lambda$toString$1::load$($String* name, bool initialize) {
@@ -180,7 +180,7 @@ public:
 		$set(this, executableElement, executableElement);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$visitInheritDoc$1(task, executableElement);
+		return $nc(inst$)->lambda$visitInheritDoc$1(task, executableElement);
 	}
 	JavadocHelper$OnDemandJavadocHelper$1* inst$ = nullptr;
 	$JavacTask* task = nullptr;
@@ -219,7 +219,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return JavadocHelper$OnDemandJavadocHelper$1::lambda$visitInheritDoc$2($cast($ints, s));
+		return JavadocHelper$OnDemandJavadocHelper$1::lambda$visitInheritDoc$2($cast($ints, s));
 	}
 };
 $Class* JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$2$3::load$($String* name, bool initialize) {
@@ -256,7 +256,7 @@ public:
 		$set(this, docCommentTree, docCommentTree);
 	}
 	virtual int32_t compare(Object$* tag1, Object$* tag2) override {
-		 return $nc(inst$)->lambda$insertTag$4(toInsert, parameters, throwsTypes, task, el, docCommentTree, $cast($DocTree, tag1), $cast($DocTree, tag2));
+		return $nc(inst$)->lambda$insertTag$4(toInsert, parameters, throwsTypes, task, el, docCommentTree, $cast($DocTree, tag1), $cast($DocTree, tag2));
 	}
 	JavadocHelper$OnDemandJavadocHelper$1* inst$ = nullptr;
 	$DocTree* toInsert = nullptr;

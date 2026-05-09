@@ -59,19 +59,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsIconFactory$FrameButtonIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool WindowsIconFactory$FrameButtonIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* WindowsIconFactory$FrameButtonIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* WindowsIconFactory$FrameButtonIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void WindowsIconFactory$FrameButtonIcon::finalize() {

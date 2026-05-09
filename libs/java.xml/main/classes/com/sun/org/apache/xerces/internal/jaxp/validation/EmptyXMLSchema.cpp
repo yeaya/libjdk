@@ -26,19 +26,19 @@ namespace com {
 							namespace validation {
 
 int32_t EmptyXMLSchema::hashCode() {
-	 return this->$AbstractXMLSchema::hashCode();
+	return this->$AbstractXMLSchema::hashCode();
 }
 
 bool EmptyXMLSchema::equals(Object$* arg0) {
-	 return this->$AbstractXMLSchema::equals(arg0);
+	return this->$AbstractXMLSchema::equals(arg0);
 }
 
 $Object* EmptyXMLSchema::clone() {
-	 return this->$AbstractXMLSchema::clone();
+	return this->$AbstractXMLSchema::clone();
 }
 
 $String* EmptyXMLSchema::toString() {
-	 return this->$AbstractXMLSchema::toString();
+	return this->$AbstractXMLSchema::toString();
 }
 
 void EmptyXMLSchema::finalize() {

@@ -39,23 +39,23 @@ void Channels$ReadWriteChannelImpl::close() {
 }
 
 bool Channels$ReadWriteChannelImpl::isOpen() {
-	 return this->$AbstractSelectableChannel::isOpen();
+	return this->$AbstractSelectableChannel::isOpen();
 }
 
 int32_t Channels$ReadWriteChannelImpl::hashCode() {
-	 return this->$AbstractSelectableChannel::hashCode();
+	return this->$AbstractSelectableChannel::hashCode();
 }
 
 bool Channels$ReadWriteChannelImpl::equals(Object$* arg0) {
-	 return this->$AbstractSelectableChannel::equals(arg0);
+	return this->$AbstractSelectableChannel::equals(arg0);
 }
 
 $Object* Channels$ReadWriteChannelImpl::clone() {
-	 return this->$AbstractSelectableChannel::clone();
+	return this->$AbstractSelectableChannel::clone();
 }
 
 $String* Channels$ReadWriteChannelImpl::toString() {
-	 return this->$AbstractSelectableChannel::toString();
+	return this->$AbstractSelectableChannel::toString();
 }
 
 void Channels$ReadWriteChannelImpl::finalize() {

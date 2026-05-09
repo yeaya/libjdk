@@ -229,7 +229,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return ClassWriter::lambda$writeModuleAttribute$0($cast($Symbol$ClassSymbol, s));
+		return ClassWriter::lambda$writeModuleAttribute$0($cast($Symbol$ClassSymbol, s));
 	}
 };
 $Class* ClassWriter$$Lambda$lambda$writeModuleAttribute$0::load$($String* name, bool initialize) {

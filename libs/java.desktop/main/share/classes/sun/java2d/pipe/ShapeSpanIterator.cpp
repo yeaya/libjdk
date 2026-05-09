@@ -18,19 +18,19 @@ namespace sun {
 		namespace pipe {
 
 int32_t ShapeSpanIterator::hashCode() {
-	 return this->$SpanIterator::hashCode();
+	return this->$SpanIterator::hashCode();
 }
 
 bool ShapeSpanIterator::equals(Object$* arg0) {
-	 return this->$SpanIterator::equals(arg0);
+	return this->$SpanIterator::equals(arg0);
 }
 
 $Object* ShapeSpanIterator::clone() {
-	 return this->$SpanIterator::clone();
+	return this->$SpanIterator::clone();
 }
 
 $String* ShapeSpanIterator::toString() {
-	 return this->$SpanIterator::toString();
+	return this->$SpanIterator::toString();
 }
 
 void ShapeSpanIterator::finalize() {

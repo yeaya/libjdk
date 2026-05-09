@@ -30,19 +30,19 @@ namespace javax {
 		namespace spi {
 
 int32_t ContinuationContext::hashCode() {
-	 return this->$Context::hashCode();
+	return this->$Context::hashCode();
 }
 
 bool ContinuationContext::equals(Object$* arg0) {
-	 return this->$Context::equals(arg0);
+	return this->$Context::equals(arg0);
 }
 
 $Object* ContinuationContext::clone() {
-	 return this->$Context::clone();
+	return this->$Context::clone();
 }
 
 $String* ContinuationContext::toString() {
-	 return this->$Context::toString();
+	return this->$Context::toString();
 }
 
 void ContinuationContext::finalize() {

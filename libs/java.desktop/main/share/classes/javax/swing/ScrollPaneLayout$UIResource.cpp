@@ -11,19 +11,19 @@ namespace javax {
 	namespace swing {
 
 int32_t ScrollPaneLayout$UIResource::hashCode() {
-	 return this->$ScrollPaneLayout::hashCode();
+	return this->$ScrollPaneLayout::hashCode();
 }
 
 bool ScrollPaneLayout$UIResource::equals(Object$* arg0) {
-	 return this->$ScrollPaneLayout::equals(arg0);
+	return this->$ScrollPaneLayout::equals(arg0);
 }
 
 $Object* ScrollPaneLayout$UIResource::clone() {
-	 return this->$ScrollPaneLayout::clone();
+	return this->$ScrollPaneLayout::clone();
 }
 
 $String* ScrollPaneLayout$UIResource::toString() {
-	 return this->$ScrollPaneLayout::toString();
+	return this->$ScrollPaneLayout::toString();
 }
 
 void ScrollPaneLayout$UIResource::finalize() {

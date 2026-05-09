@@ -124,15 +124,15 @@ namespace java {
 		namespace image {
 
 int32_t BufferedImage::hashCode() {
-	 return this->$Image::hashCode();
+	return this->$Image::hashCode();
 }
 
 bool BufferedImage::equals(Object$* arg0) {
-	 return this->$Image::equals(arg0);
+	return this->$Image::equals(arg0);
 }
 
 $Object* BufferedImage::clone() {
-	 return this->$Image::clone();
+	return this->$Image::clone();
 }
 
 void BufferedImage::finalize() {

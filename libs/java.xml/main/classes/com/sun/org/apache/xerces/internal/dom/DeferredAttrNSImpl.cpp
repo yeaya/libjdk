@@ -35,11 +35,11 @@ namespace com {
 						namespace dom {
 
 $String* DeferredAttrNSImpl::getNamespaceURI() {
-	 return this->$AttrNSImpl::getNamespaceURI();
+	return this->$AttrNSImpl::getNamespaceURI();
 }
 
 $String* DeferredAttrNSImpl::getPrefix() {
-	 return this->$AttrNSImpl::getPrefix();
+	return this->$AttrNSImpl::getPrefix();
 }
 
 void DeferredAttrNSImpl::setPrefix($String* prefix) {
@@ -47,19 +47,19 @@ void DeferredAttrNSImpl::setPrefix($String* prefix) {
 }
 
 $String* DeferredAttrNSImpl::getLocalName() {
-	 return this->$AttrNSImpl::getLocalName();
+	return this->$AttrNSImpl::getLocalName();
 }
 
 $Node* DeferredAttrNSImpl::cloneNode(bool deep) {
-	 return this->$AttrNSImpl::cloneNode(deep);
+	return this->$AttrNSImpl::cloneNode(deep);
 }
 
 int16_t DeferredAttrNSImpl::getNodeType() {
-	 return this->$AttrNSImpl::getNodeType();
+	return this->$AttrNSImpl::getNodeType();
 }
 
 $String* DeferredAttrNSImpl::getNodeName() {
-	 return this->$AttrNSImpl::getNodeName();
+	return this->$AttrNSImpl::getNodeName();
 }
 
 void DeferredAttrNSImpl::setNodeValue($String* value) {
@@ -67,7 +67,7 @@ void DeferredAttrNSImpl::setNodeValue($String* value) {
 }
 
 $String* DeferredAttrNSImpl::getNodeValue() {
-	 return this->$AttrNSImpl::getNodeValue();
+	return this->$AttrNSImpl::getNodeValue();
 }
 
 void DeferredAttrNSImpl::normalize() {
@@ -75,83 +75,83 @@ void DeferredAttrNSImpl::normalize() {
 }
 
 $String* DeferredAttrNSImpl::toString() {
-	 return this->$AttrNSImpl::toString();
+	return this->$AttrNSImpl::toString();
 }
 
 bool DeferredAttrNSImpl::hasChildNodes() {
-	 return this->$AttrNSImpl::hasChildNodes();
+	return this->$AttrNSImpl::hasChildNodes();
 }
 
 $NodeList* DeferredAttrNSImpl::getChildNodes() {
-	 return this->$AttrNSImpl::getChildNodes();
+	return this->$AttrNSImpl::getChildNodes();
 }
 
 $Node* DeferredAttrNSImpl::getFirstChild() {
-	 return this->$AttrNSImpl::getFirstChild();
+	return this->$AttrNSImpl::getFirstChild();
 }
 
 $Node* DeferredAttrNSImpl::getLastChild() {
-	 return this->$AttrNSImpl::getLastChild();
+	return this->$AttrNSImpl::getLastChild();
 }
 
 $Node* DeferredAttrNSImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$AttrNSImpl::insertBefore(newChild, refChild);
+	return this->$AttrNSImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DeferredAttrNSImpl::removeChild($Node* oldChild) {
-	 return this->$AttrNSImpl::removeChild(oldChild);
+	return this->$AttrNSImpl::removeChild(oldChild);
 }
 
 $Node* DeferredAttrNSImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$AttrNSImpl::replaceChild(newChild, oldChild);
+	return this->$AttrNSImpl::replaceChild(newChild, oldChild);
 }
 
 bool DeferredAttrNSImpl::isEqualNode($Node* arg) {
-	 return this->$AttrNSImpl::isEqualNode(arg);
+	return this->$AttrNSImpl::isEqualNode(arg);
 }
 
 $Node* DeferredAttrNSImpl::appendChild($Node* newChild) {
-	 return this->$AttrNSImpl::appendChild(newChild);
+	return this->$AttrNSImpl::appendChild(newChild);
 }
 
 $Document* DeferredAttrNSImpl::getOwnerDocument() {
-	 return this->$AttrNSImpl::getOwnerDocument();
+	return this->$AttrNSImpl::getOwnerDocument();
 }
 
 $Node* DeferredAttrNSImpl::getParentNode() {
-	 return this->$AttrNSImpl::getParentNode();
+	return this->$AttrNSImpl::getParentNode();
 }
 
 $Node* DeferredAttrNSImpl::getNextSibling() {
-	 return this->$AttrNSImpl::getNextSibling();
+	return this->$AttrNSImpl::getNextSibling();
 }
 
 $Node* DeferredAttrNSImpl::getPreviousSibling() {
-	 return this->$AttrNSImpl::getPreviousSibling();
+	return this->$AttrNSImpl::getPreviousSibling();
 }
 
 $NamedNodeMap* DeferredAttrNSImpl::getAttributes() {
-	 return this->$AttrNSImpl::getAttributes();
+	return this->$AttrNSImpl::getAttributes();
 }
 
 bool DeferredAttrNSImpl::hasAttributes() {
-	 return this->$AttrNSImpl::hasAttributes();
+	return this->$AttrNSImpl::hasAttributes();
 }
 
 bool DeferredAttrNSImpl::isSupported($String* feature, $String* version) {
-	 return this->$AttrNSImpl::isSupported(feature, version);
+	return this->$AttrNSImpl::isSupported(feature, version);
 }
 
 $String* DeferredAttrNSImpl::getBaseURI() {
-	 return this->$AttrNSImpl::getBaseURI();
+	return this->$AttrNSImpl::getBaseURI();
 }
 
 int16_t DeferredAttrNSImpl::compareDocumentPosition($Node* other) {
-	 return this->$AttrNSImpl::compareDocumentPosition(other);
+	return this->$AttrNSImpl::compareDocumentPosition(other);
 }
 
 $String* DeferredAttrNSImpl::getTextContent() {
-	 return this->$AttrNSImpl::getTextContent();
+	return this->$AttrNSImpl::getTextContent();
 }
 
 void DeferredAttrNSImpl::setTextContent($String* textContent) {
@@ -159,43 +159,43 @@ void DeferredAttrNSImpl::setTextContent($String* textContent) {
 }
 
 bool DeferredAttrNSImpl::isSameNode($Node* other) {
-	 return this->$AttrNSImpl::isSameNode(other);
+	return this->$AttrNSImpl::isSameNode(other);
 }
 
 bool DeferredAttrNSImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$AttrNSImpl::isDefaultNamespace(namespaceURI);
+	return this->$AttrNSImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DeferredAttrNSImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$AttrNSImpl::lookupPrefix(namespaceURI);
+	return this->$AttrNSImpl::lookupPrefix(namespaceURI);
 }
 
 $String* DeferredAttrNSImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$AttrNSImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$AttrNSImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* DeferredAttrNSImpl::getFeature($String* feature, $String* version) {
-	 return this->$AttrNSImpl::getFeature(feature, version);
+	return this->$AttrNSImpl::getFeature(feature, version);
 }
 
 $Object* DeferredAttrNSImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$AttrNSImpl::setUserData(key, data, handler);
+	return this->$AttrNSImpl::setUserData(key, data, handler);
 }
 
 $Object* DeferredAttrNSImpl::getUserData($String* key) {
-	 return this->$AttrNSImpl::getUserData(key);
+	return this->$AttrNSImpl::getUserData(key);
 }
 
 int32_t DeferredAttrNSImpl::hashCode() {
-	 return this->$AttrNSImpl::hashCode();
+	return this->$AttrNSImpl::hashCode();
 }
 
 bool DeferredAttrNSImpl::equals(Object$* arg0) {
-	 return this->$AttrNSImpl::equals(arg0);
+	return this->$AttrNSImpl::equals(arg0);
 }
 
 $Object* DeferredAttrNSImpl::clone() {
-	 return this->$AttrNSImpl::clone();
+	return this->$AttrNSImpl::clone();
 }
 
 void DeferredAttrNSImpl::finalize() {

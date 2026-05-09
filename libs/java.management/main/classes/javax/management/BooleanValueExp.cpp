@@ -19,15 +19,15 @@ namespace javax {
 	namespace management {
 
 int32_t BooleanValueExp::hashCode() {
-	 return this->$QueryEval::hashCode();
+	return this->$QueryEval::hashCode();
 }
 
 bool BooleanValueExp::equals(Object$* arg0) {
-	 return this->$QueryEval::equals(arg0);
+	return this->$QueryEval::equals(arg0);
 }
 
 $Object* BooleanValueExp::clone() {
-	 return this->$QueryEval::clone();
+	return this->$QueryEval::clone();
 }
 
 void BooleanValueExp::finalize() {

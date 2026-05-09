@@ -32,19 +32,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsLookAndFeel$SkinIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool WindowsLookAndFeel$SkinIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* WindowsLookAndFeel$SkinIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* WindowsLookAndFeel$SkinIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void WindowsLookAndFeel$SkinIcon::finalize() {

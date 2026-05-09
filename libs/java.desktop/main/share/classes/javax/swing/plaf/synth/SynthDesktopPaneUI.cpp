@@ -59,19 +59,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthDesktopPaneUI::hashCode() {
-	 return this->$BasicDesktopPaneUI::hashCode();
+	return this->$BasicDesktopPaneUI::hashCode();
 }
 
 bool SynthDesktopPaneUI::equals(Object$* arg0) {
-	 return this->$BasicDesktopPaneUI::equals(arg0);
+	return this->$BasicDesktopPaneUI::equals(arg0);
 }
 
 $Object* SynthDesktopPaneUI::clone() {
-	 return this->$BasicDesktopPaneUI::clone();
+	return this->$BasicDesktopPaneUI::clone();
 }
 
 $String* SynthDesktopPaneUI::toString() {
-	 return this->$BasicDesktopPaneUI::toString();
+	return this->$BasicDesktopPaneUI::toString();
 }
 
 void SynthDesktopPaneUI::finalize() {

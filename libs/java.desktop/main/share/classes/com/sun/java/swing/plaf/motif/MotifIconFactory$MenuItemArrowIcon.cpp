@@ -20,19 +20,19 @@ namespace com {
 					namespace motif {
 
 int32_t MotifIconFactory$MenuItemArrowIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool MotifIconFactory$MenuItemArrowIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* MotifIconFactory$MenuItemArrowIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* MotifIconFactory$MenuItemArrowIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void MotifIconFactory$MenuItemArrowIcon::finalize() {

@@ -68,7 +68,7 @@ public:
 		$set(this, propName, propName);
 	}
 	virtual $Object* run() override {
-		 return $of(SecuritySupport::lambda$getSystemProperty$0(propName));
+		return $of(SecuritySupport::lambda$getSystemProperty$0(propName));
 	}
 	$String* propName = nullptr;
 };
@@ -104,7 +104,7 @@ public:
 		$set(this, f, f);
 	}
 	virtual $Object* run() override {
-		 return $of(SecuritySupport::lambda$isDirectory$1(f));
+		return $of(SecuritySupport::lambda$isDirectory$1(f));
 	}
 	$File* f = nullptr;
 };
@@ -140,7 +140,7 @@ public:
 		$set(this, f, f);
 	}
 	virtual $Object* run() override {
-		 return $of(SecuritySupport::lambda$isFileExists$2(f));
+		return $of(SecuritySupport::lambda$isFileExists$2(f));
 	}
 	$File* f = nullptr;
 };
@@ -176,7 +176,7 @@ public:
 		$set(this, file, file);
 	}
 	virtual $Object* run() override {
-		 return SecuritySupport::lambda$getFileInputStream$3(file);
+		return SecuritySupport::lambda$getFileInputStream$3(file);
 	}
 	$File* file = nullptr;
 };
@@ -212,7 +212,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return SecuritySupport::lambda$getResourceAsStream$4(name);
+		return SecuritySupport::lambda$getResourceAsStream$4(name);
 	}
 	$String* name = nullptr;
 };
@@ -249,7 +249,7 @@ public:
 		$set(this, locale, locale);
 	}
 	virtual $Object* run() override {
-		 return SecuritySupport::lambda$getResourceBundle$5(bundle, locale);
+		return SecuritySupport::lambda$getResourceBundle$5(bundle, locale);
 	}
 	$String* bundle = nullptr;
 	$Locale* locale = nullptr;
@@ -287,7 +287,7 @@ public:
 		$set(this, f, f);
 	}
 	virtual $Object* run() override {
-		 return $of(SecuritySupport::lambda$getLastModified$7(f));
+		return $of(SecuritySupport::lambda$getLastModified$7(f));
 	}
 	$File* f = nullptr;
 };
@@ -322,7 +322,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return SecuritySupport::lambda$getContextClassLoader$8();
+		return SecuritySupport::lambda$getContextClassLoader$8();
 	}
 };
 $Class* SecuritySupport$$Lambda$lambda$getContextClassLoader$8$7::load$($String* name, bool initialize) {
@@ -352,7 +352,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return SecuritySupport::lambda$getSystemClassLoader$9();
+		return SecuritySupport::lambda$getSystemClassLoader$9();
 	}
 };
 $Class* SecuritySupport$$Lambda$lambda$getSystemClassLoader$9$8::load$($String* name, bool initialize) {
@@ -383,7 +383,7 @@ public:
 		$set(this, cl, cl);
 	}
 	virtual $Object* run() override {
-		 return SecuritySupport::lambda$getParentClassLoader$10(cl);
+		return SecuritySupport::lambda$getParentClassLoader$10(cl);
 	}
 	$ClassLoader* cl = nullptr;
 };
@@ -419,7 +419,7 @@ public:
 		this->cls = cls;
 	}
 	virtual $Object* run() override {
-		 return $of(SecuritySupport::lambda$getClassSource$11(cls));
+		return $of(SecuritySupport::lambda$getClassSource$11(cls));
 	}
 	$Class* cls = nullptr;
 };
@@ -454,7 +454,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return SecuritySupport::lambda$getClassLoader$12();
+		return SecuritySupport::lambda$getClassLoader$12();
 	}
 };
 $Class* SecuritySupport$$Lambda$lambda$getClassLoader$12$11::load$($String* name, bool initialize) {
@@ -486,7 +486,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return SecuritySupport::lambda$getResourceAsStream$13(cl, name);
+		return SecuritySupport::lambda$getResourceAsStream$13(cl, name);
 	}
 	$ClassLoader* cl = nullptr;
 	$String* name = nullptr;

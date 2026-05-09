@@ -96,19 +96,19 @@ namespace com {
 			namespace sound {
 
 int32_t SoftChannel::hashCode() {
-	 return this->$MidiChannel::hashCode();
+	return this->$MidiChannel::hashCode();
 }
 
 bool SoftChannel::equals(Object$* arg0) {
-	 return this->$MidiChannel::equals(arg0);
+	return this->$MidiChannel::equals(arg0);
 }
 
 $Object* SoftChannel::clone() {
-	 return this->$MidiChannel::clone();
+	return this->$MidiChannel::clone();
 }
 
 $String* SoftChannel::toString() {
-	 return this->$MidiChannel::toString();
+	return this->$MidiChannel::toString();
 }
 
 void SoftChannel::finalize() {

@@ -74,15 +74,15 @@ namespace com {
 						namespace patterns {
 
 int32_t StepPattern::hashCode() {
-	 return this->$NodeTest::hashCode();
+	return this->$NodeTest::hashCode();
 }
 
 bool StepPattern::equals(Object$* arg0) {
-	 return this->$NodeTest::equals(arg0);
+	return this->$NodeTest::equals(arg0);
 }
 
 $Object* StepPattern::clone() {
-	 return this->$NodeTest::clone();
+	return this->$NodeTest::clone();
 }
 
 void StepPattern::finalize() {

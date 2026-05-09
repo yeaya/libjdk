@@ -37,19 +37,19 @@ namespace javax {
 	namespace tools {
 
 $String* StandardLocation::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool StandardLocation::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t StandardLocation::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* StandardLocation::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void StandardLocation::finalize() {

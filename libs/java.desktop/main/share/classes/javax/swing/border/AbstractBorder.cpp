@@ -26,19 +26,19 @@ namespace javax {
 		namespace border {
 
 int32_t AbstractBorder::hashCode() {
-	 return this->$Border::hashCode();
+	return this->$Border::hashCode();
 }
 
 bool AbstractBorder::equals(Object$* arg0) {
-	 return this->$Border::equals(arg0);
+	return this->$Border::equals(arg0);
 }
 
 $Object* AbstractBorder::clone() {
-	 return this->$Border::clone();
+	return this->$Border::clone();
 }
 
 $String* AbstractBorder::toString() {
-	 return this->$Border::toString();
+	return this->$Border::toString();
 }
 
 void AbstractBorder::finalize() {

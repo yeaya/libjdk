@@ -21,19 +21,19 @@ namespace javax {
 	namespace swing {
 
 int32_t AbstractCellEditor::hashCode() {
-	 return this->$CellEditor::hashCode();
+	return this->$CellEditor::hashCode();
 }
 
 bool AbstractCellEditor::equals(Object$* arg0) {
-	 return this->$CellEditor::equals(arg0);
+	return this->$CellEditor::equals(arg0);
 }
 
 $Object* AbstractCellEditor::clone() {
-	 return this->$CellEditor::clone();
+	return this->$CellEditor::clone();
 }
 
 $String* AbstractCellEditor::toString() {
-	 return this->$CellEditor::toString();
+	return this->$CellEditor::toString();
 }
 
 void AbstractCellEditor::finalize() {

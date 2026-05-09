@@ -40,7 +40,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return LinuxSocketOptions::lambda$static$0();
+		return LinuxSocketOptions::lambda$static$0();
 	}
 };
 $Class* LinuxSocketOptions$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

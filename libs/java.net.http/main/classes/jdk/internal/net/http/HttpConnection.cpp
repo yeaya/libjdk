@@ -104,7 +104,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	HttpConnection* inst$ = nullptr;
 };
@@ -139,7 +139,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(HttpConnection::lambda$static$0());
+		return $of(HttpConnection::lambda$static$0());
 	}
 };
 $Class* HttpConnection$$Lambda$lambda$static$0$1::load$($String* name, bool initialize) {
@@ -169,7 +169,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* proto) override {
-		 return HttpConnection::lambda$static$1($cast($String, proto));
+		return HttpConnection::lambda$static$1($cast($String, proto));
 	}
 };
 $Class* HttpConnection$$Lambda$lambda$static$1$2::load$($String* name, bool initialize) {
@@ -199,7 +199,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(HttpConnection::lambda$closeOrReturnToCache$2($cast($String, s)));
+		return $of(HttpConnection::lambda$closeOrReturnToCache$2($cast($String, s)));
 	}
 };
 $Class* HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3::load$($String* name, bool initialize) {

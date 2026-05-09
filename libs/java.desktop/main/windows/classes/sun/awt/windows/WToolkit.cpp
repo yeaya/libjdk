@@ -415,7 +415,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $ThreadGroupUtils::getRootThreadGroup();
+		return $ThreadGroupUtils::getRootThreadGroup();
 	}
 };
 $Class* WToolkit$$Lambda$getRootThreadGroup::load$($String* name, bool initialize) {
@@ -447,7 +447,7 @@ public:
 		$set(this, rootTG, rootTG);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$new$0(rootTG);
+		return $nc(inst$)->lambda$new$0(rootTG);
 	}
 	WToolkit* inst$ = nullptr;
 	$ThreadGroup* rootTG = nullptr;
@@ -484,7 +484,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return WToolkit::lambda$new$1();
+		return WToolkit::lambda$new$1();
 	}
 };
 $Class* WToolkit$$Lambda$lambda$new$1$2::load$($String* name, bool initialize) {
@@ -515,7 +515,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$registerShutdownHook$2();
+		return $nc(inst$)->lambda$registerShutdownHook$2();
 	}
 	WToolkit* inst$ = nullptr;
 };
@@ -550,7 +550,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return WToolkit::lambda$run$3();
+		return WToolkit::lambda$run$3();
 	}
 };
 $Class* WToolkit$$Lambda$lambda$run$3$4::load$($String* name, bool initialize) {
@@ -610,7 +610,7 @@ public:
 	void init$() {
 	}
 	virtual $Thread* newThread($Runnable* r) override {
-		 return WToolkit::lambda$displayChanged$5(r);
+		return WToolkit::lambda$displayChanged$5(r);
 	}
 };
 $Class* WToolkit$$Lambda$lambda$displayChanged$5$6::load$($String* name, bool initialize) {
@@ -710,19 +710,19 @@ $Class* WToolkit$$Lambda$shutdown$8::load$($String* name, bool initialize) {
 $Class* WToolkit$$Lambda$shutdown$8::class$ = nullptr;
 
 int32_t WToolkit::hashCode() {
-	 return this->$SunToolkit::hashCode();
+	return this->$SunToolkit::hashCode();
 }
 
 bool WToolkit::equals(Object$* arg0) {
-	 return this->$SunToolkit::equals(arg0);
+	return this->$SunToolkit::equals(arg0);
 }
 
 $Object* WToolkit::clone() {
-	 return this->$SunToolkit::clone();
+	return this->$SunToolkit::clone();
 }
 
 $String* WToolkit::toString() {
-	 return this->$SunToolkit::toString();
+	return this->$SunToolkit::toString();
 }
 
 void WToolkit::finalize() {

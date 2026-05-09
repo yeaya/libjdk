@@ -83,19 +83,19 @@ namespace javax {
 			namespace basic {
 
 $Object* BasicSpinnerUI$ArrowButtonHandler::clone() {
-	 return this->$AbstractAction::clone();
+	return this->$AbstractAction::clone();
 }
 
 int32_t BasicSpinnerUI$ArrowButtonHandler::hashCode() {
-	 return this->$AbstractAction::hashCode();
+	return this->$AbstractAction::hashCode();
 }
 
 bool BasicSpinnerUI$ArrowButtonHandler::equals(Object$* arg0) {
-	 return this->$AbstractAction::equals(arg0);
+	return this->$AbstractAction::equals(arg0);
 }
 
 $String* BasicSpinnerUI$ArrowButtonHandler::toString() {
-	 return this->$AbstractAction::toString();
+	return this->$AbstractAction::toString();
 }
 
 void BasicSpinnerUI$ArrowButtonHandler::finalize() {

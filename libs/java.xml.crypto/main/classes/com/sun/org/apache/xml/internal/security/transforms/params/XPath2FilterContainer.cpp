@@ -45,19 +45,19 @@ namespace com {
 								namespace params {
 
 int32_t XPath2FilterContainer::hashCode() {
-	 return this->$ElementProxy::hashCode();
+	return this->$ElementProxy::hashCode();
 }
 
 bool XPath2FilterContainer::equals(Object$* arg0) {
-	 return this->$ElementProxy::equals(arg0);
+	return this->$ElementProxy::equals(arg0);
 }
 
 $Object* XPath2FilterContainer::clone() {
-	 return this->$ElementProxy::clone();
+	return this->$ElementProxy::clone();
 }
 
 $String* XPath2FilterContainer::toString() {
-	 return this->$ElementProxy::toString();
+	return this->$ElementProxy::toString();
 }
 
 void XPath2FilterContainer::finalize() {

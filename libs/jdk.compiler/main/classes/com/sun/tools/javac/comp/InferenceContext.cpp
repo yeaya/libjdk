@@ -91,7 +91,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* uv) override {
-		 return InferenceContext::lambda$restvars$0($cast($Type$UndetVar, uv));
+		return InferenceContext::lambda$restvars$0($cast($Type$UndetVar, uv));
 	}
 };
 $Class* InferenceContext$$Lambda$lambda$restvars$0::load$($String* name, bool initialize) {
@@ -121,7 +121,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* uv) override {
-		 return InferenceContext::lambda$instvars$1($cast($Type$UndetVar, uv));
+		return InferenceContext::lambda$instvars$1($cast($Type$UndetVar, uv));
 	}
 };
 $Class* InferenceContext$$Lambda$lambda$instvars$1$1::load$($String* name, bool initialize) {
@@ -151,7 +151,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* uv) override {
-		 return InferenceContext::lambda$boundedVars$2($cast($Type$UndetVar, uv));
+		return InferenceContext::lambda$boundedVars$2($cast($Type$UndetVar, uv));
 	}
 };
 $Class* InferenceContext$$Lambda$lambda$boundedVars$2$2::load$($String* name, bool initialize) {
@@ -218,7 +218,7 @@ public:
 		$set(this, redundantVars, redundantVars);
 	}
 	virtual bool test(Object$* b) override {
-		 return InferenceContext::lambda$min$4(redundantVars, $cast($Type, b));
+		return InferenceContext::lambda$min$4(redundantVars, $cast($Type, b));
 	}
 	$List* redundantVars = nullptr;
 };

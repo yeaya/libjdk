@@ -41,19 +41,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsIconFactory$MenuArrowIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool WindowsIconFactory$MenuArrowIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* WindowsIconFactory$MenuArrowIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* WindowsIconFactory$MenuArrowIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void WindowsIconFactory$MenuArrowIcon::finalize() {

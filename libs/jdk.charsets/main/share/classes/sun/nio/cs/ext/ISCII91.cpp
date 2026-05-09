@@ -29,19 +29,19 @@ namespace sun {
 			namespace ext {
 
 int32_t ISCII91::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool ISCII91::equals(Object$* arg0) {
-	 return this->$Charset::equals(arg0);
+	return this->$Charset::equals(arg0);
 }
 
 $String* ISCII91::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* ISCII91::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void ISCII91::finalize() {

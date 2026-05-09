@@ -14,19 +14,19 @@ namespace javax {
 			namespace basic {
 
 $String* BasicTextUI$BasicCursor::toString() {
-	 return this->$Cursor::toString();
+	return this->$Cursor::toString();
 }
 
 int32_t BasicTextUI$BasicCursor::hashCode() {
-	 return this->$Cursor::hashCode();
+	return this->$Cursor::hashCode();
 }
 
 bool BasicTextUI$BasicCursor::equals(Object$* arg0) {
-	 return this->$Cursor::equals(arg0);
+	return this->$Cursor::equals(arg0);
 }
 
 $Object* BasicTextUI$BasicCursor::clone() {
-	 return this->$Cursor::clone();
+	return this->$Cursor::clone();
 }
 
 void BasicTextUI$BasicCursor::finalize() {

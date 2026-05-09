@@ -18,11 +18,11 @@ namespace javax {
 		namespace text {
 
 $Object* SimpleAttributeSet$EmptyAttributeSet::clone() {
-	 return this->$AttributeSet::clone();
+	return this->$AttributeSet::clone();
 }
 
 $String* SimpleAttributeSet$EmptyAttributeSet::toString() {
-	 return this->$AttributeSet::toString();
+	return this->$AttributeSet::toString();
 }
 
 void SimpleAttributeSet$EmptyAttributeSet::finalize() {

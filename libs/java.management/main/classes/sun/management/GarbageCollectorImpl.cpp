@@ -20,19 +20,19 @@ namespace sun {
 	namespace management {
 
 int32_t GarbageCollectorImpl::hashCode() {
-	 return this->$MemoryManagerImpl::hashCode();
+	return this->$MemoryManagerImpl::hashCode();
 }
 
 bool GarbageCollectorImpl::equals(Object$* arg0) {
-	 return this->$MemoryManagerImpl::equals(arg0);
+	return this->$MemoryManagerImpl::equals(arg0);
 }
 
 $Object* GarbageCollectorImpl::clone() {
-	 return this->$MemoryManagerImpl::clone();
+	return this->$MemoryManagerImpl::clone();
 }
 
 $String* GarbageCollectorImpl::toString() {
-	 return this->$MemoryManagerImpl::toString();
+	return this->$MemoryManagerImpl::toString();
 }
 
 void GarbageCollectorImpl::finalize() {

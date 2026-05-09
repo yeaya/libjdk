@@ -25,19 +25,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsTableHeaderUI$IconBorder::hashCode() {
-	 return this->$Border::hashCode();
+	return this->$Border::hashCode();
 }
 
 bool WindowsTableHeaderUI$IconBorder::equals(Object$* arg0) {
-	 return this->$Border::equals(arg0);
+	return this->$Border::equals(arg0);
 }
 
 $Object* WindowsTableHeaderUI$IconBorder::clone() {
-	 return this->$Border::clone();
+	return this->$Border::clone();
 }
 
 $String* WindowsTableHeaderUI$IconBorder::toString() {
-	 return this->$Border::toString();
+	return this->$Border::toString();
 }
 
 void WindowsTableHeaderUI$IconBorder::finalize() {

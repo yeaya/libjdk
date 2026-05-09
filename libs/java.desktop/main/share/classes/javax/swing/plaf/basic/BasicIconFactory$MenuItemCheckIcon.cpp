@@ -18,19 +18,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicIconFactory$MenuItemCheckIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool BasicIconFactory$MenuItemCheckIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* BasicIconFactory$MenuItemCheckIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* BasicIconFactory$MenuItemCheckIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void BasicIconFactory$MenuItemCheckIcon::finalize() {

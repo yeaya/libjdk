@@ -25,7 +25,7 @@ namespace com {
 				namespace code {
 
 $Object* Directive$UsesDirective::clone() {
-	 return this->$Directive::clone();
+	return this->$Directive::clone();
 }
 
 void Directive$UsesDirective::finalize() {

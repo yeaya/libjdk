@@ -31,19 +31,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCPrimitiveTypeTree::toString() {
-	 return this->$JCTree$JCExpression::toString();
+	return this->$JCTree$JCExpression::toString();
 }
 
 $Object* JCTree$JCPrimitiveTypeTree::clone() {
-	 return this->$JCTree$JCExpression::clone();
+	return this->$JCTree$JCExpression::clone();
 }
 
 int32_t JCTree$JCPrimitiveTypeTree::hashCode() {
-	 return this->$JCTree$JCExpression::hashCode();
+	return this->$JCTree$JCExpression::hashCode();
 }
 
 bool JCTree$JCPrimitiveTypeTree::equals(Object$* arg0) {
-	 return this->$JCTree$JCExpression::equals(arg0);
+	return this->$JCTree$JCExpression::equals(arg0);
 }
 
 void JCTree$JCPrimitiveTypeTree::finalize() {

@@ -61,19 +61,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JTabbedPane$Page::hashCode() {
-	 return this->$AccessibleContext::hashCode();
+	return this->$AccessibleContext::hashCode();
 }
 
 bool JTabbedPane$Page::equals(Object$* arg0) {
-	 return this->$AccessibleContext::equals(arg0);
+	return this->$AccessibleContext::equals(arg0);
 }
 
 $Object* JTabbedPane$Page::clone() {
-	 return this->$AccessibleContext::clone();
+	return this->$AccessibleContext::clone();
 }
 
 $String* JTabbedPane$Page::toString() {
-	 return this->$AccessibleContext::toString();
+	return this->$AccessibleContext::toString();
 }
 
 void JTabbedPane$Page::finalize() {

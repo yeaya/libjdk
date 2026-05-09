@@ -30,19 +30,19 @@ namespace javax {
 		namespace text {
 
 int32_t StyledEditorKit$AttributeTracker::hashCode() {
-	 return this->$CaretListener::hashCode();
+	return this->$CaretListener::hashCode();
 }
 
 bool StyledEditorKit$AttributeTracker::equals(Object$* arg0) {
-	 return this->$CaretListener::equals(arg0);
+	return this->$CaretListener::equals(arg0);
 }
 
 $Object* StyledEditorKit$AttributeTracker::clone() {
-	 return this->$CaretListener::clone();
+	return this->$CaretListener::clone();
 }
 
 $String* StyledEditorKit$AttributeTracker::toString() {
-	 return this->$CaretListener::toString();
+	return this->$CaretListener::toString();
 }
 
 void StyledEditorKit$AttributeTracker::finalize() {

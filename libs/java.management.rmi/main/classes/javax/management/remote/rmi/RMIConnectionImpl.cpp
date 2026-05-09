@@ -203,7 +203,7 @@ public:
 		$set(this, mo, mo);
 	}
 	virtual $Object* run() override {
-		 return RMIConnectionImpl::lambda$unwrap$0(wrappedClass, mo);
+		return RMIConnectionImpl::lambda$unwrap$0(wrappedClass, mo);
 	}
 	$Class* wrappedClass = nullptr;
 	$MarshalledObject* mo = nullptr;
@@ -235,15 +235,15 @@ $Class* RMIConnectionImpl$$Lambda$lambda$unwrap$0::load$($String* name, bool ini
 $Class* RMIConnectionImpl$$Lambda$lambda$unwrap$0::class$ = nullptr;
 
 int32_t RMIConnectionImpl::hashCode() {
-	 return this->$RMIConnection::hashCode();
+	return this->$RMIConnection::hashCode();
 }
 
 bool RMIConnectionImpl::equals(Object$* arg0) {
-	 return this->$RMIConnection::equals(arg0);
+	return this->$RMIConnection::equals(arg0);
 }
 
 $Object* RMIConnectionImpl::clone() {
-	 return this->$RMIConnection::clone();
+	return this->$RMIConnection::clone();
 }
 
 void RMIConnectionImpl::finalize() {

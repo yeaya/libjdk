@@ -17,19 +17,19 @@ namespace java {
 		namespace event {
 
 int32_t AWTEventListenerProxy::hashCode() {
-	 return this->$EventListenerProxy::hashCode();
+	return this->$EventListenerProxy::hashCode();
 }
 
 bool AWTEventListenerProxy::equals(Object$* arg0) {
-	 return this->$EventListenerProxy::equals(arg0);
+	return this->$EventListenerProxy::equals(arg0);
 }
 
 $Object* AWTEventListenerProxy::clone() {
-	 return this->$EventListenerProxy::clone();
+	return this->$EventListenerProxy::clone();
 }
 
 $String* AWTEventListenerProxy::toString() {
-	 return this->$EventListenerProxy::toString();
+	return this->$EventListenerProxy::toString();
 }
 
 void AWTEventListenerProxy::finalize() {

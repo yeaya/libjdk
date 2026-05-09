@@ -28,19 +28,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaComboBoxUI$AquaComboBoxEditor::hashCode() {
-	 return this->$BasicComboBoxEditor::hashCode();
+	return this->$BasicComboBoxEditor::hashCode();
 }
 
 bool AquaComboBoxUI$AquaComboBoxEditor::equals(Object$* arg0) {
-	 return this->$BasicComboBoxEditor::equals(arg0);
+	return this->$BasicComboBoxEditor::equals(arg0);
 }
 
 $Object* AquaComboBoxUI$AquaComboBoxEditor::clone() {
-	 return this->$BasicComboBoxEditor::clone();
+	return this->$BasicComboBoxEditor::clone();
 }
 
 $String* AquaComboBoxUI$AquaComboBoxEditor::toString() {
-	 return this->$BasicComboBoxEditor::toString();
+	return this->$BasicComboBoxEditor::toString();
 }
 
 void AquaComboBoxUI$AquaComboBoxEditor::finalize() {

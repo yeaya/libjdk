@@ -27,19 +27,19 @@ namespace java {
 		namespace dnd {
 
 int32_t DnDEventMulticaster::hashCode() {
-	 return this->$AWTEventMulticaster::hashCode();
+	return this->$AWTEventMulticaster::hashCode();
 }
 
 bool DnDEventMulticaster::equals(Object$* arg0) {
-	 return this->$AWTEventMulticaster::equals(arg0);
+	return this->$AWTEventMulticaster::equals(arg0);
 }
 
 $Object* DnDEventMulticaster::clone() {
-	 return this->$AWTEventMulticaster::clone();
+	return this->$AWTEventMulticaster::clone();
 }
 
 $String* DnDEventMulticaster::toString() {
-	 return this->$AWTEventMulticaster::toString();
+	return this->$AWTEventMulticaster::toString();
 }
 
 void DnDEventMulticaster::finalize() {

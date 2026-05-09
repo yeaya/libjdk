@@ -48,7 +48,7 @@ public:
 		$set(this, streamCloserRunnable, streamCloserRunnable);
 	}
 	virtual $Object* run() override {
-		 return StreamCloser::lambda$addToQueue$0(streamCloserRunnable);
+		return StreamCloser::lambda$addToQueue$0(streamCloserRunnable);
 	}
 	$Runnable* streamCloserRunnable = nullptr;
 };

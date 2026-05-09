@@ -74,27 +74,27 @@ namespace javax {
 		namespace openmbean {
 
 $Object* OpenMBeanAttributeInfoSupport::clone() {
-	 return this->$MBeanAttributeInfo::clone();
+	return this->$MBeanAttributeInfo::clone();
 }
 
 bool OpenMBeanAttributeInfoSupport::isReadable() {
-	 return this->$MBeanAttributeInfo::isReadable();
+	return this->$MBeanAttributeInfo::isReadable();
 }
 
 bool OpenMBeanAttributeInfoSupport::isWritable() {
-	 return this->$MBeanAttributeInfo::isWritable();
+	return this->$MBeanAttributeInfo::isWritable();
 }
 
 bool OpenMBeanAttributeInfoSupport::isIs() {
-	 return this->$MBeanAttributeInfo::isIs();
+	return this->$MBeanAttributeInfo::isIs();
 }
 
 $String* OpenMBeanAttributeInfoSupport::getName() {
-	 return this->$MBeanAttributeInfo::getName();
+	return this->$MBeanAttributeInfo::getName();
 }
 
 $String* OpenMBeanAttributeInfoSupport::getDescription() {
-	 return this->$MBeanAttributeInfo::getDescription();
+	return this->$MBeanAttributeInfo::getDescription();
 }
 
 void OpenMBeanAttributeInfoSupport::finalize() {

@@ -25,19 +25,19 @@ namespace javax {
 	namespace swing {
 
 int32_t SwingWorker$DoSubmitAccumulativeRunnable::hashCode() {
-	 return this->$AccumulativeRunnable::hashCode();
+	return this->$AccumulativeRunnable::hashCode();
 }
 
 bool SwingWorker$DoSubmitAccumulativeRunnable::equals(Object$* arg0) {
-	 return this->$AccumulativeRunnable::equals(arg0);
+	return this->$AccumulativeRunnable::equals(arg0);
 }
 
 $Object* SwingWorker$DoSubmitAccumulativeRunnable::clone() {
-	 return this->$AccumulativeRunnable::clone();
+	return this->$AccumulativeRunnable::clone();
 }
 
 $String* SwingWorker$DoSubmitAccumulativeRunnable::toString() {
-	 return this->$AccumulativeRunnable::toString();
+	return this->$AccumulativeRunnable::toString();
 }
 
 void SwingWorker$DoSubmitAccumulativeRunnable::finalize() {

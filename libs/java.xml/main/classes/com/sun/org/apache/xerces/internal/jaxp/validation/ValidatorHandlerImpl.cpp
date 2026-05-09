@@ -168,19 +168,19 @@ namespace com {
 							namespace validation {
 
 int32_t ValidatorHandlerImpl::hashCode() {
-	 return this->$ValidatorHandler::hashCode();
+	return this->$ValidatorHandler::hashCode();
 }
 
 bool ValidatorHandlerImpl::equals(Object$* arg0) {
-	 return this->$ValidatorHandler::equals(arg0);
+	return this->$ValidatorHandler::equals(arg0);
 }
 
 $Object* ValidatorHandlerImpl::clone() {
-	 return this->$ValidatorHandler::clone();
+	return this->$ValidatorHandler::clone();
 }
 
 $String* ValidatorHandlerImpl::toString() {
-	 return this->$ValidatorHandler::toString();
+	return this->$ValidatorHandler::toString();
 }
 
 void ValidatorHandlerImpl::finalize() {

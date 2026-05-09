@@ -39,7 +39,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(Object$* tree) override {
-		 return $TreeInfo::getStartPos($cast($JCTree, tree));
+		return $TreeInfo::getStartPos($cast($JCTree, tree));
 	}
 };
 $Class* TreeInfo$PosKind$$Lambda$getStartPos::load$($String* name, bool initialize) {
@@ -69,7 +69,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(Object$* tree) override {
-		 return $TreeInfo::firstStatPos($cast($JCTree, tree));
+		return $TreeInfo::firstStatPos($cast($JCTree, tree));
 	}
 };
 $Class* TreeInfo$PosKind$$Lambda$firstStatPos$1::load$($String* name, bool initialize) {
@@ -99,7 +99,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(Object$* tree) override {
-		 return $TreeInfo::endPos($cast($JCTree, tree));
+		return $TreeInfo::endPos($cast($JCTree, tree));
 	}
 };
 $Class* TreeInfo$PosKind$$Lambda$endPos$2::load$($String* name, bool initialize) {

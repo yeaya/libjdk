@@ -39,19 +39,19 @@ namespace com {
 						namespace utils {
 
 int32_t DefaultErrorHandler::hashCode() {
-	 return this->$ErrorHandler::hashCode();
+	return this->$ErrorHandler::hashCode();
 }
 
 bool DefaultErrorHandler::equals(Object$* arg0) {
-	 return this->$ErrorHandler::equals(arg0);
+	return this->$ErrorHandler::equals(arg0);
 }
 
 $Object* DefaultErrorHandler::clone() {
-	 return this->$ErrorHandler::clone();
+	return this->$ErrorHandler::clone();
 }
 
 $String* DefaultErrorHandler::toString() {
-	 return this->$ErrorHandler::toString();
+	return this->$ErrorHandler::toString();
 }
 
 void DefaultErrorHandler::finalize() {

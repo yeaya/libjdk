@@ -61,19 +61,19 @@ namespace javax {
 			namespace nimbus {
 
 int32_t NimbusIcon::hashCode() {
-	 return this->$SynthIcon::hashCode();
+	return this->$SynthIcon::hashCode();
 }
 
 bool NimbusIcon::equals(Object$* arg0) {
-	 return this->$SynthIcon::equals(arg0);
+	return this->$SynthIcon::equals(arg0);
 }
 
 $Object* NimbusIcon::clone() {
-	 return this->$SynthIcon::clone();
+	return this->$SynthIcon::clone();
 }
 
 $String* NimbusIcon::toString() {
-	 return this->$SynthIcon::toString();
+	return this->$SynthIcon::toString();
 }
 
 void NimbusIcon::finalize() {

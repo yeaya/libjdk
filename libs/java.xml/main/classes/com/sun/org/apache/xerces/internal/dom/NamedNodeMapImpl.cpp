@@ -47,19 +47,19 @@ namespace com {
 						namespace dom {
 
 int32_t NamedNodeMapImpl::hashCode() {
-	 return this->$NamedNodeMap::hashCode();
+	return this->$NamedNodeMap::hashCode();
 }
 
 bool NamedNodeMapImpl::equals(Object$* arg0) {
-	 return this->$NamedNodeMap::equals(arg0);
+	return this->$NamedNodeMap::equals(arg0);
 }
 
 $Object* NamedNodeMapImpl::clone() {
-	 return this->$NamedNodeMap::clone();
+	return this->$NamedNodeMap::clone();
 }
 
 $String* NamedNodeMapImpl::toString() {
-	 return this->$NamedNodeMap::toString();
+	return this->$NamedNodeMap::toString();
 }
 
 void NamedNodeMapImpl::finalize() {

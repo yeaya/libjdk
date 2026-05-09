@@ -74,7 +74,7 @@ public:
 		$set(this, pkind, pkind);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of($nc(inst$)->lambda$visitClassType$0(pkind, $cast($Type, c)));
+		return $of($nc(inst$)->lambda$visitClassType$0(pkind, $cast($Type, c)));
 	}
 	Types$TypeProjection* inst$ = nullptr;
 	$Types$ProjectionKind* pkind = nullptr;

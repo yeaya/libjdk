@@ -149,19 +149,19 @@ namespace sun {
 	namespace print {
 
 $String* ServiceDialog::toString() {
-	 return this->$JDialog::toString();
+	return this->$JDialog::toString();
 }
 
 int32_t ServiceDialog::hashCode() {
-	 return this->$JDialog::hashCode();
+	return this->$JDialog::hashCode();
 }
 
 bool ServiceDialog::equals(Object$* arg0) {
-	 return this->$JDialog::equals(arg0);
+	return this->$JDialog::equals(arg0);
 }
 
 $Object* ServiceDialog::clone() {
-	 return this->$JDialog::clone();
+	return this->$JDialog::clone();
 }
 
 void ServiceDialog::finalize() {

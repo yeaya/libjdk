@@ -23,15 +23,15 @@ using $JTable = ::javax::swing::JTable;
 using $CellEditorListener = ::javax::swing::event::CellEditorListener;
 
 bool bug6348946$Editor::isCellEditable($EventObject* arg0) {
-	 return this->$AbstractCellEditor::isCellEditable(arg0);
+	return this->$AbstractCellEditor::isCellEditable(arg0);
 }
 
 bool bug6348946$Editor::shouldSelectCell($EventObject* arg0) {
-	 return this->$AbstractCellEditor::shouldSelectCell(arg0);
+	return this->$AbstractCellEditor::shouldSelectCell(arg0);
 }
 
 bool bug6348946$Editor::stopCellEditing() {
-	 return this->$AbstractCellEditor::stopCellEditing();
+	return this->$AbstractCellEditor::stopCellEditing();
 }
 
 void bug6348946$Editor::cancelCellEditing() {
@@ -47,19 +47,19 @@ void bug6348946$Editor::removeCellEditorListener($CellEditorListener* arg0) {
 }
 
 int32_t bug6348946$Editor::hashCode() {
-	 return this->$AbstractCellEditor::hashCode();
+	return this->$AbstractCellEditor::hashCode();
 }
 
 bool bug6348946$Editor::equals(Object$* arg0) {
-	 return this->$AbstractCellEditor::equals(arg0);
+	return this->$AbstractCellEditor::equals(arg0);
 }
 
 $Object* bug6348946$Editor::clone() {
-	 return this->$AbstractCellEditor::clone();
+	return this->$AbstractCellEditor::clone();
 }
 
 $String* bug6348946$Editor::toString() {
-	 return this->$AbstractCellEditor::toString();
+	return this->$AbstractCellEditor::toString();
 }
 
 void bug6348946$Editor::finalize() {

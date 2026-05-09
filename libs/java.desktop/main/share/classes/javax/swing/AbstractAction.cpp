@@ -40,15 +40,15 @@ namespace javax {
 	namespace swing {
 
 int32_t AbstractAction::hashCode() {
-	 return this->$Action::hashCode();
+	return this->$Action::hashCode();
 }
 
 bool AbstractAction::equals(Object$* arg0) {
-	 return this->$Action::equals(arg0);
+	return this->$Action::equals(arg0);
 }
 
 $String* AbstractAction::toString() {
-	 return this->$Action::toString();
+	return this->$Action::toString();
 }
 
 void AbstractAction::finalize() {

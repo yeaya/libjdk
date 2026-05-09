@@ -38,15 +38,15 @@ namespace javax {
 		namespace text {
 
 int32_t StyleContext$NamedStyle::hashCode() {
-	 return this->$Style::hashCode();
+	return this->$Style::hashCode();
 }
 
 bool StyleContext$NamedStyle::equals(Object$* arg0) {
-	 return this->$Style::equals(arg0);
+	return this->$Style::equals(arg0);
 }
 
 $Object* StyleContext$NamedStyle::clone() {
-	 return this->$Style::clone();
+	return this->$Style::clone();
 }
 
 void StyleContext$NamedStyle::finalize() {

@@ -125,7 +125,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Collection, inst$)->stream();
+		return $sure($Collection, inst$)->stream();
 	}
 };
 $Class* ExchangeImpl$$Lambda$stream::load$($String* name, bool initialize) {
@@ -156,7 +156,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* arg0) override {
-		 return $nc(inst$)->equalsIgnoreCase($cast($String, arg0));
+		return $nc(inst$)->equalsIgnoreCase($cast($String, arg0));
 	}
 	$String* inst$ = nullptr;
 };

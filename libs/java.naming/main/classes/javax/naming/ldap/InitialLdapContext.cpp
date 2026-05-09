@@ -45,19 +45,19 @@ namespace javax {
 		namespace ldap {
 
 $Attributes* InitialLdapContext::getAttributes($String* name) {
-	 return this->$InitialDirContext::getAttributes(name);
+	return this->$InitialDirContext::getAttributes(name);
 }
 
 $Attributes* InitialLdapContext::getAttributes($String* name, $StringArray* attrIds) {
-	 return this->$InitialDirContext::getAttributes(name, attrIds);
+	return this->$InitialDirContext::getAttributes(name, attrIds);
 }
 
 $Attributes* InitialLdapContext::getAttributes($Name* name) {
-	 return this->$InitialDirContext::getAttributes(name);
+	return this->$InitialDirContext::getAttributes(name);
 }
 
 $Attributes* InitialLdapContext::getAttributes($Name* name, $StringArray* attrIds) {
-	 return this->$InitialDirContext::getAttributes(name, attrIds);
+	return this->$InitialDirContext::getAttributes(name, attrIds);
 }
 
 void InitialLdapContext::modifyAttributes($String* name, int32_t mod_op, $Attributes* attrs) {
@@ -93,67 +93,67 @@ void InitialLdapContext::rebind($Name* name, Object$* obj, $Attributes* attrs) {
 }
 
 $DirContext* InitialLdapContext::createSubcontext($String* name, $Attributes* attrs) {
-	 return this->$InitialDirContext::createSubcontext(name, attrs);
+	return this->$InitialDirContext::createSubcontext(name, attrs);
 }
 
 $DirContext* InitialLdapContext::createSubcontext($Name* name, $Attributes* attrs) {
-	 return this->$InitialDirContext::createSubcontext(name, attrs);
+	return this->$InitialDirContext::createSubcontext(name, attrs);
 }
 
 $DirContext* InitialLdapContext::getSchema($String* name) {
-	 return this->$InitialDirContext::getSchema(name);
+	return this->$InitialDirContext::getSchema(name);
 }
 
 $DirContext* InitialLdapContext::getSchema($Name* name) {
-	 return this->$InitialDirContext::getSchema(name);
+	return this->$InitialDirContext::getSchema(name);
 }
 
 $DirContext* InitialLdapContext::getSchemaClassDefinition($String* name) {
-	 return this->$InitialDirContext::getSchemaClassDefinition(name);
+	return this->$InitialDirContext::getSchemaClassDefinition(name);
 }
 
 $DirContext* InitialLdapContext::getSchemaClassDefinition($Name* name) {
-	 return this->$InitialDirContext::getSchemaClassDefinition(name);
+	return this->$InitialDirContext::getSchemaClassDefinition(name);
 }
 
 $NamingEnumeration* InitialLdapContext::search($String* name, $Attributes* matchingAttributes) {
-	 return this->$InitialDirContext::search(name, matchingAttributes);
+	return this->$InitialDirContext::search(name, matchingAttributes);
 }
 
 $NamingEnumeration* InitialLdapContext::search($Name* name, $Attributes* matchingAttributes) {
-	 return this->$InitialDirContext::search(name, matchingAttributes);
+	return this->$InitialDirContext::search(name, matchingAttributes);
 }
 
 $NamingEnumeration* InitialLdapContext::search($String* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	 return this->$InitialDirContext::search(name, matchingAttributes, attributesToReturn);
+	return this->$InitialDirContext::search(name, matchingAttributes, attributesToReturn);
 }
 
 $NamingEnumeration* InitialLdapContext::search($Name* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	 return this->$InitialDirContext::search(name, matchingAttributes, attributesToReturn);
+	return this->$InitialDirContext::search(name, matchingAttributes, attributesToReturn);
 }
 
 $NamingEnumeration* InitialLdapContext::search($String* name, $String* filter, $SearchControls* cons) {
-	 return this->$InitialDirContext::search(name, filter, cons);
+	return this->$InitialDirContext::search(name, filter, cons);
 }
 
 $NamingEnumeration* InitialLdapContext::search($Name* name, $String* filter, $SearchControls* cons) {
-	 return this->$InitialDirContext::search(name, filter, cons);
+	return this->$InitialDirContext::search(name, filter, cons);
 }
 
 $NamingEnumeration* InitialLdapContext::search($String* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
-	 return this->$InitialDirContext::search(name, filterExpr, filterArgs, cons);
+	return this->$InitialDirContext::search(name, filterExpr, filterArgs, cons);
 }
 
 $NamingEnumeration* InitialLdapContext::search($Name* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
-	 return this->$InitialDirContext::search(name, filterExpr, filterArgs, cons);
+	return this->$InitialDirContext::search(name, filterExpr, filterArgs, cons);
 }
 
 $Object* InitialLdapContext::lookup($String* name) {
-	 return this->$InitialDirContext::lookup(name);
+	return this->$InitialDirContext::lookup(name);
 }
 
 $Object* InitialLdapContext::lookup($Name* name) {
-	 return this->$InitialDirContext::lookup(name);
+	return this->$InitialDirContext::lookup(name);
 }
 
 void InitialLdapContext::bind($String* name, Object$* obj) {
@@ -189,19 +189,19 @@ void InitialLdapContext::rename($Name* oldName, $Name* newName) {
 }
 
 $NamingEnumeration* InitialLdapContext::list($String* name) {
-	 return this->$InitialDirContext::list(name);
+	return this->$InitialDirContext::list(name);
 }
 
 $NamingEnumeration* InitialLdapContext::list($Name* name) {
-	 return this->$InitialDirContext::list(name);
+	return this->$InitialDirContext::list(name);
 }
 
 $NamingEnumeration* InitialLdapContext::listBindings($String* name) {
-	 return this->$InitialDirContext::listBindings(name);
+	return this->$InitialDirContext::listBindings(name);
 }
 
 $NamingEnumeration* InitialLdapContext::listBindings($Name* name) {
-	 return this->$InitialDirContext::listBindings(name);
+	return this->$InitialDirContext::listBindings(name);
 }
 
 void InitialLdapContext::destroySubcontext($String* name) {
@@ -213,47 +213,47 @@ void InitialLdapContext::destroySubcontext($Name* name) {
 }
 
 $Context* InitialLdapContext::createSubcontext($String* name) {
-	 return this->$InitialDirContext::createSubcontext(name);
+	return this->$InitialDirContext::createSubcontext(name);
 }
 
 $Context* InitialLdapContext::createSubcontext($Name* name) {
-	 return this->$InitialDirContext::createSubcontext(name);
+	return this->$InitialDirContext::createSubcontext(name);
 }
 
 $Object* InitialLdapContext::lookupLink($String* name) {
-	 return this->$InitialDirContext::lookupLink(name);
+	return this->$InitialDirContext::lookupLink(name);
 }
 
 $Object* InitialLdapContext::lookupLink($Name* name) {
-	 return this->$InitialDirContext::lookupLink(name);
+	return this->$InitialDirContext::lookupLink(name);
 }
 
 $NameParser* InitialLdapContext::getNameParser($String* name) {
-	 return this->$InitialDirContext::getNameParser(name);
+	return this->$InitialDirContext::getNameParser(name);
 }
 
 $NameParser* InitialLdapContext::getNameParser($Name* name) {
-	 return this->$InitialDirContext::getNameParser(name);
+	return this->$InitialDirContext::getNameParser(name);
 }
 
 $String* InitialLdapContext::composeName($String* name, $String* prefix) {
-	 return this->$InitialDirContext::composeName(name, prefix);
+	return this->$InitialDirContext::composeName(name, prefix);
 }
 
 $Name* InitialLdapContext::composeName($Name* name, $Name* prefix) {
-	 return this->$InitialDirContext::composeName(name, prefix);
+	return this->$InitialDirContext::composeName(name, prefix);
 }
 
 $Object* InitialLdapContext::addToEnvironment($String* propName, Object$* propVal) {
-	 return this->$InitialDirContext::addToEnvironment(propName, propVal);
+	return this->$InitialDirContext::addToEnvironment(propName, propVal);
 }
 
 $Object* InitialLdapContext::removeFromEnvironment($String* propName) {
-	 return this->$InitialDirContext::removeFromEnvironment(propName);
+	return this->$InitialDirContext::removeFromEnvironment(propName);
 }
 
 $Hashtable* InitialLdapContext::getEnvironment() {
-	 return this->$InitialDirContext::getEnvironment();
+	return this->$InitialDirContext::getEnvironment();
 }
 
 void InitialLdapContext::close() {
@@ -261,23 +261,23 @@ void InitialLdapContext::close() {
 }
 
 $String* InitialLdapContext::getNameInNamespace() {
-	 return this->$InitialDirContext::getNameInNamespace();
+	return this->$InitialDirContext::getNameInNamespace();
 }
 
 int32_t InitialLdapContext::hashCode() {
-	 return this->$InitialDirContext::hashCode();
+	return this->$InitialDirContext::hashCode();
 }
 
 bool InitialLdapContext::equals(Object$* arg0) {
-	 return this->$InitialDirContext::equals(arg0);
+	return this->$InitialDirContext::equals(arg0);
 }
 
 $Object* InitialLdapContext::clone() {
-	 return this->$InitialDirContext::clone();
+	return this->$InitialDirContext::clone();
 }
 
 $String* InitialLdapContext::toString() {
-	 return this->$InitialDirContext::toString();
+	return this->$InitialDirContext::toString();
 }
 
 void InitialLdapContext::finalize() {

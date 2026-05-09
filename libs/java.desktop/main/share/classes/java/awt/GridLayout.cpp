@@ -21,15 +21,15 @@ namespace java {
 	namespace awt {
 
 int32_t GridLayout::hashCode() {
-	 return this->$LayoutManager::hashCode();
+	return this->$LayoutManager::hashCode();
 }
 
 bool GridLayout::equals(Object$* arg0) {
-	 return this->$LayoutManager::equals(arg0);
+	return this->$LayoutManager::equals(arg0);
 }
 
 $Object* GridLayout::clone() {
-	 return this->$LayoutManager::clone();
+	return this->$LayoutManager::clone();
 }
 
 void GridLayout::finalize() {

@@ -39,19 +39,19 @@ namespace javax {
 	namespace swing {
 
 int32_t BoxLayout::hashCode() {
-	 return this->$LayoutManager2::hashCode();
+	return this->$LayoutManager2::hashCode();
 }
 
 bool BoxLayout::equals(Object$* arg0) {
-	 return this->$LayoutManager2::equals(arg0);
+	return this->$LayoutManager2::equals(arg0);
 }
 
 $Object* BoxLayout::clone() {
-	 return this->$LayoutManager2::clone();
+	return this->$LayoutManager2::clone();
 }
 
 $String* BoxLayout::toString() {
-	 return this->$LayoutManager2::toString();
+	return this->$LayoutManager2::toString();
 }
 
 void BoxLayout::finalize() {

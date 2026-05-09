@@ -67,19 +67,19 @@ namespace sun {
 		namespace pipe {
 
 int32_t BufferedRenderPipe::hashCode() {
-	 return this->$PixelDrawPipe::hashCode();
+	return this->$PixelDrawPipe::hashCode();
 }
 
 bool BufferedRenderPipe::equals(Object$* arg0) {
-	 return this->$PixelDrawPipe::equals(arg0);
+	return this->$PixelDrawPipe::equals(arg0);
 }
 
 $Object* BufferedRenderPipe::clone() {
-	 return this->$PixelDrawPipe::clone();
+	return this->$PixelDrawPipe::clone();
 }
 
 $String* BufferedRenderPipe::toString() {
-	 return this->$PixelDrawPipe::toString();
+	return this->$PixelDrawPipe::toString();
 }
 
 void BufferedRenderPipe::finalize() {

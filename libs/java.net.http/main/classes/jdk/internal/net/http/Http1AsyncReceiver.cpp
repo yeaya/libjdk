@@ -97,7 +97,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	Http1AsyncReceiver* inst$ = nullptr;
 };
@@ -170,7 +170,7 @@ public:
 		this->remaining = remaining;
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$flush$0(remaining));
+		return $of($nc(inst$)->lambda$flush$0(remaining));
 	}
 	Http1AsyncReceiver* inst$ = nullptr;
 	int64_t remaining = 0;
@@ -210,7 +210,7 @@ public:
 		$set(this, captured, captured);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$checkForErrors$1(x, captured));
+		return $of($nc(inst$)->lambda$checkForErrors$1(x, captured));
 	}
 	Http1AsyncReceiver* inst$ = nullptr;
 	$Throwable* x = nullptr;

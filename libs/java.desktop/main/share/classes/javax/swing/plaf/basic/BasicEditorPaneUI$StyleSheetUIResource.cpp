@@ -14,19 +14,19 @@ namespace javax {
 			namespace basic {
 
 $String* BasicEditorPaneUI$StyleSheetUIResource::toString() {
-	 return this->$StyleSheet::toString();
+	return this->$StyleSheet::toString();
 }
 
 int32_t BasicEditorPaneUI$StyleSheetUIResource::hashCode() {
-	 return this->$StyleSheet::hashCode();
+	return this->$StyleSheet::hashCode();
 }
 
 bool BasicEditorPaneUI$StyleSheetUIResource::equals(Object$* arg0) {
-	 return this->$StyleSheet::equals(arg0);
+	return this->$StyleSheet::equals(arg0);
 }
 
 $Object* BasicEditorPaneUI$StyleSheetUIResource::clone() {
-	 return this->$StyleSheet::clone();
+	return this->$StyleSheet::clone();
 }
 
 void BasicEditorPaneUI$StyleSheetUIResource::finalize() {

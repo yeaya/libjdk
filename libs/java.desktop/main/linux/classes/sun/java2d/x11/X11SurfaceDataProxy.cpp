@@ -40,19 +40,19 @@ namespace sun {
 		namespace x11 {
 
 int32_t X11SurfaceDataProxy::hashCode() {
-	 return this->$SurfaceDataProxy::hashCode();
+	return this->$SurfaceDataProxy::hashCode();
 }
 
 bool X11SurfaceDataProxy::equals(Object$* arg0) {
-	 return this->$SurfaceDataProxy::equals(arg0);
+	return this->$SurfaceDataProxy::equals(arg0);
 }
 
 $Object* X11SurfaceDataProxy::clone() {
-	 return this->$SurfaceDataProxy::clone();
+	return this->$SurfaceDataProxy::clone();
 }
 
 $String* X11SurfaceDataProxy::toString() {
-	 return this->$SurfaceDataProxy::toString();
+	return this->$SurfaceDataProxy::toString();
 }
 
 void X11SurfaceDataProxy::finalize() {

@@ -15,19 +15,19 @@ namespace java {
 		namespace event {
 
 int32_t MouseAdapter::hashCode() {
-	 return this->$MouseListener::hashCode();
+	return this->$MouseListener::hashCode();
 }
 
 bool MouseAdapter::equals(Object$* arg0) {
-	 return this->$MouseListener::equals(arg0);
+	return this->$MouseListener::equals(arg0);
 }
 
 $Object* MouseAdapter::clone() {
-	 return this->$MouseListener::clone();
+	return this->$MouseListener::clone();
 }
 
 $String* MouseAdapter::toString() {
-	 return this->$MouseListener::toString();
+	return this->$MouseListener::toString();
 }
 
 void MouseAdapter::finalize() {

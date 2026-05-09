@@ -45,19 +45,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaButtonUI$AquaButtonListener::hashCode() {
-	 return this->$BasicButtonListener::hashCode();
+	return this->$BasicButtonListener::hashCode();
 }
 
 bool AquaButtonUI$AquaButtonListener::equals(Object$* arg0) {
-	 return this->$BasicButtonListener::equals(arg0);
+	return this->$BasicButtonListener::equals(arg0);
 }
 
 $Object* AquaButtonUI$AquaButtonListener::clone() {
-	 return this->$BasicButtonListener::clone();
+	return this->$BasicButtonListener::clone();
 }
 
 $String* AquaButtonUI$AquaButtonListener::toString() {
-	 return this->$BasicButtonListener::toString();
+	return this->$BasicButtonListener::toString();
 }
 
 void AquaButtonUI$AquaButtonListener::finalize() {

@@ -13,19 +13,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicComboBoxEditor$UIResource::hashCode() {
-	 return this->$BasicComboBoxEditor::hashCode();
+	return this->$BasicComboBoxEditor::hashCode();
 }
 
 bool BasicComboBoxEditor$UIResource::equals(Object$* arg0) {
-	 return this->$BasicComboBoxEditor::equals(arg0);
+	return this->$BasicComboBoxEditor::equals(arg0);
 }
 
 $Object* BasicComboBoxEditor$UIResource::clone() {
-	 return this->$BasicComboBoxEditor::clone();
+	return this->$BasicComboBoxEditor::clone();
 }
 
 $String* BasicComboBoxEditor$UIResource::toString() {
-	 return this->$BasicComboBoxEditor::toString();
+	return this->$BasicComboBoxEditor::toString();
 }
 
 void BasicComboBoxEditor$UIResource::finalize() {

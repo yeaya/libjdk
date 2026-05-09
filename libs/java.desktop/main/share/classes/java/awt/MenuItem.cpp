@@ -61,19 +61,19 @@ namespace java {
 	namespace awt {
 
 $String* MenuItem::toString() {
-	 return this->$MenuComponent::toString();
+	return this->$MenuComponent::toString();
 }
 
 int32_t MenuItem::hashCode() {
-	 return this->$MenuComponent::hashCode();
+	return this->$MenuComponent::hashCode();
 }
 
 bool MenuItem::equals(Object$* arg0) {
-	 return this->$MenuComponent::equals(arg0);
+	return this->$MenuComponent::equals(arg0);
 }
 
 $Object* MenuItem::clone() {
-	 return this->$MenuComponent::clone();
+	return this->$MenuComponent::clone();
 }
 
 void MenuItem::finalize() {

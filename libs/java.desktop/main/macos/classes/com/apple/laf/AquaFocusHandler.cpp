@@ -48,19 +48,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaFocusHandler::hashCode() {
-	 return this->$FocusListener::hashCode();
+	return this->$FocusListener::hashCode();
 }
 
 bool AquaFocusHandler::equals(Object$* arg0) {
-	 return this->$FocusListener::equals(arg0);
+	return this->$FocusListener::equals(arg0);
 }
 
 $Object* AquaFocusHandler::clone() {
-	 return this->$FocusListener::clone();
+	return this->$FocusListener::clone();
 }
 
 $String* AquaFocusHandler::toString() {
-	 return this->$FocusListener::toString();
+	return this->$FocusListener::toString();
 }
 
 void AquaFocusHandler::finalize() {

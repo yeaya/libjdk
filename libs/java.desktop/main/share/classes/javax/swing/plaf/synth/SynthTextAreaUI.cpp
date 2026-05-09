@@ -41,19 +41,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthTextAreaUI::hashCode() {
-	 return this->$BasicTextAreaUI::hashCode();
+	return this->$BasicTextAreaUI::hashCode();
 }
 
 bool SynthTextAreaUI::equals(Object$* arg0) {
-	 return this->$BasicTextAreaUI::equals(arg0);
+	return this->$BasicTextAreaUI::equals(arg0);
 }
 
 $Object* SynthTextAreaUI::clone() {
-	 return this->$BasicTextAreaUI::clone();
+	return this->$BasicTextAreaUI::clone();
 }
 
 $String* SynthTextAreaUI::toString() {
-	 return this->$BasicTextAreaUI::toString();
+	return this->$BasicTextAreaUI::toString();
 }
 
 void SynthTextAreaUI::finalize() {

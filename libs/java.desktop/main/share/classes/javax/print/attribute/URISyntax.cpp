@@ -15,7 +15,7 @@ namespace javax {
 		namespace attribute {
 
 $Object* URISyntax::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void URISyntax::finalize() {

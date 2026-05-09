@@ -13,15 +13,15 @@ namespace java {
 		namespace geom {
 
 $Object* Point2D$Double::clone() {
-	 return this->$Point2D::clone();
+	return this->$Point2D::clone();
 }
 
 int32_t Point2D$Double::hashCode() {
-	 return this->$Point2D::hashCode();
+	return this->$Point2D::hashCode();
 }
 
 bool Point2D$Double::equals(Object$* obj) {
-	 return this->$Point2D::equals(obj);
+	return this->$Point2D::equals(obj);
 }
 
 void Point2D$Double::finalize() {

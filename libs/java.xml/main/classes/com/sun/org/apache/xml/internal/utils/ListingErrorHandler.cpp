@@ -55,19 +55,19 @@ namespace com {
 						namespace utils {
 
 int32_t ListingErrorHandler::hashCode() {
-	 return this->$ErrorHandler::hashCode();
+	return this->$ErrorHandler::hashCode();
 }
 
 bool ListingErrorHandler::equals(Object$* arg0) {
-	 return this->$ErrorHandler::equals(arg0);
+	return this->$ErrorHandler::equals(arg0);
 }
 
 $Object* ListingErrorHandler::clone() {
-	 return this->$ErrorHandler::clone();
+	return this->$ErrorHandler::clone();
 }
 
 $String* ListingErrorHandler::toString() {
-	 return this->$ErrorHandler::toString();
+	return this->$ErrorHandler::toString();
 }
 
 void ListingErrorHandler::finalize() {

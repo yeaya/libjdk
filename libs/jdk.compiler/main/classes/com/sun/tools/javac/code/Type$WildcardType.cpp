@@ -49,23 +49,23 @@ namespace com {
 				namespace code {
 
 $Annotation* Type$WildcardType::getAnnotation($Class* annotationType) {
-	 return this->$Type::getAnnotation(annotationType);
+	return this->$Type::getAnnotation(annotationType);
 }
 
 $AnnotationArray* Type$WildcardType::getAnnotationsByType($Class* annotationType) {
-	 return this->$Type::getAnnotationsByType(annotationType);
+	return this->$Type::getAnnotationsByType(annotationType);
 }
 
 bool Type$WildcardType::equals(Object$* t) {
-	 return this->$Type::equals(t);
+	return this->$Type::equals(t);
 }
 
 int32_t Type$WildcardType::hashCode() {
-	 return this->$Type::hashCode();
+	return this->$Type::hashCode();
 }
 
 $Object* Type$WildcardType::clone() {
-	 return this->$Type::clone();
+	return this->$Type::clone();
 }
 
 void Type$WildcardType::finalize() {

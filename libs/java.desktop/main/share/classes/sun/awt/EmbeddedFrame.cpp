@@ -74,19 +74,19 @@ namespace sun {
 	namespace awt {
 
 $String* EmbeddedFrame::toString() {
-	 return this->$Frame::toString();
+	return this->$Frame::toString();
 }
 
 int32_t EmbeddedFrame::hashCode() {
-	 return this->$Frame::hashCode();
+	return this->$Frame::hashCode();
 }
 
 bool EmbeddedFrame::equals(Object$* arg0) {
-	 return this->$Frame::equals(arg0);
+	return this->$Frame::equals(arg0);
 }
 
 $Object* EmbeddedFrame::clone() {
-	 return this->$Frame::clone();
+	return this->$Frame::clone();
 }
 
 void EmbeddedFrame::finalize() {

@@ -36,27 +36,27 @@ namespace com {
 				namespace code {
 
 $Annotation* Type$BottomType::getAnnotation($Class* annotationType) {
-	 return this->$Type::getAnnotation(annotationType);
+	return this->$Type::getAnnotation(annotationType);
 }
 
 $AnnotationArray* Type$BottomType::getAnnotationsByType($Class* annotationType) {
-	 return this->$Type::getAnnotationsByType(annotationType);
+	return this->$Type::getAnnotationsByType(annotationType);
 }
 
 $String* Type$BottomType::toString() {
-	 return this->$Type::toString();
+	return this->$Type::toString();
 }
 
 bool Type$BottomType::equals(Object$* t) {
-	 return this->$Type::equals(t);
+	return this->$Type::equals(t);
 }
 
 int32_t Type$BottomType::hashCode() {
-	 return this->$Type::hashCode();
+	return this->$Type::hashCode();
 }
 
 $Object* Type$BottomType::clone() {
-	 return this->$Type::clone();
+	return this->$Type::clone();
 }
 
 void Type$BottomType::finalize() {

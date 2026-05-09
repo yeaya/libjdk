@@ -19,7 +19,7 @@ namespace javax {
 		namespace remote {
 
 $Object* JMXPrincipal::clone() {
-	 return this->$Principal::clone();
+	return this->$Principal::clone();
 }
 
 void JMXPrincipal::finalize() {

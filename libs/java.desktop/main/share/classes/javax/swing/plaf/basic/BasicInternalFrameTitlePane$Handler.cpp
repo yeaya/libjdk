@@ -49,19 +49,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicInternalFrameTitlePane$Handler::hashCode() {
-	 return this->$LayoutManager::hashCode();
+	return this->$LayoutManager::hashCode();
 }
 
 bool BasicInternalFrameTitlePane$Handler::equals(Object$* arg0) {
-	 return this->$LayoutManager::equals(arg0);
+	return this->$LayoutManager::equals(arg0);
 }
 
 $Object* BasicInternalFrameTitlePane$Handler::clone() {
-	 return this->$LayoutManager::clone();
+	return this->$LayoutManager::clone();
 }
 
 $String* BasicInternalFrameTitlePane$Handler::toString() {
-	 return this->$LayoutManager::toString();
+	return this->$LayoutManager::toString();
 }
 
 void BasicInternalFrameTitlePane$Handler::finalize() {

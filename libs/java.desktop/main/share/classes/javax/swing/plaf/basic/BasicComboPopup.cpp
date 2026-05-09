@@ -114,23 +114,23 @@ namespace javax {
 			namespace basic {
 
 bool BasicComboPopup::isVisible() {
-	 return this->$JPopupMenu::isVisible();
+	return this->$JPopupMenu::isVisible();
 }
 
 $String* BasicComboPopup::toString() {
-	 return this->$JPopupMenu::toString();
+	return this->$JPopupMenu::toString();
 }
 
 int32_t BasicComboPopup::hashCode() {
-	 return this->$JPopupMenu::hashCode();
+	return this->$JPopupMenu::hashCode();
 }
 
 bool BasicComboPopup::equals(Object$* arg0) {
-	 return this->$JPopupMenu::equals(arg0);
+	return this->$JPopupMenu::equals(arg0);
 }
 
 $Object* BasicComboPopup::clone() {
-	 return this->$JPopupMenu::clone();
+	return this->$JPopupMenu::clone();
 }
 
 void BasicComboPopup::finalize() {

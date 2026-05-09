@@ -125,7 +125,7 @@ void DefaultStyledDocument::render($Runnable* r) {
 }
 
 int32_t DefaultStyledDocument::getLength() {
-	 return this->$AbstractDocument::getLength();
+	return this->$AbstractDocument::getLength();
 }
 
 void DefaultStyledDocument::addUndoableEditListener($UndoableEditListener* listener) {
@@ -137,7 +137,7 @@ void DefaultStyledDocument::removeUndoableEditListener($UndoableEditListener* li
 }
 
 $Object* DefaultStyledDocument::getProperty(Object$* key) {
-	 return this->$AbstractDocument::getProperty(key);
+	return this->$AbstractDocument::getProperty(key);
 }
 
 void DefaultStyledDocument::putProperty(Object$* key, Object$* value) {
@@ -153,7 +153,7 @@ void DefaultStyledDocument::insertString(int32_t offs, $String* str, $AttributeS
 }
 
 $String* DefaultStyledDocument::getText(int32_t offset, int32_t length) {
-	 return this->$AbstractDocument::getText(offset, length);
+	return this->$AbstractDocument::getText(offset, length);
 }
 
 void DefaultStyledDocument::getText(int32_t offset, int32_t length, $Segment* txt) {
@@ -161,35 +161,35 @@ void DefaultStyledDocument::getText(int32_t offset, int32_t length, $Segment* tx
 }
 
 $Position* DefaultStyledDocument::createPosition(int32_t offs) {
-	 return this->$AbstractDocument::createPosition(offs);
+	return this->$AbstractDocument::createPosition(offs);
 }
 
 $Position* DefaultStyledDocument::getStartPosition() {
-	 return this->$AbstractDocument::getStartPosition();
+	return this->$AbstractDocument::getStartPosition();
 }
 
 $Position* DefaultStyledDocument::getEndPosition() {
-	 return this->$AbstractDocument::getEndPosition();
+	return this->$AbstractDocument::getEndPosition();
 }
 
 $ElementArray* DefaultStyledDocument::getRootElements() {
-	 return this->$AbstractDocument::getRootElements();
+	return this->$AbstractDocument::getRootElements();
 }
 
 int32_t DefaultStyledDocument::hashCode() {
-	 return this->$AbstractDocument::hashCode();
+	return this->$AbstractDocument::hashCode();
 }
 
 bool DefaultStyledDocument::equals(Object$* arg0) {
-	 return this->$AbstractDocument::equals(arg0);
+	return this->$AbstractDocument::equals(arg0);
 }
 
 $Object* DefaultStyledDocument::clone() {
-	 return this->$AbstractDocument::clone();
+	return this->$AbstractDocument::clone();
 }
 
 $String* DefaultStyledDocument::toString() {
-	 return this->$AbstractDocument::toString();
+	return this->$AbstractDocument::toString();
 }
 
 void DefaultStyledDocument::finalize() {

@@ -45,19 +45,19 @@ namespace javax {
 	namespace swing {
 
 $String* JLayeredPane::toString() {
-	 return this->$JComponent::toString();
+	return this->$JComponent::toString();
 }
 
 int32_t JLayeredPane::hashCode() {
-	 return this->$JComponent::hashCode();
+	return this->$JComponent::hashCode();
 }
 
 bool JLayeredPane::equals(Object$* arg0) {
-	 return this->$JComponent::equals(arg0);
+	return this->$JComponent::equals(arg0);
 }
 
 $Object* JLayeredPane::clone() {
-	 return this->$JComponent::clone();
+	return this->$JComponent::clone();
 }
 
 void JLayeredPane::finalize() {

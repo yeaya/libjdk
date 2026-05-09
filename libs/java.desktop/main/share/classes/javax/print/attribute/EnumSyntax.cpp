@@ -16,7 +16,7 @@ namespace javax {
 		namespace attribute {
 
 bool EnumSyntax::equals(Object$* arg0) {
-	 return this->$Serializable::equals(arg0);
+	return this->$Serializable::equals(arg0);
 }
 
 void EnumSyntax::finalize() {

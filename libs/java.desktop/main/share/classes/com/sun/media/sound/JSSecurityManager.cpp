@@ -65,7 +65,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(JSSecurityManager::lambda$loadProperties$0());
+		return $of(JSSecurityManager::lambda$loadProperties$0());
 	}
 };
 $Class* JSSecurityManager$$Lambda$lambda$loadProperties$0::load$($String* name, bool initialize) {
@@ -96,7 +96,7 @@ public:
 		$set(this, properties, properties);
 	}
 	virtual $Object* run() override {
-		 return JSSecurityManager::lambda$loadProperties$1(properties);
+		return JSSecurityManager::lambda$loadProperties$1(properties);
 	}
 	$Properties* properties = nullptr;
 };

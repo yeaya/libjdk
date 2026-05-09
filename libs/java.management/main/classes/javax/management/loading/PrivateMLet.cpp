@@ -18,19 +18,19 @@ namespace javax {
 		namespace loading {
 
 int32_t PrivateMLet::hashCode() {
-	 return this->$MLet::hashCode();
+	return this->$MLet::hashCode();
 }
 
 bool PrivateMLet::equals(Object$* arg0) {
-	 return this->$MLet::equals(arg0);
+	return this->$MLet::equals(arg0);
 }
 
 $Object* PrivateMLet::clone() {
-	 return this->$MLet::clone();
+	return this->$MLet::clone();
 }
 
 $String* PrivateMLet::toString() {
-	 return this->$MLet::toString();
+	return this->$MLet::toString();
 }
 
 void PrivateMLet::finalize() {

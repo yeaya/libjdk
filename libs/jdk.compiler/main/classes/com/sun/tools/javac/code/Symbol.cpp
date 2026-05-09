@@ -92,23 +92,23 @@ namespace com {
 				namespace code {
 
 $AnnotationArray* Symbol::getAnnotationsByType($Class* annoType) {
-	 return this->$AnnoConstruct::getAnnotationsByType(annoType);
+	return this->$AnnoConstruct::getAnnotationsByType(annoType);
 }
 
 $Annotation* Symbol::getAnnotation($Class* annoType) {
-	 return this->$AnnoConstruct::getAnnotation(annoType);
+	return this->$AnnoConstruct::getAnnotation(annoType);
 }
 
 int32_t Symbol::hashCode() {
-	 return this->$AnnoConstruct::hashCode();
+	return this->$AnnoConstruct::hashCode();
 }
 
 bool Symbol::equals(Object$* arg0) {
-	 return this->$AnnoConstruct::equals(arg0);
+	return this->$AnnoConstruct::equals(arg0);
 }
 
 $Object* Symbol::clone() {
-	 return this->$AnnoConstruct::clone();
+	return this->$AnnoConstruct::clone();
 }
 
 void Symbol::finalize() {

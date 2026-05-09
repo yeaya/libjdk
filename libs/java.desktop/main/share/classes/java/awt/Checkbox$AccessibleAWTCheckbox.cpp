@@ -35,19 +35,19 @@ namespace java {
 	namespace awt {
 
 int32_t Checkbox$AccessibleAWTCheckbox::hashCode() {
-	 return this->$Component$AccessibleAWTComponent::hashCode();
+	return this->$Component$AccessibleAWTComponent::hashCode();
 }
 
 bool Checkbox$AccessibleAWTCheckbox::equals(Object$* arg0) {
-	 return this->$Component$AccessibleAWTComponent::equals(arg0);
+	return this->$Component$AccessibleAWTComponent::equals(arg0);
 }
 
 $Object* Checkbox$AccessibleAWTCheckbox::clone() {
-	 return this->$Component$AccessibleAWTComponent::clone();
+	return this->$Component$AccessibleAWTComponent::clone();
 }
 
 $String* Checkbox$AccessibleAWTCheckbox::toString() {
-	 return this->$Component$AccessibleAWTComponent::toString();
+	return this->$Component$AccessibleAWTComponent::toString();
 }
 
 void Checkbox$AccessibleAWTCheckbox::finalize() {

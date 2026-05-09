@@ -50,19 +50,19 @@ namespace sun {
 		namespace image {
 
 int32_t VolatileSurfaceManager::hashCode() {
-	 return this->$SurfaceManager::hashCode();
+	return this->$SurfaceManager::hashCode();
 }
 
 bool VolatileSurfaceManager::equals(Object$* arg0) {
-	 return this->$SurfaceManager::equals(arg0);
+	return this->$SurfaceManager::equals(arg0);
 }
 
 $Object* VolatileSurfaceManager::clone() {
-	 return this->$SurfaceManager::clone();
+	return this->$SurfaceManager::clone();
 }
 
 $String* VolatileSurfaceManager::toString() {
-	 return this->$SurfaceManager::toString();
+	return this->$SurfaceManager::toString();
 }
 
 void VolatileSurfaceManager::finalize() {

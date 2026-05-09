@@ -33,19 +33,19 @@ namespace com {
 				namespace code {
 
 $String* Symbol$MethodHandleSymbol::toString() {
-	 return this->$Symbol$MethodSymbol::toString();
+	return this->$Symbol$MethodSymbol::toString();
 }
 
 int32_t Symbol$MethodHandleSymbol::hashCode() {
-	 return this->$Symbol$MethodSymbol::hashCode();
+	return this->$Symbol$MethodSymbol::hashCode();
 }
 
 bool Symbol$MethodHandleSymbol::equals(Object$* arg0) {
-	 return this->$Symbol$MethodSymbol::equals(arg0);
+	return this->$Symbol$MethodSymbol::equals(arg0);
 }
 
 $Object* Symbol$MethodHandleSymbol::clone() {
-	 return this->$Symbol$MethodSymbol::clone();
+	return this->$Symbol$MethodSymbol::clone();
 }
 
 void Symbol$MethodHandleSymbol::finalize() {

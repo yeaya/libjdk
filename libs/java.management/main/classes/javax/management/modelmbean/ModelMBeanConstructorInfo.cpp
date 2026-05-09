@@ -46,11 +46,11 @@ namespace javax {
 		namespace modelmbean {
 
 bool ModelMBeanConstructorInfo::equals(Object$* o) {
-	 return this->$MBeanConstructorInfo::equals(o);
+	return this->$MBeanConstructorInfo::equals(o);
 }
 
 int32_t ModelMBeanConstructorInfo::hashCode() {
-	 return this->$MBeanConstructorInfo::hashCode();
+	return this->$MBeanConstructorInfo::hashCode();
 }
 
 void ModelMBeanConstructorInfo::finalize() {

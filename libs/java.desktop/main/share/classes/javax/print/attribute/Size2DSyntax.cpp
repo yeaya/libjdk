@@ -17,7 +17,7 @@ namespace javax {
 		namespace attribute {
 
 $Object* Size2DSyntax::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void Size2DSyntax::finalize() {

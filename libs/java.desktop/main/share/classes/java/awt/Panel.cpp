@@ -24,19 +24,19 @@ namespace java {
 	namespace awt {
 
 $String* Panel::toString() {
-	 return this->$Container::toString();
+	return this->$Container::toString();
 }
 
 int32_t Panel::hashCode() {
-	 return this->$Container::hashCode();
+	return this->$Container::hashCode();
 }
 
 bool Panel::equals(Object$* arg0) {
-	 return this->$Container::equals(arg0);
+	return this->$Container::equals(arg0);
 }
 
 $Object* Panel::clone() {
-	 return this->$Container::clone();
+	return this->$Container::clone();
 }
 
 void Panel::finalize() {

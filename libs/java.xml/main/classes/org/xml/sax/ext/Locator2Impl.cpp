@@ -17,35 +17,35 @@ namespace org {
 			namespace ext {
 
 $String* Locator2Impl::getPublicId() {
-	 return this->$LocatorImpl::getPublicId();
+	return this->$LocatorImpl::getPublicId();
 }
 
 $String* Locator2Impl::getSystemId() {
-	 return this->$LocatorImpl::getSystemId();
+	return this->$LocatorImpl::getSystemId();
 }
 
 int32_t Locator2Impl::getLineNumber() {
-	 return this->$LocatorImpl::getLineNumber();
+	return this->$LocatorImpl::getLineNumber();
 }
 
 int32_t Locator2Impl::getColumnNumber() {
-	 return this->$LocatorImpl::getColumnNumber();
+	return this->$LocatorImpl::getColumnNumber();
 }
 
 int32_t Locator2Impl::hashCode() {
-	 return this->$LocatorImpl::hashCode();
+	return this->$LocatorImpl::hashCode();
 }
 
 bool Locator2Impl::equals(Object$* arg0) {
-	 return this->$LocatorImpl::equals(arg0);
+	return this->$LocatorImpl::equals(arg0);
 }
 
 $Object* Locator2Impl::clone() {
-	 return this->$LocatorImpl::clone();
+	return this->$LocatorImpl::clone();
 }
 
 $String* Locator2Impl::toString() {
-	 return this->$LocatorImpl::toString();
+	return this->$LocatorImpl::toString();
 }
 
 void Locator2Impl::finalize() {

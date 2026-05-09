@@ -38,19 +38,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthDesktopPaneUI$SynthDesktopManager::hashCode() {
-	 return this->$DefaultDesktopManager::hashCode();
+	return this->$DefaultDesktopManager::hashCode();
 }
 
 bool SynthDesktopPaneUI$SynthDesktopManager::equals(Object$* arg0) {
-	 return this->$DefaultDesktopManager::equals(arg0);
+	return this->$DefaultDesktopManager::equals(arg0);
 }
 
 $Object* SynthDesktopPaneUI$SynthDesktopManager::clone() {
-	 return this->$DefaultDesktopManager::clone();
+	return this->$DefaultDesktopManager::clone();
 }
 
 $String* SynthDesktopPaneUI$SynthDesktopManager::toString() {
-	 return this->$DefaultDesktopManager::toString();
+	return this->$DefaultDesktopManager::toString();
 }
 
 void SynthDesktopPaneUI$SynthDesktopManager::finalize() {

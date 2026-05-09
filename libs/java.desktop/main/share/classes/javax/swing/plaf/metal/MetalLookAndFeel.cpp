@@ -156,7 +156,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$0(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$0(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0::load$($String* name, bool initialize) {
@@ -186,7 +186,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$1(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$1(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::load$($String* name, bool initialize) {
@@ -216,7 +216,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$2(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$2(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::load$($String* name, bool initialize) {
@@ -246,7 +246,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$3(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$3(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::load$($String* name, bool initialize) {
@@ -276,7 +276,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$4(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$4(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::load$($String* name, bool initialize) {
@@ -306,7 +306,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$5(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$5(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::load$($String* name, bool initialize) {
@@ -337,7 +337,7 @@ public:
 		$set(this, controlShadow, controlShadow);
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$6(controlShadow, t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$6(controlShadow, t);
 	}
 	$Color* controlShadow = nullptr;
 };
@@ -372,7 +372,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$7(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$7(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::load$($String* name, bool initialize) {
@@ -402,7 +402,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$8(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$8(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::load$($String* name, bool initialize) {
@@ -432,7 +432,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$9(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$9(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::load$($String* name, bool initialize) {
@@ -462,7 +462,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$10(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$10(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::load$($String* name, bool initialize) {
@@ -492,7 +492,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$11(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$11(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::load$($String* name, bool initialize) {
@@ -523,7 +523,7 @@ public:
 		$set(this, controlDarkShadow, controlDarkShadow);
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$12(controlDarkShadow, t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$12(controlDarkShadow, t);
 	}
 	$Color* controlDarkShadow = nullptr;
 };
@@ -558,7 +558,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$16(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$16(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13::load$($String* name, bool initialize) {
@@ -588,7 +588,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$17(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$17(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14::load$($String* name, bool initialize) {
@@ -618,7 +618,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$18(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$18(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15::load$($String* name, bool initialize) {
@@ -648,7 +648,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$19(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$19(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16::load$($String* name, bool initialize) {
@@ -678,7 +678,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$20(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$20(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17::load$($String* name, bool initialize) {
@@ -708,7 +708,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$21(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$21(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18::load$($String* name, bool initialize) {
@@ -738,7 +738,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$22(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$22(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19::load$($String* name, bool initialize) {
@@ -768,7 +768,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$23(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$23(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20::load$($String* name, bool initialize) {
@@ -798,7 +798,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$24(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$24(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21::load$($String* name, bool initialize) {
@@ -828,7 +828,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$25(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$25(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22::load$($String* name, bool initialize) {
@@ -858,7 +858,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$26(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$26(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23::load$($String* name, bool initialize) {
@@ -888,7 +888,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$27(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$27(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24::load$($String* name, bool initialize) {
@@ -918,7 +918,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$28(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$28(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25::load$($String* name, bool initialize) {
@@ -948,7 +948,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$29(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$29(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26::load$($String* name, bool initialize) {
@@ -978,7 +978,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$30(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$30(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27::load$($String* name, bool initialize) {
@@ -1008,7 +1008,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$31(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$31(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28::load$($String* name, bool initialize) {
@@ -1038,7 +1038,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$32(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$32(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29::load$($String* name, bool initialize) {
@@ -1068,7 +1068,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$33(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$33(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30::load$($String* name, bool initialize) {
@@ -1098,7 +1098,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$34(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$34(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31::load$($String* name, bool initialize) {
@@ -1129,7 +1129,7 @@ public:
 		this->internalFrameIconSize = internalFrameIconSize;
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$35(internalFrameIconSize, t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$35(internalFrameIconSize, t);
 	}
 	int32_t internalFrameIconSize = 0;
 };
@@ -1165,7 +1165,7 @@ public:
 		this->internalFrameIconSize = internalFrameIconSize;
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$36(internalFrameIconSize, t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$36(internalFrameIconSize, t);
 	}
 	int32_t internalFrameIconSize = 0;
 };
@@ -1201,7 +1201,7 @@ public:
 		this->internalFrameIconSize = internalFrameIconSize;
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$37(internalFrameIconSize, t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$37(internalFrameIconSize, t);
 	}
 	int32_t internalFrameIconSize = 0;
 };
@@ -1237,7 +1237,7 @@ public:
 		this->internalFrameIconSize = internalFrameIconSize;
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$38(internalFrameIconSize, t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$38(internalFrameIconSize, t);
 	}
 	int32_t internalFrameIconSize = 0;
 };
@@ -1272,7 +1272,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$39(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$39(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36::load$($String* name, bool initialize) {
@@ -1302,7 +1302,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$40(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$40(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37::load$($String* name, bool initialize) {
@@ -1332,7 +1332,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$41(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$41(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38::load$($String* name, bool initialize) {
@@ -1362,7 +1362,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$43(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$43(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::load$($String* name, bool initialize) {
@@ -1392,7 +1392,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$44(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$44(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40::load$($String* name, bool initialize) {
@@ -1422,7 +1422,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$46(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$46(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41::load$($String* name, bool initialize) {
@@ -1452,7 +1452,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$51(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$51(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42::load$($String* name, bool initialize) {
@@ -1482,7 +1482,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$52(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$52(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43::load$($String* name, bool initialize) {
@@ -1512,7 +1512,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$53(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$53(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44::load$($String* name, bool initialize) {
@@ -1542,7 +1542,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$54(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$54(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45::load$($String* name, bool initialize) {
@@ -1572,7 +1572,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$55(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$55(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46::load$($String* name, bool initialize) {
@@ -1602,7 +1602,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$56(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$56(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47::load$($String* name, bool initialize) {
@@ -1632,7 +1632,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return MetalLookAndFeel::lambda$initComponentDefaults$57(t);
+		return MetalLookAndFeel::lambda$initComponentDefaults$57(t);
 	}
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48::load$($String* name, bool initialize) {

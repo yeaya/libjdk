@@ -45,19 +45,19 @@ namespace javax {
 			namespace synth {
 
 $String* SynthTreeUI$SynthTreeCellRenderer::toString() {
-	 return this->$DefaultTreeCellRenderer::toString();
+	return this->$DefaultTreeCellRenderer::toString();
 }
 
 int32_t SynthTreeUI$SynthTreeCellRenderer::hashCode() {
-	 return this->$DefaultTreeCellRenderer::hashCode();
+	return this->$DefaultTreeCellRenderer::hashCode();
 }
 
 bool SynthTreeUI$SynthTreeCellRenderer::equals(Object$* arg0) {
-	 return this->$DefaultTreeCellRenderer::equals(arg0);
+	return this->$DefaultTreeCellRenderer::equals(arg0);
 }
 
 $Object* SynthTreeUI$SynthTreeCellRenderer::clone() {
-	 return this->$DefaultTreeCellRenderer::clone();
+	return this->$DefaultTreeCellRenderer::clone();
 }
 
 void SynthTreeUI$SynthTreeCellRenderer::finalize() {

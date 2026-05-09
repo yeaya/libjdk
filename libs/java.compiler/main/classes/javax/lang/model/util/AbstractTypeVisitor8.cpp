@@ -16,7 +16,7 @@ namespace javax {
 			namespace util {
 
 $Object* AbstractTypeVisitor8::visitIntersection($IntersectionType* t, Object$* p) {
-	 return this->$AbstractTypeVisitor7::visitIntersection(t, p);
+	return this->$AbstractTypeVisitor7::visitIntersection(t, p);
 }
 
 void AbstractTypeVisitor8::init$() {

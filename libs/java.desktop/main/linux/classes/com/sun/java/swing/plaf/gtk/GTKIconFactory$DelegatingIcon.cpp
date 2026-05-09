@@ -50,19 +50,19 @@ namespace com {
 					namespace gtk {
 
 int32_t GTKIconFactory$DelegatingIcon::hashCode() {
-	 return this->$UIResource::hashCode();
+	return this->$UIResource::hashCode();
 }
 
 bool GTKIconFactory$DelegatingIcon::equals(Object$* arg0) {
-	 return this->$UIResource::equals(arg0);
+	return this->$UIResource::equals(arg0);
 }
 
 $Object* GTKIconFactory$DelegatingIcon::clone() {
-	 return this->$UIResource::clone();
+	return this->$UIResource::clone();
 }
 
 $String* GTKIconFactory$DelegatingIcon::toString() {
-	 return this->$UIResource::toString();
+	return this->$UIResource::toString();
 }
 
 void GTKIconFactory$DelegatingIcon::finalize() {

@@ -162,15 +162,15 @@ void WComponentPeer::dispose() {
 }
 
 int32_t WComponentPeer::hashCode() {
-	 return this->$WObjectPeer::hashCode();
+	return this->$WObjectPeer::hashCode();
 }
 
 bool WComponentPeer::equals(Object$* arg0) {
-	 return this->$WObjectPeer::equals(arg0);
+	return this->$WObjectPeer::equals(arg0);
 }
 
 $Object* WComponentPeer::clone() {
-	 return this->$WObjectPeer::clone();
+	return this->$WObjectPeer::clone();
 }
 
 void WComponentPeer::finalize() {

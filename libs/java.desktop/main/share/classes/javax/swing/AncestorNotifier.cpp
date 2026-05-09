@@ -35,19 +35,19 @@ namespace javax {
 	namespace swing {
 
 int32_t AncestorNotifier::hashCode() {
-	 return this->$ComponentListener::hashCode();
+	return this->$ComponentListener::hashCode();
 }
 
 bool AncestorNotifier::equals(Object$* arg0) {
-	 return this->$ComponentListener::equals(arg0);
+	return this->$ComponentListener::equals(arg0);
 }
 
 $Object* AncestorNotifier::clone() {
-	 return this->$ComponentListener::clone();
+	return this->$ComponentListener::clone();
 }
 
 $String* AncestorNotifier::toString() {
-	 return this->$ComponentListener::toString();
+	return this->$ComponentListener::toString();
 }
 
 void AncestorNotifier::finalize() {

@@ -65,7 +65,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(ReliableLog::lambda$new$0());
+		return $of(ReliableLog::lambda$new$0());
 	}
 };
 $Class* ReliableLog$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
@@ -95,7 +95,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(ReliableLog::lambda$getLogClassConstructor$1());
+		return $of(ReliableLog::lambda$getLogClassConstructor$1());
 	}
 };
 $Class* ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1::load$($String* name, bool initialize) {

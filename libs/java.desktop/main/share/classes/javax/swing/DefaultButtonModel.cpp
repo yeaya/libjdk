@@ -50,19 +50,19 @@ namespace javax {
 	namespace swing {
 
 int32_t DefaultButtonModel::hashCode() {
-	 return this->$ButtonModel::hashCode();
+	return this->$ButtonModel::hashCode();
 }
 
 bool DefaultButtonModel::equals(Object$* arg0) {
-	 return this->$ButtonModel::equals(arg0);
+	return this->$ButtonModel::equals(arg0);
 }
 
 $Object* DefaultButtonModel::clone() {
-	 return this->$ButtonModel::clone();
+	return this->$ButtonModel::clone();
 }
 
 $String* DefaultButtonModel::toString() {
-	 return this->$ButtonModel::toString();
+	return this->$ButtonModel::toString();
 }
 
 void DefaultButtonModel::finalize() {

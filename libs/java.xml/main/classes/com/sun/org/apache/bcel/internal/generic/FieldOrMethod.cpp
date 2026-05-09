@@ -39,23 +39,23 @@ namespace com {
 						namespace generic {
 
 $Type* FieldOrMethod::getType($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::getType(cpg);
+	return this->$CPInstruction::getType(cpg);
 }
 
 $String* FieldOrMethod::toString() {
-	 return this->$CPInstruction::toString();
+	return this->$CPInstruction::toString();
 }
 
 bool FieldOrMethod::equals(Object$* that) {
-	 return this->$CPInstruction::equals(that);
+	return this->$CPInstruction::equals(that);
 }
 
 int32_t FieldOrMethod::hashCode() {
-	 return this->$CPInstruction::hashCode();
+	return this->$CPInstruction::hashCode();
 }
 
 $Object* FieldOrMethod::clone() {
-	 return this->$CPInstruction::clone();
+	return this->$CPInstruction::clone();
 }
 
 void FieldOrMethod::finalize() {

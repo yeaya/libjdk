@@ -27,19 +27,19 @@ namespace java {
 	namespace awt {
 
 int32_t ImageMediaEntry::hashCode() {
-	 return this->$MediaEntry::hashCode();
+	return this->$MediaEntry::hashCode();
 }
 
 bool ImageMediaEntry::equals(Object$* arg0) {
-	 return this->$MediaEntry::equals(arg0);
+	return this->$MediaEntry::equals(arg0);
 }
 
 $Object* ImageMediaEntry::clone() {
-	 return this->$MediaEntry::clone();
+	return this->$MediaEntry::clone();
 }
 
 $String* ImageMediaEntry::toString() {
-	 return this->$MediaEntry::toString();
+	return this->$MediaEntry::toString();
 }
 
 void ImageMediaEntry::finalize() {

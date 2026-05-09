@@ -41,19 +41,19 @@ namespace java {
 			namespace renderable {
 
 int32_t RenderableImageProducer::hashCode() {
-	 return this->$ImageProducer::hashCode();
+	return this->$ImageProducer::hashCode();
 }
 
 bool RenderableImageProducer::equals(Object$* arg0) {
-	 return this->$ImageProducer::equals(arg0);
+	return this->$ImageProducer::equals(arg0);
 }
 
 $Object* RenderableImageProducer::clone() {
-	 return this->$ImageProducer::clone();
+	return this->$ImageProducer::clone();
 }
 
 $String* RenderableImageProducer::toString() {
-	 return this->$ImageProducer::toString();
+	return this->$ImageProducer::toString();
 }
 
 void RenderableImageProducer::finalize() {

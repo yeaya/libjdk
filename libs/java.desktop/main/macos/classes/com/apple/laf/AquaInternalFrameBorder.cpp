@@ -98,19 +98,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaInternalFrameBorder::hashCode() {
-	 return this->$Border::hashCode();
+	return this->$Border::hashCode();
 }
 
 bool AquaInternalFrameBorder::equals(Object$* arg0) {
-	 return this->$Border::equals(arg0);
+	return this->$Border::equals(arg0);
 }
 
 $Object* AquaInternalFrameBorder::clone() {
-	 return this->$Border::clone();
+	return this->$Border::clone();
 }
 
 $String* AquaInternalFrameBorder::toString() {
-	 return this->$Border::toString();
+	return this->$Border::toString();
 }
 
 void AquaInternalFrameBorder::finalize() {

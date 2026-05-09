@@ -30,19 +30,19 @@ namespace java {
 	namespace awt {
 
 int32_t Scrollbar$AccessibleAWTScrollBar::hashCode() {
-	 return this->$Component$AccessibleAWTComponent::hashCode();
+	return this->$Component$AccessibleAWTComponent::hashCode();
 }
 
 bool Scrollbar$AccessibleAWTScrollBar::equals(Object$* arg0) {
-	 return this->$Component$AccessibleAWTComponent::equals(arg0);
+	return this->$Component$AccessibleAWTComponent::equals(arg0);
 }
 
 $Object* Scrollbar$AccessibleAWTScrollBar::clone() {
-	 return this->$Component$AccessibleAWTComponent::clone();
+	return this->$Component$AccessibleAWTComponent::clone();
 }
 
 $String* Scrollbar$AccessibleAWTScrollBar::toString() {
-	 return this->$Component$AccessibleAWTComponent::toString();
+	return this->$Component$AccessibleAWTComponent::toString();
 }
 
 void Scrollbar$AccessibleAWTScrollBar::finalize() {

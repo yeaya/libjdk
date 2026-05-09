@@ -34,19 +34,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthPanelUI::hashCode() {
-	 return this->$BasicPanelUI::hashCode();
+	return this->$BasicPanelUI::hashCode();
 }
 
 bool SynthPanelUI::equals(Object$* arg0) {
-	 return this->$BasicPanelUI::equals(arg0);
+	return this->$BasicPanelUI::equals(arg0);
 }
 
 $Object* SynthPanelUI::clone() {
-	 return this->$BasicPanelUI::clone();
+	return this->$BasicPanelUI::clone();
 }
 
 $String* SynthPanelUI::toString() {
-	 return this->$BasicPanelUI::toString();
+	return this->$BasicPanelUI::toString();
 }
 
 void SynthPanelUI::finalize() {

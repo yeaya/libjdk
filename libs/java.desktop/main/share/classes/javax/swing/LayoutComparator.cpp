@@ -28,19 +28,19 @@ namespace javax {
 	namespace swing {
 
 bool LayoutComparator::equals(Object$* arg0) {
-	 return this->$Comparator::equals(arg0);
+	return this->$Comparator::equals(arg0);
 }
 
 int32_t LayoutComparator::hashCode() {
-	 return this->$Comparator::hashCode();
+	return this->$Comparator::hashCode();
 }
 
 $Object* LayoutComparator::clone() {
-	 return this->$Comparator::clone();
+	return this->$Comparator::clone();
 }
 
 $String* LayoutComparator::toString() {
-	 return this->$Comparator::toString();
+	return this->$Comparator::toString();
 }
 
 void LayoutComparator::finalize() {

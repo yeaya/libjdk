@@ -41,19 +41,19 @@ void ZipPosixFileAttributeView::setPermissions($Set* perms) {
 }
 
 int32_t ZipPosixFileAttributeView::hashCode() {
-	 return this->$ZipFileAttributeView::hashCode();
+	return this->$ZipFileAttributeView::hashCode();
 }
 
 bool ZipPosixFileAttributeView::equals(Object$* arg0) {
-	 return this->$ZipFileAttributeView::equals(arg0);
+	return this->$ZipFileAttributeView::equals(arg0);
 }
 
 $Object* ZipPosixFileAttributeView::clone() {
-	 return this->$ZipFileAttributeView::clone();
+	return this->$ZipFileAttributeView::clone();
 }
 
 $String* ZipPosixFileAttributeView::toString() {
-	 return this->$ZipFileAttributeView::toString();
+	return this->$ZipFileAttributeView::toString();
 }
 
 void ZipPosixFileAttributeView::finalize() {

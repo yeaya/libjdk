@@ -89,19 +89,19 @@ namespace javax {
 	namespace swing {
 
 $String* JTextField::toString() {
-	 return this->$JTextComponent::toString();
+	return this->$JTextComponent::toString();
 }
 
 int32_t JTextField::hashCode() {
-	 return this->$JTextComponent::hashCode();
+	return this->$JTextComponent::hashCode();
 }
 
 bool JTextField::equals(Object$* arg0) {
-	 return this->$JTextComponent::equals(arg0);
+	return this->$JTextComponent::equals(arg0);
 }
 
 $Object* JTextField::clone() {
-	 return this->$JTextComponent::clone();
+	return this->$JTextComponent::clone();
 }
 
 void JTextField::finalize() {

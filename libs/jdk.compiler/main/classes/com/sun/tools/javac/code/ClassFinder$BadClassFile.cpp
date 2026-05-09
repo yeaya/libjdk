@@ -48,7 +48,7 @@ public:
 		$set(this, diagFactory, diagFactory);
 	}
 	virtual $Object* get() override {
-		 return ClassFinder$BadClassFile::lambda$new$0(file, diag, diagFactory);
+		return ClassFinder$BadClassFile::lambda$new$0(file, diag, diagFactory);
 	}
 	$JavaFileObject* file = nullptr;
 	$JCDiagnostic* diag = nullptr;

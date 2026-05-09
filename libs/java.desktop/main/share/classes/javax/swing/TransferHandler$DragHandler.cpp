@@ -35,19 +35,19 @@ namespace javax {
 	namespace swing {
 
 int32_t TransferHandler$DragHandler::hashCode() {
-	 return this->$DragGestureListener::hashCode();
+	return this->$DragGestureListener::hashCode();
 }
 
 bool TransferHandler$DragHandler::equals(Object$* arg0) {
-	 return this->$DragGestureListener::equals(arg0);
+	return this->$DragGestureListener::equals(arg0);
 }
 
 $Object* TransferHandler$DragHandler::clone() {
-	 return this->$DragGestureListener::clone();
+	return this->$DragGestureListener::clone();
 }
 
 $String* TransferHandler$DragHandler::toString() {
-	 return this->$DragGestureListener::toString();
+	return this->$DragGestureListener::toString();
 }
 
 void TransferHandler$DragHandler::finalize() {

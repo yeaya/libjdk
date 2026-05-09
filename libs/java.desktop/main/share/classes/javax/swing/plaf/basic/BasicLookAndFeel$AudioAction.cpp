@@ -37,19 +37,19 @@ namespace javax {
 			namespace basic {
 
 $Object* BasicLookAndFeel$AudioAction::clone() {
-	 return this->$AbstractAction::clone();
+	return this->$AbstractAction::clone();
 }
 
 int32_t BasicLookAndFeel$AudioAction::hashCode() {
-	 return this->$AbstractAction::hashCode();
+	return this->$AbstractAction::hashCode();
 }
 
 bool BasicLookAndFeel$AudioAction::equals(Object$* arg0) {
-	 return this->$AbstractAction::equals(arg0);
+	return this->$AbstractAction::equals(arg0);
 }
 
 $String* BasicLookAndFeel$AudioAction::toString() {
-	 return this->$AbstractAction::toString();
+	return this->$AbstractAction::toString();
 }
 
 void BasicLookAndFeel$AudioAction::finalize() {

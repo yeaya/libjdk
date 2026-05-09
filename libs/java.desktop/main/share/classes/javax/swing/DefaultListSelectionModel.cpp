@@ -33,11 +33,11 @@ namespace javax {
 	namespace swing {
 
 int32_t DefaultListSelectionModel::hashCode() {
-	 return this->$ListSelectionModel::hashCode();
+	return this->$ListSelectionModel::hashCode();
 }
 
 bool DefaultListSelectionModel::equals(Object$* arg0) {
-	 return this->$ListSelectionModel::equals(arg0);
+	return this->$ListSelectionModel::equals(arg0);
 }
 
 void DefaultListSelectionModel::finalize() {

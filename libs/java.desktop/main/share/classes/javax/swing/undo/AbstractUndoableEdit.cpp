@@ -18,15 +18,15 @@ namespace javax {
 		namespace undo {
 
 int32_t AbstractUndoableEdit::hashCode() {
-	 return this->$UndoableEdit::hashCode();
+	return this->$UndoableEdit::hashCode();
 }
 
 bool AbstractUndoableEdit::equals(Object$* arg0) {
-	 return this->$UndoableEdit::equals(arg0);
+	return this->$UndoableEdit::equals(arg0);
 }
 
 $Object* AbstractUndoableEdit::clone() {
-	 return this->$UndoableEdit::clone();
+	return this->$UndoableEdit::clone();
 }
 
 void AbstractUndoableEdit::finalize() {

@@ -66,7 +66,7 @@ public:
 		$set(this, varSymbol, varSymbol);
 	}
 	virtual bool test(Object$* e) override {
-		 return TransPatterns$BasicBindingContext::lambda$getBindingFor$0(varSymbol, $cast($Map$Entry, e));
+		return TransPatterns$BasicBindingContext::lambda$getBindingFor$0(varSymbol, $cast($Map$Entry, e));
 	}
 	$Symbol$BindingSymbol* varSymbol = nullptr;
 };
@@ -101,7 +101,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(TransPatterns$BasicBindingContext::lambda$getBindingFor$1($cast($Map$Entry, e)));
+		return $of(TransPatterns$BasicBindingContext::lambda$getBindingFor$1($cast($Map$Entry, e)));
 	}
 };
 $Class* TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$1$1::load$($String* name, bool initialize) {

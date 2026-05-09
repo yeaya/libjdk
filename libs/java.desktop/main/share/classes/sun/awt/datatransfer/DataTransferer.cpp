@@ -205,7 +205,7 @@ public:
 		$set(this, userProtectionDomain, userProtectionDomain);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$removeSuspectedData$0(str, userProtectionDomain));
+		return $of($nc(inst$)->lambda$removeSuspectedData$0(str, userProtectionDomain));
 	}
 	DataTransferer* inst$ = nullptr;
 	$String* str = nullptr;
@@ -247,7 +247,7 @@ public:
 		$set(this, userProtectionDomain, userProtectionDomain);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$castToFiles$1(files, userProtectionDomain));
+		return $of($nc(inst$)->lambda$castToFiles$1(files, userProtectionDomain));
 	}
 	DataTransferer* inst$ = nullptr;
 	$List* files = nullptr;
@@ -287,7 +287,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getConstructors();
+		return $nc(inst$)->getConstructors();
 	}
 	$Class* inst$ = nullptr;
 };
@@ -322,7 +322,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* c) override {
-		 return DataTransferer::lambda$constructFlavoredObject$2($cast($Constructor, c));
+		return DataTransferer::lambda$constructFlavoredObject$2($cast($Constructor, c));
 	}
 };
 $Class* DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3::load$($String* name, bool initialize) {
@@ -353,7 +353,7 @@ public:
 		this->clazz = clazz;
 	}
 	virtual bool test(Object$* c) override {
-		 return DataTransferer::lambda$constructFlavoredObject$3(clazz, $cast($Constructor, c));
+		return DataTransferer::lambda$constructFlavoredObject$3(clazz, $cast($Constructor, c));
 	}
 	$Class* clazz = nullptr;
 };
@@ -390,7 +390,7 @@ public:
 		this->dfrc = dfrc;
 	}
 	virtual $Object* get() override {
-		 return DataTransferer::lambda$constructFlavoredObject$4(clazz, dfrc);
+		return DataTransferer::lambda$constructFlavoredObject$4(clazz, dfrc);
 	}
 	$Class* clazz = nullptr;
 	$Class* dfrc = nullptr;

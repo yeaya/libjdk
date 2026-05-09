@@ -14,19 +14,19 @@ namespace javax {
 			namespace synth {
 
 $String* SynthInternalFrameTitlePane$JPopupMenuUIResource::toString() {
-	 return this->$JPopupMenu::toString();
+	return this->$JPopupMenu::toString();
 }
 
 int32_t SynthInternalFrameTitlePane$JPopupMenuUIResource::hashCode() {
-	 return this->$JPopupMenu::hashCode();
+	return this->$JPopupMenu::hashCode();
 }
 
 bool SynthInternalFrameTitlePane$JPopupMenuUIResource::equals(Object$* arg0) {
-	 return this->$JPopupMenu::equals(arg0);
+	return this->$JPopupMenu::equals(arg0);
 }
 
 $Object* SynthInternalFrameTitlePane$JPopupMenuUIResource::clone() {
-	 return this->$JPopupMenu::clone();
+	return this->$JPopupMenu::clone();
 }
 
 void SynthInternalFrameTitlePane$JPopupMenuUIResource::finalize() {

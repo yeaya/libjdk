@@ -45,7 +45,7 @@ public:
 		$set(this, defaultVal, defaultVal);
 	}
 	virtual $Object* run() override {
-		 return $of(VersionHelper::lambda$getPrivilegedProperty$0(propertyName, defaultVal));
+		return $of(VersionHelper::lambda$getPrivilegedProperty$0(propertyName, defaultVal));
 	}
 	$String* propertyName = nullptr;
 	$String* defaultVal = nullptr;
@@ -84,7 +84,7 @@ public:
 		$set(this, acc, acc);
 	}
 	virtual $Object* run() override {
-		 return VersionHelper::lambda$createThread$1(r, acc);
+		return VersionHelper::lambda$createThread$1(r, acc);
 	}
 	$Runnable* r = nullptr;
 	$AccessControlContext* acc = nullptr;
@@ -122,7 +122,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getContextClassLoader();
+		return $nc(inst$)->getContextClassLoader();
 	}
 	$Thread* inst$ = nullptr;
 };

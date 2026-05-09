@@ -72,19 +72,19 @@ namespace com {
 					namespace internal {
 
 int32_t XPath::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 bool XPath::equals(Object$* arg0) {
-	 return this->$Serializable::equals(arg0);
+	return this->$Serializable::equals(arg0);
 }
 
 $Object* XPath::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 $String* XPath::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void XPath::finalize() {

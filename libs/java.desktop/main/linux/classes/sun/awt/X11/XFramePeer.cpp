@@ -164,7 +164,7 @@ void XFramePeer::updateMinimumSize() {
 }
 
 $Graphics* XFramePeer::getGraphics() {
-	 return this->$XDecoratedPeer::getGraphics();
+	return this->$XDecoratedPeer::getGraphics();
 }
 
 void XFramePeer::setTitle($String* title) {
@@ -172,7 +172,7 @@ void XFramePeer::setTitle($String* title) {
 }
 
 $Insets* XFramePeer::getInsets() {
-	 return this->$XDecoratedPeer::getInsets();
+	return this->$XDecoratedPeer::getInsets();
 }
 
 void XFramePeer::setBounds(int32_t x, int32_t y, int32_t width, int32_t height, int32_t op) {
@@ -184,7 +184,7 @@ void XFramePeer::setResizable(bool resizable) {
 }
 
 $Point* XFramePeer::getLocationOnScreen() {
-	 return this->$XDecoratedPeer::getLocationOnScreen();
+	return this->$XDecoratedPeer::getLocationOnScreen();
 }
 
 void XFramePeer::updateIconImages() {
@@ -244,23 +244,23 @@ void XFramePeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool XFramePeer::isReparentSupported() {
-	 return this->$XDecoratedPeer::isReparentSupported();
+	return this->$XDecoratedPeer::isReparentSupported();
 }
 
 bool XFramePeer::isObscured() {
-	 return this->$XDecoratedPeer::isObscured();
+	return this->$XDecoratedPeer::isObscured();
 }
 
 bool XFramePeer::canDetermineObscurity() {
-	 return this->$XDecoratedPeer::canDetermineObscurity();
+	return this->$XDecoratedPeer::canDetermineObscurity();
 }
 
 bool XFramePeer::isFocusable() {
-	 return this->$XDecoratedPeer::isFocusable();
+	return this->$XDecoratedPeer::isFocusable();
 }
 
 bool XFramePeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XDecoratedPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XDecoratedPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void XFramePeer::setEnabled(bool value) {
@@ -276,11 +276,11 @@ void XFramePeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* XFramePeer::getMinimumSize() {
-	 return this->$XDecoratedPeer::getMinimumSize();
+	return this->$XDecoratedPeer::getMinimumSize();
 }
 
 $Dimension* XFramePeer::getPreferredSize() {
-	 return this->$XDecoratedPeer::getPreferredSize();
+	return this->$XDecoratedPeer::getPreferredSize();
 }
 
 void XFramePeer::layout() {
@@ -288,7 +288,7 @@ void XFramePeer::layout() {
 }
 
 $FontMetrics* XFramePeer::getFontMetrics($Font* font) {
-	 return this->$XDecoratedPeer::getFontMetrics(font);
+	return this->$XDecoratedPeer::getFontMetrics(font);
 }
 
 void XFramePeer::setFont($Font* f) {
@@ -300,11 +300,11 @@ void XFramePeer::updateCursorImmediately() {
 }
 
 $Image* XFramePeer::createImage(int32_t width, int32_t height) {
-	 return this->$XDecoratedPeer::createImage(width, height);
+	return this->$XDecoratedPeer::createImage(width, height);
 }
 
 $VolatileImage* XFramePeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XDecoratedPeer::createVolatileImage(width, height);
+	return this->$XDecoratedPeer::createVolatileImage(width, height);
 }
 
 void XFramePeer::beginValidate() {
@@ -316,7 +316,7 @@ void XFramePeer::endValidate() {
 }
 
 bool XFramePeer::handlesWheelScrolling() {
-	 return this->$XDecoratedPeer::handlesWheelScrolling();
+	return this->$XDecoratedPeer::handlesWheelScrolling();
 }
 
 void XFramePeer::beginLayout() {
@@ -336,7 +336,7 @@ void XFramePeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCap
 }
 
 $Image* XFramePeer::getBackBuffer() {
-	 return this->$XDecoratedPeer::getBackBuffer();
+	return this->$XDecoratedPeer::getBackBuffer();
 }
 
 void XFramePeer::destroyBuffers() {
@@ -352,31 +352,31 @@ void XFramePeer::applyShape($Region* shape) {
 }
 
 bool XFramePeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XDecoratedPeer::updateGraphicsData(gc);
+	return this->$XDecoratedPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* XFramePeer::getColorModel() {
-	 return this->$XDecoratedPeer::getColorModel();
+	return this->$XDecoratedPeer::getColorModel();
 }
 
 $GraphicsConfiguration* XFramePeer::getGraphicsConfiguration() {
-	 return this->$XDecoratedPeer::getGraphicsConfiguration();
+	return this->$XDecoratedPeer::getGraphicsConfiguration();
 }
 
 $String* XFramePeer::toString() {
-	 return this->$XDecoratedPeer::toString();
+	return this->$XDecoratedPeer::toString();
 }
 
 int32_t XFramePeer::hashCode() {
-	 return this->$XDecoratedPeer::hashCode();
+	return this->$XDecoratedPeer::hashCode();
 }
 
 bool XFramePeer::equals(Object$* arg0) {
-	 return this->$XDecoratedPeer::equals(arg0);
+	return this->$XDecoratedPeer::equals(arg0);
 }
 
 $Object* XFramePeer::clone() {
-	 return this->$XDecoratedPeer::clone();
+	return this->$XDecoratedPeer::clone();
 }
 
 void XFramePeer::finalize() {

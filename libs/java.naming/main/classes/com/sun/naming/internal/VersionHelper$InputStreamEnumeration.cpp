@@ -42,7 +42,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getNextElement$0();
+		return $nc(inst$)->lambda$getNextElement$0();
 	}
 	VersionHelper$InputStreamEnumeration* inst$ = nullptr;
 };

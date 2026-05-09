@@ -118,7 +118,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$String* inst$ = nullptr;
 };
@@ -154,7 +154,7 @@ public:
 		$set(this, b, b);
 	}
 	virtual $Object* apply(Object$* r) override {
-		 return WebSocketImpl::lambda$newInstanceAsync$0(b, $cast($OpeningHandshake$Result, r));
+		return WebSocketImpl::lambda$newInstanceAsync$0(b, $cast($OpeningHandshake$Result, r));
 	}
 	$BuilderImpl* b = nullptr;
 };

@@ -3,6 +3,7 @@
 //$ dependency java.naming:17.35
 //$ dependency java.base:17.35
 //$ dependency java.security.sasl:17.35
+//$ dependency java.logging:17.35
 
 #include <java/lang/def.h>
 

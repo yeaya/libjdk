@@ -53,7 +53,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getContextClassLoader();
+		return $nc(inst$)->getContextClassLoader();
 	}
 	$Thread* inst$ = nullptr;
 };
@@ -89,7 +89,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->hasNext());
+		return $of($nc(inst$)->hasNext());
 	}
 	$Iterator* inst$ = nullptr;
 };

@@ -37,19 +37,19 @@ namespace com {
 				namespace bmp {
 
 int32_t BMPMetadata::hashCode() {
-	 return this->$IIOMetadata::hashCode();
+	return this->$IIOMetadata::hashCode();
 }
 
 bool BMPMetadata::equals(Object$* arg0) {
-	 return this->$IIOMetadata::equals(arg0);
+	return this->$IIOMetadata::equals(arg0);
 }
 
 $Object* BMPMetadata::clone() {
-	 return this->$IIOMetadata::clone();
+	return this->$IIOMetadata::clone();
 }
 
 $String* BMPMetadata::toString() {
-	 return this->$IIOMetadata::toString();
+	return this->$IIOMetadata::toString();
 }
 
 void BMPMetadata::finalize() {

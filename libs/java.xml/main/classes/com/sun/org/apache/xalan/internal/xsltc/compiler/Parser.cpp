@@ -218,19 +218,19 @@ namespace com {
 							namespace compiler {
 
 int32_t Parser::hashCode() {
-	 return this->$Constants::hashCode();
+	return this->$Constants::hashCode();
 }
 
 bool Parser::equals(Object$* arg0) {
-	 return this->$Constants::equals(arg0);
+	return this->$Constants::equals(arg0);
 }
 
 $Object* Parser::clone() {
-	 return this->$Constants::clone();
+	return this->$Constants::clone();
 }
 
 $String* Parser::toString() {
-	 return this->$Constants::toString();
+	return this->$Constants::toString();
 }
 
 void Parser::finalize() {

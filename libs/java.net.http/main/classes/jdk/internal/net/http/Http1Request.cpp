@@ -79,7 +79,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* k, Object$* v) override {
-		 return Http1Request::lambda$static$0($cast($String, k), $cast($String, v));
+		return Http1Request::lambda$static$0($cast($String, k), $cast($String, v));
 	}
 };
 $Class* Http1Request$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -110,7 +110,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$Object* inst$ = nullptr;
 };
@@ -146,7 +146,7 @@ public:
 		$set(this, uh, uh);
 	}
 	virtual bool test(Object$* k, Object$* v) override {
-		 return Http1Request::lambda$collectHeaders0$1(uh, $cast($String, k), $cast($String, v));
+		return Http1Request::lambda$collectHeaders0$1(uh, $cast($String, k), $cast($String, v));
 	}
 	$HttpHeaders* uh = nullptr;
 };

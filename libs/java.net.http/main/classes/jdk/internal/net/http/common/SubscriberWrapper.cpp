@@ -81,7 +81,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	SubscriberWrapper* inst$ = nullptr;
 };
@@ -183,15 +183,15 @@ $Class* SubscriberWrapper$$Lambda$downstreamCompletion$2::load$($String* name, b
 $Class* SubscriberWrapper$$Lambda$downstreamCompletion$2::class$ = nullptr;
 
 int32_t SubscriberWrapper::hashCode() {
-	 return this->$FlowTube$TubeSubscriber::hashCode();
+	return this->$FlowTube$TubeSubscriber::hashCode();
 }
 
 bool SubscriberWrapper::equals(Object$* arg0) {
-	 return this->$FlowTube$TubeSubscriber::equals(arg0);
+	return this->$FlowTube$TubeSubscriber::equals(arg0);
 }
 
 $Object* SubscriberWrapper::clone() {
-	 return this->$FlowTube$TubeSubscriber::clone();
+	return this->$FlowTube$TubeSubscriber::clone();
 }
 
 void SubscriberWrapper::finalize() {

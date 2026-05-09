@@ -81,19 +81,19 @@ namespace javax {
 			namespace html {
 
 int32_t HiddenTagView::hashCode() {
-	 return this->$EditableView::hashCode();
+	return this->$EditableView::hashCode();
 }
 
 bool HiddenTagView::equals(Object$* arg0) {
-	 return this->$EditableView::equals(arg0);
+	return this->$EditableView::equals(arg0);
 }
 
 $Object* HiddenTagView::clone() {
-	 return this->$EditableView::clone();
+	return this->$EditableView::clone();
 }
 
 $String* HiddenTagView::toString() {
-	 return this->$EditableView::toString();
+	return this->$EditableView::toString();
 }
 
 void HiddenTagView::finalize() {

@@ -94,7 +94,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* m) override {
-		 return Symbol$ModuleSymbol::lambda$getEnclosedElements$0($cast($Symbol, m));
+		return Symbol$ModuleSymbol::lambda$getEnclosedElements$0($cast($Symbol, m));
 	}
 };
 $Class* Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::load$($String* name, bool initialize) {
@@ -119,39 +119,39 @@ $Class* Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::load$($String*
 $Class* Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::class$ = nullptr;
 
 $List* Symbol$ModuleSymbol::getAnnotationMirrors() {
-	 return this->$Symbol$TypeSymbol::getAnnotationMirrors();
+	return this->$Symbol$TypeSymbol::getAnnotationMirrors();
 }
 
 $Element* Symbol$ModuleSymbol::getEnclosingElement() {
-	 return this->$Symbol$TypeSymbol::getEnclosingElement();
+	return this->$Symbol$TypeSymbol::getEnclosingElement();
 }
 
 $TypeMirror* Symbol$ModuleSymbol::asType() {
-	 return this->$Symbol$TypeSymbol::asType();
+	return this->$Symbol$TypeSymbol::asType();
 }
 
 $Set* Symbol$ModuleSymbol::getModifiers() {
-	 return this->$Symbol$TypeSymbol::getModifiers();
+	return this->$Symbol$TypeSymbol::getModifiers();
 }
 
 $AnnotationArray* Symbol$ModuleSymbol::getAnnotationsByType($Class* annoType) {
-	 return this->$Symbol$TypeSymbol::getAnnotationsByType(annoType);
+	return this->$Symbol$TypeSymbol::getAnnotationsByType(annoType);
 }
 
 $Annotation* Symbol$ModuleSymbol::getAnnotation($Class* annoType) {
-	 return this->$Symbol$TypeSymbol::getAnnotation(annoType);
+	return this->$Symbol$TypeSymbol::getAnnotation(annoType);
 }
 
 int32_t Symbol$ModuleSymbol::hashCode() {
-	 return this->$Symbol$TypeSymbol::hashCode();
+	return this->$Symbol$TypeSymbol::hashCode();
 }
 
 bool Symbol$ModuleSymbol::equals(Object$* arg0) {
-	 return this->$Symbol$TypeSymbol::equals(arg0);
+	return this->$Symbol$TypeSymbol::equals(arg0);
 }
 
 $Object* Symbol$ModuleSymbol::clone() {
-	 return this->$Symbol$TypeSymbol::clone();
+	return this->$Symbol$TypeSymbol::clone();
 }
 
 void Symbol$ModuleSymbol::finalize() {

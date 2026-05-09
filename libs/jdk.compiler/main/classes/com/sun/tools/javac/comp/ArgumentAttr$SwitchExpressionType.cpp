@@ -77,7 +77,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$yieldExpressions$0());
+		return $of($nc(inst$)->lambda$yieldExpressions$0());
 	}
 	ArgumentAttr$SwitchExpressionType* inst$ = nullptr;
 };

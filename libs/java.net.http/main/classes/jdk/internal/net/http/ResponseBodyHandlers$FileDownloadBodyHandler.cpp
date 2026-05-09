@@ -79,7 +79,7 @@ public:
 		$set(this, responseInfo, responseInfo);
 	}
 	virtual $Object* get() override {
-		 return ResponseBodyHandlers$FileDownloadBodyHandler::lambda$apply$0(responseInfo);
+		return ResponseBodyHandlers$FileDownloadBodyHandler::lambda$apply$0(responseInfo);
 	}
 	$HttpResponse$ResponseInfo* responseInfo = nullptr;
 };

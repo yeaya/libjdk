@@ -33,19 +33,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaToolBarUI$ToolBarBorder::hashCode() {
-	 return this->$AbstractBorder::hashCode();
+	return this->$AbstractBorder::hashCode();
 }
 
 bool AquaToolBarUI$ToolBarBorder::equals(Object$* arg0) {
-	 return this->$AbstractBorder::equals(arg0);
+	return this->$AbstractBorder::equals(arg0);
 }
 
 $Object* AquaToolBarUI$ToolBarBorder::clone() {
-	 return this->$AbstractBorder::clone();
+	return this->$AbstractBorder::clone();
 }
 
 $String* AquaToolBarUI$ToolBarBorder::toString() {
-	 return this->$AbstractBorder::toString();
+	return this->$AbstractBorder::toString();
 }
 
 void AquaToolBarUI$ToolBarBorder::finalize() {

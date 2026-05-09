@@ -76,15 +76,15 @@ namespace sun {
 	namespace awt {
 
 int32_t Win32GraphicsConfig::hashCode() {
-	 return this->$GraphicsConfiguration::hashCode();
+	return this->$GraphicsConfiguration::hashCode();
 }
 
 bool Win32GraphicsConfig::equals(Object$* arg0) {
-	 return this->$GraphicsConfiguration::equals(arg0);
+	return this->$GraphicsConfiguration::equals(arg0);
 }
 
 $Object* Win32GraphicsConfig::clone() {
-	 return this->$GraphicsConfiguration::clone();
+	return this->$GraphicsConfiguration::clone();
 }
 
 void Win32GraphicsConfig::finalize() {

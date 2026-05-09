@@ -61,7 +61,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return GraphicsEnvironment::lambda$getHeadlessProperty$0();
+		return GraphicsEnvironment::lambda$getHeadlessProperty$0();
 	}
 };
 $Class* GraphicsEnvironment$$Lambda$lambda$getHeadlessProperty$0::load$($String* name, bool initialize) {

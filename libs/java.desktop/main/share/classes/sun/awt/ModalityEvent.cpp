@@ -18,19 +18,19 @@ namespace sun {
 	namespace awt {
 
 $String* ModalityEvent::toString() {
-	 return this->$AWTEvent::toString();
+	return this->$AWTEvent::toString();
 }
 
 int32_t ModalityEvent::hashCode() {
-	 return this->$AWTEvent::hashCode();
+	return this->$AWTEvent::hashCode();
 }
 
 bool ModalityEvent::equals(Object$* arg0) {
-	 return this->$AWTEvent::equals(arg0);
+	return this->$AWTEvent::equals(arg0);
 }
 
 $Object* ModalityEvent::clone() {
-	 return this->$AWTEvent::clone();
+	return this->$AWTEvent::clone();
 }
 
 void ModalityEvent::finalize() {

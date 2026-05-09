@@ -63,7 +63,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* p) override {
-		 return JCTree$JCCase::lambda$getExpressions$0($cast($JCTree$JCCaseLabel, p));
+		return JCTree$JCCase::lambda$getExpressions$0($cast($JCTree$JCCaseLabel, p));
 	}
 };
 $Class* JCTree$JCCase$$Lambda$lambda$getExpressions$0::load$($String* name, bool initialize) {
@@ -93,7 +93,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return $of(JCTree$JCCase::lambda$getExpressions$1($cast($JCTree$JCCaseLabel, p)));
+		return $of(JCTree$JCCase::lambda$getExpressions$1($cast($JCTree$JCCaseLabel, p)));
 	}
 };
 $Class* JCTree$JCCase$$Lambda$lambda$getExpressions$1$1::load$($String* name, bool initialize) {
@@ -118,19 +118,19 @@ $Class* JCTree$JCCase$$Lambda$lambda$getExpressions$1$1::load$($String* name, bo
 $Class* JCTree$JCCase$$Lambda$lambda$getExpressions$1$1::class$ = nullptr;
 
 $String* JCTree$JCCase::toString() {
-	 return this->$JCTree$JCStatement::toString();
+	return this->$JCTree$JCStatement::toString();
 }
 
 $Object* JCTree$JCCase::clone() {
-	 return this->$JCTree$JCStatement::clone();
+	return this->$JCTree$JCStatement::clone();
 }
 
 int32_t JCTree$JCCase::hashCode() {
-	 return this->$JCTree$JCStatement::hashCode();
+	return this->$JCTree$JCStatement::hashCode();
 }
 
 bool JCTree$JCCase::equals(Object$* arg0) {
-	 return this->$JCTree$JCStatement::equals(arg0);
+	return this->$JCTree$JCStatement::equals(arg0);
 }
 
 void JCTree$JCCase::finalize() {

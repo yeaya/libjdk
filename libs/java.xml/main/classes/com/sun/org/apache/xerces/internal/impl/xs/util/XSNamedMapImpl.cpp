@@ -49,19 +49,19 @@ namespace com {
 								namespace util {
 
 bool XSNamedMapImpl::isEmpty() {
-	 return this->$AbstractMap::isEmpty();
+	return this->$AbstractMap::isEmpty();
 }
 
 bool XSNamedMapImpl::containsValue(Object$* arg0) {
-	 return this->$AbstractMap::containsValue(arg0);
+	return this->$AbstractMap::containsValue(arg0);
 }
 
 $Object* XSNamedMapImpl::put(Object$* arg0, Object$* arg1) {
-	 return this->$AbstractMap::put(arg0, arg1);
+	return this->$AbstractMap::put(arg0, arg1);
 }
 
 $Object* XSNamedMapImpl::remove(Object$* arg0) {
-	 return this->$AbstractMap::remove(arg0);
+	return this->$AbstractMap::remove(arg0);
 }
 
 void XSNamedMapImpl::putAll($Map* arg0) {
@@ -73,31 +73,31 @@ void XSNamedMapImpl::clear() {
 }
 
 $Set* XSNamedMapImpl::keySet() {
-	 return this->$AbstractMap::keySet();
+	return this->$AbstractMap::keySet();
 }
 
 $Collection* XSNamedMapImpl::values() {
-	 return this->$AbstractMap::values();
+	return this->$AbstractMap::values();
 }
 
 bool XSNamedMapImpl::equals(Object$* arg0) {
-	 return this->$AbstractMap::equals(arg0);
+	return this->$AbstractMap::equals(arg0);
 }
 
 int32_t XSNamedMapImpl::hashCode() {
-	 return this->$AbstractMap::hashCode();
+	return this->$AbstractMap::hashCode();
 }
 
 $String* XSNamedMapImpl::toString() {
-	 return this->$AbstractMap::toString();
+	return this->$AbstractMap::toString();
 }
 
 $Object* XSNamedMapImpl::clone() {
-	 return this->$AbstractMap::clone();
+	return this->$AbstractMap::clone();
 }
 
 $Object* XSNamedMapImpl::getOrDefault(Object$* arg0, Object$* arg1) {
-	 return this->$AbstractMap::getOrDefault(arg0, arg1);
+	return this->$AbstractMap::getOrDefault(arg0, arg1);
 }
 
 void XSNamedMapImpl::forEach($BiConsumer* arg0) {
@@ -109,35 +109,35 @@ void XSNamedMapImpl::replaceAll($BiFunction* arg0) {
 }
 
 $Object* XSNamedMapImpl::putIfAbsent(Object$* arg0, Object$* arg1) {
-	 return this->$AbstractMap::putIfAbsent(arg0, arg1);
+	return this->$AbstractMap::putIfAbsent(arg0, arg1);
 }
 
 bool XSNamedMapImpl::remove(Object$* arg0, Object$* arg1) {
-	 return this->$AbstractMap::remove(arg0, arg1);
+	return this->$AbstractMap::remove(arg0, arg1);
 }
 
 bool XSNamedMapImpl::replace(Object$* arg0, Object$* arg1, Object$* arg2) {
-	 return this->$AbstractMap::replace(arg0, arg1, arg2);
+	return this->$AbstractMap::replace(arg0, arg1, arg2);
 }
 
 $Object* XSNamedMapImpl::replace(Object$* arg0, Object$* arg1) {
-	 return this->$AbstractMap::replace(arg0, arg1);
+	return this->$AbstractMap::replace(arg0, arg1);
 }
 
 $Object* XSNamedMapImpl::computeIfAbsent(Object$* arg0, $Function* arg1) {
-	 return this->$AbstractMap::computeIfAbsent(arg0, arg1);
+	return this->$AbstractMap::computeIfAbsent(arg0, arg1);
 }
 
 $Object* XSNamedMapImpl::computeIfPresent(Object$* arg0, $BiFunction* arg1) {
-	 return this->$AbstractMap::computeIfPresent(arg0, arg1);
+	return this->$AbstractMap::computeIfPresent(arg0, arg1);
 }
 
 $Object* XSNamedMapImpl::compute(Object$* arg0, $BiFunction* arg1) {
-	 return this->$AbstractMap::compute(arg0, arg1);
+	return this->$AbstractMap::compute(arg0, arg1);
 }
 
 $Object* XSNamedMapImpl::merge(Object$* arg0, Object$* arg1, $BiFunction* arg2) {
-	 return this->$AbstractMap::merge(arg0, arg1, arg2);
+	return this->$AbstractMap::merge(arg0, arg1, arg2);
 }
 
 void XSNamedMapImpl::finalize() {

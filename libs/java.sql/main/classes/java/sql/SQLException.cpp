@@ -22,19 +22,19 @@ namespace java {
 	namespace sql {
 
 $String* SQLException::toString() {
-	 return this->$Exception::toString();
+	return this->$Exception::toString();
 }
 
 int32_t SQLException::hashCode() {
-	 return this->$Exception::hashCode();
+	return this->$Exception::hashCode();
 }
 
 bool SQLException::equals(Object$* arg0) {
-	 return this->$Exception::equals(arg0);
+	return this->$Exception::equals(arg0);
 }
 
 $Object* SQLException::clone() {
-	 return this->$Exception::clone();
+	return this->$Exception::clone();
 }
 
 void SQLException::finalize() {

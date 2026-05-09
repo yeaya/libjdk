@@ -63,7 +63,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return Disposer::lambda$static$0();
+		return Disposer::lambda$static$0();
 	}
 };
 $Class* Disposer$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

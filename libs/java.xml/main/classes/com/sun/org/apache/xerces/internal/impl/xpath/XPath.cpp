@@ -92,7 +92,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* aPath) override {
-		 return $of(XPath::lambda$toString$0($cast($XPath$LocationPath, aPath)));
+		return $of(XPath::lambda$toString$0($cast($XPath$LocationPath, aPath)));
 	}
 };
 $Class* XPath$$Lambda$lambda$toString$0::load$($String* name, bool initialize) {

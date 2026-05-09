@@ -25,19 +25,19 @@ namespace sun {
 			namespace ext {
 
 int32_t MacDingbat::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool MacDingbat::equals(Object$* arg0) {
-	 return this->$Charset::equals(arg0);
+	return this->$Charset::equals(arg0);
 }
 
 $String* MacDingbat::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* MacDingbat::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void MacDingbat::finalize() {

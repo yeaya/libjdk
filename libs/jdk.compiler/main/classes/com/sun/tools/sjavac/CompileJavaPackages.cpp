@@ -90,7 +90,7 @@ public:
 		$set(this, lock, lock);
 	}
 	virtual $Object* call() override {
-		 return $nc(inst$)->lambda$transform$0(log, sjavac, chunkId, cc, visibleSources, lock);
+		return $nc(inst$)->lambda$transform$0(log, sjavac, chunkId, cc, visibleSources, lock);
 	}
 	CompileJavaPackages* inst$ = nullptr;
 	$Log* log = nullptr;
@@ -137,7 +137,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s1, Object$* s2) override {
-		 return $Util::union$($cast($Set, s1), $cast($Set, s2));
+		return $Util::union$($cast($Set, s1), $cast($Set, s2));
 	}
 };
 $Class* CompileJavaPackages$$Lambda$union$1::load$($String* name, bool initialize) {
@@ -167,7 +167,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* api1, Object$* api2) override {
-		 return $PubApi::mergeTypes($cast($PubApi, api1), $cast($PubApi, api2));
+		return $PubApi::mergeTypes($cast($PubApi, api1), $cast($PubApi, api2));
 	}
 };
 $Class* CompileJavaPackages$$Lambda$mergeTypes$2::load$($String* name, bool initialize) {

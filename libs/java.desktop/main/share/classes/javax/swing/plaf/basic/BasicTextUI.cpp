@@ -175,19 +175,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicTextUI::hashCode() {
-	 return this->$TextUI::hashCode();
+	return this->$TextUI::hashCode();
 }
 
 bool BasicTextUI::equals(Object$* arg0) {
-	 return this->$TextUI::equals(arg0);
+	return this->$TextUI::equals(arg0);
 }
 
 $Object* BasicTextUI::clone() {
-	 return this->$TextUI::clone();
+	return this->$TextUI::clone();
 }
 
 $String* BasicTextUI::toString() {
-	 return this->$TextUI::toString();
+	return this->$TextUI::toString();
 }
 
 void BasicTextUI::finalize() {

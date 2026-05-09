@@ -20,19 +20,19 @@ namespace com {
 					namespace windows {
 
 bool WindowsTextUI$WindowsCaret::equals(Object$* obj) {
-	 return this->$DefaultCaret::equals(obj);
+	return this->$DefaultCaret::equals(obj);
 }
 
 $String* WindowsTextUI$WindowsCaret::toString() {
-	 return this->$DefaultCaret::toString();
+	return this->$DefaultCaret::toString();
 }
 
 int32_t WindowsTextUI$WindowsCaret::hashCode() {
-	 return this->$DefaultCaret::hashCode();
+	return this->$DefaultCaret::hashCode();
 }
 
 $Object* WindowsTextUI$WindowsCaret::clone() {
-	 return this->$DefaultCaret::clone();
+	return this->$DefaultCaret::clone();
 }
 
 void WindowsTextUI$WindowsCaret::finalize() {

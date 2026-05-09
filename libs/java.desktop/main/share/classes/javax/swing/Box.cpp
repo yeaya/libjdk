@@ -39,19 +39,19 @@ namespace javax {
 	namespace swing {
 
 $String* Box::toString() {
-	 return this->$JComponent::toString();
+	return this->$JComponent::toString();
 }
 
 int32_t Box::hashCode() {
-	 return this->$JComponent::hashCode();
+	return this->$JComponent::hashCode();
 }
 
 bool Box::equals(Object$* arg0) {
-	 return this->$JComponent::equals(arg0);
+	return this->$JComponent::equals(arg0);
 }
 
 $Object* Box::clone() {
-	 return this->$JComponent::clone();
+	return this->$JComponent::clone();
 }
 
 void Box::finalize() {

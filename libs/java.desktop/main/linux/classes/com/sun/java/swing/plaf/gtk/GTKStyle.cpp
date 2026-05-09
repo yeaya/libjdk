@@ -184,19 +184,19 @@ namespace com {
 					namespace gtk {
 
 int32_t GTKStyle::hashCode() {
-	 return this->$SynthStyle::hashCode();
+	return this->$SynthStyle::hashCode();
 }
 
 bool GTKStyle::equals(Object$* arg0) {
-	 return this->$SynthStyle::equals(arg0);
+	return this->$SynthStyle::equals(arg0);
 }
 
 $Object* GTKStyle::clone() {
-	 return this->$SynthStyle::clone();
+	return this->$SynthStyle::clone();
 }
 
 $String* GTKStyle::toString() {
-	 return this->$SynthStyle::toString();
+	return this->$SynthStyle::toString();
 }
 
 void GTKStyle::finalize() {

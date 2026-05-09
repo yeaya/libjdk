@@ -79,19 +79,19 @@ namespace sun {
 		namespace marlin {
 
 int32_t RendererContext::hashCode() {
-	 return this->$ReentrantContext::hashCode();
+	return this->$ReentrantContext::hashCode();
 }
 
 bool RendererContext::equals(Object$* arg0) {
-	 return this->$ReentrantContext::equals(arg0);
+	return this->$ReentrantContext::equals(arg0);
 }
 
 $Object* RendererContext::clone() {
-	 return this->$ReentrantContext::clone();
+	return this->$ReentrantContext::clone();
 }
 
 $String* RendererContext::toString() {
-	 return this->$ReentrantContext::toString();
+	return this->$ReentrantContext::toString();
 }
 
 void RendererContext::finalize() {

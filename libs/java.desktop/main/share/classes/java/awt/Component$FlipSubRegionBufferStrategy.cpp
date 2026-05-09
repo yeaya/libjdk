@@ -16,19 +16,19 @@ namespace java {
 	namespace awt {
 
 int32_t Component$FlipSubRegionBufferStrategy::hashCode() {
-	 return this->$Component$FlipBufferStrategy::hashCode();
+	return this->$Component$FlipBufferStrategy::hashCode();
 }
 
 bool Component$FlipSubRegionBufferStrategy::equals(Object$* arg0) {
-	 return this->$Component$FlipBufferStrategy::equals(arg0);
+	return this->$Component$FlipBufferStrategy::equals(arg0);
 }
 
 $Object* Component$FlipSubRegionBufferStrategy::clone() {
-	 return this->$Component$FlipBufferStrategy::clone();
+	return this->$Component$FlipBufferStrategy::clone();
 }
 
 $String* Component$FlipSubRegionBufferStrategy::toString() {
-	 return this->$Component$FlipBufferStrategy::toString();
+	return this->$Component$FlipBufferStrategy::toString();
 }
 
 void Component$FlipSubRegionBufferStrategy::finalize() {

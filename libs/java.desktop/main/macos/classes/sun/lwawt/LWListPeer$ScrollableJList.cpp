@@ -44,19 +44,19 @@ namespace sun {
 	namespace lwawt {
 
 $String* LWListPeer$ScrollableJList::toString() {
-	 return this->$JScrollPane::toString();
+	return this->$JScrollPane::toString();
 }
 
 int32_t LWListPeer$ScrollableJList::hashCode() {
-	 return this->$JScrollPane::hashCode();
+	return this->$JScrollPane::hashCode();
 }
 
 bool LWListPeer$ScrollableJList::equals(Object$* arg0) {
-	 return this->$JScrollPane::equals(arg0);
+	return this->$JScrollPane::equals(arg0);
 }
 
 $Object* LWListPeer$ScrollableJList::clone() {
-	 return this->$JScrollPane::clone();
+	return this->$JScrollPane::clone();
 }
 
 void LWListPeer$ScrollableJList::finalize() {

@@ -31,19 +31,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JProgressBar$AccessibleJProgressBar::hashCode() {
-	 return this->$JComponent$AccessibleJComponent::hashCode();
+	return this->$JComponent$AccessibleJComponent::hashCode();
 }
 
 bool JProgressBar$AccessibleJProgressBar::equals(Object$* arg0) {
-	 return this->$JComponent$AccessibleJComponent::equals(arg0);
+	return this->$JComponent$AccessibleJComponent::equals(arg0);
 }
 
 $Object* JProgressBar$AccessibleJProgressBar::clone() {
-	 return this->$JComponent$AccessibleJComponent::clone();
+	return this->$JComponent$AccessibleJComponent::clone();
 }
 
 $String* JProgressBar$AccessibleJProgressBar::toString() {
-	 return this->$JComponent$AccessibleJComponent::toString();
+	return this->$JComponent$AccessibleJComponent::toString();
 }
 
 void JProgressBar$AccessibleJProgressBar::finalize() {

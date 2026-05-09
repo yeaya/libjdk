@@ -55,15 +55,15 @@ namespace jdk {
 		namespace zipfs {
 
 bool ZipFileSystem$Entry::equals(Object$* other) {
-	 return this->$ZipFileSystem$IndexNode::equals(other);
+	return this->$ZipFileSystem$IndexNode::equals(other);
 }
 
 int32_t ZipFileSystem$Entry::hashCode() {
-	 return this->$ZipFileSystem$IndexNode::hashCode();
+	return this->$ZipFileSystem$IndexNode::hashCode();
 }
 
 $Object* ZipFileSystem$Entry::clone() {
-	 return this->$ZipFileSystem$IndexNode::clone();
+	return this->$ZipFileSystem$IndexNode::clone();
 }
 
 void ZipFileSystem$Entry::finalize() {

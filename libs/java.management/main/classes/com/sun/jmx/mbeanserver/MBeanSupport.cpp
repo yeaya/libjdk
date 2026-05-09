@@ -36,19 +36,19 @@ namespace com {
 			namespace mbeanserver {
 
 int32_t MBeanSupport::hashCode() {
-	 return this->$DynamicMBean2::hashCode();
+	return this->$DynamicMBean2::hashCode();
 }
 
 bool MBeanSupport::equals(Object$* arg0) {
-	 return this->$DynamicMBean2::equals(arg0);
+	return this->$DynamicMBean2::equals(arg0);
 }
 
 $Object* MBeanSupport::clone() {
-	 return this->$DynamicMBean2::clone();
+	return this->$DynamicMBean2::clone();
 }
 
 $String* MBeanSupport::toString() {
-	 return this->$DynamicMBean2::toString();
+	return this->$DynamicMBean2::toString();
 }
 
 void MBeanSupport::finalize() {

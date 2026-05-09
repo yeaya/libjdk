@@ -265,19 +265,19 @@ namespace com {
 							namespace xs {
 
 int32_t XMLSchemaLoader::hashCode() {
-	 return this->$XMLGrammarLoader::hashCode();
+	return this->$XMLGrammarLoader::hashCode();
 }
 
 bool XMLSchemaLoader::equals(Object$* arg0) {
-	 return this->$XMLGrammarLoader::equals(arg0);
+	return this->$XMLGrammarLoader::equals(arg0);
 }
 
 $Object* XMLSchemaLoader::clone() {
-	 return this->$XMLGrammarLoader::clone();
+	return this->$XMLGrammarLoader::clone();
 }
 
 $String* XMLSchemaLoader::toString() {
-	 return this->$XMLGrammarLoader::toString();
+	return this->$XMLGrammarLoader::toString();
 }
 
 void XMLSchemaLoader::finalize() {

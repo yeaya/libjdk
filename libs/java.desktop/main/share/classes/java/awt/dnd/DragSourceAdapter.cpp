@@ -17,19 +17,19 @@ namespace java {
 		namespace dnd {
 
 int32_t DragSourceAdapter::hashCode() {
-	 return this->$DragSourceListener::hashCode();
+	return this->$DragSourceListener::hashCode();
 }
 
 bool DragSourceAdapter::equals(Object$* arg0) {
-	 return this->$DragSourceListener::equals(arg0);
+	return this->$DragSourceListener::equals(arg0);
 }
 
 $Object* DragSourceAdapter::clone() {
-	 return this->$DragSourceListener::clone();
+	return this->$DragSourceListener::clone();
 }
 
 $String* DragSourceAdapter::toString() {
-	 return this->$DragSourceListener::toString();
+	return this->$DragSourceListener::toString();
 }
 
 void DragSourceAdapter::finalize() {

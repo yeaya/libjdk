@@ -28,19 +28,19 @@ namespace javax {
 			namespace metal {
 
 int32_t MetalBorders$ScrollPaneBorder::hashCode() {
-	 return this->$AbstractBorder::hashCode();
+	return this->$AbstractBorder::hashCode();
 }
 
 bool MetalBorders$ScrollPaneBorder::equals(Object$* arg0) {
-	 return this->$AbstractBorder::equals(arg0);
+	return this->$AbstractBorder::equals(arg0);
 }
 
 $Object* MetalBorders$ScrollPaneBorder::clone() {
-	 return this->$AbstractBorder::clone();
+	return this->$AbstractBorder::clone();
 }
 
 $String* MetalBorders$ScrollPaneBorder::toString() {
-	 return this->$AbstractBorder::toString();
+	return this->$AbstractBorder::toString();
 }
 
 void MetalBorders$ScrollPaneBorder::finalize() {

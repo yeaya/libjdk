@@ -164,19 +164,19 @@ void CMenuBar::finalize() {
 }
 
 int32_t CMenuBar::hashCode() {
-	 return this->$CMenuComponent::hashCode();
+	return this->$CMenuComponent::hashCode();
 }
 
 bool CMenuBar::equals(Object$* arg0) {
-	 return this->$CMenuComponent::equals(arg0);
+	return this->$CMenuComponent::equals(arg0);
 }
 
 $Object* CMenuBar::clone() {
-	 return this->$CMenuComponent::clone();
+	return this->$CMenuComponent::clone();
 }
 
 $String* CMenuBar::toString() {
-	 return this->$CMenuComponent::toString();
+	return this->$CMenuComponent::toString();
 }
 
 void CMenuBar::init$($MenuBar* target) {

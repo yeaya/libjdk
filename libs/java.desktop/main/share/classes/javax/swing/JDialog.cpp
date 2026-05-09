@@ -83,19 +83,19 @@ namespace javax {
 	namespace swing {
 
 $String* JDialog::toString() {
-	 return this->$Dialog::toString();
+	return this->$Dialog::toString();
 }
 
 int32_t JDialog::hashCode() {
-	 return this->$Dialog::hashCode();
+	return this->$Dialog::hashCode();
 }
 
 bool JDialog::equals(Object$* arg0) {
-	 return this->$Dialog::equals(arg0);
+	return this->$Dialog::equals(arg0);
 }
 
 $Object* JDialog::clone() {
-	 return this->$Dialog::clone();
+	return this->$Dialog::clone();
 }
 
 void JDialog::finalize() {

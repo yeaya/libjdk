@@ -137,7 +137,7 @@ public:
 	void init$() {
 	}
 	virtual $Path* getPath($String* arg0, $StringArray* arg1) override {
-		 return $Paths::get(arg0, arg1);
+		return $Paths::get(arg0, arg1);
 	}
 };
 $Class* Locations$$Lambda$get::load$($String* name, bool initialize) {

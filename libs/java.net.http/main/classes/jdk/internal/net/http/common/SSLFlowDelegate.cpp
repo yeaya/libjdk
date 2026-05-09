@@ -112,7 +112,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	SSLFlowDelegate* inst$ = nullptr;
 };
@@ -148,7 +148,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $String* getInfo() override {
-		 return $nc(inst$)->monitor();
+		return $nc(inst$)->monitor();
 	}
 	SSLFlowDelegate* inst$ = nullptr;
 };
@@ -183,7 +183,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(int32_t current, int32_t ignored) override {
-		 return SSLFlowDelegate::lambda$static$0(current, ignored);
+		return SSLFlowDelegate::lambda$static$0(current, ignored);
 	}
 };
 $Class* SSLFlowDelegate$$Lambda$lambda$static$0$2::load$($String* name, bool initialize) {
@@ -213,7 +213,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(int32_t current, int32_t ignored) override {
-		 return SSLFlowDelegate::lambda$static$1(current, ignored);
+		return SSLFlowDelegate::lambda$static$1(current, ignored);
 	}
 };
 $Class* SSLFlowDelegate$$Lambda$lambda$static$1$3::load$($String* name, bool initialize) {
@@ -244,7 +244,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* error) override {
-		 return $nc(inst$)->stopOnError($cast($Throwable, error));
+		return $nc(inst$)->stopOnError($cast($Throwable, error));
 	}
 	SSLFlowDelegate* inst$ = nullptr;
 };
@@ -315,7 +315,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(int32_t current, int32_t unused) override {
-		 return SSLFlowDelegate::lambda$doHandshake$2(current, unused);
+		return SSLFlowDelegate::lambda$doHandshake$2(current, unused);
 	}
 };
 $Class* SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6::load$($String* name, bool initialize) {

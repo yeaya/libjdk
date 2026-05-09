@@ -22,19 +22,19 @@ namespace javax {
 			namespace html {
 
 int32_t HiddenTagView$EndTagBorder::hashCode() {
-	 return this->$Border::hashCode();
+	return this->$Border::hashCode();
 }
 
 bool HiddenTagView$EndTagBorder::equals(Object$* arg0) {
-	 return this->$Border::equals(arg0);
+	return this->$Border::equals(arg0);
 }
 
 $Object* HiddenTagView$EndTagBorder::clone() {
-	 return this->$Border::clone();
+	return this->$Border::clone();
 }
 
 $String* HiddenTagView$EndTagBorder::toString() {
-	 return this->$Border::toString();
+	return this->$Border::toString();
 }
 
 void HiddenTagView$EndTagBorder::finalize() {

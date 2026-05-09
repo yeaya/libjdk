@@ -5,6 +5,8 @@
 //$ dependency java.sql:17.35
 //$ dependency java.xml:17.35
 //$ dependency java.base:17.35
+//$ dependency java.security.sasl:17.35
+//$ dependency java.transaction.xa:17.35
 
 #include <java/lang/def.h>
 

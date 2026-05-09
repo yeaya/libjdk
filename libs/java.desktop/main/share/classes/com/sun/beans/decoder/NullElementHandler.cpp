@@ -14,19 +14,19 @@ namespace com {
 			namespace decoder {
 
 int32_t NullElementHandler::hashCode() {
-	 return this->$ElementHandler::hashCode();
+	return this->$ElementHandler::hashCode();
 }
 
 bool NullElementHandler::equals(Object$* arg0) {
-	 return this->$ElementHandler::equals(arg0);
+	return this->$ElementHandler::equals(arg0);
 }
 
 $Object* NullElementHandler::clone() {
-	 return this->$ElementHandler::clone();
+	return this->$ElementHandler::clone();
 }
 
 $String* NullElementHandler::toString() {
-	 return this->$ElementHandler::toString();
+	return this->$ElementHandler::toString();
 }
 
 void NullElementHandler::finalize() {

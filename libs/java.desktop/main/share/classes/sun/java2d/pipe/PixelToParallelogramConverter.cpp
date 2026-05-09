@@ -52,19 +52,19 @@ namespace sun {
 		namespace pipe {
 
 int32_t PixelToParallelogramConverter::hashCode() {
-	 return this->$PixelToShapeConverter::hashCode();
+	return this->$PixelToShapeConverter::hashCode();
 }
 
 bool PixelToParallelogramConverter::equals(Object$* arg0) {
-	 return this->$PixelToShapeConverter::equals(arg0);
+	return this->$PixelToShapeConverter::equals(arg0);
 }
 
 $Object* PixelToParallelogramConverter::clone() {
-	 return this->$PixelToShapeConverter::clone();
+	return this->$PixelToShapeConverter::clone();
 }
 
 $String* PixelToParallelogramConverter::toString() {
-	 return this->$PixelToShapeConverter::toString();
+	return this->$PixelToShapeConverter::toString();
 }
 
 void PixelToParallelogramConverter::finalize() {

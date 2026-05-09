@@ -55,7 +55,7 @@ public:
 		$set(this, source, source);
 	}
 	virtual $Iterator* iterator() override {
-		 return BuffersTestingKit::lambda$relocateBuffers$0(source);
+		return BuffersTestingKit::lambda$relocateBuffers$0(source);
 	}
 	$Iterable* source = nullptr;
 };
@@ -90,7 +90,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(BuffersTestingKit::lambda$injectEmptyBuffers$1());
+		return $of(BuffersTestingKit::lambda$injectEmptyBuffers$1());
 	}
 };
 $Class* BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$1$1::load$($String* name, bool initialize) {
@@ -122,7 +122,7 @@ public:
 		$set(this, emptyBufferFactory, emptyBufferFactory);
 	}
 	virtual $Iterator* iterator() override {
-		 return BuffersTestingKit::lambda$injectEmptyBuffers$2(source, emptyBufferFactory);
+		return BuffersTestingKit::lambda$injectEmptyBuffers$2(source, emptyBufferFactory);
 	}
 	$Iterable* source = nullptr;
 	$Supplier* emptyBufferFactory = nullptr;
@@ -159,7 +159,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $of($ByteBuffer::allocate($intValue(arg0)));
+		return $of($ByteBuffer::allocate($intValue(arg0)));
 	}
 };
 $Class* BuffersTestingKit$$Lambda$allocate$3::load$($String* name, bool initialize) {

@@ -166,19 +166,19 @@ namespace com {
 						namespace parsers {
 
 int32_t AbstractSAXParser::hashCode() {
-	 return this->$AbstractXMLDocumentParser::hashCode();
+	return this->$AbstractXMLDocumentParser::hashCode();
 }
 
 bool AbstractSAXParser::equals(Object$* arg0) {
-	 return this->$AbstractXMLDocumentParser::equals(arg0);
+	return this->$AbstractXMLDocumentParser::equals(arg0);
 }
 
 $Object* AbstractSAXParser::clone() {
-	 return this->$AbstractXMLDocumentParser::clone();
+	return this->$AbstractXMLDocumentParser::clone();
 }
 
 $String* AbstractSAXParser::toString() {
-	 return this->$AbstractXMLDocumentParser::toString();
+	return this->$AbstractXMLDocumentParser::toString();
 }
 
 void AbstractSAXParser::finalize() {

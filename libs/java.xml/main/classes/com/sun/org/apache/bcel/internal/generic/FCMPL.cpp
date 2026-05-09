@@ -27,27 +27,27 @@ namespace com {
 						namespace generic {
 
 $String* FCMPL::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t FCMPL::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::consumeStack(cpg);
+	return this->$Instruction::consumeStack(cpg);
 }
 
 int32_t FCMPL::produceStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::produceStack(cpg);
+	return this->$Instruction::produceStack(cpg);
 }
 
 bool FCMPL::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t FCMPL::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* FCMPL::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void FCMPL::finalize() {

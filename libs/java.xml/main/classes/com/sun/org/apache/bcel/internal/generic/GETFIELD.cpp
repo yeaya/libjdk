@@ -31,23 +31,23 @@ namespace com {
 						namespace generic {
 
 $String* GETFIELD::toString() {
-	 return this->$FieldInstruction::toString();
+	return this->$FieldInstruction::toString();
 }
 
 int32_t GETFIELD::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$FieldInstruction::consumeStack(cpg);
+	return this->$FieldInstruction::consumeStack(cpg);
 }
 
 bool GETFIELD::equals(Object$* that) {
-	 return this->$FieldInstruction::equals(that);
+	return this->$FieldInstruction::equals(that);
 }
 
 int32_t GETFIELD::hashCode() {
-	 return this->$FieldInstruction::hashCode();
+	return this->$FieldInstruction::hashCode();
 }
 
 $Object* GETFIELD::clone() {
-	 return this->$FieldInstruction::clone();
+	return this->$FieldInstruction::clone();
 }
 
 void GETFIELD::finalize() {

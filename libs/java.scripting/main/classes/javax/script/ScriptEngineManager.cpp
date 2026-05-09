@@ -72,7 +72,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ScriptEngineFactory, inst$)->getEngineName());
+		return $of($sure($ScriptEngineFactory, inst$)->getEngineName());
 	}
 };
 $Class* ScriptEngineManager$$Lambda$getEngineName::load$($String* name, bool initialize) {
@@ -104,7 +104,7 @@ public:
 		$set(this, loader, loader);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$initEngines$0(loader);
+		return $nc(inst$)->lambda$initEngines$0(loader);
 	}
 	ScriptEngineManager* inst$ = nullptr;
 	$ClassLoader* loader = nullptr;
@@ -141,7 +141,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ScriptEngineFactory, inst$)->getNames();
+		return $sure($ScriptEngineFactory, inst$)->getNames();
 	}
 };
 $Class* ScriptEngineManager$$Lambda$getNames$2::load$($String* name, bool initialize) {
@@ -171,7 +171,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ScriptEngineFactory, inst$)->getExtensions();
+		return $sure($ScriptEngineFactory, inst$)->getExtensions();
 	}
 };
 $Class* ScriptEngineManager$$Lambda$getExtensions$3::load$($String* name, bool initialize) {
@@ -201,7 +201,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ScriptEngineFactory, inst$)->getMimeTypes();
+		return $sure($ScriptEngineFactory, inst$)->getMimeTypes();
 	}
 };
 $Class* ScriptEngineManager$$Lambda$getMimeTypes$4::load$($String* name, bool initialize) {
@@ -233,7 +233,7 @@ public:
 		$set(this, selector, selector);
 	}
 	virtual bool test(Object$* spi) override {
-		 return ScriptEngineManager::lambda$getEngineBy$1(valuesFn, selector, $cast($ScriptEngineFactory, spi));
+		return ScriptEngineManager::lambda$getEngineBy$1(valuesFn, selector, $cast($ScriptEngineFactory, spi));
 	}
 	$Function* valuesFn = nullptr;
 	$String* selector = nullptr;
@@ -271,7 +271,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* spi) override {
-		 return $nc(inst$)->lambda$getEngineBy$2($cast($ScriptEngineFactory, spi));
+		return $nc(inst$)->lambda$getEngineBy$2($cast($ScriptEngineFactory, spi));
 	}
 	ScriptEngineManager* inst$ = nullptr;
 };
@@ -306,7 +306,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* arg0) override {
-		 return $Objects::nonNull(arg0);
+		return $Objects::nonNull(arg0);
 	}
 };
 $Class* ScriptEngineManager$$Lambda$nonNull$7::load$($String* name, bool initialize) {

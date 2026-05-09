@@ -21,19 +21,19 @@ namespace java {
 		namespace geom {
 
 $Object* Line2D$Float::clone() {
-	 return this->$Line2D::clone();
+	return this->$Line2D::clone();
 }
 
 int32_t Line2D$Float::hashCode() {
-	 return this->$Line2D::hashCode();
+	return this->$Line2D::hashCode();
 }
 
 bool Line2D$Float::equals(Object$* arg0) {
-	 return this->$Line2D::equals(arg0);
+	return this->$Line2D::equals(arg0);
 }
 
 $String* Line2D$Float::toString() {
-	 return this->$Line2D::toString();
+	return this->$Line2D::toString();
 }
 
 void Line2D$Float::finalize() {

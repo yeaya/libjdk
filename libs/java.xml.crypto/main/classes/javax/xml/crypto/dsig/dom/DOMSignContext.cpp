@@ -23,15 +23,15 @@ namespace javax {
 				namespace dom {
 
 $String* DOMSignContext::getNamespacePrefix($String* namespaceURI, $String* defaultPrefix) {
-	 return this->$DOMCryptoContext::getNamespacePrefix(namespaceURI, defaultPrefix);
+	return this->$DOMCryptoContext::getNamespacePrefix(namespaceURI, defaultPrefix);
 }
 
 $String* DOMSignContext::putNamespacePrefix($String* namespaceURI, $String* prefix) {
-	 return this->$DOMCryptoContext::putNamespacePrefix(namespaceURI, prefix);
+	return this->$DOMCryptoContext::putNamespacePrefix(namespaceURI, prefix);
 }
 
 $String* DOMSignContext::getDefaultNamespacePrefix() {
-	 return this->$DOMCryptoContext::getDefaultNamespacePrefix();
+	return this->$DOMCryptoContext::getDefaultNamespacePrefix();
 }
 
 void DOMSignContext::setDefaultNamespacePrefix($String* defaultPrefix) {
@@ -39,7 +39,7 @@ void DOMSignContext::setDefaultNamespacePrefix($String* defaultPrefix) {
 }
 
 $String* DOMSignContext::getBaseURI() {
-	 return this->$DOMCryptoContext::getBaseURI();
+	return this->$DOMCryptoContext::getBaseURI();
 }
 
 void DOMSignContext::setBaseURI($String* baseURI) {
@@ -47,7 +47,7 @@ void DOMSignContext::setBaseURI($String* baseURI) {
 }
 
 $URIDereferencer* DOMSignContext::getURIDereferencer() {
-	 return this->$DOMCryptoContext::getURIDereferencer();
+	return this->$DOMCryptoContext::getURIDereferencer();
 }
 
 void DOMSignContext::setURIDereferencer($URIDereferencer* dereferencer) {
@@ -55,15 +55,15 @@ void DOMSignContext::setURIDereferencer($URIDereferencer* dereferencer) {
 }
 
 $Object* DOMSignContext::getProperty($String* name) {
-	 return this->$DOMCryptoContext::getProperty(name);
+	return this->$DOMCryptoContext::getProperty(name);
 }
 
 $Object* DOMSignContext::setProperty($String* name, Object$* value) {
-	 return this->$DOMCryptoContext::setProperty(name, value);
+	return this->$DOMCryptoContext::setProperty(name, value);
 }
 
 $KeySelector* DOMSignContext::getKeySelector() {
-	 return this->$DOMCryptoContext::getKeySelector();
+	return this->$DOMCryptoContext::getKeySelector();
 }
 
 void DOMSignContext::setKeySelector($KeySelector* ks) {
@@ -71,27 +71,27 @@ void DOMSignContext::setKeySelector($KeySelector* ks) {
 }
 
 $Object* DOMSignContext::get(Object$* key) {
-	 return this->$DOMCryptoContext::get(key);
+	return this->$DOMCryptoContext::get(key);
 }
 
 $Object* DOMSignContext::put(Object$* key, Object$* value) {
-	 return this->$DOMCryptoContext::put(key, value);
+	return this->$DOMCryptoContext::put(key, value);
 }
 
 int32_t DOMSignContext::hashCode() {
-	 return this->$DOMCryptoContext::hashCode();
+	return this->$DOMCryptoContext::hashCode();
 }
 
 bool DOMSignContext::equals(Object$* arg0) {
-	 return this->$DOMCryptoContext::equals(arg0);
+	return this->$DOMCryptoContext::equals(arg0);
 }
 
 $Object* DOMSignContext::clone() {
-	 return this->$DOMCryptoContext::clone();
+	return this->$DOMCryptoContext::clone();
 }
 
 $String* DOMSignContext::toString() {
-	 return this->$DOMCryptoContext::toString();
+	return this->$DOMCryptoContext::toString();
 }
 
 void DOMSignContext::finalize() {

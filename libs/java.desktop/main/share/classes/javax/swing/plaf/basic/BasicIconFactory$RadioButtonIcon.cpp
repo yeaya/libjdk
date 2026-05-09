@@ -18,19 +18,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicIconFactory$RadioButtonIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool BasicIconFactory$RadioButtonIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* BasicIconFactory$RadioButtonIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* BasicIconFactory$RadioButtonIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void BasicIconFactory$RadioButtonIcon::finalize() {

@@ -24,19 +24,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsIconFactory$RadioButtonMenuItemIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool WindowsIconFactory$RadioButtonMenuItemIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* WindowsIconFactory$RadioButtonMenuItemIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* WindowsIconFactory$RadioButtonMenuItemIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void WindowsIconFactory$RadioButtonMenuItemIcon::finalize() {

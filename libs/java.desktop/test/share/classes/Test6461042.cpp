@@ -13,19 +13,19 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 
 $String* Test6461042::toString() {
-	 return this->$JComponent::toString();
+	return this->$JComponent::toString();
 }
 
 int32_t Test6461042::hashCode() {
-	 return this->$JComponent::hashCode();
+	return this->$JComponent::hashCode();
 }
 
 bool Test6461042::equals(Object$* arg0) {
-	 return this->$JComponent::equals(arg0);
+	return this->$JComponent::equals(arg0);
 }
 
 $Object* Test6461042::clone() {
-	 return this->$JComponent::clone();
+	return this->$JComponent::clone();
 }
 
 void Test6461042::finalize() {

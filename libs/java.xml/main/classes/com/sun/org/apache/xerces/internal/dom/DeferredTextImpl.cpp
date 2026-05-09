@@ -31,19 +31,19 @@ namespace com {
 						namespace dom {
 
 int16_t DeferredTextImpl::getNodeType() {
-	 return this->$TextImpl::getNodeType();
+	return this->$TextImpl::getNodeType();
 }
 
 $String* DeferredTextImpl::getNodeName() {
-	 return this->$TextImpl::getNodeName();
+	return this->$TextImpl::getNodeName();
 }
 
 $NodeList* DeferredTextImpl::getChildNodes() {
-	 return this->$TextImpl::getChildNodes();
+	return this->$TextImpl::getChildNodes();
 }
 
 $String* DeferredTextImpl::getNodeValue() {
-	 return this->$TextImpl::getNodeValue();
+	return this->$TextImpl::getNodeValue();
 }
 
 void DeferredTextImpl::setNodeValue($String* value) {
@@ -51,59 +51,59 @@ void DeferredTextImpl::setNodeValue($String* value) {
 }
 
 $Node* DeferredTextImpl::cloneNode(bool deep) {
-	 return this->$TextImpl::cloneNode(deep);
+	return this->$TextImpl::cloneNode(deep);
 }
 
 $Node* DeferredTextImpl::getParentNode() {
-	 return this->$TextImpl::getParentNode();
+	return this->$TextImpl::getParentNode();
 }
 
 $Node* DeferredTextImpl::getNextSibling() {
-	 return this->$TextImpl::getNextSibling();
+	return this->$TextImpl::getNextSibling();
 }
 
 $Node* DeferredTextImpl::getPreviousSibling() {
-	 return this->$TextImpl::getPreviousSibling();
+	return this->$TextImpl::getPreviousSibling();
 }
 
 $Node* DeferredTextImpl::appendChild($Node* newChild) {
-	 return this->$TextImpl::appendChild(newChild);
+	return this->$TextImpl::appendChild(newChild);
 }
 
 $Document* DeferredTextImpl::getOwnerDocument() {
-	 return this->$TextImpl::getOwnerDocument();
+	return this->$TextImpl::getOwnerDocument();
 }
 
 $NamedNodeMap* DeferredTextImpl::getAttributes() {
-	 return this->$TextImpl::getAttributes();
+	return this->$TextImpl::getAttributes();
 }
 
 bool DeferredTextImpl::hasAttributes() {
-	 return this->$TextImpl::hasAttributes();
+	return this->$TextImpl::hasAttributes();
 }
 
 bool DeferredTextImpl::hasChildNodes() {
-	 return this->$TextImpl::hasChildNodes();
+	return this->$TextImpl::hasChildNodes();
 }
 
 $Node* DeferredTextImpl::getFirstChild() {
-	 return this->$TextImpl::getFirstChild();
+	return this->$TextImpl::getFirstChild();
 }
 
 $Node* DeferredTextImpl::getLastChild() {
-	 return this->$TextImpl::getLastChild();
+	return this->$TextImpl::getLastChild();
 }
 
 $Node* DeferredTextImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$TextImpl::insertBefore(newChild, refChild);
+	return this->$TextImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DeferredTextImpl::removeChild($Node* oldChild) {
-	 return this->$TextImpl::removeChild(oldChild);
+	return this->$TextImpl::removeChild(oldChild);
 }
 
 $Node* DeferredTextImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$TextImpl::replaceChild(newChild, oldChild);
+	return this->$TextImpl::replaceChild(newChild, oldChild);
 }
 
 void DeferredTextImpl::normalize() {
@@ -111,15 +111,15 @@ void DeferredTextImpl::normalize() {
 }
 
 bool DeferredTextImpl::isSupported($String* feature, $String* version) {
-	 return this->$TextImpl::isSupported(feature, version);
+	return this->$TextImpl::isSupported(feature, version);
 }
 
 $String* DeferredTextImpl::getNamespaceURI() {
-	 return this->$TextImpl::getNamespaceURI();
+	return this->$TextImpl::getNamespaceURI();
 }
 
 $String* DeferredTextImpl::getPrefix() {
-	 return this->$TextImpl::getPrefix();
+	return this->$TextImpl::getPrefix();
 }
 
 void DeferredTextImpl::setPrefix($String* prefix) {
@@ -127,19 +127,19 @@ void DeferredTextImpl::setPrefix($String* prefix) {
 }
 
 $String* DeferredTextImpl::getLocalName() {
-	 return this->$TextImpl::getLocalName();
+	return this->$TextImpl::getLocalName();
 }
 
 $String* DeferredTextImpl::getBaseURI() {
-	 return this->$TextImpl::getBaseURI();
+	return this->$TextImpl::getBaseURI();
 }
 
 int16_t DeferredTextImpl::compareDocumentPosition($Node* other) {
-	 return this->$TextImpl::compareDocumentPosition(other);
+	return this->$TextImpl::compareDocumentPosition(other);
 }
 
 $String* DeferredTextImpl::getTextContent() {
-	 return this->$TextImpl::getTextContent();
+	return this->$TextImpl::getTextContent();
 }
 
 void DeferredTextImpl::setTextContent($String* textContent) {
@@ -147,51 +147,51 @@ void DeferredTextImpl::setTextContent($String* textContent) {
 }
 
 bool DeferredTextImpl::isSameNode($Node* other) {
-	 return this->$TextImpl::isSameNode(other);
+	return this->$TextImpl::isSameNode(other);
 }
 
 bool DeferredTextImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$TextImpl::isDefaultNamespace(namespaceURI);
+	return this->$TextImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DeferredTextImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$TextImpl::lookupPrefix(namespaceURI);
+	return this->$TextImpl::lookupPrefix(namespaceURI);
 }
 
 $String* DeferredTextImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$TextImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$TextImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 bool DeferredTextImpl::isEqualNode($Node* arg) {
-	 return this->$TextImpl::isEqualNode(arg);
+	return this->$TextImpl::isEqualNode(arg);
 }
 
 $Object* DeferredTextImpl::getFeature($String* feature, $String* version) {
-	 return this->$TextImpl::getFeature(feature, version);
+	return this->$TextImpl::getFeature(feature, version);
 }
 
 $Object* DeferredTextImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$TextImpl::setUserData(key, data, handler);
+	return this->$TextImpl::setUserData(key, data, handler);
 }
 
 $Object* DeferredTextImpl::getUserData($String* key) {
-	 return this->$TextImpl::getUserData(key);
+	return this->$TextImpl::getUserData(key);
 }
 
 $String* DeferredTextImpl::toString() {
-	 return this->$TextImpl::toString();
+	return this->$TextImpl::toString();
 }
 
 int32_t DeferredTextImpl::hashCode() {
-	 return this->$TextImpl::hashCode();
+	return this->$TextImpl::hashCode();
 }
 
 bool DeferredTextImpl::equals(Object$* arg0) {
-	 return this->$TextImpl::equals(arg0);
+	return this->$TextImpl::equals(arg0);
 }
 
 $Object* DeferredTextImpl::clone() {
-	 return this->$TextImpl::clone();
+	return this->$TextImpl::clone();
 }
 
 void DeferredTextImpl::finalize() {

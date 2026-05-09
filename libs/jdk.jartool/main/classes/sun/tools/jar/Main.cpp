@@ -244,7 +244,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* s1, Object$* s2) override {
-		 return Main::lambda$static$27($cast($String, s1), $cast($String, s2));
+		return Main::lambda$static$27($cast($String, s1), $cast($String, s2));
 	}
 };
 $Class* Main$$Lambda$lambda$static$27::load$($String* name, bool initialize) {
@@ -274,7 +274,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ZipEntry, inst$)->getName());
+		return $of($sure($ZipEntry, inst$)->getName());
 	}
 };
 $Class* Main$$Lambda$getName$1::load$($String* name, bool initialize) {
@@ -304,7 +304,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return Main::lambda$run$0($cast($Main$Entry, e));
+		return Main::lambda$run$0($cast($Main$Entry, e));
 	}
 };
 $Class* Main$$Lambda$lambda$run$0$2::load$($String* name, bool initialize) {
@@ -377,7 +377,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* fileEntries) override {
-		 return $nc(inst$)->filesToEntryNames($cast($Map$Entry, fileEntries));
+		return $nc(inst$)->filesToEntryNames($cast($Map$Entry, fileEntries));
 	}
 	Main* inst$ = nullptr;
 };
@@ -412,7 +412,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return Main::lambda$filesMapToFiles$2(x$0);
+		return Main::lambda$filesMapToFiles$2(x$0);
 	}
 };
 $Class* Main$$Lambda$lambda$filesMapToFiles$2$5::load$($String* name, bool initialize) {
@@ -445,7 +445,7 @@ public:
 		this->version = version;
 	}
 	virtual $Object* apply(Object$* f) override {
-		 return $of($nc(inst$)->lambda$filesToEntryNames$3(cpaths, version, $cast($String, f)));
+		return $of($nc(inst$)->lambda$filesToEntryNames$3(cpaths, version, $cast($String, f)));
 	}
 	Main* inst$ = nullptr;
 	$Set* cpaths = nullptr;
@@ -559,7 +559,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return Main::lambda$describeModule$6($cast($ZipEntry, e));
+		return Main::lambda$describeModule$6($cast($ZipEntry, e));
 	}
 };
 $Class* Main$$Lambda$lambda$describeModule$6$9::load$($String* name, bool initialize) {
@@ -590,7 +590,7 @@ public:
 		$set(this, zipFile, zipFile);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return Main::lambda$describeModule$7(zipFile, $cast($ZipEntry, e));
+		return Main::lambda$describeModule$7(zipFile, $cast($ZipEntry, e));
 	}
 	$ZipFile* zipFile = nullptr;
 };
@@ -625,7 +625,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return Main::lambda$describeModule$8(x$0);
+		return Main::lambda$describeModule$8(x$0);
 	}
 };
 $Class* Main$$Lambda$lambda$describeModule$8$11::load$($String* name, bool initialize) {
@@ -655,7 +655,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Main$ModuleInfoEntry, inst$)->name());
+		return $of($sure($Main$ModuleInfoEntry, inst$)->name());
 	}
 };
 $Class* Main$$Lambda$name$12::load$($String* name, bool initialize) {
@@ -685,7 +685,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return Main::lambda$describeModuleFromStream$9(x$0);
+		return Main::lambda$describeModuleFromStream$9(x$0);
 	}
 };
 $Class* Main$$Lambda$lambda$describeModuleFromStream$9$13::load$($String* name, bool initialize) {
@@ -715,7 +715,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return Main::lambda$describeModuleFromEntries$10($cast($Main$ModuleInfoEntry, e));
+		return Main::lambda$describeModuleFromEntries$10($cast($Main$ModuleInfoEntry, e));
 	}
 };
 $Class* Main$$Lambda$lambda$describeModuleFromEntries$10$14::load$($String* name, bool initialize) {
@@ -745,7 +745,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $of(Main::versionFromEntryName($cast($String, name)));
+		return $of(Main::versionFromEntryName($cast($String, name)));
 	}
 };
 $Class* Main$$Lambda$versionFromEntryName$15::load$($String* name, bool initialize) {
@@ -775,7 +775,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(Main::lambda$toLowerCaseString$11(e));
+		return $of(Main::lambda$toLowerCaseString$11(e));
 	}
 };
 $Class* Main$$Lambda$lambda$toLowerCaseString$11$16::load$($String* name, bool initialize) {
@@ -805,7 +805,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(Main::lambda$toString$12(e));
+		return $of(Main::lambda$toString$12(e));
 	}
 };
 $Class* Main$$Lambda$lambda$toString$12$17::load$($String* name, bool initialize) {
@@ -835,7 +835,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Exports, inst$)->source());
+		return $of($sure($ModuleDescriptor$Exports, inst$)->source());
 	}
 };
 $Class* Main$$Lambda$source$18::load$($String* name, bool initialize) {
@@ -865,7 +865,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return Main::lambda$describeModule$13($cast($ModuleDescriptor$Exports, e));
+		return Main::lambda$describeModule$13($cast($ModuleDescriptor$Exports, e));
 	}
 };
 $Class* Main$$Lambda$lambda$describeModule$13$19::load$($String* name, bool initialize) {
@@ -1003,7 +1003,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Provides, inst$)->service());
+		return $of($sure($ModuleDescriptor$Provides, inst$)->service());
 	}
 };
 $Class* Main$$Lambda$service$23::load$($String* name, bool initialize) {
@@ -1069,7 +1069,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($ModuleDescriptor$Exports, inst$)->isQualified();
+		return $sure($ModuleDescriptor$Exports, inst$)->isQualified();
 	}
 };
 $Class* Main$$Lambda$isQualified$25::load$($String* name, bool initialize) {
@@ -1135,7 +1135,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Opens, inst$)->source());
+		return $of($sure($ModuleDescriptor$Opens, inst$)->source());
 	}
 };
 $Class* Main$$Lambda$source$27::load$($String* name, bool initialize) {
@@ -1165,7 +1165,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* o) override {
-		 return Main::lambda$describeModule$19($cast($ModuleDescriptor$Opens, o));
+		return Main::lambda$describeModule$19($cast($ModuleDescriptor$Opens, o));
 	}
 };
 $Class* Main$$Lambda$lambda$describeModule$19$28::load$($String* name, bool initialize) {
@@ -1231,7 +1231,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($ModuleDescriptor$Opens, inst$)->isQualified();
+		return $sure($ModuleDescriptor$Opens, inst$)->isQualified();
 	}
 };
 $Class* Main$$Lambda$isQualified$30::load$($String* name, bool initialize) {
@@ -1444,7 +1444,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ModuleDescriptor$Provides, inst$)->providers();
+		return $sure($ModuleDescriptor$Provides, inst$)->providers();
 	}
 };
 $Class* Main$$Lambda$providers$36::load$($String* name, bool initialize) {
@@ -1474,7 +1474,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Collection, inst$)->stream();
+		return $sure($Collection, inst$)->stream();
 	}
 };
 $Class* Main$$Lambda$stream$37::load$($String* name, bool initialize) {
@@ -1505,7 +1505,7 @@ public:
 		$set(this, entries, entries);
 	}
 	virtual bool test(Object$* p) override {
-		 return Main::lambda$checkModuleInfo$25(entries, $cast($String, p));
+		return Main::lambda$checkModuleInfo$25(entries, $cast($String, p));
 	}
 	$Set* entries = nullptr;
 };

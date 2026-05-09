@@ -83,43 +83,43 @@ void BasicParserConfiguration::addRecognizedProperties($StringArray* propertyIds
 }
 
 bool BasicParserConfiguration::getFeature($String* featureId) {
-	 return this->$ParserConfigurationSettings::getFeature(featureId);
+	return this->$ParserConfigurationSettings::getFeature(featureId);
 }
 
 bool BasicParserConfiguration::getFeature($String* featureId, bool defaultValue) {
-	 return this->$ParserConfigurationSettings::getFeature(featureId, defaultValue);
+	return this->$ParserConfigurationSettings::getFeature(featureId, defaultValue);
 }
 
 $FeatureState* BasicParserConfiguration::getFeatureState($String* featureId) {
-	 return this->$ParserConfigurationSettings::getFeatureState(featureId);
+	return this->$ParserConfigurationSettings::getFeatureState(featureId);
 }
 
 $Object* BasicParserConfiguration::getProperty($String* propertyId) {
-	 return this->$ParserConfigurationSettings::getProperty(propertyId);
+	return this->$ParserConfigurationSettings::getProperty(propertyId);
 }
 
 $Object* BasicParserConfiguration::getProperty($String* propertyId, Object$* defaultValue) {
-	 return this->$ParserConfigurationSettings::getProperty(propertyId, defaultValue);
+	return this->$ParserConfigurationSettings::getProperty(propertyId, defaultValue);
 }
 
 $PropertyState* BasicParserConfiguration::getPropertyState($String* propertyId) {
-	 return this->$ParserConfigurationSettings::getPropertyState(propertyId);
+	return this->$ParserConfigurationSettings::getPropertyState(propertyId);
 }
 
 int32_t BasicParserConfiguration::hashCode() {
-	 return this->$ParserConfigurationSettings::hashCode();
+	return this->$ParserConfigurationSettings::hashCode();
 }
 
 bool BasicParserConfiguration::equals(Object$* arg0) {
-	 return this->$ParserConfigurationSettings::equals(arg0);
+	return this->$ParserConfigurationSettings::equals(arg0);
 }
 
 $Object* BasicParserConfiguration::clone() {
-	 return this->$ParserConfigurationSettings::clone();
+	return this->$ParserConfigurationSettings::clone();
 }
 
 $String* BasicParserConfiguration::toString() {
-	 return this->$ParserConfigurationSettings::toString();
+	return this->$ParserConfigurationSettings::toString();
 }
 
 void BasicParserConfiguration::finalize() {

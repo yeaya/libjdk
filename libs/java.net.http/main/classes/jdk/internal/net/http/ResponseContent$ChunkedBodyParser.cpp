@@ -67,7 +67,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	ResponseContent$ChunkedBodyParser* inst$ = nullptr;
 };
@@ -103,7 +103,7 @@ public:
 		$set(this, chunk, chunk);
 	}
 	virtual $Object* get() override {
-		 return $of(ResponseContent$ChunkedBodyParser::lambda$tryReadOneHunk$0(chunk));
+		return $of(ResponseContent$ChunkedBodyParser::lambda$tryReadOneHunk$0(chunk));
 	}
 	$ByteBuffer* chunk = nullptr;
 };

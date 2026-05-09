@@ -11,19 +11,19 @@ namespace javax {
 		namespace plaf {
 
 bool DimensionUIResource::equals(Object$* obj) {
-	 return this->$Dimension::equals(obj);
+	return this->$Dimension::equals(obj);
 }
 
 int32_t DimensionUIResource::hashCode() {
-	 return this->$Dimension::hashCode();
+	return this->$Dimension::hashCode();
 }
 
 $String* DimensionUIResource::toString() {
-	 return this->$Dimension::toString();
+	return this->$Dimension::toString();
 }
 
 $Object* DimensionUIResource::clone() {
-	 return this->$Dimension::clone();
+	return this->$Dimension::clone();
 }
 
 void DimensionUIResource::finalize() {

@@ -49,63 +49,63 @@ namespace com {
 					namespace events {
 
 int32_t StartElementEvent::getEventType() {
-	 return this->$DummyEvent::getEventType();
+	return this->$DummyEvent::getEventType();
 }
 
 bool StartElementEvent::isStartElement() {
-	 return this->$DummyEvent::isStartElement();
+	return this->$DummyEvent::isStartElement();
 }
 
 bool StartElementEvent::isEndElement() {
-	 return this->$DummyEvent::isEndElement();
+	return this->$DummyEvent::isEndElement();
 }
 
 bool StartElementEvent::isEntityReference() {
-	 return this->$DummyEvent::isEntityReference();
+	return this->$DummyEvent::isEntityReference();
 }
 
 bool StartElementEvent::isProcessingInstruction() {
-	 return this->$DummyEvent::isProcessingInstruction();
+	return this->$DummyEvent::isProcessingInstruction();
 }
 
 bool StartElementEvent::isStartDocument() {
-	 return this->$DummyEvent::isStartDocument();
+	return this->$DummyEvent::isStartDocument();
 }
 
 bool StartElementEvent::isEndDocument() {
-	 return this->$DummyEvent::isEndDocument();
+	return this->$DummyEvent::isEndDocument();
 }
 
 $Location* StartElementEvent::getLocation() {
-	 return this->$DummyEvent::getLocation();
+	return this->$DummyEvent::getLocation();
 }
 
 $Characters* StartElementEvent::asCharacters() {
-	 return this->$DummyEvent::asCharacters();
+	return this->$DummyEvent::asCharacters();
 }
 
 $EndElement* StartElementEvent::asEndElement() {
-	 return this->$DummyEvent::asEndElement();
+	return this->$DummyEvent::asEndElement();
 }
 
 $StartElement* StartElementEvent::asStartElement() {
-	 return this->$DummyEvent::asStartElement();
+	return this->$DummyEvent::asStartElement();
 }
 
 $QName* StartElementEvent::getSchemaType() {
-	 return this->$DummyEvent::getSchemaType();
+	return this->$DummyEvent::getSchemaType();
 }
 
 bool StartElementEvent::isAttribute() {
-	 return this->$DummyEvent::isAttribute();
+	return this->$DummyEvent::isAttribute();
 }
 
 bool StartElementEvent::isCharacters() {
-	 return this->$DummyEvent::isCharacters();
+	return this->$DummyEvent::isCharacters();
 }
 
 bool StartElementEvent::isNamespace() {
-	 return this->$DummyEvent::isNamespace();
+	return this->$DummyEvent::isNamespace();
 }
 
 void StartElementEvent::writeAsEncodedUnicode($Writer* writer) {
@@ -113,15 +113,15 @@ void StartElementEvent::writeAsEncodedUnicode($Writer* writer) {
 }
 
 int32_t StartElementEvent::hashCode() {
-	 return this->$DummyEvent::hashCode();
+	return this->$DummyEvent::hashCode();
 }
 
 bool StartElementEvent::equals(Object$* arg0) {
-	 return this->$DummyEvent::equals(arg0);
+	return this->$DummyEvent::equals(arg0);
 }
 
 $Object* StartElementEvent::clone() {
-	 return this->$DummyEvent::clone();
+	return this->$DummyEvent::clone();
 }
 
 void StartElementEvent::finalize() {

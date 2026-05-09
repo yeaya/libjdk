@@ -121,7 +121,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(Symbol$ClassSymbol::lambda$getPermittedSubclasses$0($cast($Symbol, s)));
+		return $of(Symbol$ClassSymbol::lambda$getPermittedSubclasses$0($cast($Symbol, s)));
 	}
 };
 $Class* Symbol$ClassSymbol$$Lambda$lambda$getPermittedSubclasses$0::load$($String* name, bool initialize) {
@@ -146,39 +146,39 @@ $Class* Symbol$ClassSymbol$$Lambda$lambda$getPermittedSubclasses$0::load$($Strin
 $Class* Symbol$ClassSymbol$$Lambda$lambda$getPermittedSubclasses$0::class$ = nullptr;
 
 $List* Symbol$ClassSymbol::getAnnotationMirrors() {
-	 return this->$Symbol$TypeSymbol::getAnnotationMirrors();
+	return this->$Symbol$TypeSymbol::getAnnotationMirrors();
 }
 
 $Element* Symbol$ClassSymbol::getEnclosingElement() {
-	 return this->$Symbol$TypeSymbol::getEnclosingElement();
+	return this->$Symbol$TypeSymbol::getEnclosingElement();
 }
 
 $Name* Symbol$ClassSymbol::getSimpleName() {
-	 return this->$Symbol$TypeSymbol::getSimpleName();
+	return this->$Symbol$TypeSymbol::getSimpleName();
 }
 
 $TypeMirror* Symbol$ClassSymbol::asType() {
-	 return this->$Symbol$TypeSymbol::asType();
+	return this->$Symbol$TypeSymbol::asType();
 }
 
 $AnnotationArray* Symbol$ClassSymbol::getAnnotationsByType($Class* annoType) {
-	 return this->$Symbol$TypeSymbol::getAnnotationsByType(annoType);
+	return this->$Symbol$TypeSymbol::getAnnotationsByType(annoType);
 }
 
 $Annotation* Symbol$ClassSymbol::getAnnotation($Class* annoType) {
-	 return this->$Symbol$TypeSymbol::getAnnotation(annoType);
+	return this->$Symbol$TypeSymbol::getAnnotation(annoType);
 }
 
 int32_t Symbol$ClassSymbol::hashCode() {
-	 return this->$Symbol$TypeSymbol::hashCode();
+	return this->$Symbol$TypeSymbol::hashCode();
 }
 
 bool Symbol$ClassSymbol::equals(Object$* arg0) {
-	 return this->$Symbol$TypeSymbol::equals(arg0);
+	return this->$Symbol$TypeSymbol::equals(arg0);
 }
 
 $Object* Symbol$ClassSymbol::clone() {
-	 return this->$Symbol$TypeSymbol::clone();
+	return this->$Symbol$TypeSymbol::clone();
 }
 
 void Symbol$ClassSymbol::finalize() {

@@ -165,23 +165,23 @@ namespace sun {
 		namespace X11 {
 
 int64_t XEmbedCanvasPeer::getWindow() {
-	 return this->$XCanvasPeer::getWindow();
+	return this->$XCanvasPeer::getWindow();
 }
 
 $String* XEmbedCanvasPeer::toString() {
-	 return this->$XCanvasPeer::toString();
+	return this->$XCanvasPeer::toString();
 }
 
 int32_t XEmbedCanvasPeer::hashCode() {
-	 return this->$XCanvasPeer::hashCode();
+	return this->$XCanvasPeer::hashCode();
 }
 
 bool XEmbedCanvasPeer::equals(Object$* arg0) {
-	 return this->$XCanvasPeer::equals(arg0);
+	return this->$XCanvasPeer::equals(arg0);
 }
 
 $Object* XEmbedCanvasPeer::clone() {
-	 return this->$XCanvasPeer::clone();
+	return this->$XCanvasPeer::clone();
 }
 
 void XEmbedCanvasPeer::finalize() {

@@ -88,7 +88,7 @@ namespace com {
 						namespace generic {
 
 $String* ClassGen::toString() {
-	 return this->$AccessFlags::toString();
+	return this->$AccessFlags::toString();
 }
 
 void ClassGen::finalize() {

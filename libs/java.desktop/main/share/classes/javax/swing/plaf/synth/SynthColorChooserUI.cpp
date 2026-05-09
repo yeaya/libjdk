@@ -38,19 +38,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthColorChooserUI::hashCode() {
-	 return this->$BasicColorChooserUI::hashCode();
+	return this->$BasicColorChooserUI::hashCode();
 }
 
 bool SynthColorChooserUI::equals(Object$* arg0) {
-	 return this->$BasicColorChooserUI::equals(arg0);
+	return this->$BasicColorChooserUI::equals(arg0);
 }
 
 $Object* SynthColorChooserUI::clone() {
-	 return this->$BasicColorChooserUI::clone();
+	return this->$BasicColorChooserUI::clone();
 }
 
 $String* SynthColorChooserUI::toString() {
-	 return this->$BasicColorChooserUI::toString();
+	return this->$BasicColorChooserUI::toString();
 }
 
 void SynthColorChooserUI::finalize() {

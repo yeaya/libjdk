@@ -131,15 +131,15 @@ namespace com {
 							namespace datatype {
 
 bool XMLGregorianCalendarImpl::equals(Object$* obj) {
-	 return this->$XMLGregorianCalendar::equals(obj);
+	return this->$XMLGregorianCalendar::equals(obj);
 }
 
 int32_t XMLGregorianCalendarImpl::hashCode() {
-	 return this->$XMLGregorianCalendar::hashCode();
+	return this->$XMLGregorianCalendar::hashCode();
 }
 
 $String* XMLGregorianCalendarImpl::toString() {
-	 return this->$XMLGregorianCalendar::toString();
+	return this->$XMLGregorianCalendar::toString();
 }
 
 void XMLGregorianCalendarImpl::finalize() {

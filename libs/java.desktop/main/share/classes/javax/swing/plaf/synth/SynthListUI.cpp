@@ -48,19 +48,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthListUI::hashCode() {
-	 return this->$BasicListUI::hashCode();
+	return this->$BasicListUI::hashCode();
 }
 
 bool SynthListUI::equals(Object$* arg0) {
-	 return this->$BasicListUI::equals(arg0);
+	return this->$BasicListUI::equals(arg0);
 }
 
 $Object* SynthListUI::clone() {
-	 return this->$BasicListUI::clone();
+	return this->$BasicListUI::clone();
 }
 
 $String* SynthListUI::toString() {
-	 return this->$BasicListUI::toString();
+	return this->$BasicListUI::toString();
 }
 
 void SynthListUI::finalize() {

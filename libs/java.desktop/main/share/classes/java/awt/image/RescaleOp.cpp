@@ -64,19 +64,19 @@ namespace java {
 		namespace image {
 
 int32_t RescaleOp::hashCode() {
-	 return this->$BufferedImageOp::hashCode();
+	return this->$BufferedImageOp::hashCode();
 }
 
 bool RescaleOp::equals(Object$* arg0) {
-	 return this->$BufferedImageOp::equals(arg0);
+	return this->$BufferedImageOp::equals(arg0);
 }
 
 $Object* RescaleOp::clone() {
-	 return this->$BufferedImageOp::clone();
+	return this->$BufferedImageOp::clone();
 }
 
 $String* RescaleOp::toString() {
-	 return this->$BufferedImageOp::toString();
+	return this->$BufferedImageOp::toString();
 }
 
 void RescaleOp::finalize() {

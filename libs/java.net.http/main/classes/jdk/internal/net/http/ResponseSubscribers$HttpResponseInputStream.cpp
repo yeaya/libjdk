@@ -70,7 +70,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$String* inst$ = nullptr;
 };
@@ -100,19 +100,19 @@ $Class* ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::load$($Str
 $Class* ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::class$ = nullptr;
 
 int32_t ResponseSubscribers$HttpResponseInputStream::hashCode() {
-	 return this->$InputStream::hashCode();
+	return this->$InputStream::hashCode();
 }
 
 bool ResponseSubscribers$HttpResponseInputStream::equals(Object$* arg0) {
-	 return this->$InputStream::equals(arg0);
+	return this->$InputStream::equals(arg0);
 }
 
 $Object* ResponseSubscribers$HttpResponseInputStream::clone() {
-	 return this->$InputStream::clone();
+	return this->$InputStream::clone();
 }
 
 $String* ResponseSubscribers$HttpResponseInputStream::toString() {
-	 return this->$InputStream::toString();
+	return this->$InputStream::toString();
 }
 
 void ResponseSubscribers$HttpResponseInputStream::finalize() {

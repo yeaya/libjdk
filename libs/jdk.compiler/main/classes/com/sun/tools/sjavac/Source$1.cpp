@@ -58,7 +58,7 @@ public:
 		$set(this, relToRoot, relToRoot);
 	}
 	virtual bool test(Object$* im) override {
-		 return Source$1::lambda$visitFile$0(relToRoot, $cast($PathMatcher, im));
+		return Source$1::lambda$visitFile$0(relToRoot, $cast($PathMatcher, im));
 	}
 	$Path* relToRoot = nullptr;
 };

@@ -11,19 +11,19 @@ namespace javax {
 		namespace event {
 
 int32_t MouseInputListener::hashCode() {
-	 return this->$MouseListener::hashCode();
+	return this->$MouseListener::hashCode();
 }
 
 bool MouseInputListener::equals(Object$* arg0) {
-	 return this->$MouseListener::equals(arg0);
+	return this->$MouseListener::equals(arg0);
 }
 
 $Object* MouseInputListener::clone() {
-	 return this->$MouseListener::clone();
+	return this->$MouseListener::clone();
 }
 
 $String* MouseInputListener::toString() {
-	 return this->$MouseListener::toString();
+	return this->$MouseListener::toString();
 }
 
 void MouseInputListener::finalize() {

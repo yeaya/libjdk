@@ -30,19 +30,19 @@ namespace javax {
 	namespace swing {
 
 $String* CellRendererPane::toString() {
-	 return this->$Container::toString();
+	return this->$Container::toString();
 }
 
 int32_t CellRendererPane::hashCode() {
-	 return this->$Container::hashCode();
+	return this->$Container::hashCode();
 }
 
 bool CellRendererPane::equals(Object$* arg0) {
-	 return this->$Container::equals(arg0);
+	return this->$Container::equals(arg0);
 }
 
 $Object* CellRendererPane::clone() {
-	 return this->$Container::clone();
+	return this->$Container::clone();
 }
 
 void CellRendererPane::finalize() {

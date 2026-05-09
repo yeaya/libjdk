@@ -29,19 +29,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaKeyBindings$LateBoundInputMap::hashCode() {
-	 return this->$UIDefaults$LazyValue::hashCode();
+	return this->$UIDefaults$LazyValue::hashCode();
 }
 
 bool AquaKeyBindings$LateBoundInputMap::equals(Object$* arg0) {
-	 return this->$UIDefaults$LazyValue::equals(arg0);
+	return this->$UIDefaults$LazyValue::equals(arg0);
 }
 
 $Object* AquaKeyBindings$LateBoundInputMap::clone() {
-	 return this->$UIDefaults$LazyValue::clone();
+	return this->$UIDefaults$LazyValue::clone();
 }
 
 $String* AquaKeyBindings$LateBoundInputMap::toString() {
-	 return this->$UIDefaults$LazyValue::toString();
+	return this->$UIDefaults$LazyValue::toString();
 }
 
 void AquaKeyBindings$LateBoundInputMap::finalize() {

@@ -37,15 +37,15 @@ namespace org {
 					namespace dom {
 
 bool DOMX509IssuerSerial::isFeatureSupported($String* feature) {
-	 return this->$DOMStructure::isFeatureSupported(feature);
+	return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMX509IssuerSerial::clone() {
-	 return this->$DOMStructure::clone();
+	return this->$DOMStructure::clone();
 }
 
 $String* DOMX509IssuerSerial::toString() {
-	 return this->$DOMStructure::toString();
+	return this->$DOMStructure::toString();
 }
 
 void DOMX509IssuerSerial::finalize() {

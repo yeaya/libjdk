@@ -118,7 +118,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(LDAPCertStoreImpl::lambda$createInitialDirContext$1());
+		return $of(LDAPCertStoreImpl::lambda$createInitialDirContext$1());
 	}
 };
 $Class* LDAPCertStoreImpl$$Lambda$lambda$createInitialDirContext$1::load$($String* name, bool initialize) {
@@ -148,7 +148,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(LDAPCertStoreImpl::lambda$static$0());
+		return $of(LDAPCertStoreImpl::lambda$static$0());
 	}
 };
 $Class* LDAPCertStoreImpl$$Lambda$lambda$static$0$1::load$($String* name, bool initialize) {

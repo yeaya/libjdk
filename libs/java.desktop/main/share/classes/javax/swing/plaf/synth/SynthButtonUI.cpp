@@ -77,19 +77,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthButtonUI::hashCode() {
-	 return this->$BasicButtonUI::hashCode();
+	return this->$BasicButtonUI::hashCode();
 }
 
 bool SynthButtonUI::equals(Object$* arg0) {
-	 return this->$BasicButtonUI::equals(arg0);
+	return this->$BasicButtonUI::equals(arg0);
 }
 
 $Object* SynthButtonUI::clone() {
-	 return this->$BasicButtonUI::clone();
+	return this->$BasicButtonUI::clone();
 }
 
 $String* SynthButtonUI::toString() {
-	 return this->$BasicButtonUI::toString();
+	return this->$BasicButtonUI::toString();
 }
 
 void SynthButtonUI::finalize() {

@@ -44,11 +44,11 @@ namespace com {
 						namespace dom {
 
 $NodeList* TextImpl::getChildNodes() {
-	 return this->$CharacterDataImpl::getChildNodes();
+	return this->$CharacterDataImpl::getChildNodes();
 }
 
 $String* TextImpl::getNodeValue() {
-	 return this->$CharacterDataImpl::getNodeValue();
+	return this->$CharacterDataImpl::getNodeValue();
 }
 
 void TextImpl::setNodeValue($String* value) {
@@ -56,11 +56,11 @@ void TextImpl::setNodeValue($String* value) {
 }
 
 $String* TextImpl::getData() {
-	 return this->$CharacterDataImpl::getData();
+	return this->$CharacterDataImpl::getData();
 }
 
 int32_t TextImpl::getLength() {
-	 return this->$CharacterDataImpl::getLength();
+	return this->$CharacterDataImpl::getLength();
 }
 
 void TextImpl::appendData($String* data) {
@@ -84,63 +84,63 @@ void TextImpl::setData($String* value) {
 }
 
 $String* TextImpl::substringData(int32_t offset, int32_t count) {
-	 return this->$CharacterDataImpl::substringData(offset, count);
+	return this->$CharacterDataImpl::substringData(offset, count);
 }
 
 $Node* TextImpl::cloneNode(bool deep) {
-	 return this->$CharacterDataImpl::cloneNode(deep);
+	return this->$CharacterDataImpl::cloneNode(deep);
 }
 
 $Node* TextImpl::getParentNode() {
-	 return this->$CharacterDataImpl::getParentNode();
+	return this->$CharacterDataImpl::getParentNode();
 }
 
 $Node* TextImpl::getNextSibling() {
-	 return this->$CharacterDataImpl::getNextSibling();
+	return this->$CharacterDataImpl::getNextSibling();
 }
 
 $Node* TextImpl::getPreviousSibling() {
-	 return this->$CharacterDataImpl::getPreviousSibling();
+	return this->$CharacterDataImpl::getPreviousSibling();
 }
 
 $Node* TextImpl::appendChild($Node* newChild) {
-	 return this->$CharacterDataImpl::appendChild(newChild);
+	return this->$CharacterDataImpl::appendChild(newChild);
 }
 
 $Document* TextImpl::getOwnerDocument() {
-	 return this->$CharacterDataImpl::getOwnerDocument();
+	return this->$CharacterDataImpl::getOwnerDocument();
 }
 
 $NamedNodeMap* TextImpl::getAttributes() {
-	 return this->$CharacterDataImpl::getAttributes();
+	return this->$CharacterDataImpl::getAttributes();
 }
 
 bool TextImpl::hasAttributes() {
-	 return this->$CharacterDataImpl::hasAttributes();
+	return this->$CharacterDataImpl::hasAttributes();
 }
 
 bool TextImpl::hasChildNodes() {
-	 return this->$CharacterDataImpl::hasChildNodes();
+	return this->$CharacterDataImpl::hasChildNodes();
 }
 
 $Node* TextImpl::getFirstChild() {
-	 return this->$CharacterDataImpl::getFirstChild();
+	return this->$CharacterDataImpl::getFirstChild();
 }
 
 $Node* TextImpl::getLastChild() {
-	 return this->$CharacterDataImpl::getLastChild();
+	return this->$CharacterDataImpl::getLastChild();
 }
 
 $Node* TextImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$CharacterDataImpl::insertBefore(newChild, refChild);
+	return this->$CharacterDataImpl::insertBefore(newChild, refChild);
 }
 
 $Node* TextImpl::removeChild($Node* oldChild) {
-	 return this->$CharacterDataImpl::removeChild(oldChild);
+	return this->$CharacterDataImpl::removeChild(oldChild);
 }
 
 $Node* TextImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$CharacterDataImpl::replaceChild(newChild, oldChild);
+	return this->$CharacterDataImpl::replaceChild(newChild, oldChild);
 }
 
 void TextImpl::normalize() {
@@ -148,15 +148,15 @@ void TextImpl::normalize() {
 }
 
 bool TextImpl::isSupported($String* feature, $String* version) {
-	 return this->$CharacterDataImpl::isSupported(feature, version);
+	return this->$CharacterDataImpl::isSupported(feature, version);
 }
 
 $String* TextImpl::getNamespaceURI() {
-	 return this->$CharacterDataImpl::getNamespaceURI();
+	return this->$CharacterDataImpl::getNamespaceURI();
 }
 
 $String* TextImpl::getPrefix() {
-	 return this->$CharacterDataImpl::getPrefix();
+	return this->$CharacterDataImpl::getPrefix();
 }
 
 void TextImpl::setPrefix($String* prefix) {
@@ -164,19 +164,19 @@ void TextImpl::setPrefix($String* prefix) {
 }
 
 $String* TextImpl::getLocalName() {
-	 return this->$CharacterDataImpl::getLocalName();
+	return this->$CharacterDataImpl::getLocalName();
 }
 
 $String* TextImpl::getBaseURI() {
-	 return this->$CharacterDataImpl::getBaseURI();
+	return this->$CharacterDataImpl::getBaseURI();
 }
 
 int16_t TextImpl::compareDocumentPosition($Node* other) {
-	 return this->$CharacterDataImpl::compareDocumentPosition(other);
+	return this->$CharacterDataImpl::compareDocumentPosition(other);
 }
 
 $String* TextImpl::getTextContent() {
-	 return this->$CharacterDataImpl::getTextContent();
+	return this->$CharacterDataImpl::getTextContent();
 }
 
 void TextImpl::setTextContent($String* textContent) {
@@ -184,51 +184,51 @@ void TextImpl::setTextContent($String* textContent) {
 }
 
 bool TextImpl::isSameNode($Node* other) {
-	 return this->$CharacterDataImpl::isSameNode(other);
+	return this->$CharacterDataImpl::isSameNode(other);
 }
 
 bool TextImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$CharacterDataImpl::isDefaultNamespace(namespaceURI);
+	return this->$CharacterDataImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* TextImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$CharacterDataImpl::lookupPrefix(namespaceURI);
+	return this->$CharacterDataImpl::lookupPrefix(namespaceURI);
 }
 
 $String* TextImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$CharacterDataImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$CharacterDataImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 bool TextImpl::isEqualNode($Node* arg) {
-	 return this->$CharacterDataImpl::isEqualNode(arg);
+	return this->$CharacterDataImpl::isEqualNode(arg);
 }
 
 $Object* TextImpl::getFeature($String* feature, $String* version) {
-	 return this->$CharacterDataImpl::getFeature(feature, version);
+	return this->$CharacterDataImpl::getFeature(feature, version);
 }
 
 $Object* TextImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$CharacterDataImpl::setUserData(key, data, handler);
+	return this->$CharacterDataImpl::setUserData(key, data, handler);
 }
 
 $Object* TextImpl::getUserData($String* key) {
-	 return this->$CharacterDataImpl::getUserData(key);
+	return this->$CharacterDataImpl::getUserData(key);
 }
 
 $String* TextImpl::toString() {
-	 return this->$CharacterDataImpl::toString();
+	return this->$CharacterDataImpl::toString();
 }
 
 int32_t TextImpl::hashCode() {
-	 return this->$CharacterDataImpl::hashCode();
+	return this->$CharacterDataImpl::hashCode();
 }
 
 bool TextImpl::equals(Object$* arg0) {
-	 return this->$CharacterDataImpl::equals(arg0);
+	return this->$CharacterDataImpl::equals(arg0);
 }
 
 $Object* TextImpl::clone() {
-	 return this->$CharacterDataImpl::clone();
+	return this->$CharacterDataImpl::clone();
 }
 
 void TextImpl::finalize() {

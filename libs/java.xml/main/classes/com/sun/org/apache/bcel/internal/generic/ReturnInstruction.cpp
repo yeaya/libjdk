@@ -41,23 +41,23 @@ namespace com {
 						namespace generic {
 
 $String* ReturnInstruction::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t ReturnInstruction::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::consumeStack(cpg);
+	return this->$Instruction::consumeStack(cpg);
 }
 
 bool ReturnInstruction::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t ReturnInstruction::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* ReturnInstruction::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void ReturnInstruction::finalize() {

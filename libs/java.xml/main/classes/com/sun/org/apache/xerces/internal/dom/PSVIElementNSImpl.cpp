@@ -58,19 +58,19 @@ namespace com {
 						namespace dom {
 
 $String* PSVIElementNSImpl::toString() {
-	 return this->$ElementNSImpl::toString();
+	return this->$ElementNSImpl::toString();
 }
 
 int32_t PSVIElementNSImpl::hashCode() {
-	 return this->$ElementNSImpl::hashCode();
+	return this->$ElementNSImpl::hashCode();
 }
 
 bool PSVIElementNSImpl::equals(Object$* arg0) {
-	 return this->$ElementNSImpl::equals(arg0);
+	return this->$ElementNSImpl::equals(arg0);
 }
 
 $Object* PSVIElementNSImpl::clone() {
-	 return this->$ElementNSImpl::clone();
+	return this->$ElementNSImpl::clone();
 }
 
 void PSVIElementNSImpl::finalize() {

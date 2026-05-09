@@ -21,7 +21,7 @@ namespace sun {
 	namespace font {
 
 $String* FontLineMetrics::toString() {
-	 return this->$LineMetrics::toString();
+	return this->$LineMetrics::toString();
 }
 
 void FontLineMetrics::finalize() {

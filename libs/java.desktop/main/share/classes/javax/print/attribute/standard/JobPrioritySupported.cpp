@@ -13,15 +13,15 @@ namespace javax {
 			namespace standard {
 
 int32_t JobPrioritySupported::hashCode() {
-	 return this->$IntegerSyntax::hashCode();
+	return this->$IntegerSyntax::hashCode();
 }
 
 $String* JobPrioritySupported::toString() {
-	 return this->$IntegerSyntax::toString();
+	return this->$IntegerSyntax::toString();
 }
 
 $Object* JobPrioritySupported::clone() {
-	 return this->$IntegerSyntax::clone();
+	return this->$IntegerSyntax::clone();
 }
 
 void JobPrioritySupported::finalize() {

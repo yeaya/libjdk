@@ -62,19 +62,19 @@ namespace javax {
 	namespace swing {
 
 int32_t TransferHandler$DropHandler::hashCode() {
-	 return this->$DropTargetListener::hashCode();
+	return this->$DropTargetListener::hashCode();
 }
 
 bool TransferHandler$DropHandler::equals(Object$* arg0) {
-	 return this->$DropTargetListener::equals(arg0);
+	return this->$DropTargetListener::equals(arg0);
 }
 
 $Object* TransferHandler$DropHandler::clone() {
-	 return this->$DropTargetListener::clone();
+	return this->$DropTargetListener::clone();
 }
 
 $String* TransferHandler$DropHandler::toString() {
-	 return this->$DropTargetListener::toString();
+	return this->$DropTargetListener::toString();
 }
 
 void TransferHandler$DropHandler::finalize() {

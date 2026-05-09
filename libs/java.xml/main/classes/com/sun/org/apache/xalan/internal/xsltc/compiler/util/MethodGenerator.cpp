@@ -224,19 +224,19 @@ namespace com {
 								namespace util {
 
 $String* MethodGenerator::toString() {
-	 return this->$MethodGen::toString();
+	return this->$MethodGen::toString();
 }
 
 bool MethodGenerator::equals(Object$* obj) {
-	 return this->$MethodGen::equals(obj);
+	return this->$MethodGen::equals(obj);
 }
 
 int32_t MethodGenerator::hashCode() {
-	 return this->$MethodGen::hashCode();
+	return this->$MethodGen::hashCode();
 }
 
 $Object* MethodGenerator::clone() {
-	 return this->$MethodGen::clone();
+	return this->$MethodGen::clone();
 }
 
 void MethodGenerator::finalize() {

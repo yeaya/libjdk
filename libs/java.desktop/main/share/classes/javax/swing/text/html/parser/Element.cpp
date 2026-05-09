@@ -31,15 +31,15 @@ namespace javax {
 				namespace parser {
 
 int32_t Element::hashCode() {
-	 return this->$DTDConstants::hashCode();
+	return this->$DTDConstants::hashCode();
 }
 
 bool Element::equals(Object$* arg0) {
-	 return this->$DTDConstants::equals(arg0);
+	return this->$DTDConstants::equals(arg0);
 }
 
 $Object* Element::clone() {
-	 return this->$DTDConstants::clone();
+	return this->$DTDConstants::clone();
 }
 
 void Element::finalize() {

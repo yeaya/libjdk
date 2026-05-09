@@ -158,7 +158,7 @@ public:
 		$set(this, op, op);
 	}
 	virtual bool test(Object$* unop) override {
-		 return Operators::lambda$resolveUnary$0(op, $cast($Operators$UnaryOperatorHelper, unop));
+		return Operators::lambda$resolveUnary$0(op, $cast($Operators$UnaryOperatorHelper, unop));
 	}
 	$Type* op = nullptr;
 };
@@ -194,7 +194,7 @@ public:
 		$set(this, op, op);
 	}
 	virtual $Object* apply(Object$* unop) override {
-		 return $of(Operators::lambda$resolveUnary$1(op, $cast($Operators$UnaryOperatorHelper, unop)));
+		return $of(Operators::lambda$resolveUnary$1(op, $cast($Operators$UnaryOperatorHelper, unop)));
 	}
 	$Type* op = nullptr;
 };
@@ -233,7 +233,7 @@ public:
 		$set(this, op, op);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$resolveUnary$2(pos, tag, op));
+		return $of($nc(inst$)->lambda$resolveUnary$2(pos, tag, op));
 	}
 	Operators* inst$ = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
@@ -276,7 +276,7 @@ public:
 		$set(this, op2, op2);
 	}
 	virtual bool test(Object$* binop) override {
-		 return Operators::lambda$resolveBinary$3(op1, op2, $cast($Operators$BinaryOperatorHelper, binop));
+		return Operators::lambda$resolveBinary$3(op1, op2, $cast($Operators$BinaryOperatorHelper, binop));
 	}
 	$Type* op1 = nullptr;
 	$Type* op2 = nullptr;
@@ -315,7 +315,7 @@ public:
 		$set(this, op2, op2);
 	}
 	virtual $Object* apply(Object$* binop) override {
-		 return $of(Operators::lambda$resolveBinary$4(op1, op2, $cast($Operators$BinaryOperatorHelper, binop)));
+		return $of(Operators::lambda$resolveBinary$4(op1, op2, $cast($Operators$BinaryOperatorHelper, binop)));
 	}
 	$Type* op1 = nullptr;
 	$Type* op2 = nullptr;
@@ -357,7 +357,7 @@ public:
 		$set(this, op2, op2);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$resolveBinary$5(pos, tag, op1, op2));
+		return $of($nc(inst$)->lambda$resolveBinary$5(pos, tag, op1, op2));
 	}
 	Operators* inst$ = nullptr;
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
@@ -401,7 +401,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* o) override {
-		 return $of($nc(inst$)->lambda$makeOperator$6($cast($Operators$OperatorType, o)));
+		return $of($nc(inst$)->lambda$makeOperator$6($cast($Operators$OperatorType, o)));
 	}
 	Operators* inst$ = nullptr;
 };
@@ -436,7 +436,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* t) override {
-		 return Operators::lambda$reportErrorIfNeeded$7($cast($Type, t));
+		return Operators::lambda$reportErrorIfNeeded$7($cast($Type, t));
 	}
 };
 $Class* Operators$$Lambda$lambda$reportErrorIfNeeded$7$7::load$($String* name, bool initialize) {
@@ -466,7 +466,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($Type, inst$)->isIntegral();
+		return $sure($Type, inst$)->isIntegral();
 	}
 };
 $Class* Operators$$Lambda$isIntegral$8::load$($String* name, bool initialize) {
@@ -496,7 +496,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Collection, inst$)->stream();
+		return $sure($Collection, inst$)->stream();
 	}
 };
 $Class* Operators$$Lambda$stream$9::load$($String* name, bool initialize) {
@@ -527,7 +527,7 @@ public:
 		$set(this, applicabilityTest, applicabilityTest);
 	}
 	virtual $Object* apply(Object$* helper) override {
-		 return $of(Operators::lambda$lookupBinaryOp$8(applicabilityTest, $cast($Operators$BinaryOperatorHelper, helper)));
+		return $of(Operators::lambda$lookupBinaryOp$8(applicabilityTest, $cast($Operators$BinaryOperatorHelper, helper)));
 	}
 	$Predicate* applicabilityTest = nullptr;
 };
@@ -563,7 +563,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* sym) override {
-		 return $nc(inst$)->lambda$lookupBinaryOp$9($cast($Symbol$OperatorSymbol, sym));
+		return $nc(inst$)->lambda$lookupBinaryOp$9($cast($Symbol$OperatorSymbol, sym));
 	}
 	Operators* inst$ = nullptr;
 };

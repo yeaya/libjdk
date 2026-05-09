@@ -21,19 +21,19 @@ namespace javax {
 			namespace synth {
 
 $String* SynthArrowButton::toString() {
-	 return this->$JButton::toString();
+	return this->$JButton::toString();
 }
 
 int32_t SynthArrowButton::hashCode() {
-	 return this->$JButton::hashCode();
+	return this->$JButton::hashCode();
 }
 
 bool SynthArrowButton::equals(Object$* arg0) {
-	 return this->$JButton::equals(arg0);
+	return this->$JButton::equals(arg0);
 }
 
 $Object* SynthArrowButton::clone() {
-	 return this->$JButton::clone();
+	return this->$JButton::clone();
 }
 
 void SynthArrowButton::finalize() {

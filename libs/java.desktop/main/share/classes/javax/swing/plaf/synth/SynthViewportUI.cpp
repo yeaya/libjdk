@@ -35,19 +35,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthViewportUI::hashCode() {
-	 return this->$ViewportUI::hashCode();
+	return this->$ViewportUI::hashCode();
 }
 
 bool SynthViewportUI::equals(Object$* arg0) {
-	 return this->$ViewportUI::equals(arg0);
+	return this->$ViewportUI::equals(arg0);
 }
 
 $Object* SynthViewportUI::clone() {
-	 return this->$ViewportUI::clone();
+	return this->$ViewportUI::clone();
 }
 
 $String* SynthViewportUI::toString() {
-	 return this->$ViewportUI::toString();
+	return this->$ViewportUI::toString();
 }
 
 void SynthViewportUI::finalize() {

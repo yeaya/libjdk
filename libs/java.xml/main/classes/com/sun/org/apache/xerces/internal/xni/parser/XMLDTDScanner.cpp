@@ -20,19 +20,19 @@ namespace com {
 							namespace parser {
 
 int32_t XMLDTDScanner::hashCode() {
-	 return this->$XMLDTDSource::hashCode();
+	return this->$XMLDTDSource::hashCode();
 }
 
 bool XMLDTDScanner::equals(Object$* arg0) {
-	 return this->$XMLDTDSource::equals(arg0);
+	return this->$XMLDTDSource::equals(arg0);
 }
 
 $Object* XMLDTDScanner::clone() {
-	 return this->$XMLDTDSource::clone();
+	return this->$XMLDTDSource::clone();
 }
 
 $String* XMLDTDScanner::toString() {
-	 return this->$XMLDTDSource::toString();
+	return this->$XMLDTDSource::toString();
 }
 
 void XMLDTDScanner::finalize() {

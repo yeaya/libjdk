@@ -77,19 +77,19 @@ namespace java {
 	namespace awt {
 
 int32_t LightweightDispatcher::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 bool LightweightDispatcher::equals(Object$* arg0) {
-	 return this->$Serializable::equals(arg0);
+	return this->$Serializable::equals(arg0);
 }
 
 $Object* LightweightDispatcher::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 $String* LightweightDispatcher::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void LightweightDispatcher::finalize() {

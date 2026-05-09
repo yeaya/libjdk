@@ -14,19 +14,19 @@ namespace sun {
 	namespace print {
 
 $String* PrintJobAttributeException::toString() {
-	 return this->$PrintException::toString();
+	return this->$PrintException::toString();
 }
 
 int32_t PrintJobAttributeException::hashCode() {
-	 return this->$PrintException::hashCode();
+	return this->$PrintException::hashCode();
 }
 
 bool PrintJobAttributeException::equals(Object$* arg0) {
-	 return this->$PrintException::equals(arg0);
+	return this->$PrintException::equals(arg0);
 }
 
 $Object* PrintJobAttributeException::clone() {
-	 return this->$PrintException::clone();
+	return this->$PrintException::clone();
 }
 
 void PrintJobAttributeException::finalize() {

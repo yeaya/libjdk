@@ -46,19 +46,19 @@ namespace com {
 					namespace motif {
 
 int32_t MotifDesktopPaneUI$MotifDesktopManager::hashCode() {
-	 return this->$DefaultDesktopManager::hashCode();
+	return this->$DefaultDesktopManager::hashCode();
 }
 
 bool MotifDesktopPaneUI$MotifDesktopManager::equals(Object$* arg0) {
-	 return this->$DefaultDesktopManager::equals(arg0);
+	return this->$DefaultDesktopManager::equals(arg0);
 }
 
 $Object* MotifDesktopPaneUI$MotifDesktopManager::clone() {
-	 return this->$DefaultDesktopManager::clone();
+	return this->$DefaultDesktopManager::clone();
 }
 
 $String* MotifDesktopPaneUI$MotifDesktopManager::toString() {
-	 return this->$DefaultDesktopManager::toString();
+	return this->$DefaultDesktopManager::toString();
 }
 
 void MotifDesktopPaneUI$MotifDesktopManager::finalize() {

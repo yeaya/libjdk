@@ -59,47 +59,47 @@ namespace com {
 				namespace code {
 
 $List* Symbol$TypeVariableSymbol::getEnclosedElements() {
-	 return this->$Symbol$TypeSymbol::getEnclosedElements();
+	return this->$Symbol$TypeSymbol::getEnclosedElements();
 }
 
 $Element* Symbol$TypeVariableSymbol::getEnclosingElement() {
-	 return this->$Symbol$TypeSymbol::getEnclosingElement();
+	return this->$Symbol$TypeSymbol::getEnclosingElement();
 }
 
 $Name* Symbol$TypeVariableSymbol::getSimpleName() {
-	 return this->$Symbol$TypeSymbol::getSimpleName();
+	return this->$Symbol$TypeSymbol::getSimpleName();
 }
 
 $TypeMirror* Symbol$TypeVariableSymbol::asType() {
-	 return this->$Symbol$TypeSymbol::asType();
+	return this->$Symbol$TypeSymbol::asType();
 }
 
 $String* Symbol$TypeVariableSymbol::toString() {
-	 return this->$Symbol$TypeSymbol::toString();
+	return this->$Symbol$TypeSymbol::toString();
 }
 
 $Set* Symbol$TypeVariableSymbol::getModifiers() {
-	 return this->$Symbol$TypeSymbol::getModifiers();
+	return this->$Symbol$TypeSymbol::getModifiers();
 }
 
 $AnnotationArray* Symbol$TypeVariableSymbol::getAnnotationsByType($Class* annoType) {
-	 return this->$Symbol$TypeSymbol::getAnnotationsByType(annoType);
+	return this->$Symbol$TypeSymbol::getAnnotationsByType(annoType);
 }
 
 $Annotation* Symbol$TypeVariableSymbol::getAnnotation($Class* annoType) {
-	 return this->$Symbol$TypeSymbol::getAnnotation(annoType);
+	return this->$Symbol$TypeSymbol::getAnnotation(annoType);
 }
 
 int32_t Symbol$TypeVariableSymbol::hashCode() {
-	 return this->$Symbol$TypeSymbol::hashCode();
+	return this->$Symbol$TypeSymbol::hashCode();
 }
 
 bool Symbol$TypeVariableSymbol::equals(Object$* arg0) {
-	 return this->$Symbol$TypeSymbol::equals(arg0);
+	return this->$Symbol$TypeSymbol::equals(arg0);
 }
 
 $Object* Symbol$TypeVariableSymbol::clone() {
-	 return this->$Symbol$TypeSymbol::clone();
+	return this->$Symbol$TypeSymbol::clone();
 }
 
 void Symbol$TypeVariableSymbol::finalize() {

@@ -108,19 +108,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaProgressBarUI::hashCode() {
-	 return this->$ProgressBarUI::hashCode();
+	return this->$ProgressBarUI::hashCode();
 }
 
 bool AquaProgressBarUI::equals(Object$* arg0) {
-	 return this->$ProgressBarUI::equals(arg0);
+	return this->$ProgressBarUI::equals(arg0);
 }
 
 $Object* AquaProgressBarUI::clone() {
-	 return this->$ProgressBarUI::clone();
+	return this->$ProgressBarUI::clone();
 }
 
 $String* AquaProgressBarUI::toString() {
-	 return this->$ProgressBarUI::toString();
+	return this->$ProgressBarUI::toString();
 }
 
 void AquaProgressBarUI::finalize() {

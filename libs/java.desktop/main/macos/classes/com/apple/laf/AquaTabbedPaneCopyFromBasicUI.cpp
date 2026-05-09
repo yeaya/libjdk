@@ -156,19 +156,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaTabbedPaneCopyFromBasicUI::hashCode() {
-	 return this->$TabbedPaneUI::hashCode();
+	return this->$TabbedPaneUI::hashCode();
 }
 
 bool AquaTabbedPaneCopyFromBasicUI::equals(Object$* arg0) {
-	 return this->$TabbedPaneUI::equals(arg0);
+	return this->$TabbedPaneUI::equals(arg0);
 }
 
 $Object* AquaTabbedPaneCopyFromBasicUI::clone() {
-	 return this->$TabbedPaneUI::clone();
+	return this->$TabbedPaneUI::clone();
 }
 
 $String* AquaTabbedPaneCopyFromBasicUI::toString() {
-	 return this->$TabbedPaneUI::toString();
+	return this->$TabbedPaneUI::toString();
 }
 
 void AquaTabbedPaneCopyFromBasicUI::finalize() {

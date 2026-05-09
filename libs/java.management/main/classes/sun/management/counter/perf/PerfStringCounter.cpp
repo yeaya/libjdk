@@ -25,39 +25,39 @@ namespace sun {
 			namespace perf {
 
 $String* PerfStringCounter::toString() {
-	 return this->$PerfByteArrayCounter::toString();
+	return this->$PerfByteArrayCounter::toString();
 }
 
 $String* PerfStringCounter::getName() {
-	 return this->$PerfByteArrayCounter::getName();
+	return this->$PerfByteArrayCounter::getName();
 }
 
 $Units* PerfStringCounter::getUnits() {
-	 return this->$PerfByteArrayCounter::getUnits();
+	return this->$PerfByteArrayCounter::getUnits();
 }
 
 $Variability* PerfStringCounter::getVariability() {
-	 return this->$PerfByteArrayCounter::getVariability();
+	return this->$PerfByteArrayCounter::getVariability();
 }
 
 bool PerfStringCounter::isInternal() {
-	 return this->$PerfByteArrayCounter::isInternal();
+	return this->$PerfByteArrayCounter::isInternal();
 }
 
 int32_t PerfStringCounter::getFlags() {
-	 return this->$PerfByteArrayCounter::getFlags();
+	return this->$PerfByteArrayCounter::getFlags();
 }
 
 int32_t PerfStringCounter::hashCode() {
-	 return this->$PerfByteArrayCounter::hashCode();
+	return this->$PerfByteArrayCounter::hashCode();
 }
 
 bool PerfStringCounter::equals(Object$* arg0) {
-	 return this->$PerfByteArrayCounter::equals(arg0);
+	return this->$PerfByteArrayCounter::equals(arg0);
 }
 
 $Object* PerfStringCounter::clone() {
-	 return this->$PerfByteArrayCounter::clone();
+	return this->$PerfByteArrayCounter::clone();
 }
 
 void PerfStringCounter::finalize() {

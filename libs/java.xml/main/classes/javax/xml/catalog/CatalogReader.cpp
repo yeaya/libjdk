@@ -79,19 +79,19 @@ namespace javax {
 		namespace catalog {
 
 int32_t CatalogReader::hashCode() {
-	 return this->$DefaultHandler::hashCode();
+	return this->$DefaultHandler::hashCode();
 }
 
 bool CatalogReader::equals(Object$* arg0) {
-	 return this->$DefaultHandler::equals(arg0);
+	return this->$DefaultHandler::equals(arg0);
 }
 
 $Object* CatalogReader::clone() {
-	 return this->$DefaultHandler::clone();
+	return this->$DefaultHandler::clone();
 }
 
 $String* CatalogReader::toString() {
-	 return this->$DefaultHandler::toString();
+	return this->$DefaultHandler::toString();
 }
 
 void CatalogReader::finalize() {

@@ -6,6 +6,8 @@ jcpp_add_dependencies(
 	"java.sql:17.35"
 	"java.xml:17.35"
 	"java.base:17.35"
+	"java.security.sasl:17.35"
+	"java.transaction.xa:17.35"
 )
 
 include_directories("classes")

@@ -47,19 +47,19 @@ namespace sun {
 		namespace x11 {
 
 int32_t X11Renderer::hashCode() {
-	 return this->$PixelDrawPipe::hashCode();
+	return this->$PixelDrawPipe::hashCode();
 }
 
 bool X11Renderer::equals(Object$* arg0) {
-	 return this->$PixelDrawPipe::equals(arg0);
+	return this->$PixelDrawPipe::equals(arg0);
 }
 
 $Object* X11Renderer::clone() {
-	 return this->$PixelDrawPipe::clone();
+	return this->$PixelDrawPipe::clone();
 }
 
 $String* X11Renderer::toString() {
-	 return this->$PixelDrawPipe::toString();
+	return this->$PixelDrawPipe::toString();
 }
 
 void X11Renderer::finalize() {

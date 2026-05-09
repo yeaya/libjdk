@@ -68,7 +68,7 @@ public:
 		$set(this, candidates, candidates);
 	}
 	virtual $Object* apply(Object$* n) override {
-		 return $nc(inst$)->lambda$loadClass$2(candidates, $cast($Name, n));
+		return $nc(inst$)->lambda$loadClass$2(candidates, $cast($Name, n));
 	}
 	Resolve$6* inst$ = nullptr;
 	$List* candidates = nullptr;
@@ -107,7 +107,7 @@ public:
 		$set(this, candidates, candidates);
 	}
 	virtual $Object* apply(Object$* ms, Object$* n) override {
-		 return $of($nc(inst$)->lambda$loadClass$3(candidates, $cast($Symbol$ModuleSymbol, ms), $cast($Name, n)));
+		return $of($nc(inst$)->lambda$loadClass$3(candidates, $cast($Symbol$ModuleSymbol, ms), $cast($Name, n)));
 	}
 	Resolve$6* inst$ = nullptr;
 	$List* candidates = nullptr;
@@ -144,7 +144,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* sym) override {
-		 return Resolve$6::lambda$loadClass$4($cast($Symbol$ClassSymbol, sym));
+		return Resolve$6::lambda$loadClass$4($cast($Symbol$ClassSymbol, sym));
 	}
 };
 $Class* Resolve$6$$Lambda$lambda$loadClass$4$2::load$($String* name, bool initialize) {
@@ -176,7 +176,7 @@ public:
 		$set(this, candidates, candidates);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$loadClass$1(candidates);
+		return $nc(inst$)->lambda$loadClass$1(candidates);
 	}
 	Resolve$6* inst$ = nullptr;
 	$List* candidates = nullptr;
@@ -214,7 +214,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $nc(inst$)->lambda$loadClass$0($cast($Name, c));
+		return $nc(inst$)->lambda$loadClass$0($cast($Name, c));
 	}
 	Resolve$6* inst$ = nullptr;
 };

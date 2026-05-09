@@ -18,19 +18,19 @@ namespace javax {
 		namespace plaf {
 
 int32_t BorderUIResource$EtchedBorderUIResource::hashCode() {
-	 return this->$EtchedBorder::hashCode();
+	return this->$EtchedBorder::hashCode();
 }
 
 bool BorderUIResource$EtchedBorderUIResource::equals(Object$* arg0) {
-	 return this->$EtchedBorder::equals(arg0);
+	return this->$EtchedBorder::equals(arg0);
 }
 
 $Object* BorderUIResource$EtchedBorderUIResource::clone() {
-	 return this->$EtchedBorder::clone();
+	return this->$EtchedBorder::clone();
 }
 
 $String* BorderUIResource$EtchedBorderUIResource::toString() {
-	 return this->$EtchedBorder::toString();
+	return this->$EtchedBorder::toString();
 }
 
 void BorderUIResource$EtchedBorderUIResource::finalize() {

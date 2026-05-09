@@ -51,7 +51,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(JISAutoDetect$Decoder::lambda$static$0());
+		return $of(JISAutoDetect$Decoder::lambda$static$0());
 	}
 };
 $Class* JISAutoDetect$Decoder$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

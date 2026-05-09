@@ -52,7 +52,7 @@ public:
 		$set(this, resourceName, resourceName);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$loadStandardImage$0(resourceName);
+		return $nc(inst$)->lambda$loadStandardImage$0(resourceName);
 	}
 	SimpleBeanInfo* inst$ = nullptr;
 	$String* resourceName = nullptr;

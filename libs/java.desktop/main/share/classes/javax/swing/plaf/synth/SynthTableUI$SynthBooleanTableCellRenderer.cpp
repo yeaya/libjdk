@@ -30,19 +30,19 @@ namespace javax {
 			namespace synth {
 
 $String* SynthTableUI$SynthBooleanTableCellRenderer::toString() {
-	 return this->$JCheckBox::toString();
+	return this->$JCheckBox::toString();
 }
 
 int32_t SynthTableUI$SynthBooleanTableCellRenderer::hashCode() {
-	 return this->$JCheckBox::hashCode();
+	return this->$JCheckBox::hashCode();
 }
 
 bool SynthTableUI$SynthBooleanTableCellRenderer::equals(Object$* arg0) {
-	 return this->$JCheckBox::equals(arg0);
+	return this->$JCheckBox::equals(arg0);
 }
 
 $Object* SynthTableUI$SynthBooleanTableCellRenderer::clone() {
-	 return this->$JCheckBox::clone();
+	return this->$JCheckBox::clone();
 }
 
 void SynthTableUI$SynthBooleanTableCellRenderer::finalize() {

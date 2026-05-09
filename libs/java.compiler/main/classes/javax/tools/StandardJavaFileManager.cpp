@@ -55,7 +55,7 @@ public:
 		$set(this, files, files);
 	}
 	virtual $Iterator* iterator() override {
-		 return StandardJavaFileManager::lambda$asPaths$0(files);
+		return StandardJavaFileManager::lambda$asPaths$0(files);
 	}
 	$Iterable* files = nullptr;
 };
@@ -91,7 +91,7 @@ public:
 		$set(this, paths, paths);
 	}
 	virtual $Iterator* iterator() override {
-		 return StandardJavaFileManager::lambda$asFiles$1(paths);
+		return StandardJavaFileManager::lambda$asFiles$1(paths);
 	}
 	$Iterable* paths = nullptr;
 };

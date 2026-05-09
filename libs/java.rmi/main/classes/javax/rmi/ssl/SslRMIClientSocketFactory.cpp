@@ -25,11 +25,11 @@ namespace javax {
 		namespace ssl {
 
 $Object* SslRMIClientSocketFactory::clone() {
-	 return this->$RMIClientSocketFactory::clone();
+	return this->$RMIClientSocketFactory::clone();
 }
 
 $String* SslRMIClientSocketFactory::toString() {
-	 return this->$RMIClientSocketFactory::toString();
+	return this->$RMIClientSocketFactory::toString();
 }
 
 void SslRMIClientSocketFactory::finalize() {

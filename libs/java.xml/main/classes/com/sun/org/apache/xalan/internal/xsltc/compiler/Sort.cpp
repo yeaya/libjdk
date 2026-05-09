@@ -159,19 +159,19 @@ namespace com {
 							namespace compiler {
 
 int32_t Sort::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 bool Sort::equals(Object$* arg0) {
-	 return this->$Instruction::equals(arg0);
+	return this->$Instruction::equals(arg0);
 }
 
 $Object* Sort::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 $String* Sort::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 void Sort::finalize() {

@@ -26,15 +26,15 @@ namespace javax {
 				namespace dom {
 
 $String* DOMValidateContext::getNamespacePrefix($String* namespaceURI, $String* defaultPrefix) {
-	 return this->$DOMCryptoContext::getNamespacePrefix(namespaceURI, defaultPrefix);
+	return this->$DOMCryptoContext::getNamespacePrefix(namespaceURI, defaultPrefix);
 }
 
 $String* DOMValidateContext::putNamespacePrefix($String* namespaceURI, $String* prefix) {
-	 return this->$DOMCryptoContext::putNamespacePrefix(namespaceURI, prefix);
+	return this->$DOMCryptoContext::putNamespacePrefix(namespaceURI, prefix);
 }
 
 $String* DOMValidateContext::getDefaultNamespacePrefix() {
-	 return this->$DOMCryptoContext::getDefaultNamespacePrefix();
+	return this->$DOMCryptoContext::getDefaultNamespacePrefix();
 }
 
 void DOMValidateContext::setDefaultNamespacePrefix($String* defaultPrefix) {
@@ -42,7 +42,7 @@ void DOMValidateContext::setDefaultNamespacePrefix($String* defaultPrefix) {
 }
 
 $String* DOMValidateContext::getBaseURI() {
-	 return this->$DOMCryptoContext::getBaseURI();
+	return this->$DOMCryptoContext::getBaseURI();
 }
 
 void DOMValidateContext::setBaseURI($String* baseURI) {
@@ -50,7 +50,7 @@ void DOMValidateContext::setBaseURI($String* baseURI) {
 }
 
 $URIDereferencer* DOMValidateContext::getURIDereferencer() {
-	 return this->$DOMCryptoContext::getURIDereferencer();
+	return this->$DOMCryptoContext::getURIDereferencer();
 }
 
 void DOMValidateContext::setURIDereferencer($URIDereferencer* dereferencer) {
@@ -58,15 +58,15 @@ void DOMValidateContext::setURIDereferencer($URIDereferencer* dereferencer) {
 }
 
 $Object* DOMValidateContext::getProperty($String* name) {
-	 return this->$DOMCryptoContext::getProperty(name);
+	return this->$DOMCryptoContext::getProperty(name);
 }
 
 $Object* DOMValidateContext::setProperty($String* name, Object$* value) {
-	 return this->$DOMCryptoContext::setProperty(name, value);
+	return this->$DOMCryptoContext::setProperty(name, value);
 }
 
 $KeySelector* DOMValidateContext::getKeySelector() {
-	 return this->$DOMCryptoContext::getKeySelector();
+	return this->$DOMCryptoContext::getKeySelector();
 }
 
 void DOMValidateContext::setKeySelector($KeySelector* ks) {
@@ -74,27 +74,27 @@ void DOMValidateContext::setKeySelector($KeySelector* ks) {
 }
 
 $Object* DOMValidateContext::get(Object$* key) {
-	 return this->$DOMCryptoContext::get(key);
+	return this->$DOMCryptoContext::get(key);
 }
 
 $Object* DOMValidateContext::put(Object$* key, Object$* value) {
-	 return this->$DOMCryptoContext::put(key, value);
+	return this->$DOMCryptoContext::put(key, value);
 }
 
 int32_t DOMValidateContext::hashCode() {
-	 return this->$DOMCryptoContext::hashCode();
+	return this->$DOMCryptoContext::hashCode();
 }
 
 bool DOMValidateContext::equals(Object$* arg0) {
-	 return this->$DOMCryptoContext::equals(arg0);
+	return this->$DOMCryptoContext::equals(arg0);
 }
 
 $Object* DOMValidateContext::clone() {
-	 return this->$DOMCryptoContext::clone();
+	return this->$DOMCryptoContext::clone();
 }
 
 $String* DOMValidateContext::toString() {
-	 return this->$DOMCryptoContext::toString();
+	return this->$DOMCryptoContext::toString();
 }
 
 void DOMValidateContext::finalize() {

@@ -58,7 +58,7 @@ public:
 		$set(this, obj, obj);
 	}
 	virtual $Object* get() override {
-		 return $of(LoggingProviderImpl$JULWrapper::lambda$log$0(obj));
+		return $of(LoggingProviderImpl$JULWrapper::lambda$log$0(obj));
 	}
 	$Object* obj = nullptr;
 };
@@ -88,11 +88,11 @@ $Class* LoggingProviderImpl$JULWrapper$$Lambda$lambda$log$0::load$($String* name
 $Class* LoggingProviderImpl$JULWrapper$$Lambda$lambda$log$0::class$ = nullptr;
 
 $Object* LoggingProviderImpl$JULWrapper::clone() {
-	 return this->$PlatformLogger$ConfigurableBridge$LoggerConfiguration::clone();
+	return this->$PlatformLogger$ConfigurableBridge$LoggerConfiguration::clone();
 }
 
 $String* LoggingProviderImpl$JULWrapper::toString() {
-	 return this->$PlatformLogger$ConfigurableBridge$LoggerConfiguration::toString();
+	return this->$PlatformLogger$ConfigurableBridge$LoggerConfiguration::toString();
 }
 
 void LoggingProviderImpl$JULWrapper::finalize() {

@@ -215,7 +215,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return GTKLookAndFeel::lambda$initComponentDefaults$0(t);
+		return GTKLookAndFeel::lambda$initComponentDefaults$0(t);
 	}
 };
 $Class* GTKLookAndFeel$$Lambda$lambda$initComponentDefaults$0::load$($String* name, bool initialize) {

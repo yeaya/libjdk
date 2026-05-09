@@ -33,7 +33,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(RuntimeMXBean::lambda$getPid$0());
+		return $of(RuntimeMXBean::lambda$getPid$0());
 	}
 };
 $Class* RuntimeMXBean$$Lambda$lambda$getPid$0::load$($String* name, bool initialize) {

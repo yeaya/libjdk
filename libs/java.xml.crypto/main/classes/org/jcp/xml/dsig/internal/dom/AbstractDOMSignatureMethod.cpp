@@ -50,15 +50,15 @@ namespace org {
 					namespace dom {
 
 bool AbstractDOMSignatureMethod::isFeatureSupported($String* feature) {
-	 return this->$DOMStructure::isFeatureSupported(feature);
+	return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* AbstractDOMSignatureMethod::clone() {
-	 return this->$DOMStructure::clone();
+	return this->$DOMStructure::clone();
 }
 
 $String* AbstractDOMSignatureMethod::toString() {
-	 return this->$DOMStructure::toString();
+	return this->$DOMStructure::toString();
 }
 
 void AbstractDOMSignatureMethod::finalize() {

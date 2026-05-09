@@ -87,11 +87,11 @@ namespace com {
 							namespace datatype {
 
 bool DurationImpl::equals(Object$* duration) {
-	 return this->$Duration::equals(duration);
+	return this->$Duration::equals(duration);
 }
 
 $Object* DurationImpl::clone() {
-	 return this->$Duration::clone();
+	return this->$Duration::clone();
 }
 
 void DurationImpl::finalize() {

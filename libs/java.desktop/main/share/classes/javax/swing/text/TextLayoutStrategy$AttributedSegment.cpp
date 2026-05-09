@@ -45,55 +45,55 @@ namespace javax {
 		namespace text {
 
 $String* TextLayoutStrategy$AttributedSegment::toString() {
-	 return this->$Segment::toString();
+	return this->$Segment::toString();
 }
 
 char16_t TextLayoutStrategy$AttributedSegment::first() {
-	 return this->$Segment::first();
+	return this->$Segment::first();
 }
 
 char16_t TextLayoutStrategy$AttributedSegment::last() {
-	 return this->$Segment::last();
+	return this->$Segment::last();
 }
 
 char16_t TextLayoutStrategy$AttributedSegment::current() {
-	 return this->$Segment::current();
+	return this->$Segment::current();
 }
 
 char16_t TextLayoutStrategy$AttributedSegment::next() {
-	 return this->$Segment::next();
+	return this->$Segment::next();
 }
 
 char16_t TextLayoutStrategy$AttributedSegment::previous() {
-	 return this->$Segment::previous();
+	return this->$Segment::previous();
 }
 
 char16_t TextLayoutStrategy$AttributedSegment::setIndex(int32_t position) {
-	 return this->$Segment::setIndex(position);
+	return this->$Segment::setIndex(position);
 }
 
 int32_t TextLayoutStrategy$AttributedSegment::getBeginIndex() {
-	 return this->$Segment::getBeginIndex();
+	return this->$Segment::getBeginIndex();
 }
 
 int32_t TextLayoutStrategy$AttributedSegment::getEndIndex() {
-	 return this->$Segment::getEndIndex();
+	return this->$Segment::getEndIndex();
 }
 
 int32_t TextLayoutStrategy$AttributedSegment::getIndex() {
-	 return this->$Segment::getIndex();
+	return this->$Segment::getIndex();
 }
 
 $Object* TextLayoutStrategy$AttributedSegment::clone() {
-	 return this->$Segment::clone();
+	return this->$Segment::clone();
 }
 
 int32_t TextLayoutStrategy$AttributedSegment::hashCode() {
-	 return this->$Segment::hashCode();
+	return this->$Segment::hashCode();
 }
 
 bool TextLayoutStrategy$AttributedSegment::equals(Object$* arg0) {
-	 return this->$Segment::equals(arg0);
+	return this->$Segment::equals(arg0);
 }
 
 void TextLayoutStrategy$AttributedSegment::finalize() {

@@ -41,15 +41,15 @@ void GenericURLDirContext::close() {
 }
 
 $String* GenericURLDirContext::getNameInNamespace() {
-	 return this->$GenericURLContext::getNameInNamespace();
+	return this->$GenericURLContext::getNameInNamespace();
 }
 
 $Object* GenericURLDirContext::lookup($String* name) {
-	 return this->$GenericURLContext::lookup(name);
+	return this->$GenericURLContext::lookup(name);
 }
 
 $Object* GenericURLDirContext::lookup($Name* name) {
-	 return this->$GenericURLContext::lookup(name);
+	return this->$GenericURLContext::lookup(name);
 }
 
 void GenericURLDirContext::bind($String* name, Object$* obj) {
@@ -85,19 +85,19 @@ void GenericURLDirContext::rename($Name* name, $Name* newName) {
 }
 
 $NamingEnumeration* GenericURLDirContext::list($String* name) {
-	 return this->$GenericURLContext::list(name);
+	return this->$GenericURLContext::list(name);
 }
 
 $NamingEnumeration* GenericURLDirContext::list($Name* name) {
-	 return this->$GenericURLContext::list(name);
+	return this->$GenericURLContext::list(name);
 }
 
 $NamingEnumeration* GenericURLDirContext::listBindings($String* name) {
-	 return this->$GenericURLContext::listBindings(name);
+	return this->$GenericURLContext::listBindings(name);
 }
 
 $NamingEnumeration* GenericURLDirContext::listBindings($Name* name) {
-	 return this->$GenericURLContext::listBindings(name);
+	return this->$GenericURLContext::listBindings(name);
 }
 
 void GenericURLDirContext::destroySubcontext($String* name) {
@@ -109,63 +109,63 @@ void GenericURLDirContext::destroySubcontext($Name* name) {
 }
 
 $Context* GenericURLDirContext::createSubcontext($String* name) {
-	 return this->$GenericURLContext::createSubcontext(name);
+	return this->$GenericURLContext::createSubcontext(name);
 }
 
 $Context* GenericURLDirContext::createSubcontext($Name* name) {
-	 return this->$GenericURLContext::createSubcontext(name);
+	return this->$GenericURLContext::createSubcontext(name);
 }
 
 $Object* GenericURLDirContext::lookupLink($String* name) {
-	 return this->$GenericURLContext::lookupLink(name);
+	return this->$GenericURLContext::lookupLink(name);
 }
 
 $Object* GenericURLDirContext::lookupLink($Name* name) {
-	 return this->$GenericURLContext::lookupLink(name);
+	return this->$GenericURLContext::lookupLink(name);
 }
 
 $NameParser* GenericURLDirContext::getNameParser($String* name) {
-	 return this->$GenericURLContext::getNameParser(name);
+	return this->$GenericURLContext::getNameParser(name);
 }
 
 $NameParser* GenericURLDirContext::getNameParser($Name* name) {
-	 return this->$GenericURLContext::getNameParser(name);
+	return this->$GenericURLContext::getNameParser(name);
 }
 
 $String* GenericURLDirContext::composeName($String* name, $String* prefix) {
-	 return this->$GenericURLContext::composeName(name, prefix);
+	return this->$GenericURLContext::composeName(name, prefix);
 }
 
 $Name* GenericURLDirContext::composeName($Name* name, $Name* prefix) {
-	 return this->$GenericURLContext::composeName(name, prefix);
+	return this->$GenericURLContext::composeName(name, prefix);
 }
 
 $Object* GenericURLDirContext::removeFromEnvironment($String* propName) {
-	 return this->$GenericURLContext::removeFromEnvironment(propName);
+	return this->$GenericURLContext::removeFromEnvironment(propName);
 }
 
 $Object* GenericURLDirContext::addToEnvironment($String* propName, Object$* propVal) {
-	 return this->$GenericURLContext::addToEnvironment(propName, propVal);
+	return this->$GenericURLContext::addToEnvironment(propName, propVal);
 }
 
 $Hashtable* GenericURLDirContext::getEnvironment() {
-	 return this->$GenericURLContext::getEnvironment();
+	return this->$GenericURLContext::getEnvironment();
 }
 
 int32_t GenericURLDirContext::hashCode() {
-	 return this->$GenericURLContext::hashCode();
+	return this->$GenericURLContext::hashCode();
 }
 
 bool GenericURLDirContext::equals(Object$* arg0) {
-	 return this->$GenericURLContext::equals(arg0);
+	return this->$GenericURLContext::equals(arg0);
 }
 
 $Object* GenericURLDirContext::clone() {
-	 return this->$GenericURLContext::clone();
+	return this->$GenericURLContext::clone();
 }
 
 $String* GenericURLDirContext::toString() {
-	 return this->$GenericURLContext::toString();
+	return this->$GenericURLContext::toString();
 }
 
 void GenericURLDirContext::finalize() {

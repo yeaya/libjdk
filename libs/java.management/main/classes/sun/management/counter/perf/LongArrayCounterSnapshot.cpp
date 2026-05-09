@@ -17,47 +17,47 @@ namespace sun {
 			namespace perf {
 
 $String* LongArrayCounterSnapshot::getName() {
-	 return this->$AbstractCounter::getName();
+	return this->$AbstractCounter::getName();
 }
 
 $Units* LongArrayCounterSnapshot::getUnits() {
-	 return this->$AbstractCounter::getUnits();
+	return this->$AbstractCounter::getUnits();
 }
 
 $Variability* LongArrayCounterSnapshot::getVariability() {
-	 return this->$AbstractCounter::getVariability();
+	return this->$AbstractCounter::getVariability();
 }
 
 bool LongArrayCounterSnapshot::isVector() {
-	 return this->$AbstractCounter::isVector();
+	return this->$AbstractCounter::isVector();
 }
 
 int32_t LongArrayCounterSnapshot::getVectorLength() {
-	 return this->$AbstractCounter::getVectorLength();
+	return this->$AbstractCounter::getVectorLength();
 }
 
 bool LongArrayCounterSnapshot::isInternal() {
-	 return this->$AbstractCounter::isInternal();
+	return this->$AbstractCounter::isInternal();
 }
 
 int32_t LongArrayCounterSnapshot::getFlags() {
-	 return this->$AbstractCounter::getFlags();
+	return this->$AbstractCounter::getFlags();
 }
 
 $String* LongArrayCounterSnapshot::toString() {
-	 return this->$AbstractCounter::toString();
+	return this->$AbstractCounter::toString();
 }
 
 int32_t LongArrayCounterSnapshot::hashCode() {
-	 return this->$AbstractCounter::hashCode();
+	return this->$AbstractCounter::hashCode();
 }
 
 bool LongArrayCounterSnapshot::equals(Object$* arg0) {
-	 return this->$AbstractCounter::equals(arg0);
+	return this->$AbstractCounter::equals(arg0);
 }
 
 $Object* LongArrayCounterSnapshot::clone() {
-	 return this->$AbstractCounter::clone();
+	return this->$AbstractCounter::clone();
 }
 
 void LongArrayCounterSnapshot::finalize() {

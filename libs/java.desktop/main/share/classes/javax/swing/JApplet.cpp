@@ -55,19 +55,19 @@ namespace javax {
 	namespace swing {
 
 $String* JApplet::toString() {
-	 return this->$Applet::toString();
+	return this->$Applet::toString();
 }
 
 int32_t JApplet::hashCode() {
-	 return this->$Applet::hashCode();
+	return this->$Applet::hashCode();
 }
 
 bool JApplet::equals(Object$* arg0) {
-	 return this->$Applet::equals(arg0);
+	return this->$Applet::equals(arg0);
 }
 
 $Object* JApplet::clone() {
-	 return this->$Applet::clone();
+	return this->$Applet::clone();
 }
 
 void JApplet::finalize() {

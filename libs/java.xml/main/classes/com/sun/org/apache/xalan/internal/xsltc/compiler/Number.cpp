@@ -144,19 +144,19 @@ namespace com {
 							namespace compiler {
 
 int32_t Number::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 bool Number::equals(Object$* arg0) {
-	 return this->$Instruction::equals(arg0);
+	return this->$Instruction::equals(arg0);
 }
 
 $Object* Number::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 $String* Number::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 void Number::finalize() {

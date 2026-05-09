@@ -47,27 +47,27 @@ namespace com {
 						namespace generic {
 
 $String* ConversionInstruction::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t ConversionInstruction::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::consumeStack(cpg);
+	return this->$Instruction::consumeStack(cpg);
 }
 
 int32_t ConversionInstruction::produceStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::produceStack(cpg);
+	return this->$Instruction::produceStack(cpg);
 }
 
 bool ConversionInstruction::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t ConversionInstruction::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* ConversionInstruction::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void ConversionInstruction::finalize() {

@@ -81,7 +81,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	ConnectionPool* inst$ = nullptr;
 };
@@ -152,7 +152,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return ConnectionPool::lambda$stop$0($cast($ConnectionPool$ExpiryEntry, e));
+		return ConnectionPool::lambda$stop$0($cast($ConnectionPool$ExpiryEntry, e));
 	}
 };
 $Class* ConnectionPool$$Lambda$lambda$stop$0$2::load$($String* name, bool initialize) {

@@ -12,19 +12,19 @@ namespace javax {
 		namespace sasl {
 
 int32_t AuthorizeCallback::hashCode() {
-	 return this->$Callback::hashCode();
+	return this->$Callback::hashCode();
 }
 
 bool AuthorizeCallback::equals(Object$* arg0) {
-	 return this->$Callback::equals(arg0);
+	return this->$Callback::equals(arg0);
 }
 
 $Object* AuthorizeCallback::clone() {
-	 return this->$Callback::clone();
+	return this->$Callback::clone();
 }
 
 $String* AuthorizeCallback::toString() {
-	 return this->$Callback::toString();
+	return this->$Callback::toString();
 }
 
 void AuthorizeCallback::finalize() {

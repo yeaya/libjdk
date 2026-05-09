@@ -32,19 +32,19 @@ namespace com {
 				namespace code {
 
 $String* Symbol$DynamicVarSymbol::toString() {
-	 return this->$Symbol$VarSymbol::toString();
+	return this->$Symbol$VarSymbol::toString();
 }
 
 int32_t Symbol$DynamicVarSymbol::hashCode() {
-	 return this->$Symbol$VarSymbol::hashCode();
+	return this->$Symbol$VarSymbol::hashCode();
 }
 
 bool Symbol$DynamicVarSymbol::equals(Object$* arg0) {
-	 return this->$Symbol$VarSymbol::equals(arg0);
+	return this->$Symbol$VarSymbol::equals(arg0);
 }
 
 $Object* Symbol$DynamicVarSymbol::clone() {
-	 return this->$Symbol$VarSymbol::clone();
+	return this->$Symbol$VarSymbol::clone();
 }
 
 void Symbol$DynamicVarSymbol::finalize() {
@@ -52,7 +52,7 @@ void Symbol$DynamicVarSymbol::finalize() {
 }
 
 $Object* Symbol$DynamicVarSymbol::poolKey($Types* types) {
-	 return this->$Symbol$VarSymbol::poolKey(types);
+	return this->$Symbol$VarSymbol::poolKey(types);
 }
 
 void Symbol$DynamicVarSymbol::init$($Name* name, $Symbol* owner, $Symbol$MethodHandleSymbol* bsm, $Type* type, $PoolConstant$LoadableConstantArray* staticArgs) {

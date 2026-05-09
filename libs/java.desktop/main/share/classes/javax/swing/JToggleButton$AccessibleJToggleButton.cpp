@@ -27,19 +27,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JToggleButton$AccessibleJToggleButton::hashCode() {
-	 return this->$AbstractButton$AccessibleAbstractButton::hashCode();
+	return this->$AbstractButton$AccessibleAbstractButton::hashCode();
 }
 
 bool JToggleButton$AccessibleJToggleButton::equals(Object$* arg0) {
-	 return this->$AbstractButton$AccessibleAbstractButton::equals(arg0);
+	return this->$AbstractButton$AccessibleAbstractButton::equals(arg0);
 }
 
 $Object* JToggleButton$AccessibleJToggleButton::clone() {
-	 return this->$AbstractButton$AccessibleAbstractButton::clone();
+	return this->$AbstractButton$AccessibleAbstractButton::clone();
 }
 
 $String* JToggleButton$AccessibleJToggleButton::toString() {
-	 return this->$AbstractButton$AccessibleAbstractButton::toString();
+	return this->$AbstractButton$AccessibleAbstractButton::toString();
 }
 
 void JToggleButton$AccessibleJToggleButton::finalize() {

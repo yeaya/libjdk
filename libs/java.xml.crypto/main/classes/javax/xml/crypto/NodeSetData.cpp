@@ -11,19 +11,19 @@ namespace javax {
 		namespace crypto {
 
 int32_t NodeSetData::hashCode() {
-	 return this->$Data::hashCode();
+	return this->$Data::hashCode();
 }
 
 bool NodeSetData::equals(Object$* arg0) {
-	 return this->$Data::equals(arg0);
+	return this->$Data::equals(arg0);
 }
 
 $Object* NodeSetData::clone() {
-	 return this->$Data::clone();
+	return this->$Data::clone();
 }
 
 $String* NodeSetData::toString() {
-	 return this->$Data::toString();
+	return this->$Data::toString();
 }
 
 void NodeSetData::finalize() {

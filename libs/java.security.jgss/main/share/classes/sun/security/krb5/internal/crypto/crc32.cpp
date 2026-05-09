@@ -24,15 +24,15 @@ namespace sun {
 				namespace crypto {
 
 int32_t crc32::hashCode() {
-	 return this->$MessageDigestSpi::hashCode();
+	return this->$MessageDigestSpi::hashCode();
 }
 
 bool crc32::equals(Object$* arg0) {
-	 return this->$MessageDigestSpi::equals(arg0);
+	return this->$MessageDigestSpi::equals(arg0);
 }
 
 $String* crc32::toString() {
-	 return this->$MessageDigestSpi::toString();
+	return this->$MessageDigestSpi::toString();
 }
 
 void crc32::finalize() {

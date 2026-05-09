@@ -62,19 +62,19 @@ namespace sun {
 	namespace awt {
 
 int32_t NullComponentPeer::hashCode() {
-	 return this->$LightweightPeer::hashCode();
+	return this->$LightweightPeer::hashCode();
 }
 
 bool NullComponentPeer::equals(Object$* arg0) {
-	 return this->$LightweightPeer::equals(arg0);
+	return this->$LightweightPeer::equals(arg0);
 }
 
 $Object* NullComponentPeer::clone() {
-	 return this->$LightweightPeer::clone();
+	return this->$LightweightPeer::clone();
 }
 
 $String* NullComponentPeer::toString() {
-	 return this->$LightweightPeer::toString();
+	return this->$LightweightPeer::toString();
 }
 
 void NullComponentPeer::finalize() {

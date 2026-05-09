@@ -78,19 +78,19 @@ namespace sun {
 		namespace im {
 
 int32_t ExecutableInputMethodManager::hashCode() {
-	 return this->$InputMethodManager::hashCode();
+	return this->$InputMethodManager::hashCode();
 }
 
 bool ExecutableInputMethodManager::equals(Object$* arg0) {
-	 return this->$InputMethodManager::equals(arg0);
+	return this->$InputMethodManager::equals(arg0);
 }
 
 $Object* ExecutableInputMethodManager::clone() {
-	 return this->$InputMethodManager::clone();
+	return this->$InputMethodManager::clone();
 }
 
 $String* ExecutableInputMethodManager::toString() {
-	 return this->$InputMethodManager::toString();
+	return this->$InputMethodManager::toString();
 }
 
 void ExecutableInputMethodManager::finalize() {

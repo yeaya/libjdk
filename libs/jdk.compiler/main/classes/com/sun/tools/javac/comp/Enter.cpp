@@ -176,7 +176,7 @@ public:
 		$set(this, tree, tree);
 	}
 	virtual bool test(Object$* m) override {
-		 return Enter::lambda$visitTopLevel$0(tree, $cast($Symbol$ModuleSymbol, m));
+		return Enter::lambda$visitTopLevel$0(tree, $cast($Symbol$ModuleSymbol, m));
 	}
 	$JCTree$JCCompilationUnit* tree = nullptr;
 };
@@ -214,7 +214,7 @@ public:
 		$set(this, tree, tree);
 	}
 	virtual bool test(Object$* cand) override {
-		 return $nc(inst$)->lambda$visitTopLevel$1(visiblePackages, tree, $cast($Symbol$ModuleSymbol, cand));
+		return $nc(inst$)->lambda$visitTopLevel$1(visiblePackages, tree, $cast($Symbol$ModuleSymbol, cand));
 	}
 	Enter* inst$ = nullptr;
 	$Map* visiblePackages = nullptr;
@@ -254,7 +254,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$Symbol* inst$ = nullptr;
 };
@@ -290,7 +290,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual $Object* get() override {
-		 return $of(Enter::lambda$visitClassDef$2(c));
+		return $of(Enter::lambda$visitClassDef$2(c));
 	}
 	$Symbol$ClassSymbol* c = nullptr;
 };

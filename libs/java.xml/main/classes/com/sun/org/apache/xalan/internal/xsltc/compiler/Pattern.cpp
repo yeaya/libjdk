@@ -30,7 +30,7 @@ namespace com {
 							namespace compiler {
 
 $Type* Pattern::typeCheck($SymbolTable* stable) {
-	 return this->$Expression::typeCheck(stable);
+	return this->$Expression::typeCheck(stable);
 }
 
 void Pattern::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {

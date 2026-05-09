@@ -17,19 +17,19 @@ namespace sun {
 		namespace im {
 
 $String* SimpleInputMethodWindow::toString() {
-	 return this->$Frame::toString();
+	return this->$Frame::toString();
 }
 
 int32_t SimpleInputMethodWindow::hashCode() {
-	 return this->$Frame::hashCode();
+	return this->$Frame::hashCode();
 }
 
 bool SimpleInputMethodWindow::equals(Object$* arg0) {
-	 return this->$Frame::equals(arg0);
+	return this->$Frame::equals(arg0);
 }
 
 $Object* SimpleInputMethodWindow::clone() {
-	 return this->$Frame::clone();
+	return this->$Frame::clone();
 }
 
 void SimpleInputMethodWindow::finalize() {

@@ -39,15 +39,15 @@ namespace javax {
 			namespace standard {
 
 int32_t MediaSize::hashCode() {
-	 return this->$Size2DSyntax::hashCode();
+	return this->$Size2DSyntax::hashCode();
 }
 
 $String* MediaSize::toString() {
-	 return this->$Size2DSyntax::toString();
+	return this->$Size2DSyntax::toString();
 }
 
 $Object* MediaSize::clone() {
-	 return this->$Size2DSyntax::clone();
+	return this->$Size2DSyntax::clone();
 }
 
 void MediaSize::finalize() {

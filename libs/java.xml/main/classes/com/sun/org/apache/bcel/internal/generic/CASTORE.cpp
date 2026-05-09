@@ -25,23 +25,23 @@ namespace com {
 						namespace generic {
 
 $String* CASTORE::toString() {
-	 return this->$ArrayInstruction::toString();
+	return this->$ArrayInstruction::toString();
 }
 
 int32_t CASTORE::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$ArrayInstruction::consumeStack(cpg);
+	return this->$ArrayInstruction::consumeStack(cpg);
 }
 
 bool CASTORE::equals(Object$* that) {
-	 return this->$ArrayInstruction::equals(that);
+	return this->$ArrayInstruction::equals(that);
 }
 
 int32_t CASTORE::hashCode() {
-	 return this->$ArrayInstruction::hashCode();
+	return this->$ArrayInstruction::hashCode();
 }
 
 $Object* CASTORE::clone() {
-	 return this->$ArrayInstruction::clone();
+	return this->$ArrayInstruction::clone();
 }
 
 void CASTORE::finalize() {

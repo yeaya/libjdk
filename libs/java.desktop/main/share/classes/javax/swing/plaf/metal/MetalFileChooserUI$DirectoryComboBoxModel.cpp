@@ -44,19 +44,19 @@ void MetalFileChooserUI$DirectoryComboBoxModel::removeListDataListener($ListData
 }
 
 int32_t MetalFileChooserUI$DirectoryComboBoxModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool MetalFileChooserUI$DirectoryComboBoxModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* MetalFileChooserUI$DirectoryComboBoxModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* MetalFileChooserUI$DirectoryComboBoxModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void MetalFileChooserUI$DirectoryComboBoxModel::finalize() {

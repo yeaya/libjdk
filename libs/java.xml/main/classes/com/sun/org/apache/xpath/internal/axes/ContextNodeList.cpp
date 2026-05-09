@@ -17,7 +17,7 @@ namespace com {
 						namespace axes {
 
 $Object* ContextNodeList::clone() {
-	 return this->$Object::clone();
+	return this->$Object::clone();
 }
 
 $Class* ContextNodeList::load$($String* name, bool initialize) {

@@ -71,19 +71,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t XSystemTrayPeer::hashCode() {
-	 return this->$SystemTrayPeer::hashCode();
+	return this->$SystemTrayPeer::hashCode();
 }
 
 bool XSystemTrayPeer::equals(Object$* arg0) {
-	 return this->$SystemTrayPeer::equals(arg0);
+	return this->$SystemTrayPeer::equals(arg0);
 }
 
 $Object* XSystemTrayPeer::clone() {
-	 return this->$SystemTrayPeer::clone();
+	return this->$SystemTrayPeer::clone();
 }
 
 $String* XSystemTrayPeer::toString() {
-	 return this->$SystemTrayPeer::toString();
+	return this->$SystemTrayPeer::toString();
 }
 
 void XSystemTrayPeer::finalize() {

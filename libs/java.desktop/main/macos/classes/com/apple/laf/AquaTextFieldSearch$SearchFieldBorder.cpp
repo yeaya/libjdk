@@ -40,19 +40,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaTextFieldSearch$SearchFieldBorder::hashCode() {
-	 return this->$AquaTextFieldBorder::hashCode();
+	return this->$AquaTextFieldBorder::hashCode();
 }
 
 bool AquaTextFieldSearch$SearchFieldBorder::equals(Object$* arg0) {
-	 return this->$AquaTextFieldBorder::equals(arg0);
+	return this->$AquaTextFieldBorder::equals(arg0);
 }
 
 $Object* AquaTextFieldSearch$SearchFieldBorder::clone() {
-	 return this->$AquaTextFieldBorder::clone();
+	return this->$AquaTextFieldBorder::clone();
 }
 
 $String* AquaTextFieldSearch$SearchFieldBorder::toString() {
-	 return this->$AquaTextFieldBorder::toString();
+	return this->$AquaTextFieldBorder::toString();
 }
 
 void AquaTextFieldSearch$SearchFieldBorder::finalize() {

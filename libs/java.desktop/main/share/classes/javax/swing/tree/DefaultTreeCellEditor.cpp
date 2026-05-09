@@ -64,19 +64,19 @@ namespace javax {
 		namespace tree {
 
 int32_t DefaultTreeCellEditor::hashCode() {
-	 return this->$ActionListener::hashCode();
+	return this->$ActionListener::hashCode();
 }
 
 bool DefaultTreeCellEditor::equals(Object$* arg0) {
-	 return this->$ActionListener::equals(arg0);
+	return this->$ActionListener::equals(arg0);
 }
 
 $Object* DefaultTreeCellEditor::clone() {
-	 return this->$ActionListener::clone();
+	return this->$ActionListener::clone();
 }
 
 $String* DefaultTreeCellEditor::toString() {
-	 return this->$ActionListener::toString();
+	return this->$ActionListener::toString();
 }
 
 void DefaultTreeCellEditor::finalize() {

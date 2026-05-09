@@ -22,19 +22,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicComboBoxUI$DefaultKeySelectionManager::hashCode() {
-	 return this->$JComboBox$KeySelectionManager::hashCode();
+	return this->$JComboBox$KeySelectionManager::hashCode();
 }
 
 bool BasicComboBoxUI$DefaultKeySelectionManager::equals(Object$* arg0) {
-	 return this->$JComboBox$KeySelectionManager::equals(arg0);
+	return this->$JComboBox$KeySelectionManager::equals(arg0);
 }
 
 $Object* BasicComboBoxUI$DefaultKeySelectionManager::clone() {
-	 return this->$JComboBox$KeySelectionManager::clone();
+	return this->$JComboBox$KeySelectionManager::clone();
 }
 
 $String* BasicComboBoxUI$DefaultKeySelectionManager::toString() {
-	 return this->$JComboBox$KeySelectionManager::toString();
+	return this->$JComboBox$KeySelectionManager::toString();
 }
 
 void BasicComboBoxUI$DefaultKeySelectionManager::finalize() {

@@ -47,19 +47,19 @@ namespace java {
 	namespace awt {
 
 int32_t List$AccessibleAWTList$AccessibleAWTListChild::hashCode() {
-	 return this->$Component$AccessibleAWTComponent::hashCode();
+	return this->$Component$AccessibleAWTComponent::hashCode();
 }
 
 bool List$AccessibleAWTList$AccessibleAWTListChild::equals(Object$* arg0) {
-	 return this->$Component$AccessibleAWTComponent::equals(arg0);
+	return this->$Component$AccessibleAWTComponent::equals(arg0);
 }
 
 $Object* List$AccessibleAWTList$AccessibleAWTListChild::clone() {
-	 return this->$Component$AccessibleAWTComponent::clone();
+	return this->$Component$AccessibleAWTComponent::clone();
 }
 
 $String* List$AccessibleAWTList$AccessibleAWTListChild::toString() {
-	 return this->$Component$AccessibleAWTComponent::toString();
+	return this->$Component$AccessibleAWTComponent::toString();
 }
 
 void List$AccessibleAWTList$AccessibleAWTListChild::finalize() {

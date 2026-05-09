@@ -31,19 +31,19 @@ namespace java {
 	namespace awt {
 
 $String* Label::toString() {
-	 return this->$Component::toString();
+	return this->$Component::toString();
 }
 
 int32_t Label::hashCode() {
-	 return this->$Component::hashCode();
+	return this->$Component::hashCode();
 }
 
 bool Label::equals(Object$* arg0) {
-	 return this->$Component::equals(arg0);
+	return this->$Component::equals(arg0);
 }
 
 $Object* Label::clone() {
-	 return this->$Component::clone();
+	return this->$Component::clone();
 }
 
 void Label::finalize() {

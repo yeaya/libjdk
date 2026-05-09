@@ -65,7 +65,7 @@ public:
 		$set(this, code, code);
 	}
 	virtual $Object* run() override {
-		 return TestKit::lambda$assertNotThrows$0(code);
+		return TestKit::lambda$assertNotThrows$0(code);
 	}
 	$TestKit$ThrowingProcedure* code = nullptr;
 };
@@ -100,7 +100,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return TestKit::lambda$assertUnmodifiableCollection$1();
+		return TestKit::lambda$assertUnmodifiableCollection$1();
 	}
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1::load$($String* name, bool initialize) {
@@ -736,7 +736,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* a, Object$* b) override {
-		 return TestKit::lambda$assertUnmodifiableList$19(a, b);
+		return TestKit::lambda$assertUnmodifiableList$19(a, b);
 	}
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$19$18::load$($String* name, bool initialize) {
@@ -805,7 +805,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return TestKit::lambda$assertUnmodifiableMap$21();
+		return TestKit::lambda$assertUnmodifiableMap$21();
 	}
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20::load$($String* name, bool initialize) {
@@ -1403,7 +1403,7 @@ public:
 		$set(this, v, v);
 	}
 	virtual $Object* apply(Object$* k1, Object$* v1) override {
-		 return TestKit::lambda$assertUnmodifiableMap$22(v, k1, v1);
+		return TestKit::lambda$assertUnmodifiableMap$22(v, k1, v1);
 	}
 	$Object* v = nullptr;
 };
@@ -1439,7 +1439,7 @@ public:
 		$set(this, e, e);
 	}
 	virtual $Object* apply(Object$* x) override {
-		 return TestKit::lambda$assertUnmodifiableList$16(e, x);
+		return TestKit::lambda$assertUnmodifiableList$16(e, x);
 	}
 	$Object* e = nullptr;
 };
@@ -1474,7 +1474,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* x) override {
-		 return TestKit::lambda$assertUnmodifiableCollection$6(x);
+		return TestKit::lambda$assertUnmodifiableCollection$6(x);
 	}
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37::load$($String* name, bool initialize) {

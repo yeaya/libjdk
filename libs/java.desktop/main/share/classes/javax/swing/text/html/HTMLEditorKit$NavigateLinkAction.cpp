@@ -56,19 +56,19 @@ namespace javax {
 			namespace html {
 
 $Object* HTMLEditorKit$NavigateLinkAction::clone() {
-	 return this->$TextAction::clone();
+	return this->$TextAction::clone();
 }
 
 int32_t HTMLEditorKit$NavigateLinkAction::hashCode() {
-	 return this->$TextAction::hashCode();
+	return this->$TextAction::hashCode();
 }
 
 bool HTMLEditorKit$NavigateLinkAction::equals(Object$* arg0) {
-	 return this->$TextAction::equals(arg0);
+	return this->$TextAction::equals(arg0);
 }
 
 $String* HTMLEditorKit$NavigateLinkAction::toString() {
-	 return this->$TextAction::toString();
+	return this->$TextAction::toString();
 }
 
 void HTMLEditorKit$NavigateLinkAction::finalize() {

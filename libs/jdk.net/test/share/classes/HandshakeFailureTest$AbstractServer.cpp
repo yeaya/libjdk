@@ -20,19 +20,19 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 
 $Object* HandshakeFailureTest$AbstractServer::clone() {
-	 return this->$Thread::clone();
+	return this->$Thread::clone();
 }
 
 $String* HandshakeFailureTest$AbstractServer::toString() {
-	 return this->$Thread::toString();
+	return this->$Thread::toString();
 }
 
 int32_t HandshakeFailureTest$AbstractServer::hashCode() {
-	 return this->$Thread::hashCode();
+	return this->$Thread::hashCode();
 }
 
 bool HandshakeFailureTest$AbstractServer::equals(Object$* arg0) {
-	 return this->$Thread::equals(arg0);
+	return this->$Thread::equals(arg0);
 }
 
 void HandshakeFailureTest$AbstractServer::finalize() {

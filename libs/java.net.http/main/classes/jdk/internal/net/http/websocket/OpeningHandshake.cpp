@@ -149,7 +149,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$send$0());
+		return $of($nc(inst$)->lambda$send$0());
 	}
 	OpeningHandshake* inst$ = nullptr;
 };
@@ -184,7 +184,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return $of(OpeningHandshake::lambda$checkPermissions$1($cast($Pair, p)));
+		return $of(OpeningHandshake::lambda$checkPermissions$1($cast($Pair, p)));
 	}
 };
 $Class* OpeningHandshake$$Lambda$lambda$checkPermissions$1$1::load$($String* name, bool initialize) {
@@ -215,7 +215,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* response) override {
-		 return $of($nc(inst$)->resultFrom($cast($HttpResponse, response)));
+		return $of($nc(inst$)->resultFrom($cast($HttpResponse, response)));
 	}
 	OpeningHandshake* inst$ = nullptr;
 };

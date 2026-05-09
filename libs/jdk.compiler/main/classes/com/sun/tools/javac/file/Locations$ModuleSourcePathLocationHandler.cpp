@@ -105,7 +105,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* p) override {
-		 return Locations$ModuleSourcePathLocationHandler::lambda$new$1($cast($Path, p));
+		return Locations$ModuleSourcePathLocationHandler::lambda$new$1($cast($Path, p));
 	}
 };
 $Class* Locations$ModuleSourcePathLocationHandler$$Lambda$lambda$new$1::load$($String* name, bool initialize) {
@@ -207,7 +207,7 @@ public:
 	void init$() {
 	}
 	virtual bool accept(Object$* path) override {
-		 return Locations$ModuleSourcePathLocationHandler::lambda$add$2($cast($Path, path));
+		return Locations$ModuleSourcePathLocationHandler::lambda$add$2($cast($Path, path));
 	}
 };
 $Class* Locations$ModuleSourcePathLocationHandler$$Lambda$lambda$add$2$3::load$($String* name, bool initialize) {

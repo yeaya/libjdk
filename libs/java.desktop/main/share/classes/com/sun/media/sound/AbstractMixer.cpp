@@ -41,11 +41,11 @@ namespace com {
 			namespace sound {
 
 $Line$Info* AbstractMixer::getLineInfo() {
-	 return this->$AbstractLine::getLineInfo();
+	return this->$AbstractLine::getLineInfo();
 }
 
 bool AbstractMixer::isOpen() {
-	 return this->$AbstractLine::isOpen();
+	return this->$AbstractLine::isOpen();
 }
 
 void AbstractMixer::addLineListener($LineListener* listener) {
@@ -57,31 +57,31 @@ void AbstractMixer::removeLineListener($LineListener* listener) {
 }
 
 $ControlArray* AbstractMixer::getControls() {
-	 return this->$AbstractLine::getControls();
+	return this->$AbstractLine::getControls();
 }
 
 bool AbstractMixer::isControlSupported($Control$Type* controlType) {
-	 return this->$AbstractLine::isControlSupported(controlType);
+	return this->$AbstractLine::isControlSupported(controlType);
 }
 
 $Control* AbstractMixer::getControl($Control$Type* controlType) {
-	 return this->$AbstractLine::getControl(controlType);
+	return this->$AbstractLine::getControl(controlType);
 }
 
 int32_t AbstractMixer::hashCode() {
-	 return this->$AbstractLine::hashCode();
+	return this->$AbstractLine::hashCode();
 }
 
 bool AbstractMixer::equals(Object$* arg0) {
-	 return this->$AbstractLine::equals(arg0);
+	return this->$AbstractLine::equals(arg0);
 }
 
 $Object* AbstractMixer::clone() {
-	 return this->$AbstractLine::clone();
+	return this->$AbstractLine::clone();
 }
 
 $String* AbstractMixer::toString() {
-	 return this->$AbstractLine::toString();
+	return this->$AbstractLine::toString();
 }
 
 void AbstractMixer::finalize() {

@@ -64,7 +64,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$getLocationAsString$0());
+		return $of($nc(inst$)->lambda$getLocationAsString$0());
 	}
 	TransformerException* inst$ = nullptr;
 };

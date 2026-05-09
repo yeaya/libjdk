@@ -14,19 +14,19 @@ namespace com {
 			namespace doctree {
 
 int32_t ReturnTree::hashCode() {
-	 return this->$BlockTagTree::hashCode();
+	return this->$BlockTagTree::hashCode();
 }
 
 bool ReturnTree::equals(Object$* arg0) {
-	 return this->$BlockTagTree::equals(arg0);
+	return this->$BlockTagTree::equals(arg0);
 }
 
 $Object* ReturnTree::clone() {
-	 return this->$BlockTagTree::clone();
+	return this->$BlockTagTree::clone();
 }
 
 $String* ReturnTree::toString() {
-	 return this->$BlockTagTree::toString();
+	return this->$BlockTagTree::toString();
 }
 
 void ReturnTree::finalize() {

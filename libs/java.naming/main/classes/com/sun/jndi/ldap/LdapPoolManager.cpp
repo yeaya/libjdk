@@ -90,7 +90,7 @@ public:
 		$set(this, defVal, defVal);
 	}
 	virtual $Object* run() override {
-		 return $of(LdapPoolManager::lambda$getProperty$0(propName, defVal));
+		return $of(LdapPoolManager::lambda$getProperty$0(propName, defVal));
 	}
 	$String* propName = nullptr;
 	$String* defVal = nullptr;
@@ -129,7 +129,7 @@ public:
 		this->defVal = defVal;
 	}
 	virtual $Object* run() override {
-		 return $of(LdapPoolManager::lambda$getInteger$1(propName, defVal));
+		return $of(LdapPoolManager::lambda$getInteger$1(propName, defVal));
 	}
 	$String* propName = nullptr;
 	int32_t defVal = 0;
@@ -168,7 +168,7 @@ public:
 		this->defVal = defVal;
 	}
 	virtual $Object* run() override {
-		 return $of(LdapPoolManager::lambda$getLong$2(propName, defVal));
+		return $of(LdapPoolManager::lambda$getLong$2(propName, defVal));
 	}
 	$String* propName = nullptr;
 	int64_t defVal = 0;

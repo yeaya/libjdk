@@ -20,19 +20,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicIconFactory$MenuArrowIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool BasicIconFactory$MenuArrowIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* BasicIconFactory$MenuArrowIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* BasicIconFactory$MenuArrowIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void BasicIconFactory$MenuArrowIcon::finalize() {

@@ -79,19 +79,19 @@ namespace java {
 	namespace awt {
 
 int32_t AWTEventMulticaster::hashCode() {
-	 return this->$ComponentListener::hashCode();
+	return this->$ComponentListener::hashCode();
 }
 
 bool AWTEventMulticaster::equals(Object$* arg0) {
-	 return this->$ComponentListener::equals(arg0);
+	return this->$ComponentListener::equals(arg0);
 }
 
 $Object* AWTEventMulticaster::clone() {
-	 return this->$ComponentListener::clone();
+	return this->$ComponentListener::clone();
 }
 
 $String* AWTEventMulticaster::toString() {
-	 return this->$ComponentListener::toString();
+	return this->$ComponentListener::toString();
 }
 
 void AWTEventMulticaster::finalize() {

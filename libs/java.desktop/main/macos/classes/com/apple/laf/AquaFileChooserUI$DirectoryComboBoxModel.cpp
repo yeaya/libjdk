@@ -32,19 +32,19 @@ void AquaFileChooserUI$DirectoryComboBoxModel::removeListDataListener($ListDataL
 }
 
 int32_t AquaFileChooserUI$DirectoryComboBoxModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool AquaFileChooserUI$DirectoryComboBoxModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* AquaFileChooserUI$DirectoryComboBoxModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* AquaFileChooserUI$DirectoryComboBoxModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void AquaFileChooserUI$DirectoryComboBoxModel::finalize() {

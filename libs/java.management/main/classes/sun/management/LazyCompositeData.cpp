@@ -47,7 +47,7 @@ public:
 		$set(this, type2, type2);
 	}
 	virtual bool test(Object$* item) override {
-		 return LazyCompositeData::lambda$isTypeMatched$0(type1, type2, $cast($String, item));
+		return LazyCompositeData::lambda$isTypeMatched$0(type1, type2, $cast($String, item));
 	}
 	$CompositeType* type1 = nullptr;
 	$CompositeType* type2 = nullptr;
@@ -79,7 +79,7 @@ $Class* LazyCompositeData$$Lambda$lambda$isTypeMatched$0::load$($String* name, b
 $Class* LazyCompositeData$$Lambda$lambda$isTypeMatched$0::class$ = nullptr;
 
 $Object* LazyCompositeData::clone() {
-	 return this->$CompositeData::clone();
+	return this->$CompositeData::clone();
 }
 
 void LazyCompositeData::finalize() {

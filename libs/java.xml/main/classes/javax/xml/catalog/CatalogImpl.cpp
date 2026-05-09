@@ -97,7 +97,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* entry) override {
-		 return CatalogImpl::lambda$reset$0($cast($BaseEntry, entry));
+		return CatalogImpl::lambda$reset$0($cast($BaseEntry, entry));
 	}
 };
 $Class* CatalogImpl$$Lambda$lambda$reset$0::load$($String* name, bool initialize) {
@@ -224,31 +224,31 @@ $Class* CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3::load$($String* name, bo
 $Class* CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3::class$ = nullptr;
 
 $String* CatalogImpl::matchSystem($String* systemId) {
-	 return this->$GroupEntry::matchSystem(systemId);
+	return this->$GroupEntry::matchSystem(systemId);
 }
 
 $String* CatalogImpl::matchPublic($String* publicId) {
-	 return this->$GroupEntry::matchPublic(publicId);
+	return this->$GroupEntry::matchPublic(publicId);
 }
 
 $String* CatalogImpl::matchURI($String* uri) {
-	 return this->$GroupEntry::matchURI(uri);
+	return this->$GroupEntry::matchURI(uri);
 }
 
 int32_t CatalogImpl::hashCode() {
-	 return this->$GroupEntry::hashCode();
+	return this->$GroupEntry::hashCode();
 }
 
 bool CatalogImpl::equals(Object$* arg0) {
-	 return this->$GroupEntry::equals(arg0);
+	return this->$GroupEntry::equals(arg0);
 }
 
 $Object* CatalogImpl::clone() {
-	 return this->$GroupEntry::clone();
+	return this->$GroupEntry::clone();
 }
 
 $String* CatalogImpl::toString() {
-	 return this->$GroupEntry::toString();
+	return this->$GroupEntry::toString();
 }
 
 void CatalogImpl::finalize() {

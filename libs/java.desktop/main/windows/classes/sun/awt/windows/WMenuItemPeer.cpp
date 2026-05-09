@@ -44,19 +44,19 @@ void WMenuItemPeer::dispose() {
 }
 
 int32_t WMenuItemPeer::hashCode() {
-	 return this->$WObjectPeer::hashCode();
+	return this->$WObjectPeer::hashCode();
 }
 
 bool WMenuItemPeer::equals(Object$* arg0) {
-	 return this->$WObjectPeer::equals(arg0);
+	return this->$WObjectPeer::equals(arg0);
 }
 
 $Object* WMenuItemPeer::clone() {
-	 return this->$WObjectPeer::clone();
+	return this->$WObjectPeer::clone();
 }
 
 $String* WMenuItemPeer::toString() {
-	 return this->$WObjectPeer::toString();
+	return this->$WObjectPeer::toString();
 }
 
 void WMenuItemPeer::finalize() {

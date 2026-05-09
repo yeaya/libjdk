@@ -16,19 +16,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicDesktopPaneUI$BasicDesktopManager::hashCode() {
-	 return this->$DefaultDesktopManager::hashCode();
+	return this->$DefaultDesktopManager::hashCode();
 }
 
 bool BasicDesktopPaneUI$BasicDesktopManager::equals(Object$* arg0) {
-	 return this->$DefaultDesktopManager::equals(arg0);
+	return this->$DefaultDesktopManager::equals(arg0);
 }
 
 $Object* BasicDesktopPaneUI$BasicDesktopManager::clone() {
-	 return this->$DefaultDesktopManager::clone();
+	return this->$DefaultDesktopManager::clone();
 }
 
 $String* BasicDesktopPaneUI$BasicDesktopManager::toString() {
-	 return this->$DefaultDesktopManager::toString();
+	return this->$DefaultDesktopManager::toString();
 }
 
 void BasicDesktopPaneUI$BasicDesktopManager::finalize() {

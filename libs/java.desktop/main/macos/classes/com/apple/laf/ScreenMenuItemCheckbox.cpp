@@ -72,19 +72,19 @@ void ScreenMenuItemCheckbox::setFont($Font* f) {
 }
 
 $String* ScreenMenuItemCheckbox::toString() {
-	 return this->$CheckboxMenuItem::toString();
+	return this->$CheckboxMenuItem::toString();
 }
 
 int32_t ScreenMenuItemCheckbox::hashCode() {
-	 return this->$CheckboxMenuItem::hashCode();
+	return this->$CheckboxMenuItem::hashCode();
 }
 
 bool ScreenMenuItemCheckbox::equals(Object$* arg0) {
-	 return this->$CheckboxMenuItem::equals(arg0);
+	return this->$CheckboxMenuItem::equals(arg0);
 }
 
 $Object* ScreenMenuItemCheckbox::clone() {
-	 return this->$CheckboxMenuItem::clone();
+	return this->$CheckboxMenuItem::clone();
 }
 
 void ScreenMenuItemCheckbox::finalize() {

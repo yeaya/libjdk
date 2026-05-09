@@ -55,7 +55,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* sym) override {
-		 return JavacScope::lambda$static$0($cast($Symbol, sym));
+		return JavacScope::lambda$static$0($cast($Symbol, sym));
 	}
 };
 $Class* JavacScope$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

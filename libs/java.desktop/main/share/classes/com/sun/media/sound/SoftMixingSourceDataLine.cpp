@@ -85,35 +85,35 @@ void SoftMixingSourceDataLine::removeLineListener($LineListener* listener) {
 }
 
 $Line$Info* SoftMixingSourceDataLine::getLineInfo() {
-	 return this->$SoftMixingDataLine::getLineInfo();
+	return this->$SoftMixingDataLine::getLineInfo();
 }
 
 $Control* SoftMixingSourceDataLine::getControl($Control$Type* control) {
-	 return this->$SoftMixingDataLine::getControl(control);
+	return this->$SoftMixingDataLine::getControl(control);
 }
 
 $ControlArray* SoftMixingSourceDataLine::getControls() {
-	 return this->$SoftMixingDataLine::getControls();
+	return this->$SoftMixingDataLine::getControls();
 }
 
 bool SoftMixingSourceDataLine::isControlSupported($Control$Type* control) {
-	 return this->$SoftMixingDataLine::isControlSupported(control);
+	return this->$SoftMixingDataLine::isControlSupported(control);
 }
 
 int32_t SoftMixingSourceDataLine::hashCode() {
-	 return this->$SoftMixingDataLine::hashCode();
+	return this->$SoftMixingDataLine::hashCode();
 }
 
 bool SoftMixingSourceDataLine::equals(Object$* arg0) {
-	 return this->$SoftMixingDataLine::equals(arg0);
+	return this->$SoftMixingDataLine::equals(arg0);
 }
 
 $Object* SoftMixingSourceDataLine::clone() {
-	 return this->$SoftMixingDataLine::clone();
+	return this->$SoftMixingDataLine::clone();
 }
 
 $String* SoftMixingSourceDataLine::toString() {
-	 return this->$SoftMixingDataLine::toString();
+	return this->$SoftMixingDataLine::toString();
 }
 
 void SoftMixingSourceDataLine::finalize() {

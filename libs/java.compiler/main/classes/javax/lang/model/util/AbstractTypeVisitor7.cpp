@@ -16,7 +16,7 @@ namespace javax {
 			namespace util {
 
 $Object* AbstractTypeVisitor7::visitUnion($UnionType* t, Object$* p) {
-	 return this->$AbstractTypeVisitor6::visitUnion(t, p);
+	return this->$AbstractTypeVisitor6::visitUnion(t, p);
 }
 
 void AbstractTypeVisitor7::init$() {

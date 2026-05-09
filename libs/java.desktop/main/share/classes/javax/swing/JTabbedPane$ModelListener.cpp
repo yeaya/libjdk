@@ -16,19 +16,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JTabbedPane$ModelListener::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool JTabbedPane$ModelListener::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* JTabbedPane$ModelListener::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* JTabbedPane$ModelListener::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void JTabbedPane$ModelListener::finalize() {

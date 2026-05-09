@@ -75,7 +75,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$String* inst$ = nullptr;
 };
@@ -112,7 +112,7 @@ public:
 		$set(this, connection, connection);
 	}
 	virtual $Object* apply(Object$* h2c, Object$* t) override {
-		 return $of(ExchangeImpl::lambda$get$0(exchange, connection, $cast($Http2Connection, h2c), $cast($Throwable, t)));
+		return $of(ExchangeImpl::lambda$get$0(exchange, connection, $cast($Http2Connection, h2c), $cast($Throwable, t)));
 	}
 	$Exchange* exchange = nullptr;
 	$HttpConnection* connection = nullptr;
@@ -149,7 +149,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* x) override {
-		 return ExchangeImpl::lambda$get$1($cast($CompletableFuture, x));
+		return ExchangeImpl::lambda$get$1($cast($CompletableFuture, x));
 	}
 };
 $Class* ExchangeImpl$$Lambda$lambda$get$1$2::load$($String* name, bool initialize) {
@@ -180,7 +180,7 @@ public:
 		$set(this, exchange, exchange);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return ExchangeImpl::lambda$createExchangeImpl$2(exchange, $cast($Http1Exchange, e));
+		return ExchangeImpl::lambda$createExchangeImpl$2(exchange, $cast($Http1Exchange, e));
 	}
 	$Exchange* exchange = nullptr;
 };

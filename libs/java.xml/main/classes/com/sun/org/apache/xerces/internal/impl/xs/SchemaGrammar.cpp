@@ -156,19 +156,19 @@ namespace com {
 							namespace xs {
 
 int32_t SchemaGrammar::hashCode() {
-	 return this->$XSGrammar::hashCode();
+	return this->$XSGrammar::hashCode();
 }
 
 bool SchemaGrammar::equals(Object$* arg0) {
-	 return this->$XSGrammar::equals(arg0);
+	return this->$XSGrammar::equals(arg0);
 }
 
 $Object* SchemaGrammar::clone() {
-	 return this->$XSGrammar::clone();
+	return this->$XSGrammar::clone();
 }
 
 $String* SchemaGrammar::toString() {
-	 return this->$XSGrammar::toString();
+	return this->$XSGrammar::toString();
 }
 
 void SchemaGrammar::finalize() {

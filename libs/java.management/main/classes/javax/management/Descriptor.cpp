@@ -10,19 +10,19 @@ namespace javax {
 	namespace management {
 
 $Object* Descriptor::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 bool Descriptor::equals(Object$* obj) {
-	 return this->$Serializable::equals(obj);
+	return this->$Serializable::equals(obj);
 }
 
 int32_t Descriptor::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 $String* Descriptor::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void Descriptor::finalize() {

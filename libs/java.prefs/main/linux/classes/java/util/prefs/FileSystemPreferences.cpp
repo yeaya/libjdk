@@ -114,7 +114,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(FileSystemPreferences::lambda$static$1());
+		return $of(FileSystemPreferences::lambda$static$1());
 	}
 };
 $Class* FileSystemPreferences$$Lambda$lambda$static$1::load$($String* name, bool initialize) {
@@ -144,7 +144,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return FileSystemPreferences::lambda$static$0();
+		return FileSystemPreferences::lambda$static$0();
 	}
 };
 $Class* FileSystemPreferences$$Lambda$lambda$static$0$1::load$($String* name, bool initialize) {

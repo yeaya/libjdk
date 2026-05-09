@@ -37,27 +37,27 @@ namespace javax {
 		namespace openmbean {
 
 $Object* OpenMBeanOperationInfoSupport::clone() {
-	 return this->$MBeanOperationInfo::clone();
+	return this->$MBeanOperationInfo::clone();
 }
 
 $String* OpenMBeanOperationInfoSupport::getReturnType() {
-	 return this->$MBeanOperationInfo::getReturnType();
+	return this->$MBeanOperationInfo::getReturnType();
 }
 
 $MBeanParameterInfoArray* OpenMBeanOperationInfoSupport::getSignature() {
-	 return this->$MBeanOperationInfo::getSignature();
+	return this->$MBeanOperationInfo::getSignature();
 }
 
 int32_t OpenMBeanOperationInfoSupport::getImpact() {
-	 return this->$MBeanOperationInfo::getImpact();
+	return this->$MBeanOperationInfo::getImpact();
 }
 
 $String* OpenMBeanOperationInfoSupport::getName() {
-	 return this->$MBeanOperationInfo::getName();
+	return this->$MBeanOperationInfo::getName();
 }
 
 $String* OpenMBeanOperationInfoSupport::getDescription() {
-	 return this->$MBeanOperationInfo::getDescription();
+	return this->$MBeanOperationInfo::getDescription();
 }
 
 void OpenMBeanOperationInfoSupport::finalize() {

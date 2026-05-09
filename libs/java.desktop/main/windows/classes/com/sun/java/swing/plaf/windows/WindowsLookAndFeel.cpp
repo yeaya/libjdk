@@ -231,7 +231,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$initComponentDefaults$0(t);
+		return WindowsLookAndFeel::lambda$initComponentDefaults$0(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$0::load$($String* name, bool initialize) {
@@ -261,7 +261,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$initComponentDefaults$1(t);
+		return WindowsLookAndFeel::lambda$initComponentDefaults$1(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::load$($String* name, bool initialize) {
@@ -291,7 +291,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$initComponentDefaults$2(t);
+		return WindowsLookAndFeel::lambda$initComponentDefaults$2(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::load$($String* name, bool initialize) {
@@ -321,7 +321,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$initComponentDefaults$3(t);
+		return WindowsLookAndFeel::lambda$initComponentDefaults$3(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::load$($String* name, bool initialize) {
@@ -351,7 +351,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$initComponentDefaults$4(t);
+		return WindowsLookAndFeel::lambda$initComponentDefaults$4(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::load$($String* name, bool initialize) {
@@ -382,7 +382,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return $nc(inst$)->lambda$initComponentDefaults$5(t);
+		return $nc(inst$)->lambda$initComponentDefaults$5(t);
 	}
 	WindowsLookAndFeel* inst$ = nullptr;
 };
@@ -417,7 +417,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$initVistaComponentDefaults$6(t);
+		return WindowsLookAndFeel::lambda$initVistaComponentDefaults$6(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$6$6::load$($String* name, bool initialize) {
@@ -447,7 +447,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$initVistaComponentDefaults$7(t);
+		return WindowsLookAndFeel::lambda$initVistaComponentDefaults$7(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$7$7::load$($String* name, bool initialize) {
@@ -477,7 +477,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$initVistaComponentDefaults$8(t);
+		return WindowsLookAndFeel::lambda$initVistaComponentDefaults$8(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$initVistaComponentDefaults$8$8::load$($String* name, bool initialize) {
@@ -507,7 +507,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$9(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$9(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$9$9::load$($String* name, bool initialize) {
@@ -537,7 +537,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$10(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$10(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$10$10::load$($String* name, bool initialize) {
@@ -567,7 +567,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$11(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$11(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$11$11::load$($String* name, bool initialize) {
@@ -597,7 +597,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$12(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$12(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$12$12::load$($String* name, bool initialize) {
@@ -627,7 +627,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$13(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$13(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$13$13::load$($String* name, bool initialize) {
@@ -657,7 +657,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$15(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$15(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$15$14::load$($String* name, bool initialize) {
@@ -687,7 +687,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$16(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$16(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$16$15::load$($String* name, bool initialize) {
@@ -717,7 +717,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$18(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$18(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$18$16::load$($String* name, bool initialize) {
@@ -747,7 +747,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$19(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$19(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$19$17::load$($String* name, bool initialize) {
@@ -777,7 +777,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$20(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$20(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$20$18::load$($String* name, bool initialize) {
@@ -807,7 +807,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$21(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$21(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$21$19::load$($String* name, bool initialize) {
@@ -837,7 +837,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$22(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$22(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$22$20::load$($String* name, bool initialize) {
@@ -867,7 +867,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$23(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$23(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$23$21::load$($String* name, bool initialize) {
@@ -897,7 +897,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$24(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$24(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$24$22::load$($String* name, bool initialize) {
@@ -927,7 +927,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$25(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$25(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$25$23::load$($String* name, bool initialize) {
@@ -957,7 +957,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$26(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$26(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$26$24::load$($String* name, bool initialize) {
@@ -987,7 +987,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$27(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$27(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$27$25::load$($String* name, bool initialize) {
@@ -1017,7 +1017,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$28(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$28(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$28$26::load$($String* name, bool initialize) {
@@ -1047,7 +1047,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$29(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$29(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$29$27::load$($String* name, bool initialize) {
@@ -1077,7 +1077,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return WindowsLookAndFeel::lambda$getLazyValueDefaults$31(t);
+		return WindowsLookAndFeel::lambda$getLazyValueDefaults$31(t);
 	}
 };
 $Class* WindowsLookAndFeel$$Lambda$lambda$getLazyValueDefaults$31$28::load$($String* name, bool initialize) {

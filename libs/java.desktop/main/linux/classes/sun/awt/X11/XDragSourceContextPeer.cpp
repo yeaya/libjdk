@@ -103,19 +103,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t XDragSourceContextPeer::hashCode() {
-	 return this->$SunDragSourceContextPeer::hashCode();
+	return this->$SunDragSourceContextPeer::hashCode();
 }
 
 bool XDragSourceContextPeer::equals(Object$* arg0) {
-	 return this->$SunDragSourceContextPeer::equals(arg0);
+	return this->$SunDragSourceContextPeer::equals(arg0);
 }
 
 $Object* XDragSourceContextPeer::clone() {
-	 return this->$SunDragSourceContextPeer::clone();
+	return this->$SunDragSourceContextPeer::clone();
 }
 
 $String* XDragSourceContextPeer::toString() {
-	 return this->$SunDragSourceContextPeer::toString();
+	return this->$SunDragSourceContextPeer::toString();
 }
 
 void XDragSourceContextPeer::finalize() {

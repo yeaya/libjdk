@@ -77,7 +77,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($ArrayList));
+		return $of($new($ArrayList));
 	}
 };
 $Class* JavacTaskPool$$Lambda$ArrayList::load$($String* name, bool initialize) {
@@ -107,7 +107,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Collection, inst$)->stream();
+		return $sure($Collection, inst$)->stream();
 	}
 };
 $Class* JavacTaskPool$$Lambda$stream$1::load$($String* name, bool initialize) {
@@ -137,7 +137,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
-		 return JavacTaskPool::lambda$getTask$0($cast($JavacTaskPool$ReusableContext, c1), $cast($JavacTaskPool$ReusableContext, c2));
+		return JavacTaskPool::lambda$getTask$0($cast($JavacTaskPool$ReusableContext, c1), $cast($JavacTaskPool$ReusableContext, c2));
 	}
 };
 $Class* JavacTaskPool$$Lambda$lambda$getTask$0$2::load$($String* name, bool initialize) {
@@ -167,7 +167,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* x) override {
-		 return JavacTaskPool::lambda$getTask$1($cast($List, x));
+		return JavacTaskPool::lambda$getTask$1($cast($List, x));
 	}
 };
 $Class* JavacTaskPool$$Lambda$lambda$getTask$1$3::load$($String* name, bool initialize) {

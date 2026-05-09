@@ -53,7 +53,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return HttpHeadersBuilder::lambda$addHeader$0($cast($String, k));
+		return HttpHeadersBuilder::lambda$addHeader$0($cast($String, k));
 	}
 };
 $Class* HttpHeadersBuilder$$Lambda$lambda$addHeader$0::load$($String* name, bool initialize) {

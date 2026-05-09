@@ -228,19 +228,19 @@ namespace com {
 							namespace trax {
 
 int32_t TransformerImpl::hashCode() {
-	 return this->$Transformer::hashCode();
+	return this->$Transformer::hashCode();
 }
 
 bool TransformerImpl::equals(Object$* arg0) {
-	 return this->$Transformer::equals(arg0);
+	return this->$Transformer::equals(arg0);
 }
 
 $Object* TransformerImpl::clone() {
-	 return this->$Transformer::clone();
+	return this->$Transformer::clone();
 }
 
 $String* TransformerImpl::toString() {
-	 return this->$Transformer::toString();
+	return this->$Transformer::toString();
 }
 
 void TransformerImpl::finalize() {

@@ -23,19 +23,19 @@ namespace javax {
 		namespace colorchooser {
 
 int32_t DefaultSwatchChooserPanel$MainSwatchListener::hashCode() {
-	 return this->$MouseAdapter::hashCode();
+	return this->$MouseAdapter::hashCode();
 }
 
 bool DefaultSwatchChooserPanel$MainSwatchListener::equals(Object$* arg0) {
-	 return this->$MouseAdapter::equals(arg0);
+	return this->$MouseAdapter::equals(arg0);
 }
 
 $Object* DefaultSwatchChooserPanel$MainSwatchListener::clone() {
-	 return this->$MouseAdapter::clone();
+	return this->$MouseAdapter::clone();
 }
 
 $String* DefaultSwatchChooserPanel$MainSwatchListener::toString() {
-	 return this->$MouseAdapter::toString();
+	return this->$MouseAdapter::toString();
 }
 
 void DefaultSwatchChooserPanel$MainSwatchListener::finalize() {

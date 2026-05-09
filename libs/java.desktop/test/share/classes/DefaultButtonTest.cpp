@@ -33,19 +33,19 @@ using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 $String* DefaultButtonTest::toString() {
-	 return this->$JFrame::toString();
+	return this->$JFrame::toString();
 }
 
 int32_t DefaultButtonTest::hashCode() {
-	 return this->$JFrame::hashCode();
+	return this->$JFrame::hashCode();
 }
 
 bool DefaultButtonTest::equals(Object$* arg0) {
-	 return this->$JFrame::equals(arg0);
+	return this->$JFrame::equals(arg0);
 }
 
 $Object* DefaultButtonTest::clone() {
-	 return this->$JFrame::clone();
+	return this->$JFrame::clone();
 }
 
 void DefaultButtonTest::finalize() {

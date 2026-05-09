@@ -25,19 +25,19 @@ namespace javax {
 			namespace html {
 
 int32_t Map$PolygonRegionContainment::hashCode() {
-	 return this->$Polygon::hashCode();
+	return this->$Polygon::hashCode();
 }
 
 bool Map$PolygonRegionContainment::equals(Object$* arg0) {
-	 return this->$Polygon::equals(arg0);
+	return this->$Polygon::equals(arg0);
 }
 
 $Object* Map$PolygonRegionContainment::clone() {
-	 return this->$Polygon::clone();
+	return this->$Polygon::clone();
 }
 
 $String* Map$PolygonRegionContainment::toString() {
-	 return this->$Polygon::toString();
+	return this->$Polygon::toString();
 }
 
 void Map$PolygonRegionContainment::finalize() {

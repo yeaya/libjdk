@@ -59,7 +59,7 @@ namespace com {
 				namespace comp {
 
 $String* Infer$GraphSolver$InferenceGraph$Node::toString() {
-	 return this->$GraphUtils$TarjanNode::toString();
+	return this->$GraphUtils$TarjanNode::toString();
 }
 
 void Infer$GraphSolver$InferenceGraph$Node::accept($GraphUtils$NodeVisitor* visitor, Object$* arg) {
@@ -67,15 +67,15 @@ void Infer$GraphSolver$InferenceGraph$Node::accept($GraphUtils$NodeVisitor* visi
 }
 
 int32_t Infer$GraphSolver$InferenceGraph$Node::hashCode() {
-	 return this->$GraphUtils$TarjanNode::hashCode();
+	return this->$GraphUtils$TarjanNode::hashCode();
 }
 
 bool Infer$GraphSolver$InferenceGraph$Node::equals(Object$* arg0) {
-	 return this->$GraphUtils$TarjanNode::equals(arg0);
+	return this->$GraphUtils$TarjanNode::equals(arg0);
 }
 
 $Object* Infer$GraphSolver$InferenceGraph$Node::clone() {
-	 return this->$GraphUtils$TarjanNode::clone();
+	return this->$GraphUtils$TarjanNode::clone();
 }
 
 void Infer$GraphSolver$InferenceGraph$Node::finalize() {

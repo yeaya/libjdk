@@ -32,19 +32,19 @@ namespace com {
 						namespace generic {
 
 $String* GOTO::toString() {
-	 return this->$GotoInstruction::toString();
+	return this->$GotoInstruction::toString();
 }
 
 bool GOTO::equals(Object$* that) {
-	 return this->$GotoInstruction::equals(that);
+	return this->$GotoInstruction::equals(that);
 }
 
 int32_t GOTO::hashCode() {
-	 return this->$GotoInstruction::hashCode();
+	return this->$GotoInstruction::hashCode();
 }
 
 $Object* GOTO::clone() {
-	 return this->$GotoInstruction::clone();
+	return this->$GotoInstruction::clone();
 }
 
 void GOTO::finalize() {

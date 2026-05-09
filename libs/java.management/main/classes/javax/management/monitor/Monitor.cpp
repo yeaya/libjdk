@@ -134,7 +134,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$Throwable* inst$ = nullptr;
 };
@@ -164,19 +164,19 @@ $Class* Monitor$$Lambda$toString::load$($String* name, bool initialize) {
 $Class* Monitor$$Lambda$toString::class$ = nullptr;
 
 int32_t Monitor::hashCode() {
-	 return this->$NotificationBroadcasterSupport::hashCode();
+	return this->$NotificationBroadcasterSupport::hashCode();
 }
 
 bool Monitor::equals(Object$* arg0) {
-	 return this->$NotificationBroadcasterSupport::equals(arg0);
+	return this->$NotificationBroadcasterSupport::equals(arg0);
 }
 
 $Object* Monitor::clone() {
-	 return this->$NotificationBroadcasterSupport::clone();
+	return this->$NotificationBroadcasterSupport::clone();
 }
 
 $String* Monitor::toString() {
-	 return this->$NotificationBroadcasterSupport::toString();
+	return this->$NotificationBroadcasterSupport::toString();
 }
 
 void Monitor::finalize() {

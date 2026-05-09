@@ -56,19 +56,19 @@ namespace java {
 	namespace awt {
 
 int32_t Component$AccessibleAWTComponent::hashCode() {
-	 return this->$AccessibleContext::hashCode();
+	return this->$AccessibleContext::hashCode();
 }
 
 bool Component$AccessibleAWTComponent::equals(Object$* arg0) {
-	 return this->$AccessibleContext::equals(arg0);
+	return this->$AccessibleContext::equals(arg0);
 }
 
 $Object* Component$AccessibleAWTComponent::clone() {
-	 return this->$AccessibleContext::clone();
+	return this->$AccessibleContext::clone();
 }
 
 $String* Component$AccessibleAWTComponent::toString() {
-	 return this->$AccessibleContext::toString();
+	return this->$AccessibleContext::toString();
 }
 
 void Component$AccessibleAWTComponent::finalize() {

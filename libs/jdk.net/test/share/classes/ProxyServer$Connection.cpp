@@ -89,7 +89,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* n) override {
-		 return ProxyServer$Connection::lambda$authorized$0($cast($String, n));
+		return ProxyServer$Connection::lambda$authorized$0($cast($String, n));
 	}
 };
 $Class* ProxyServer$Connection$$Lambda$lambda$authorized$0::load$($String* name, bool initialize) {
@@ -120,7 +120,7 @@ public:
 		$set(this, h, h);
 	}
 	virtual bool test(Object$* s) override {
-		 return ProxyServer$Connection::lambda$findFirst$1(h, $cast($String, s));
+		return ProxyServer$Connection::lambda$findFirst$1(h, $cast($String, s));
 	}
 	$String* h = nullptr;
 };
@@ -156,7 +156,7 @@ public:
 		$set(this, h, h);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(ProxyServer$Connection::lambda$findFirst$2(h, $cast($String, s)));
+		return $of(ProxyServer$Connection::lambda$findFirst$2(h, $cast($String, s)));
 	}
 	$String* h = nullptr;
 };
@@ -191,7 +191,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($String, inst$)->trim());
+		return $of($sure($String, inst$)->trim());
 	}
 };
 $Class* ProxyServer$Connection$$Lambda$trim$3::load$($String* name, bool initialize) {

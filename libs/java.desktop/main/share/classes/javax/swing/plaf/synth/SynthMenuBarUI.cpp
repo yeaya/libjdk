@@ -42,19 +42,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthMenuBarUI::hashCode() {
-	 return this->$BasicMenuBarUI::hashCode();
+	return this->$BasicMenuBarUI::hashCode();
 }
 
 bool SynthMenuBarUI::equals(Object$* arg0) {
-	 return this->$BasicMenuBarUI::equals(arg0);
+	return this->$BasicMenuBarUI::equals(arg0);
 }
 
 $Object* SynthMenuBarUI::clone() {
-	 return this->$BasicMenuBarUI::clone();
+	return this->$BasicMenuBarUI::clone();
 }
 
 $String* SynthMenuBarUI::toString() {
-	 return this->$BasicMenuBarUI::toString();
+	return this->$BasicMenuBarUI::toString();
 }
 
 void SynthMenuBarUI::finalize() {

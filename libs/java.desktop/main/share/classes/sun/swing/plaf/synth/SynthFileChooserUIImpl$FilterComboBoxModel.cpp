@@ -37,19 +37,19 @@ void SynthFileChooserUIImpl$FilterComboBoxModel::removeListDataListener($ListDat
 }
 
 int32_t SynthFileChooserUIImpl$FilterComboBoxModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool SynthFileChooserUIImpl$FilterComboBoxModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* SynthFileChooserUIImpl$FilterComboBoxModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* SynthFileChooserUIImpl$FilterComboBoxModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void SynthFileChooserUIImpl$FilterComboBoxModel::finalize() {

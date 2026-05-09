@@ -281,7 +281,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return JTable::lambda$createDefaultRenderers$0(t);
+		return JTable::lambda$createDefaultRenderers$0(t);
 	}
 };
 $Class* JTable$$Lambda$lambda$createDefaultRenderers$0::load$($String* name, bool initialize) {
@@ -311,7 +311,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return JTable::lambda$createDefaultRenderers$1(t);
+		return JTable::lambda$createDefaultRenderers$1(t);
 	}
 };
 $Class* JTable$$Lambda$lambda$createDefaultRenderers$1$1::load$($String* name, bool initialize) {
@@ -341,7 +341,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return JTable::lambda$createDefaultRenderers$2(t);
+		return JTable::lambda$createDefaultRenderers$2(t);
 	}
 };
 $Class* JTable$$Lambda$lambda$createDefaultRenderers$2$2::load$($String* name, bool initialize) {
@@ -371,7 +371,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return JTable::lambda$createDefaultRenderers$4(t);
+		return JTable::lambda$createDefaultRenderers$4(t);
 	}
 };
 $Class* JTable$$Lambda$lambda$createDefaultRenderers$4$3::load$($String* name, bool initialize) {
@@ -401,7 +401,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return JTable::lambda$createDefaultRenderers$5(t);
+		return JTable::lambda$createDefaultRenderers$5(t);
 	}
 };
 $Class* JTable$$Lambda$lambda$createDefaultRenderers$5$4::load$($String* name, bool initialize) {
@@ -431,7 +431,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return JTable::lambda$createDefaultRenderers$7(t);
+		return JTable::lambda$createDefaultRenderers$7(t);
 	}
 };
 $Class* JTable$$Lambda$lambda$createDefaultRenderers$7$5::load$($String* name, bool initialize) {
@@ -461,7 +461,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return JTable::lambda$createDefaultEditors$8(t);
+		return JTable::lambda$createDefaultEditors$8(t);
 	}
 };
 $Class* JTable$$Lambda$lambda$createDefaultEditors$8$6::load$($String* name, bool initialize) {
@@ -491,7 +491,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return JTable::lambda$createDefaultEditors$9(t);
+		return JTable::lambda$createDefaultEditors$9(t);
 	}
 };
 $Class* JTable$$Lambda$lambda$createDefaultEditors$9$7::load$($String* name, bool initialize) {
@@ -521,7 +521,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return JTable::lambda$createDefaultEditors$10(t);
+		return JTable::lambda$createDefaultEditors$10(t);
 	}
 };
 $Class* JTable$$Lambda$lambda$createDefaultEditors$10$8::load$($String* name, bool initialize) {
@@ -594,19 +594,19 @@ $Class* JTable$$Lambda$lambda$print$11$9::load$($String* name, bool initialize) 
 $Class* JTable$$Lambda$lambda$print$11$9::class$ = nullptr;
 
 $String* JTable::toString() {
-	 return this->$JComponent::toString();
+	return this->$JComponent::toString();
 }
 
 int32_t JTable::hashCode() {
-	 return this->$JComponent::hashCode();
+	return this->$JComponent::hashCode();
 }
 
 bool JTable::equals(Object$* arg0) {
-	 return this->$JComponent::equals(arg0);
+	return this->$JComponent::equals(arg0);
 }
 
 $Object* JTable::clone() {
-	 return this->$JComponent::clone();
+	return this->$JComponent::clone();
 }
 
 void JTable::finalize() {

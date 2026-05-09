@@ -25,19 +25,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::hashCode() {
-	 return this->$JComponent$AccessibleJComponent::hashCode();
+	return this->$JComponent$AccessibleJComponent::hashCode();
 }
 
 bool JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::equals(Object$* arg0) {
-	 return this->$JComponent$AccessibleJComponent::equals(arg0);
+	return this->$JComponent$AccessibleJComponent::equals(arg0);
 }
 
 $Object* JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::clone() {
-	 return this->$JComponent$AccessibleJComponent::clone();
+	return this->$JComponent$AccessibleJComponent::clone();
 }
 
 $String* JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::toString() {
-	 return this->$JComponent$AccessibleJComponent::toString();
+	return this->$JComponent$AccessibleJComponent::toString();
 }
 
 void JInternalFrame$JDesktopIcon$AccessibleJDesktopIcon::finalize() {

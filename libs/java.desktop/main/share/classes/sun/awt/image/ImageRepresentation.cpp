@@ -87,19 +87,19 @@ namespace sun {
 		namespace image {
 
 int32_t ImageRepresentation::hashCode() {
-	 return this->$ImageWatched::hashCode();
+	return this->$ImageWatched::hashCode();
 }
 
 bool ImageRepresentation::equals(Object$* arg0) {
-	 return this->$ImageWatched::equals(arg0);
+	return this->$ImageWatched::equals(arg0);
 }
 
 $Object* ImageRepresentation::clone() {
-	 return this->$ImageWatched::clone();
+	return this->$ImageWatched::clone();
 }
 
 $String* ImageRepresentation::toString() {
-	 return this->$ImageWatched::toString();
+	return this->$ImageWatched::toString();
 }
 
 void ImageRepresentation::finalize() {

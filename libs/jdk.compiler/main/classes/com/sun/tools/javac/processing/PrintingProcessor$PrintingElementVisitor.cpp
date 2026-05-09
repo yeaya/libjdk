@@ -141,7 +141,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* recordDes) override {
-		 return $of($nc(inst$)->lambda$visitType$0($cast($RecordComponentElement, recordDes)));
+		return $of($nc(inst$)->lambda$visitType$0($cast($RecordComponentElement, recordDes)));
 	}
 	PrintingProcessor$PrintingElementVisitor* inst$ = nullptr;
 };
@@ -177,7 +177,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* elt) override {
-		 return $nc(inst$)->lambda$visitType$1($cast($Element, elt));
+		return $nc(inst$)->lambda$visitType$1($cast($Element, elt));
 	}
 	PrintingProcessor$PrintingElementVisitor* inst$ = nullptr;
 };
@@ -212,7 +212,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Modifier, inst$)->toString());
+		return $of($sure($Modifier, inst$)->toString());
 	}
 };
 $Class* PrintingProcessor$PrintingElementVisitor$$Lambda$toString$2::load$($String* name, bool initialize) {
@@ -243,7 +243,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* tpe) override {
-		 return $of($nc(inst$)->lambda$printFormalTypeParameters$2($cast($TypeParameterElement, tpe)));
+		return $of($nc(inst$)->lambda$printFormalTypeParameters$2($cast($TypeParameterElement, tpe)));
 	}
 	PrintingProcessor$PrintingElementVisitor* inst$ = nullptr;
 };
@@ -278,7 +278,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($ofnc(inst$)->toString());
+		return $of($ofnc(inst$)->toString());
 	}
 };
 $Class* PrintingProcessor$PrintingElementVisitor$$Lambda$toString$4::load$($String* name, bool initialize) {
@@ -308,7 +308,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($TypeMirror, inst$)->toString());
+		return $of($sure($TypeMirror, inst$)->toString());
 	}
 };
 $Class* PrintingProcessor$PrintingElementVisitor$$Lambda$toString$5::load$($String* name, bool initialize) {
@@ -338,7 +338,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* subtype) override {
-		 return $of(PrintingProcessor$PrintingElementVisitor::lambda$printPermittedSubclasses$3($cast($TypeMirror, subtype)));
+		return $of(PrintingProcessor$PrintingElementVisitor::lambda$printPermittedSubclasses$3($cast($TypeMirror, subtype)));
 	}
 };
 $Class* PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printPermittedSubclasses$3$6::load$($String* name, bool initialize) {

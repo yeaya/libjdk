@@ -49,27 +49,27 @@ namespace java {
 	namespace awt {
 
 $Font* Menu::getFont() {
-	 return this->$MenuItem::getFont();
+	return this->$MenuItem::getFont();
 }
 
 bool Menu::postEvent($Event* evt) {
-	 return this->$MenuItem::postEvent(evt);
+	return this->$MenuItem::postEvent(evt);
 }
 
 $String* Menu::toString() {
-	 return this->$MenuItem::toString();
+	return this->$MenuItem::toString();
 }
 
 int32_t Menu::hashCode() {
-	 return this->$MenuItem::hashCode();
+	return this->$MenuItem::hashCode();
 }
 
 bool Menu::equals(Object$* arg0) {
-	 return this->$MenuItem::equals(arg0);
+	return this->$MenuItem::equals(arg0);
 }
 
 $Object* Menu::clone() {
-	 return this->$MenuItem::clone();
+	return this->$MenuItem::clone();
 }
 
 void Menu::finalize() {

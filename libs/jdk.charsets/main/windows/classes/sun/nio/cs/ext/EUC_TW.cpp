@@ -27,19 +27,19 @@ namespace sun {
 			namespace ext {
 
 int32_t EUC_TW::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool EUC_TW::equals(Object$* arg0) {
-	 return this->$Charset::equals(arg0);
+	return this->$Charset::equals(arg0);
 }
 
 $String* EUC_TW::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* EUC_TW::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void EUC_TW::finalize() {

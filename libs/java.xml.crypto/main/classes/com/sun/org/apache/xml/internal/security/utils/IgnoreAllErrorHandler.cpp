@@ -42,7 +42,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return $of(IgnoreAllErrorHandler::lambda$getProperty$0(name));
+		return $of(IgnoreAllErrorHandler::lambda$getProperty$0(name));
 	}
 	$String* name = nullptr;
 };

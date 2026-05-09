@@ -25,19 +25,19 @@ namespace sun {
 			namespace ext {
 
 int32_t MacArabic::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool MacArabic::equals(Object$* arg0) {
-	 return this->$Charset::equals(arg0);
+	return this->$Charset::equals(arg0);
 }
 
 $String* MacArabic::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* MacArabic::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void MacArabic::finalize() {

@@ -18,19 +18,19 @@ namespace java {
 		namespace geom {
 
 int32_t RoundRectangle2D$Float::hashCode() {
-	 return this->$RoundRectangle2D::hashCode();
+	return this->$RoundRectangle2D::hashCode();
 }
 
 bool RoundRectangle2D$Float::equals(Object$* obj) {
-	 return this->$RoundRectangle2D::equals(obj);
+	return this->$RoundRectangle2D::equals(obj);
 }
 
 $Object* RoundRectangle2D$Float::clone() {
-	 return this->$RoundRectangle2D::clone();
+	return this->$RoundRectangle2D::clone();
 }
 
 $String* RoundRectangle2D$Float::toString() {
-	 return this->$RoundRectangle2D::toString();
+	return this->$RoundRectangle2D::toString();
 }
 
 void RoundRectangle2D$Float::finalize() {

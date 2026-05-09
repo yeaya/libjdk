@@ -90,19 +90,19 @@ void XPopupMenuPeer::dispose() {
 }
 
 $String* XPopupMenuPeer::toString() {
-	 return this->$XMenuWindow::toString();
+	return this->$XMenuWindow::toString();
 }
 
 int32_t XPopupMenuPeer::hashCode() {
-	 return this->$XMenuWindow::hashCode();
+	return this->$XMenuWindow::hashCode();
 }
 
 bool XPopupMenuPeer::equals(Object$* arg0) {
-	 return this->$XMenuWindow::equals(arg0);
+	return this->$XMenuWindow::equals(arg0);
 }
 
 $Object* XPopupMenuPeer::clone() {
-	 return this->$XMenuWindow::clone();
+	return this->$XMenuWindow::clone();
 }
 
 void XPopupMenuPeer::finalize() {

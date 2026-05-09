@@ -49,19 +49,19 @@ namespace com {
 								namespace content {
 
 int32_t RetrievalMethod::hashCode() {
-	 return this->$SignatureElementProxy::hashCode();
+	return this->$SignatureElementProxy::hashCode();
 }
 
 bool RetrievalMethod::equals(Object$* arg0) {
-	 return this->$SignatureElementProxy::equals(arg0);
+	return this->$SignatureElementProxy::equals(arg0);
 }
 
 $Object* RetrievalMethod::clone() {
-	 return this->$SignatureElementProxy::clone();
+	return this->$SignatureElementProxy::clone();
 }
 
 $String* RetrievalMethod::toString() {
-	 return this->$SignatureElementProxy::toString();
+	return this->$SignatureElementProxy::toString();
 }
 
 void RetrievalMethod::finalize() {

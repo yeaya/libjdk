@@ -100,7 +100,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$StringBuilder* inst$ = nullptr;
 };
@@ -130,39 +130,39 @@ $Class* ModelMBeanInfoSupport$$Lambda$toString::load$($String* name, bool initia
 $Class* ModelMBeanInfoSupport$$Lambda$toString::class$ = nullptr;
 
 $String* ModelMBeanInfoSupport::getClassName() {
-	 return this->$MBeanInfo::getClassName();
+	return this->$MBeanInfo::getClassName();
 }
 
 $String* ModelMBeanInfoSupport::getDescription() {
-	 return this->$MBeanInfo::getDescription();
+	return this->$MBeanInfo::getDescription();
 }
 
 $MBeanAttributeInfoArray* ModelMBeanInfoSupport::getAttributes() {
-	 return this->$MBeanInfo::getAttributes();
+	return this->$MBeanInfo::getAttributes();
 }
 
 $MBeanOperationInfoArray* ModelMBeanInfoSupport::getOperations() {
-	 return this->$MBeanInfo::getOperations();
+	return this->$MBeanInfo::getOperations();
 }
 
 $MBeanConstructorInfoArray* ModelMBeanInfoSupport::getConstructors() {
-	 return this->$MBeanInfo::getConstructors();
+	return this->$MBeanInfo::getConstructors();
 }
 
 $MBeanNotificationInfoArray* ModelMBeanInfoSupport::getNotifications() {
-	 return this->$MBeanInfo::getNotifications();
+	return this->$MBeanInfo::getNotifications();
 }
 
 $String* ModelMBeanInfoSupport::toString() {
-	 return this->$MBeanInfo::toString();
+	return this->$MBeanInfo::toString();
 }
 
 bool ModelMBeanInfoSupport::equals(Object$* o) {
-	 return this->$MBeanInfo::equals(o);
+	return this->$MBeanInfo::equals(o);
 }
 
 int32_t ModelMBeanInfoSupport::hashCode() {
-	 return this->$MBeanInfo::hashCode();
+	return this->$MBeanInfo::hashCode();
 }
 
 void ModelMBeanInfoSupport::finalize() {

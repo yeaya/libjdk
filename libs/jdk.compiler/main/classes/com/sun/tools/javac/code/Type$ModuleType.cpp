@@ -40,23 +40,23 @@ namespace com {
 				namespace code {
 
 $Annotation* Type$ModuleType::getAnnotation($Class* annotationType) {
-	 return this->$Type::getAnnotation(annotationType);
+	return this->$Type::getAnnotation(annotationType);
 }
 
 $AnnotationArray* Type$ModuleType::getAnnotationsByType($Class* annotationType) {
-	 return this->$Type::getAnnotationsByType(annotationType);
+	return this->$Type::getAnnotationsByType(annotationType);
 }
 
 bool Type$ModuleType::equals(Object$* t) {
-	 return this->$Type::equals(t);
+	return this->$Type::equals(t);
 }
 
 int32_t Type$ModuleType::hashCode() {
-	 return this->$Type::hashCode();
+	return this->$Type::hashCode();
 }
 
 $Object* Type$ModuleType::clone() {
-	 return this->$Type::clone();
+	return this->$Type::clone();
 }
 
 void Type$ModuleType::finalize() {

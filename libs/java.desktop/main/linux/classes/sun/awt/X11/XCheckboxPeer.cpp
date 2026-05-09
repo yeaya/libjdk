@@ -120,19 +120,19 @@ void XCheckboxPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool XCheckboxPeer::isReparentSupported() {
-	 return this->$XComponentPeer::isReparentSupported();
+	return this->$XComponentPeer::isReparentSupported();
 }
 
 bool XCheckboxPeer::isObscured() {
-	 return this->$XComponentPeer::isObscured();
+	return this->$XComponentPeer::isObscured();
 }
 
 bool XCheckboxPeer::canDetermineObscurity() {
-	 return this->$XComponentPeer::canDetermineObscurity();
+	return this->$XComponentPeer::canDetermineObscurity();
 }
 
 bool XCheckboxPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void XCheckboxPeer::setVisible(bool b) {
@@ -148,7 +148,7 @@ void XCheckboxPeer::paint($Graphics* g) {
 }
 
 $Graphics* XCheckboxPeer::getGraphics() {
-	 return this->$XComponentPeer::getGraphics();
+	return this->$XComponentPeer::getGraphics();
 }
 
 void XCheckboxPeer::print($Graphics* g) {
@@ -168,7 +168,7 @@ void XCheckboxPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* XCheckboxPeer::getPreferredSize() {
-	 return this->$XComponentPeer::getPreferredSize();
+	return this->$XComponentPeer::getPreferredSize();
 }
 
 void XCheckboxPeer::setForeground($Color* c) {
@@ -176,7 +176,7 @@ void XCheckboxPeer::setForeground($Color* c) {
 }
 
 $FontMetrics* XCheckboxPeer::getFontMetrics($Font* font) {
-	 return this->$XComponentPeer::getFontMetrics(font);
+	return this->$XComponentPeer::getFontMetrics(font);
 }
 
 void XCheckboxPeer::setFont($Font* f) {
@@ -188,15 +188,15 @@ void XCheckboxPeer::updateCursorImmediately() {
 }
 
 $Image* XCheckboxPeer::createImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createImage(width, height);
+	return this->$XComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* XCheckboxPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createVolatileImage(width, height);
+	return this->$XComponentPeer::createVolatileImage(width, height);
 }
 
 bool XCheckboxPeer::handlesWheelScrolling() {
-	 return this->$XComponentPeer::handlesWheelScrolling();
+	return this->$XComponentPeer::handlesWheelScrolling();
 }
 
 void XCheckboxPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -208,7 +208,7 @@ void XCheckboxPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $Buffer
 }
 
 $Image* XCheckboxPeer::getBackBuffer() {
-	 return this->$XComponentPeer::getBackBuffer();
+	return this->$XComponentPeer::getBackBuffer();
 }
 
 void XCheckboxPeer::destroyBuffers() {
@@ -224,11 +224,11 @@ void XCheckboxPeer::applyShape($Region* shape) {
 }
 
 bool XCheckboxPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XComponentPeer::updateGraphicsData(gc);
+	return this->$XComponentPeer::updateGraphicsData(gc);
 }
 
 $Point* XCheckboxPeer::getLocationOnScreen() {
-	 return this->$XComponentPeer::getLocationOnScreen();
+	return this->$XComponentPeer::getLocationOnScreen();
 }
 
 void XCheckboxPeer::dispose() {
@@ -236,27 +236,27 @@ void XCheckboxPeer::dispose() {
 }
 
 $ColorModel* XCheckboxPeer::getColorModel() {
-	 return this->$XComponentPeer::getColorModel();
+	return this->$XComponentPeer::getColorModel();
 }
 
 $GraphicsConfiguration* XCheckboxPeer::getGraphicsConfiguration() {
-	 return this->$XComponentPeer::getGraphicsConfiguration();
+	return this->$XComponentPeer::getGraphicsConfiguration();
 }
 
 $String* XCheckboxPeer::toString() {
-	 return this->$XComponentPeer::toString();
+	return this->$XComponentPeer::toString();
 }
 
 int32_t XCheckboxPeer::hashCode() {
-	 return this->$XComponentPeer::hashCode();
+	return this->$XComponentPeer::hashCode();
 }
 
 bool XCheckboxPeer::equals(Object$* arg0) {
-	 return this->$XComponentPeer::equals(arg0);
+	return this->$XComponentPeer::equals(arg0);
 }
 
 $Object* XCheckboxPeer::clone() {
-	 return this->$XComponentPeer::clone();
+	return this->$XComponentPeer::clone();
 }
 
 void XCheckboxPeer::finalize() {

@@ -72,19 +72,19 @@ namespace java {
 		namespace image {
 
 int32_t ColorConvertOp::hashCode() {
-	 return this->$BufferedImageOp::hashCode();
+	return this->$BufferedImageOp::hashCode();
 }
 
 bool ColorConvertOp::equals(Object$* arg0) {
-	 return this->$BufferedImageOp::equals(arg0);
+	return this->$BufferedImageOp::equals(arg0);
 }
 
 $Object* ColorConvertOp::clone() {
-	 return this->$BufferedImageOp::clone();
+	return this->$BufferedImageOp::clone();
 }
 
 $String* ColorConvertOp::toString() {
-	 return this->$BufferedImageOp::toString();
+	return this->$BufferedImageOp::toString();
 }
 
 void ColorConvertOp::finalize() {

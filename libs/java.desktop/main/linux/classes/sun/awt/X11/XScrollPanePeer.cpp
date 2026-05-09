@@ -109,23 +109,23 @@ void XScrollPanePeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool XScrollPanePeer::isReparentSupported() {
-	 return this->$XComponentPeer::isReparentSupported();
+	return this->$XComponentPeer::isReparentSupported();
 }
 
 bool XScrollPanePeer::isObscured() {
-	 return this->$XComponentPeer::isObscured();
+	return this->$XComponentPeer::isObscured();
 }
 
 bool XScrollPanePeer::canDetermineObscurity() {
-	 return this->$XComponentPeer::canDetermineObscurity();
+	return this->$XComponentPeer::canDetermineObscurity();
 }
 
 bool XScrollPanePeer::isFocusable() {
-	 return this->$XComponentPeer::isFocusable();
+	return this->$XComponentPeer::isFocusable();
 }
 
 bool XScrollPanePeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void XScrollPanePeer::setVisible(bool b) {
@@ -141,7 +141,7 @@ void XScrollPanePeer::paint($Graphics* g) {
 }
 
 $Graphics* XScrollPanePeer::getGraphics() {
-	 return this->$XComponentPeer::getGraphics();
+	return this->$XComponentPeer::getGraphics();
 }
 
 void XScrollPanePeer::coalescePaintEvent($PaintEvent* e) {
@@ -149,11 +149,11 @@ void XScrollPanePeer::coalescePaintEvent($PaintEvent* e) {
 }
 
 $Dimension* XScrollPanePeer::getMinimumSize() {
-	 return this->$XComponentPeer::getMinimumSize();
+	return this->$XComponentPeer::getMinimumSize();
 }
 
 $Dimension* XScrollPanePeer::getPreferredSize() {
-	 return this->$XComponentPeer::getPreferredSize();
+	return this->$XComponentPeer::getPreferredSize();
 }
 
 void XScrollPanePeer::layout() {
@@ -169,7 +169,7 @@ void XScrollPanePeer::setForeground($Color* c) {
 }
 
 $FontMetrics* XScrollPanePeer::getFontMetrics($Font* font) {
-	 return this->$XComponentPeer::getFontMetrics(font);
+	return this->$XComponentPeer::getFontMetrics(font);
 }
 
 void XScrollPanePeer::setFont($Font* f) {
@@ -181,11 +181,11 @@ void XScrollPanePeer::updateCursorImmediately() {
 }
 
 $Image* XScrollPanePeer::createImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createImage(width, height);
+	return this->$XComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* XScrollPanePeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createVolatileImage(width, height);
+	return this->$XComponentPeer::createVolatileImage(width, height);
 }
 
 void XScrollPanePeer::beginValidate() {
@@ -197,7 +197,7 @@ void XScrollPanePeer::endValidate() {
 }
 
 bool XScrollPanePeer::handlesWheelScrolling() {
-	 return this->$XComponentPeer::handlesWheelScrolling();
+	return this->$XComponentPeer::handlesWheelScrolling();
 }
 
 void XScrollPanePeer::beginLayout() {
@@ -217,7 +217,7 @@ void XScrollPanePeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $Buff
 }
 
 $Image* XScrollPanePeer::getBackBuffer() {
-	 return this->$XComponentPeer::getBackBuffer();
+	return this->$XComponentPeer::getBackBuffer();
 }
 
 void XScrollPanePeer::destroyBuffers() {
@@ -233,11 +233,11 @@ void XScrollPanePeer::applyShape($Region* shape) {
 }
 
 bool XScrollPanePeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XComponentPeer::updateGraphicsData(gc);
+	return this->$XComponentPeer::updateGraphicsData(gc);
 }
 
 $Point* XScrollPanePeer::getLocationOnScreen() {
-	 return this->$XComponentPeer::getLocationOnScreen();
+	return this->$XComponentPeer::getLocationOnScreen();
 }
 
 void XScrollPanePeer::dispose() {
@@ -245,31 +245,31 @@ void XScrollPanePeer::dispose() {
 }
 
 $ColorModel* XScrollPanePeer::getColorModel() {
-	 return this->$XComponentPeer::getColorModel();
+	return this->$XComponentPeer::getColorModel();
 }
 
 $Component* XScrollPanePeer::getEventSource() {
-	 return this->$XComponentPeer::getEventSource();
+	return this->$XComponentPeer::getEventSource();
 }
 
 $GraphicsConfiguration* XScrollPanePeer::getGraphicsConfiguration() {
-	 return this->$XComponentPeer::getGraphicsConfiguration();
+	return this->$XComponentPeer::getGraphicsConfiguration();
 }
 
 $String* XScrollPanePeer::toString() {
-	 return this->$XComponentPeer::toString();
+	return this->$XComponentPeer::toString();
 }
 
 int32_t XScrollPanePeer::hashCode() {
-	 return this->$XComponentPeer::hashCode();
+	return this->$XComponentPeer::hashCode();
 }
 
 bool XScrollPanePeer::equals(Object$* arg0) {
-	 return this->$XComponentPeer::equals(arg0);
+	return this->$XComponentPeer::equals(arg0);
 }
 
 $Object* XScrollPanePeer::clone() {
-	 return this->$XComponentPeer::clone();
+	return this->$XComponentPeer::clone();
 }
 
 void XScrollPanePeer::finalize() {

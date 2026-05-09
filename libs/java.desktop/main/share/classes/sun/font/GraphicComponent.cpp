@@ -47,15 +47,15 @@ namespace sun {
 	namespace font {
 
 int32_t GraphicComponent::hashCode() {
-	 return this->$TextLineComponent::hashCode();
+	return this->$TextLineComponent::hashCode();
 }
 
 bool GraphicComponent::equals(Object$* arg0) {
-	 return this->$TextLineComponent::equals(arg0);
+	return this->$TextLineComponent::equals(arg0);
 }
 
 $Object* GraphicComponent::clone() {
-	 return this->$TextLineComponent::clone();
+	return this->$TextLineComponent::clone();
 }
 
 void GraphicComponent::finalize() {

@@ -173,7 +173,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* sym) override {
-		 return Modules$UsesProvidesVisitor::lambda$factoryMethod$1($cast($Symbol, sym));
+		return Modules$UsesProvidesVisitor::lambda$factoryMethod$1($cast($Symbol, sym));
 	}
 };
 $Class* Modules$UsesProvidesVisitor$$Lambda$lambda$factoryMethod$1$1::load$($String* name, bool initialize) {
@@ -203,7 +203,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return Modules$UsesProvidesVisitor::lambda$visitProvides$2($cast($Symbol$ClassSymbol, s));
+		return Modules$UsesProvidesVisitor::lambda$visitProvides$2($cast($Symbol$ClassSymbol, s));
 	}
 };
 $Class* Modules$UsesProvidesVisitor$$Lambda$lambda$visitProvides$2$2::load$($String* name, bool initialize) {

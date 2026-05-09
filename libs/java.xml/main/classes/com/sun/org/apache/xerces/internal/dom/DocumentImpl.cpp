@@ -132,19 +132,19 @@ namespace com {
 						namespace dom {
 
 $Object* DocumentImpl::clone() {
-	 return this->$CoreDocumentImpl::clone();
+	return this->$CoreDocumentImpl::clone();
 }
 
 $String* DocumentImpl::toString() {
-	 return this->$CoreDocumentImpl::toString();
+	return this->$CoreDocumentImpl::toString();
 }
 
 int32_t DocumentImpl::hashCode() {
-	 return this->$CoreDocumentImpl::hashCode();
+	return this->$CoreDocumentImpl::hashCode();
 }
 
 bool DocumentImpl::equals(Object$* arg0) {
-	 return this->$CoreDocumentImpl::equals(arg0);
+	return this->$CoreDocumentImpl::equals(arg0);
 }
 
 void DocumentImpl::finalize() {

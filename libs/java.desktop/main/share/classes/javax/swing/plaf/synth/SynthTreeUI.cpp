@@ -97,19 +97,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthTreeUI::hashCode() {
-	 return this->$BasicTreeUI::hashCode();
+	return this->$BasicTreeUI::hashCode();
 }
 
 bool SynthTreeUI::equals(Object$* arg0) {
-	 return this->$BasicTreeUI::equals(arg0);
+	return this->$BasicTreeUI::equals(arg0);
 }
 
 $Object* SynthTreeUI::clone() {
-	 return this->$BasicTreeUI::clone();
+	return this->$BasicTreeUI::clone();
 }
 
 $String* SynthTreeUI::toString() {
-	 return this->$BasicTreeUI::toString();
+	return this->$BasicTreeUI::toString();
 }
 
 void SynthTreeUI::finalize() {

@@ -147,15 +147,15 @@ namespace com {
 				namespace jpeg {
 
 int32_t JPEGMetadata::hashCode() {
-	 return this->$IIOMetadata::hashCode();
+	return this->$IIOMetadata::hashCode();
 }
 
 bool JPEGMetadata::equals(Object$* arg0) {
-	 return this->$IIOMetadata::equals(arg0);
+	return this->$IIOMetadata::equals(arg0);
 }
 
 $String* JPEGMetadata::toString() {
-	 return this->$IIOMetadata::toString();
+	return this->$IIOMetadata::toString();
 }
 
 void JPEGMetadata::finalize() {

@@ -22,19 +22,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicIconFactory$RadioButtonMenuItemIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool BasicIconFactory$RadioButtonMenuItemIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* BasicIconFactory$RadioButtonMenuItemIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* BasicIconFactory$RadioButtonMenuItemIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void BasicIconFactory$RadioButtonMenuItemIcon::finalize() {

@@ -73,19 +73,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void WindowsIconFactory$VistaMenuItemCheckIconFactory$VistaMenuItemCheckIcon::finalize() {

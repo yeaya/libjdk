@@ -41,7 +41,7 @@ public:
 	void init$() {
 	}
 	virtual int64_t applyAsLong(Object$* inst$) override {
-		 return $sure($HttpRequest$BodyPublisher, inst$)->contentLength();
+		return $sure($HttpRequest$BodyPublisher, inst$)->contentLength();
 	}
 };
 $Class* RequestPublishers$AggregatePublisher$$Lambda$contentLength::load$($String* name, bool initialize) {
@@ -71,7 +71,7 @@ public:
 	void init$() {
 	}
 	virtual int64_t applyAsLong(int64_t a, int64_t b) override {
-		 return RequestPublishers$AggregatePublisher::lambda$contentLength$0(a, b);
+		return RequestPublishers$AggregatePublisher::lambda$contentLength$0(a, b);
 	}
 };
 $Class* RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1::load$($String* name, bool initialize) {

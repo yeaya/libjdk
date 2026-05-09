@@ -64,7 +64,7 @@ public:
 		$set(this, sym, sym);
 	}
 	virtual bool test(Object$* candidate) override {
-		 return Scope$ScopeImpl::lambda$remove$0(sym, $cast($Symbol, candidate));
+		return Scope$ScopeImpl::lambda$remove$0(sym, $cast($Symbol, candidate));
 	}
 	$Symbol* sym = nullptr;
 };
@@ -102,7 +102,7 @@ public:
 		$set(this, sf, sf);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$getSymbols$1(lookupKind, sf);
+		return $nc(inst$)->lambda$getSymbols$1(lookupKind, sf);
 	}
 	Scope$ScopeImpl* inst$ = nullptr;
 	$Scope$LookupKind* lookupKind = nullptr;
@@ -145,7 +145,7 @@ public:
 		$set(this, lookupKind, lookupKind);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$getSymbolsByName$2(name, sf, lookupKind);
+		return $nc(inst$)->lambda$getSymbolsByName$2(name, sf, lookupKind);
 	}
 	Scope$ScopeImpl* inst$ = nullptr;
 	$Name* name = nullptr;

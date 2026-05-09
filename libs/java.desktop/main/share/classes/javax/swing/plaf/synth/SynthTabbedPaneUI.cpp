@@ -106,19 +106,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthTabbedPaneUI::hashCode() {
-	 return this->$BasicTabbedPaneUI::hashCode();
+	return this->$BasicTabbedPaneUI::hashCode();
 }
 
 bool SynthTabbedPaneUI::equals(Object$* arg0) {
-	 return this->$BasicTabbedPaneUI::equals(arg0);
+	return this->$BasicTabbedPaneUI::equals(arg0);
 }
 
 $Object* SynthTabbedPaneUI::clone() {
-	 return this->$BasicTabbedPaneUI::clone();
+	return this->$BasicTabbedPaneUI::clone();
 }
 
 $String* SynthTabbedPaneUI::toString() {
-	 return this->$BasicTabbedPaneUI::toString();
+	return this->$BasicTabbedPaneUI::toString();
 }
 
 void SynthTabbedPaneUI::finalize() {

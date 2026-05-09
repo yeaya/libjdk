@@ -84,19 +84,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicTreeUI$Handler::hashCode() {
-	 return this->$CellEditorListener::hashCode();
+	return this->$CellEditorListener::hashCode();
 }
 
 bool BasicTreeUI$Handler::equals(Object$* arg0) {
-	 return this->$CellEditorListener::equals(arg0);
+	return this->$CellEditorListener::equals(arg0);
 }
 
 $Object* BasicTreeUI$Handler::clone() {
-	 return this->$CellEditorListener::clone();
+	return this->$CellEditorListener::clone();
 }
 
 $String* BasicTreeUI$Handler::toString() {
-	 return this->$CellEditorListener::toString();
+	return this->$CellEditorListener::toString();
 }
 
 void BasicTreeUI$Handler::finalize() {

@@ -64,43 +64,43 @@ namespace com {
 						namespace dom {
 
 $Node* AttrImpl::appendChild($Node* newChild) {
-	 return this->$NodeImpl::appendChild(newChild);
+	return this->$NodeImpl::appendChild(newChild);
 }
 
 $Document* AttrImpl::getOwnerDocument() {
-	 return this->$NodeImpl::getOwnerDocument();
+	return this->$NodeImpl::getOwnerDocument();
 }
 
 $Node* AttrImpl::getParentNode() {
-	 return this->$NodeImpl::getParentNode();
+	return this->$NodeImpl::getParentNode();
 }
 
 $Node* AttrImpl::getNextSibling() {
-	 return this->$NodeImpl::getNextSibling();
+	return this->$NodeImpl::getNextSibling();
 }
 
 $Node* AttrImpl::getPreviousSibling() {
-	 return this->$NodeImpl::getPreviousSibling();
+	return this->$NodeImpl::getPreviousSibling();
 }
 
 $NamedNodeMap* AttrImpl::getAttributes() {
-	 return this->$NodeImpl::getAttributes();
+	return this->$NodeImpl::getAttributes();
 }
 
 bool AttrImpl::hasAttributes() {
-	 return this->$NodeImpl::hasAttributes();
+	return this->$NodeImpl::hasAttributes();
 }
 
 bool AttrImpl::isSupported($String* feature, $String* version) {
-	 return this->$NodeImpl::isSupported(feature, version);
+	return this->$NodeImpl::isSupported(feature, version);
 }
 
 $String* AttrImpl::getNamespaceURI() {
-	 return this->$NodeImpl::getNamespaceURI();
+	return this->$NodeImpl::getNamespaceURI();
 }
 
 $String* AttrImpl::getPrefix() {
-	 return this->$NodeImpl::getPrefix();
+	return this->$NodeImpl::getPrefix();
 }
 
 void AttrImpl::setPrefix($String* prefix) {
@@ -108,19 +108,19 @@ void AttrImpl::setPrefix($String* prefix) {
 }
 
 $String* AttrImpl::getLocalName() {
-	 return this->$NodeImpl::getLocalName();
+	return this->$NodeImpl::getLocalName();
 }
 
 $String* AttrImpl::getBaseURI() {
-	 return this->$NodeImpl::getBaseURI();
+	return this->$NodeImpl::getBaseURI();
 }
 
 int16_t AttrImpl::compareDocumentPosition($Node* other) {
-	 return this->$NodeImpl::compareDocumentPosition(other);
+	return this->$NodeImpl::compareDocumentPosition(other);
 }
 
 $String* AttrImpl::getTextContent() {
-	 return this->$NodeImpl::getTextContent();
+	return this->$NodeImpl::getTextContent();
 }
 
 void AttrImpl::setTextContent($String* textContent) {
@@ -128,43 +128,43 @@ void AttrImpl::setTextContent($String* textContent) {
 }
 
 bool AttrImpl::isSameNode($Node* other) {
-	 return this->$NodeImpl::isSameNode(other);
+	return this->$NodeImpl::isSameNode(other);
 }
 
 bool AttrImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$NodeImpl::isDefaultNamespace(namespaceURI);
+	return this->$NodeImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* AttrImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$NodeImpl::lookupPrefix(namespaceURI);
+	return this->$NodeImpl::lookupPrefix(namespaceURI);
 }
 
 $String* AttrImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$NodeImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$NodeImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* AttrImpl::getFeature($String* feature, $String* version) {
-	 return this->$NodeImpl::getFeature(feature, version);
+	return this->$NodeImpl::getFeature(feature, version);
 }
 
 $Object* AttrImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$NodeImpl::setUserData(key, data, handler);
+	return this->$NodeImpl::setUserData(key, data, handler);
 }
 
 $Object* AttrImpl::getUserData($String* key) {
-	 return this->$NodeImpl::getUserData(key);
+	return this->$NodeImpl::getUserData(key);
 }
 
 int32_t AttrImpl::hashCode() {
-	 return this->$NodeImpl::hashCode();
+	return this->$NodeImpl::hashCode();
 }
 
 bool AttrImpl::equals(Object$* arg0) {
-	 return this->$NodeImpl::equals(arg0);
+	return this->$NodeImpl::equals(arg0);
 }
 
 $Object* AttrImpl::clone() {
-	 return this->$NodeImpl::clone();
+	return this->$NodeImpl::clone();
 }
 
 void AttrImpl::finalize() {

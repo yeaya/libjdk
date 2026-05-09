@@ -20,15 +20,15 @@ namespace java {
 		namespace geom {
 
 int32_t Rectangle2D$Double::hashCode() {
-	 return this->$Rectangle2D::hashCode();
+	return this->$Rectangle2D::hashCode();
 }
 
 bool Rectangle2D$Double::equals(Object$* obj) {
-	 return this->$Rectangle2D::equals(obj);
+	return this->$Rectangle2D::equals(obj);
 }
 
 $Object* Rectangle2D$Double::clone() {
-	 return this->$Rectangle2D::clone();
+	return this->$Rectangle2D::clone();
 }
 
 void Rectangle2D$Double::finalize() {

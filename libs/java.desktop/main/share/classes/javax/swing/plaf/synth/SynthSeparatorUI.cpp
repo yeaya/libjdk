@@ -48,19 +48,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthSeparatorUI::hashCode() {
-	 return this->$SeparatorUI::hashCode();
+	return this->$SeparatorUI::hashCode();
 }
 
 bool SynthSeparatorUI::equals(Object$* arg0) {
-	 return this->$SeparatorUI::equals(arg0);
+	return this->$SeparatorUI::equals(arg0);
 }
 
 $Object* SynthSeparatorUI::clone() {
-	 return this->$SeparatorUI::clone();
+	return this->$SeparatorUI::clone();
 }
 
 $String* SynthSeparatorUI::toString() {
-	 return this->$SeparatorUI::toString();
+	return this->$SeparatorUI::toString();
 }
 
 void SynthSeparatorUI::finalize() {

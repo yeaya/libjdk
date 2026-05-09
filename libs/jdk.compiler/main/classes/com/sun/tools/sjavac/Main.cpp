@@ -37,7 +37,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* arg) override {
-		 return Main::lambda$go$0($cast($String, arg));
+		return Main::lambda$go$0($cast($String, arg));
 	}
 };
 $Class* Main$$Lambda$lambda$go$0::load$($String* name, bool initialize) {

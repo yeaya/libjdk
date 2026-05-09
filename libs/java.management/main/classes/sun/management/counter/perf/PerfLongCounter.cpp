@@ -22,47 +22,47 @@ namespace sun {
 			namespace perf {
 
 $String* PerfLongCounter::getName() {
-	 return this->$AbstractCounter::getName();
+	return this->$AbstractCounter::getName();
 }
 
 $Units* PerfLongCounter::getUnits() {
-	 return this->$AbstractCounter::getUnits();
+	return this->$AbstractCounter::getUnits();
 }
 
 $Variability* PerfLongCounter::getVariability() {
-	 return this->$AbstractCounter::getVariability();
+	return this->$AbstractCounter::getVariability();
 }
 
 bool PerfLongCounter::isVector() {
-	 return this->$AbstractCounter::isVector();
+	return this->$AbstractCounter::isVector();
 }
 
 int32_t PerfLongCounter::getVectorLength() {
-	 return this->$AbstractCounter::getVectorLength();
+	return this->$AbstractCounter::getVectorLength();
 }
 
 bool PerfLongCounter::isInternal() {
-	 return this->$AbstractCounter::isInternal();
+	return this->$AbstractCounter::isInternal();
 }
 
 int32_t PerfLongCounter::getFlags() {
-	 return this->$AbstractCounter::getFlags();
+	return this->$AbstractCounter::getFlags();
 }
 
 $String* PerfLongCounter::toString() {
-	 return this->$AbstractCounter::toString();
+	return this->$AbstractCounter::toString();
 }
 
 int32_t PerfLongCounter::hashCode() {
-	 return this->$AbstractCounter::hashCode();
+	return this->$AbstractCounter::hashCode();
 }
 
 bool PerfLongCounter::equals(Object$* arg0) {
-	 return this->$AbstractCounter::equals(arg0);
+	return this->$AbstractCounter::equals(arg0);
 }
 
 $Object* PerfLongCounter::clone() {
-	 return this->$AbstractCounter::clone();
+	return this->$AbstractCounter::clone();
 }
 
 void PerfLongCounter::finalize() {

@@ -14,19 +14,19 @@ namespace javax {
 			namespace basic {
 
 bool BasicTextUI$BasicCaret::equals(Object$* obj) {
-	 return this->$DefaultCaret::equals(obj);
+	return this->$DefaultCaret::equals(obj);
 }
 
 $String* BasicTextUI$BasicCaret::toString() {
-	 return this->$DefaultCaret::toString();
+	return this->$DefaultCaret::toString();
 }
 
 int32_t BasicTextUI$BasicCaret::hashCode() {
-	 return this->$DefaultCaret::hashCode();
+	return this->$DefaultCaret::hashCode();
 }
 
 $Object* BasicTextUI$BasicCaret::clone() {
-	 return this->$DefaultCaret::clone();
+	return this->$DefaultCaret::clone();
 }
 
 void BasicTextUI$BasicCaret::finalize() {

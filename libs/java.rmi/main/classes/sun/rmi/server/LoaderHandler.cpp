@@ -120,7 +120,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(LoaderHandler::lambda$static$0());
+		return $of(LoaderHandler::lambda$static$0());
 	}
 };
 $Class* LoaderHandler$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -150,7 +150,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(LoaderHandler::lambda$static$1());
+		return $of(LoaderHandler::lambda$static$1());
 	}
 };
 $Class* LoaderHandler$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {

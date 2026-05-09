@@ -23,35 +23,35 @@ namespace javax {
 			namespace rtf {
 
 int32_t RTFAttributes$AssertiveAttribute::domain() {
-	 return this->$RTFAttributes$GenericAttribute::domain();
+	return this->$RTFAttributes$GenericAttribute::domain();
 }
 
 $Object* RTFAttributes$AssertiveAttribute::swingName() {
-	 return this->$RTFAttributes$GenericAttribute::swingName();
+	return this->$RTFAttributes$GenericAttribute::swingName();
 }
 
 $String* RTFAttributes$AssertiveAttribute::rtfName() {
-	 return this->$RTFAttributes$GenericAttribute::rtfName();
+	return this->$RTFAttributes$GenericAttribute::rtfName();
 }
 
 bool RTFAttributes$AssertiveAttribute::write($AttributeSet* source, $RTFGenerator* target, bool force) {
-	 return this->$RTFAttributes$GenericAttribute::write(source, target, force);
+	return this->$RTFAttributes$GenericAttribute::write(source, target, force);
 }
 
 int32_t RTFAttributes$AssertiveAttribute::hashCode() {
-	 return this->$RTFAttributes$GenericAttribute::hashCode();
+	return this->$RTFAttributes$GenericAttribute::hashCode();
 }
 
 bool RTFAttributes$AssertiveAttribute::equals(Object$* arg0) {
-	 return this->$RTFAttributes$GenericAttribute::equals(arg0);
+	return this->$RTFAttributes$GenericAttribute::equals(arg0);
 }
 
 $Object* RTFAttributes$AssertiveAttribute::clone() {
-	 return this->$RTFAttributes$GenericAttribute::clone();
+	return this->$RTFAttributes$GenericAttribute::clone();
 }
 
 $String* RTFAttributes$AssertiveAttribute::toString() {
-	 return this->$RTFAttributes$GenericAttribute::toString();
+	return this->$RTFAttributes$GenericAttribute::toString();
 }
 
 void RTFAttributes$AssertiveAttribute::finalize() {

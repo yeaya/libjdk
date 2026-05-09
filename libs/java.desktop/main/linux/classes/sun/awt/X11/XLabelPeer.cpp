@@ -67,23 +67,23 @@ void XLabelPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool XLabelPeer::isReparentSupported() {
-	 return this->$XComponentPeer::isReparentSupported();
+	return this->$XComponentPeer::isReparentSupported();
 }
 
 bool XLabelPeer::isObscured() {
-	 return this->$XComponentPeer::isObscured();
+	return this->$XComponentPeer::isObscured();
 }
 
 bool XLabelPeer::canDetermineObscurity() {
-	 return this->$XComponentPeer::canDetermineObscurity();
+	return this->$XComponentPeer::canDetermineObscurity();
 }
 
 bool XLabelPeer::isFocusable() {
-	 return this->$XComponentPeer::isFocusable();
+	return this->$XComponentPeer::isFocusable();
 }
 
 bool XLabelPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void XLabelPeer::setVisible(bool b) {
@@ -99,7 +99,7 @@ void XLabelPeer::paint($Graphics* g) {
 }
 
 $Graphics* XLabelPeer::getGraphics() {
-	 return this->$XComponentPeer::getGraphics();
+	return this->$XComponentPeer::getGraphics();
 }
 
 void XLabelPeer::print($Graphics* g) {
@@ -119,7 +119,7 @@ void XLabelPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* XLabelPeer::getPreferredSize() {
-	 return this->$XComponentPeer::getPreferredSize();
+	return this->$XComponentPeer::getPreferredSize();
 }
 
 void XLabelPeer::layout() {
@@ -135,7 +135,7 @@ void XLabelPeer::setForeground($Color* c) {
 }
 
 $FontMetrics* XLabelPeer::getFontMetrics($Font* font) {
-	 return this->$XComponentPeer::getFontMetrics(font);
+	return this->$XComponentPeer::getFontMetrics(font);
 }
 
 void XLabelPeer::setFont($Font* f) {
@@ -147,15 +147,15 @@ void XLabelPeer::updateCursorImmediately() {
 }
 
 $Image* XLabelPeer::createImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createImage(width, height);
+	return this->$XComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* XLabelPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createVolatileImage(width, height);
+	return this->$XComponentPeer::createVolatileImage(width, height);
 }
 
 bool XLabelPeer::handlesWheelScrolling() {
-	 return this->$XComponentPeer::handlesWheelScrolling();
+	return this->$XComponentPeer::handlesWheelScrolling();
 }
 
 void XLabelPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -167,7 +167,7 @@ void XLabelPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCap
 }
 
 $Image* XLabelPeer::getBackBuffer() {
-	 return this->$XComponentPeer::getBackBuffer();
+	return this->$XComponentPeer::getBackBuffer();
 }
 
 void XLabelPeer::destroyBuffers() {
@@ -183,11 +183,11 @@ void XLabelPeer::applyShape($Region* shape) {
 }
 
 bool XLabelPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XComponentPeer::updateGraphicsData(gc);
+	return this->$XComponentPeer::updateGraphicsData(gc);
 }
 
 $Point* XLabelPeer::getLocationOnScreen() {
-	 return this->$XComponentPeer::getLocationOnScreen();
+	return this->$XComponentPeer::getLocationOnScreen();
 }
 
 void XLabelPeer::dispose() {
@@ -195,27 +195,27 @@ void XLabelPeer::dispose() {
 }
 
 $ColorModel* XLabelPeer::getColorModel() {
-	 return this->$XComponentPeer::getColorModel();
+	return this->$XComponentPeer::getColorModel();
 }
 
 $GraphicsConfiguration* XLabelPeer::getGraphicsConfiguration() {
-	 return this->$XComponentPeer::getGraphicsConfiguration();
+	return this->$XComponentPeer::getGraphicsConfiguration();
 }
 
 $String* XLabelPeer::toString() {
-	 return this->$XComponentPeer::toString();
+	return this->$XComponentPeer::toString();
 }
 
 int32_t XLabelPeer::hashCode() {
-	 return this->$XComponentPeer::hashCode();
+	return this->$XComponentPeer::hashCode();
 }
 
 bool XLabelPeer::equals(Object$* arg0) {
-	 return this->$XComponentPeer::equals(arg0);
+	return this->$XComponentPeer::equals(arg0);
 }
 
 $Object* XLabelPeer::clone() {
-	 return this->$XComponentPeer::clone();
+	return this->$XComponentPeer::clone();
 }
 
 void XLabelPeer::finalize() {

@@ -38,19 +38,19 @@ namespace javax {
 		namespace table {
 
 int32_t DefaultTableColumnModel::hashCode() {
-	 return this->$TableColumnModel::hashCode();
+	return this->$TableColumnModel::hashCode();
 }
 
 bool DefaultTableColumnModel::equals(Object$* arg0) {
-	 return this->$TableColumnModel::equals(arg0);
+	return this->$TableColumnModel::equals(arg0);
 }
 
 $Object* DefaultTableColumnModel::clone() {
-	 return this->$TableColumnModel::clone();
+	return this->$TableColumnModel::clone();
 }
 
 $String* DefaultTableColumnModel::toString() {
-	 return this->$TableColumnModel::toString();
+	return this->$TableColumnModel::toString();
 }
 
 void DefaultTableColumnModel::finalize() {

@@ -94,7 +94,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(Transport::lambda$getLogLevel$0());
+		return $of(Transport::lambda$getLogLevel$0());
 	}
 };
 $Class* Transport$$Lambda$lambda$getLogLevel$0::load$($String* name, bool initialize) {
@@ -125,7 +125,7 @@ public:
 		$set(this, ccl, ccl);
 	}
 	virtual $Object* run() override {
-		 return Transport::lambda$setContextClassLoader$1(ccl);
+		return Transport::lambda$setContextClassLoader$1(ccl);
 	}
 	$ClassLoader* ccl = nullptr;
 };

@@ -29,39 +29,39 @@ namespace sun {
 		namespace loops {
 
 $String* MaskBlit$General::getSignature() {
-	 return this->$MaskBlit::getSignature();
+	return this->$MaskBlit::getSignature();
 }
 
 int32_t MaskBlit$General::getPrimTypeID() {
-	 return this->$MaskBlit::getPrimTypeID();
+	return this->$MaskBlit::getPrimTypeID();
 }
 
 $SurfaceType* MaskBlit$General::getSourceType() {
-	 return this->$MaskBlit::getSourceType();
+	return this->$MaskBlit::getSourceType();
 }
 
 $CompositeType* MaskBlit$General::getCompositeType() {
-	 return this->$MaskBlit::getCompositeType();
+	return this->$MaskBlit::getCompositeType();
 }
 
 $SurfaceType* MaskBlit$General::getDestType() {
-	 return this->$MaskBlit::getDestType();
+	return this->$MaskBlit::getDestType();
 }
 
 $String* MaskBlit$General::toString() {
-	 return this->$MaskBlit::toString();
+	return this->$MaskBlit::toString();
 }
 
 int32_t MaskBlit$General::hashCode() {
-	 return this->$MaskBlit::hashCode();
+	return this->$MaskBlit::hashCode();
 }
 
 bool MaskBlit$General::equals(Object$* arg0) {
-	 return this->$MaskBlit::equals(arg0);
+	return this->$MaskBlit::equals(arg0);
 }
 
 $Object* MaskBlit$General::clone() {
-	 return this->$MaskBlit::clone();
+	return this->$MaskBlit::clone();
 }
 
 void MaskBlit$General::finalize() {

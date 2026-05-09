@@ -47,7 +47,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $nc(inst$)->lambda$get$1($cast($Stream, s));
+		return $nc(inst$)->lambda$get$1($cast($Stream, s));
 	}
 	LogRecord$CallerFinder* inst$ = nullptr;
 };
@@ -82,7 +82,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return LogRecord$CallerFinder::lambda$static$0();
+		return LogRecord$CallerFinder::lambda$static$0();
 	}
 };
 $Class* LogRecord$CallerFinder$$Lambda$lambda$static$0$1::load$($String* name, bool initialize) {

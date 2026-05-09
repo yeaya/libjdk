@@ -19,19 +19,19 @@ namespace com {
 		namespace laf {
 
 $String* AquaTabbedPaneCopyFromBasicUI$ScrollableTabButton::toString() {
-	 return this->$BasicArrowButton::toString();
+	return this->$BasicArrowButton::toString();
 }
 
 int32_t AquaTabbedPaneCopyFromBasicUI$ScrollableTabButton::hashCode() {
-	 return this->$BasicArrowButton::hashCode();
+	return this->$BasicArrowButton::hashCode();
 }
 
 bool AquaTabbedPaneCopyFromBasicUI$ScrollableTabButton::equals(Object$* arg0) {
-	 return this->$BasicArrowButton::equals(arg0);
+	return this->$BasicArrowButton::equals(arg0);
 }
 
 $Object* AquaTabbedPaneCopyFromBasicUI$ScrollableTabButton::clone() {
-	 return this->$BasicArrowButton::clone();
+	return this->$BasicArrowButton::clone();
 }
 
 void AquaTabbedPaneCopyFromBasicUI$ScrollableTabButton::finalize() {

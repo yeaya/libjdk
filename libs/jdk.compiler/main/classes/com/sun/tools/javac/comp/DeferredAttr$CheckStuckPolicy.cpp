@@ -62,19 +62,19 @@ namespace com {
 				namespace comp {
 
 int32_t DeferredAttr$CheckStuckPolicy::hashCode() {
-	 return this->$DeferredAttr$PolyScanner::hashCode();
+	return this->$DeferredAttr$PolyScanner::hashCode();
 }
 
 bool DeferredAttr$CheckStuckPolicy::equals(Object$* arg0) {
-	 return this->$DeferredAttr$PolyScanner::equals(arg0);
+	return this->$DeferredAttr$PolyScanner::equals(arg0);
 }
 
 $Object* DeferredAttr$CheckStuckPolicy::clone() {
-	 return this->$DeferredAttr$PolyScanner::clone();
+	return this->$DeferredAttr$PolyScanner::clone();
 }
 
 $String* DeferredAttr$CheckStuckPolicy::toString() {
-	 return this->$DeferredAttr$PolyScanner::toString();
+	return this->$DeferredAttr$PolyScanner::toString();
 }
 
 void DeferredAttr$CheckStuckPolicy::finalize() {

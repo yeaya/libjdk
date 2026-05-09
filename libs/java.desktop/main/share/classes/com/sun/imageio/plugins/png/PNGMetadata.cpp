@@ -94,7 +94,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* arg0) override {
-		 return $of($OffsetDateTime::from(arg0));
+		return $of($OffsetDateTime::from(arg0));
 	}
 };
 $Class* PNGMetadata$$Lambda$from::load$($String* name, bool initialize) {
@@ -124,7 +124,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* arg0) override {
-		 return $of($LocalDateTime::from(arg0));
+		return $of($LocalDateTime::from(arg0));
 	}
 };
 $Class* PNGMetadata$$Lambda$from$1::load$($String* name, bool initialize) {
@@ -149,15 +149,15 @@ $Class* PNGMetadata$$Lambda$from$1::load$($String* name, bool initialize) {
 $Class* PNGMetadata$$Lambda$from$1::class$ = nullptr;
 
 int32_t PNGMetadata::hashCode() {
-	 return this->$IIOMetadata::hashCode();
+	return this->$IIOMetadata::hashCode();
 }
 
 bool PNGMetadata::equals(Object$* arg0) {
-	 return this->$IIOMetadata::equals(arg0);
+	return this->$IIOMetadata::equals(arg0);
 }
 
 $String* PNGMetadata::toString() {
-	 return this->$IIOMetadata::toString();
+	return this->$IIOMetadata::toString();
 }
 
 void PNGMetadata::finalize() {

@@ -257,35 +257,35 @@ void XML11Configuration::addRecognizedProperties($StringArray* propertyIds) {
 }
 
 bool XML11Configuration::getFeature($String* featureId) {
-	 return this->$ParserConfigurationSettings::getFeature(featureId);
+	return this->$ParserConfigurationSettings::getFeature(featureId);
 }
 
 bool XML11Configuration::getFeature($String* featureId, bool defaultValue) {
-	 return this->$ParserConfigurationSettings::getFeature(featureId, defaultValue);
+	return this->$ParserConfigurationSettings::getFeature(featureId, defaultValue);
 }
 
 $Object* XML11Configuration::getProperty($String* propertyId) {
-	 return this->$ParserConfigurationSettings::getProperty(propertyId);
+	return this->$ParserConfigurationSettings::getProperty(propertyId);
 }
 
 $Object* XML11Configuration::getProperty($String* propertyId, Object$* defaultValue) {
-	 return this->$ParserConfigurationSettings::getProperty(propertyId, defaultValue);
+	return this->$ParserConfigurationSettings::getProperty(propertyId, defaultValue);
 }
 
 int32_t XML11Configuration::hashCode() {
-	 return this->$ParserConfigurationSettings::hashCode();
+	return this->$ParserConfigurationSettings::hashCode();
 }
 
 bool XML11Configuration::equals(Object$* arg0) {
-	 return this->$ParserConfigurationSettings::equals(arg0);
+	return this->$ParserConfigurationSettings::equals(arg0);
 }
 
 $Object* XML11Configuration::clone() {
-	 return this->$ParserConfigurationSettings::clone();
+	return this->$ParserConfigurationSettings::clone();
 }
 
 $String* XML11Configuration::toString() {
-	 return this->$ParserConfigurationSettings::toString();
+	return this->$ParserConfigurationSettings::toString();
 }
 
 void XML11Configuration::finalize() {

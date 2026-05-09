@@ -28,19 +28,19 @@ namespace com {
 					namespace motif {
 
 int32_t MotifIconFactory$RadioButtonIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool MotifIconFactory$RadioButtonIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* MotifIconFactory$RadioButtonIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* MotifIconFactory$RadioButtonIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void MotifIconFactory$RadioButtonIcon::finalize() {

@@ -86,19 +86,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t MotifDnDDragSourceProtocol::hashCode() {
-	 return this->$XDragSourceProtocol::hashCode();
+	return this->$XDragSourceProtocol::hashCode();
 }
 
 bool MotifDnDDragSourceProtocol::equals(Object$* arg0) {
-	 return this->$XDragSourceProtocol::equals(arg0);
+	return this->$XDragSourceProtocol::equals(arg0);
 }
 
 $Object* MotifDnDDragSourceProtocol::clone() {
-	 return this->$XDragSourceProtocol::clone();
+	return this->$XDragSourceProtocol::clone();
 }
 
 $String* MotifDnDDragSourceProtocol::toString() {
-	 return this->$XDragSourceProtocol::toString();
+	return this->$XDragSourceProtocol::toString();
 }
 
 void MotifDnDDragSourceProtocol::finalize() {

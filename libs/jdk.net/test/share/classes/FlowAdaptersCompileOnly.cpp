@@ -66,7 +66,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* subscriber) override {
-		 return $of(FlowAdaptersCompileOnly::lambda$static$0($cast($FlowAdaptersCompileOnly$ListSubscriber, subscriber)));
+		return $of(FlowAdaptersCompileOnly::lambda$static$0($cast($FlowAdaptersCompileOnly$ListSubscriber, subscriber)));
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -96,7 +96,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* subscriber) override {
-		 return FlowAdaptersCompileOnly::lambda$static$1($cast($FlowAdaptersCompileOnly$ListSubscriber, subscriber));
+		return FlowAdaptersCompileOnly::lambda$static$1($cast($FlowAdaptersCompileOnly$ListSubscriber, subscriber));
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
@@ -126,7 +126,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* subscriber) override {
-		 return $of(FlowAdaptersCompileOnly::lambda$static$2($cast($FlowAdaptersCompileOnly$ListSubscriberX, subscriber)));
+		return $of(FlowAdaptersCompileOnly::lambda$static$2($cast($FlowAdaptersCompileOnly$ListSubscriberX, subscriber)));
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {
@@ -156,7 +156,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* subscriber) override {
-		 return FlowAdaptersCompileOnly::lambda$static$3($cast($FlowAdaptersCompileOnly$ListSubscriberX, subscriber));
+		return FlowAdaptersCompileOnly::lambda$static$3($cast($FlowAdaptersCompileOnly$ListSubscriberX, subscriber));
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$lambda$static$3$3::load$($String* name, bool initialize) {
@@ -186,7 +186,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* sub) override {
-		 return FlowAdaptersCompileOnly::lambda$static$8($cast($FlowAdaptersCompileOnly$NumberSubscriber, sub));
+		return FlowAdaptersCompileOnly::lambda$static$8($cast($FlowAdaptersCompileOnly$NumberSubscriber, sub));
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$lambda$static$8$4::load$($String* name, bool initialize) {
@@ -216,7 +216,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* sub) override {
-		 return $of(FlowAdaptersCompileOnly::lambda$static$9($cast($FlowAdaptersCompileOnly$IntegerSubscriber, sub)));
+		return $of(FlowAdaptersCompileOnly::lambda$static$9($cast($FlowAdaptersCompileOnly$IntegerSubscriber, sub)));
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$lambda$static$9$5::load$($String* name, bool initialize) {
@@ -246,7 +246,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* sub) override {
-		 return $of(FlowAdaptersCompileOnly::lambda$static$10($cast($FlowAdaptersCompileOnly$LongSubscriber, sub)));
+		return $of(FlowAdaptersCompileOnly::lambda$static$10($cast($FlowAdaptersCompileOnly$LongSubscriber, sub)));
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$lambda$static$10$6::load$($String* name, bool initialize) {
@@ -276,7 +276,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(FlowAdaptersCompileOnly::lambda$makesSureDifferentGenericFunctionSignaturesCompile$4($cast($FlowAdaptersCompileOnly$ListSubscriber, s)));
+		return $of(FlowAdaptersCompileOnly::lambda$makesSureDifferentGenericFunctionSignaturesCompile$4($cast($FlowAdaptersCompileOnly$ListSubscriber, s)));
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$7::load$($String* name, bool initialize) {
@@ -306,7 +306,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return FlowAdaptersCompileOnly::lambda$makesSureDifferentGenericFunctionSignaturesCompile$5($cast($FlowAdaptersCompileOnly$ListSubscriber, s));
+		return FlowAdaptersCompileOnly::lambda$makesSureDifferentGenericFunctionSignaturesCompile$5($cast($FlowAdaptersCompileOnly$ListSubscriber, s));
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$8::load$($String* name, bool initialize) {
@@ -336,7 +336,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($FlowAdaptersCompileOnly$ListSubscriberX, inst$)->getIntegerX());
+		return $of($sure($FlowAdaptersCompileOnly$ListSubscriberX, inst$)->getIntegerX());
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$getIntegerX$9::load$($String* name, bool initialize) {
@@ -366,7 +366,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($FlowAdaptersCompileOnly$IntegerSubscriber, inst$)->getInteger());
+		return $of($sure($FlowAdaptersCompileOnly$IntegerSubscriber, inst$)->getInteger());
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$getInteger$10::load$($String* name, bool initialize) {
@@ -396,7 +396,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($FlowAdaptersCompileOnly$NumberSubscriber, inst$)->getNumber();
+		return $sure($FlowAdaptersCompileOnly$NumberSubscriber, inst$)->getNumber();
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$getNumber$11::load$($String* name, bool initialize) {
@@ -426,7 +426,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* sub) override {
-		 return FlowAdaptersCompileOnly::lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11(sub);
+		return FlowAdaptersCompileOnly::lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11(sub);
 	}
 };
 $Class* FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11$12::load$($String* name, bool initialize) {

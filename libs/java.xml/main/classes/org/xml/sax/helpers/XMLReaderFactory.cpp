@@ -69,7 +69,7 @@ public:
 		$set(this, cl, cl);
 	}
 	virtual $Object* run() override {
-		 return XMLReaderFactory::lambda$findServiceProvider$0(type, cl);
+		return XMLReaderFactory::lambda$findServiceProvider$0(type, cl);
 	}
 	$Class* type = nullptr;
 	$ClassLoader* cl = nullptr;

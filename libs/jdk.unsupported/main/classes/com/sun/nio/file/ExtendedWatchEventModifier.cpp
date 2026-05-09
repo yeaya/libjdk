@@ -19,23 +19,23 @@ namespace com {
 			namespace file {
 
 $String* ExtendedWatchEventModifier::name() {
-	 return this->$Enum::name();
+	return this->$Enum::name();
 }
 
 $String* ExtendedWatchEventModifier::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool ExtendedWatchEventModifier::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t ExtendedWatchEventModifier::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* ExtendedWatchEventModifier::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void ExtendedWatchEventModifier::finalize() {

@@ -28,11 +28,11 @@ void ImageOutputStreamImpl::setByteOrder($ByteOrder* byteOrder) {
 }
 
 $ByteOrder* ImageOutputStreamImpl::getByteOrder() {
-	 return this->$ImageInputStreamImpl::getByteOrder();
+	return this->$ImageInputStreamImpl::getByteOrder();
 }
 
 int32_t ImageOutputStreamImpl::read($bytes* b) {
-	 return this->$ImageInputStreamImpl::read(b);
+	return this->$ImageInputStreamImpl::read(b);
 }
 
 void ImageOutputStreamImpl::readBytes($IIOByteBuffer* buf, int32_t len) {
@@ -40,55 +40,55 @@ void ImageOutputStreamImpl::readBytes($IIOByteBuffer* buf, int32_t len) {
 }
 
 bool ImageOutputStreamImpl::readBoolean() {
-	 return this->$ImageInputStreamImpl::readBoolean();
+	return this->$ImageInputStreamImpl::readBoolean();
 }
 
 int8_t ImageOutputStreamImpl::readByte() {
-	 return this->$ImageInputStreamImpl::readByte();
+	return this->$ImageInputStreamImpl::readByte();
 }
 
 int32_t ImageOutputStreamImpl::readUnsignedByte() {
-	 return this->$ImageInputStreamImpl::readUnsignedByte();
+	return this->$ImageInputStreamImpl::readUnsignedByte();
 }
 
 int16_t ImageOutputStreamImpl::readShort() {
-	 return this->$ImageInputStreamImpl::readShort();
+	return this->$ImageInputStreamImpl::readShort();
 }
 
 int32_t ImageOutputStreamImpl::readUnsignedShort() {
-	 return this->$ImageInputStreamImpl::readUnsignedShort();
+	return this->$ImageInputStreamImpl::readUnsignedShort();
 }
 
 char16_t ImageOutputStreamImpl::readChar() {
-	 return this->$ImageInputStreamImpl::readChar();
+	return this->$ImageInputStreamImpl::readChar();
 }
 
 int32_t ImageOutputStreamImpl::readInt() {
-	 return this->$ImageInputStreamImpl::readInt();
+	return this->$ImageInputStreamImpl::readInt();
 }
 
 int64_t ImageOutputStreamImpl::readUnsignedInt() {
-	 return this->$ImageInputStreamImpl::readUnsignedInt();
+	return this->$ImageInputStreamImpl::readUnsignedInt();
 }
 
 int64_t ImageOutputStreamImpl::readLong() {
-	 return this->$ImageInputStreamImpl::readLong();
+	return this->$ImageInputStreamImpl::readLong();
 }
 
 float ImageOutputStreamImpl::readFloat() {
-	 return this->$ImageInputStreamImpl::readFloat();
+	return this->$ImageInputStreamImpl::readFloat();
 }
 
 double ImageOutputStreamImpl::readDouble() {
-	 return this->$ImageInputStreamImpl::readDouble();
+	return this->$ImageInputStreamImpl::readDouble();
 }
 
 $String* ImageOutputStreamImpl::readLine() {
-	 return this->$ImageInputStreamImpl::readLine();
+	return this->$ImageInputStreamImpl::readLine();
 }
 
 $String* ImageOutputStreamImpl::readUTF() {
-	 return this->$ImageInputStreamImpl::readUTF();
+	return this->$ImageInputStreamImpl::readUTF();
 }
 
 void ImageOutputStreamImpl::readFully($bytes* b, int32_t off, int32_t len) {
@@ -124,11 +124,11 @@ void ImageOutputStreamImpl::readFully($doubles* d, int32_t off, int32_t len) {
 }
 
 int64_t ImageOutputStreamImpl::getStreamPosition() {
-	 return this->$ImageInputStreamImpl::getStreamPosition();
+	return this->$ImageInputStreamImpl::getStreamPosition();
 }
 
 int32_t ImageOutputStreamImpl::getBitOffset() {
-	 return this->$ImageInputStreamImpl::getBitOffset();
+	return this->$ImageInputStreamImpl::getBitOffset();
 }
 
 void ImageOutputStreamImpl::setBitOffset(int32_t bitOffset) {
@@ -136,23 +136,23 @@ void ImageOutputStreamImpl::setBitOffset(int32_t bitOffset) {
 }
 
 int32_t ImageOutputStreamImpl::readBit() {
-	 return this->$ImageInputStreamImpl::readBit();
+	return this->$ImageInputStreamImpl::readBit();
 }
 
 int64_t ImageOutputStreamImpl::readBits(int32_t numBits) {
-	 return this->$ImageInputStreamImpl::readBits(numBits);
+	return this->$ImageInputStreamImpl::readBits(numBits);
 }
 
 int64_t ImageOutputStreamImpl::length() {
-	 return this->$ImageInputStreamImpl::length();
+	return this->$ImageInputStreamImpl::length();
 }
 
 int32_t ImageOutputStreamImpl::skipBytes(int32_t n) {
-	 return this->$ImageInputStreamImpl::skipBytes(n);
+	return this->$ImageInputStreamImpl::skipBytes(n);
 }
 
 int64_t ImageOutputStreamImpl::skipBytes(int64_t n) {
-	 return this->$ImageInputStreamImpl::skipBytes(n);
+	return this->$ImageInputStreamImpl::skipBytes(n);
 }
 
 void ImageOutputStreamImpl::seek(int64_t pos) {
@@ -176,19 +176,19 @@ void ImageOutputStreamImpl::flush() {
 }
 
 int64_t ImageOutputStreamImpl::getFlushedPosition() {
-	 return this->$ImageInputStreamImpl::getFlushedPosition();
+	return this->$ImageInputStreamImpl::getFlushedPosition();
 }
 
 bool ImageOutputStreamImpl::isCached() {
-	 return this->$ImageInputStreamImpl::isCached();
+	return this->$ImageInputStreamImpl::isCached();
 }
 
 bool ImageOutputStreamImpl::isCachedMemory() {
-	 return this->$ImageInputStreamImpl::isCachedMemory();
+	return this->$ImageInputStreamImpl::isCachedMemory();
 }
 
 bool ImageOutputStreamImpl::isCachedFile() {
-	 return this->$ImageInputStreamImpl::isCachedFile();
+	return this->$ImageInputStreamImpl::isCachedFile();
 }
 
 void ImageOutputStreamImpl::close() {
@@ -200,19 +200,19 @@ void ImageOutputStreamImpl::finalize() {
 }
 
 int32_t ImageOutputStreamImpl::hashCode() {
-	 return this->$ImageInputStreamImpl::hashCode();
+	return this->$ImageInputStreamImpl::hashCode();
 }
 
 bool ImageOutputStreamImpl::equals(Object$* arg0) {
-	 return this->$ImageInputStreamImpl::equals(arg0);
+	return this->$ImageInputStreamImpl::equals(arg0);
 }
 
 $Object* ImageOutputStreamImpl::clone() {
-	 return this->$ImageInputStreamImpl::clone();
+	return this->$ImageInputStreamImpl::clone();
 }
 
 $String* ImageOutputStreamImpl::toString() {
-	 return this->$ImageInputStreamImpl::toString();
+	return this->$ImageInputStreamImpl::toString();
 }
 
 void ImageOutputStreamImpl::init$() {

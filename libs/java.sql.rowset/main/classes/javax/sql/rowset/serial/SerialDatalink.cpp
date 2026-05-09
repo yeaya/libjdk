@@ -23,7 +23,7 @@ namespace javax {
 			namespace serial {
 
 $String* SerialDatalink::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void SerialDatalink::finalize() {

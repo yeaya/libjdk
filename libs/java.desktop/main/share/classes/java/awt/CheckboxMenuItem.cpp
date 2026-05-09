@@ -52,19 +52,19 @@ namespace java {
 	namespace awt {
 
 $String* CheckboxMenuItem::toString() {
-	 return this->$MenuItem::toString();
+	return this->$MenuItem::toString();
 }
 
 int32_t CheckboxMenuItem::hashCode() {
-	 return this->$MenuItem::hashCode();
+	return this->$MenuItem::hashCode();
 }
 
 bool CheckboxMenuItem::equals(Object$* arg0) {
-	 return this->$MenuItem::equals(arg0);
+	return this->$MenuItem::equals(arg0);
 }
 
 $Object* CheckboxMenuItem::clone() {
-	 return this->$MenuItem::clone();
+	return this->$MenuItem::clone();
 }
 
 void CheckboxMenuItem::finalize() {

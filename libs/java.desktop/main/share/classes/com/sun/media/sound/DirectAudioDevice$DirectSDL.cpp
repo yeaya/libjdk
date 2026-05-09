@@ -28,7 +28,7 @@ namespace com {
 			namespace sound {
 
 int32_t DirectAudioDevice$DirectSDL::available() {
-	 return this->$DirectAudioDevice$DirectDL::available();
+	return this->$DirectAudioDevice$DirectDL::available();
 }
 
 void DirectAudioDevice$DirectSDL::drain() {
@@ -40,11 +40,11 @@ void DirectAudioDevice$DirectSDL::flush() {
 }
 
 int64_t DirectAudioDevice$DirectSDL::getLongFramePosition() {
-	 return this->$DirectAudioDevice$DirectDL::getLongFramePosition();
+	return this->$DirectAudioDevice$DirectDL::getLongFramePosition();
 }
 
 int32_t DirectAudioDevice$DirectSDL::write($bytes* b, int32_t off, int32_t len) {
-	 return this->$DirectAudioDevice$DirectDL::write(b, off, len);
+	return this->$DirectAudioDevice$DirectDL::write(b, off, len);
 }
 
 void DirectAudioDevice$DirectSDL::open($AudioFormat* format, int32_t bufferSize) {
@@ -64,27 +64,27 @@ void DirectAudioDevice$DirectSDL::stop() {
 }
 
 bool DirectAudioDevice$DirectSDL::isRunning() {
-	 return this->$DirectAudioDevice$DirectDL::isRunning();
+	return this->$DirectAudioDevice$DirectDL::isRunning();
 }
 
 bool DirectAudioDevice$DirectSDL::isActive() {
-	 return this->$DirectAudioDevice$DirectDL::isActive();
+	return this->$DirectAudioDevice$DirectDL::isActive();
 }
 
 int64_t DirectAudioDevice$DirectSDL::getMicrosecondPosition() {
-	 return this->$DirectAudioDevice$DirectDL::getMicrosecondPosition();
+	return this->$DirectAudioDevice$DirectDL::getMicrosecondPosition();
 }
 
 $AudioFormat* DirectAudioDevice$DirectSDL::getFormat() {
-	 return this->$DirectAudioDevice$DirectDL::getFormat();
+	return this->$DirectAudioDevice$DirectDL::getFormat();
 }
 
 int32_t DirectAudioDevice$DirectSDL::getBufferSize() {
-	 return this->$DirectAudioDevice$DirectDL::getBufferSize();
+	return this->$DirectAudioDevice$DirectDL::getBufferSize();
 }
 
 float DirectAudioDevice$DirectSDL::getLevel() {
-	 return this->$DirectAudioDevice$DirectDL::getLevel();
+	return this->$DirectAudioDevice$DirectDL::getLevel();
 }
 
 void DirectAudioDevice$DirectSDL::open() {
@@ -96,11 +96,11 @@ void DirectAudioDevice$DirectSDL::close() {
 }
 
 $Line$Info* DirectAudioDevice$DirectSDL::getLineInfo() {
-	 return this->$DirectAudioDevice$DirectDL::getLineInfo();
+	return this->$DirectAudioDevice$DirectDL::getLineInfo();
 }
 
 bool DirectAudioDevice$DirectSDL::isOpen() {
-	 return this->$DirectAudioDevice$DirectDL::isOpen();
+	return this->$DirectAudioDevice$DirectDL::isOpen();
 }
 
 void DirectAudioDevice$DirectSDL::addLineListener($LineListener* listener) {
@@ -112,35 +112,35 @@ void DirectAudioDevice$DirectSDL::removeLineListener($LineListener* listener) {
 }
 
 $ControlArray* DirectAudioDevice$DirectSDL::getControls() {
-	 return this->$DirectAudioDevice$DirectDL::getControls();
+	return this->$DirectAudioDevice$DirectDL::getControls();
 }
 
 bool DirectAudioDevice$DirectSDL::isControlSupported($Control$Type* controlType) {
-	 return this->$DirectAudioDevice$DirectDL::isControlSupported(controlType);
+	return this->$DirectAudioDevice$DirectDL::isControlSupported(controlType);
 }
 
 $Control* DirectAudioDevice$DirectSDL::getControl($Control$Type* controlType) {
-	 return this->$DirectAudioDevice$DirectDL::getControl(controlType);
+	return this->$DirectAudioDevice$DirectDL::getControl(controlType);
 }
 
 int32_t DirectAudioDevice$DirectSDL::getFramePosition() {
-	 return this->$DirectAudioDevice$DirectDL::getFramePosition();
+	return this->$DirectAudioDevice$DirectDL::getFramePosition();
 }
 
 int32_t DirectAudioDevice$DirectSDL::hashCode() {
-	 return this->$DirectAudioDevice$DirectDL::hashCode();
+	return this->$DirectAudioDevice$DirectDL::hashCode();
 }
 
 bool DirectAudioDevice$DirectSDL::equals(Object$* arg0) {
-	 return this->$DirectAudioDevice$DirectDL::equals(arg0);
+	return this->$DirectAudioDevice$DirectDL::equals(arg0);
 }
 
 $Object* DirectAudioDevice$DirectSDL::clone() {
-	 return this->$DirectAudioDevice$DirectDL::clone();
+	return this->$DirectAudioDevice$DirectDL::clone();
 }
 
 $String* DirectAudioDevice$DirectSDL::toString() {
-	 return this->$DirectAudioDevice$DirectDL::toString();
+	return this->$DirectAudioDevice$DirectDL::toString();
 }
 
 void DirectAudioDevice$DirectSDL::finalize() {

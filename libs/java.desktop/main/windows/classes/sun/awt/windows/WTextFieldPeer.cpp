@@ -66,7 +66,7 @@ void WTextFieldPeer::setEditable(bool editable) {
 }
 
 $String* WTextFieldPeer::getText() {
-	 return this->$WTextComponentPeer::getText();
+	return this->$WTextComponentPeer::getText();
 }
 
 void WTextFieldPeer::setText($String* text) {
@@ -74,11 +74,11 @@ void WTextFieldPeer::setText($String* text) {
 }
 
 int32_t WTextFieldPeer::getSelectionStart() {
-	 return this->$WTextComponentPeer::getSelectionStart();
+	return this->$WTextComponentPeer::getSelectionStart();
 }
 
 int32_t WTextFieldPeer::getSelectionEnd() {
-	 return this->$WTextComponentPeer::getSelectionEnd();
+	return this->$WTextComponentPeer::getSelectionEnd();
 }
 
 void WTextFieldPeer::select(int32_t selStart, int32_t selEnd) {
@@ -86,7 +86,7 @@ void WTextFieldPeer::select(int32_t selStart, int32_t selEnd) {
 }
 
 bool WTextFieldPeer::isFocusable() {
-	 return this->$WTextComponentPeer::isFocusable();
+	return this->$WTextComponentPeer::isFocusable();
 }
 
 void WTextFieldPeer::setCaretPosition(int32_t pos) {
@@ -94,19 +94,19 @@ void WTextFieldPeer::setCaretPosition(int32_t pos) {
 }
 
 int32_t WTextFieldPeer::getCaretPosition() {
-	 return this->$WTextComponentPeer::getCaretPosition();
+	return this->$WTextComponentPeer::getCaretPosition();
 }
 
 bool WTextFieldPeer::isObscured() {
-	 return this->$WTextComponentPeer::isObscured();
+	return this->$WTextComponentPeer::isObscured();
 }
 
 bool WTextFieldPeer::canDetermineObscurity() {
-	 return this->$WTextComponentPeer::canDetermineObscurity();
+	return this->$WTextComponentPeer::canDetermineObscurity();
 }
 
 $Point* WTextFieldPeer::getLocationOnScreen() {
-	 return this->$WTextComponentPeer::getLocationOnScreen();
+	return this->$WTextComponentPeer::getLocationOnScreen();
 }
 
 void WTextFieldPeer::setVisible(bool b) {
@@ -138,7 +138,7 @@ void WTextFieldPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* WTextFieldPeer::getPreferredSize() {
-	 return this->$WTextComponentPeer::getPreferredSize();
+	return this->$WTextComponentPeer::getPreferredSize();
 }
 
 void WTextFieldPeer::layout() {
@@ -146,23 +146,23 @@ void WTextFieldPeer::layout() {
 }
 
 $GraphicsConfiguration* WTextFieldPeer::getGraphicsConfiguration() {
-	 return this->$WTextComponentPeer::getGraphicsConfiguration();
+	return this->$WTextComponentPeer::getGraphicsConfiguration();
 }
 
 bool WTextFieldPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$WTextComponentPeer::updateGraphicsData(gc);
+	return this->$WTextComponentPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* WTextFieldPeer::getColorModel() {
-	 return this->$WTextComponentPeer::getColorModel();
+	return this->$WTextComponentPeer::getColorModel();
 }
 
 $Graphics* WTextFieldPeer::getGraphics() {
-	 return this->$WTextComponentPeer::getGraphics();
+	return this->$WTextComponentPeer::getGraphics();
 }
 
 $FontMetrics* WTextFieldPeer::getFontMetrics($Font* font) {
-	 return this->$WTextComponentPeer::getFontMetrics(font);
+	return this->$WTextComponentPeer::getFontMetrics(font);
 }
 
 void WTextFieldPeer::setForeground($Color* c) {
@@ -182,23 +182,23 @@ void WTextFieldPeer::updateCursorImmediately() {
 }
 
 bool WTextFieldPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$WTextComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$WTextComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* WTextFieldPeer::createImage(int32_t width, int32_t height) {
-	 return this->$WTextComponentPeer::createImage(width, height);
+	return this->$WTextComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* WTextFieldPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$WTextComponentPeer::createVolatileImage(width, height);
+	return this->$WTextComponentPeer::createVolatileImage(width, height);
 }
 
 $String* WTextFieldPeer::toString() {
-	 return this->$WTextComponentPeer::toString();
+	return this->$WTextComponentPeer::toString();
 }
 
 bool WTextFieldPeer::handlesWheelScrolling() {
-	 return this->$WTextComponentPeer::handlesWheelScrolling();
+	return this->$WTextComponentPeer::handlesWheelScrolling();
 }
 
 void WTextFieldPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -214,7 +214,7 @@ void WTextFieldPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $Buffe
 }
 
 $Image* WTextFieldPeer::getBackBuffer() {
-	 return this->$WTextComponentPeer::getBackBuffer();
+	return this->$WTextComponentPeer::getBackBuffer();
 }
 
 void WTextFieldPeer::reparent($ContainerPeer* newNativeParent) {
@@ -222,7 +222,7 @@ void WTextFieldPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool WTextFieldPeer::isReparentSupported() {
-	 return this->$WTextComponentPeer::isReparentSupported();
+	return this->$WTextComponentPeer::isReparentSupported();
 }
 
 void WTextFieldPeer::applyShape($Region* shape) {
@@ -238,15 +238,15 @@ void WTextFieldPeer::dispose() {
 }
 
 int32_t WTextFieldPeer::hashCode() {
-	 return this->$WTextComponentPeer::hashCode();
+	return this->$WTextComponentPeer::hashCode();
 }
 
 bool WTextFieldPeer::equals(Object$* arg0) {
-	 return this->$WTextComponentPeer::equals(arg0);
+	return this->$WTextComponentPeer::equals(arg0);
 }
 
 $Object* WTextFieldPeer::clone() {
-	 return this->$WTextComponentPeer::clone();
+	return this->$WTextComponentPeer::clone();
 }
 
 void WTextFieldPeer::finalize() {

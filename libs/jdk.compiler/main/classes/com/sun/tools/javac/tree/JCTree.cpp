@@ -38,11 +38,11 @@ namespace com {
 				namespace tree {
 
 int32_t JCTree::hashCode() {
-	 return this->$Tree::hashCode();
+	return this->$Tree::hashCode();
 }
 
 bool JCTree::equals(Object$* arg0) {
-	 return this->$Tree::equals(arg0);
+	return this->$Tree::equals(arg0);
 }
 
 void JCTree::finalize() {

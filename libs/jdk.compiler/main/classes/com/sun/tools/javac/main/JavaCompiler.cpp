@@ -369,7 +369,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Name* findPackageNameOf($JavaFileObject* fo) override {
-		 return $nc(inst$)->findPackageInFile(fo);
+		return $nc(inst$)->findPackageInFile(fo);
 	}
 	JavaCompiler* inst$ = nullptr;
 };
@@ -405,7 +405,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Name* readModuleName($JavaFileObject* fo) override {
-		 return $nc(inst$)->readModuleName(fo);
+		return $nc(inst$)->readModuleName(fo);
 	}
 	JavaCompiler* inst$ = nullptr;
 };
@@ -441,7 +441,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$readSourceFile$1();
+		return $nc(inst$)->lambda$readSourceFile$1();
 	}
 	JavaCompiler* inst$ = nullptr;
 };
@@ -477,7 +477,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$readSourceFile$2();
+		return $nc(inst$)->lambda$readSourceFile$2();
 	}
 	JavaCompiler* inst$ = nullptr;
 };
@@ -512,7 +512,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of(JavaCompiler::lambda$readModuleName$3($cast($JCTree$JCCompilationUnit, t)));
+		return $of(JavaCompiler::lambda$readModuleName$3($cast($JCTree$JCCompilationUnit, t)));
 	}
 };
 $Class* JavaCompiler$$Lambda$lambda$readModuleName$3$5::load$($String* name, bool initialize) {
@@ -542,7 +542,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of(JavaCompiler::lambda$findPackageInFile$4($cast($JCTree$JCCompilationUnit, t)));
+		return $of(JavaCompiler::lambda$findPackageInFile$4($cast($JCTree$JCCompilationUnit, t)));
 	}
 };
 $Class* JavaCompiler$$Lambda$lambda$findPackageInFile$4$6::load$($String* name, bool initialize) {

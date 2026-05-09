@@ -25,19 +25,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthComboBoxUI$EditorFocusHandler::hashCode() {
-	 return this->$FocusListener::hashCode();
+	return this->$FocusListener::hashCode();
 }
 
 bool SynthComboBoxUI$EditorFocusHandler::equals(Object$* arg0) {
-	 return this->$FocusListener::equals(arg0);
+	return this->$FocusListener::equals(arg0);
 }
 
 $Object* SynthComboBoxUI$EditorFocusHandler::clone() {
-	 return this->$FocusListener::clone();
+	return this->$FocusListener::clone();
 }
 
 $String* SynthComboBoxUI$EditorFocusHandler::toString() {
-	 return this->$FocusListener::toString();
+	return this->$FocusListener::toString();
 }
 
 void SynthComboBoxUI$EditorFocusHandler::finalize() {

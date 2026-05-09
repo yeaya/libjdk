@@ -38,7 +38,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($Type, inst$)->isNumeric();
+		return $sure($Type, inst$)->isNumeric();
 	}
 };
 $Class* Operators$BinaryNumericOperator$$Lambda$isNumeric::load$($String* name, bool initialize) {

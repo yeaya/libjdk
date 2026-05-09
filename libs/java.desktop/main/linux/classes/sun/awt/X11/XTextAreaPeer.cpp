@@ -112,19 +112,19 @@ void XTextAreaPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool XTextAreaPeer::isReparentSupported() {
-	 return this->$XComponentPeer::isReparentSupported();
+	return this->$XComponentPeer::isReparentSupported();
 }
 
 bool XTextAreaPeer::isObscured() {
-	 return this->$XComponentPeer::isObscured();
+	return this->$XComponentPeer::isObscured();
 }
 
 bool XTextAreaPeer::canDetermineObscurity() {
-	 return this->$XComponentPeer::canDetermineObscurity();
+	return this->$XComponentPeer::canDetermineObscurity();
 }
 
 bool XTextAreaPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void XTextAreaPeer::paint($Graphics* g) {
@@ -132,7 +132,7 @@ void XTextAreaPeer::paint($Graphics* g) {
 }
 
 $Graphics* XTextAreaPeer::getGraphics() {
-	 return this->$XComponentPeer::getGraphics();
+	return this->$XComponentPeer::getGraphics();
 }
 
 void XTextAreaPeer::print($Graphics* g) {
@@ -148,7 +148,7 @@ void XTextAreaPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* XTextAreaPeer::getPreferredSize() {
-	 return this->$XComponentPeer::getPreferredSize();
+	return this->$XComponentPeer::getPreferredSize();
 }
 
 void XTextAreaPeer::layout() {
@@ -156,7 +156,7 @@ void XTextAreaPeer::layout() {
 }
 
 $FontMetrics* XTextAreaPeer::getFontMetrics($Font* font) {
-	 return this->$XComponentPeer::getFontMetrics(font);
+	return this->$XComponentPeer::getFontMetrics(font);
 }
 
 void XTextAreaPeer::updateCursorImmediately() {
@@ -164,11 +164,11 @@ void XTextAreaPeer::updateCursorImmediately() {
 }
 
 $Image* XTextAreaPeer::createImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createImage(width, height);
+	return this->$XComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* XTextAreaPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createVolatileImage(width, height);
+	return this->$XComponentPeer::createVolatileImage(width, height);
 }
 
 void XTextAreaPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -180,7 +180,7 @@ void XTextAreaPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $Buffer
 }
 
 $Image* XTextAreaPeer::getBackBuffer() {
-	 return this->$XComponentPeer::getBackBuffer();
+	return this->$XComponentPeer::getBackBuffer();
 }
 
 void XTextAreaPeer::destroyBuffers() {
@@ -196,35 +196,35 @@ void XTextAreaPeer::applyShape($Region* shape) {
 }
 
 bool XTextAreaPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XComponentPeer::updateGraphicsData(gc);
+	return this->$XComponentPeer::updateGraphicsData(gc);
 }
 
 $Point* XTextAreaPeer::getLocationOnScreen() {
-	 return this->$XComponentPeer::getLocationOnScreen();
+	return this->$XComponentPeer::getLocationOnScreen();
 }
 
 $ColorModel* XTextAreaPeer::getColorModel() {
-	 return this->$XComponentPeer::getColorModel();
+	return this->$XComponentPeer::getColorModel();
 }
 
 $GraphicsConfiguration* XTextAreaPeer::getGraphicsConfiguration() {
-	 return this->$XComponentPeer::getGraphicsConfiguration();
+	return this->$XComponentPeer::getGraphicsConfiguration();
 }
 
 $String* XTextAreaPeer::toString() {
-	 return this->$XComponentPeer::toString();
+	return this->$XComponentPeer::toString();
 }
 
 int32_t XTextAreaPeer::hashCode() {
-	 return this->$XComponentPeer::hashCode();
+	return this->$XComponentPeer::hashCode();
 }
 
 bool XTextAreaPeer::equals(Object$* arg0) {
-	 return this->$XComponentPeer::equals(arg0);
+	return this->$XComponentPeer::equals(arg0);
 }
 
 $Object* XTextAreaPeer::clone() {
-	 return this->$XComponentPeer::clone();
+	return this->$XComponentPeer::clone();
 }
 
 void XTextAreaPeer::finalize() {

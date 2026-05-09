@@ -26,23 +26,23 @@ namespace com {
 						namespace generic {
 
 $String* MONITOREXIT::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t MONITOREXIT::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::consumeStack(cpg);
+	return this->$Instruction::consumeStack(cpg);
 }
 
 bool MONITOREXIT::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t MONITOREXIT::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* MONITOREXIT::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void MONITOREXIT::finalize() {

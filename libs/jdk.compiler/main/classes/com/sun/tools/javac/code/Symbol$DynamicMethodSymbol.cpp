@@ -32,19 +32,19 @@ namespace com {
 				namespace code {
 
 $String* Symbol$DynamicMethodSymbol::toString() {
-	 return this->$Symbol$MethodSymbol::toString();
+	return this->$Symbol$MethodSymbol::toString();
 }
 
 int32_t Symbol$DynamicMethodSymbol::hashCode() {
-	 return this->$Symbol$MethodSymbol::hashCode();
+	return this->$Symbol$MethodSymbol::hashCode();
 }
 
 bool Symbol$DynamicMethodSymbol::equals(Object$* arg0) {
-	 return this->$Symbol$MethodSymbol::equals(arg0);
+	return this->$Symbol$MethodSymbol::equals(arg0);
 }
 
 $Object* Symbol$DynamicMethodSymbol::clone() {
-	 return this->$Symbol$MethodSymbol::clone();
+	return this->$Symbol$MethodSymbol::clone();
 }
 
 void Symbol$DynamicMethodSymbol::finalize() {
@@ -52,7 +52,7 @@ void Symbol$DynamicMethodSymbol::finalize() {
 }
 
 $Object* Symbol$DynamicMethodSymbol::poolKey($Types* types) {
-	 return this->$Symbol$MethodSymbol::poolKey(types);
+	return this->$Symbol$MethodSymbol::poolKey(types);
 }
 
 void Symbol$DynamicMethodSymbol::init$($Name* name, $Symbol* owner, $Symbol$MethodHandleSymbol* bsm, $Type* type, $PoolConstant$LoadableConstantArray* staticArgs) {

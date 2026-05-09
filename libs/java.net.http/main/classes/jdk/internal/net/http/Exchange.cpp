@@ -125,7 +125,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	Exchange* inst$ = nullptr;
 };
@@ -199,7 +199,7 @@ public:
 		$set(this, cf, cf);
 	}
 	virtual $Object* apply(Object$* r, Object$* t) override {
-		 return $of($nc(inst$)->lambda$checkCancelled$1(connection, cf, r, $cast($Throwable, t)));
+		return $of($nc(inst$)->lambda$checkCancelled$1(connection, cf, r, $cast($Throwable, t)));
 	}
 	Exchange* inst$ = nullptr;
 	$HttpConnection* connection = nullptr;
@@ -278,7 +278,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* eimpl) override {
-		 return $nc(inst$)->lambda$establishExchange$3($cast($ExchangeImpl, eimpl));
+		return $nc(inst$)->lambda$establishExchange$3($cast($ExchangeImpl, eimpl));
 	}
 	Exchange* inst$ = nullptr;
 };
@@ -314,7 +314,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* r1) override {
-		 return $nc(inst$)->lambda$expectContinue$6($cast($Response, r1));
+		return $nc(inst$)->lambda$expectContinue$6($cast($Response, r1));
 	}
 	Exchange* inst$ = nullptr;
 };
@@ -350,7 +350,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* exIm) override {
-		 return $nc(inst$)->lambda$expectContinue$4($cast($ExchangeImpl, exIm));
+		return $nc(inst$)->lambda$expectContinue$4($cast($ExchangeImpl, exIm));
 	}
 	Exchange* inst$ = nullptr;
 };
@@ -386,7 +386,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* ex) override {
-		 return $of($nc(inst$)->expectContinue($cast($ExchangeImpl, ex)));
+		return $of($nc(inst$)->expectContinue($cast($ExchangeImpl, ex)));
 	}
 	Exchange* inst$ = nullptr;
 };
@@ -422,7 +422,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* ex) override {
-		 return $of($nc(inst$)->sendRequestBody($cast($ExchangeImpl, ex)));
+		return $of($nc(inst$)->sendRequestBody($cast($ExchangeImpl, ex)));
 	}
 	Exchange* inst$ = nullptr;
 };
@@ -459,7 +459,7 @@ public:
 		$set(this, after407Check, after407Check);
 	}
 	virtual $Object* apply(Object$* ex) override {
-		 return $of($nc(inst$)->lambda$responseAsyncImpl0$9(after407Check, $cast($ExchangeImpl, ex)));
+		return $of($nc(inst$)->lambda$responseAsyncImpl0$9(after407Check, $cast($ExchangeImpl, ex)));
 	}
 	Exchange* inst$ = nullptr;
 	$Function* after407Check = nullptr;
@@ -498,7 +498,7 @@ public:
 		$set(this, after407Check, after407Check);
 	}
 	virtual $Object* apply(Object$* r, Object$* t) override {
-		 return $of($nc(inst$)->lambda$responseAsyncImpl0$8(after407Check, $cast($ExchangeImpl, r), $cast($Throwable, t)));
+		return $of($nc(inst$)->lambda$responseAsyncImpl0$8(after407Check, $cast($ExchangeImpl, r), $cast($Throwable, t)));
 	}
 	Exchange* inst$ = nullptr;
 	$Function* after407Check = nullptr;
@@ -536,7 +536,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* r) override {
-		 return $nc(inst$)->lambda$wrapForUpgrade$11($cast($Response, r));
+		return $nc(inst$)->lambda$wrapForUpgrade$11($cast($Response, r));
 	}
 	Exchange* inst$ = nullptr;
 };
@@ -571,7 +571,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* response) override {
-		 return Exchange::lambda$wrapForLog$12($cast($Response, response));
+		return Exchange::lambda$wrapForLog$12($cast($Response, response));
 	}
 };
 $Class* Exchange$$Lambda$lambda$wrapForLog$12$12::load$($String* name, bool initialize) {
@@ -602,7 +602,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* hdrs) override {
-		 return $cast($HttpResponse$BodySubscriber, $nc(inst$)->ignoreBody(hdrs));
+		return $cast($HttpResponse$BodySubscriber, $nc(inst$)->ignoreBody(hdrs));
 	}
 	Exchange* inst$ = nullptr;
 };
@@ -640,7 +640,7 @@ public:
 		$set(this, e, e);
 	}
 	virtual $Object* apply(Object$* v) override {
-		 return $nc(inst$)->lambda$checkForUpgradeAsync$14(ex, e, v);
+		return $nc(inst$)->lambda$checkForUpgradeAsync$14(ex, e, v);
 	}
 	Exchange* inst$ = nullptr;
 	$ExchangeImpl* ex = nullptr;
@@ -680,7 +680,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->drainLeftOverBytes());
+		return $of($nc(inst$)->drainLeftOverBytes());
 	}
 	$Http1Exchange* inst$ = nullptr;
 };
@@ -717,7 +717,7 @@ public:
 		$set(this, e, e);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $nc(inst$)->lambda$checkForUpgradeAsync$13(e, $cast($Http2Connection, c));
+		return $nc(inst$)->lambda$checkForUpgradeAsync$13(e, $cast($Http2Connection, c));
 	}
 	Exchange* inst$ = nullptr;
 	$Http1Exchange* e = nullptr;
@@ -755,7 +755,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$Response* inst$ = nullptr;
 };
@@ -791,7 +791,7 @@ public:
 		$set(this, r1, r1);
 	}
 	virtual $Object* apply(Object$* v) override {
-		 return Exchange::lambda$expectContinue$5(r1, v);
+		return Exchange::lambda$expectContinue$5(r1, v);
 	}
 	$Response* r1 = nullptr;
 };

@@ -25,19 +25,19 @@ namespace sun {
 			namespace ext {
 
 int32_t Big5_HKSCS::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool Big5_HKSCS::equals(Object$* arg0) {
-	 return this->$Charset::equals(arg0);
+	return this->$Charset::equals(arg0);
 }
 
 $String* Big5_HKSCS::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* Big5_HKSCS::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void Big5_HKSCS::finalize() {

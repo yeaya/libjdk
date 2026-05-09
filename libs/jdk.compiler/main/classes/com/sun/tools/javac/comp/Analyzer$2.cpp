@@ -50,7 +50,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return Analyzer$2::lambda$queue$0($cast($Symbol$ClassSymbol, k));
+		return Analyzer$2::lambda$queue$0($cast($Symbol$ClassSymbol, k));
 	}
 };
 $Class* Analyzer$2$$Lambda$lambda$queue$0::load$($String* name, bool initialize) {

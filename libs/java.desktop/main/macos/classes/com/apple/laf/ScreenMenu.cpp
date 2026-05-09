@@ -96,19 +96,19 @@ void ScreenMenu::setFont($Font* f) {
 }
 
 $String* ScreenMenu::toString() {
-	 return this->$Menu::toString();
+	return this->$Menu::toString();
 }
 
 int32_t ScreenMenu::hashCode() {
-	 return this->$Menu::hashCode();
+	return this->$Menu::hashCode();
 }
 
 bool ScreenMenu::equals(Object$* arg0) {
-	 return this->$Menu::equals(arg0);
+	return this->$Menu::equals(arg0);
 }
 
 $Object* ScreenMenu::clone() {
-	 return this->$Menu::clone();
+	return this->$Menu::clone();
 }
 
 void ScreenMenu::finalize() {

@@ -203,7 +203,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return SunFontManager::lambda$getDefaultPhysicalFont$0();
+		return SunFontManager::lambda$getDefaultPhysicalFont$0();
 	}
 };
 $Class* SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0::load$($String* name, bool initialize) {
@@ -235,7 +235,7 @@ public:
 		$set(this, fileCloserRunnable, fileCloserRunnable);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$createFont2D$1(fileCloserRunnable);
+		return $nc(inst$)->lambda$createFont2D$1(fileCloserRunnable);
 	}
 	SunFontManager* inst$ = nullptr;
 	$Runnable* fileCloserRunnable = nullptr;
@@ -267,19 +267,19 @@ $Class* SunFontManager$$Lambda$lambda$createFont2D$1$1::load$($String* name, boo
 $Class* SunFontManager$$Lambda$lambda$createFont2D$1$1::class$ = nullptr;
 
 int32_t SunFontManager::hashCode() {
-	 return this->$FontSupport::hashCode();
+	return this->$FontSupport::hashCode();
 }
 
 bool SunFontManager::equals(Object$* arg0) {
-	 return this->$FontSupport::equals(arg0);
+	return this->$FontSupport::equals(arg0);
 }
 
 $Object* SunFontManager::clone() {
-	 return this->$FontSupport::clone();
+	return this->$FontSupport::clone();
 }
 
 $String* SunFontManager::toString() {
-	 return this->$FontSupport::toString();
+	return this->$FontSupport::toString();
 }
 
 void SunFontManager::finalize() {

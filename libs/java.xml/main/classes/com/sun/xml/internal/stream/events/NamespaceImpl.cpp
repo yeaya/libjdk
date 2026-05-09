@@ -36,75 +36,75 @@ namespace com {
 					namespace events {
 
 $String* NamespaceImpl::toString() {
-	 return this->$AttributeImpl::toString();
+	return this->$AttributeImpl::toString();
 }
 
 $QName* NamespaceImpl::getName() {
-	 return this->$AttributeImpl::getName();
+	return this->$AttributeImpl::getName();
 }
 
 $String* NamespaceImpl::getValue() {
-	 return this->$AttributeImpl::getValue();
+	return this->$AttributeImpl::getValue();
 }
 
 $String* NamespaceImpl::getDTDType() {
-	 return this->$AttributeImpl::getDTDType();
+	return this->$AttributeImpl::getDTDType();
 }
 
 bool NamespaceImpl::isSpecified() {
-	 return this->$AttributeImpl::isSpecified();
+	return this->$AttributeImpl::isSpecified();
 }
 
 bool NamespaceImpl::isStartElement() {
-	 return this->$AttributeImpl::isStartElement();
+	return this->$AttributeImpl::isStartElement();
 }
 
 bool NamespaceImpl::isEndElement() {
-	 return this->$AttributeImpl::isEndElement();
+	return this->$AttributeImpl::isEndElement();
 }
 
 bool NamespaceImpl::isEntityReference() {
-	 return this->$AttributeImpl::isEntityReference();
+	return this->$AttributeImpl::isEntityReference();
 }
 
 bool NamespaceImpl::isProcessingInstruction() {
-	 return this->$AttributeImpl::isProcessingInstruction();
+	return this->$AttributeImpl::isProcessingInstruction();
 }
 
 bool NamespaceImpl::isStartDocument() {
-	 return this->$AttributeImpl::isStartDocument();
+	return this->$AttributeImpl::isStartDocument();
 }
 
 bool NamespaceImpl::isEndDocument() {
-	 return this->$AttributeImpl::isEndDocument();
+	return this->$AttributeImpl::isEndDocument();
 }
 
 $Location* NamespaceImpl::getLocation() {
-	 return this->$AttributeImpl::getLocation();
+	return this->$AttributeImpl::getLocation();
 }
 
 $Characters* NamespaceImpl::asCharacters() {
-	 return this->$AttributeImpl::asCharacters();
+	return this->$AttributeImpl::asCharacters();
 }
 
 $EndElement* NamespaceImpl::asEndElement() {
-	 return this->$AttributeImpl::asEndElement();
+	return this->$AttributeImpl::asEndElement();
 }
 
 $StartElement* NamespaceImpl::asStartElement() {
-	 return this->$AttributeImpl::asStartElement();
+	return this->$AttributeImpl::asStartElement();
 }
 
 $QName* NamespaceImpl::getSchemaType() {
-	 return this->$AttributeImpl::getSchemaType();
+	return this->$AttributeImpl::getSchemaType();
 }
 
 bool NamespaceImpl::isAttribute() {
-	 return this->$AttributeImpl::isAttribute();
+	return this->$AttributeImpl::isAttribute();
 }
 
 bool NamespaceImpl::isCharacters() {
-	 return this->$AttributeImpl::isCharacters();
+	return this->$AttributeImpl::isCharacters();
 }
 
 void NamespaceImpl::writeAsEncodedUnicode($Writer* writer) {
@@ -112,15 +112,15 @@ void NamespaceImpl::writeAsEncodedUnicode($Writer* writer) {
 }
 
 int32_t NamespaceImpl::hashCode() {
-	 return this->$AttributeImpl::hashCode();
+	return this->$AttributeImpl::hashCode();
 }
 
 bool NamespaceImpl::equals(Object$* arg0) {
-	 return this->$AttributeImpl::equals(arg0);
+	return this->$AttributeImpl::equals(arg0);
 }
 
 $Object* NamespaceImpl::clone() {
-	 return this->$AttributeImpl::clone();
+	return this->$AttributeImpl::clone();
 }
 
 void NamespaceImpl::finalize() {

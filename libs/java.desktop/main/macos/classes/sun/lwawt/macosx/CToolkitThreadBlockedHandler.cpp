@@ -24,19 +24,19 @@ void CToolkitThreadBlockedHandler::unlock() {
 }
 
 int32_t CToolkitThreadBlockedHandler::hashCode() {
-	 return this->$Mutex::hashCode();
+	return this->$Mutex::hashCode();
 }
 
 bool CToolkitThreadBlockedHandler::equals(Object$* arg0) {
-	 return this->$Mutex::equals(arg0);
+	return this->$Mutex::equals(arg0);
 }
 
 $Object* CToolkitThreadBlockedHandler::clone() {
-	 return this->$Mutex::clone();
+	return this->$Mutex::clone();
 }
 
 $String* CToolkitThreadBlockedHandler::toString() {
-	 return this->$Mutex::toString();
+	return this->$Mutex::toString();
 }
 
 void CToolkitThreadBlockedHandler::finalize() {

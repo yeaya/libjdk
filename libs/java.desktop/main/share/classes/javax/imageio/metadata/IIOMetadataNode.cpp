@@ -48,19 +48,19 @@ namespace javax {
 		namespace metadata {
 
 int32_t IIOMetadataNode::hashCode() {
-	 return this->$Element::hashCode();
+	return this->$Element::hashCode();
 }
 
 bool IIOMetadataNode::equals(Object$* arg0) {
-	 return this->$Element::equals(arg0);
+	return this->$Element::equals(arg0);
 }
 
 $Object* IIOMetadataNode::clone() {
-	 return this->$Element::clone();
+	return this->$Element::clone();
 }
 
 $String* IIOMetadataNode::toString() {
-	 return this->$Element::toString();
+	return this->$Element::toString();
 }
 
 void IIOMetadataNode::finalize() {

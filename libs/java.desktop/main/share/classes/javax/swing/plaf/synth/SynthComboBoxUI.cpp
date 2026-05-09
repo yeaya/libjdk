@@ -78,19 +78,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthComboBoxUI::hashCode() {
-	 return this->$BasicComboBoxUI::hashCode();
+	return this->$BasicComboBoxUI::hashCode();
 }
 
 bool SynthComboBoxUI::equals(Object$* arg0) {
-	 return this->$BasicComboBoxUI::equals(arg0);
+	return this->$BasicComboBoxUI::equals(arg0);
 }
 
 $Object* SynthComboBoxUI::clone() {
-	 return this->$BasicComboBoxUI::clone();
+	return this->$BasicComboBoxUI::clone();
 }
 
 $String* SynthComboBoxUI::toString() {
-	 return this->$BasicComboBoxUI::toString();
+	return this->$BasicComboBoxUI::toString();
 }
 
 void SynthComboBoxUI::finalize() {

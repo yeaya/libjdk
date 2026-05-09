@@ -63,7 +63,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $Arrays::stream($cast($ObjectArray, arg0));
+		return $Arrays::stream($cast($ObjectArray, arg0));
 	}
 };
 $Class* ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream::load$($String* name, bool initialize) {
@@ -93,7 +93,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return ThreadInfoCompositeData$ThreadInfoCompositeTypes::lambda$initV6CompositeType$0(x$0);
+		return ThreadInfoCompositeData$ThreadInfoCompositeTypes::lambda$initV6CompositeType$0(x$0);
 	}
 };
 $Class* ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1::load$($String* name, bool initialize) {

@@ -48,7 +48,7 @@ public:
 		$set(this, pending, pending);
 	}
 	virtual $Object* get() override {
-		 return $of(Http2Connection$FramesController::lambda$processReceivedData$0(pending));
+		return $of(Http2Connection$FramesController::lambda$processReceivedData$0(pending));
 	}
 	$List* pending = nullptr;
 };

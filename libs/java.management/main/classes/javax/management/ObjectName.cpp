@@ -69,7 +69,7 @@ namespace javax {
 	namespace management {
 
 $Object* ObjectName::clone() {
-	 return this->$Comparable::clone();
+	return this->$Comparable::clone();
 }
 
 void ObjectName::finalize() {

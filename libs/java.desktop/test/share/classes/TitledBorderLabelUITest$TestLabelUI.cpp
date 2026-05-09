@@ -17,19 +17,19 @@ using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $MetalLabelUI = ::javax::swing::plaf::metal::MetalLabelUI;
 
 int32_t TitledBorderLabelUITest$TestLabelUI::hashCode() {
-	 return this->$MetalLabelUI::hashCode();
+	return this->$MetalLabelUI::hashCode();
 }
 
 bool TitledBorderLabelUITest$TestLabelUI::equals(Object$* arg0) {
-	 return this->$MetalLabelUI::equals(arg0);
+	return this->$MetalLabelUI::equals(arg0);
 }
 
 $Object* TitledBorderLabelUITest$TestLabelUI::clone() {
-	 return this->$MetalLabelUI::clone();
+	return this->$MetalLabelUI::clone();
 }
 
 $String* TitledBorderLabelUITest$TestLabelUI::toString() {
-	 return this->$MetalLabelUI::toString();
+	return this->$MetalLabelUI::toString();
 }
 
 void TitledBorderLabelUITest$TestLabelUI::finalize() {

@@ -50,7 +50,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* make($Context* c) override {
-		 return CacheFSInfo::lambda$preRegister$0(c);
+		return CacheFSInfo::lambda$preRegister$0(c);
 	}
 };
 $Class* CacheFSInfo$$Lambda$lambda$preRegister$0::load$($String* name, bool initialize) {
@@ -81,7 +81,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* x$0) override {
-		 return $of($nc(inst$)->lambda$getCanonicalFile$1($cast($Path, x$0)));
+		return $of($nc(inst$)->lambda$getCanonicalFile$1($cast($Path, x$0)));
 	}
 	CacheFSInfo* inst$ = nullptr;
 };
@@ -116,7 +116,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($BasicFileAttributes, inst$)->isDirectory());
+		return $of($sure($BasicFileAttributes, inst$)->isDirectory());
 	}
 };
 $Class* CacheFSInfo$$Lambda$isDirectory$2::load$($String* name, bool initialize) {
@@ -146,7 +146,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($BasicFileAttributes, inst$)->isRegularFile());
+		return $of($sure($BasicFileAttributes, inst$)->isRegularFile());
 	}
 };
 $Class* CacheFSInfo$$Lambda$isRegularFile$3::load$($String* name, bool initialize) {
@@ -177,7 +177,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* file) override {
-		 return $nc(inst$)->maybeReadAttributes($cast($Path, file));
+		return $nc(inst$)->maybeReadAttributes($cast($Path, file));
 	}
 	CacheFSInfo* inst$ = nullptr;
 };

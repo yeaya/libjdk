@@ -50,19 +50,19 @@ namespace sun {
 	namespace print {
 
 $String* ServiceDialog$QualityPanel::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t ServiceDialog$QualityPanel::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool ServiceDialog$QualityPanel::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* ServiceDialog$QualityPanel::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void ServiceDialog$QualityPanel::finalize() {

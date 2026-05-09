@@ -54,7 +54,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$new$0();
+		return $nc(inst$)->lambda$new$0();
 	}
 	RendererStats$RendererStatsHolder* inst$ = nullptr;
 };

@@ -75,15 +75,15 @@ namespace javax {
 	namespace swing {
 
 int32_t ImageIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool ImageIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* ImageIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 void ImageIcon::finalize() {

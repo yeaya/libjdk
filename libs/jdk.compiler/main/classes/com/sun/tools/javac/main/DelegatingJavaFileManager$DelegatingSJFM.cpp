@@ -48,39 +48,39 @@ namespace com {
 				namespace main {
 
 $ClassLoader* DelegatingJavaFileManager$DelegatingSJFM::getClassLoader($JavaFileManager$Location* location) {
-	 return this->$DelegatingJavaFileManager::getClassLoader(location);
+	return this->$DelegatingJavaFileManager::getClassLoader(location);
 }
 
 $Iterable* DelegatingJavaFileManager$DelegatingSJFM::list($JavaFileManager$Location* location, $String* packageName, $Set* kinds, bool recurse) {
-	 return this->$DelegatingJavaFileManager::list(location, packageName, kinds, recurse);
+	return this->$DelegatingJavaFileManager::list(location, packageName, kinds, recurse);
 }
 
 $String* DelegatingJavaFileManager$DelegatingSJFM::inferBinaryName($JavaFileManager$Location* location, $JavaFileObject* file) {
-	 return this->$DelegatingJavaFileManager::inferBinaryName(location, file);
+	return this->$DelegatingJavaFileManager::inferBinaryName(location, file);
 }
 
 bool DelegatingJavaFileManager$DelegatingSJFM::handleOption($String* current, $Iterator* remaining) {
-	 return this->$DelegatingJavaFileManager::handleOption(current, remaining);
+	return this->$DelegatingJavaFileManager::handleOption(current, remaining);
 }
 
 bool DelegatingJavaFileManager$DelegatingSJFM::hasLocation($JavaFileManager$Location* location) {
-	 return this->$DelegatingJavaFileManager::hasLocation(location);
+	return this->$DelegatingJavaFileManager::hasLocation(location);
 }
 
 $JavaFileObject* DelegatingJavaFileManager$DelegatingSJFM::getJavaFileForInput($JavaFileManager$Location* location, $String* className, $JavaFileObject$Kind* kind) {
-	 return this->$DelegatingJavaFileManager::getJavaFileForInput(location, className, kind);
+	return this->$DelegatingJavaFileManager::getJavaFileForInput(location, className, kind);
 }
 
 $JavaFileObject* DelegatingJavaFileManager$DelegatingSJFM::getJavaFileForOutput($JavaFileManager$Location* location, $String* className, $JavaFileObject$Kind* kind, $FileObject* sibling) {
-	 return this->$DelegatingJavaFileManager::getJavaFileForOutput(location, className, kind, sibling);
+	return this->$DelegatingJavaFileManager::getJavaFileForOutput(location, className, kind, sibling);
 }
 
 $FileObject* DelegatingJavaFileManager$DelegatingSJFM::getFileForInput($JavaFileManager$Location* location, $String* packageName, $String* relativeName) {
-	 return this->$DelegatingJavaFileManager::getFileForInput(location, packageName, relativeName);
+	return this->$DelegatingJavaFileManager::getFileForInput(location, packageName, relativeName);
 }
 
 $FileObject* DelegatingJavaFileManager$DelegatingSJFM::getFileForOutput($JavaFileManager$Location* location, $String* packageName, $String* relativeName, $FileObject* sibling) {
-	 return this->$DelegatingJavaFileManager::getFileForOutput(location, packageName, relativeName, sibling);
+	return this->$DelegatingJavaFileManager::getFileForOutput(location, packageName, relativeName, sibling);
 }
 
 void DelegatingJavaFileManager$DelegatingSJFM::flush() {
@@ -92,47 +92,47 @@ void DelegatingJavaFileManager$DelegatingSJFM::close() {
 }
 
 $JavaFileManager$Location* DelegatingJavaFileManager$DelegatingSJFM::getLocationForModule($JavaFileManager$Location* location, $String* moduleName) {
-	 return this->$DelegatingJavaFileManager::getLocationForModule(location, moduleName);
+	return this->$DelegatingJavaFileManager::getLocationForModule(location, moduleName);
 }
 
 $JavaFileManager$Location* DelegatingJavaFileManager$DelegatingSJFM::getLocationForModule($JavaFileManager$Location* location, $JavaFileObject* fo) {
-	 return this->$DelegatingJavaFileManager::getLocationForModule(location, fo);
+	return this->$DelegatingJavaFileManager::getLocationForModule(location, fo);
 }
 
 $ServiceLoader* DelegatingJavaFileManager$DelegatingSJFM::getServiceLoader($JavaFileManager$Location* location, $Class* service) {
-	 return this->$DelegatingJavaFileManager::getServiceLoader(location, service);
+	return this->$DelegatingJavaFileManager::getServiceLoader(location, service);
 }
 
 $String* DelegatingJavaFileManager$DelegatingSJFM::inferModuleName($JavaFileManager$Location* location) {
-	 return this->$DelegatingJavaFileManager::inferModuleName(location);
+	return this->$DelegatingJavaFileManager::inferModuleName(location);
 }
 
 $Iterable* DelegatingJavaFileManager$DelegatingSJFM::listLocationsForModules($JavaFileManager$Location* location) {
-	 return this->$DelegatingJavaFileManager::listLocationsForModules(location);
+	return this->$DelegatingJavaFileManager::listLocationsForModules(location);
 }
 
 bool DelegatingJavaFileManager$DelegatingSJFM::contains($JavaFileManager$Location* location, $FileObject* fo) {
-	 return this->$DelegatingJavaFileManager::contains(location, fo);
+	return this->$DelegatingJavaFileManager::contains(location, fo);
 }
 
 int32_t DelegatingJavaFileManager$DelegatingSJFM::isSupportedOption($String* option) {
-	 return this->$DelegatingJavaFileManager::isSupportedOption(option);
+	return this->$DelegatingJavaFileManager::isSupportedOption(option);
 }
 
 int32_t DelegatingJavaFileManager$DelegatingSJFM::hashCode() {
-	 return this->$DelegatingJavaFileManager::hashCode();
+	return this->$DelegatingJavaFileManager::hashCode();
 }
 
 bool DelegatingJavaFileManager$DelegatingSJFM::equals(Object$* arg0) {
-	 return this->$DelegatingJavaFileManager::equals(arg0);
+	return this->$DelegatingJavaFileManager::equals(arg0);
 }
 
 $Object* DelegatingJavaFileManager$DelegatingSJFM::clone() {
-	 return this->$DelegatingJavaFileManager::clone();
+	return this->$DelegatingJavaFileManager::clone();
 }
 
 $String* DelegatingJavaFileManager$DelegatingSJFM::toString() {
-	 return this->$DelegatingJavaFileManager::toString();
+	return this->$DelegatingJavaFileManager::toString();
 }
 
 void DelegatingJavaFileManager$DelegatingSJFM::finalize() {

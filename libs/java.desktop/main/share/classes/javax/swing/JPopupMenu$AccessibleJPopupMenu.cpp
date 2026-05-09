@@ -39,19 +39,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JPopupMenu$AccessibleJPopupMenu::hashCode() {
-	 return this->$JComponent$AccessibleJComponent::hashCode();
+	return this->$JComponent$AccessibleJComponent::hashCode();
 }
 
 bool JPopupMenu$AccessibleJPopupMenu::equals(Object$* arg0) {
-	 return this->$JComponent$AccessibleJComponent::equals(arg0);
+	return this->$JComponent$AccessibleJComponent::equals(arg0);
 }
 
 $Object* JPopupMenu$AccessibleJPopupMenu::clone() {
-	 return this->$JComponent$AccessibleJComponent::clone();
+	return this->$JComponent$AccessibleJComponent::clone();
 }
 
 $String* JPopupMenu$AccessibleJPopupMenu::toString() {
-	 return this->$JComponent$AccessibleJComponent::toString();
+	return this->$JComponent$AccessibleJComponent::toString();
 }
 
 void JPopupMenu$AccessibleJPopupMenu::finalize() {

@@ -11,15 +11,15 @@ namespace javax {
 		namespace openmbean {
 
 bool OpenMBeanAttributeInfo::equals(Object$* obj) {
-	 return this->$OpenMBeanParameterInfo::equals(obj);
+	return this->$OpenMBeanParameterInfo::equals(obj);
 }
 
 int32_t OpenMBeanAttributeInfo::hashCode() {
-	 return this->$OpenMBeanParameterInfo::hashCode();
+	return this->$OpenMBeanParameterInfo::hashCode();
 }
 
 $String* OpenMBeanAttributeInfo::toString() {
-	 return this->$OpenMBeanParameterInfo::toString();
+	return this->$OpenMBeanParameterInfo::toString();
 }
 
 $Class* OpenMBeanAttributeInfo::load$($String* name, bool initialize) {

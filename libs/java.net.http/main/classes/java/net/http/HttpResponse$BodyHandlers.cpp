@@ -66,7 +66,7 @@ public:
 		$set(this, subscriber, subscriber);
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$fromSubscriber$1(subscriber, responseInfo);
+		return HttpResponse$BodyHandlers::lambda$fromSubscriber$1(subscriber, responseInfo);
 	}
 	$Flow$Subscriber* subscriber = nullptr;
 };
@@ -103,7 +103,7 @@ public:
 		$set(this, finisher, finisher);
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$fromSubscriber$2(subscriber, finisher, responseInfo);
+		return HttpResponse$BodyHandlers::lambda$fromSubscriber$2(subscriber, finisher, responseInfo);
 	}
 	$Flow$Subscriber* subscriber = nullptr;
 	$Function* finisher = nullptr;
@@ -141,7 +141,7 @@ public:
 		$set(this, subscriber, subscriber);
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$fromLineSubscriber$4(subscriber, responseInfo);
+		return HttpResponse$BodyHandlers::lambda$fromLineSubscriber$4(subscriber, responseInfo);
 	}
 	$Flow$Subscriber* subscriber = nullptr;
 };
@@ -179,7 +179,7 @@ public:
 		$set(this, lineSeparator, lineSeparator);
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$fromLineSubscriber$5(subscriber, finisher, lineSeparator, responseInfo);
+		return HttpResponse$BodyHandlers::lambda$fromLineSubscriber$5(subscriber, finisher, lineSeparator, responseInfo);
 	}
 	$Flow$Subscriber* subscriber = nullptr;
 	$Function* finisher = nullptr;
@@ -218,7 +218,7 @@ public:
 	void init$() {
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$discarding$6(responseInfo);
+		return HttpResponse$BodyHandlers::lambda$discarding$6(responseInfo);
 	}
 };
 $Class* HttpResponse$BodyHandlers$$Lambda$lambda$discarding$6$4::load$($String* name, bool initialize) {
@@ -249,7 +249,7 @@ public:
 		$set(this, value, value);
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$replacing$7(value, responseInfo);
+		return HttpResponse$BodyHandlers::lambda$replacing$7(value, responseInfo);
 	}
 	$Object* value = nullptr;
 };
@@ -285,7 +285,7 @@ public:
 		$set(this, charset, charset);
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$ofString$8(charset, responseInfo);
+		return HttpResponse$BodyHandlers::lambda$ofString$8(charset, responseInfo);
 	}
 	$Charset* charset = nullptr;
 };
@@ -320,7 +320,7 @@ public:
 	void init$() {
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$ofInputStream$9(responseInfo);
+		return HttpResponse$BodyHandlers::lambda$ofInputStream$9(responseInfo);
 	}
 };
 $Class* HttpResponse$BodyHandlers$$Lambda$lambda$ofInputStream$9$7::load$($String* name, bool initialize) {
@@ -350,7 +350,7 @@ public:
 	void init$() {
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$ofLines$10(responseInfo);
+		return HttpResponse$BodyHandlers::lambda$ofLines$10(responseInfo);
 	}
 };
 $Class* HttpResponse$BodyHandlers$$Lambda$lambda$ofLines$10$8::load$($String* name, bool initialize) {
@@ -381,7 +381,7 @@ public:
 		$set(this, consumer, consumer);
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$ofByteArrayConsumer$11(consumer, responseInfo);
+		return HttpResponse$BodyHandlers::lambda$ofByteArrayConsumer$11(consumer, responseInfo);
 	}
 	$Consumer* consumer = nullptr;
 };
@@ -416,7 +416,7 @@ public:
 	void init$() {
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$ofByteArray$12(responseInfo);
+		return HttpResponse$BodyHandlers::lambda$ofByteArray$12(responseInfo);
 	}
 };
 $Class* HttpResponse$BodyHandlers$$Lambda$lambda$ofByteArray$12$10::load$($String* name, bool initialize) {
@@ -446,7 +446,7 @@ public:
 	void init$() {
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$ofString$13(responseInfo);
+		return HttpResponse$BodyHandlers::lambda$ofString$13(responseInfo);
 	}
 };
 $Class* HttpResponse$BodyHandlers$$Lambda$lambda$ofString$13$11::load$($String* name, bool initialize) {
@@ -476,7 +476,7 @@ public:
 	void init$() {
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$ofPublisher$14(responseInfo);
+		return HttpResponse$BodyHandlers::lambda$ofPublisher$14(responseInfo);
 	}
 };
 $Class* HttpResponse$BodyHandlers$$Lambda$lambda$ofPublisher$14$12::load$($String* name, bool initialize) {
@@ -508,7 +508,7 @@ public:
 		this->bufferSize = bufferSize;
 	}
 	virtual $HttpResponse$BodySubscriber* apply($HttpResponse$ResponseInfo* responseInfo) override {
-		 return HttpResponse$BodyHandlers::lambda$buffering$15(downstreamHandler, bufferSize, responseInfo);
+		return HttpResponse$BodyHandlers::lambda$buffering$15(downstreamHandler, bufferSize, responseInfo);
 	}
 	$HttpResponse$BodyHandler* downstreamHandler = nullptr;
 	int32_t bufferSize = 0;
@@ -545,7 +545,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return HttpResponse$BodyHandlers::lambda$fromSubscriber$0($cast($Flow$Subscriber, s));
+		return HttpResponse$BodyHandlers::lambda$fromSubscriber$0($cast($Flow$Subscriber, s));
 	}
 };
 $Class* HttpResponse$BodyHandlers$$Lambda$lambda$fromSubscriber$0$14::load$($String* name, bool initialize) {

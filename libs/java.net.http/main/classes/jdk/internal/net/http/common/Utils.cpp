@@ -205,7 +205,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* x, Object$* y) override {
-		 return Utils::lambda$static$0($cast($String, x), $cast($String, y));
+		return Utils::lambda$static$0($cast($String, x), $cast($String, y));
 	}
 };
 $Class* Utils$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -235,7 +235,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* header, Object$* unused) override {
-		 return Utils::lambda$static$1($cast($String, header), $cast($String, unused));
+		return Utils::lambda$static$1($cast($String, header), $cast($String, unused));
 	}
 };
 $Class* Utils$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
@@ -265,7 +265,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* name, Object$* value) override {
-		 return Utils::lambda$static$2($cast($String, name), $cast($String, value));
+		return Utils::lambda$static$2($cast($String, name), $cast($String, value));
 	}
 };
 $Class* Utils$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {
@@ -295,7 +295,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* k, Object$* v) override {
-		 return Utils::lambda$static$4($cast($String, k), $cast($String, v));
+		return Utils::lambda$static$4($cast($String, k), $cast($String, v));
 	}
 };
 $Class* Utils$$Lambda$lambda$static$4$3::load$($String* name, bool initialize) {
@@ -326,7 +326,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* arg0) override {
-		 return $nc(inst$)->equalsIgnoreCase($cast($String, arg0));
+		return $nc(inst$)->equalsIgnoreCase($cast($String, arg0));
 	}
 	$String* inst$ = nullptr;
 };
@@ -361,7 +361,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* k) override {
-		 return Utils::lambda$static$5($cast($String, k));
+		return Utils::lambda$static$5($cast($String, k));
 	}
 };
 $Class* Utils$$Lambda$lambda$static$5$5::load$($String* name, bool initialize) {
@@ -391,7 +391,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return Utils::lambda$static$6($cast($String, s));
+		return Utils::lambda$static$6($cast($String, s));
 	}
 };
 $Class* Utils$$Lambda$lambda$static$6$6::load$($String* name, bool initialize) {
@@ -421,7 +421,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s, Object$* v) override {
-		 return Utils::lambda$static$10($cast($String, s), $cast($String, v));
+		return Utils::lambda$static$10($cast($String, s), $cast($String, v));
 	}
 };
 $Class* Utils$$Lambda$lambda$static$10$7::load$($String* name, bool initialize) {
@@ -451,7 +451,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s, Object$* v) override {
-		 return Utils::lambda$static$11($cast($String, s), $cast($String, v));
+		return Utils::lambda$static$11($cast($String, s), $cast($String, v));
 	}
 };
 $Class* Utils$$Lambda$lambda$static$11$8::load$($String* name, bool initialize) {
@@ -481,7 +481,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* n, Object$* v) override {
-		 return Utils::lambda$static$12($cast($String, n), $cast($String, v));
+		return Utils::lambda$static$12($cast($String, n), $cast($String, v));
 	}
 };
 $Class* Utils$$Lambda$lambda$static$12$9::load$($String* name, bool initialize) {
@@ -512,7 +512,7 @@ public:
 		$set(this, client, client);
 	}
 	virtual bool test(Object$* k, Object$* v) override {
-		 return Utils::lambda$CONTEXT_RESTRICTED$3(client, $cast($String, k), $cast($String, v));
+		return Utils::lambda$CONTEXT_RESTRICTED$3(client, $cast($String, k), $cast($String, v));
 	}
 	$HttpClient* client = nullptr;
 };
@@ -550,7 +550,7 @@ public:
 		$set(this, cf, cf);
 	}
 	virtual $Object* apply(Object$* r, Object$* t) override {
-		 return $of(Utils::lambda$wrapForDebug$9(logger, name, cf, r, $cast($Throwable, t)));
+		return $of(Utils::lambda$wrapForDebug$9(logger, name, cf, r, $cast($Throwable, t)));
 	}
 	$Logger* logger = nullptr;
 	$String* name = nullptr;
@@ -591,7 +591,7 @@ public:
 		this->defaultValue = defaultValue;
 	}
 	virtual $Object* run() override {
-		 return $of(Utils::lambda$getIntegerNetProperty$13(name, defaultValue));
+		return $of(Utils::lambda$getIntegerNetProperty$13(name, defaultValue));
 	}
 	$String* name = nullptr;
 	int32_t defaultValue = 0;
@@ -629,7 +629,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return $of(Utils::lambda$getNetProperty$14(name));
+		return $of(Utils::lambda$getNetProperty$14(name));
 	}
 	$String* name = nullptr;
 };
@@ -666,7 +666,7 @@ public:
 		this->def = def;
 	}
 	virtual $Object* run() override {
-		 return $of(Utils::lambda$getBooleanProperty$15(name, def));
+		return $of(Utils::lambda$getBooleanProperty$15(name, def));
 	}
 	$String* name = nullptr;
 	bool def = false;
@@ -704,7 +704,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return $of(Utils::lambda$getProperty$16(name));
+		return $of(Utils::lambda$getProperty$16(name));
 	}
 	$String* name = nullptr;
 };
@@ -741,7 +741,7 @@ public:
 		this->defaultValue = defaultValue;
 	}
 	virtual $Object* run() override {
-		 return $of(Utils::lambda$getIntegerProperty$17(name, defaultValue));
+		return $of(Utils::lambda$getIntegerProperty$17(name, defaultValue));
 	}
 	$String* name = nullptr;
 	int32_t defaultValue = 0;
@@ -778,7 +778,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($String, inst$)->trim());
+		return $of($sure($String, inst$)->trim());
 	}
 };
 $Class* Utils$$Lambda$trim$17::load$($String* name, bool initialize) {
@@ -808,7 +808,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return Utils::lambda$static$7($cast($String, s));
+		return Utils::lambda$static$7($cast($String, s));
 	}
 };
 $Class* Utils$$Lambda$lambda$static$7$18::load$($String* name, bool initialize) {

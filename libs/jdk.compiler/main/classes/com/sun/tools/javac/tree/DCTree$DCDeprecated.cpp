@@ -24,23 +24,23 @@ namespace com {
 				namespace tree {
 
 $String* DCTree$DCDeprecated::getTagName() {
-	 return this->$DCTree$DCBlockTag::getTagName();
+	return this->$DCTree$DCBlockTag::getTagName();
 }
 
 $String* DCTree$DCDeprecated::toString() {
-	 return this->$DCTree$DCBlockTag::toString();
+	return this->$DCTree$DCBlockTag::toString();
 }
 
 int32_t DCTree$DCDeprecated::hashCode() {
-	 return this->$DCTree$DCBlockTag::hashCode();
+	return this->$DCTree$DCBlockTag::hashCode();
 }
 
 bool DCTree$DCDeprecated::equals(Object$* arg0) {
-	 return this->$DCTree$DCBlockTag::equals(arg0);
+	return this->$DCTree$DCBlockTag::equals(arg0);
 }
 
 $Object* DCTree$DCDeprecated::clone() {
-	 return this->$DCTree$DCBlockTag::clone();
+	return this->$DCTree$DCBlockTag::clone();
 }
 
 void DCTree$DCDeprecated::finalize() {

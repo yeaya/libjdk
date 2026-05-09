@@ -162,7 +162,7 @@ public:
 		$set(this, fileName, fileName);
 	}
 	virtual $Object* run() override {
-		 return $of(Config::lambda$loadConfigFile$0(fileName));
+		return $of(Config::lambda$loadConfigFile$0(fileName));
 	}
 	$String* fileName = nullptr;
 };

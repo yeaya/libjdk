@@ -31,19 +31,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaSplitPaneUI::hashCode() {
-	 return this->$BasicSplitPaneUI::hashCode();
+	return this->$BasicSplitPaneUI::hashCode();
 }
 
 bool AquaSplitPaneUI::equals(Object$* arg0) {
-	 return this->$BasicSplitPaneUI::equals(arg0);
+	return this->$BasicSplitPaneUI::equals(arg0);
 }
 
 $Object* AquaSplitPaneUI::clone() {
-	 return this->$BasicSplitPaneUI::clone();
+	return this->$BasicSplitPaneUI::clone();
 }
 
 $String* AquaSplitPaneUI::toString() {
-	 return this->$BasicSplitPaneUI::toString();
+	return this->$BasicSplitPaneUI::toString();
 }
 
 void AquaSplitPaneUI::finalize() {

@@ -65,19 +65,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicComboBoxUI$Handler::hashCode() {
-	 return this->$ActionListener::hashCode();
+	return this->$ActionListener::hashCode();
 }
 
 bool BasicComboBoxUI$Handler::equals(Object$* arg0) {
-	 return this->$ActionListener::equals(arg0);
+	return this->$ActionListener::equals(arg0);
 }
 
 $Object* BasicComboBoxUI$Handler::clone() {
-	 return this->$ActionListener::clone();
+	return this->$ActionListener::clone();
 }
 
 $String* BasicComboBoxUI$Handler::toString() {
-	 return this->$ActionListener::toString();
+	return this->$ActionListener::toString();
 }
 
 void BasicComboBoxUI$Handler::finalize() {

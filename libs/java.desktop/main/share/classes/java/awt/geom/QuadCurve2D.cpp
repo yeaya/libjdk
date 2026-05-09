@@ -43,15 +43,15 @@ namespace java {
 		namespace geom {
 
 int32_t QuadCurve2D::hashCode() {
-	 return this->$Shape::hashCode();
+	return this->$Shape::hashCode();
 }
 
 bool QuadCurve2D::equals(Object$* arg0) {
-	 return this->$Shape::equals(arg0);
+	return this->$Shape::equals(arg0);
 }
 
 $String* QuadCurve2D::toString() {
-	 return this->$Shape::toString();
+	return this->$Shape::toString();
 }
 
 void QuadCurve2D::finalize() {

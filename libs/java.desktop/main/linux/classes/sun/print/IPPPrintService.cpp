@@ -321,7 +321,7 @@ namespace sun {
 	namespace print {
 
 $Object* IPPPrintService::clone() {
-	 return this->$PrintService::clone();
+	return this->$PrintService::clone();
 }
 
 void IPPPrintService::finalize() {

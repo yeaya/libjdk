@@ -28,19 +28,19 @@ namespace javax {
 			namespace metal {
 
 int32_t MetalIconFactory$PaletteCloseIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool MetalIconFactory$PaletteCloseIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* MetalIconFactory$PaletteCloseIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* MetalIconFactory$PaletteCloseIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void MetalIconFactory$PaletteCloseIcon::finalize() {

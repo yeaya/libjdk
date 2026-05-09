@@ -38,19 +38,19 @@ void MotifFileChooserUI$FilterComboBoxModel::removeListDataListener($ListDataLis
 }
 
 int32_t MotifFileChooserUI$FilterComboBoxModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool MotifFileChooserUI$FilterComboBoxModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* MotifFileChooserUI$FilterComboBoxModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* MotifFileChooserUI$FilterComboBoxModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void MotifFileChooserUI$FilterComboBoxModel::finalize() {

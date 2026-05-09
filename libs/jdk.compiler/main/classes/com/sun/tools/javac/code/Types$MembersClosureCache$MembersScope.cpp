@@ -42,7 +42,7 @@ public:
 		$set(this, sf, sf);
 	}
 	virtual bool test(Object$* s) override {
-		 return Types$MembersClosureCache$MembersScope::lambda$combine$0(sf, $cast($Symbol, s));
+		return Types$MembersClosureCache$MembersScope::lambda$combine$0(sf, $cast($Symbol, s));
 	}
 	$Predicate* sf = nullptr;
 };

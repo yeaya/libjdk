@@ -41,19 +41,19 @@ void XMenuPeer::setEnabled(bool enabled) {
 }
 
 int32_t XMenuPeer::hashCode() {
-	 return this->$XMenuItemPeer::hashCode();
+	return this->$XMenuItemPeer::hashCode();
 }
 
 bool XMenuPeer::equals(Object$* arg0) {
-	 return this->$XMenuItemPeer::equals(arg0);
+	return this->$XMenuItemPeer::equals(arg0);
 }
 
 $Object* XMenuPeer::clone() {
-	 return this->$XMenuItemPeer::clone();
+	return this->$XMenuItemPeer::clone();
 }
 
 $String* XMenuPeer::toString() {
-	 return this->$XMenuItemPeer::toString();
+	return this->$XMenuItemPeer::toString();
 }
 
 void XMenuPeer::finalize() {

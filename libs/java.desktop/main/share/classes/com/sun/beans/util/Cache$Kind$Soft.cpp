@@ -17,19 +17,19 @@ namespace com {
 			namespace util {
 
 $Object* Cache$Kind$Soft::clone() {
-	 return this->$SoftReference::clone();
+	return this->$SoftReference::clone();
 }
 
 int32_t Cache$Kind$Soft::hashCode() {
-	 return this->$SoftReference::hashCode();
+	return this->$SoftReference::hashCode();
 }
 
 bool Cache$Kind$Soft::equals(Object$* arg0) {
-	 return this->$SoftReference::equals(arg0);
+	return this->$SoftReference::equals(arg0);
 }
 
 $String* Cache$Kind$Soft::toString() {
-	 return this->$SoftReference::toString();
+	return this->$SoftReference::toString();
 }
 
 void Cache$Kind$Soft::finalize() {

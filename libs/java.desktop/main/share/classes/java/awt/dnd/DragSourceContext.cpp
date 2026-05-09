@@ -87,7 +87,7 @@ public:
 	void init$() {
 	}
 	virtual $DragSourceContextPeer* getPeer(DragSourceContext* dsc) override {
-		 return DragSourceContext::lambda$static$0(dsc);
+		return DragSourceContext::lambda$static$0(dsc);
 	}
 };
 $Class* DragSourceContext$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -112,19 +112,19 @@ $Class* DragSourceContext$$Lambda$lambda$static$0::load$($String* name, bool ini
 $Class* DragSourceContext$$Lambda$lambda$static$0::class$ = nullptr;
 
 int32_t DragSourceContext::hashCode() {
-	 return this->$DragSourceListener::hashCode();
+	return this->$DragSourceListener::hashCode();
 }
 
 bool DragSourceContext::equals(Object$* arg0) {
-	 return this->$DragSourceListener::equals(arg0);
+	return this->$DragSourceListener::equals(arg0);
 }
 
 $Object* DragSourceContext::clone() {
-	 return this->$DragSourceListener::clone();
+	return this->$DragSourceListener::clone();
 }
 
 $String* DragSourceContext::toString() {
-	 return this->$DragSourceListener::toString();
+	return this->$DragSourceListener::toString();
 }
 
 void DragSourceContext::finalize() {

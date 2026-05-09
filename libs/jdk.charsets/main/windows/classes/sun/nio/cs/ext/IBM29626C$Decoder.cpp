@@ -42,19 +42,19 @@ namespace sun {
 			namespace ext {
 
 int32_t IBM29626C$Decoder::hashCode() {
-	 return this->$CharsetDecoder::hashCode();
+	return this->$CharsetDecoder::hashCode();
 }
 
 bool IBM29626C$Decoder::equals(Object$* arg0) {
-	 return this->$CharsetDecoder::equals(arg0);
+	return this->$CharsetDecoder::equals(arg0);
 }
 
 $Object* IBM29626C$Decoder::clone() {
-	 return this->$CharsetDecoder::clone();
+	return this->$CharsetDecoder::clone();
 }
 
 $String* IBM29626C$Decoder::toString() {
-	 return this->$CharsetDecoder::toString();
+	return this->$CharsetDecoder::toString();
 }
 
 void IBM29626C$Decoder::finalize() {

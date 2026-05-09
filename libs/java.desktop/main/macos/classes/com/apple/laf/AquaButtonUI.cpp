@@ -115,19 +115,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaButtonUI::hashCode() {
-	 return this->$BasicButtonUI::hashCode();
+	return this->$BasicButtonUI::hashCode();
 }
 
 bool AquaButtonUI::equals(Object$* arg0) {
-	 return this->$BasicButtonUI::equals(arg0);
+	return this->$BasicButtonUI::equals(arg0);
 }
 
 $Object* AquaButtonUI::clone() {
-	 return this->$BasicButtonUI::clone();
+	return this->$BasicButtonUI::clone();
 }
 
 $String* AquaButtonUI::toString() {
-	 return this->$BasicButtonUI::toString();
+	return this->$BasicButtonUI::toString();
 }
 
 void AquaButtonUI::finalize() {

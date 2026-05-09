@@ -65,27 +65,27 @@ namespace com {
 						namespace generic {
 
 $String* ArithmeticInstruction::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t ArithmeticInstruction::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::consumeStack(cpg);
+	return this->$Instruction::consumeStack(cpg);
 }
 
 int32_t ArithmeticInstruction::produceStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::produceStack(cpg);
+	return this->$Instruction::produceStack(cpg);
 }
 
 bool ArithmeticInstruction::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t ArithmeticInstruction::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* ArithmeticInstruction::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void ArithmeticInstruction::finalize() {

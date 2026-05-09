@@ -16,19 +16,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicComboPopup$EmptyListModelClass::hashCode() {
-	 return this->$ListModel::hashCode();
+	return this->$ListModel::hashCode();
 }
 
 bool BasicComboPopup$EmptyListModelClass::equals(Object$* arg0) {
-	 return this->$ListModel::equals(arg0);
+	return this->$ListModel::equals(arg0);
 }
 
 $Object* BasicComboPopup$EmptyListModelClass::clone() {
-	 return this->$ListModel::clone();
+	return this->$ListModel::clone();
 }
 
 $String* BasicComboPopup$EmptyListModelClass::toString() {
-	 return this->$ListModel::toString();
+	return this->$ListModel::toString();
 }
 
 void BasicComboPopup$EmptyListModelClass::finalize() {

@@ -68,19 +68,19 @@ void LWScrollBarPeer::dispose() {
 }
 
 $GraphicsConfiguration* LWScrollBarPeer::getGraphicsConfiguration() {
-	 return this->$LWComponentPeer::getGraphicsConfiguration();
+	return this->$LWComponentPeer::getGraphicsConfiguration();
 }
 
 bool LWScrollBarPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$LWComponentPeer::updateGraphicsData(gc);
+	return this->$LWComponentPeer::updateGraphicsData(gc);
 }
 
 $Graphics* LWScrollBarPeer::getGraphics() {
-	 return this->$LWComponentPeer::getGraphics();
+	return this->$LWComponentPeer::getGraphics();
 }
 
 $ColorModel* LWScrollBarPeer::getColorModel() {
-	 return this->$LWComponentPeer::getColorModel();
+	return this->$LWComponentPeer::getColorModel();
 }
 
 void LWScrollBarPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -88,7 +88,7 @@ void LWScrollBarPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* cap
 }
 
 $Image* LWScrollBarPeer::getBackBuffer() {
-	 return this->$LWComponentPeer::getBackBuffer();
+	return this->$LWComponentPeer::getBackBuffer();
 }
 
 void LWScrollBarPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -104,7 +104,7 @@ void LWScrollBarPeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int3
 }
 
 $Point* LWScrollBarPeer::getLocationOnScreen() {
-	 return this->$LWComponentPeer::getLocationOnScreen();
+	return this->$LWComponentPeer::getLocationOnScreen();
 }
 
 void LWScrollBarPeer::setBackground($Color* c) {
@@ -120,7 +120,7 @@ void LWScrollBarPeer::setFont($Font* f) {
 }
 
 $FontMetrics* LWScrollBarPeer::getFontMetrics($Font* f) {
-	 return this->$LWComponentPeer::getFontMetrics(f);
+	return this->$LWComponentPeer::getFontMetrics(f);
 }
 
 void LWScrollBarPeer::setEnabled(bool e) {
@@ -144,7 +144,7 @@ void LWScrollBarPeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWScrollBarPeer::isReparentSupported() {
-	 return this->$LWComponentPeer::isReparentSupported();
+	return this->$LWComponentPeer::isReparentSupported();
 }
 
 void LWScrollBarPeer::setZOrder($ComponentPeer* above) {
@@ -160,19 +160,19 @@ void LWScrollBarPeer::layout() {
 }
 
 bool LWScrollBarPeer::isObscured() {
-	 return this->$LWComponentPeer::isObscured();
+	return this->$LWComponentPeer::isObscured();
 }
 
 bool LWScrollBarPeer::canDetermineObscurity() {
-	 return this->$LWComponentPeer::canDetermineObscurity();
+	return this->$LWComponentPeer::canDetermineObscurity();
 }
 
 $Dimension* LWScrollBarPeer::getPreferredSize() {
-	 return this->$LWComponentPeer::getPreferredSize();
+	return this->$LWComponentPeer::getPreferredSize();
 }
 
 $Dimension* LWScrollBarPeer::getMinimumSize() {
-	 return this->$LWComponentPeer::getMinimumSize();
+	return this->$LWComponentPeer::getMinimumSize();
 }
 
 void LWScrollBarPeer::updateCursorImmediately() {
@@ -180,23 +180,23 @@ void LWScrollBarPeer::updateCursorImmediately() {
 }
 
 bool LWScrollBarPeer::isFocusable() {
-	 return this->$LWComponentPeer::isFocusable();
+	return this->$LWComponentPeer::isFocusable();
 }
 
 bool LWScrollBarPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWScrollBarPeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWComponentPeer::createImage(width, height);
+	return this->$LWComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* LWScrollBarPeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWComponentPeer::createVolatileImage(w, h);
+	return this->$LWComponentPeer::createVolatileImage(w, h);
 }
 
 bool LWScrollBarPeer::handlesWheelScrolling() {
-	 return this->$LWComponentPeer::handlesWheelScrolling();
+	return this->$LWComponentPeer::handlesWheelScrolling();
 }
 
 void LWScrollBarPeer::applyShape($Region* shape) {
@@ -208,19 +208,19 @@ void LWScrollBarPeer::handleEvent($AWTEvent* e) {
 }
 
 int32_t LWScrollBarPeer::hashCode() {
-	 return this->$LWComponentPeer::hashCode();
+	return this->$LWComponentPeer::hashCode();
 }
 
 bool LWScrollBarPeer::equals(Object$* arg0) {
-	 return this->$LWComponentPeer::equals(arg0);
+	return this->$LWComponentPeer::equals(arg0);
 }
 
 $Object* LWScrollBarPeer::clone() {
-	 return this->$LWComponentPeer::clone();
+	return this->$LWComponentPeer::clone();
 }
 
 $String* LWScrollBarPeer::toString() {
-	 return this->$LWComponentPeer::toString();
+	return this->$LWComponentPeer::toString();
 }
 
 void LWScrollBarPeer::finalize() {

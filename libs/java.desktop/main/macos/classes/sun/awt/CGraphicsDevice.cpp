@@ -61,19 +61,19 @@ namespace sun {
 	namespace awt {
 
 int32_t CGraphicsDevice::hashCode() {
-	 return this->$GraphicsDevice::hashCode();
+	return this->$GraphicsDevice::hashCode();
 }
 
 bool CGraphicsDevice::equals(Object$* arg0) {
-	 return this->$GraphicsDevice::equals(arg0);
+	return this->$GraphicsDevice::equals(arg0);
 }
 
 $Object* CGraphicsDevice::clone() {
-	 return this->$GraphicsDevice::clone();
+	return this->$GraphicsDevice::clone();
 }
 
 $String* CGraphicsDevice::toString() {
-	 return this->$GraphicsDevice::toString();
+	return this->$GraphicsDevice::toString();
 }
 
 void CGraphicsDevice::finalize() {

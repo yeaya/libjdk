@@ -65,7 +65,7 @@ public:
 		$set(this, dnsUrl, dnsUrl);
 	}
 	virtual $Object* run() override {
-		 return $of(KrbServiceLocator::lambda$getKerberosService$0(ctx, dnsUrl));
+		return $of(KrbServiceLocator::lambda$getKerberosService$0(ctx, dnsUrl));
 	}
 	$Context* ctx = nullptr;
 	$String* dnsUrl = nullptr;
@@ -104,7 +104,7 @@ public:
 		$set(this, dnsUrl, dnsUrl);
 	}
 	virtual $Object* run() override {
-		 return $of(KrbServiceLocator::lambda$getKerberosService$1(ctx, dnsUrl));
+		return $of(KrbServiceLocator::lambda$getKerberosService$1(ctx, dnsUrl));
 	}
 	$Context* ctx = nullptr;
 	$String* dnsUrl = nullptr;

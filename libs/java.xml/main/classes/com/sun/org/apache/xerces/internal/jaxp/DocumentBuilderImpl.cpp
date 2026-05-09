@@ -125,19 +125,19 @@ namespace com {
 						namespace jaxp {
 
 int32_t DocumentBuilderImpl::hashCode() {
-	 return this->$DocumentBuilder::hashCode();
+	return this->$DocumentBuilder::hashCode();
 }
 
 bool DocumentBuilderImpl::equals(Object$* arg0) {
-	 return this->$DocumentBuilder::equals(arg0);
+	return this->$DocumentBuilder::equals(arg0);
 }
 
 $Object* DocumentBuilderImpl::clone() {
-	 return this->$DocumentBuilder::clone();
+	return this->$DocumentBuilder::clone();
 }
 
 $String* DocumentBuilderImpl::toString() {
-	 return this->$DocumentBuilder::toString();
+	return this->$DocumentBuilder::toString();
 }
 
 void DocumentBuilderImpl::finalize() {

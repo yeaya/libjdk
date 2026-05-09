@@ -66,7 +66,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual bool test(Object$* pc) override {
-		 return ManagementFactory$PlatformMBeanFinder::lambda$findFirst$0(name, $cast($PlatformMBeanProvider$PlatformComponent, pc));
+		return ManagementFactory$PlatformMBeanFinder::lambda$findFirst$0(name, $cast($PlatformMBeanProvider$PlatformComponent, pc));
 	}
 	$String* name = nullptr;
 };
@@ -102,7 +102,7 @@ public:
 		this->mbeanIntf = mbeanIntf;
 	}
 	virtual $Object* apply(Object$* p1, Object$* p2) override {
-		 return ManagementFactory$PlatformMBeanFinder::lambda$findSingleton$2(mbeanIntf, $cast($PlatformMBeanProvider$PlatformComponent, p1), $cast($PlatformMBeanProvider$PlatformComponent, p2));
+		return ManagementFactory$PlatformMBeanFinder::lambda$findSingleton$2(mbeanIntf, $cast($PlatformMBeanProvider$PlatformComponent, p1), $cast($PlatformMBeanProvider$PlatformComponent, p2));
 	}
 	$Class* mbeanIntf = nullptr;
 };

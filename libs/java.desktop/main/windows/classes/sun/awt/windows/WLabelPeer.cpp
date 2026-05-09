@@ -54,15 +54,15 @@ namespace sun {
 		namespace windows {
 
 bool WLabelPeer::isObscured() {
-	 return this->$WComponentPeer::isObscured();
+	return this->$WComponentPeer::isObscured();
 }
 
 bool WLabelPeer::canDetermineObscurity() {
-	 return this->$WComponentPeer::canDetermineObscurity();
+	return this->$WComponentPeer::canDetermineObscurity();
 }
 
 $Point* WLabelPeer::getLocationOnScreen() {
-	 return this->$WComponentPeer::getLocationOnScreen();
+	return this->$WComponentPeer::getLocationOnScreen();
 }
 
 void WLabelPeer::setVisible(bool b) {
@@ -94,7 +94,7 @@ void WLabelPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* WLabelPeer::getPreferredSize() {
-	 return this->$WComponentPeer::getPreferredSize();
+	return this->$WComponentPeer::getPreferredSize();
 }
 
 void WLabelPeer::layout() {
@@ -102,27 +102,27 @@ void WLabelPeer::layout() {
 }
 
 bool WLabelPeer::isFocusable() {
-	 return this->$WComponentPeer::isFocusable();
+	return this->$WComponentPeer::isFocusable();
 }
 
 $GraphicsConfiguration* WLabelPeer::getGraphicsConfiguration() {
-	 return this->$WComponentPeer::getGraphicsConfiguration();
+	return this->$WComponentPeer::getGraphicsConfiguration();
 }
 
 bool WLabelPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$WComponentPeer::updateGraphicsData(gc);
+	return this->$WComponentPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* WLabelPeer::getColorModel() {
-	 return this->$WComponentPeer::getColorModel();
+	return this->$WComponentPeer::getColorModel();
 }
 
 $Graphics* WLabelPeer::getGraphics() {
-	 return this->$WComponentPeer::getGraphics();
+	return this->$WComponentPeer::getGraphics();
 }
 
 $FontMetrics* WLabelPeer::getFontMetrics($Font* font) {
-	 return this->$WComponentPeer::getFontMetrics(font);
+	return this->$WComponentPeer::getFontMetrics(font);
 }
 
 void WLabelPeer::setForeground($Color* c) {
@@ -142,23 +142,23 @@ void WLabelPeer::updateCursorImmediately() {
 }
 
 bool WLabelPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$WComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$WComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* WLabelPeer::createImage(int32_t width, int32_t height) {
-	 return this->$WComponentPeer::createImage(width, height);
+	return this->$WComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* WLabelPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$WComponentPeer::createVolatileImage(width, height);
+	return this->$WComponentPeer::createVolatileImage(width, height);
 }
 
 $String* WLabelPeer::toString() {
-	 return this->$WComponentPeer::toString();
+	return this->$WComponentPeer::toString();
 }
 
 bool WLabelPeer::handlesWheelScrolling() {
-	 return this->$WComponentPeer::handlesWheelScrolling();
+	return this->$WComponentPeer::handlesWheelScrolling();
 }
 
 void WLabelPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -174,7 +174,7 @@ void WLabelPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCap
 }
 
 $Image* WLabelPeer::getBackBuffer() {
-	 return this->$WComponentPeer::getBackBuffer();
+	return this->$WComponentPeer::getBackBuffer();
 }
 
 void WLabelPeer::reparent($ContainerPeer* newNativeParent) {
@@ -182,7 +182,7 @@ void WLabelPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool WLabelPeer::isReparentSupported() {
-	 return this->$WComponentPeer::isReparentSupported();
+	return this->$WComponentPeer::isReparentSupported();
 }
 
 void WLabelPeer::applyShape($Region* shape) {
@@ -198,15 +198,15 @@ void WLabelPeer::dispose() {
 }
 
 int32_t WLabelPeer::hashCode() {
-	 return this->$WComponentPeer::hashCode();
+	return this->$WComponentPeer::hashCode();
 }
 
 bool WLabelPeer::equals(Object$* arg0) {
-	 return this->$WComponentPeer::equals(arg0);
+	return this->$WComponentPeer::equals(arg0);
 }
 
 $Object* WLabelPeer::clone() {
-	 return this->$WComponentPeer::clone();
+	return this->$WComponentPeer::clone();
 }
 
 void WLabelPeer::finalize() {

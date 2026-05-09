@@ -26,19 +26,19 @@ namespace com {
 					namespace motif {
 
 int32_t MotifRadioButtonMenuItemUI$ChangeHandler::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool MotifRadioButtonMenuItemUI$ChangeHandler::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* MotifRadioButtonMenuItemUI$ChangeHandler::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* MotifRadioButtonMenuItemUI$ChangeHandler::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void MotifRadioButtonMenuItemUI$ChangeHandler::finalize() {

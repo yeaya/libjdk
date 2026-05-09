@@ -133,7 +133,7 @@ public:
 		this->h = h;
 	}
 	virtual $Object* apply(Object$* width, Object$* height) override {
-		 return $nc(inst$)->lambda$toImage$2(w, h, $cast($Integer, width), $cast($Integer, height));
+		return $nc(inst$)->lambda$toImage$2(w, h, $cast($Integer, width), $cast($Integer, height));
 	}
 	CImage* inst$ = nullptr;
 	int32_t w = 0;

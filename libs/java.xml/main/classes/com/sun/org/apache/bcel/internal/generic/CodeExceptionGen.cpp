@@ -33,11 +33,11 @@ namespace com {
 						namespace generic {
 
 int32_t CodeExceptionGen::hashCode() {
-	 return this->$InstructionTargeter::hashCode();
+	return this->$InstructionTargeter::hashCode();
 }
 
 bool CodeExceptionGen::equals(Object$* arg0) {
-	 return this->$InstructionTargeter::equals(arg0);
+	return this->$InstructionTargeter::equals(arg0);
 }
 
 void CodeExceptionGen::finalize() {

@@ -166,7 +166,7 @@ void NonValidatingConfiguration::setDocumentHandler($XMLDocumentHandler* documen
 }
 
 $XMLDocumentHandler* NonValidatingConfiguration::getDocumentHandler() {
-	 return this->$BasicParserConfiguration::getDocumentHandler();
+	return this->$BasicParserConfiguration::getDocumentHandler();
 }
 
 void NonValidatingConfiguration::setDTDHandler($XMLDTDHandler* dtdHandler) {
@@ -174,7 +174,7 @@ void NonValidatingConfiguration::setDTDHandler($XMLDTDHandler* dtdHandler) {
 }
 
 $XMLDTDHandler* NonValidatingConfiguration::getDTDHandler() {
-	 return this->$BasicParserConfiguration::getDTDHandler();
+	return this->$BasicParserConfiguration::getDTDHandler();
 }
 
 void NonValidatingConfiguration::setDTDContentModelHandler($XMLDTDContentModelHandler* handler) {
@@ -182,7 +182,7 @@ void NonValidatingConfiguration::setDTDContentModelHandler($XMLDTDContentModelHa
 }
 
 $XMLDTDContentModelHandler* NonValidatingConfiguration::getDTDContentModelHandler() {
-	 return this->$BasicParserConfiguration::getDTDContentModelHandler();
+	return this->$BasicParserConfiguration::getDTDContentModelHandler();
 }
 
 void NonValidatingConfiguration::setEntityResolver($XMLEntityResolver* resolver) {
@@ -190,7 +190,7 @@ void NonValidatingConfiguration::setEntityResolver($XMLEntityResolver* resolver)
 }
 
 $XMLEntityResolver* NonValidatingConfiguration::getEntityResolver() {
-	 return this->$BasicParserConfiguration::getEntityResolver();
+	return this->$BasicParserConfiguration::getEntityResolver();
 }
 
 void NonValidatingConfiguration::setErrorHandler($XMLErrorHandler* errorHandler) {
@@ -198,11 +198,11 @@ void NonValidatingConfiguration::setErrorHandler($XMLErrorHandler* errorHandler)
 }
 
 $XMLErrorHandler* NonValidatingConfiguration::getErrorHandler() {
-	 return this->$BasicParserConfiguration::getErrorHandler();
+	return this->$BasicParserConfiguration::getErrorHandler();
 }
 
 $Locale* NonValidatingConfiguration::getLocale() {
-	 return this->$BasicParserConfiguration::getLocale();
+	return this->$BasicParserConfiguration::getLocale();
 }
 
 void NonValidatingConfiguration::addRecognizedFeatures($StringArray* featureIds) {
@@ -214,35 +214,35 @@ void NonValidatingConfiguration::addRecognizedProperties($StringArray* propertyI
 }
 
 bool NonValidatingConfiguration::getFeature($String* featureId) {
-	 return this->$BasicParserConfiguration::getFeature(featureId);
+	return this->$BasicParserConfiguration::getFeature(featureId);
 }
 
 bool NonValidatingConfiguration::getFeature($String* featureId, bool defaultValue) {
-	 return this->$BasicParserConfiguration::getFeature(featureId, defaultValue);
+	return this->$BasicParserConfiguration::getFeature(featureId, defaultValue);
 }
 
 $Object* NonValidatingConfiguration::getProperty($String* propertyId) {
-	 return this->$BasicParserConfiguration::getProperty(propertyId);
+	return this->$BasicParserConfiguration::getProperty(propertyId);
 }
 
 $Object* NonValidatingConfiguration::getProperty($String* propertyId, Object$* defaultValue) {
-	 return this->$BasicParserConfiguration::getProperty(propertyId, defaultValue);
+	return this->$BasicParserConfiguration::getProperty(propertyId, defaultValue);
 }
 
 int32_t NonValidatingConfiguration::hashCode() {
-	 return this->$BasicParserConfiguration::hashCode();
+	return this->$BasicParserConfiguration::hashCode();
 }
 
 bool NonValidatingConfiguration::equals(Object$* arg0) {
-	 return this->$BasicParserConfiguration::equals(arg0);
+	return this->$BasicParserConfiguration::equals(arg0);
 }
 
 $Object* NonValidatingConfiguration::clone() {
-	 return this->$BasicParserConfiguration::clone();
+	return this->$BasicParserConfiguration::clone();
 }
 
 $String* NonValidatingConfiguration::toString() {
-	 return this->$BasicParserConfiguration::toString();
+	return this->$BasicParserConfiguration::toString();
 }
 
 void NonValidatingConfiguration::finalize() {

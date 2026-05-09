@@ -125,19 +125,19 @@ namespace com {
 							namespace dtd {
 
 int32_t XMLDTDProcessor::hashCode() {
-	 return this->$XMLComponent::hashCode();
+	return this->$XMLComponent::hashCode();
 }
 
 bool XMLDTDProcessor::equals(Object$* arg0) {
-	 return this->$XMLComponent::equals(arg0);
+	return this->$XMLComponent::equals(arg0);
 }
 
 $Object* XMLDTDProcessor::clone() {
-	 return this->$XMLComponent::clone();
+	return this->$XMLComponent::clone();
 }
 
 $String* XMLDTDProcessor::toString() {
-	 return this->$XMLComponent::toString();
+	return this->$XMLComponent::toString();
 }
 
 void XMLDTDProcessor::finalize() {

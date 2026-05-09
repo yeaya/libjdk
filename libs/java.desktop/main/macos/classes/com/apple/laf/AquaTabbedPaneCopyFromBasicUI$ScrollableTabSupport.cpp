@@ -43,15 +43,15 @@ namespace com {
 		namespace laf {
 
 int32_t AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::hashCode() {
-	 return this->$ActionListener::hashCode();
+	return this->$ActionListener::hashCode();
 }
 
 bool AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::equals(Object$* arg0) {
-	 return this->$ActionListener::equals(arg0);
+	return this->$ActionListener::equals(arg0);
 }
 
 $Object* AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::clone() {
-	 return this->$ActionListener::clone();
+	return this->$ActionListener::clone();
 }
 
 void AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport::finalize() {

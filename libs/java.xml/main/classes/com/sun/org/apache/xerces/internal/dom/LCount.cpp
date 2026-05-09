@@ -35,7 +35,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* key) override {
-		 return LCount::lambda$lookup$0($cast($String, key));
+		return LCount::lambda$lookup$0($cast($String, key));
 	}
 };
 $Class* LCount$$Lambda$lambda$lookup$0::load$($String* name, bool initialize) {

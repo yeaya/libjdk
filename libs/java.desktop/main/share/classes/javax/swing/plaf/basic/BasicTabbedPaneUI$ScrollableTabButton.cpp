@@ -20,19 +20,19 @@ namespace javax {
 			namespace basic {
 
 $String* BasicTabbedPaneUI$ScrollableTabButton::toString() {
-	 return this->$BasicArrowButton::toString();
+	return this->$BasicArrowButton::toString();
 }
 
 int32_t BasicTabbedPaneUI$ScrollableTabButton::hashCode() {
-	 return this->$BasicArrowButton::hashCode();
+	return this->$BasicArrowButton::hashCode();
 }
 
 bool BasicTabbedPaneUI$ScrollableTabButton::equals(Object$* arg0) {
-	 return this->$BasicArrowButton::equals(arg0);
+	return this->$BasicArrowButton::equals(arg0);
 }
 
 $Object* BasicTabbedPaneUI$ScrollableTabButton::clone() {
-	 return this->$BasicArrowButton::clone();
+	return this->$BasicArrowButton::clone();
 }
 
 void BasicTabbedPaneUI$ScrollableTabButton::finalize() {

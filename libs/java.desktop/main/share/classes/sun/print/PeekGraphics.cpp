@@ -87,19 +87,19 @@ namespace sun {
 	namespace print {
 
 $String* PeekGraphics::toString() {
-	 return this->$Graphics2D::toString();
+	return this->$Graphics2D::toString();
 }
 
 int32_t PeekGraphics::hashCode() {
-	 return this->$Graphics2D::hashCode();
+	return this->$Graphics2D::hashCode();
 }
 
 bool PeekGraphics::equals(Object$* arg0) {
-	 return this->$Graphics2D::equals(arg0);
+	return this->$Graphics2D::equals(arg0);
 }
 
 $Object* PeekGraphics::clone() {
-	 return this->$Graphics2D::clone();
+	return this->$Graphics2D::clone();
 }
 
 void PeekGraphics::init$($Graphics2D* graphics, $PrinterJob* printerJob) {

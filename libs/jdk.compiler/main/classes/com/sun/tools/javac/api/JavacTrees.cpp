@@ -354,7 +354,7 @@ public:
 		$set(this, classType, classType);
 	}
 	virtual $Object* apply(Object$* tt) override {
-		 return $of($nc(inst$)->lambda$getOriginalType$1(classType, $cast($Type, tt)));
+		return $of($nc(inst$)->lambda$getOriginalType$1(classType, $cast($Type, tt)));
 	}
 	JavacTrees* inst$ = nullptr;
 	$Type$ClassType* classType = nullptr;

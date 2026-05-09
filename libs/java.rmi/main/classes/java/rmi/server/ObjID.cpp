@@ -42,7 +42,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(ObjID::lambda$useRandomIDs$0());
+		return $of(ObjID::lambda$useRandomIDs$0());
 	}
 };
 $Class* ObjID$$Lambda$lambda$useRandomIDs$0::load$($String* name, bool initialize) {

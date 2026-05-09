@@ -3,6 +3,8 @@
 #include <java.management.h>
 #include <java.rmi.h>
 #include <java.base.h>
+#include <java.security.sasl.h>
+#include <java.logging.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
@@ -153,6 +155,8 @@ void java$management$rmi::init() {
 	::java$management::init();
 	::java$rmi::init();
 	::java$base::init();
+	::java$security$sasl::init();
+	::java$logging::init();
 	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.management.rmi", "17.35", "",

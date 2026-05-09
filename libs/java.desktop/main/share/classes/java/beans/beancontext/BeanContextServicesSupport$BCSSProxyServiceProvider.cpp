@@ -26,19 +26,19 @@ namespace java {
 		namespace beancontext {
 
 int32_t BeanContextServicesSupport$BCSSProxyServiceProvider::hashCode() {
-	 return this->$BeanContextServiceProvider::hashCode();
+	return this->$BeanContextServiceProvider::hashCode();
 }
 
 bool BeanContextServicesSupport$BCSSProxyServiceProvider::equals(Object$* arg0) {
-	 return this->$BeanContextServiceProvider::equals(arg0);
+	return this->$BeanContextServiceProvider::equals(arg0);
 }
 
 $Object* BeanContextServicesSupport$BCSSProxyServiceProvider::clone() {
-	 return this->$BeanContextServiceProvider::clone();
+	return this->$BeanContextServiceProvider::clone();
 }
 
 $String* BeanContextServicesSupport$BCSSProxyServiceProvider::toString() {
-	 return this->$BeanContextServiceProvider::toString();
+	return this->$BeanContextServiceProvider::toString();
 }
 
 void BeanContextServicesSupport$BCSSProxyServiceProvider::finalize() {

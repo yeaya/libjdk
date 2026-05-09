@@ -58,7 +58,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s1, Object$* s2) override {
-		 return $Util::union$($cast($Set, s1), $cast($Set, s2));
+		return $Util::union$($cast($Set, s1), $cast($Set, s2));
 	}
 };
 $Class* BuildState$$Lambda$union::load$($String* name, bool initialize) {

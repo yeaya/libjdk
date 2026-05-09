@@ -60,7 +60,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Level$KnownLevel, inst$)->mirrored();
+		return $sure($Level$KnownLevel, inst$)->mirrored();
 	}
 };
 $Class* Level$$Lambda$mirrored::load$($String* name, bool initialize) {
@@ -90,7 +90,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Level$KnownLevel, inst$)->referent();
+		return $sure($Level$KnownLevel, inst$)->referent();
 	}
 };
 $Class* Level$$Lambda$referent$1::load$($String* name, bool initialize) {

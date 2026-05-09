@@ -114,7 +114,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(CTrayIcon::lambda$static$0());
+		return $of(CTrayIcon::lambda$static$0());
 	}
 };
 $Class* CTrayIcon$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -392,19 +392,19 @@ void CTrayIcon::finalize() {
 }
 
 int32_t CTrayIcon::hashCode() {
-	 return this->$CFRetainedResource::hashCode();
+	return this->$CFRetainedResource::hashCode();
 }
 
 bool CTrayIcon::equals(Object$* arg0) {
-	 return this->$CFRetainedResource::equals(arg0);
+	return this->$CFRetainedResource::equals(arg0);
 }
 
 $Object* CTrayIcon::clone() {
-	 return this->$CFRetainedResource::clone();
+	return this->$CFRetainedResource::clone();
 }
 
 $String* CTrayIcon::toString() {
-	 return this->$CFRetainedResource::toString();
+	return this->$CFRetainedResource::toString();
 }
 
 int32_t CTrayIcon::mouseClickButtons = 0;

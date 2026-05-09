@@ -75,19 +75,19 @@ namespace sun {
 		namespace im {
 
 $String* CompositionArea::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t CompositionArea::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool CompositionArea::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* CompositionArea::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void CompositionArea::finalize() {

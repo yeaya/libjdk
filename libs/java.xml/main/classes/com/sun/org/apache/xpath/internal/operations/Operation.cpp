@@ -31,19 +31,19 @@ namespace com {
 						namespace operations {
 
 int32_t Operation::hashCode() {
-	 return this->$Expression::hashCode();
+	return this->$Expression::hashCode();
 }
 
 bool Operation::equals(Object$* arg0) {
-	 return this->$Expression::equals(arg0);
+	return this->$Expression::equals(arg0);
 }
 
 $Object* Operation::clone() {
-	 return this->$Expression::clone();
+	return this->$Expression::clone();
 }
 
 $String* Operation::toString() {
-	 return this->$Expression::toString();
+	return this->$Expression::toString();
 }
 
 void Operation::finalize() {

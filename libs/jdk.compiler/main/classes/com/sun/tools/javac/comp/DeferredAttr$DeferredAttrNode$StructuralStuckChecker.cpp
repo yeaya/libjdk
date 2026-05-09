@@ -133,7 +133,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* vd) override {
-		 return $of($nc(inst$)->lambda$canLambdaBodyCompleteNormally$0($cast($JCTree$JCVariableDecl, vd)));
+		return $of($nc(inst$)->lambda$canLambdaBodyCompleteNormally$0($cast($JCTree$JCVariableDecl, vd)));
 	}
 	DeferredAttr$DeferredAttrNode$StructuralStuckChecker* inst$ = nullptr;
 };

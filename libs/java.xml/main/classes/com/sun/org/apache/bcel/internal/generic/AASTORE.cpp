@@ -25,23 +25,23 @@ namespace com {
 						namespace generic {
 
 $String* AASTORE::toString() {
-	 return this->$ArrayInstruction::toString();
+	return this->$ArrayInstruction::toString();
 }
 
 int32_t AASTORE::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$ArrayInstruction::consumeStack(cpg);
+	return this->$ArrayInstruction::consumeStack(cpg);
 }
 
 bool AASTORE::equals(Object$* that) {
-	 return this->$ArrayInstruction::equals(that);
+	return this->$ArrayInstruction::equals(that);
 }
 
 int32_t AASTORE::hashCode() {
-	 return this->$ArrayInstruction::hashCode();
+	return this->$ArrayInstruction::hashCode();
 }
 
 $Object* AASTORE::clone() {
-	 return this->$ArrayInstruction::clone();
+	return this->$ArrayInstruction::clone();
 }
 
 void AASTORE::finalize() {

@@ -73,39 +73,39 @@ namespace com {
 						namespace dom {
 
 $Document* ElementImpl::getOwnerDocument() {
-	 return this->$ParentNode::getOwnerDocument();
+	return this->$ParentNode::getOwnerDocument();
 }
 
 bool ElementImpl::hasChildNodes() {
-	 return this->$ParentNode::hasChildNodes();
+	return this->$ParentNode::hasChildNodes();
 }
 
 $NodeList* ElementImpl::getChildNodes() {
-	 return this->$ParentNode::getChildNodes();
+	return this->$ParentNode::getChildNodes();
 }
 
 $Node* ElementImpl::getFirstChild() {
-	 return this->$ParentNode::getFirstChild();
+	return this->$ParentNode::getFirstChild();
 }
 
 $Node* ElementImpl::getLastChild() {
-	 return this->$ParentNode::getLastChild();
+	return this->$ParentNode::getLastChild();
 }
 
 $Node* ElementImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$ParentNode::insertBefore(newChild, refChild);
+	return this->$ParentNode::insertBefore(newChild, refChild);
 }
 
 $Node* ElementImpl::removeChild($Node* oldChild) {
-	 return this->$ParentNode::removeChild(oldChild);
+	return this->$ParentNode::removeChild(oldChild);
 }
 
 $Node* ElementImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$ParentNode::replaceChild(newChild, oldChild);
+	return this->$ParentNode::replaceChild(newChild, oldChild);
 }
 
 $String* ElementImpl::getTextContent() {
-	 return this->$ParentNode::getTextContent();
+	return this->$ParentNode::getTextContent();
 }
 
 void ElementImpl::setTextContent($String* textContent) {
@@ -113,19 +113,19 @@ void ElementImpl::setTextContent($String* textContent) {
 }
 
 $Node* ElementImpl::getParentNode() {
-	 return this->$ParentNode::getParentNode();
+	return this->$ParentNode::getParentNode();
 }
 
 $Node* ElementImpl::getNextSibling() {
-	 return this->$ParentNode::getNextSibling();
+	return this->$ParentNode::getNextSibling();
 }
 
 $Node* ElementImpl::getPreviousSibling() {
-	 return this->$ParentNode::getPreviousSibling();
+	return this->$ParentNode::getPreviousSibling();
 }
 
 $String* ElementImpl::getNodeValue() {
-	 return this->$ParentNode::getNodeValue();
+	return this->$ParentNode::getNodeValue();
 }
 
 void ElementImpl::setNodeValue($String* x) {
@@ -133,19 +133,19 @@ void ElementImpl::setNodeValue($String* x) {
 }
 
 $Node* ElementImpl::appendChild($Node* newChild) {
-	 return this->$ParentNode::appendChild(newChild);
+	return this->$ParentNode::appendChild(newChild);
 }
 
 bool ElementImpl::isSupported($String* feature, $String* version) {
-	 return this->$ParentNode::isSupported(feature, version);
+	return this->$ParentNode::isSupported(feature, version);
 }
 
 $String* ElementImpl::getNamespaceURI() {
-	 return this->$ParentNode::getNamespaceURI();
+	return this->$ParentNode::getNamespaceURI();
 }
 
 $String* ElementImpl::getPrefix() {
-	 return this->$ParentNode::getPrefix();
+	return this->$ParentNode::getPrefix();
 }
 
 void ElementImpl::setPrefix($String* prefix) {
@@ -153,55 +153,55 @@ void ElementImpl::setPrefix($String* prefix) {
 }
 
 $String* ElementImpl::getLocalName() {
-	 return this->$ParentNode::getLocalName();
+	return this->$ParentNode::getLocalName();
 }
 
 int16_t ElementImpl::compareDocumentPosition($Node* other) {
-	 return this->$ParentNode::compareDocumentPosition(other);
+	return this->$ParentNode::compareDocumentPosition(other);
 }
 
 bool ElementImpl::isSameNode($Node* other) {
-	 return this->$ParentNode::isSameNode(other);
+	return this->$ParentNode::isSameNode(other);
 }
 
 bool ElementImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$ParentNode::isDefaultNamespace(namespaceURI);
+	return this->$ParentNode::isDefaultNamespace(namespaceURI);
 }
 
 $String* ElementImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$ParentNode::lookupPrefix(namespaceURI);
+	return this->$ParentNode::lookupPrefix(namespaceURI);
 }
 
 $String* ElementImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$ParentNode::lookupNamespaceURI(specifiedPrefix);
+	return this->$ParentNode::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* ElementImpl::getFeature($String* feature, $String* version) {
-	 return this->$ParentNode::getFeature(feature, version);
+	return this->$ParentNode::getFeature(feature, version);
 }
 
 $Object* ElementImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$ParentNode::setUserData(key, data, handler);
+	return this->$ParentNode::setUserData(key, data, handler);
 }
 
 $Object* ElementImpl::getUserData($String* key) {
-	 return this->$ParentNode::getUserData(key);
+	return this->$ParentNode::getUserData(key);
 }
 
 $String* ElementImpl::toString() {
-	 return this->$ParentNode::toString();
+	return this->$ParentNode::toString();
 }
 
 int32_t ElementImpl::hashCode() {
-	 return this->$ParentNode::hashCode();
+	return this->$ParentNode::hashCode();
 }
 
 bool ElementImpl::equals(Object$* arg0) {
-	 return this->$ParentNode::equals(arg0);
+	return this->$ParentNode::equals(arg0);
 }
 
 $Object* ElementImpl::clone() {
-	 return this->$ParentNode::clone();
+	return this->$ParentNode::clone();
 }
 
 void ElementImpl::finalize() {

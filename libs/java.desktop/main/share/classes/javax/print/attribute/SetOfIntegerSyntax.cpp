@@ -21,7 +21,7 @@ namespace javax {
 		namespace attribute {
 
 $Object* SetOfIntegerSyntax::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void SetOfIntegerSyntax::finalize() {

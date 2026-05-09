@@ -27,19 +27,19 @@ namespace com {
 						namespace generic {
 
 $String* IDIV::toString() {
-	 return this->$ArithmeticInstruction::toString();
+	return this->$ArithmeticInstruction::toString();
 }
 
 bool IDIV::equals(Object$* that) {
-	 return this->$ArithmeticInstruction::equals(that);
+	return this->$ArithmeticInstruction::equals(that);
 }
 
 int32_t IDIV::hashCode() {
-	 return this->$ArithmeticInstruction::hashCode();
+	return this->$ArithmeticInstruction::hashCode();
 }
 
 $Object* IDIV::clone() {
-	 return this->$ArithmeticInstruction::clone();
+	return this->$ArithmeticInstruction::clone();
 }
 
 void IDIV::finalize() {

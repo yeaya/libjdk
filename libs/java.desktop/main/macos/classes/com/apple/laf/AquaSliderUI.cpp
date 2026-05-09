@@ -93,19 +93,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaSliderUI::hashCode() {
-	 return this->$BasicSliderUI::hashCode();
+	return this->$BasicSliderUI::hashCode();
 }
 
 bool AquaSliderUI::equals(Object$* arg0) {
-	 return this->$BasicSliderUI::equals(arg0);
+	return this->$BasicSliderUI::equals(arg0);
 }
 
 $Object* AquaSliderUI::clone() {
-	 return this->$BasicSliderUI::clone();
+	return this->$BasicSliderUI::clone();
 }
 
 $String* AquaSliderUI::toString() {
-	 return this->$BasicSliderUI::toString();
+	return this->$BasicSliderUI::toString();
 }
 
 void AquaSliderUI::finalize() {

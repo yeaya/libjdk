@@ -102,19 +102,19 @@ void CPopupMenu::finalize() {
 }
 
 int32_t CPopupMenu::hashCode() {
-	 return this->$CMenu::hashCode();
+	return this->$CMenu::hashCode();
 }
 
 bool CPopupMenu::equals(Object$* arg0) {
-	 return this->$CMenu::equals(arg0);
+	return this->$CMenu::equals(arg0);
 }
 
 $Object* CPopupMenu::clone() {
-	 return this->$CMenu::clone();
+	return this->$CMenu::clone();
 }
 
 $String* CPopupMenu::toString() {
-	 return this->$CMenu::toString();
+	return this->$CMenu::toString();
 }
 
 void CPopupMenu::init$($PopupMenu* target) {

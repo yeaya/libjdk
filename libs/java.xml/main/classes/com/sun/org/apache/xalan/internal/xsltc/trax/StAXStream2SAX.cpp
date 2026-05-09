@@ -68,19 +68,19 @@ namespace com {
 							namespace trax {
 
 int32_t StAXStream2SAX::hashCode() {
-	 return this->$XMLReader::hashCode();
+	return this->$XMLReader::hashCode();
 }
 
 bool StAXStream2SAX::equals(Object$* arg0) {
-	 return this->$XMLReader::equals(arg0);
+	return this->$XMLReader::equals(arg0);
 }
 
 $Object* StAXStream2SAX::clone() {
-	 return this->$XMLReader::clone();
+	return this->$XMLReader::clone();
 }
 
 $String* StAXStream2SAX::toString() {
-	 return this->$XMLReader::toString();
+	return this->$XMLReader::toString();
 }
 
 void StAXStream2SAX::finalize() {

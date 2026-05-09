@@ -75,7 +75,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$debugDisplayClassLoader$0());
+		return $of($nc(inst$)->lambda$debugDisplayClassLoader$0());
 	}
 	SchemaFactoryFinder* inst$ = nullptr;
 };
@@ -111,7 +111,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$debugDisplayClassLoader$1());
+		return $of($nc(inst$)->lambda$debugDisplayClassLoader$1());
 	}
 	SchemaFactoryFinder* inst$ = nullptr;
 };
@@ -147,7 +147,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$debugDisplayClassLoader$2());
+		return $of($nc(inst$)->lambda$debugDisplayClassLoader$2());
 	}
 	SchemaFactoryFinder* inst$ = nullptr;
 };
@@ -184,7 +184,7 @@ public:
 		$set(this, schemaLanguage, schemaLanguage);
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$newFactory$3(f, schemaLanguage));
+		return $of(SchemaFactoryFinder::lambda$newFactory$3(f, schemaLanguage));
 	}
 	$SchemaFactory* f = nullptr;
 	$String* schemaLanguage = nullptr;
@@ -222,7 +222,7 @@ public:
 		$set(this, schemaLanguage, schemaLanguage);
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$newFactory$4(schemaLanguage));
+		return $of(SchemaFactoryFinder::lambda$newFactory$4(schemaLanguage));
 	}
 	$String* schemaLanguage = nullptr;
 };
@@ -258,7 +258,7 @@ public:
 		$set(this, propertyName, propertyName);
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$_newFactory$5(propertyName));
+		return $of(SchemaFactoryFinder::lambda$_newFactory$5(propertyName));
 	}
 	$String* propertyName = nullptr;
 };
@@ -294,7 +294,7 @@ public:
 		$set(this, r, r);
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$_newFactory$6(r));
+		return $of(SchemaFactoryFinder::lambda$_newFactory$6(r));
 	}
 	$String* r = nullptr;
 };
@@ -329,7 +329,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$_newFactory$7());
+		return $of(SchemaFactoryFinder::lambda$_newFactory$7());
 	}
 };
 $Class* SchemaFactoryFinder$$Lambda$lambda$_newFactory$7$7::load$($String* name, bool initialize) {
@@ -360,7 +360,7 @@ public:
 		$set(this, propertyName, propertyName);
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$_newFactory$8(propertyName));
+		return $of(SchemaFactoryFinder::lambda$_newFactory$8(propertyName));
 	}
 	$String* propertyName = nullptr;
 };
@@ -396,7 +396,7 @@ public:
 		$set(this, f, f);
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$_newFactory$9(f));
+		return $of(SchemaFactoryFinder::lambda$_newFactory$9(f));
 	}
 	$File* f = nullptr;
 };
@@ -432,7 +432,7 @@ public:
 		$set(this, factoryClassName, factoryClassName);
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$_newFactory$10(factoryClassName));
+		return $of(SchemaFactoryFinder::lambda$_newFactory$10(factoryClassName));
 	}
 	$String* factoryClassName = nullptr;
 };
@@ -467,7 +467,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$_newFactory$11());
+		return $of(SchemaFactoryFinder::lambda$_newFactory$11());
 	}
 };
 $Class* SchemaFactoryFinder$$Lambda$lambda$_newFactory$11$11::load$($String* name, bool initialize) {
@@ -497,7 +497,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$_newFactory$12());
+		return $of(SchemaFactoryFinder::lambda$_newFactory$12());
 	}
 };
 $Class* SchemaFactoryFinder$$Lambda$lambda$_newFactory$12$12::load$($String* name, bool initialize) {
@@ -528,7 +528,7 @@ public:
 		$set(this, className, className);
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$createInstance$13(className));
+		return $of(SchemaFactoryFinder::lambda$createInstance$13(className));
 	}
 	$String* className = nullptr;
 };
@@ -564,7 +564,7 @@ public:
 		$set(this, className, className);
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$createInstance$14(className));
+		return $of(SchemaFactoryFinder::lambda$createInstance$14(className));
 	}
 	$String* className = nullptr;
 };
@@ -601,7 +601,7 @@ public:
 		this->clazz = clazz;
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$createInstance$15(className, clazz));
+		return $of(SchemaFactoryFinder::lambda$createInstance$15(className, clazz));
 	}
 	$String* className = nullptr;
 	$Class* clazz = nullptr;
@@ -639,7 +639,7 @@ public:
 		this->clazz = clazz;
 	}
 	virtual $Object* get() override {
-		 return $of(SchemaFactoryFinder::lambda$createInstance$16(clazz));
+		return $of(SchemaFactoryFinder::lambda$createInstance$16(clazz));
 	}
 	$Class* clazz = nullptr;
 };

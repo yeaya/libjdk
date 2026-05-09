@@ -62,23 +62,23 @@ namespace com {
 						namespace generic {
 
 $String* LDC::toString() {
-	 return this->$CPInstruction::toString();
+	return this->$CPInstruction::toString();
 }
 
 int32_t LDC::produceStack($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::produceStack(cpg);
+	return this->$CPInstruction::produceStack(cpg);
 }
 
 bool LDC::equals(Object$* that) {
-	 return this->$CPInstruction::equals(that);
+	return this->$CPInstruction::equals(that);
 }
 
 int32_t LDC::hashCode() {
-	 return this->$CPInstruction::hashCode();
+	return this->$CPInstruction::hashCode();
 }
 
 $Object* LDC::clone() {
-	 return this->$CPInstruction::clone();
+	return this->$CPInstruction::clone();
 }
 
 void LDC::finalize() {

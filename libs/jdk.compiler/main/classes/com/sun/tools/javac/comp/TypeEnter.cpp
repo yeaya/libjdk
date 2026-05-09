@@ -241,7 +241,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return TypeEnter::lambda$lookupMethod$2($cast($Symbol, s));
+		return TypeEnter::lambda$lookupMethod$2($cast($Symbol, s));
 	}
 };
 $Class* TypeEnter$$Lambda$lambda$lookupMethod$2$2::load$($String* name, bool initialize) {
@@ -272,7 +272,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $of($nc(inst$)->Ident($cast($Name, name)));
+		return $of($nc(inst$)->Ident($cast($Name, name)));
 	}
 	$TreeMaker* inst$ = nullptr;
 };
@@ -307,7 +307,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return TypeEnter::lambda$setFlagIfAttributeTrue$3($cast($JCTree$JCExpression, e));
+		return TypeEnter::lambda$setFlagIfAttributeTrue$3($cast($JCTree$JCExpression, e));
 	}
 };
 $Class* TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$3$4::load$($String* name, bool initialize) {
@@ -337,7 +337,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(TypeEnter::lambda$setFlagIfAttributeTrue$4($cast($JCTree$JCExpression, e)));
+		return $of(TypeEnter::lambda$setFlagIfAttributeTrue$4($cast($JCTree$JCExpression, e)));
 	}
 };
 $Class* TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$4$5::load$($String* name, bool initialize) {
@@ -368,7 +368,7 @@ public:
 		$set(this, attribute, attribute);
 	}
 	virtual bool test(Object$* assign) override {
-		 return TypeEnter::lambda$setFlagIfAttributeTrue$5(attribute, $cast($JCTree$JCAssign, assign));
+		return TypeEnter::lambda$setFlagIfAttributeTrue$5(attribute, $cast($JCTree$JCAssign, assign));
 	}
 	$Name* attribute = nullptr;
 };

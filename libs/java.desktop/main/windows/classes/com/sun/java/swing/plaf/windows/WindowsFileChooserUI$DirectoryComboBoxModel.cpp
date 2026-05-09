@@ -46,19 +46,19 @@ void WindowsFileChooserUI$DirectoryComboBoxModel::removeListDataListener($ListDa
 }
 
 int32_t WindowsFileChooserUI$DirectoryComboBoxModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool WindowsFileChooserUI$DirectoryComboBoxModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* WindowsFileChooserUI$DirectoryComboBoxModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* WindowsFileChooserUI$DirectoryComboBoxModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void WindowsFileChooserUI$DirectoryComboBoxModel::finalize() {

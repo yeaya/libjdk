@@ -59,7 +59,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return AquaMenuBarUI::lambda$static$0();
+		return AquaMenuBarUI::lambda$static$0();
 	}
 };
 $Class* AquaMenuBarUI$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -84,19 +84,19 @@ $Class* AquaMenuBarUI$$Lambda$lambda$static$0::load$($String* name, bool initial
 $Class* AquaMenuBarUI$$Lambda$lambda$static$0::class$ = nullptr;
 
 int32_t AquaMenuBarUI::hashCode() {
-	 return this->$BasicMenuBarUI::hashCode();
+	return this->$BasicMenuBarUI::hashCode();
 }
 
 bool AquaMenuBarUI::equals(Object$* arg0) {
-	 return this->$BasicMenuBarUI::equals(arg0);
+	return this->$BasicMenuBarUI::equals(arg0);
 }
 
 $Object* AquaMenuBarUI::clone() {
-	 return this->$BasicMenuBarUI::clone();
+	return this->$BasicMenuBarUI::clone();
 }
 
 $String* AquaMenuBarUI::toString() {
-	 return this->$BasicMenuBarUI::toString();
+	return this->$BasicMenuBarUI::toString();
 }
 
 void AquaMenuBarUI::finalize() {

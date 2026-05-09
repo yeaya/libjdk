@@ -11,19 +11,19 @@ namespace javax {
 		namespace catalog {
 
 int32_t CatalogResolver::hashCode() {
-	 return this->$EntityResolver::hashCode();
+	return this->$EntityResolver::hashCode();
 }
 
 bool CatalogResolver::equals(Object$* arg0) {
-	 return this->$EntityResolver::equals(arg0);
+	return this->$EntityResolver::equals(arg0);
 }
 
 $Object* CatalogResolver::clone() {
-	 return this->$EntityResolver::clone();
+	return this->$EntityResolver::clone();
 }
 
 $String* CatalogResolver::toString() {
-	 return this->$EntityResolver::toString();
+	return this->$EntityResolver::toString();
 }
 
 void CatalogResolver::finalize() {

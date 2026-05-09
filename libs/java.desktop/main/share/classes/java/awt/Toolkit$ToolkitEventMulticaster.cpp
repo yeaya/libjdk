@@ -20,19 +20,19 @@ namespace java {
 	namespace awt {
 
 int32_t Toolkit$ToolkitEventMulticaster::hashCode() {
-	 return this->$AWTEventMulticaster::hashCode();
+	return this->$AWTEventMulticaster::hashCode();
 }
 
 bool Toolkit$ToolkitEventMulticaster::equals(Object$* arg0) {
-	 return this->$AWTEventMulticaster::equals(arg0);
+	return this->$AWTEventMulticaster::equals(arg0);
 }
 
 $Object* Toolkit$ToolkitEventMulticaster::clone() {
-	 return this->$AWTEventMulticaster::clone();
+	return this->$AWTEventMulticaster::clone();
 }
 
 $String* Toolkit$ToolkitEventMulticaster::toString() {
-	 return this->$AWTEventMulticaster::toString();
+	return this->$AWTEventMulticaster::toString();
 }
 
 void Toolkit$ToolkitEventMulticaster::finalize() {

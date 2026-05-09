@@ -234,19 +234,19 @@ namespace com {
 						namespace xinclude {
 
 int32_t XIncludeHandler::hashCode() {
-	 return this->$XMLComponent::hashCode();
+	return this->$XMLComponent::hashCode();
 }
 
 bool XIncludeHandler::equals(Object$* arg0) {
-	 return this->$XMLComponent::equals(arg0);
+	return this->$XMLComponent::equals(arg0);
 }
 
 $Object* XIncludeHandler::clone() {
-	 return this->$XMLComponent::clone();
+	return this->$XMLComponent::clone();
 }
 
 $String* XIncludeHandler::toString() {
-	 return this->$XMLComponent::toString();
+	return this->$XMLComponent::toString();
 }
 
 void XIncludeHandler::finalize() {

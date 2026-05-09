@@ -65,7 +65,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* ref) override {
-		 return $of(Main$Hasher::lambda$new$0($cast($ModuleReference, ref)));
+		return $of(Main$Hasher::lambda$new$0($cast($ModuleReference, ref)));
 	}
 };
 $Class* Main$Hasher$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
@@ -96,7 +96,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* mn) override {
-		 return $nc(inst$)->lambda$new$1($cast($String, mn));
+		return $nc(inst$)->lambda$new$1($cast($String, mn));
 	}
 	Main$Hasher* inst$ = nullptr;
 };
@@ -131,7 +131,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ResolvedModule, inst$)->name());
+		return $of($sure($ResolvedModule, inst$)->name());
 	}
 };
 $Class* Main$Hasher$$Lambda$name$2::load$($String* name, bool initialize) {
@@ -163,7 +163,7 @@ public:
 		$set(this, system, system);
 	}
 	virtual bool test(Object$* mn) override {
-		 return Main$Hasher::lambda$new$2(roots, system, $cast($String, mn));
+		return Main$Hasher::lambda$new$2(roots, system, $cast($String, mn));
 	}
 	$Set* roots = nullptr;
 	$ModuleFinder* system = nullptr;

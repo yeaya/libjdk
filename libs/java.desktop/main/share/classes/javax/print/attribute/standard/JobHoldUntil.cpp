@@ -15,15 +15,15 @@ namespace javax {
 			namespace standard {
 
 int32_t JobHoldUntil::hashCode() {
-	 return this->$DateTimeSyntax::hashCode();
+	return this->$DateTimeSyntax::hashCode();
 }
 
 $String* JobHoldUntil::toString() {
-	 return this->$DateTimeSyntax::toString();
+	return this->$DateTimeSyntax::toString();
 }
 
 $Object* JobHoldUntil::clone() {
-	 return this->$DateTimeSyntax::clone();
+	return this->$DateTimeSyntax::clone();
 }
 
 void JobHoldUntil::finalize() {

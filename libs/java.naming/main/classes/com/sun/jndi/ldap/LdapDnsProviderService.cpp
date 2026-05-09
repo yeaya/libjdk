@@ -60,7 +60,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return LdapDnsProviderService::lambda$new$0();
+		return LdapDnsProviderService::lambda$new$0();
 	}
 };
 $Class* LdapDnsProviderService$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
@@ -90,7 +90,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* r) override {
-		 return LdapDnsProviderService::lambda$lookupEndpoints$1($cast($LdapDnsProviderResult, r));
+		return LdapDnsProviderService::lambda$lookupEndpoints$1($cast($LdapDnsProviderResult, r));
 	}
 };
 $Class* LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1::load$($String* name, bool initialize) {

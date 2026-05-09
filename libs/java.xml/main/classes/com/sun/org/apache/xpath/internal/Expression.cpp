@@ -45,19 +45,19 @@ namespace com {
 					namespace internal {
 
 int32_t Expression::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 bool Expression::equals(Object$* arg0) {
-	 return this->$Serializable::equals(arg0);
+	return this->$Serializable::equals(arg0);
 }
 
 $Object* Expression::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 $String* Expression::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void Expression::finalize() {

@@ -11,19 +11,19 @@ namespace javax {
 		namespace stream {
 
 int32_t ImageOutputStream::hashCode() {
-	 return this->$ImageInputStream::hashCode();
+	return this->$ImageInputStream::hashCode();
 }
 
 bool ImageOutputStream::equals(Object$* arg0) {
-	 return this->$ImageInputStream::equals(arg0);
+	return this->$ImageInputStream::equals(arg0);
 }
 
 $Object* ImageOutputStream::clone() {
-	 return this->$ImageInputStream::clone();
+	return this->$ImageInputStream::clone();
 }
 
 $String* ImageOutputStream::toString() {
-	 return this->$ImageInputStream::toString();
+	return this->$ImageInputStream::toString();
 }
 
 void ImageOutputStream::finalize() {

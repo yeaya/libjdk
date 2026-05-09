@@ -82,7 +82,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$run$0();
+		return $nc(inst$)->lambda$run$0();
 	}
 	TCPTransport$ConnectionHandler* inst$ = nullptr;
 };

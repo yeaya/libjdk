@@ -77,7 +77,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return HttpResponse$BodySubscribers::lambda$fromSubscriber$0($cast($Flow$Subscriber, s));
+		return HttpResponse$BodySubscribers::lambda$fromSubscriber$0($cast($Flow$Subscriber, s));
 	}
 };
 $Class* HttpResponse$BodySubscribers$$Lambda$lambda$fromSubscriber$0::load$($String* name, bool initialize) {
@@ -108,7 +108,7 @@ public:
 		$set(this, charset, charset);
 	}
 	virtual $Object* apply(Object$* bytes) override {
-		 return $of(HttpResponse$BodySubscribers::lambda$ofString$2(charset, $cast($bytes, bytes)));
+		return $of(HttpResponse$BodySubscribers::lambda$ofString$2(charset, $cast($bytes, bytes)));
 	}
 	$Charset* charset = nullptr;
 };

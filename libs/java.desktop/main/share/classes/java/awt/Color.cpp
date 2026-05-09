@@ -60,7 +60,7 @@ namespace java {
 	namespace awt {
 
 $Object* Color::clone() {
-	 return this->$Paint::clone();
+	return this->$Paint::clone();
 }
 
 void Color::finalize() {

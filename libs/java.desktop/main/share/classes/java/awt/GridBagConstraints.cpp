@@ -51,15 +51,15 @@ namespace java {
 	namespace awt {
 
 int32_t GridBagConstraints::hashCode() {
-	 return this->$Cloneable::hashCode();
+	return this->$Cloneable::hashCode();
 }
 
 bool GridBagConstraints::equals(Object$* arg0) {
-	 return this->$Cloneable::equals(arg0);
+	return this->$Cloneable::equals(arg0);
 }
 
 $String* GridBagConstraints::toString() {
-	 return this->$Cloneable::toString();
+	return this->$Cloneable::toString();
 }
 
 void GridBagConstraints::finalize() {

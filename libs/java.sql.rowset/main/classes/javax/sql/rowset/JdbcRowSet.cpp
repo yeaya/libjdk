@@ -15,19 +15,19 @@ namespace javax {
 		namespace rowset {
 
 int32_t JdbcRowSet::hashCode() {
-	 return this->$RowSet::hashCode();
+	return this->$RowSet::hashCode();
 }
 
 bool JdbcRowSet::equals(Object$* arg0) {
-	 return this->$RowSet::equals(arg0);
+	return this->$RowSet::equals(arg0);
 }
 
 $Object* JdbcRowSet::clone() {
-	 return this->$RowSet::clone();
+	return this->$RowSet::clone();
 }
 
 $String* JdbcRowSet::toString() {
-	 return this->$RowSet::toString();
+	return this->$RowSet::toString();
 }
 
 void JdbcRowSet::finalize() {

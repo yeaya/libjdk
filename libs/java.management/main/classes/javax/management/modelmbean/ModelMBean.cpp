@@ -13,19 +13,19 @@ namespace javax {
 		namespace modelmbean {
 
 int32_t ModelMBean::hashCode() {
-	 return this->$DynamicMBean::hashCode();
+	return this->$DynamicMBean::hashCode();
 }
 
 bool ModelMBean::equals(Object$* arg0) {
-	 return this->$DynamicMBean::equals(arg0);
+	return this->$DynamicMBean::equals(arg0);
 }
 
 $Object* ModelMBean::clone() {
-	 return this->$DynamicMBean::clone();
+	return this->$DynamicMBean::clone();
 }
 
 $String* ModelMBean::toString() {
-	 return this->$DynamicMBean::toString();
+	return this->$DynamicMBean::toString();
 }
 
 void ModelMBean::finalize() {

@@ -34,19 +34,19 @@ namespace javax {
 			namespace rmi {
 
 int32_t RMIServerImpl_Stub::hashCode() {
-	 return this->$RemoteStub::hashCode();
+	return this->$RemoteStub::hashCode();
 }
 
 bool RMIServerImpl_Stub::equals(Object$* arg0) {
-	 return this->$RemoteStub::equals(arg0);
+	return this->$RemoteStub::equals(arg0);
 }
 
 $String* RMIServerImpl_Stub::toString() {
-	 return this->$RemoteStub::toString();
+	return this->$RemoteStub::toString();
 }
 
 $Object* RMIServerImpl_Stub::clone() {
-	 return this->$RemoteStub::clone();
+	return this->$RemoteStub::clone();
 }
 
 void RMIServerImpl_Stub::finalize() {

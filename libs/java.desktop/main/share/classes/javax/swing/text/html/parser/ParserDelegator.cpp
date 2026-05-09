@@ -42,19 +42,19 @@ namespace javax {
 				namespace parser {
 
 int32_t ParserDelegator::hashCode() {
-	 return this->$HTMLEditorKit$Parser::hashCode();
+	return this->$HTMLEditorKit$Parser::hashCode();
 }
 
 bool ParserDelegator::equals(Object$* arg0) {
-	 return this->$HTMLEditorKit$Parser::equals(arg0);
+	return this->$HTMLEditorKit$Parser::equals(arg0);
 }
 
 $Object* ParserDelegator::clone() {
-	 return this->$HTMLEditorKit$Parser::clone();
+	return this->$HTMLEditorKit$Parser::clone();
 }
 
 $String* ParserDelegator::toString() {
-	 return this->$HTMLEditorKit$Parser::toString();
+	return this->$HTMLEditorKit$Parser::toString();
 }
 
 void ParserDelegator::finalize() {

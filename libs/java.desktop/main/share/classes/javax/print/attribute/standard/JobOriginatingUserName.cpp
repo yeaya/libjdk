@@ -15,15 +15,15 @@ namespace javax {
 			namespace standard {
 
 int32_t JobOriginatingUserName::hashCode() {
-	 return this->$TextSyntax::hashCode();
+	return this->$TextSyntax::hashCode();
 }
 
 $String* JobOriginatingUserName::toString() {
-	 return this->$TextSyntax::toString();
+	return this->$TextSyntax::toString();
 }
 
 $Object* JobOriginatingUserName::clone() {
-	 return this->$TextSyntax::clone();
+	return this->$TextSyntax::clone();
 }
 
 void JobOriginatingUserName::finalize() {

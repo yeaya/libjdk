@@ -73,7 +73,7 @@ public:
 		$set(this, controlState, controlState);
 	}
 	virtual $Object* apply(Object$* rvWidth, Object$* rvHeight) override {
-		 return AquaPainter$AquaSingleImagePainter::lambda$paintFromSingleCachedImage$0(imgX, imgY, bounds, control, controlState, $cast($Integer, rvWidth), $cast($Integer, rvHeight));
+		return AquaPainter$AquaSingleImagePainter::lambda$paintFromSingleCachedImage$0(imgX, imgY, bounds, control, controlState, $cast($Integer, rvWidth), $cast($Integer, rvHeight));
 	}
 	int32_t imgX = 0;
 	int32_t imgY = 0;

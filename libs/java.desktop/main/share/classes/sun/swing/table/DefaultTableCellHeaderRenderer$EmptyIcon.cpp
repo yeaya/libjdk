@@ -19,19 +19,19 @@ namespace sun {
 		namespace table {
 
 int32_t DefaultTableCellHeaderRenderer$EmptyIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool DefaultTableCellHeaderRenderer$EmptyIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* DefaultTableCellHeaderRenderer$EmptyIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* DefaultTableCellHeaderRenderer$EmptyIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void DefaultTableCellHeaderRenderer$EmptyIcon::finalize() {

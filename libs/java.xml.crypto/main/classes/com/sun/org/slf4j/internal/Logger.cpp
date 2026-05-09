@@ -51,7 +51,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return Logger::lambda$static$0();
+		return Logger::lambda$static$0();
 	}
 };
 $Class* Logger$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -81,7 +81,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* f) override {
-		 return Logger::lambda$log0$1($cast($Stream, f));
+		return Logger::lambda$log0$1($cast($Stream, f));
 	}
 };
 $Class* Logger$$Lambda$lambda$log0$1$1::load$($String* name, bool initialize) {

@@ -29,19 +29,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicTreeUI$ComponentHandler::hashCode() {
-	 return this->$ComponentAdapter::hashCode();
+	return this->$ComponentAdapter::hashCode();
 }
 
 bool BasicTreeUI$ComponentHandler::equals(Object$* arg0) {
-	 return this->$ComponentAdapter::equals(arg0);
+	return this->$ComponentAdapter::equals(arg0);
 }
 
 $Object* BasicTreeUI$ComponentHandler::clone() {
-	 return this->$ComponentAdapter::clone();
+	return this->$ComponentAdapter::clone();
 }
 
 $String* BasicTreeUI$ComponentHandler::toString() {
-	 return this->$ComponentAdapter::toString();
+	return this->$ComponentAdapter::toString();
 }
 
 void BasicTreeUI$ComponentHandler::finalize() {

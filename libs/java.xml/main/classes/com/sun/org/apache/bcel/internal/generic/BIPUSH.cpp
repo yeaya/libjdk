@@ -37,23 +37,23 @@ namespace com {
 						namespace generic {
 
 $String* BIPUSH::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t BIPUSH::produceStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::produceStack(cpg);
+	return this->$Instruction::produceStack(cpg);
 }
 
 bool BIPUSH::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t BIPUSH::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* BIPUSH::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void BIPUSH::finalize() {

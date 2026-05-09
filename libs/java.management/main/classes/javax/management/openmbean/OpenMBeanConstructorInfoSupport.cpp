@@ -27,19 +27,19 @@ namespace javax {
 		namespace openmbean {
 
 $Object* OpenMBeanConstructorInfoSupport::clone() {
-	 return this->$MBeanConstructorInfo::clone();
+	return this->$MBeanConstructorInfo::clone();
 }
 
 $MBeanParameterInfoArray* OpenMBeanConstructorInfoSupport::getSignature() {
-	 return this->$MBeanConstructorInfo::getSignature();
+	return this->$MBeanConstructorInfo::getSignature();
 }
 
 $String* OpenMBeanConstructorInfoSupport::getName() {
-	 return this->$MBeanConstructorInfo::getName();
+	return this->$MBeanConstructorInfo::getName();
 }
 
 $String* OpenMBeanConstructorInfoSupport::getDescription() {
-	 return this->$MBeanConstructorInfo::getDescription();
+	return this->$MBeanConstructorInfo::getDescription();
 }
 
 void OpenMBeanConstructorInfoSupport::finalize() {

@@ -29,19 +29,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicTextUI$DragListener::hashCode() {
-	 return this->$MouseInputAdapter::hashCode();
+	return this->$MouseInputAdapter::hashCode();
 }
 
 bool BasicTextUI$DragListener::equals(Object$* arg0) {
-	 return this->$MouseInputAdapter::equals(arg0);
+	return this->$MouseInputAdapter::equals(arg0);
 }
 
 $Object* BasicTextUI$DragListener::clone() {
-	 return this->$MouseInputAdapter::clone();
+	return this->$MouseInputAdapter::clone();
 }
 
 $String* BasicTextUI$DragListener::toString() {
-	 return this->$MouseInputAdapter::toString();
+	return this->$MouseInputAdapter::toString();
 }
 
 void BasicTextUI$DragListener::finalize() {

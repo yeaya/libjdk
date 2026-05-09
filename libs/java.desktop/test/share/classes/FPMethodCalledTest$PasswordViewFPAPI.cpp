@@ -14,19 +14,19 @@ using $Element = ::javax::swing::text::Element;
 using $PasswordView = ::javax::swing::text::PasswordView;
 
 int32_t FPMethodCalledTest$PasswordViewFPAPI::hashCode() {
-	 return this->$PasswordView::hashCode();
+	return this->$PasswordView::hashCode();
 }
 
 bool FPMethodCalledTest$PasswordViewFPAPI::equals(Object$* arg0) {
-	 return this->$PasswordView::equals(arg0);
+	return this->$PasswordView::equals(arg0);
 }
 
 $Object* FPMethodCalledTest$PasswordViewFPAPI::clone() {
-	 return this->$PasswordView::clone();
+	return this->$PasswordView::clone();
 }
 
 $String* FPMethodCalledTest$PasswordViewFPAPI::toString() {
-	 return this->$PasswordView::toString();
+	return this->$PasswordView::toString();
 }
 
 void FPMethodCalledTest$PasswordViewFPAPI::finalize() {

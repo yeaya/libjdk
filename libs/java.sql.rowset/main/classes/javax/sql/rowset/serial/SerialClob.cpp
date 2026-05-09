@@ -51,7 +51,7 @@ namespace javax {
 			namespace serial {
 
 $String* SerialClob::toString() {
-	 return this->$Clob::toString();
+	return this->$Clob::toString();
 }
 
 void SerialClob::finalize() {

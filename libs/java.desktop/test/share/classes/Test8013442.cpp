@@ -31,19 +31,19 @@ using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $FileFilter = ::javax::swing::filechooser::FileFilter;
 
 int32_t Test8013442::hashCode() {
-	 return this->$FileFilter::hashCode();
+	return this->$FileFilter::hashCode();
 }
 
 bool Test8013442::equals(Object$* arg0) {
-	 return this->$FileFilter::equals(arg0);
+	return this->$FileFilter::equals(arg0);
 }
 
 $Object* Test8013442::clone() {
-	 return this->$FileFilter::clone();
+	return this->$FileFilter::clone();
 }
 
 $String* Test8013442::toString() {
-	 return this->$FileFilter::toString();
+	return this->$FileFilter::toString();
 }
 
 void Test8013442::finalize() {

@@ -52,19 +52,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaMenuItemUI::hashCode() {
-	 return this->$BasicMenuItemUI::hashCode();
+	return this->$BasicMenuItemUI::hashCode();
 }
 
 bool AquaMenuItemUI::equals(Object$* arg0) {
-	 return this->$BasicMenuItemUI::equals(arg0);
+	return this->$BasicMenuItemUI::equals(arg0);
 }
 
 $Object* AquaMenuItemUI::clone() {
-	 return this->$BasicMenuItemUI::clone();
+	return this->$BasicMenuItemUI::clone();
 }
 
 $String* AquaMenuItemUI::toString() {
-	 return this->$BasicMenuItemUI::toString();
+	return this->$BasicMenuItemUI::toString();
 }
 
 void AquaMenuItemUI::finalize() {

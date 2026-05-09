@@ -30,19 +30,19 @@ void CAccessible::finalize() {
 }
 
 int32_t CAccessible::hashCode() {
-	 return this->$CFRetainedResource::hashCode();
+	return this->$CFRetainedResource::hashCode();
 }
 
 bool CAccessible::equals(Object$* arg0) {
-	 return this->$CFRetainedResource::equals(arg0);
+	return this->$CFRetainedResource::equals(arg0);
 }
 
 $Object* CAccessible::clone() {
-	 return this->$CFRetainedResource::clone();
+	return this->$CFRetainedResource::clone();
 }
 
 $String* CAccessible::toString() {
-	 return this->$CFRetainedResource::toString();
+	return this->$CFRetainedResource::toString();
 }
 
 CAccessible* CAccessible::getCAccessible($Accessible* a) {

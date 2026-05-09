@@ -58,19 +58,19 @@ namespace javax {
 	namespace swing {
 
 int32_t TransferHandler$TransferAction::hashCode() {
-	 return this->$UIAction::hashCode();
+	return this->$UIAction::hashCode();
 }
 
 bool TransferHandler$TransferAction::equals(Object$* arg0) {
-	 return this->$UIAction::equals(arg0);
+	return this->$UIAction::equals(arg0);
 }
 
 $Object* TransferHandler$TransferAction::clone() {
-	 return this->$UIAction::clone();
+	return this->$UIAction::clone();
 }
 
 $String* TransferHandler$TransferAction::toString() {
-	 return this->$UIAction::toString();
+	return this->$UIAction::toString();
 }
 
 void TransferHandler$TransferAction::finalize() {

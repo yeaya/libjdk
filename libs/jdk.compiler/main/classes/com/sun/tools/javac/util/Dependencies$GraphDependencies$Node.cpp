@@ -45,7 +45,7 @@ void Dependencies$GraphDependencies$Node::accept($GraphUtils$NodeVisitor* visito
 }
 
 $Object* Dependencies$GraphDependencies$Node::clone() {
-	 return this->$GraphUtils$AbstractNode::clone();
+	return this->$GraphUtils$AbstractNode::clone();
 }
 
 void Dependencies$GraphDependencies$Node::finalize() {

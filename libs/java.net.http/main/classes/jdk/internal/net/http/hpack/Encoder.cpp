@@ -77,7 +77,7 @@ public:
 		this->maxCapacity = maxCapacity;
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$new$0(maxCapacity));
+		return $of(Encoder::lambda$new$0(maxCapacity));
 	}
 	int32_t maxCapacity = 0;
 };
@@ -113,7 +113,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$new$1());
+		return $of($nc(inst$)->lambda$new$1());
 	}
 	Encoder* inst$ = nullptr;
 };
@@ -151,7 +151,7 @@ public:
 		this->sensitive = sensitive;
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$header$2(name, value, sensitive));
+		return $of(Encoder::lambda$header$2(name, value, sensitive));
 	}
 	$CharSequence* name = nullptr;
 	$CharSequence* value = nullptr;
@@ -191,7 +191,7 @@ public:
 		this->capacity = capacity;
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$setMaxCapacity$3(capacity));
+		return $of(Encoder::lambda$setMaxCapacity$3(capacity));
 	}
 	int32_t capacity = 0;
 };
@@ -227,7 +227,7 @@ public:
 		this->calculated = calculated;
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$setMaxCapacity0$4(calculated));
+		return $of(Encoder::lambda$setMaxCapacity0$4(calculated));
 	}
 	int32_t calculated = 0;
 };
@@ -263,7 +263,7 @@ public:
 		$set(this, headerBlock, headerBlock);
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$encode$5(headerBlock));
+		return $of(Encoder::lambda$encode$5(headerBlock));
 	}
 	$ByteBuffer* headerBlock = nullptr;
 };
@@ -299,7 +299,7 @@ public:
 		this->index = index;
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$indexed$6(index));
+		return $of(Encoder::lambda$indexed$6(index));
 	}
 	int32_t index = 0;
 };
@@ -337,7 +337,7 @@ public:
 		this->useHuffman = useHuffman;
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$literal$7(index, value, useHuffman));
+		return $of(Encoder::lambda$literal$7(index, value, useHuffman));
 	}
 	int32_t index = 0;
 	$CharSequence* value = nullptr;
@@ -380,7 +380,7 @@ public:
 		this->valueHuffman = valueHuffman;
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$literal$8(name, nameHuffman, value, valueHuffman));
+		return $of(Encoder::lambda$literal$8(name, nameHuffman, value, valueHuffman));
 	}
 	$CharSequence* name = nullptr;
 	bool nameHuffman = false;
@@ -424,7 +424,7 @@ public:
 		this->valueHuffman = valueHuffman;
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$literalNeverIndexed$9(index, value, valueHuffman));
+		return $of(Encoder::lambda$literalNeverIndexed$9(index, value, valueHuffman));
 	}
 	int32_t index = 0;
 	$CharSequence* value = nullptr;
@@ -467,7 +467,7 @@ public:
 		this->valueHuffman = valueHuffman;
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$literalNeverIndexed$10(name, nameHuffman, value, valueHuffman));
+		return $of(Encoder::lambda$literalNeverIndexed$10(name, nameHuffman, value, valueHuffman));
 	}
 	$CharSequence* name = nullptr;
 	bool nameHuffman = false;
@@ -511,7 +511,7 @@ public:
 		this->valueHuffman = valueHuffman;
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$literalWithIndexing$11(index, value, valueHuffman));
+		return $of(Encoder::lambda$literalWithIndexing$11(index, value, valueHuffman));
 	}
 	int32_t index = 0;
 	$CharSequence* value = nullptr;
@@ -554,7 +554,7 @@ public:
 		this->valueHuffman = valueHuffman;
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$literalWithIndexing$12(name, nameHuffman, value, valueHuffman));
+		return $of(Encoder::lambda$literalWithIndexing$12(name, nameHuffman, value, valueHuffman));
 	}
 	$CharSequence* name = nullptr;
 	bool nameHuffman = false;
@@ -596,7 +596,7 @@ public:
 		this->capacity = capacity;
 	}
 	virtual $Object* get() override {
-		 return $of(Encoder::lambda$sizeUpdate$13(capacity));
+		return $of(Encoder::lambda$sizeUpdate$13(capacity));
 	}
 	int32_t capacity = 0;
 };

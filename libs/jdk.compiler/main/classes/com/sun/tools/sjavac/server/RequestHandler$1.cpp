@@ -43,7 +43,7 @@ public:
 		$set(this, msgLevel, msgLevel);
 	}
 	virtual $Object* apply(Object$* line) override {
-		 return $of(RequestHandler$1::lambda$printLogMsg$0(msgLevel, $cast($String, line)));
+		return $of(RequestHandler$1::lambda$printLogMsg$0(msgLevel, $cast($String, line)));
 	}
 	$Log$Level* msgLevel = nullptr;
 };

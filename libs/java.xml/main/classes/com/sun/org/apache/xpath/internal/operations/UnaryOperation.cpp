@@ -28,19 +28,19 @@ namespace com {
 						namespace operations {
 
 int32_t UnaryOperation::hashCode() {
-	 return this->$Expression::hashCode();
+	return this->$Expression::hashCode();
 }
 
 bool UnaryOperation::equals(Object$* arg0) {
-	 return this->$Expression::equals(arg0);
+	return this->$Expression::equals(arg0);
 }
 
 $Object* UnaryOperation::clone() {
-	 return this->$Expression::clone();
+	return this->$Expression::clone();
 }
 
 $String* UnaryOperation::toString() {
-	 return this->$Expression::toString();
+	return this->$Expression::toString();
 }
 
 void UnaryOperation::finalize() {

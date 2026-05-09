@@ -51,19 +51,19 @@ namespace com {
 						namespace dom {
 
 $String* PSVIAttrNSImpl::toString() {
-	 return this->$AttrNSImpl::toString();
+	return this->$AttrNSImpl::toString();
 }
 
 int32_t PSVIAttrNSImpl::hashCode() {
-	 return this->$AttrNSImpl::hashCode();
+	return this->$AttrNSImpl::hashCode();
 }
 
 bool PSVIAttrNSImpl::equals(Object$* arg0) {
-	 return this->$AttrNSImpl::equals(arg0);
+	return this->$AttrNSImpl::equals(arg0);
 }
 
 $Object* PSVIAttrNSImpl::clone() {
-	 return this->$AttrNSImpl::clone();
+	return this->$AttrNSImpl::clone();
 }
 
 void PSVIAttrNSImpl::finalize() {

@@ -17,19 +17,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCExpression::toString() {
-	 return this->$JCTree$JCCaseLabel::toString();
+	return this->$JCTree$JCCaseLabel::toString();
 }
 
 $Object* JCTree$JCExpression::clone() {
-	 return this->$JCTree$JCCaseLabel::clone();
+	return this->$JCTree$JCCaseLabel::clone();
 }
 
 int32_t JCTree$JCExpression::hashCode() {
-	 return this->$JCTree$JCCaseLabel::hashCode();
+	return this->$JCTree$JCCaseLabel::hashCode();
 }
 
 bool JCTree$JCExpression::equals(Object$* arg0) {
-	 return this->$JCTree$JCCaseLabel::equals(arg0);
+	return this->$JCTree$JCCaseLabel::equals(arg0);
 }
 
 void JCTree$JCExpression::finalize() {

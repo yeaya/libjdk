@@ -18,19 +18,19 @@ namespace javax {
 		namespace plaf {
 
 int32_t BorderUIResource$BevelBorderUIResource::hashCode() {
-	 return this->$BevelBorder::hashCode();
+	return this->$BevelBorder::hashCode();
 }
 
 bool BorderUIResource$BevelBorderUIResource::equals(Object$* arg0) {
-	 return this->$BevelBorder::equals(arg0);
+	return this->$BevelBorder::equals(arg0);
 }
 
 $Object* BorderUIResource$BevelBorderUIResource::clone() {
-	 return this->$BevelBorder::clone();
+	return this->$BevelBorder::clone();
 }
 
 $String* BorderUIResource$BevelBorderUIResource::toString() {
-	 return this->$BevelBorder::toString();
+	return this->$BevelBorder::toString();
 }
 
 void BorderUIResource$BevelBorderUIResource::finalize() {

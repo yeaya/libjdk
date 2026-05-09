@@ -168,39 +168,39 @@ void FilteredRowSetImpl::undoUpdate() {
 }
 
 $RowSet* FilteredRowSetImpl::createShared() {
-	 return this->$WebRowSetImpl::createShared();
+	return this->$WebRowSetImpl::createShared();
 }
 
 $Object* FilteredRowSetImpl::clone() {
-	 return this->$WebRowSetImpl::clone();
+	return this->$WebRowSetImpl::clone();
 }
 
 $CachedRowSet* FilteredRowSetImpl::createCopy() {
-	 return this->$WebRowSetImpl::createCopy();
+	return this->$WebRowSetImpl::createCopy();
 }
 
 $CachedRowSet* FilteredRowSetImpl::createCopySchema() {
-	 return this->$WebRowSetImpl::createCopySchema();
+	return this->$WebRowSetImpl::createCopySchema();
 }
 
 $CachedRowSet* FilteredRowSetImpl::createCopyNoConstraints() {
-	 return this->$WebRowSetImpl::createCopyNoConstraints();
+	return this->$WebRowSetImpl::createCopyNoConstraints();
 }
 
 $Collection* FilteredRowSetImpl::toCollection() {
-	 return this->$WebRowSetImpl::toCollection();
+	return this->$WebRowSetImpl::toCollection();
 }
 
 $Collection* FilteredRowSetImpl::toCollection(int32_t column) {
-	 return this->$WebRowSetImpl::toCollection(column);
+	return this->$WebRowSetImpl::toCollection(column);
 }
 
 $Collection* FilteredRowSetImpl::toCollection($String* column) {
-	 return this->$WebRowSetImpl::toCollection(column);
+	return this->$WebRowSetImpl::toCollection(column);
 }
 
 $SyncProvider* FilteredRowSetImpl::getSyncProvider() {
-	 return this->$WebRowSetImpl::getSyncProvider();
+	return this->$WebRowSetImpl::getSyncProvider();
 }
 
 void FilteredRowSetImpl::setSyncProvider($String* providerStr) {
@@ -212,7 +212,7 @@ void FilteredRowSetImpl::execute() {
 }
 
 bool FilteredRowSetImpl::next() {
-	 return this->$WebRowSetImpl::next();
+	return this->$WebRowSetImpl::next();
 }
 
 void FilteredRowSetImpl::close() {
@@ -220,139 +220,139 @@ void FilteredRowSetImpl::close() {
 }
 
 bool FilteredRowSetImpl::wasNull() {
-	 return this->$WebRowSetImpl::wasNull();
+	return this->$WebRowSetImpl::wasNull();
 }
 
 $String* FilteredRowSetImpl::getString(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getString(columnIndex);
+	return this->$WebRowSetImpl::getString(columnIndex);
 }
 
 bool FilteredRowSetImpl::getBoolean(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getBoolean(columnIndex);
+	return this->$WebRowSetImpl::getBoolean(columnIndex);
 }
 
 int8_t FilteredRowSetImpl::getByte(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getByte(columnIndex);
+	return this->$WebRowSetImpl::getByte(columnIndex);
 }
 
 int16_t FilteredRowSetImpl::getShort(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getShort(columnIndex);
+	return this->$WebRowSetImpl::getShort(columnIndex);
 }
 
 int32_t FilteredRowSetImpl::getInt(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getInt(columnIndex);
+	return this->$WebRowSetImpl::getInt(columnIndex);
 }
 
 int64_t FilteredRowSetImpl::getLong(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getLong(columnIndex);
+	return this->$WebRowSetImpl::getLong(columnIndex);
 }
 
 float FilteredRowSetImpl::getFloat(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getFloat(columnIndex);
+	return this->$WebRowSetImpl::getFloat(columnIndex);
 }
 
 double FilteredRowSetImpl::getDouble(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getDouble(columnIndex);
+	return this->$WebRowSetImpl::getDouble(columnIndex);
 }
 
 $BigDecimal* FilteredRowSetImpl::getBigDecimal(int32_t columnIndex, int32_t scale) {
-	 return this->$WebRowSetImpl::getBigDecimal(columnIndex, scale);
+	return this->$WebRowSetImpl::getBigDecimal(columnIndex, scale);
 }
 
 $bytes* FilteredRowSetImpl::getBytes(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getBytes(columnIndex);
+	return this->$WebRowSetImpl::getBytes(columnIndex);
 }
 
 $Date* FilteredRowSetImpl::getDate(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getDate(columnIndex);
+	return this->$WebRowSetImpl::getDate(columnIndex);
 }
 
 $Time* FilteredRowSetImpl::getTime(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getTime(columnIndex);
+	return this->$WebRowSetImpl::getTime(columnIndex);
 }
 
 $Timestamp* FilteredRowSetImpl::getTimestamp(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getTimestamp(columnIndex);
+	return this->$WebRowSetImpl::getTimestamp(columnIndex);
 }
 
 $InputStream* FilteredRowSetImpl::getAsciiStream(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getAsciiStream(columnIndex);
+	return this->$WebRowSetImpl::getAsciiStream(columnIndex);
 }
 
 $InputStream* FilteredRowSetImpl::getUnicodeStream(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getUnicodeStream(columnIndex);
+	return this->$WebRowSetImpl::getUnicodeStream(columnIndex);
 }
 
 $InputStream* FilteredRowSetImpl::getBinaryStream(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getBinaryStream(columnIndex);
+	return this->$WebRowSetImpl::getBinaryStream(columnIndex);
 }
 
 $String* FilteredRowSetImpl::getString($String* columnName) {
-	 return this->$WebRowSetImpl::getString(columnName);
+	return this->$WebRowSetImpl::getString(columnName);
 }
 
 bool FilteredRowSetImpl::getBoolean($String* columnName) {
-	 return this->$WebRowSetImpl::getBoolean(columnName);
+	return this->$WebRowSetImpl::getBoolean(columnName);
 }
 
 int8_t FilteredRowSetImpl::getByte($String* columnName) {
-	 return this->$WebRowSetImpl::getByte(columnName);
+	return this->$WebRowSetImpl::getByte(columnName);
 }
 
 int16_t FilteredRowSetImpl::getShort($String* columnName) {
-	 return this->$WebRowSetImpl::getShort(columnName);
+	return this->$WebRowSetImpl::getShort(columnName);
 }
 
 int32_t FilteredRowSetImpl::getInt($String* columnName) {
-	 return this->$WebRowSetImpl::getInt(columnName);
+	return this->$WebRowSetImpl::getInt(columnName);
 }
 
 int64_t FilteredRowSetImpl::getLong($String* columnName) {
-	 return this->$WebRowSetImpl::getLong(columnName);
+	return this->$WebRowSetImpl::getLong(columnName);
 }
 
 float FilteredRowSetImpl::getFloat($String* columnName) {
-	 return this->$WebRowSetImpl::getFloat(columnName);
+	return this->$WebRowSetImpl::getFloat(columnName);
 }
 
 double FilteredRowSetImpl::getDouble($String* columnName) {
-	 return this->$WebRowSetImpl::getDouble(columnName);
+	return this->$WebRowSetImpl::getDouble(columnName);
 }
 
 $BigDecimal* FilteredRowSetImpl::getBigDecimal($String* columnName, int32_t scale) {
-	 return this->$WebRowSetImpl::getBigDecimal(columnName, scale);
+	return this->$WebRowSetImpl::getBigDecimal(columnName, scale);
 }
 
 $bytes* FilteredRowSetImpl::getBytes($String* columnName) {
-	 return this->$WebRowSetImpl::getBytes(columnName);
+	return this->$WebRowSetImpl::getBytes(columnName);
 }
 
 $Date* FilteredRowSetImpl::getDate($String* columnName) {
-	 return this->$WebRowSetImpl::getDate(columnName);
+	return this->$WebRowSetImpl::getDate(columnName);
 }
 
 $Time* FilteredRowSetImpl::getTime($String* columnName) {
-	 return this->$WebRowSetImpl::getTime(columnName);
+	return this->$WebRowSetImpl::getTime(columnName);
 }
 
 $Timestamp* FilteredRowSetImpl::getTimestamp($String* columnName) {
-	 return this->$WebRowSetImpl::getTimestamp(columnName);
+	return this->$WebRowSetImpl::getTimestamp(columnName);
 }
 
 $InputStream* FilteredRowSetImpl::getAsciiStream($String* columnName) {
-	 return this->$WebRowSetImpl::getAsciiStream(columnName);
+	return this->$WebRowSetImpl::getAsciiStream(columnName);
 }
 
 $InputStream* FilteredRowSetImpl::getUnicodeStream($String* columnName) {
-	 return this->$WebRowSetImpl::getUnicodeStream(columnName);
+	return this->$WebRowSetImpl::getUnicodeStream(columnName);
 }
 
 $InputStream* FilteredRowSetImpl::getBinaryStream($String* columnName) {
-	 return this->$WebRowSetImpl::getBinaryStream(columnName);
+	return this->$WebRowSetImpl::getBinaryStream(columnName);
 }
 
 $SQLWarning* FilteredRowSetImpl::getWarnings() {
-	 return this->$WebRowSetImpl::getWarnings();
+	return this->$WebRowSetImpl::getWarnings();
 }
 
 void FilteredRowSetImpl::clearWarnings() {
@@ -360,59 +360,59 @@ void FilteredRowSetImpl::clearWarnings() {
 }
 
 $String* FilteredRowSetImpl::getCursorName() {
-	 return this->$WebRowSetImpl::getCursorName();
+	return this->$WebRowSetImpl::getCursorName();
 }
 
 $ResultSetMetaData* FilteredRowSetImpl::getMetaData() {
-	 return this->$WebRowSetImpl::getMetaData();
+	return this->$WebRowSetImpl::getMetaData();
 }
 
 $Object* FilteredRowSetImpl::getObject(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getObject(columnIndex);
+	return this->$WebRowSetImpl::getObject(columnIndex);
 }
 
 $Object* FilteredRowSetImpl::getObject($String* columnName) {
-	 return this->$WebRowSetImpl::getObject(columnName);
+	return this->$WebRowSetImpl::getObject(columnName);
 }
 
 int32_t FilteredRowSetImpl::findColumn($String* columnName) {
-	 return this->$WebRowSetImpl::findColumn(columnName);
+	return this->$WebRowSetImpl::findColumn(columnName);
 }
 
 $Reader* FilteredRowSetImpl::getCharacterStream(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getCharacterStream(columnIndex);
+	return this->$WebRowSetImpl::getCharacterStream(columnIndex);
 }
 
 $Reader* FilteredRowSetImpl::getCharacterStream($String* columnName) {
-	 return this->$WebRowSetImpl::getCharacterStream(columnName);
+	return this->$WebRowSetImpl::getCharacterStream(columnName);
 }
 
 $BigDecimal* FilteredRowSetImpl::getBigDecimal(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getBigDecimal(columnIndex);
+	return this->$WebRowSetImpl::getBigDecimal(columnIndex);
 }
 
 $BigDecimal* FilteredRowSetImpl::getBigDecimal($String* columnName) {
-	 return this->$WebRowSetImpl::getBigDecimal(columnName);
+	return this->$WebRowSetImpl::getBigDecimal(columnName);
 }
 
 int32_t FilteredRowSetImpl::size() {
-	 return this->$WebRowSetImpl::size();
+	return this->$WebRowSetImpl::size();
 }
 
 bool FilteredRowSetImpl::isBeforeFirst() {
-	 return this->$WebRowSetImpl::isBeforeFirst();
+	return this->$WebRowSetImpl::isBeforeFirst();
 }
 
 bool FilteredRowSetImpl::isAfterLast() {
-	 return this->$WebRowSetImpl::isAfterLast();
+	return this->$WebRowSetImpl::isAfterLast();
 }
 
 bool FilteredRowSetImpl::isFirst() {
-	 return this->$WebRowSetImpl::isFirst();
+	return this->$WebRowSetImpl::isFirst();
 }
 
 bool FilteredRowSetImpl::isLast() {
-	 return this->$WebRowSetImpl::isLast();
+	return this->$WebRowSetImpl::isLast();
 }
 
 void FilteredRowSetImpl::beforeFirst() {
@@ -424,39 +424,39 @@ void FilteredRowSetImpl::afterLast() {
 }
 
 bool FilteredRowSetImpl::first() {
-	 return this->$WebRowSetImpl::first();
+	return this->$WebRowSetImpl::first();
 }
 
 bool FilteredRowSetImpl::last() {
-	 return this->$WebRowSetImpl::last();
+	return this->$WebRowSetImpl::last();
 }
 
 int32_t FilteredRowSetImpl::getRow() {
-	 return this->$WebRowSetImpl::getRow();
+	return this->$WebRowSetImpl::getRow();
 }
 
 bool FilteredRowSetImpl::previous() {
-	 return this->$WebRowSetImpl::previous();
+	return this->$WebRowSetImpl::previous();
 }
 
 bool FilteredRowSetImpl::rowUpdated() {
-	 return this->$WebRowSetImpl::rowUpdated();
+	return this->$WebRowSetImpl::rowUpdated();
 }
 
 bool FilteredRowSetImpl::columnUpdated(int32_t idx) {
-	 return this->$WebRowSetImpl::columnUpdated(idx);
+	return this->$WebRowSetImpl::columnUpdated(idx);
 }
 
 bool FilteredRowSetImpl::columnUpdated($String* columnName) {
-	 return this->$WebRowSetImpl::columnUpdated(columnName);
+	return this->$WebRowSetImpl::columnUpdated(columnName);
 }
 
 bool FilteredRowSetImpl::rowInserted() {
-	 return this->$WebRowSetImpl::rowInserted();
+	return this->$WebRowSetImpl::rowInserted();
 }
 
 bool FilteredRowSetImpl::rowDeleted() {
-	 return this->$WebRowSetImpl::rowDeleted();
+	return this->$WebRowSetImpl::rowDeleted();
 }
 
 void FilteredRowSetImpl::updateNull(int32_t columnIndex) {
@@ -488,71 +488,71 @@ void FilteredRowSetImpl::moveToCurrentRow() {
 }
 
 $Statement* FilteredRowSetImpl::getStatement() {
-	 return this->$WebRowSetImpl::getStatement();
+	return this->$WebRowSetImpl::getStatement();
 }
 
 $Object* FilteredRowSetImpl::getObject(int32_t columnIndex, $Map* map) {
-	 return this->$WebRowSetImpl::getObject(columnIndex, map);
+	return this->$WebRowSetImpl::getObject(columnIndex, map);
 }
 
 $Ref* FilteredRowSetImpl::getRef(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getRef(columnIndex);
+	return this->$WebRowSetImpl::getRef(columnIndex);
 }
 
 $Blob* FilteredRowSetImpl::getBlob(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getBlob(columnIndex);
+	return this->$WebRowSetImpl::getBlob(columnIndex);
 }
 
 $Clob* FilteredRowSetImpl::getClob(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getClob(columnIndex);
+	return this->$WebRowSetImpl::getClob(columnIndex);
 }
 
 $1Array* FilteredRowSetImpl::getArray(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getArray(columnIndex);
+	return this->$WebRowSetImpl::getArray(columnIndex);
 }
 
 $Object* FilteredRowSetImpl::getObject($String* columnName, $Map* map) {
-	 return this->$WebRowSetImpl::getObject(columnName, map);
+	return this->$WebRowSetImpl::getObject(columnName, map);
 }
 
 $Ref* FilteredRowSetImpl::getRef($String* colName) {
-	 return this->$WebRowSetImpl::getRef(colName);
+	return this->$WebRowSetImpl::getRef(colName);
 }
 
 $Blob* FilteredRowSetImpl::getBlob($String* colName) {
-	 return this->$WebRowSetImpl::getBlob(colName);
+	return this->$WebRowSetImpl::getBlob(colName);
 }
 
 $Clob* FilteredRowSetImpl::getClob($String* colName) {
-	 return this->$WebRowSetImpl::getClob(colName);
+	return this->$WebRowSetImpl::getClob(colName);
 }
 
 $1Array* FilteredRowSetImpl::getArray($String* colName) {
-	 return this->$WebRowSetImpl::getArray(colName);
+	return this->$WebRowSetImpl::getArray(colName);
 }
 
 $Date* FilteredRowSetImpl::getDate(int32_t columnIndex, $Calendar* cal) {
-	 return this->$WebRowSetImpl::getDate(columnIndex, cal);
+	return this->$WebRowSetImpl::getDate(columnIndex, cal);
 }
 
 $Date* FilteredRowSetImpl::getDate($String* columnName, $Calendar* cal) {
-	 return this->$WebRowSetImpl::getDate(columnName, cal);
+	return this->$WebRowSetImpl::getDate(columnName, cal);
 }
 
 $Time* FilteredRowSetImpl::getTime(int32_t columnIndex, $Calendar* cal) {
-	 return this->$WebRowSetImpl::getTime(columnIndex, cal);
+	return this->$WebRowSetImpl::getTime(columnIndex, cal);
 }
 
 $Time* FilteredRowSetImpl::getTime($String* columnName, $Calendar* cal) {
-	 return this->$WebRowSetImpl::getTime(columnName, cal);
+	return this->$WebRowSetImpl::getTime(columnName, cal);
 }
 
 $Timestamp* FilteredRowSetImpl::getTimestamp(int32_t columnIndex, $Calendar* cal) {
-	 return this->$WebRowSetImpl::getTimestamp(columnIndex, cal);
+	return this->$WebRowSetImpl::getTimestamp(columnIndex, cal);
 }
 
 $Timestamp* FilteredRowSetImpl::getTimestamp($String* columnName, $Calendar* cal) {
-	 return this->$WebRowSetImpl::getTimestamp(columnName, cal);
+	return this->$WebRowSetImpl::getTimestamp(columnName, cal);
 }
 
 void FilteredRowSetImpl::setMetaData($RowSetMetaData* md) {
@@ -560,11 +560,11 @@ void FilteredRowSetImpl::setMetaData($RowSetMetaData* md) {
 }
 
 $ResultSet* FilteredRowSetImpl::getOriginal() {
-	 return this->$WebRowSetImpl::getOriginal();
+	return this->$WebRowSetImpl::getOriginal();
 }
 
 $ResultSet* FilteredRowSetImpl::getOriginalRow() {
-	 return this->$WebRowSetImpl::getOriginalRow();
+	return this->$WebRowSetImpl::getOriginalRow();
 }
 
 void FilteredRowSetImpl::setOriginalRow() {
@@ -572,7 +572,7 @@ void FilteredRowSetImpl::setOriginalRow() {
 }
 
 $String* FilteredRowSetImpl::getTableName() {
-	 return this->$WebRowSetImpl::getTableName();
+	return this->$WebRowSetImpl::getTableName();
 }
 
 void FilteredRowSetImpl::setTableName($String* tabName) {
@@ -580,7 +580,7 @@ void FilteredRowSetImpl::setTableName($String* tabName) {
 }
 
 $ints* FilteredRowSetImpl::getKeyColumns() {
-	 return this->$WebRowSetImpl::getKeyColumns();
+	return this->$WebRowSetImpl::getKeyColumns();
 }
 
 void FilteredRowSetImpl::setKeyColumns($ints* keys) {
@@ -620,15 +620,15 @@ void FilteredRowSetImpl::updateArray($String* columnName, $1Array* a) {
 }
 
 $URL* FilteredRowSetImpl::getURL(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getURL(columnIndex);
+	return this->$WebRowSetImpl::getURL(columnIndex);
 }
 
 $URL* FilteredRowSetImpl::getURL($String* columnName) {
-	 return this->$WebRowSetImpl::getURL(columnName);
+	return this->$WebRowSetImpl::getURL(columnName);
 }
 
 $RowSetWarning* FilteredRowSetImpl::getRowSetWarnings() {
-	 return this->$WebRowSetImpl::getRowSetWarnings();
+	return this->$WebRowSetImpl::getRowSetWarnings();
 }
 
 void FilteredRowSetImpl::commit() {
@@ -652,11 +652,11 @@ void FilteredRowSetImpl::unsetMatchColumn($StringArray* columnIdxes) {
 }
 
 $StringArray* FilteredRowSetImpl::getMatchColumnNames() {
-	 return this->$WebRowSetImpl::getMatchColumnNames();
+	return this->$WebRowSetImpl::getMatchColumnNames();
 }
 
 $ints* FilteredRowSetImpl::getMatchColumnIndexes() {
-	 return this->$WebRowSetImpl::getMatchColumnIndexes();
+	return this->$WebRowSetImpl::getMatchColumnIndexes();
 }
 
 void FilteredRowSetImpl::setMatchColumn($ints* columnIdxes) {
@@ -692,7 +692,7 @@ void FilteredRowSetImpl::populate($ResultSet* data, int32_t start) {
 }
 
 bool FilteredRowSetImpl::nextPage() {
-	 return this->$WebRowSetImpl::nextPage();
+	return this->$WebRowSetImpl::nextPage();
 }
 
 void FilteredRowSetImpl::setPageSize(int32_t size) {
@@ -700,27 +700,27 @@ void FilteredRowSetImpl::setPageSize(int32_t size) {
 }
 
 int32_t FilteredRowSetImpl::getPageSize() {
-	 return this->$WebRowSetImpl::getPageSize();
+	return this->$WebRowSetImpl::getPageSize();
 }
 
 bool FilteredRowSetImpl::previousPage() {
-	 return this->$WebRowSetImpl::previousPage();
+	return this->$WebRowSetImpl::previousPage();
 }
 
 $SQLXML* FilteredRowSetImpl::getSQLXML(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getSQLXML(columnIndex);
+	return this->$WebRowSetImpl::getSQLXML(columnIndex);
 }
 
 $SQLXML* FilteredRowSetImpl::getSQLXML($String* colName) {
-	 return this->$WebRowSetImpl::getSQLXML(colName);
+	return this->$WebRowSetImpl::getSQLXML(colName);
 }
 
 $RowId* FilteredRowSetImpl::getRowId(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getRowId(columnIndex);
+	return this->$WebRowSetImpl::getRowId(columnIndex);
 }
 
 $RowId* FilteredRowSetImpl::getRowId($String* columnName) {
-	 return this->$WebRowSetImpl::getRowId(columnName);
+	return this->$WebRowSetImpl::getRowId(columnName);
 }
 
 void FilteredRowSetImpl::updateRowId(int32_t columnIndex, $RowId* x) {
@@ -732,11 +732,11 @@ void FilteredRowSetImpl::updateRowId($String* columnName, $RowId* x) {
 }
 
 int32_t FilteredRowSetImpl::getHoldability() {
-	 return this->$WebRowSetImpl::getHoldability();
+	return this->$WebRowSetImpl::getHoldability();
 }
 
 bool FilteredRowSetImpl::isClosed() {
-	 return this->$WebRowSetImpl::isClosed();
+	return this->$WebRowSetImpl::isClosed();
 }
 
 void FilteredRowSetImpl::updateNString(int32_t columnIndex, $String* nString) {
@@ -756,19 +756,19 @@ void FilteredRowSetImpl::updateNClob($String* columnName, $NClob* nClob) {
 }
 
 $NClob* FilteredRowSetImpl::getNClob(int32_t i) {
-	 return this->$WebRowSetImpl::getNClob(i);
+	return this->$WebRowSetImpl::getNClob(i);
 }
 
 $NClob* FilteredRowSetImpl::getNClob($String* colName) {
-	 return this->$WebRowSetImpl::getNClob(colName);
+	return this->$WebRowSetImpl::getNClob(colName);
 }
 
 $Object* FilteredRowSetImpl::unwrap($Class* iface) {
-	 return this->$WebRowSetImpl::unwrap(iface);
+	return this->$WebRowSetImpl::unwrap(iface);
 }
 
 bool FilteredRowSetImpl::isWrapperFor($Class* interfaces) {
-	 return this->$WebRowSetImpl::isWrapperFor(interfaces);
+	return this->$WebRowSetImpl::isWrapperFor(interfaces);
 }
 
 void FilteredRowSetImpl::setSQLXML(int32_t parameterIndex, $SQLXML* xmlObject) {
@@ -796,11 +796,11 @@ void FilteredRowSetImpl::setNClob($String* parameterName, $NClob* value) {
 }
 
 $Reader* FilteredRowSetImpl::getNCharacterStream(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getNCharacterStream(columnIndex);
+	return this->$WebRowSetImpl::getNCharacterStream(columnIndex);
 }
 
 $Reader* FilteredRowSetImpl::getNCharacterStream($String* columnName) {
-	 return this->$WebRowSetImpl::getNCharacterStream(columnName);
+	return this->$WebRowSetImpl::getNCharacterStream(columnName);
 }
 
 void FilteredRowSetImpl::updateSQLXML(int32_t columnIndex, $SQLXML* xmlObject) {
@@ -812,11 +812,11 @@ void FilteredRowSetImpl::updateSQLXML($String* columnName, $SQLXML* xmlObject) {
 }
 
 $String* FilteredRowSetImpl::getNString(int32_t columnIndex) {
-	 return this->$WebRowSetImpl::getNString(columnIndex);
+	return this->$WebRowSetImpl::getNString(columnIndex);
 }
 
 $String* FilteredRowSetImpl::getNString($String* columnName) {
-	 return this->$WebRowSetImpl::getNString(columnName);
+	return this->$WebRowSetImpl::getNString(columnName);
 }
 
 void FilteredRowSetImpl::updateNCharacterStream(int32_t columnIndex, $Reader* x, int64_t length) {
@@ -1124,11 +1124,11 @@ void FilteredRowSetImpl::setDouble($String* parameterName, double x) {
 }
 
 $Object* FilteredRowSetImpl::getObject(int32_t columnIndex, $Class* type) {
-	 return this->$WebRowSetImpl::getObject(columnIndex, type);
+	return this->$WebRowSetImpl::getObject(columnIndex, type);
 }
 
 $Object* FilteredRowSetImpl::getObject($String* columnLabel, $Class* type) {
-	 return this->$WebRowSetImpl::getObject(columnLabel, type);
+	return this->$WebRowSetImpl::getObject(columnLabel, type);
 }
 
 void FilteredRowSetImpl::addRowSetListener($RowSetListener* listener) {
@@ -1140,11 +1140,11 @@ void FilteredRowSetImpl::removeRowSetListener($RowSetListener* listener) {
 }
 
 $String* FilteredRowSetImpl::getCommand() {
-	 return this->$WebRowSetImpl::getCommand();
+	return this->$WebRowSetImpl::getCommand();
 }
 
 $String* FilteredRowSetImpl::getUrl() {
-	 return this->$WebRowSetImpl::getUrl();
+	return this->$WebRowSetImpl::getUrl();
 }
 
 void FilteredRowSetImpl::setUrl($String* url) {
@@ -1152,7 +1152,7 @@ void FilteredRowSetImpl::setUrl($String* url) {
 }
 
 $String* FilteredRowSetImpl::getDataSourceName() {
-	 return this->$WebRowSetImpl::getDataSourceName();
+	return this->$WebRowSetImpl::getDataSourceName();
 }
 
 void FilteredRowSetImpl::setDataSourceName($String* name) {
@@ -1160,7 +1160,7 @@ void FilteredRowSetImpl::setDataSourceName($String* name) {
 }
 
 $String* FilteredRowSetImpl::getUsername() {
-	 return this->$WebRowSetImpl::getUsername();
+	return this->$WebRowSetImpl::getUsername();
 }
 
 void FilteredRowSetImpl::setUsername($String* name) {
@@ -1168,7 +1168,7 @@ void FilteredRowSetImpl::setUsername($String* name) {
 }
 
 $String* FilteredRowSetImpl::getPassword() {
-	 return this->$WebRowSetImpl::getPassword();
+	return this->$WebRowSetImpl::getPassword();
 }
 
 void FilteredRowSetImpl::setPassword($String* pass) {
@@ -1180,7 +1180,7 @@ void FilteredRowSetImpl::setType(int32_t type) {
 }
 
 int32_t FilteredRowSetImpl::getType() {
-	 return this->$WebRowSetImpl::getType();
+	return this->$WebRowSetImpl::getType();
 }
 
 void FilteredRowSetImpl::setConcurrency(int32_t concurrency) {
@@ -1188,7 +1188,7 @@ void FilteredRowSetImpl::setConcurrency(int32_t concurrency) {
 }
 
 bool FilteredRowSetImpl::isReadOnly() {
-	 return this->$WebRowSetImpl::isReadOnly();
+	return this->$WebRowSetImpl::isReadOnly();
 }
 
 void FilteredRowSetImpl::setReadOnly(bool value) {
@@ -1196,7 +1196,7 @@ void FilteredRowSetImpl::setReadOnly(bool value) {
 }
 
 int32_t FilteredRowSetImpl::getTransactionIsolation() {
-	 return this->$WebRowSetImpl::getTransactionIsolation();
+	return this->$WebRowSetImpl::getTransactionIsolation();
 }
 
 void FilteredRowSetImpl::setTransactionIsolation(int32_t level) {
@@ -1204,7 +1204,7 @@ void FilteredRowSetImpl::setTransactionIsolation(int32_t level) {
 }
 
 $Map* FilteredRowSetImpl::getTypeMap() {
-	 return this->$WebRowSetImpl::getTypeMap();
+	return this->$WebRowSetImpl::getTypeMap();
 }
 
 void FilteredRowSetImpl::setTypeMap($Map* map) {
@@ -1212,7 +1212,7 @@ void FilteredRowSetImpl::setTypeMap($Map* map) {
 }
 
 int32_t FilteredRowSetImpl::getMaxFieldSize() {
-	 return this->$WebRowSetImpl::getMaxFieldSize();
+	return this->$WebRowSetImpl::getMaxFieldSize();
 }
 
 void FilteredRowSetImpl::setMaxFieldSize(int32_t max) {
@@ -1220,7 +1220,7 @@ void FilteredRowSetImpl::setMaxFieldSize(int32_t max) {
 }
 
 int32_t FilteredRowSetImpl::getMaxRows() {
-	 return this->$WebRowSetImpl::getMaxRows();
+	return this->$WebRowSetImpl::getMaxRows();
 }
 
 void FilteredRowSetImpl::setMaxRows(int32_t max) {
@@ -1232,7 +1232,7 @@ void FilteredRowSetImpl::setEscapeProcessing(bool enable) {
 }
 
 int32_t FilteredRowSetImpl::getQueryTimeout() {
-	 return this->$WebRowSetImpl::getQueryTimeout();
+	return this->$WebRowSetImpl::getQueryTimeout();
 }
 
 void FilteredRowSetImpl::setQueryTimeout(int32_t seconds) {
@@ -1240,7 +1240,7 @@ void FilteredRowSetImpl::setQueryTimeout(int32_t seconds) {
 }
 
 bool FilteredRowSetImpl::getShowDeleted() {
-	 return this->$WebRowSetImpl::getShowDeleted();
+	return this->$WebRowSetImpl::getShowDeleted();
 }
 
 void FilteredRowSetImpl::setShowDeleted(bool value) {
@@ -1248,7 +1248,7 @@ void FilteredRowSetImpl::setShowDeleted(bool value) {
 }
 
 bool FilteredRowSetImpl::getEscapeProcessing() {
-	 return this->$WebRowSetImpl::getEscapeProcessing();
+	return this->$WebRowSetImpl::getEscapeProcessing();
 }
 
 void FilteredRowSetImpl::setFetchDirection(int32_t direction) {
@@ -1256,7 +1256,7 @@ void FilteredRowSetImpl::setFetchDirection(int32_t direction) {
 }
 
 int32_t FilteredRowSetImpl::getFetchDirection() {
-	 return this->$WebRowSetImpl::getFetchDirection();
+	return this->$WebRowSetImpl::getFetchDirection();
 }
 
 void FilteredRowSetImpl::setFetchSize(int32_t rows) {
@@ -1264,11 +1264,11 @@ void FilteredRowSetImpl::setFetchSize(int32_t rows) {
 }
 
 int32_t FilteredRowSetImpl::getFetchSize() {
-	 return this->$WebRowSetImpl::getFetchSize();
+	return this->$WebRowSetImpl::getFetchSize();
 }
 
 int32_t FilteredRowSetImpl::getConcurrency() {
-	 return this->$WebRowSetImpl::getConcurrency();
+	return this->$WebRowSetImpl::getConcurrency();
 }
 
 void FilteredRowSetImpl::setNull(int32_t parameterIndex, int32_t sqlType) {
@@ -1400,15 +1400,15 @@ void FilteredRowSetImpl::clearParameters() {
 }
 
 int32_t FilteredRowSetImpl::hashCode() {
-	 return this->$WebRowSetImpl::hashCode();
+	return this->$WebRowSetImpl::hashCode();
 }
 
 bool FilteredRowSetImpl::equals(Object$* arg0) {
-	 return this->$WebRowSetImpl::equals(arg0);
+	return this->$WebRowSetImpl::equals(arg0);
 }
 
 $String* FilteredRowSetImpl::toString() {
-	 return this->$WebRowSetImpl::toString();
+	return this->$WebRowSetImpl::toString();
 }
 
 void FilteredRowSetImpl::finalize() {

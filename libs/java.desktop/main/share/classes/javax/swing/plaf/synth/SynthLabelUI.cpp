@@ -57,19 +57,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthLabelUI::hashCode() {
-	 return this->$BasicLabelUI::hashCode();
+	return this->$BasicLabelUI::hashCode();
 }
 
 bool SynthLabelUI::equals(Object$* arg0) {
-	 return this->$BasicLabelUI::equals(arg0);
+	return this->$BasicLabelUI::equals(arg0);
 }
 
 $Object* SynthLabelUI::clone() {
-	 return this->$BasicLabelUI::clone();
+	return this->$BasicLabelUI::clone();
 }
 
 $String* SynthLabelUI::toString() {
-	 return this->$BasicLabelUI::toString();
+	return this->$BasicLabelUI::toString();
 }
 
 void SynthLabelUI::finalize() {

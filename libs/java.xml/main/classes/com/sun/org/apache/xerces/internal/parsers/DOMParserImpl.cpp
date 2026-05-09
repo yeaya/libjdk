@@ -177,19 +177,19 @@ namespace com {
 						namespace parsers {
 
 int32_t DOMParserImpl::hashCode() {
-	 return this->$AbstractDOMParser::hashCode();
+	return this->$AbstractDOMParser::hashCode();
 }
 
 bool DOMParserImpl::equals(Object$* arg0) {
-	 return this->$AbstractDOMParser::equals(arg0);
+	return this->$AbstractDOMParser::equals(arg0);
 }
 
 $Object* DOMParserImpl::clone() {
-	 return this->$AbstractDOMParser::clone();
+	return this->$AbstractDOMParser::clone();
 }
 
 $String* DOMParserImpl::toString() {
-	 return this->$AbstractDOMParser::toString();
+	return this->$AbstractDOMParser::toString();
 }
 
 void DOMParserImpl::finalize() {

@@ -90,19 +90,19 @@ namespace javax {
 			namespace html {
 
 int32_t FrameView::hashCode() {
-	 return this->$ComponentView::hashCode();
+	return this->$ComponentView::hashCode();
 }
 
 bool FrameView::equals(Object$* arg0) {
-	 return this->$ComponentView::equals(arg0);
+	return this->$ComponentView::equals(arg0);
 }
 
 $Object* FrameView::clone() {
-	 return this->$ComponentView::clone();
+	return this->$ComponentView::clone();
 }
 
 $String* FrameView::toString() {
-	 return this->$ComponentView::toString();
+	return this->$ComponentView::toString();
 }
 
 void FrameView::finalize() {

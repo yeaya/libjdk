@@ -25,23 +25,23 @@ namespace com {
 			namespace file {
 
 $String* SensitivityWatchEventModifier::name() {
-	 return this->$Enum::name();
+	return this->$Enum::name();
 }
 
 $String* SensitivityWatchEventModifier::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool SensitivityWatchEventModifier::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t SensitivityWatchEventModifier::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* SensitivityWatchEventModifier::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void SensitivityWatchEventModifier::finalize() {

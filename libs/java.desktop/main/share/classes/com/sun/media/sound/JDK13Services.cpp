@@ -71,7 +71,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return $of(JDK13Services::lambda$getDefaultProvider$0(name));
+		return $of(JDK13Services::lambda$getDefaultProvider$0(name));
 	}
 	$String* name = nullptr;
 };

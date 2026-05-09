@@ -45,19 +45,19 @@ namespace com {
 			namespace editors {
 
 $String* FontEditor::toString() {
-	 return this->$Panel::toString();
+	return this->$Panel::toString();
 }
 
 int32_t FontEditor::hashCode() {
-	 return this->$Panel::hashCode();
+	return this->$Panel::hashCode();
 }
 
 bool FontEditor::equals(Object$* arg0) {
-	 return this->$Panel::equals(arg0);
+	return this->$Panel::equals(arg0);
 }
 
 $Object* FontEditor::clone() {
-	 return this->$Panel::clone();
+	return this->$Panel::clone();
 }
 
 void FontEditor::finalize() {

@@ -59,15 +59,15 @@ namespace com {
 						namespace generic {
 
 int32_t PUSH::hashCode() {
-	 return this->$CompoundInstruction::hashCode();
+	return this->$CompoundInstruction::hashCode();
 }
 
 bool PUSH::equals(Object$* arg0) {
-	 return this->$CompoundInstruction::equals(arg0);
+	return this->$CompoundInstruction::equals(arg0);
 }
 
 $Object* PUSH::clone() {
-	 return this->$CompoundInstruction::clone();
+	return this->$CompoundInstruction::clone();
 }
 
 void PUSH::finalize() {

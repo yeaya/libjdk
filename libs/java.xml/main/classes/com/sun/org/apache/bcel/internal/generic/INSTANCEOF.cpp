@@ -35,31 +35,31 @@ namespace com {
 						namespace generic {
 
 $Type* INSTANCEOF::getType($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::getType(cpg);
+	return this->$CPInstruction::getType(cpg);
 }
 
 $String* INSTANCEOF::toString() {
-	 return this->$CPInstruction::toString();
+	return this->$CPInstruction::toString();
 }
 
 int32_t INSTANCEOF::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::consumeStack(cpg);
+	return this->$CPInstruction::consumeStack(cpg);
 }
 
 int32_t INSTANCEOF::produceStack($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::produceStack(cpg);
+	return this->$CPInstruction::produceStack(cpg);
 }
 
 bool INSTANCEOF::equals(Object$* that) {
-	 return this->$CPInstruction::equals(that);
+	return this->$CPInstruction::equals(that);
 }
 
 int32_t INSTANCEOF::hashCode() {
-	 return this->$CPInstruction::hashCode();
+	return this->$CPInstruction::hashCode();
 }
 
 $Object* INSTANCEOF::clone() {
-	 return this->$CPInstruction::clone();
+	return this->$CPInstruction::clone();
 }
 
 void INSTANCEOF::finalize() {

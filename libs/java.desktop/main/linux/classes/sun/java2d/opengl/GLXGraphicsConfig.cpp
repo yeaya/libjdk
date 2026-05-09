@@ -115,15 +115,15 @@ namespace sun {
 		namespace opengl {
 
 int32_t GLXGraphicsConfig::hashCode() {
-	 return this->$X11GraphicsConfig::hashCode();
+	return this->$X11GraphicsConfig::hashCode();
 }
 
 bool GLXGraphicsConfig::equals(Object$* arg0) {
-	 return this->$X11GraphicsConfig::equals(arg0);
+	return this->$X11GraphicsConfig::equals(arg0);
 }
 
 $Object* GLXGraphicsConfig::clone() {
-	 return this->$X11GraphicsConfig::clone();
+	return this->$X11GraphicsConfig::clone();
 }
 
 void GLXGraphicsConfig::finalize() {

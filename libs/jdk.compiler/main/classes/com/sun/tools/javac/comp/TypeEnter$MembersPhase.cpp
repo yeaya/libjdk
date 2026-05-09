@@ -134,7 +134,7 @@ public:
 		$set(this, defaultConstructor, defaultConstructor);
 	}
 	virtual bool test(Object$* t) override {
-		 return TypeEnter$MembersPhase::lambda$finishClass$0(defaultConstructor, $cast($JCTree, t));
+		return TypeEnter$MembersPhase::lambda$finishClass$0(defaultConstructor, $cast($JCTree, t));
 	}
 	$JCTree* defaultConstructor = nullptr;
 };
@@ -170,7 +170,7 @@ public:
 		$set(this, tree, tree);
 	}
 	virtual bool test(Object$* rf) override {
-		 return TypeEnter$MembersPhase::lambda$addAccessor$1(tree, $cast($JCTree$JCVariableDecl, rf));
+		return TypeEnter$MembersPhase::lambda$addAccessor$1(tree, $cast($JCTree$JCVariableDecl, rf));
 	}
 	$JCTree$JCVariableDecl* tree = nullptr;
 };
@@ -205,7 +205,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* vd) override {
-		 return $of(TypeEnter$MembersPhase::lambda$getCanonicalConstructorDecl$2($cast($JCTree$JCVariableDecl, vd)));
+		return $of(TypeEnter$MembersPhase::lambda$getCanonicalConstructorDecl$2($cast($JCTree$JCVariableDecl, vd)));
 	}
 };
 $Class* TypeEnter$MembersPhase$$Lambda$lambda$getCanonicalConstructorDecl$2$2::load$($String* name, bool initialize) {
@@ -236,7 +236,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* vd) override {
-		 return $nc(inst$)->lambda$addRecordMembersIfNeeded$4($cast($JCTree$JCVariableDecl, vd));
+		return $nc(inst$)->lambda$addRecordMembersIfNeeded$4($cast($JCTree$JCVariableDecl, vd));
 	}
 	TypeEnter$MembersPhase* inst$ = nullptr;
 };

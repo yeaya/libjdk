@@ -91,19 +91,19 @@ $Class* Test4319113$$Lambda$lambda$init$0::load$($String* name, bool initialize)
 $Class* Test4319113$$Lambda$lambda$init$0::class$ = nullptr;
 
 $String* Test4319113::toString() {
-	 return this->$JApplet::toString();
+	return this->$JApplet::toString();
 }
 
 int32_t Test4319113::hashCode() {
-	 return this->$JApplet::hashCode();
+	return this->$JApplet::hashCode();
 }
 
 bool Test4319113::equals(Object$* arg0) {
-	 return this->$JApplet::equals(arg0);
+	return this->$JApplet::equals(arg0);
 }
 
 $Object* Test4319113::clone() {
-	 return this->$JApplet::clone();
+	return this->$JApplet::clone();
 }
 
 void Test4319113::finalize() {

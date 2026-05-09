@@ -106,19 +106,19 @@ namespace javax {
 			namespace html {
 
 int32_t TableView::hashCode() {
-	 return this->$BoxView::hashCode();
+	return this->$BoxView::hashCode();
 }
 
 bool TableView::equals(Object$* arg0) {
-	 return this->$BoxView::equals(arg0);
+	return this->$BoxView::equals(arg0);
 }
 
 $Object* TableView::clone() {
-	 return this->$BoxView::clone();
+	return this->$BoxView::clone();
 }
 
 $String* TableView::toString() {
-	 return this->$BoxView::toString();
+	return this->$BoxView::toString();
 }
 
 void TableView::finalize() {

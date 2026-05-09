@@ -66,7 +66,7 @@ namespace javax {
 			namespace serial {
 
 $String* SerialArray::toString() {
-	 return this->$1Array::toString();
+	return this->$1Array::toString();
 }
 
 void SerialArray::finalize() {

@@ -39,7 +39,7 @@ namespace java {
 		namespace server {
 
 $Object* RemoteObject::clone() {
-	 return this->$Remote::clone();
+	return this->$Remote::clone();
 }
 
 void RemoteObject::finalize() {

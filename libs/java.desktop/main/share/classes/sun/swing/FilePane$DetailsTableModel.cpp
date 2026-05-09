@@ -53,19 +53,19 @@ namespace sun {
 	namespace swing {
 
 int32_t FilePane$DetailsTableModel::hashCode() {
-	 return this->$AbstractTableModel::hashCode();
+	return this->$AbstractTableModel::hashCode();
 }
 
 bool FilePane$DetailsTableModel::equals(Object$* arg0) {
-	 return this->$AbstractTableModel::equals(arg0);
+	return this->$AbstractTableModel::equals(arg0);
 }
 
 $Object* FilePane$DetailsTableModel::clone() {
-	 return this->$AbstractTableModel::clone();
+	return this->$AbstractTableModel::clone();
 }
 
 $String* FilePane$DetailsTableModel::toString() {
-	 return this->$AbstractTableModel::toString();
+	return this->$AbstractTableModel::toString();
 }
 
 void FilePane$DetailsTableModel::finalize() {

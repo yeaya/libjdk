@@ -90,7 +90,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$StringBuilder* inst$ = nullptr;
 };
@@ -120,19 +120,19 @@ $Class* Timer$$Lambda$toString::load$($String* name, bool initialize) {
 $Class* Timer$$Lambda$toString::class$ = nullptr;
 
 int32_t Timer::hashCode() {
-	 return this->$NotificationBroadcasterSupport::hashCode();
+	return this->$NotificationBroadcasterSupport::hashCode();
 }
 
 bool Timer::equals(Object$* arg0) {
-	 return this->$NotificationBroadcasterSupport::equals(arg0);
+	return this->$NotificationBroadcasterSupport::equals(arg0);
 }
 
 $Object* Timer::clone() {
-	 return this->$NotificationBroadcasterSupport::clone();
+	return this->$NotificationBroadcasterSupport::clone();
 }
 
 $String* Timer::toString() {
-	 return this->$NotificationBroadcasterSupport::toString();
+	return this->$NotificationBroadcasterSupport::toString();
 }
 
 void Timer::finalize() {

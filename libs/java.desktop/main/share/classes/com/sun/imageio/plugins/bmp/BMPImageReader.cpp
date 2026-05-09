@@ -159,19 +159,19 @@ namespace com {
 				namespace bmp {
 
 int32_t BMPImageReader::hashCode() {
-	 return this->$ImageReader::hashCode();
+	return this->$ImageReader::hashCode();
 }
 
 bool BMPImageReader::equals(Object$* arg0) {
-	 return this->$ImageReader::equals(arg0);
+	return this->$ImageReader::equals(arg0);
 }
 
 $Object* BMPImageReader::clone() {
-	 return this->$ImageReader::clone();
+	return this->$ImageReader::clone();
 }
 
 $String* BMPImageReader::toString() {
-	 return this->$ImageReader::toString();
+	return this->$ImageReader::toString();
 }
 
 void BMPImageReader::finalize() {

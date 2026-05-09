@@ -26,19 +26,19 @@ void WriterToASCI::write($String* arg0, int32_t arg1, int32_t arg2) {
 }
 
 int32_t WriterToASCI::hashCode() {
-	 return this->$Writer::hashCode();
+	return this->$Writer::hashCode();
 }
 
 bool WriterToASCI::equals(Object$* arg0) {
-	 return this->$Writer::equals(arg0);
+	return this->$Writer::equals(arg0);
 }
 
 $Object* WriterToASCI::clone() {
-	 return this->$Writer::clone();
+	return this->$Writer::clone();
 }
 
 $String* WriterToASCI::toString() {
-	 return this->$Writer::toString();
+	return this->$Writer::toString();
 }
 
 void WriterToASCI::finalize() {

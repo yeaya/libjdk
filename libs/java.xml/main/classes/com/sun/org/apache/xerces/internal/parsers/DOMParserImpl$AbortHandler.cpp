@@ -43,19 +43,19 @@ namespace com {
 						namespace parsers {
 
 int32_t DOMParserImpl$AbortHandler::hashCode() {
-	 return this->$XMLDocumentHandler::hashCode();
+	return this->$XMLDocumentHandler::hashCode();
 }
 
 bool DOMParserImpl$AbortHandler::equals(Object$* arg0) {
-	 return this->$XMLDocumentHandler::equals(arg0);
+	return this->$XMLDocumentHandler::equals(arg0);
 }
 
 $Object* DOMParserImpl$AbortHandler::clone() {
-	 return this->$XMLDocumentHandler::clone();
+	return this->$XMLDocumentHandler::clone();
 }
 
 $String* DOMParserImpl$AbortHandler::toString() {
-	 return this->$XMLDocumentHandler::toString();
+	return this->$XMLDocumentHandler::toString();
 }
 
 void DOMParserImpl$AbortHandler::finalize() {

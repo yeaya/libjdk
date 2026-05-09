@@ -92,19 +92,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t XTrayIconPeer::hashCode() {
-	 return this->$TrayIconPeer::hashCode();
+	return this->$TrayIconPeer::hashCode();
 }
 
 bool XTrayIconPeer::equals(Object$* arg0) {
-	 return this->$TrayIconPeer::equals(arg0);
+	return this->$TrayIconPeer::equals(arg0);
 }
 
 $Object* XTrayIconPeer::clone() {
-	 return this->$TrayIconPeer::clone();
+	return this->$TrayIconPeer::clone();
 }
 
 $String* XTrayIconPeer::toString() {
-	 return this->$TrayIconPeer::toString();
+	return this->$TrayIconPeer::toString();
 }
 
 void XTrayIconPeer::finalize() {

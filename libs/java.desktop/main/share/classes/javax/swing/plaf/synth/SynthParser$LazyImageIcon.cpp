@@ -25,19 +25,19 @@ namespace javax {
 			namespace synth {
 
 $String* SynthParser$LazyImageIcon::toString() {
-	 return this->$ImageIcon::toString();
+	return this->$ImageIcon::toString();
 }
 
 int32_t SynthParser$LazyImageIcon::hashCode() {
-	 return this->$ImageIcon::hashCode();
+	return this->$ImageIcon::hashCode();
 }
 
 bool SynthParser$LazyImageIcon::equals(Object$* arg0) {
-	 return this->$ImageIcon::equals(arg0);
+	return this->$ImageIcon::equals(arg0);
 }
 
 $Object* SynthParser$LazyImageIcon::clone() {
-	 return this->$ImageIcon::clone();
+	return this->$ImageIcon::clone();
 }
 
 void SynthParser$LazyImageIcon::finalize() {

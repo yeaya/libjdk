@@ -12,31 +12,31 @@ namespace sun {
 	namespace font {
 
 $Rectangle2D* ExtendedTextLabel::getVisualBounds() {
-	 return this->$TextLabel::getVisualBounds();
+	return this->$TextLabel::getVisualBounds();
 }
 
 $Rectangle2D* ExtendedTextLabel::getLogicalBounds() {
-	 return this->$TextLabel::getLogicalBounds();
+	return this->$TextLabel::getLogicalBounds();
 }
 
 $Rectangle2D* ExtendedTextLabel::getItalicBounds() {
-	 return this->$TextLabel::getItalicBounds();
+	return this->$TextLabel::getItalicBounds();
 }
 
 int32_t ExtendedTextLabel::hashCode() {
-	 return this->$TextLabel::hashCode();
+	return this->$TextLabel::hashCode();
 }
 
 bool ExtendedTextLabel::equals(Object$* arg0) {
-	 return this->$TextLabel::equals(arg0);
+	return this->$TextLabel::equals(arg0);
 }
 
 $Object* ExtendedTextLabel::clone() {
-	 return this->$TextLabel::clone();
+	return this->$TextLabel::clone();
 }
 
 $String* ExtendedTextLabel::toString() {
-	 return this->$TextLabel::toString();
+	return this->$TextLabel::toString();
 }
 
 void ExtendedTextLabel::finalize() {

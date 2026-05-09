@@ -126,7 +126,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	Http1Exchange* inst$ = nullptr;
 };
@@ -162,7 +162,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* unused) override {
-		 return $nc(inst$)->lambda$sendHeadersAsync$0($cast($Void, unused));
+		return $nc(inst$)->lambda$sendHeadersAsync$0($cast($Void, unused));
 	}
 	Http1Exchange* inst$ = nullptr;
 };
@@ -237,7 +237,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* unused) override {
-		 return $nc(inst$)->lambda$sendHeadersAsync$4($cast($Void, unused));
+		return $nc(inst$)->lambda$sendHeadersAsync$4($cast($Void, unused));
 	}
 	Http1Exchange* inst$ = nullptr;
 };
@@ -273,7 +273,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* unused) override {
-		 return $nc(inst$)->lambda$sendHeadersAsync$5($cast($Void, unused));
+		return $nc(inst$)->lambda$sendHeadersAsync$5($cast($Void, unused));
 	}
 	Http1Exchange* inst$ = nullptr;
 };
@@ -534,7 +534,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$sendHeadersAsync$2();
+		return $nc(inst$)->lambda$sendHeadersAsync$2();
 	}
 	Http1Exchange* inst$ = nullptr;
 };

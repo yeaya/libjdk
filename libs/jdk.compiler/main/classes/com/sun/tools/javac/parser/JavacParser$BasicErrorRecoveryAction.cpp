@@ -24,19 +24,19 @@ namespace com {
 				namespace parser {
 
 $String* JavacParser$BasicErrorRecoveryAction::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool JavacParser$BasicErrorRecoveryAction::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t JavacParser$BasicErrorRecoveryAction::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* JavacParser$BasicErrorRecoveryAction::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void JavacParser$BasicErrorRecoveryAction::finalize() {

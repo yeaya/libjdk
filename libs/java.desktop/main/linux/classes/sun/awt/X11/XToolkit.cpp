@@ -521,7 +521,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return XToolkit::lambda$init$0();
+		return XToolkit::lambda$init$0();
 	}
 };
 $Class* XToolkit$$Lambda$lambda$init$0::load$($String* name, bool initialize) {
@@ -552,7 +552,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$init$2();
+		return $nc(inst$)->lambda$init$2();
 	}
 	XToolkit* inst$ = nullptr;
 };
@@ -588,7 +588,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$new$3();
+		return $nc(inst$)->lambda$new$3();
 	}
 	XToolkit* inst$ = nullptr;
 };
@@ -774,19 +774,19 @@ $Class* XToolkit$$Lambda$lambda$init$1$7::load$($String* name, bool initialize) 
 $Class* XToolkit$$Lambda$lambda$init$1$7::class$ = nullptr;
 
 int32_t XToolkit::hashCode() {
-	 return this->$UNIXToolkit::hashCode();
+	return this->$UNIXToolkit::hashCode();
 }
 
 bool XToolkit::equals(Object$* arg0) {
-	 return this->$UNIXToolkit::equals(arg0);
+	return this->$UNIXToolkit::equals(arg0);
 }
 
 $Object* XToolkit::clone() {
-	 return this->$UNIXToolkit::clone();
+	return this->$UNIXToolkit::clone();
 }
 
 $String* XToolkit::toString() {
-	 return this->$UNIXToolkit::toString();
+	return this->$UNIXToolkit::toString();
 }
 
 void XToolkit::finalize() {

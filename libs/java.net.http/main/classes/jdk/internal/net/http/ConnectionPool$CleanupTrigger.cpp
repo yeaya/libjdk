@@ -27,15 +27,15 @@ namespace jdk {
 			namespace http {
 
 int32_t ConnectionPool$CleanupTrigger::hashCode() {
-	 return this->$FlowTube$TubeSubscriber::hashCode();
+	return this->$FlowTube$TubeSubscriber::hashCode();
 }
 
 bool ConnectionPool$CleanupTrigger::equals(Object$* arg0) {
-	 return this->$FlowTube$TubeSubscriber::equals(arg0);
+	return this->$FlowTube$TubeSubscriber::equals(arg0);
 }
 
 $Object* ConnectionPool$CleanupTrigger::clone() {
-	 return this->$FlowTube$TubeSubscriber::clone();
+	return this->$FlowTube$TubeSubscriber::clone();
 }
 
 void ConnectionPool$CleanupTrigger::finalize() {

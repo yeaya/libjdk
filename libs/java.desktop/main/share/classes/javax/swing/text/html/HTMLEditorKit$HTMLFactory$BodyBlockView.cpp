@@ -51,19 +51,19 @@ namespace javax {
 			namespace html {
 
 int32_t HTMLEditorKit$HTMLFactory$BodyBlockView::hashCode() {
-	 return this->$BlockView::hashCode();
+	return this->$BlockView::hashCode();
 }
 
 bool HTMLEditorKit$HTMLFactory$BodyBlockView::equals(Object$* arg0) {
-	 return this->$BlockView::equals(arg0);
+	return this->$BlockView::equals(arg0);
 }
 
 $Object* HTMLEditorKit$HTMLFactory$BodyBlockView::clone() {
-	 return this->$BlockView::clone();
+	return this->$BlockView::clone();
 }
 
 $String* HTMLEditorKit$HTMLFactory$BodyBlockView::toString() {
-	 return this->$BlockView::toString();
+	return this->$BlockView::toString();
 }
 
 void HTMLEditorKit$HTMLFactory$BodyBlockView::finalize() {

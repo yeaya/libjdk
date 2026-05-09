@@ -16,19 +16,19 @@ namespace com {
 							namespace parser {
 
 int32_t XMLDocumentFilter::hashCode() {
-	 return this->$XMLDocumentHandler::hashCode();
+	return this->$XMLDocumentHandler::hashCode();
 }
 
 bool XMLDocumentFilter::equals(Object$* arg0) {
-	 return this->$XMLDocumentHandler::equals(arg0);
+	return this->$XMLDocumentHandler::equals(arg0);
 }
 
 $Object* XMLDocumentFilter::clone() {
-	 return this->$XMLDocumentHandler::clone();
+	return this->$XMLDocumentHandler::clone();
 }
 
 $String* XMLDocumentFilter::toString() {
-	 return this->$XMLDocumentHandler::toString();
+	return this->$XMLDocumentHandler::toString();
 }
 
 void XMLDocumentFilter::finalize() {

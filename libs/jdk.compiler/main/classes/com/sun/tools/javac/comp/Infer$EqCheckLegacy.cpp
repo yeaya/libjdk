@@ -48,7 +48,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$, Object$* t) override {
-		 return $of($sure($InferenceContext, inst$)->asInstType($cast($Type, t)));
+		return $of($sure($InferenceContext, inst$)->asInstType($cast($Type, t)));
 	}
 };
 $Class* Infer$EqCheckLegacy$$Lambda$asInstType::load$($String* name, bool initialize) {
@@ -78,7 +78,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$, Object$* t) override {
-		 return $sure($InferenceContext, inst$)->free($cast($Type, t));
+		return $sure($InferenceContext, inst$)->free($cast($Type, t));
 	}
 };
 $Class* Infer$EqCheckLegacy$$Lambda$free$1::load$($String* name, bool initialize) {

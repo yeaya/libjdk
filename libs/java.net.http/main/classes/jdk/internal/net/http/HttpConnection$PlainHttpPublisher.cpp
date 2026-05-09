@@ -86,7 +86,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(Object$* inst$) override {
-		 return $sure($Buffer, inst$)->remaining();
+		return $sure($Buffer, inst$)->remaining();
 	}
 };
 $Class* HttpConnection$PlainHttpPublisher$$Lambda$remaining$1::load$($String* name, bool initialize) {

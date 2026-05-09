@@ -74,7 +74,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* make($Context* context) override {
-		 return $of($new(Dependencies$GraphDependencies, context));
+		return $of($new(Dependencies$GraphDependencies, context));
 	}
 };
 $Class* Dependencies$GraphDependencies$$Lambda$GraphDependencies::load$($String* name, bool initialize) {
@@ -99,19 +99,19 @@ $Class* Dependencies$GraphDependencies$$Lambda$GraphDependencies::load$($String*
 $Class* Dependencies$GraphDependencies$$Lambda$GraphDependencies::class$ = nullptr;
 
 int32_t Dependencies$GraphDependencies::hashCode() {
-	 return this->$Dependencies::hashCode();
+	return this->$Dependencies::hashCode();
 }
 
 bool Dependencies$GraphDependencies::equals(Object$* arg0) {
-	 return this->$Dependencies::equals(arg0);
+	return this->$Dependencies::equals(arg0);
 }
 
 $Object* Dependencies$GraphDependencies::clone() {
-	 return this->$Dependencies::clone();
+	return this->$Dependencies::clone();
 }
 
 $String* Dependencies$GraphDependencies::toString() {
-	 return this->$Dependencies::toString();
+	return this->$Dependencies::toString();
 }
 
 void Dependencies$GraphDependencies::finalize() {

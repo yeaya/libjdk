@@ -48,11 +48,11 @@ namespace com {
 			namespace sound {
 
 $Line$Info* AbstractDataLine::getLineInfo() {
-	 return this->$AbstractLine::getLineInfo();
+	return this->$AbstractLine::getLineInfo();
 }
 
 bool AbstractDataLine::isOpen() {
-	 return this->$AbstractLine::isOpen();
+	return this->$AbstractLine::isOpen();
 }
 
 void AbstractDataLine::addLineListener($LineListener* listener) {
@@ -64,39 +64,39 @@ void AbstractDataLine::removeLineListener($LineListener* listener) {
 }
 
 $ControlArray* AbstractDataLine::getControls() {
-	 return this->$AbstractLine::getControls();
+	return this->$AbstractLine::getControls();
 }
 
 bool AbstractDataLine::isControlSupported($Control$Type* controlType) {
-	 return this->$AbstractLine::isControlSupported(controlType);
+	return this->$AbstractLine::isControlSupported(controlType);
 }
 
 $Control* AbstractDataLine::getControl($Control$Type* controlType) {
-	 return this->$AbstractLine::getControl(controlType);
+	return this->$AbstractLine::getControl(controlType);
 }
 
 int32_t AbstractDataLine::getFramePosition() {
-	 return this->$AbstractLine::getFramePosition();
+	return this->$AbstractLine::getFramePosition();
 }
 
 int64_t AbstractDataLine::getLongFramePosition() {
-	 return this->$AbstractLine::getLongFramePosition();
+	return this->$AbstractLine::getLongFramePosition();
 }
 
 int32_t AbstractDataLine::hashCode() {
-	 return this->$AbstractLine::hashCode();
+	return this->$AbstractLine::hashCode();
 }
 
 bool AbstractDataLine::equals(Object$* arg0) {
-	 return this->$AbstractLine::equals(arg0);
+	return this->$AbstractLine::equals(arg0);
 }
 
 $Object* AbstractDataLine::clone() {
-	 return this->$AbstractLine::clone();
+	return this->$AbstractLine::clone();
 }
 
 $String* AbstractDataLine::toString() {
-	 return this->$AbstractLine::toString();
+	return this->$AbstractLine::toString();
 }
 
 void AbstractDataLine::finalize() {

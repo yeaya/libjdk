@@ -46,7 +46,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of(AnnotationProxyMaker$MirroredTypesExceptionProxy::lambda$toString$0($cast($TypeMirror, t)));
+		return $of(AnnotationProxyMaker$MirroredTypesExceptionProxy::lambda$toString$0($cast($TypeMirror, t)));
 	}
 };
 $Class* AnnotationProxyMaker$MirroredTypesExceptionProxy$$Lambda$lambda$toString$0::load$($String* name, bool initialize) {

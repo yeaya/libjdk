@@ -43,7 +43,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* o, Object$* ts) override {
-		 return $nc(inst$)->lambda$$0(o, $cast($List, ts));
+		return $nc(inst$)->lambda$$0(o, $cast($List, ts));
 	}
 	Resolve$MethodResolutionDiagHelper$2* inst$ = nullptr;
 };
@@ -80,7 +80,7 @@ public:
 		$set(this, ts, ts);
 	}
 	virtual bool test(Object$* o) override {
-		 return $nc(inst$)->lambda$containsAny$1(ts, o);
+		return $nc(inst$)->lambda$containsAny$1(ts, o);
 	}
 	Resolve$MethodResolutionDiagHelper$2* inst$ = nullptr;
 	$List* ts = nullptr;

@@ -73,7 +73,7 @@ public:
 		$set(this, lookupKind, lookupKind);
 	}
 	virtual $Iterator* iterator() override {
-		 return Scope$NamedImportScope::lambda$getSymbolsByName$1(scopes, name, sf, lookupKind);
+		return Scope$NamedImportScope::lambda$getSymbolsByName$1(scopes, name, sf, lookupKind);
 	}
 	$ScopeArray* scopes = nullptr;
 	$Name* name = nullptr;
@@ -117,7 +117,7 @@ public:
 		$set(this, lookupKind, lookupKind);
 	}
 	virtual $Object* apply(Object$* scope) override {
-		 return Scope$NamedImportScope::lambda$getSymbolsByName$0(name, sf, lookupKind, $cast($Scope, scope));
+		return Scope$NamedImportScope::lambda$getSymbolsByName$0(name, sf, lookupKind, $cast($Scope, scope));
 	}
 	$Name* name = nullptr;
 	$Predicate* sf = nullptr;

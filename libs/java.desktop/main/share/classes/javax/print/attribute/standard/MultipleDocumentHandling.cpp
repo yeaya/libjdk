@@ -20,19 +20,19 @@ namespace javax {
 			namespace standard {
 
 $Object* MultipleDocumentHandling::clone() {
-	 return this->$EnumSyntax::clone();
+	return this->$EnumSyntax::clone();
 }
 
 int32_t MultipleDocumentHandling::hashCode() {
-	 return this->$EnumSyntax::hashCode();
+	return this->$EnumSyntax::hashCode();
 }
 
 $String* MultipleDocumentHandling::toString() {
-	 return this->$EnumSyntax::toString();
+	return this->$EnumSyntax::toString();
 }
 
 bool MultipleDocumentHandling::equals(Object$* arg0) {
-	 return this->$EnumSyntax::equals(arg0);
+	return this->$EnumSyntax::equals(arg0);
 }
 
 void MultipleDocumentHandling::finalize() {

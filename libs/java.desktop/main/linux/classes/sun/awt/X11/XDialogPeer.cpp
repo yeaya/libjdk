@@ -99,7 +99,7 @@ void XDialogPeer::updateMinimumSize() {
 }
 
 $Graphics* XDialogPeer::getGraphics() {
-	 return this->$XDecoratedPeer::getGraphics();
+	return this->$XDecoratedPeer::getGraphics();
 }
 
 void XDialogPeer::setTitle($String* title) {
@@ -107,7 +107,7 @@ void XDialogPeer::setTitle($String* title) {
 }
 
 $Insets* XDialogPeer::getInsets() {
-	 return this->$XDecoratedPeer::getInsets();
+	return this->$XDecoratedPeer::getInsets();
 }
 
 void XDialogPeer::setBounds(int32_t x, int32_t y, int32_t width, int32_t height, int32_t op) {
@@ -119,7 +119,7 @@ void XDialogPeer::setResizable(bool resizable) {
 }
 
 $Point* XDialogPeer::getLocationOnScreen() {
-	 return this->$XDecoratedPeer::getLocationOnScreen();
+	return this->$XDecoratedPeer::getLocationOnScreen();
 }
 
 void XDialogPeer::dispose() {
@@ -187,23 +187,23 @@ void XDialogPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool XDialogPeer::isReparentSupported() {
-	 return this->$XDecoratedPeer::isReparentSupported();
+	return this->$XDecoratedPeer::isReparentSupported();
 }
 
 bool XDialogPeer::isObscured() {
-	 return this->$XDecoratedPeer::isObscured();
+	return this->$XDecoratedPeer::isObscured();
 }
 
 bool XDialogPeer::canDetermineObscurity() {
-	 return this->$XDecoratedPeer::canDetermineObscurity();
+	return this->$XDecoratedPeer::canDetermineObscurity();
 }
 
 bool XDialogPeer::isFocusable() {
-	 return this->$XDecoratedPeer::isFocusable();
+	return this->$XDecoratedPeer::isFocusable();
 }
 
 bool XDialogPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XDecoratedPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XDecoratedPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void XDialogPeer::setEnabled(bool value) {
@@ -219,11 +219,11 @@ void XDialogPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* XDialogPeer::getMinimumSize() {
-	 return this->$XDecoratedPeer::getMinimumSize();
+	return this->$XDecoratedPeer::getMinimumSize();
 }
 
 $Dimension* XDialogPeer::getPreferredSize() {
-	 return this->$XDecoratedPeer::getPreferredSize();
+	return this->$XDecoratedPeer::getPreferredSize();
 }
 
 void XDialogPeer::layout() {
@@ -231,7 +231,7 @@ void XDialogPeer::layout() {
 }
 
 $FontMetrics* XDialogPeer::getFontMetrics($Font* font) {
-	 return this->$XDecoratedPeer::getFontMetrics(font);
+	return this->$XDecoratedPeer::getFontMetrics(font);
 }
 
 void XDialogPeer::setFont($Font* f) {
@@ -243,11 +243,11 @@ void XDialogPeer::updateCursorImmediately() {
 }
 
 $Image* XDialogPeer::createImage(int32_t width, int32_t height) {
-	 return this->$XDecoratedPeer::createImage(width, height);
+	return this->$XDecoratedPeer::createImage(width, height);
 }
 
 $VolatileImage* XDialogPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XDecoratedPeer::createVolatileImage(width, height);
+	return this->$XDecoratedPeer::createVolatileImage(width, height);
 }
 
 void XDialogPeer::beginValidate() {
@@ -259,7 +259,7 @@ void XDialogPeer::endValidate() {
 }
 
 bool XDialogPeer::handlesWheelScrolling() {
-	 return this->$XDecoratedPeer::handlesWheelScrolling();
+	return this->$XDecoratedPeer::handlesWheelScrolling();
 }
 
 void XDialogPeer::beginLayout() {
@@ -279,7 +279,7 @@ void XDialogPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCa
 }
 
 $Image* XDialogPeer::getBackBuffer() {
-	 return this->$XDecoratedPeer::getBackBuffer();
+	return this->$XDecoratedPeer::getBackBuffer();
 }
 
 void XDialogPeer::destroyBuffers() {
@@ -295,31 +295,31 @@ void XDialogPeer::applyShape($Region* shape) {
 }
 
 bool XDialogPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XDecoratedPeer::updateGraphicsData(gc);
+	return this->$XDecoratedPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* XDialogPeer::getColorModel() {
-	 return this->$XDecoratedPeer::getColorModel();
+	return this->$XDecoratedPeer::getColorModel();
 }
 
 $GraphicsConfiguration* XDialogPeer::getGraphicsConfiguration() {
-	 return this->$XDecoratedPeer::getGraphicsConfiguration();
+	return this->$XDecoratedPeer::getGraphicsConfiguration();
 }
 
 $String* XDialogPeer::toString() {
-	 return this->$XDecoratedPeer::toString();
+	return this->$XDecoratedPeer::toString();
 }
 
 int32_t XDialogPeer::hashCode() {
-	 return this->$XDecoratedPeer::hashCode();
+	return this->$XDecoratedPeer::hashCode();
 }
 
 bool XDialogPeer::equals(Object$* arg0) {
-	 return this->$XDecoratedPeer::equals(arg0);
+	return this->$XDecoratedPeer::equals(arg0);
 }
 
 $Object* XDialogPeer::clone() {
-	 return this->$XDecoratedPeer::clone();
+	return this->$XDecoratedPeer::clone();
 }
 
 void XDialogPeer::finalize() {

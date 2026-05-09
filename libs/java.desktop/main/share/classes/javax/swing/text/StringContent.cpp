@@ -35,19 +35,19 @@ namespace javax {
 		namespace text {
 
 int32_t StringContent::hashCode() {
-	 return this->$AbstractDocument$Content::hashCode();
+	return this->$AbstractDocument$Content::hashCode();
 }
 
 bool StringContent::equals(Object$* arg0) {
-	 return this->$AbstractDocument$Content::equals(arg0);
+	return this->$AbstractDocument$Content::equals(arg0);
 }
 
 $Object* StringContent::clone() {
-	 return this->$AbstractDocument$Content::clone();
+	return this->$AbstractDocument$Content::clone();
 }
 
 $String* StringContent::toString() {
-	 return this->$AbstractDocument$Content::toString();
+	return this->$AbstractDocument$Content::toString();
 }
 
 void StringContent::finalize() {

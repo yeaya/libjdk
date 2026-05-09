@@ -17,19 +17,19 @@ namespace com {
 						namespace generic {
 
 int32_t ConstantPushInstruction::hashCode() {
-	 return this->$PushInstruction::hashCode();
+	return this->$PushInstruction::hashCode();
 }
 
 bool ConstantPushInstruction::equals(Object$* arg0) {
-	 return this->$PushInstruction::equals(arg0);
+	return this->$PushInstruction::equals(arg0);
 }
 
 $Object* ConstantPushInstruction::clone() {
-	 return this->$PushInstruction::clone();
+	return this->$PushInstruction::clone();
 }
 
 $String* ConstantPushInstruction::toString() {
-	 return this->$PushInstruction::toString();
+	return this->$PushInstruction::toString();
 }
 
 void ConstantPushInstruction::finalize() {

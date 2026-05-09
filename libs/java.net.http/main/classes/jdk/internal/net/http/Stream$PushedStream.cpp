@@ -149,7 +149,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* r) override {
-		 return Stream$PushedStream::lambda$getResponseAsync$3($cast($Response, r));
+		return Stream$PushedStream::lambda$getResponseAsync$3($cast($Response, r));
 	}
 };
 $Class* Stream$PushedStream$$Lambda$lambda$getResponseAsync$3$2::load$($String* name, bool initialize) {
@@ -216,7 +216,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$Response* inst$ = nullptr;
 };
@@ -252,7 +252,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* v) override {
-		 return $nc(inst$)->lambda$completeResponse$5($cast($Void, v));
+		return $nc(inst$)->lambda$completeResponse$5($cast($Void, v));
 	}
 	Stream$PushedStream* inst$ = nullptr;
 };
@@ -326,7 +326,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return Stream$PushedStream::lambda$completeResponse$7();
+		return Stream$PushedStream::lambda$completeResponse$7();
 	}
 };
 $Class* Stream$PushedStream$$Lambda$lambda$completeResponse$7$7::load$($String* name, bool initialize) {

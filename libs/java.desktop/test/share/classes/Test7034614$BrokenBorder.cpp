@@ -16,19 +16,19 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $String* Test7034614$BrokenBorder::toString() {
-	 return this->$Component::toString();
+	return this->$Component::toString();
 }
 
 int32_t Test7034614$BrokenBorder::hashCode() {
-	 return this->$Component::hashCode();
+	return this->$Component::hashCode();
 }
 
 bool Test7034614$BrokenBorder::equals(Object$* arg0) {
-	 return this->$Component::equals(arg0);
+	return this->$Component::equals(arg0);
 }
 
 $Object* Test7034614$BrokenBorder::clone() {
-	 return this->$Component::clone();
+	return this->$Component::clone();
 }
 
 void Test7034614$BrokenBorder::finalize() {

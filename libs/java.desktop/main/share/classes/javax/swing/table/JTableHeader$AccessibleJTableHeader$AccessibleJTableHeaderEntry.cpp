@@ -69,19 +69,19 @@ namespace javax {
 		namespace table {
 
 int32_t JTableHeader$AccessibleJTableHeader$AccessibleJTableHeaderEntry::hashCode() {
-	 return this->$AccessibleContext::hashCode();
+	return this->$AccessibleContext::hashCode();
 }
 
 bool JTableHeader$AccessibleJTableHeader$AccessibleJTableHeaderEntry::equals(Object$* arg0) {
-	 return this->$AccessibleContext::equals(arg0);
+	return this->$AccessibleContext::equals(arg0);
 }
 
 $Object* JTableHeader$AccessibleJTableHeader$AccessibleJTableHeaderEntry::clone() {
-	 return this->$AccessibleContext::clone();
+	return this->$AccessibleContext::clone();
 }
 
 $String* JTableHeader$AccessibleJTableHeader$AccessibleJTableHeaderEntry::toString() {
-	 return this->$AccessibleContext::toString();
+	return this->$AccessibleContext::toString();
 }
 
 void JTableHeader$AccessibleJTableHeader$AccessibleJTableHeaderEntry::finalize() {

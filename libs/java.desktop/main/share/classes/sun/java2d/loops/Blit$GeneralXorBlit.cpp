@@ -27,39 +27,39 @@ namespace sun {
 		namespace loops {
 
 $String* Blit$GeneralXorBlit::getSignature() {
-	 return this->$Blit::getSignature();
+	return this->$Blit::getSignature();
 }
 
 int32_t Blit$GeneralXorBlit::getPrimTypeID() {
-	 return this->$Blit::getPrimTypeID();
+	return this->$Blit::getPrimTypeID();
 }
 
 $SurfaceType* Blit$GeneralXorBlit::getSourceType() {
-	 return this->$Blit::getSourceType();
+	return this->$Blit::getSourceType();
 }
 
 $CompositeType* Blit$GeneralXorBlit::getCompositeType() {
-	 return this->$Blit::getCompositeType();
+	return this->$Blit::getCompositeType();
 }
 
 $SurfaceType* Blit$GeneralXorBlit::getDestType() {
-	 return this->$Blit::getDestType();
+	return this->$Blit::getDestType();
 }
 
 $String* Blit$GeneralXorBlit::toString() {
-	 return this->$Blit::toString();
+	return this->$Blit::toString();
 }
 
 int32_t Blit$GeneralXorBlit::hashCode() {
-	 return this->$Blit::hashCode();
+	return this->$Blit::hashCode();
 }
 
 bool Blit$GeneralXorBlit::equals(Object$* arg0) {
-	 return this->$Blit::equals(arg0);
+	return this->$Blit::equals(arg0);
 }
 
 $Object* Blit$GeneralXorBlit::clone() {
-	 return this->$Blit::clone();
+	return this->$Blit::clone();
 }
 
 void Blit$GeneralXorBlit::finalize() {

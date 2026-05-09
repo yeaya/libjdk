@@ -18,19 +18,19 @@ namespace javax {
 		namespace text {
 
 int32_t DefaultFormatterFactory::hashCode() {
-	 return this->$JFormattedTextField$AbstractFormatterFactory::hashCode();
+	return this->$JFormattedTextField$AbstractFormatterFactory::hashCode();
 }
 
 bool DefaultFormatterFactory::equals(Object$* arg0) {
-	 return this->$JFormattedTextField$AbstractFormatterFactory::equals(arg0);
+	return this->$JFormattedTextField$AbstractFormatterFactory::equals(arg0);
 }
 
 $Object* DefaultFormatterFactory::clone() {
-	 return this->$JFormattedTextField$AbstractFormatterFactory::clone();
+	return this->$JFormattedTextField$AbstractFormatterFactory::clone();
 }
 
 $String* DefaultFormatterFactory::toString() {
-	 return this->$JFormattedTextField$AbstractFormatterFactory::toString();
+	return this->$JFormattedTextField$AbstractFormatterFactory::toString();
 }
 
 void DefaultFormatterFactory::finalize() {

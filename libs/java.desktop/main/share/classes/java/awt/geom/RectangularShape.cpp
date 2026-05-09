@@ -35,15 +35,15 @@ namespace java {
 		namespace geom {
 
 int32_t RectangularShape::hashCode() {
-	 return this->$Shape::hashCode();
+	return this->$Shape::hashCode();
 }
 
 bool RectangularShape::equals(Object$* arg0) {
-	 return this->$Shape::equals(arg0);
+	return this->$Shape::equals(arg0);
 }
 
 $String* RectangularShape::toString() {
-	 return this->$Shape::toString();
+	return this->$Shape::toString();
 }
 
 void RectangularShape::finalize() {

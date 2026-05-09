@@ -26,19 +26,19 @@ namespace javax {
 			namespace nimbus {
 
 $String* TableScrollPaneCorner::toString() {
-	 return this->$JComponent::toString();
+	return this->$JComponent::toString();
 }
 
 int32_t TableScrollPaneCorner::hashCode() {
-	 return this->$JComponent::hashCode();
+	return this->$JComponent::hashCode();
 }
 
 bool TableScrollPaneCorner::equals(Object$* arg0) {
-	 return this->$JComponent::equals(arg0);
+	return this->$JComponent::equals(arg0);
 }
 
 $Object* TableScrollPaneCorner::clone() {
-	 return this->$JComponent::clone();
+	return this->$JComponent::clone();
 }
 
 void TableScrollPaneCorner::finalize() {

@@ -14,19 +14,19 @@ namespace sun {
 	namespace java2d {
 
 int32_t SurfaceData$PixelToShapeLoopConverter::hashCode() {
-	 return this->$PixelToShapeConverter::hashCode();
+	return this->$PixelToShapeConverter::hashCode();
 }
 
 bool SurfaceData$PixelToShapeLoopConverter::equals(Object$* arg0) {
-	 return this->$PixelToShapeConverter::equals(arg0);
+	return this->$PixelToShapeConverter::equals(arg0);
 }
 
 $Object* SurfaceData$PixelToShapeLoopConverter::clone() {
-	 return this->$PixelToShapeConverter::clone();
+	return this->$PixelToShapeConverter::clone();
 }
 
 $String* SurfaceData$PixelToShapeLoopConverter::toString() {
-	 return this->$PixelToShapeConverter::toString();
+	return this->$PixelToShapeConverter::toString();
 }
 
 void SurfaceData$PixelToShapeLoopConverter::finalize() {

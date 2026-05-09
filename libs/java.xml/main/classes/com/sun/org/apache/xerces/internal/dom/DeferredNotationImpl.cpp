@@ -30,19 +30,19 @@ namespace com {
 						namespace dom {
 
 int16_t DeferredNotationImpl::getNodeType() {
-	 return this->$NotationImpl::getNodeType();
+	return this->$NotationImpl::getNodeType();
 }
 
 $String* DeferredNotationImpl::getNodeName() {
-	 return this->$NotationImpl::getNodeName();
+	return this->$NotationImpl::getNodeName();
 }
 
 $String* DeferredNotationImpl::getBaseURI() {
-	 return this->$NotationImpl::getBaseURI();
+	return this->$NotationImpl::getBaseURI();
 }
 
 $String* DeferredNotationImpl::getNodeValue() {
-	 return this->$NotationImpl::getNodeValue();
+	return this->$NotationImpl::getNodeValue();
 }
 
 void DeferredNotationImpl::setNodeValue($String* x) {
@@ -50,63 +50,63 @@ void DeferredNotationImpl::setNodeValue($String* x) {
 }
 
 $Node* DeferredNotationImpl::appendChild($Node* newChild) {
-	 return this->$NotationImpl::appendChild(newChild);
+	return this->$NotationImpl::appendChild(newChild);
 }
 
 $Node* DeferredNotationImpl::cloneNode(bool deep) {
-	 return this->$NotationImpl::cloneNode(deep);
+	return this->$NotationImpl::cloneNode(deep);
 }
 
 $Document* DeferredNotationImpl::getOwnerDocument() {
-	 return this->$NotationImpl::getOwnerDocument();
+	return this->$NotationImpl::getOwnerDocument();
 }
 
 $Node* DeferredNotationImpl::getParentNode() {
-	 return this->$NotationImpl::getParentNode();
+	return this->$NotationImpl::getParentNode();
 }
 
 $Node* DeferredNotationImpl::getNextSibling() {
-	 return this->$NotationImpl::getNextSibling();
+	return this->$NotationImpl::getNextSibling();
 }
 
 $Node* DeferredNotationImpl::getPreviousSibling() {
-	 return this->$NotationImpl::getPreviousSibling();
+	return this->$NotationImpl::getPreviousSibling();
 }
 
 $NamedNodeMap* DeferredNotationImpl::getAttributes() {
-	 return this->$NotationImpl::getAttributes();
+	return this->$NotationImpl::getAttributes();
 }
 
 bool DeferredNotationImpl::hasAttributes() {
-	 return this->$NotationImpl::hasAttributes();
+	return this->$NotationImpl::hasAttributes();
 }
 
 bool DeferredNotationImpl::hasChildNodes() {
-	 return this->$NotationImpl::hasChildNodes();
+	return this->$NotationImpl::hasChildNodes();
 }
 
 $NodeList* DeferredNotationImpl::getChildNodes() {
-	 return this->$NotationImpl::getChildNodes();
+	return this->$NotationImpl::getChildNodes();
 }
 
 $Node* DeferredNotationImpl::getFirstChild() {
-	 return this->$NotationImpl::getFirstChild();
+	return this->$NotationImpl::getFirstChild();
 }
 
 $Node* DeferredNotationImpl::getLastChild() {
-	 return this->$NotationImpl::getLastChild();
+	return this->$NotationImpl::getLastChild();
 }
 
 $Node* DeferredNotationImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$NotationImpl::insertBefore(newChild, refChild);
+	return this->$NotationImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DeferredNotationImpl::removeChild($Node* oldChild) {
-	 return this->$NotationImpl::removeChild(oldChild);
+	return this->$NotationImpl::removeChild(oldChild);
 }
 
 $Node* DeferredNotationImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$NotationImpl::replaceChild(newChild, oldChild);
+	return this->$NotationImpl::replaceChild(newChild, oldChild);
 }
 
 void DeferredNotationImpl::normalize() {
@@ -114,15 +114,15 @@ void DeferredNotationImpl::normalize() {
 }
 
 bool DeferredNotationImpl::isSupported($String* feature, $String* version) {
-	 return this->$NotationImpl::isSupported(feature, version);
+	return this->$NotationImpl::isSupported(feature, version);
 }
 
 $String* DeferredNotationImpl::getNamespaceURI() {
-	 return this->$NotationImpl::getNamespaceURI();
+	return this->$NotationImpl::getNamespaceURI();
 }
 
 $String* DeferredNotationImpl::getPrefix() {
-	 return this->$NotationImpl::getPrefix();
+	return this->$NotationImpl::getPrefix();
 }
 
 void DeferredNotationImpl::setPrefix($String* prefix) {
@@ -130,15 +130,15 @@ void DeferredNotationImpl::setPrefix($String* prefix) {
 }
 
 $String* DeferredNotationImpl::getLocalName() {
-	 return this->$NotationImpl::getLocalName();
+	return this->$NotationImpl::getLocalName();
 }
 
 int16_t DeferredNotationImpl::compareDocumentPosition($Node* other) {
-	 return this->$NotationImpl::compareDocumentPosition(other);
+	return this->$NotationImpl::compareDocumentPosition(other);
 }
 
 $String* DeferredNotationImpl::getTextContent() {
-	 return this->$NotationImpl::getTextContent();
+	return this->$NotationImpl::getTextContent();
 }
 
 void DeferredNotationImpl::setTextContent($String* textContent) {
@@ -146,51 +146,51 @@ void DeferredNotationImpl::setTextContent($String* textContent) {
 }
 
 bool DeferredNotationImpl::isSameNode($Node* other) {
-	 return this->$NotationImpl::isSameNode(other);
+	return this->$NotationImpl::isSameNode(other);
 }
 
 bool DeferredNotationImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$NotationImpl::isDefaultNamespace(namespaceURI);
+	return this->$NotationImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DeferredNotationImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$NotationImpl::lookupPrefix(namespaceURI);
+	return this->$NotationImpl::lookupPrefix(namespaceURI);
 }
 
 $String* DeferredNotationImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$NotationImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$NotationImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 bool DeferredNotationImpl::isEqualNode($Node* arg) {
-	 return this->$NotationImpl::isEqualNode(arg);
+	return this->$NotationImpl::isEqualNode(arg);
 }
 
 $Object* DeferredNotationImpl::getFeature($String* feature, $String* version) {
-	 return this->$NotationImpl::getFeature(feature, version);
+	return this->$NotationImpl::getFeature(feature, version);
 }
 
 $Object* DeferredNotationImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$NotationImpl::setUserData(key, data, handler);
+	return this->$NotationImpl::setUserData(key, data, handler);
 }
 
 $Object* DeferredNotationImpl::getUserData($String* key) {
-	 return this->$NotationImpl::getUserData(key);
+	return this->$NotationImpl::getUserData(key);
 }
 
 $String* DeferredNotationImpl::toString() {
-	 return this->$NotationImpl::toString();
+	return this->$NotationImpl::toString();
 }
 
 int32_t DeferredNotationImpl::hashCode() {
-	 return this->$NotationImpl::hashCode();
+	return this->$NotationImpl::hashCode();
 }
 
 bool DeferredNotationImpl::equals(Object$* arg0) {
-	 return this->$NotationImpl::equals(arg0);
+	return this->$NotationImpl::equals(arg0);
 }
 
 $Object* DeferredNotationImpl::clone() {
-	 return this->$NotationImpl::clone();
+	return this->$NotationImpl::clone();
 }
 
 void DeferredNotationImpl::finalize() {

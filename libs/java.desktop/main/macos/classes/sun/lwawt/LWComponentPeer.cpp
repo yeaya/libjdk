@@ -168,19 +168,19 @@ namespace sun {
 	namespace lwawt {
 
 int32_t LWComponentPeer::hashCode() {
-	 return this->$ComponentPeer::hashCode();
+	return this->$ComponentPeer::hashCode();
 }
 
 bool LWComponentPeer::equals(Object$* arg0) {
-	 return this->$ComponentPeer::equals(arg0);
+	return this->$ComponentPeer::equals(arg0);
 }
 
 $Object* LWComponentPeer::clone() {
-	 return this->$ComponentPeer::clone();
+	return this->$ComponentPeer::clone();
 }
 
 $String* LWComponentPeer::toString() {
-	 return this->$ComponentPeer::toString();
+	return this->$ComponentPeer::toString();
 }
 
 void LWComponentPeer::finalize() {

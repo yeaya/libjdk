@@ -2,6 +2,7 @@
 #include <java.base.h>
 #include <java.logging.h>
 #include <java.naming.h>
+#include <java.security.sasl.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
@@ -623,6 +624,7 @@ void java$security$jgss::init() {
 	::java$base::init();
 	::java$logging::init();
 	::java$naming::init();
+	::java$security$sasl::init();
 	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.security.jgss", "17.35", "",

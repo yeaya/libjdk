@@ -59,7 +59,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* x) override {
-		 return $of(HttpInputStreamTest::lambda$getCharset$0($cast($String, x)));
+		return $of(HttpInputStreamTest::lambda$getCharset$0($cast($String, x)));
 	}
 };
 $Class* HttpInputStreamTest$$Lambda$lambda$getCharset$0::load$($String* name, bool initialize) {
@@ -89,7 +89,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($String, inst$)->trim());
+		return $of($sure($String, inst$)->trim());
 	}
 };
 $Class* HttpInputStreamTest$$Lambda$trim$1::load$($String* name, bool initialize) {
@@ -119,7 +119,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* x) override {
-		 return HttpInputStreamTest::lambda$getCharset$1($cast($String, x));
+		return HttpInputStreamTest::lambda$getCharset$1($cast($String, x));
 	}
 };
 $Class* HttpInputStreamTest$$Lambda$lambda$getCharset$1$2::load$($String* name, bool initialize) {
@@ -149,7 +149,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* x) override {
-		 return $of(HttpInputStreamTest::lambda$getCharset$2($cast($String, x)));
+		return $of(HttpInputStreamTest::lambda$getCharset$2($cast($String, x)));
 	}
 };
 $Class* HttpInputStreamTest$$Lambda$lambda$getCharset$2$3::load$($String* name, bool initialize) {
@@ -179,7 +179,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $Charset::forName($cast($String, arg0));
+		return $Charset::forName($cast($String, arg0));
 	}
 };
 $Class* HttpInputStreamTest$$Lambda$forName$4::load$($String* name, bool initialize) {

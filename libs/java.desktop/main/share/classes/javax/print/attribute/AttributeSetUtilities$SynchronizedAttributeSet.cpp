@@ -17,11 +17,11 @@ namespace javax {
 		namespace attribute {
 
 $Object* AttributeSetUtilities$SynchronizedAttributeSet::clone() {
-	 return this->$AttributeSet::clone();
+	return this->$AttributeSet::clone();
 }
 
 $String* AttributeSetUtilities$SynchronizedAttributeSet::toString() {
-	 return this->$AttributeSet::toString();
+	return this->$AttributeSet::toString();
 }
 
 void AttributeSetUtilities$SynchronizedAttributeSet::finalize() {

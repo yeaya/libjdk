@@ -269,19 +269,19 @@ namespace com {
 						namespace impl {
 
 int32_t XMLEntityManager::hashCode() {
-	 return this->$XMLComponent::hashCode();
+	return this->$XMLComponent::hashCode();
 }
 
 bool XMLEntityManager::equals(Object$* arg0) {
-	 return this->$XMLComponent::equals(arg0);
+	return this->$XMLComponent::equals(arg0);
 }
 
 $Object* XMLEntityManager::clone() {
-	 return this->$XMLComponent::clone();
+	return this->$XMLComponent::clone();
 }
 
 $String* XMLEntityManager::toString() {
-	 return this->$XMLComponent::toString();
+	return this->$XMLComponent::toString();
 }
 
 void XMLEntityManager::finalize() {

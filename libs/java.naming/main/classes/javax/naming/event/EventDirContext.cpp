@@ -17,19 +17,19 @@ namespace javax {
 		namespace event {
 
 int32_t EventDirContext::hashCode() {
-	 return this->$EventContext::hashCode();
+	return this->$EventContext::hashCode();
 }
 
 bool EventDirContext::equals(Object$* arg0) {
-	 return this->$EventContext::equals(arg0);
+	return this->$EventContext::equals(arg0);
 }
 
 $Object* EventDirContext::clone() {
-	 return this->$EventContext::clone();
+	return this->$EventContext::clone();
 }
 
 $String* EventDirContext::toString() {
-	 return this->$EventContext::toString();
+	return this->$EventContext::toString();
 }
 
 void EventDirContext::finalize() {

@@ -20,19 +20,19 @@ using $JList = ::javax::swing::JList;
 using $JViewport = ::javax::swing::JViewport;
 
 $String* JListWithScroll::toString() {
-	 return this->$JList::toString();
+	return this->$JList::toString();
 }
 
 int32_t JListWithScroll::hashCode() {
-	 return this->$JList::hashCode();
+	return this->$JList::hashCode();
 }
 
 bool JListWithScroll::equals(Object$* arg0) {
-	 return this->$JList::equals(arg0);
+	return this->$JList::equals(arg0);
 }
 
 $Object* JListWithScroll::clone() {
-	 return this->$JList::clone();
+	return this->$JList::clone();
 }
 
 void JListWithScroll::finalize() {

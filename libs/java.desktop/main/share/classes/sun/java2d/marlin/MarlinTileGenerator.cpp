@@ -50,19 +50,19 @@ namespace sun {
 		namespace marlin {
 
 int32_t MarlinTileGenerator::hashCode() {
-	 return this->$AATileGenerator::hashCode();
+	return this->$AATileGenerator::hashCode();
 }
 
 bool MarlinTileGenerator::equals(Object$* arg0) {
-	 return this->$AATileGenerator::equals(arg0);
+	return this->$AATileGenerator::equals(arg0);
 }
 
 $Object* MarlinTileGenerator::clone() {
-	 return this->$AATileGenerator::clone();
+	return this->$AATileGenerator::clone();
 }
 
 $String* MarlinTileGenerator::toString() {
-	 return this->$AATileGenerator::toString();
+	return this->$AATileGenerator::toString();
 }
 
 void MarlinTileGenerator::finalize() {

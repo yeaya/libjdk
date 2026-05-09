@@ -129,19 +129,19 @@ namespace javax {
 		namespace relation {
 
 int32_t RelationService::hashCode() {
-	 return this->$NotificationBroadcasterSupport::hashCode();
+	return this->$NotificationBroadcasterSupport::hashCode();
 }
 
 bool RelationService::equals(Object$* arg0) {
-	 return this->$NotificationBroadcasterSupport::equals(arg0);
+	return this->$NotificationBroadcasterSupport::equals(arg0);
 }
 
 $Object* RelationService::clone() {
-	 return this->$NotificationBroadcasterSupport::clone();
+	return this->$NotificationBroadcasterSupport::clone();
 }
 
 $String* RelationService::toString() {
-	 return this->$NotificationBroadcasterSupport::toString();
+	return this->$NotificationBroadcasterSupport::toString();
 }
 
 void RelationService::finalize() {

@@ -48,7 +48,7 @@ public:
 		$set(this, className, className);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$getMetadataFormat$0(className));
+		return $of($nc(inst$)->lambda$getMetadataFormat$0(className));
 	}
 	ImageReaderWriterSpi* inst$ = nullptr;
 	$String* className = nullptr;

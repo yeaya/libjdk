@@ -60,19 +60,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicMenuUI$Handler::hashCode() {
-	 return this->$BasicMenuItemUI$Handler::hashCode();
+	return this->$BasicMenuItemUI$Handler::hashCode();
 }
 
 bool BasicMenuUI$Handler::equals(Object$* arg0) {
-	 return this->$BasicMenuItemUI$Handler::equals(arg0);
+	return this->$BasicMenuItemUI$Handler::equals(arg0);
 }
 
 $Object* BasicMenuUI$Handler::clone() {
-	 return this->$BasicMenuItemUI$Handler::clone();
+	return this->$BasicMenuItemUI$Handler::clone();
 }
 
 $String* BasicMenuUI$Handler::toString() {
-	 return this->$BasicMenuItemUI$Handler::toString();
+	return this->$BasicMenuItemUI$Handler::toString();
 }
 
 void BasicMenuUI$Handler::finalize() {

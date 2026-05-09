@@ -51,7 +51,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$run$0());
+		return $of($nc(inst$)->lambda$run$0());
 	}
 	Http1Exchange$Http1Publisher$WriteTask* inst$ = nullptr;
 };

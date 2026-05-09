@@ -46,19 +46,19 @@ namespace javax {
 		namespace remote {
 
 int32_t JMXConnectorServer::hashCode() {
-	 return this->$NotificationBroadcasterSupport::hashCode();
+	return this->$NotificationBroadcasterSupport::hashCode();
 }
 
 bool JMXConnectorServer::equals(Object$* arg0) {
-	 return this->$NotificationBroadcasterSupport::equals(arg0);
+	return this->$NotificationBroadcasterSupport::equals(arg0);
 }
 
 $Object* JMXConnectorServer::clone() {
-	 return this->$NotificationBroadcasterSupport::clone();
+	return this->$NotificationBroadcasterSupport::clone();
 }
 
 $String* JMXConnectorServer::toString() {
-	 return this->$NotificationBroadcasterSupport::toString();
+	return this->$NotificationBroadcasterSupport::toString();
 }
 
 void JMXConnectorServer::finalize() {

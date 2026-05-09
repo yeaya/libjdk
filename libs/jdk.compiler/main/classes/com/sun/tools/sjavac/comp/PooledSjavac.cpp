@@ -51,7 +51,7 @@ public:
 		$set(this, args, args);
 	}
 	virtual $Object* call() override {
-		 return $of($nc(inst$)->lambda$compile$0(log, args));
+		return $of($nc(inst$)->lambda$compile$0(log, args));
 	}
 	PooledSjavac* inst$ = nullptr;
 	$Log* log = nullptr;

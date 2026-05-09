@@ -29,19 +29,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicBorders$SplitPaneBorder::hashCode() {
-	 return this->$Border::hashCode();
+	return this->$Border::hashCode();
 }
 
 bool BasicBorders$SplitPaneBorder::equals(Object$* arg0) {
-	 return this->$Border::equals(arg0);
+	return this->$Border::equals(arg0);
 }
 
 $Object* BasicBorders$SplitPaneBorder::clone() {
-	 return this->$Border::clone();
+	return this->$Border::clone();
 }
 
 $String* BasicBorders$SplitPaneBorder::toString() {
-	 return this->$Border::toString();
+	return this->$Border::toString();
 }
 
 void BasicBorders$SplitPaneBorder::finalize() {

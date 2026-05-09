@@ -93,7 +93,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return Validator::lambda$validate$0($cast($ZipEntry, e));
+		return Validator::lambda$validate$0($cast($ZipEntry, e));
 	}
 };
 $Class* Validator$$Lambda$lambda$validate$0::load$($String* name, bool initialize) {
@@ -124,7 +124,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* ze) override {
-		 return $nc(inst$)->getFingerPrint($cast($ZipEntry, ze));
+		return $nc(inst$)->getFingerPrint($cast($ZipEntry, ze));
 	}
 	Validator* inst$ = nullptr;
 };
@@ -159,7 +159,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($FingerPrint, inst$)->isClass();
+		return $sure($FingerPrint, inst$)->isClass();
 	}
 };
 $Class* Validator$$Lambda$isClass$2::load$($String* name, bool initialize) {
@@ -189,7 +189,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($FingerPrint, inst$)->mrversion());
+		return $of($sure($FingerPrint, inst$)->mrversion());
 	}
 };
 $Class* Validator$$Lambda$mrversion$3::load$($String* name, bool initialize) {
@@ -219,7 +219,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($TreeMap));
+		return $of($new($TreeMap));
 	}
 };
 $Class* Validator$$Lambda$TreeMap$4::load$($String* name, bool initialize) {
@@ -249,7 +249,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($FingerPrint, inst$)->className());
+		return $of($sure($FingerPrint, inst$)->className());
 	}
 };
 $Class* Validator$$Lambda$className$5::load$($String* name, bool initialize) {
@@ -280,7 +280,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* fp1, Object$* fp2) override {
-		 return $nc(inst$)->sameNameFingerPrint($cast($FingerPrint, fp1), $cast($FingerPrint, fp2));
+		return $nc(inst$)->sameNameFingerPrint($cast($FingerPrint, fp1), $cast($FingerPrint, fp2));
 	}
 	Validator* inst$ = nullptr;
 };
@@ -429,7 +429,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Exports, inst$)->source());
+		return $of($sure($ModuleDescriptor$Exports, inst$)->source());
 	}
 };
 $Class* Validator$$Lambda$source$10::load$($String* name, bool initialize) {
@@ -495,7 +495,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Opens, inst$)->source());
+		return $of($sure($ModuleDescriptor$Opens, inst$)->source());
 	}
 };
 $Class* Validator$$Lambda$source$12::load$($String* name, bool initialize) {
@@ -525,7 +525,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ModuleDescriptor$Provides, inst$)->providers();
+		return $sure($ModuleDescriptor$Provides, inst$)->providers();
 	}
 };
 $Class* Validator$$Lambda$providers$13::load$($String* name, bool initialize) {
@@ -555,7 +555,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Collection, inst$)->stream();
+		return $sure($Collection, inst$)->stream();
 	}
 };
 $Class* Validator$$Lambda$stream$14::load$($String* name, bool initialize) {
@@ -586,7 +586,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* p) override {
-		 return $nc(inst$)->lambda$checkModuleDescriptor$4($cast($String, p));
+		return $nc(inst$)->lambda$checkModuleDescriptor$4($cast($String, p));
 	}
 	Validator* inst$ = nullptr;
 };

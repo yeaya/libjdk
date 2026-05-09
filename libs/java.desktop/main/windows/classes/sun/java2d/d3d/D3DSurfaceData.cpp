@@ -178,31 +178,31 @@ void D3DSurfaceData::markDirty() {
 }
 
 bool D3DSurfaceData::isSurfaceLost() {
-	 return this->$SurfaceData::isSurfaceLost();
+	return this->$SurfaceData::isSurfaceLost();
 }
 
 bool D3DSurfaceData::isValid() {
-	 return this->$SurfaceData::isValid();
+	return this->$SurfaceData::isValid();
 }
 
 int64_t D3DSurfaceData::getNativeOps() {
-	 return this->$SurfaceData::getNativeOps();
+	return this->$SurfaceData::getNativeOps();
 }
 
 int32_t D3DSurfaceData::hashCode() {
-	 return this->$SurfaceData::hashCode();
+	return this->$SurfaceData::hashCode();
 }
 
 bool D3DSurfaceData::equals(Object$* arg0) {
-	 return this->$SurfaceData::equals(arg0);
+	return this->$SurfaceData::equals(arg0);
 }
 
 $Object* D3DSurfaceData::clone() {
-	 return this->$SurfaceData::clone();
+	return this->$SurfaceData::clone();
 }
 
 $String* D3DSurfaceData::toString() {
-	 return this->$SurfaceData::toString();
+	return this->$SurfaceData::toString();
 }
 
 void D3DSurfaceData::finalize() {

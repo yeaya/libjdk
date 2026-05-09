@@ -77,19 +77,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaRootPaneUI::hashCode() {
-	 return this->$BasicRootPaneUI::hashCode();
+	return this->$BasicRootPaneUI::hashCode();
 }
 
 bool AquaRootPaneUI::equals(Object$* arg0) {
-	 return this->$BasicRootPaneUI::equals(arg0);
+	return this->$BasicRootPaneUI::equals(arg0);
 }
 
 $Object* AquaRootPaneUI::clone() {
-	 return this->$BasicRootPaneUI::clone();
+	return this->$BasicRootPaneUI::clone();
 }
 
 $String* AquaRootPaneUI::toString() {
-	 return this->$BasicRootPaneUI::toString();
+	return this->$BasicRootPaneUI::toString();
 }
 
 void AquaRootPaneUI::finalize() {

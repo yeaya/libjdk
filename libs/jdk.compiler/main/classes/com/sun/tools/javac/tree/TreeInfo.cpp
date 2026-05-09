@@ -285,7 +285,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* t) override {
-		 return TreeInfo::lambda$recordFields$0($cast($JCTree, t));
+		return TreeInfo::lambda$recordFields$0($cast($JCTree, t));
 	}
 };
 $Class* TreeInfo$$Lambda$lambda$recordFields$0::load$($String* name, bool initialize) {
@@ -315,7 +315,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of(TreeInfo::lambda$recordFields$1($cast($JCTree, t)));
+		return $of(TreeInfo::lambda$recordFields$1($cast($JCTree, t)));
 	}
 };
 $Class* TreeInfo$$Lambda$lambda$recordFields$1$1::load$($String* name, bool initialize) {
@@ -345,7 +345,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* vd) override {
-		 return TreeInfo::lambda$recordFields$2($cast($JCTree$JCVariableDecl, vd));
+		return TreeInfo::lambda$recordFields$2($cast($JCTree$JCVariableDecl, vd));
 	}
 };
 $Class* TreeInfo$$Lambda$lambda$recordFields$2$2::load$($String* name, bool initialize) {
@@ -375,7 +375,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* vd) override {
-		 return $of(TreeInfo::lambda$recordFieldTypes$3($cast($JCTree$JCVariableDecl, vd)));
+		return $of(TreeInfo::lambda$recordFieldTypes$3($cast($JCTree$JCVariableDecl, vd)));
 	}
 };
 $Class* TreeInfo$$Lambda$lambda$recordFieldTypes$3$3::load$($String* name, bool initialize) {
@@ -406,7 +406,7 @@ public:
 		$set(this, sym, sym);
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return TreeInfo::lambda$diagnosticPositionFor$4(sym, $cast($JCTree, t));
+		return TreeInfo::lambda$diagnosticPositionFor$4(sym, $cast($JCTree, t));
 	}
 	$Symbol* sym = nullptr;
 };
@@ -441,7 +441,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* t) override {
-		 return TreeInfo::lambda$diagnosticPositionFor$5($cast($JCDiagnostic$DiagnosticPosition, t));
+		return TreeInfo::lambda$diagnosticPositionFor$5($cast($JCDiagnostic$DiagnosticPosition, t));
 	}
 };
 $Class* TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5::load$($String* name, bool initialize) {
@@ -471,7 +471,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return TreeInfo::lambda$isErrorEnumSwitch$6($cast($JCTree$JCCase, c));
+		return TreeInfo::lambda$isErrorEnumSwitch$6($cast($JCTree$JCCase, c));
 	}
 };
 $Class* TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6::load$($String* name, bool initialize) {
@@ -501,7 +501,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* p) override {
-		 return TreeInfo::lambda$isErrorEnumSwitch$7($cast($JCTree$JCCaseLabel, p));
+		return TreeInfo::lambda$isErrorEnumSwitch$7($cast($JCTree$JCCaseLabel, p));
 	}
 };
 $Class* TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7::load$($String* name, bool initialize) {

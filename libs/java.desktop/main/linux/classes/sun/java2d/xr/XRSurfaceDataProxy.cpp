@@ -34,19 +34,19 @@ namespace sun {
 		namespace xr {
 
 int32_t XRSurfaceDataProxy::hashCode() {
-	 return this->$SurfaceDataProxy::hashCode();
+	return this->$SurfaceDataProxy::hashCode();
 }
 
 bool XRSurfaceDataProxy::equals(Object$* arg0) {
-	 return this->$SurfaceDataProxy::equals(arg0);
+	return this->$SurfaceDataProxy::equals(arg0);
 }
 
 $Object* XRSurfaceDataProxy::clone() {
-	 return this->$SurfaceDataProxy::clone();
+	return this->$SurfaceDataProxy::clone();
 }
 
 $String* XRSurfaceDataProxy::toString() {
-	 return this->$SurfaceDataProxy::toString();
+	return this->$SurfaceDataProxy::toString();
 }
 
 void XRSurfaceDataProxy::finalize() {

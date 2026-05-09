@@ -32,19 +32,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JSplitPane$AccessibleJSplitPane::hashCode() {
-	 return this->$JComponent$AccessibleJComponent::hashCode();
+	return this->$JComponent$AccessibleJComponent::hashCode();
 }
 
 bool JSplitPane$AccessibleJSplitPane::equals(Object$* arg0) {
-	 return this->$JComponent$AccessibleJComponent::equals(arg0);
+	return this->$JComponent$AccessibleJComponent::equals(arg0);
 }
 
 $Object* JSplitPane$AccessibleJSplitPane::clone() {
-	 return this->$JComponent$AccessibleJComponent::clone();
+	return this->$JComponent$AccessibleJComponent::clone();
 }
 
 $String* JSplitPane$AccessibleJSplitPane::toString() {
-	 return this->$JComponent$AccessibleJComponent::toString();
+	return this->$JComponent$AccessibleJComponent::toString();
 }
 
 void JSplitPane$AccessibleJSplitPane::finalize() {

@@ -35,19 +35,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicTreeUI$TreeTransferHandler::hashCode() {
-	 return this->$TransferHandler::hashCode();
+	return this->$TransferHandler::hashCode();
 }
 
 bool BasicTreeUI$TreeTransferHandler::equals(Object$* arg0) {
-	 return this->$TransferHandler::equals(arg0);
+	return this->$TransferHandler::equals(arg0);
 }
 
 $Object* BasicTreeUI$TreeTransferHandler::clone() {
-	 return this->$TransferHandler::clone();
+	return this->$TransferHandler::clone();
 }
 
 $String* BasicTreeUI$TreeTransferHandler::toString() {
-	 return this->$TransferHandler::toString();
+	return this->$TransferHandler::toString();
 }
 
 void BasicTreeUI$TreeTransferHandler::finalize() {

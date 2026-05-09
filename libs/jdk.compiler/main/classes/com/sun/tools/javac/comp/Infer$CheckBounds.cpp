@@ -54,7 +54,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$, Object$* t) override {
-		 return $of($sure($InferenceContext, inst$)->asUndetVar($cast($Type, t)));
+		return $of($sure($InferenceContext, inst$)->asUndetVar($cast($Type, t)));
 	}
 };
 $Class* Infer$CheckBounds$$Lambda$asUndetVar::load$($String* name, bool initialize) {

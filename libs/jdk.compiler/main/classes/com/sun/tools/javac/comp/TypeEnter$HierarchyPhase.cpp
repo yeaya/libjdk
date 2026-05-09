@@ -59,19 +59,19 @@ namespace com {
 				namespace comp {
 
 int32_t TypeEnter$HierarchyPhase::hashCode() {
-	 return this->$TypeEnter$AbstractHeaderPhase::hashCode();
+	return this->$TypeEnter$AbstractHeaderPhase::hashCode();
 }
 
 bool TypeEnter$HierarchyPhase::equals(Object$* arg0) {
-	 return this->$TypeEnter$AbstractHeaderPhase::equals(arg0);
+	return this->$TypeEnter$AbstractHeaderPhase::equals(arg0);
 }
 
 $Object* TypeEnter$HierarchyPhase::clone() {
-	 return this->$TypeEnter$AbstractHeaderPhase::clone();
+	return this->$TypeEnter$AbstractHeaderPhase::clone();
 }
 
 $String* TypeEnter$HierarchyPhase::toString() {
-	 return this->$TypeEnter$AbstractHeaderPhase::toString();
+	return this->$TypeEnter$AbstractHeaderPhase::toString();
 }
 
 void TypeEnter$HierarchyPhase::finalize() {

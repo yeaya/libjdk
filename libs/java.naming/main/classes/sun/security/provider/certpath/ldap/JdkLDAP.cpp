@@ -45,7 +45,7 @@ public:
 		$set(this, p, p);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$new$0(p);
+		return $nc(inst$)->lambda$new$0(p);
 	}
 	JdkLDAP* inst$ = nullptr;
 	$Provider* p = nullptr;

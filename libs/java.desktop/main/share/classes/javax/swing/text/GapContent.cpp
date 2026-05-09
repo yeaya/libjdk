@@ -46,19 +46,19 @@ namespace javax {
 		namespace text {
 
 int32_t GapContent::hashCode() {
-	 return this->$GapVector::hashCode();
+	return this->$GapVector::hashCode();
 }
 
 bool GapContent::equals(Object$* arg0) {
-	 return this->$GapVector::equals(arg0);
+	return this->$GapVector::equals(arg0);
 }
 
 $Object* GapContent::clone() {
-	 return this->$GapVector::clone();
+	return this->$GapVector::clone();
 }
 
 $String* GapContent::toString() {
-	 return this->$GapVector::toString();
+	return this->$GapVector::toString();
 }
 
 void GapContent::finalize() {

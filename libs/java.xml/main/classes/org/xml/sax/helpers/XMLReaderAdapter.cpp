@@ -41,19 +41,19 @@ namespace org {
 			namespace helpers {
 
 int32_t XMLReaderAdapter::hashCode() {
-	 return this->$Parser::hashCode();
+	return this->$Parser::hashCode();
 }
 
 bool XMLReaderAdapter::equals(Object$* arg0) {
-	 return this->$Parser::equals(arg0);
+	return this->$Parser::equals(arg0);
 }
 
 $Object* XMLReaderAdapter::clone() {
-	 return this->$Parser::clone();
+	return this->$Parser::clone();
 }
 
 $String* XMLReaderAdapter::toString() {
-	 return this->$Parser::toString();
+	return this->$Parser::toString();
 }
 
 void XMLReaderAdapter::finalize() {

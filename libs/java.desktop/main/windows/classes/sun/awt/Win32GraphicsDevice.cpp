@@ -77,15 +77,15 @@ namespace sun {
 	namespace awt {
 
 int32_t Win32GraphicsDevice::hashCode() {
-	 return this->$GraphicsDevice::hashCode();
+	return this->$GraphicsDevice::hashCode();
 }
 
 bool Win32GraphicsDevice::equals(Object$* arg0) {
-	 return this->$GraphicsDevice::equals(arg0);
+	return this->$GraphicsDevice::equals(arg0);
 }
 
 $Object* Win32GraphicsDevice::clone() {
-	 return this->$GraphicsDevice::clone();
+	return this->$GraphicsDevice::clone();
 }
 
 void Win32GraphicsDevice::finalize() {

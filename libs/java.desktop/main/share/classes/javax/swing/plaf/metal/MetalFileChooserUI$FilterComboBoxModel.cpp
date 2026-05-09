@@ -36,19 +36,19 @@ void MetalFileChooserUI$FilterComboBoxModel::removeListDataListener($ListDataLis
 }
 
 int32_t MetalFileChooserUI$FilterComboBoxModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool MetalFileChooserUI$FilterComboBoxModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* MetalFileChooserUI$FilterComboBoxModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* MetalFileChooserUI$FilterComboBoxModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void MetalFileChooserUI$FilterComboBoxModel::finalize() {

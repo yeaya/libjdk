@@ -33,11 +33,11 @@ namespace javax {
 		namespace directory {
 
 $Object* InitialDirContext::lookup($String* name) {
-	 return this->$InitialContext::lookup(name);
+	return this->$InitialContext::lookup(name);
 }
 
 $Object* InitialDirContext::lookup($Name* name) {
-	 return this->$InitialContext::lookup(name);
+	return this->$InitialContext::lookup(name);
 }
 
 void InitialDirContext::bind($String* name, Object$* obj) {
@@ -73,19 +73,19 @@ void InitialDirContext::rename($Name* oldName, $Name* newName) {
 }
 
 $NamingEnumeration* InitialDirContext::list($String* name) {
-	 return this->$InitialContext::list(name);
+	return this->$InitialContext::list(name);
 }
 
 $NamingEnumeration* InitialDirContext::list($Name* name) {
-	 return this->$InitialContext::list(name);
+	return this->$InitialContext::list(name);
 }
 
 $NamingEnumeration* InitialDirContext::listBindings($String* name) {
-	 return this->$InitialContext::listBindings(name);
+	return this->$InitialContext::listBindings(name);
 }
 
 $NamingEnumeration* InitialDirContext::listBindings($Name* name) {
-	 return this->$InitialContext::listBindings(name);
+	return this->$InitialContext::listBindings(name);
 }
 
 void InitialDirContext::destroySubcontext($String* name) {
@@ -97,47 +97,47 @@ void InitialDirContext::destroySubcontext($Name* name) {
 }
 
 $Context* InitialDirContext::createSubcontext($String* name) {
-	 return this->$InitialContext::createSubcontext(name);
+	return this->$InitialContext::createSubcontext(name);
 }
 
 $Context* InitialDirContext::createSubcontext($Name* name) {
-	 return this->$InitialContext::createSubcontext(name);
+	return this->$InitialContext::createSubcontext(name);
 }
 
 $Object* InitialDirContext::lookupLink($String* name) {
-	 return this->$InitialContext::lookupLink(name);
+	return this->$InitialContext::lookupLink(name);
 }
 
 $Object* InitialDirContext::lookupLink($Name* name) {
-	 return this->$InitialContext::lookupLink(name);
+	return this->$InitialContext::lookupLink(name);
 }
 
 $NameParser* InitialDirContext::getNameParser($String* name) {
-	 return this->$InitialContext::getNameParser(name);
+	return this->$InitialContext::getNameParser(name);
 }
 
 $NameParser* InitialDirContext::getNameParser($Name* name) {
-	 return this->$InitialContext::getNameParser(name);
+	return this->$InitialContext::getNameParser(name);
 }
 
 $String* InitialDirContext::composeName($String* name, $String* prefix) {
-	 return this->$InitialContext::composeName(name, prefix);
+	return this->$InitialContext::composeName(name, prefix);
 }
 
 $Name* InitialDirContext::composeName($Name* name, $Name* prefix) {
-	 return this->$InitialContext::composeName(name, prefix);
+	return this->$InitialContext::composeName(name, prefix);
 }
 
 $Object* InitialDirContext::addToEnvironment($String* propName, Object$* propVal) {
-	 return this->$InitialContext::addToEnvironment(propName, propVal);
+	return this->$InitialContext::addToEnvironment(propName, propVal);
 }
 
 $Object* InitialDirContext::removeFromEnvironment($String* propName) {
-	 return this->$InitialContext::removeFromEnvironment(propName);
+	return this->$InitialContext::removeFromEnvironment(propName);
 }
 
 $Hashtable* InitialDirContext::getEnvironment() {
-	 return this->$InitialContext::getEnvironment();
+	return this->$InitialContext::getEnvironment();
 }
 
 void InitialDirContext::close() {
@@ -145,23 +145,23 @@ void InitialDirContext::close() {
 }
 
 $String* InitialDirContext::getNameInNamespace() {
-	 return this->$InitialContext::getNameInNamespace();
+	return this->$InitialContext::getNameInNamespace();
 }
 
 int32_t InitialDirContext::hashCode() {
-	 return this->$InitialContext::hashCode();
+	return this->$InitialContext::hashCode();
 }
 
 bool InitialDirContext::equals(Object$* arg0) {
-	 return this->$InitialContext::equals(arg0);
+	return this->$InitialContext::equals(arg0);
 }
 
 $Object* InitialDirContext::clone() {
-	 return this->$InitialContext::clone();
+	return this->$InitialContext::clone();
 }
 
 $String* InitialDirContext::toString() {
-	 return this->$InitialContext::toString();
+	return this->$InitialContext::toString();
 }
 
 void InitialDirContext::finalize() {

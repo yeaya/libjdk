@@ -23,19 +23,19 @@ namespace com {
 				namespace tree {
 
 $String* DCTree$DCIdentifier::toString() {
-	 return this->$DCTree::toString();
+	return this->$DCTree::toString();
 }
 
 int32_t DCTree$DCIdentifier::hashCode() {
-	 return this->$DCTree::hashCode();
+	return this->$DCTree::hashCode();
 }
 
 bool DCTree$DCIdentifier::equals(Object$* arg0) {
-	 return this->$DCTree::equals(arg0);
+	return this->$DCTree::equals(arg0);
 }
 
 $Object* DCTree$DCIdentifier::clone() {
-	 return this->$DCTree::clone();
+	return this->$DCTree::clone();
 }
 
 void DCTree$DCIdentifier::finalize() {

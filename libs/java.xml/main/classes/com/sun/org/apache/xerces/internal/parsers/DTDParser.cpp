@@ -29,19 +29,19 @@ namespace com {
 						namespace parsers {
 
 int32_t DTDParser::hashCode() {
-	 return this->$XMLGrammarParser::hashCode();
+	return this->$XMLGrammarParser::hashCode();
 }
 
 bool DTDParser::equals(Object$* arg0) {
-	 return this->$XMLGrammarParser::equals(arg0);
+	return this->$XMLGrammarParser::equals(arg0);
 }
 
 $Object* DTDParser::clone() {
-	 return this->$XMLGrammarParser::clone();
+	return this->$XMLGrammarParser::clone();
 }
 
 $String* DTDParser::toString() {
-	 return this->$XMLGrammarParser::toString();
+	return this->$XMLGrammarParser::toString();
 }
 
 void DTDParser::finalize() {

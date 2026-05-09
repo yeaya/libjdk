@@ -169,7 +169,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* item) override {
-		 return $nc(inst$)->lambda$isSimpleRTF$0($cast(SyntaxTreeNode, item));
+		return $nc(inst$)->lambda$isSimpleRTF$0($cast(SyntaxTreeNode, item));
 	}
 	SyntaxTreeNode* inst$ = nullptr;
 };

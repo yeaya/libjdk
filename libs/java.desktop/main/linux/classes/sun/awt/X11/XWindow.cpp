@@ -232,31 +232,31 @@ namespace sun {
 		namespace X11 {
 
 int64_t XWindow::getWindow() {
-	 return this->$XBaseWindow::getWindow();
+	return this->$XBaseWindow::getWindow();
 }
 
 int64_t XWindow::getContentWindow() {
-	 return this->$XBaseWindow::getContentWindow();
+	return this->$XBaseWindow::getContentWindow();
 }
 
 $Rectangle* XWindow::getBounds() {
-	 return this->$XBaseWindow::getBounds();
+	return this->$XBaseWindow::getBounds();
 }
 
 $String* XWindow::toString() {
-	 return this->$XBaseWindow::toString();
+	return this->$XBaseWindow::toString();
 }
 
 int32_t XWindow::hashCode() {
-	 return this->$XBaseWindow::hashCode();
+	return this->$XBaseWindow::hashCode();
 }
 
 bool XWindow::equals(Object$* arg0) {
-	 return this->$XBaseWindow::equals(arg0);
+	return this->$XBaseWindow::equals(arg0);
 }
 
 $Object* XWindow::clone() {
-	 return this->$XBaseWindow::clone();
+	return this->$XBaseWindow::clone();
 }
 
 void XWindow::finalize() {

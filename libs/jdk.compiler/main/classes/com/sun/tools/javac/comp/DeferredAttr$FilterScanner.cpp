@@ -37,7 +37,7 @@ public:
 		$set(this, validTags, validTags);
 	}
 	virtual bool test(Object$* t) override {
-		 return DeferredAttr$FilterScanner::lambda$new$0(validTags, $cast($JCTree, t));
+		return DeferredAttr$FilterScanner::lambda$new$0(validTags, $cast($JCTree, t));
 	}
 	$Set* validTags = nullptr;
 };

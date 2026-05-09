@@ -30,19 +30,19 @@ namespace javax {
 	namespace swing {
 
 int32_t ToolTipManager$AccessibilityKeyListener::hashCode() {
-	 return this->$KeyAdapter::hashCode();
+	return this->$KeyAdapter::hashCode();
 }
 
 bool ToolTipManager$AccessibilityKeyListener::equals(Object$* arg0) {
-	 return this->$KeyAdapter::equals(arg0);
+	return this->$KeyAdapter::equals(arg0);
 }
 
 $Object* ToolTipManager$AccessibilityKeyListener::clone() {
-	 return this->$KeyAdapter::clone();
+	return this->$KeyAdapter::clone();
 }
 
 $String* ToolTipManager$AccessibilityKeyListener::toString() {
-	 return this->$KeyAdapter::toString();
+	return this->$KeyAdapter::toString();
 }
 
 void ToolTipManager$AccessibilityKeyListener::finalize() {

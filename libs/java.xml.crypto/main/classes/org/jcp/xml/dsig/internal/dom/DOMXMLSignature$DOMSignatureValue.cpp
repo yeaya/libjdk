@@ -61,15 +61,15 @@ namespace org {
 					namespace dom {
 
 bool DOMXMLSignature$DOMSignatureValue::isFeatureSupported($String* feature) {
-	 return this->$DOMStructure::isFeatureSupported(feature);
+	return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMXMLSignature$DOMSignatureValue::clone() {
-	 return this->$DOMStructure::clone();
+	return this->$DOMStructure::clone();
 }
 
 $String* DOMXMLSignature$DOMSignatureValue::toString() {
-	 return this->$DOMStructure::toString();
+	return this->$DOMStructure::toString();
 }
 
 void DOMXMLSignature$DOMSignatureValue::finalize() {

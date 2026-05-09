@@ -154,15 +154,15 @@ $Class* CGLGraphicsConfig$$Lambda$lambda$getConfig$0::load$($String* name, bool 
 $Class* CGLGraphicsConfig$$Lambda$lambda$getConfig$0::class$ = nullptr;
 
 int32_t CGLGraphicsConfig::hashCode() {
-	 return this->$CGraphicsConfig::hashCode();
+	return this->$CGraphicsConfig::hashCode();
 }
 
 bool CGLGraphicsConfig::equals(Object$* arg0) {
-	 return this->$CGraphicsConfig::equals(arg0);
+	return this->$CGraphicsConfig::equals(arg0);
 }
 
 $Object* CGLGraphicsConfig::clone() {
-	 return this->$CGraphicsConfig::clone();
+	return this->$CGraphicsConfig::clone();
 }
 
 void CGLGraphicsConfig::finalize() {

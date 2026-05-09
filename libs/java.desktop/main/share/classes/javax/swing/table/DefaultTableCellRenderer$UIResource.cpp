@@ -12,19 +12,19 @@ namespace javax {
 		namespace table {
 
 $String* DefaultTableCellRenderer$UIResource::toString() {
-	 return this->$DefaultTableCellRenderer::toString();
+	return this->$DefaultTableCellRenderer::toString();
 }
 
 int32_t DefaultTableCellRenderer$UIResource::hashCode() {
-	 return this->$DefaultTableCellRenderer::hashCode();
+	return this->$DefaultTableCellRenderer::hashCode();
 }
 
 bool DefaultTableCellRenderer$UIResource::equals(Object$* arg0) {
-	 return this->$DefaultTableCellRenderer::equals(arg0);
+	return this->$DefaultTableCellRenderer::equals(arg0);
 }
 
 $Object* DefaultTableCellRenderer$UIResource::clone() {
-	 return this->$DefaultTableCellRenderer::clone();
+	return this->$DefaultTableCellRenderer::clone();
 }
 
 void DefaultTableCellRenderer$UIResource::finalize() {

@@ -31,11 +31,11 @@ namespace com {
 						namespace dom {
 
 $NodeList* ProcessingInstructionImpl::getChildNodes() {
-	 return this->$CharacterDataImpl::getChildNodes();
+	return this->$CharacterDataImpl::getChildNodes();
 }
 
 $String* ProcessingInstructionImpl::getNodeValue() {
-	 return this->$CharacterDataImpl::getNodeValue();
+	return this->$CharacterDataImpl::getNodeValue();
 }
 
 void ProcessingInstructionImpl::setNodeValue($String* value) {
@@ -43,59 +43,59 @@ void ProcessingInstructionImpl::setNodeValue($String* value) {
 }
 
 $Node* ProcessingInstructionImpl::cloneNode(bool deep) {
-	 return this->$CharacterDataImpl::cloneNode(deep);
+	return this->$CharacterDataImpl::cloneNode(deep);
 }
 
 $Node* ProcessingInstructionImpl::getParentNode() {
-	 return this->$CharacterDataImpl::getParentNode();
+	return this->$CharacterDataImpl::getParentNode();
 }
 
 $Node* ProcessingInstructionImpl::getNextSibling() {
-	 return this->$CharacterDataImpl::getNextSibling();
+	return this->$CharacterDataImpl::getNextSibling();
 }
 
 $Node* ProcessingInstructionImpl::getPreviousSibling() {
-	 return this->$CharacterDataImpl::getPreviousSibling();
+	return this->$CharacterDataImpl::getPreviousSibling();
 }
 
 $Node* ProcessingInstructionImpl::appendChild($Node* newChild) {
-	 return this->$CharacterDataImpl::appendChild(newChild);
+	return this->$CharacterDataImpl::appendChild(newChild);
 }
 
 $Document* ProcessingInstructionImpl::getOwnerDocument() {
-	 return this->$CharacterDataImpl::getOwnerDocument();
+	return this->$CharacterDataImpl::getOwnerDocument();
 }
 
 $NamedNodeMap* ProcessingInstructionImpl::getAttributes() {
-	 return this->$CharacterDataImpl::getAttributes();
+	return this->$CharacterDataImpl::getAttributes();
 }
 
 bool ProcessingInstructionImpl::hasAttributes() {
-	 return this->$CharacterDataImpl::hasAttributes();
+	return this->$CharacterDataImpl::hasAttributes();
 }
 
 bool ProcessingInstructionImpl::hasChildNodes() {
-	 return this->$CharacterDataImpl::hasChildNodes();
+	return this->$CharacterDataImpl::hasChildNodes();
 }
 
 $Node* ProcessingInstructionImpl::getFirstChild() {
-	 return this->$CharacterDataImpl::getFirstChild();
+	return this->$CharacterDataImpl::getFirstChild();
 }
 
 $Node* ProcessingInstructionImpl::getLastChild() {
-	 return this->$CharacterDataImpl::getLastChild();
+	return this->$CharacterDataImpl::getLastChild();
 }
 
 $Node* ProcessingInstructionImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$CharacterDataImpl::insertBefore(newChild, refChild);
+	return this->$CharacterDataImpl::insertBefore(newChild, refChild);
 }
 
 $Node* ProcessingInstructionImpl::removeChild($Node* oldChild) {
-	 return this->$CharacterDataImpl::removeChild(oldChild);
+	return this->$CharacterDataImpl::removeChild(oldChild);
 }
 
 $Node* ProcessingInstructionImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$CharacterDataImpl::replaceChild(newChild, oldChild);
+	return this->$CharacterDataImpl::replaceChild(newChild, oldChild);
 }
 
 void ProcessingInstructionImpl::normalize() {
@@ -103,15 +103,15 @@ void ProcessingInstructionImpl::normalize() {
 }
 
 bool ProcessingInstructionImpl::isSupported($String* feature, $String* version) {
-	 return this->$CharacterDataImpl::isSupported(feature, version);
+	return this->$CharacterDataImpl::isSupported(feature, version);
 }
 
 $String* ProcessingInstructionImpl::getNamespaceURI() {
-	 return this->$CharacterDataImpl::getNamespaceURI();
+	return this->$CharacterDataImpl::getNamespaceURI();
 }
 
 $String* ProcessingInstructionImpl::getPrefix() {
-	 return this->$CharacterDataImpl::getPrefix();
+	return this->$CharacterDataImpl::getPrefix();
 }
 
 void ProcessingInstructionImpl::setPrefix($String* prefix) {
@@ -119,15 +119,15 @@ void ProcessingInstructionImpl::setPrefix($String* prefix) {
 }
 
 $String* ProcessingInstructionImpl::getLocalName() {
-	 return this->$CharacterDataImpl::getLocalName();
+	return this->$CharacterDataImpl::getLocalName();
 }
 
 int16_t ProcessingInstructionImpl::compareDocumentPosition($Node* other) {
-	 return this->$CharacterDataImpl::compareDocumentPosition(other);
+	return this->$CharacterDataImpl::compareDocumentPosition(other);
 }
 
 $String* ProcessingInstructionImpl::getTextContent() {
-	 return this->$CharacterDataImpl::getTextContent();
+	return this->$CharacterDataImpl::getTextContent();
 }
 
 void ProcessingInstructionImpl::setTextContent($String* textContent) {
@@ -135,51 +135,51 @@ void ProcessingInstructionImpl::setTextContent($String* textContent) {
 }
 
 bool ProcessingInstructionImpl::isSameNode($Node* other) {
-	 return this->$CharacterDataImpl::isSameNode(other);
+	return this->$CharacterDataImpl::isSameNode(other);
 }
 
 bool ProcessingInstructionImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$CharacterDataImpl::isDefaultNamespace(namespaceURI);
+	return this->$CharacterDataImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* ProcessingInstructionImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$CharacterDataImpl::lookupPrefix(namespaceURI);
+	return this->$CharacterDataImpl::lookupPrefix(namespaceURI);
 }
 
 $String* ProcessingInstructionImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$CharacterDataImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$CharacterDataImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 bool ProcessingInstructionImpl::isEqualNode($Node* arg) {
-	 return this->$CharacterDataImpl::isEqualNode(arg);
+	return this->$CharacterDataImpl::isEqualNode(arg);
 }
 
 $Object* ProcessingInstructionImpl::getFeature($String* feature, $String* version) {
-	 return this->$CharacterDataImpl::getFeature(feature, version);
+	return this->$CharacterDataImpl::getFeature(feature, version);
 }
 
 $Object* ProcessingInstructionImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$CharacterDataImpl::setUserData(key, data, handler);
+	return this->$CharacterDataImpl::setUserData(key, data, handler);
 }
 
 $Object* ProcessingInstructionImpl::getUserData($String* key) {
-	 return this->$CharacterDataImpl::getUserData(key);
+	return this->$CharacterDataImpl::getUserData(key);
 }
 
 $String* ProcessingInstructionImpl::toString() {
-	 return this->$CharacterDataImpl::toString();
+	return this->$CharacterDataImpl::toString();
 }
 
 int32_t ProcessingInstructionImpl::hashCode() {
-	 return this->$CharacterDataImpl::hashCode();
+	return this->$CharacterDataImpl::hashCode();
 }
 
 bool ProcessingInstructionImpl::equals(Object$* arg0) {
-	 return this->$CharacterDataImpl::equals(arg0);
+	return this->$CharacterDataImpl::equals(arg0);
 }
 
 $Object* ProcessingInstructionImpl::clone() {
-	 return this->$CharacterDataImpl::clone();
+	return this->$CharacterDataImpl::clone();
 }
 
 void ProcessingInstructionImpl::finalize() {

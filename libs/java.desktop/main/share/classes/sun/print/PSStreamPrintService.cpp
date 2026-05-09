@@ -139,7 +139,7 @@ namespace sun {
 	namespace print {
 
 $Object* PSStreamPrintService::clone() {
-	 return this->$StreamPrintService::clone();
+	return this->$StreamPrintService::clone();
 }
 
 void PSStreamPrintService::finalize() {

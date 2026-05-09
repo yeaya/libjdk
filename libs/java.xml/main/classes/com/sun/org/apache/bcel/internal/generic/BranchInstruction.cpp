@@ -26,19 +26,19 @@ namespace com {
 						namespace generic {
 
 $String* BranchInstruction::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 bool BranchInstruction::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t BranchInstruction::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* BranchInstruction::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void BranchInstruction::finalize() {

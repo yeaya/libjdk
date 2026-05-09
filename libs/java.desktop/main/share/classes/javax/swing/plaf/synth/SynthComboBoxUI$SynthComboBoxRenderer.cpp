@@ -35,19 +35,19 @@ namespace javax {
 			namespace synth {
 
 $String* SynthComboBoxUI$SynthComboBoxRenderer::toString() {
-	 return this->$JLabel::toString();
+	return this->$JLabel::toString();
 }
 
 int32_t SynthComboBoxUI$SynthComboBoxRenderer::hashCode() {
-	 return this->$JLabel::hashCode();
+	return this->$JLabel::hashCode();
 }
 
 bool SynthComboBoxUI$SynthComboBoxRenderer::equals(Object$* arg0) {
-	 return this->$JLabel::equals(arg0);
+	return this->$JLabel::equals(arg0);
 }
 
 $Object* SynthComboBoxUI$SynthComboBoxRenderer::clone() {
-	 return this->$JLabel::clone();
+	return this->$JLabel::clone();
 }
 
 void SynthComboBoxUI$SynthComboBoxRenderer::finalize() {

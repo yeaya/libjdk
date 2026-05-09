@@ -25,19 +25,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsBorders$ProgressBarBorder::hashCode() {
-	 return this->$AbstractBorder::hashCode();
+	return this->$AbstractBorder::hashCode();
 }
 
 bool WindowsBorders$ProgressBarBorder::equals(Object$* arg0) {
-	 return this->$AbstractBorder::equals(arg0);
+	return this->$AbstractBorder::equals(arg0);
 }
 
 $Object* WindowsBorders$ProgressBarBorder::clone() {
-	 return this->$AbstractBorder::clone();
+	return this->$AbstractBorder::clone();
 }
 
 $String* WindowsBorders$ProgressBarBorder::toString() {
-	 return this->$AbstractBorder::toString();
+	return this->$AbstractBorder::toString();
 }
 
 void WindowsBorders$ProgressBarBorder::finalize() {

@@ -157,7 +157,7 @@ void WFileDialogPeer::updateWindow() {
 }
 
 $Insets* WFileDialogPeer::getInsets() {
-	 return this->$WWindowPeer::getInsets();
+	return this->$WWindowPeer::getInsets();
 }
 
 void WFileDialogPeer::paint($Graphics* g) {
@@ -165,11 +165,11 @@ void WFileDialogPeer::paint($Graphics* g) {
 }
 
 bool WFileDialogPeer::isObscured() {
-	 return this->$WWindowPeer::isObscured();
+	return this->$WWindowPeer::isObscured();
 }
 
 bool WFileDialogPeer::canDetermineObscurity() {
-	 return this->$WWindowPeer::canDetermineObscurity();
+	return this->$WWindowPeer::canDetermineObscurity();
 }
 
 void WFileDialogPeer::setVisible(bool b) {
@@ -193,11 +193,11 @@ void WFileDialogPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* WFileDialogPeer::getMinimumSize() {
-	 return this->$WWindowPeer::getMinimumSize();
+	return this->$WWindowPeer::getMinimumSize();
 }
 
 $Dimension* WFileDialogPeer::getPreferredSize() {
-	 return this->$WWindowPeer::getPreferredSize();
+	return this->$WWindowPeer::getPreferredSize();
 }
 
 void WFileDialogPeer::layout() {
@@ -205,27 +205,27 @@ void WFileDialogPeer::layout() {
 }
 
 bool WFileDialogPeer::isFocusable() {
-	 return this->$WWindowPeer::isFocusable();
+	return this->$WWindowPeer::isFocusable();
 }
 
 $GraphicsConfiguration* WFileDialogPeer::getGraphicsConfiguration() {
-	 return this->$WWindowPeer::getGraphicsConfiguration();
+	return this->$WWindowPeer::getGraphicsConfiguration();
 }
 
 bool WFileDialogPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$WWindowPeer::updateGraphicsData(gc);
+	return this->$WWindowPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* WFileDialogPeer::getColorModel() {
-	 return this->$WWindowPeer::getColorModel();
+	return this->$WWindowPeer::getColorModel();
 }
 
 $Graphics* WFileDialogPeer::getGraphics() {
-	 return this->$WWindowPeer::getGraphics();
+	return this->$WWindowPeer::getGraphics();
 }
 
 $FontMetrics* WFileDialogPeer::getFontMetrics($Font* font) {
-	 return this->$WWindowPeer::getFontMetrics(font);
+	return this->$WWindowPeer::getFontMetrics(font);
 }
 
 void WFileDialogPeer::updateCursorImmediately() {
@@ -233,15 +233,15 @@ void WFileDialogPeer::updateCursorImmediately() {
 }
 
 $Image* WFileDialogPeer::createImage(int32_t width, int32_t height) {
-	 return this->$WWindowPeer::createImage(width, height);
+	return this->$WWindowPeer::createImage(width, height);
 }
 
 $VolatileImage* WFileDialogPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$WWindowPeer::createVolatileImage(width, height);
+	return this->$WWindowPeer::createVolatileImage(width, height);
 }
 
 $String* WFileDialogPeer::toString() {
-	 return this->$WWindowPeer::toString();
+	return this->$WWindowPeer::toString();
 }
 
 void WFileDialogPeer::beginLayout() {
@@ -253,7 +253,7 @@ void WFileDialogPeer::endLayout() {
 }
 
 bool WFileDialogPeer::handlesWheelScrolling() {
-	 return this->$WWindowPeer::handlesWheelScrolling();
+	return this->$WWindowPeer::handlesWheelScrolling();
 }
 
 void WFileDialogPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -269,7 +269,7 @@ void WFileDialogPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $Buff
 }
 
 $Image* WFileDialogPeer::getBackBuffer() {
-	 return this->$WWindowPeer::getBackBuffer();
+	return this->$WWindowPeer::getBackBuffer();
 }
 
 void WFileDialogPeer::reparent($ContainerPeer* newNativeParent) {
@@ -277,7 +277,7 @@ void WFileDialogPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool WFileDialogPeer::isReparentSupported() {
-	 return this->$WWindowPeer::isReparentSupported();
+	return this->$WWindowPeer::isReparentSupported();
 }
 
 void WFileDialogPeer::dispose() {
@@ -285,15 +285,15 @@ void WFileDialogPeer::dispose() {
 }
 
 int32_t WFileDialogPeer::hashCode() {
-	 return this->$WWindowPeer::hashCode();
+	return this->$WWindowPeer::hashCode();
 }
 
 bool WFileDialogPeer::equals(Object$* arg0) {
-	 return this->$WWindowPeer::equals(arg0);
+	return this->$WWindowPeer::equals(arg0);
 }
 
 $Object* WFileDialogPeer::clone() {
-	 return this->$WWindowPeer::clone();
+	return this->$WWindowPeer::clone();
 }
 
 void WFileDialogPeer::finalize() {

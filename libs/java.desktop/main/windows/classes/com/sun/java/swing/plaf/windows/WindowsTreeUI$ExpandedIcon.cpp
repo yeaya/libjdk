@@ -33,19 +33,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsTreeUI$ExpandedIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool WindowsTreeUI$ExpandedIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* WindowsTreeUI$ExpandedIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* WindowsTreeUI$ExpandedIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void WindowsTreeUI$ExpandedIcon::finalize() {

@@ -12,11 +12,11 @@ namespace javax {
 			namespace element {
 
 bool Name::equals(Object$* obj) {
-	 return this->$CharSequence::equals(obj);
+	return this->$CharSequence::equals(obj);
 }
 
 int32_t Name::hashCode() {
-	 return this->$CharSequence::hashCode();
+	return this->$CharSequence::hashCode();
 }
 
 $Class* Name::load$($String* name, bool initialize) {

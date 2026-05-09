@@ -368,7 +368,7 @@ public:
 	void init$() {
 	}
 	virtual $Symbol* loadClass($Env* env, $Name* name) override {
-		 return Resolve::lambda$new$2(env, name);
+		return Resolve::lambda$new$2(env, name);
 	}
 };
 $Class* Resolve$$Lambda$lambda$new$2::load$($String* name, bool initialize) {
@@ -399,7 +399,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Symbol* loadClass($Env* env, $Name* name) override {
-		 return $nc(inst$)->lambda$new$4(env, name);
+		return $nc(inst$)->lambda$new$4(env, name);
 	}
 	Resolve* inst$ = nullptr;
 };
@@ -435,7 +435,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Symbol* loadClass($Env* env, $Name* name) override {
-		 return $nc(inst$)->lambda$new$6(env, name);
+		return $nc(inst$)->lambda$new$6(env, name);
 	}
 	Resolve* inst$ = nullptr;
 };
@@ -473,7 +473,7 @@ public:
 		this->checkInner = checkInner;
 	}
 	virtual bool test(Object$* alternative) override {
-		 return $nc(inst$)->lambda$isAccessible$0(env, checkInner, $cast($Type, alternative));
+		return $nc(inst$)->lambda$isAccessible$0(env, checkInner, $cast($Type, alternative));
 	}
 	Resolve* inst$ = nullptr;
 	$Env* env = nullptr;
@@ -514,7 +514,7 @@ public:
 		$set(this, intype, intype);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$superclasses$1(intype);
+		return $nc(inst$)->lambda$superclasses$1(intype);
 	}
 	Resolve* inst$ = nullptr;
 	$Type* intype = nullptr;
@@ -552,7 +552,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* candidate) override {
-		 return $nc(inst$)->getPackagesForName($cast($Name, candidate));
+		return $nc(inst$)->getPackagesForName($cast($Name, candidate));
 	}
 	$Symtab* inst$ = nullptr;
 };
@@ -588,7 +588,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* currModule, Object$* fullname) override {
-		 return $of($nc(inst$)->enterPackage($cast($Symbol$ModuleSymbol, currModule), $cast($Name, fullname)));
+		return $of($nc(inst$)->enterPackage($cast($Symbol$ModuleSymbol, currModule), $cast($Name, fullname)));
 	}
 	$Symtab* inst$ = nullptr;
 };
@@ -623,7 +623,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* sym) override {
-		 return Resolve::lambda$lookupPackage$7($cast($Symbol$PackageSymbol, sym));
+		return Resolve::lambda$lookupPackage$7($cast($Symbol$PackageSymbol, sym));
 	}
 };
 $Class* Resolve$$Lambda$lambda$lookupPackage$7$7::load$($String* name, bool initialize) {
@@ -654,7 +654,7 @@ public:
 		$set(this, sym, sym);
 	}
 	virtual bool test(Object$* e) override {
-		 return Resolve::lambda$inaccessiblePackageReason$8(sym, $cast($Directive$ExportsDirective, e));
+		return Resolve::lambda$inaccessiblePackageReason$8(sym, $cast($Directive$ExportsDirective, e));
 	}
 	$Symbol$PackageSymbol* sym = nullptr;
 };
@@ -690,7 +690,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual bool test(Object$* sym) override {
-		 return Resolve::lambda$new$3(name, $cast($Symbol, sym));
+		return Resolve::lambda$new$3(name, $cast($Symbol, sym));
 	}
 	$Name* name = nullptr;
 };

@@ -274,7 +274,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $nc(inst$)->uri($cast($URI, arg0));
+		return $nc(inst$)->uri($cast($URI, arg0));
 	}
 	$HttpRequest$Builder* inst$ = nullptr;
 };
@@ -310,7 +310,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* arg0, Object$* arg1) override {
-		 return $nc(inst$)->header($cast($String, arg0), $cast($String, arg1));
+		return $nc(inst$)->header($cast($String, arg0), $cast($String, arg1));
 	}
 	$HttpRequest$Builder* inst$ = nullptr;
 };
@@ -346,7 +346,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $nc(inst$)->headers($cast($StringArray, arg0));
+		return $nc(inst$)->headers($cast($StringArray, arg0));
 	}
 	$HttpRequest$Builder* inst$ = nullptr;
 };
@@ -412,7 +412,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $nc(inst$)->POST($cast($HttpRequest$BodyPublisher, arg0));
+		return $nc(inst$)->POST($cast($HttpRequest$BodyPublisher, arg0));
 	}
 	$HttpRequest$Builder* inst$ = nullptr;
 };
@@ -448,7 +448,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $nc(inst$)->PUT($cast($HttpRequest$BodyPublisher, arg0));
+		return $nc(inst$)->PUT($cast($HttpRequest$BodyPublisher, arg0));
 	}
 	$HttpRequest$Builder* inst$ = nullptr;
 };
@@ -484,7 +484,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* arg0, Object$* arg1) override {
-		 return $nc(inst$)->method($cast($String, arg0), $cast($HttpRequest$BodyPublisher, arg1));
+		return $nc(inst$)->method($cast($String, arg0), $cast($HttpRequest$BodyPublisher, arg1));
 	}
 	$HttpRequest$Builder* inst$ = nullptr;
 };
@@ -520,7 +520,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* arg0, Object$* arg1) override {
-		 return $nc(inst$)->setHeader($cast($String, arg0), $cast($String, arg1));
+		return $nc(inst$)->setHeader($cast($String, arg0), $cast($String, arg1));
 	}
 	$HttpRequest$Builder* inst$ = nullptr;
 };
@@ -556,7 +556,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $nc(inst$)->timeout($cast($Duration, arg0));
+		return $nc(inst$)->timeout($cast($Duration, arg0));
 	}
 	$HttpRequest$Builder* inst$ = nullptr;
 };
@@ -592,7 +592,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $nc(inst$)->version($cast($HttpClient$Version, arg0));
+		return $nc(inst$)->version($cast($HttpClient$Version, arg0));
 	}
 	$HttpRequest$Builder* inst$ = nullptr;
 };
@@ -627,7 +627,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestBuilderTest::lambda$main$8();
+		return HttpRequestBuilderTest::lambda$main$8();
 	}
 };
 $Class* HttpRequestBuilderTest$$Lambda$lambda$main$8$17::load$($String* name, bool initialize) {
@@ -657,7 +657,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestBuilderTest::lambda$main$9();
+		return HttpRequestBuilderTest::lambda$main$9();
 	}
 };
 $Class* HttpRequestBuilderTest$$Lambda$lambda$main$9$18::load$($String* name, bool initialize) {
@@ -687,7 +687,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestBuilderTest::lambda$main$10();
+		return HttpRequestBuilderTest::lambda$main$10();
 	}
 };
 $Class* HttpRequestBuilderTest$$Lambda$lambda$main$10$19::load$($String* name, bool initialize) {
@@ -717,7 +717,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestBuilderTest::lambda$main$11();
+		return HttpRequestBuilderTest::lambda$main$11();
 	}
 };
 $Class* HttpRequestBuilderTest$$Lambda$lambda$main$11$20::load$($String* name, bool initialize) {
@@ -747,7 +747,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestBuilderTest::lambda$main$12();
+		return HttpRequestBuilderTest::lambda$main$12();
 	}
 };
 $Class* HttpRequestBuilderTest$$Lambda$lambda$main$12$21::load$($String* name, bool initialize) {
@@ -777,7 +777,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestBuilderTest::lambda$main$13();
+		return HttpRequestBuilderTest::lambda$main$13();
 	}
 };
 $Class* HttpRequestBuilderTest$$Lambda$lambda$main$13$22::load$($String* name, bool initialize) {
@@ -807,7 +807,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestBuilderTest::lambda$main$14();
+		return HttpRequestBuilderTest::lambda$main$14();
 	}
 };
 $Class* HttpRequestBuilderTest$$Lambda$lambda$main$14$23::load$($String* name, bool initialize) {
@@ -837,7 +837,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestBuilderTest::lambda$main$15();
+		return HttpRequestBuilderTest::lambda$main$15();
 	}
 };
 $Class* HttpRequestBuilderTest$$Lambda$lambda$main$15$24::load$($String* name, bool initialize) {
@@ -867,7 +867,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestBuilderTest::lambda$main$16();
+		return HttpRequestBuilderTest::lambda$main$16();
 	}
 };
 $Class* HttpRequestBuilderTest$$Lambda$lambda$main$16$25::load$($String* name, bool initialize) {
@@ -897,7 +897,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestBuilderTest::lambda$main$17();
+		return HttpRequestBuilderTest::lambda$main$17();
 	}
 };
 $Class* HttpRequestBuilderTest$$Lambda$lambda$main$17$26::load$($String* name, bool initialize) {
@@ -927,7 +927,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpRequestBuilderTest::lambda$main$18();
+		return HttpRequestBuilderTest::lambda$main$18();
 	}
 };
 $Class* HttpRequestBuilderTest$$Lambda$lambda$main$18$27::load$($String* name, bool initialize) {
@@ -957,7 +957,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Class, inst$)->getSimpleName());
+		return $of($sure($Class, inst$)->getSimpleName());
 	}
 };
 $Class* HttpRequestBuilderTest$$Lambda$getSimpleName$28::load$($String* name, bool initialize) {
@@ -988,7 +988,7 @@ public:
 		$set(this, x, x);
 	}
 	virtual bool test(Object$* c) override {
-		 return HttpRequestBuilderTest::lambda$isExpected$19(x, $cast($Class, c));
+		return HttpRequestBuilderTest::lambda$isExpected$19(x, $cast($Class, c));
 	}
 	$Exception* x = nullptr;
 };

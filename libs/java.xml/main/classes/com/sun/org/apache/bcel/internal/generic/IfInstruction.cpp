@@ -19,23 +19,23 @@ namespace com {
 						namespace generic {
 
 $String* IfInstruction::toString() {
-	 return this->$BranchInstruction::toString();
+	return this->$BranchInstruction::toString();
 }
 
 int32_t IfInstruction::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$BranchInstruction::consumeStack(cpg);
+	return this->$BranchInstruction::consumeStack(cpg);
 }
 
 bool IfInstruction::equals(Object$* that) {
-	 return this->$BranchInstruction::equals(that);
+	return this->$BranchInstruction::equals(that);
 }
 
 int32_t IfInstruction::hashCode() {
-	 return this->$BranchInstruction::hashCode();
+	return this->$BranchInstruction::hashCode();
 }
 
 $Object* IfInstruction::clone() {
-	 return this->$BranchInstruction::clone();
+	return this->$BranchInstruction::clone();
 }
 
 void IfInstruction::finalize() {

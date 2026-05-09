@@ -55,19 +55,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthInternalFrameUI::hashCode() {
-	 return this->$BasicInternalFrameUI::hashCode();
+	return this->$BasicInternalFrameUI::hashCode();
 }
 
 bool SynthInternalFrameUI::equals(Object$* arg0) {
-	 return this->$BasicInternalFrameUI::equals(arg0);
+	return this->$BasicInternalFrameUI::equals(arg0);
 }
 
 $Object* SynthInternalFrameUI::clone() {
-	 return this->$BasicInternalFrameUI::clone();
+	return this->$BasicInternalFrameUI::clone();
 }
 
 $String* SynthInternalFrameUI::toString() {
-	 return this->$BasicInternalFrameUI::toString();
+	return this->$BasicInternalFrameUI::toString();
 }
 
 void SynthInternalFrameUI::finalize() {

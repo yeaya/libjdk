@@ -67,19 +67,19 @@ namespace javax {
 			namespace rmi {
 
 int32_t RMIServerImpl::hashCode() {
-	 return this->$Closeable::hashCode();
+	return this->$Closeable::hashCode();
 }
 
 bool RMIServerImpl::equals(Object$* arg0) {
-	 return this->$Closeable::equals(arg0);
+	return this->$Closeable::equals(arg0);
 }
 
 $Object* RMIServerImpl::clone() {
-	 return this->$Closeable::clone();
+	return this->$Closeable::clone();
 }
 
 $String* RMIServerImpl::toString() {
-	 return this->$Closeable::toString();
+	return this->$Closeable::toString();
 }
 
 void RMIServerImpl::finalize() {

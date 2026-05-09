@@ -222,7 +222,7 @@ public:
 		$set(this, methodName, methodName);
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return $nc(inst$)->lambda$unboundNameToSymbol$2(nameStr, clazz, methodName, $cast($Pair, p));
+		return $nc(inst$)->lambda$unboundNameToSymbol$2(nameStr, clazz, methodName, $cast($Pair, p));
 	}
 	JavacElements* inst$ = nullptr;
 	$String* nameStr = nullptr;
@@ -263,7 +263,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(JavacElements::lambda$unboundNameToSymbol$0($cast($Symbol, s)));
+		return $of(JavacElements::lambda$unboundNameToSymbol$0($cast($Symbol, s)));
 	}
 };
 $Class* JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1::load$($String* name, bool initialize) {
@@ -293,7 +293,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* m) override {
-		 return $of(JavacElements::lambda$unboundNameToSymbol$1($cast($Symbol$ModuleSymbol, m)));
+		return $of(JavacElements::lambda$unboundNameToSymbol$1($cast($Symbol$ModuleSymbol, m)));
 	}
 };
 $Class* JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2::load$($String* name, bool initialize) {

@@ -16,19 +16,19 @@ namespace java {
 	namespace beans {
 
 int32_t PropertyChangeListenerProxy::hashCode() {
-	 return this->$EventListenerProxy::hashCode();
+	return this->$EventListenerProxy::hashCode();
 }
 
 bool PropertyChangeListenerProxy::equals(Object$* arg0) {
-	 return this->$EventListenerProxy::equals(arg0);
+	return this->$EventListenerProxy::equals(arg0);
 }
 
 $Object* PropertyChangeListenerProxy::clone() {
-	 return this->$EventListenerProxy::clone();
+	return this->$EventListenerProxy::clone();
 }
 
 $String* PropertyChangeListenerProxy::toString() {
-	 return this->$EventListenerProxy::toString();
+	return this->$EventListenerProxy::toString();
 }
 
 void PropertyChangeListenerProxy::finalize() {

@@ -22,19 +22,19 @@ namespace javax {
 			namespace html {
 
 int32_t AccessibleHTML$TextElementInfo::hashCode() {
-	 return this->$AccessibleHTML$ElementInfo::hashCode();
+	return this->$AccessibleHTML$ElementInfo::hashCode();
 }
 
 bool AccessibleHTML$TextElementInfo::equals(Object$* arg0) {
-	 return this->$AccessibleHTML$ElementInfo::equals(arg0);
+	return this->$AccessibleHTML$ElementInfo::equals(arg0);
 }
 
 $Object* AccessibleHTML$TextElementInfo::clone() {
-	 return this->$AccessibleHTML$ElementInfo::clone();
+	return this->$AccessibleHTML$ElementInfo::clone();
 }
 
 $String* AccessibleHTML$TextElementInfo::toString() {
-	 return this->$AccessibleHTML$ElementInfo::toString();
+	return this->$AccessibleHTML$ElementInfo::toString();
 }
 
 void AccessibleHTML$TextElementInfo::finalize() {

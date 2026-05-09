@@ -159,7 +159,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return $of(Modules$ModuleVisitor::lambda$visitExports$1($cast($Symbol$PackageSymbol, p)));
+		return $of(Modules$ModuleVisitor::lambda$visitExports$1($cast($Symbol$PackageSymbol, p)));
 	}
 };
 $Class* Modules$ModuleVisitor$$Lambda$lambda$visitExports$1$1::load$($String* name, bool initialize) {

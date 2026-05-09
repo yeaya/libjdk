@@ -263,7 +263,7 @@ public:
 		$set(this, nativeContainer, nativeContainer);
 	}
 	virtual bool evaluate() override {
-		 return Container::lambda$startLWModal$0(nativeContainer);
+		return Container::lambda$startLWModal$0(nativeContainer);
 	}
 	Container* nativeContainer = nullptr;
 };

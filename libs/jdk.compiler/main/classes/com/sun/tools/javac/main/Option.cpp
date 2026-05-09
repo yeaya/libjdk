@@ -268,7 +268,7 @@ public:
 		$set(this, kind, kind);
 	}
 	virtual bool test(Object$* o) override {
-		 return Option::lambda$showHelp$0(kind, $cast(Option, o));
+		return Option::lambda$showHelp$0(kind, $cast(Option, o));
 	}
 	$Option$OptionKind* kind = nullptr;
 };
@@ -341,7 +341,7 @@ public:
 		$set(this, log, log);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of($nc(inst$)->lambda$help$2(log, $cast($String, s)));
+		return $of($nc(inst$)->lambda$help$2(log, $cast($String, s)));
 	}
 	Option* inst$ = nullptr;
 	$Log* log = nullptr;
@@ -379,7 +379,7 @@ public:
 		$set(this, group, group);
 	}
 	virtual bool test(Object$* o) override {
-		 return Option::lambda$getOptions$3(group, $cast(Option, o));
+		return Option::lambda$getOptions$3(group, $cast(Option, o));
 	}
 	$Option$OptionGroup* group = nullptr;
 };
@@ -414,7 +414,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(Option::lambda$getOptions$4());
+		return $of(Option::lambda$getOptions$4());
 	}
 };
 $Class* Option$$Lambda$lambda$getOptions$4$4::load$($String* name, bool initialize) {

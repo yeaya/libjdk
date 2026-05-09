@@ -108,19 +108,19 @@ namespace com {
 						namespace serialize {
 
 int32_t BaseMarkupSerializer::hashCode() {
-	 return this->$ContentHandler::hashCode();
+	return this->$ContentHandler::hashCode();
 }
 
 bool BaseMarkupSerializer::equals(Object$* arg0) {
-	 return this->$ContentHandler::equals(arg0);
+	return this->$ContentHandler::equals(arg0);
 }
 
 $Object* BaseMarkupSerializer::clone() {
-	 return this->$ContentHandler::clone();
+	return this->$ContentHandler::clone();
 }
 
 $String* BaseMarkupSerializer::toString() {
-	 return this->$ContentHandler::toString();
+	return this->$ContentHandler::toString();
 }
 
 void BaseMarkupSerializer::finalize() {

@@ -14,7 +14,7 @@ namespace javax {
 		namespace midi {
 
 $Object* MidiMessage::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 void MidiMessage::init$($bytes* data) {

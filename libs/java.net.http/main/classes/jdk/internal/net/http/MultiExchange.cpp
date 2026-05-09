@@ -137,7 +137,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$String* inst$ = nullptr;
 };
@@ -172,7 +172,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* connectTimeout) override {
-		 return $new($MultiExchange$ConnectTimeoutTracker, $cast($Duration, connectTimeout));
+		return $new($MultiExchange$ConnectTimeoutTracker, $cast($Duration, connectTimeout));
 	}
 };
 $Class* MultiExchange$$Lambda$ConnectTimeoutTracker$1::load$($String* name, bool initialize) {
@@ -202,7 +202,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($MultiExchange$ConnectTimeoutTracker, inst$)->getRemaining());
+		return $of($sure($MultiExchange$ConnectTimeoutTracker, inst$)->getRemaining());
 	}
 };
 $Class* MultiExchange$$Lambda$getRemaining$2::load$($String* name, bool initialize) {
@@ -232,7 +232,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return MultiExchange::lambda$responseAsync$0();
+		return MultiExchange::lambda$responseAsync$0();
 	}
 };
 $Class* MultiExchange$$Lambda$lambda$responseAsync$0$3::load$($String* name, bool initialize) {
@@ -344,7 +344,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* v) override {
-		 return $nc(inst$)->lambda$responseAsync0$2($cast($Void, v));
+		return $nc(inst$)->lambda$responseAsync0$2($cast($Void, v));
 	}
 	MultiExchange* inst$ = nullptr;
 };
@@ -380,7 +380,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* r) override {
-		 return $nc(inst$)->lambda$responseAsync0$4($cast($Response, r));
+		return $nc(inst$)->lambda$responseAsync0$4($cast($Response, r));
 	}
 	MultiExchange* inst$ = nullptr;
 };
@@ -416,7 +416,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of($nc(inst$)->whenCancelled($cast($Throwable, t)));
+		return $of($nc(inst$)->whenCancelled($cast($Throwable, t)));
 	}
 	MultiExchange* inst$ = nullptr;
 };
@@ -453,7 +453,7 @@ public:
 		$set(this, exch, exch);
 	}
 	virtual $Object* apply(Object$* response) override {
-		 return $nc(inst$)->lambda$responseAsyncImpl$6(exch, $cast($Response, response));
+		return $nc(inst$)->lambda$responseAsyncImpl$6(exch, $cast($Response, response));
 	}
 	MultiExchange* inst$ = nullptr;
 	$Exchange* exch = nullptr;
@@ -491,7 +491,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* response, Object$* ex) override {
-		 return $of($nc(inst$)->lambda$responseAsyncImpl$7($cast($Response, response), $cast($Throwable, ex)));
+		return $of($nc(inst$)->lambda$responseAsyncImpl$7($cast($Response, response), $cast($Throwable, ex)));
 	}
 	MultiExchange* inst$ = nullptr;
 };
@@ -528,7 +528,7 @@ public:
 		$set(this, newrequest, newrequest);
 	}
 	virtual $Object* apply(Object$* r, Object$* t) override {
-		 return $of($nc(inst$)->lambda$responseAsyncImpl$5(newrequest, $cast($Void, r), $cast($Throwable, t)));
+		return $of($nc(inst$)->lambda$responseAsyncImpl$5(newrequest, $cast($Void, r), $cast($Throwable, t)));
 	}
 	MultiExchange* inst$ = nullptr;
 	$HttpRequestImpl* newrequest = nullptr;
@@ -568,7 +568,7 @@ public:
 		$set(this, exch, exch);
 	}
 	virtual $Object* apply(Object$* body) override {
-		 return $nc(inst$)->lambda$responseAsync0$3(r, exch, body);
+		return $nc(inst$)->lambda$responseAsync0$3(r, exch, body);
 	}
 	MultiExchange* inst$ = nullptr;
 	$Response* r = nullptr;

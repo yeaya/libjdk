@@ -29,19 +29,19 @@ namespace javax {
 	namespace swing {
 
 $Object* JSlider$1SmartHashtable::clone() {
-	 return this->$Hashtable::clone();
+	return this->$Hashtable::clone();
 }
 
 $String* JSlider$1SmartHashtable::toString() {
-	 return this->$Hashtable::toString();
+	return this->$Hashtable::toString();
 }
 
 bool JSlider$1SmartHashtable::equals(Object$* arg0) {
-	 return this->$Hashtable::equals(arg0);
+	return this->$Hashtable::equals(arg0);
 }
 
 int32_t JSlider$1SmartHashtable::hashCode() {
-	 return this->$Hashtable::hashCode();
+	return this->$Hashtable::hashCode();
 }
 
 void JSlider$1SmartHashtable::finalize() {

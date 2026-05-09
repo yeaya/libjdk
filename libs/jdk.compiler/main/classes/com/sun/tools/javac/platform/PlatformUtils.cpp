@@ -49,7 +49,7 @@ public:
 		$set(this, platformProviderName, platformProviderName);
 	}
 	virtual bool test(Object$* provider) override {
-		 return PlatformUtils::lambda$lookupPlatformDescription$0(platformProviderName, $cast($PlatformProvider, provider));
+		return PlatformUtils::lambda$lookupPlatformDescription$0(platformProviderName, $cast($PlatformProvider, provider));
 	}
 	$String* platformProviderName = nullptr;
 };
@@ -86,7 +86,7 @@ public:
 		$set(this, platformOptions, platformOptions);
 	}
 	virtual $Object* apply(Object$* provider) override {
-		 return PlatformUtils::lambda$lookupPlatformDescription$1(platformProviderName, platformOptions, $cast($PlatformProvider, provider));
+		return PlatformUtils::lambda$lookupPlatformDescription$1(platformProviderName, platformOptions, $cast($PlatformProvider, provider));
 	}
 	$String* platformProviderName = nullptr;
 	$String* platformOptions = nullptr;
@@ -124,7 +124,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* arg0) override {
-		 return $nc(inst$)->equals(arg0);
+		return $nc(inst$)->equals(arg0);
 	}
 	$String* inst$ = nullptr;
 };

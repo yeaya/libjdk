@@ -44,7 +44,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* c) override {
-		 return HijrahConfigCheck::lambda$main$0($cast($Chronology, c));
+		return HijrahConfigCheck::lambda$main$0($cast($Chronology, c));
 	}
 };
 $Class* HijrahConfigCheck$$Lambda$lambda$main$0::load$($String* name, bool initialize) {

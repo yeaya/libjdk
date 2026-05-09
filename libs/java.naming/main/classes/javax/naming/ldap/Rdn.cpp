@@ -53,7 +53,7 @@ namespace javax {
 		namespace ldap {
 
 $Object* Rdn::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void Rdn::finalize() {

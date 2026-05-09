@@ -33,15 +33,15 @@ namespace com {
 				namespace code {
 
 int32_t Directive$RequiresDirective::hashCode() {
-	 return this->$Directive::hashCode();
+	return this->$Directive::hashCode();
 }
 
 bool Directive$RequiresDirective::equals(Object$* arg0) {
-	 return this->$Directive::equals(arg0);
+	return this->$Directive::equals(arg0);
 }
 
 $Object* Directive$RequiresDirective::clone() {
-	 return this->$Directive::clone();
+	return this->$Directive::clone();
 }
 
 void Directive$RequiresDirective::finalize() {

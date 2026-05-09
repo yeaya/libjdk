@@ -33,19 +33,19 @@ namespace javax {
 			namespace html {
 
 int32_t AccessibleHTML$IconElementInfo$IconAccessibleContext::hashCode() {
-	 return this->$AccessibleHTML$HTMLAccessibleContext::hashCode();
+	return this->$AccessibleHTML$HTMLAccessibleContext::hashCode();
 }
 
 bool AccessibleHTML$IconElementInfo$IconAccessibleContext::equals(Object$* arg0) {
-	 return this->$AccessibleHTML$HTMLAccessibleContext::equals(arg0);
+	return this->$AccessibleHTML$HTMLAccessibleContext::equals(arg0);
 }
 
 $Object* AccessibleHTML$IconElementInfo$IconAccessibleContext::clone() {
-	 return this->$AccessibleHTML$HTMLAccessibleContext::clone();
+	return this->$AccessibleHTML$HTMLAccessibleContext::clone();
 }
 
 $String* AccessibleHTML$IconElementInfo$IconAccessibleContext::toString() {
-	 return this->$AccessibleHTML$HTMLAccessibleContext::toString();
+	return this->$AccessibleHTML$HTMLAccessibleContext::toString();
 }
 
 void AccessibleHTML$IconElementInfo$IconAccessibleContext::finalize() {

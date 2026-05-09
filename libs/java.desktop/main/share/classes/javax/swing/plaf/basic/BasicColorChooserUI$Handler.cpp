@@ -48,19 +48,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicColorChooserUI$Handler::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool BasicColorChooserUI$Handler::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* BasicColorChooserUI$Handler::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* BasicColorChooserUI$Handler::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void BasicColorChooserUI$Handler::finalize() {

@@ -60,19 +60,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicTextUI$UpdateHandler::hashCode() {
-	 return this->$PropertyChangeListener::hashCode();
+	return this->$PropertyChangeListener::hashCode();
 }
 
 bool BasicTextUI$UpdateHandler::equals(Object$* arg0) {
-	 return this->$PropertyChangeListener::equals(arg0);
+	return this->$PropertyChangeListener::equals(arg0);
 }
 
 $Object* BasicTextUI$UpdateHandler::clone() {
-	 return this->$PropertyChangeListener::clone();
+	return this->$PropertyChangeListener::clone();
 }
 
 $String* BasicTextUI$UpdateHandler::toString() {
-	 return this->$PropertyChangeListener::toString();
+	return this->$PropertyChangeListener::toString();
 }
 
 void BasicTextUI$UpdateHandler::finalize() {

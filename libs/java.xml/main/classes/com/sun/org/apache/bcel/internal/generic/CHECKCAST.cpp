@@ -36,31 +36,31 @@ namespace com {
 						namespace generic {
 
 $Type* CHECKCAST::getType($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::getType(cpg);
+	return this->$CPInstruction::getType(cpg);
 }
 
 $String* CHECKCAST::toString() {
-	 return this->$CPInstruction::toString();
+	return this->$CPInstruction::toString();
 }
 
 int32_t CHECKCAST::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::consumeStack(cpg);
+	return this->$CPInstruction::consumeStack(cpg);
 }
 
 int32_t CHECKCAST::produceStack($ConstantPoolGen* cpg) {
-	 return this->$CPInstruction::produceStack(cpg);
+	return this->$CPInstruction::produceStack(cpg);
 }
 
 bool CHECKCAST::equals(Object$* that) {
-	 return this->$CPInstruction::equals(that);
+	return this->$CPInstruction::equals(that);
 }
 
 int32_t CHECKCAST::hashCode() {
-	 return this->$CPInstruction::hashCode();
+	return this->$CPInstruction::hashCode();
 }
 
 $Object* CHECKCAST::clone() {
-	 return this->$CPInstruction::clone();
+	return this->$CPInstruction::clone();
 }
 
 void CHECKCAST::finalize() {

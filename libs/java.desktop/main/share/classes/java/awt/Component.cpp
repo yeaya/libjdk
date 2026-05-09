@@ -416,15 +416,15 @@ namespace java {
 	namespace awt {
 
 int32_t Component::hashCode() {
-	 return this->$ImageObserver::hashCode();
+	return this->$ImageObserver::hashCode();
 }
 
 bool Component::equals(Object$* arg0) {
-	 return this->$ImageObserver::equals(arg0);
+	return this->$ImageObserver::equals(arg0);
 }
 
 $Object* Component::clone() {
-	 return this->$ImageObserver::clone();
+	return this->$ImageObserver::clone();
 }
 
 void Component::finalize() {

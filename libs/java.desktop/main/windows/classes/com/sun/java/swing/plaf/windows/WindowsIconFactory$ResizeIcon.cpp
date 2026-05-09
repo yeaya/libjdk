@@ -23,19 +23,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsIconFactory$ResizeIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool WindowsIconFactory$ResizeIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* WindowsIconFactory$ResizeIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* WindowsIconFactory$ResizeIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void WindowsIconFactory$ResizeIcon::finalize() {

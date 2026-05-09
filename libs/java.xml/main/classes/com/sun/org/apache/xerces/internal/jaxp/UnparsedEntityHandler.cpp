@@ -33,19 +33,19 @@ namespace com {
 						namespace jaxp {
 
 int32_t UnparsedEntityHandler::hashCode() {
-	 return this->$XMLDTDFilter::hashCode();
+	return this->$XMLDTDFilter::hashCode();
 }
 
 bool UnparsedEntityHandler::equals(Object$* arg0) {
-	 return this->$XMLDTDFilter::equals(arg0);
+	return this->$XMLDTDFilter::equals(arg0);
 }
 
 $Object* UnparsedEntityHandler::clone() {
-	 return this->$XMLDTDFilter::clone();
+	return this->$XMLDTDFilter::clone();
 }
 
 $String* UnparsedEntityHandler::toString() {
-	 return this->$XMLDTDFilter::toString();
+	return this->$XMLDTDFilter::toString();
 }
 
 void UnparsedEntityHandler::finalize() {

@@ -39,7 +39,7 @@ public:
 		$set(this, filter, filter);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$new$0(filter);
+		return $nc(inst$)->lambda$new$0(filter);
 	}
 	MarshalledObject$MarshalledObjectInputStream* inst$ = nullptr;
 	$ObjectInputFilter* filter = nullptr;

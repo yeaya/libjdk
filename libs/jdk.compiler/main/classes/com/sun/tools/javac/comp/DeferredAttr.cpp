@@ -151,7 +151,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return DeferredAttr::lambda$attribSpeculativeLambda$0($cast($JCTree$JCStatement, s));
+		return DeferredAttr::lambda$attribSpeculativeLambda$0($cast($JCTree$JCStatement, s));
 	}
 };
 $Class* DeferredAttr$$Lambda$lambda$attribSpeculativeLambda$0::load$($String* name, bool initialize) {
@@ -181,7 +181,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of(DeferredAttr::lambda$attribSpeculativeLambda$1($cast($JCTree$JCStatement, t)));
+		return $of(DeferredAttr::lambda$attribSpeculativeLambda$1($cast($JCTree$JCStatement, t)));
 	}
 };
 $Class* DeferredAttr$$Lambda$lambda$attribSpeculativeLambda$1$1::load$($String* name, bool initialize) {

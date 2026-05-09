@@ -61,19 +61,19 @@ namespace sun {
 		namespace image {
 
 int32_t SunVolatileImage::hashCode() {
-	 return this->$VolatileImage::hashCode();
+	return this->$VolatileImage::hashCode();
 }
 
 bool SunVolatileImage::equals(Object$* arg0) {
-	 return this->$VolatileImage::equals(arg0);
+	return this->$VolatileImage::equals(arg0);
 }
 
 $Object* SunVolatileImage::clone() {
-	 return this->$VolatileImage::clone();
+	return this->$VolatileImage::clone();
 }
 
 $String* SunVolatileImage::toString() {
-	 return this->$VolatileImage::toString();
+	return this->$VolatileImage::toString();
 }
 
 void SunVolatileImage::finalize() {

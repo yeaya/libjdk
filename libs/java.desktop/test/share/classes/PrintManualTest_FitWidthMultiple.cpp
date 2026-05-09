@@ -33,19 +33,19 @@ using $JTextArea = ::javax::swing::JTextArea;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 $String* PrintManualTest_FitWidthMultiple::toString() {
-	 return this->$JTable::toString();
+	return this->$JTable::toString();
 }
 
 int32_t PrintManualTest_FitWidthMultiple::hashCode() {
-	 return this->$JTable::hashCode();
+	return this->$JTable::hashCode();
 }
 
 bool PrintManualTest_FitWidthMultiple::equals(Object$* arg0) {
-	 return this->$JTable::equals(arg0);
+	return this->$JTable::equals(arg0);
 }
 
 $Object* PrintManualTest_FitWidthMultiple::clone() {
-	 return this->$JTable::clone();
+	return this->$JTable::clone();
 }
 
 void PrintManualTest_FitWidthMultiple::finalize() {

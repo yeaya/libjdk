@@ -22,19 +22,19 @@ namespace com {
 						namespace util {
 
 int32_t XMLAttributesIteratorImpl::hashCode() {
-	 return this->$XMLAttributesImpl::hashCode();
+	return this->$XMLAttributesImpl::hashCode();
 }
 
 bool XMLAttributesIteratorImpl::equals(Object$* arg0) {
-	 return this->$XMLAttributesImpl::equals(arg0);
+	return this->$XMLAttributesImpl::equals(arg0);
 }
 
 $Object* XMLAttributesIteratorImpl::clone() {
-	 return this->$XMLAttributesImpl::clone();
+	return this->$XMLAttributesImpl::clone();
 }
 
 $String* XMLAttributesIteratorImpl::toString() {
-	 return this->$XMLAttributesImpl::toString();
+	return this->$XMLAttributesImpl::toString();
 }
 
 void XMLAttributesIteratorImpl::finalize() {

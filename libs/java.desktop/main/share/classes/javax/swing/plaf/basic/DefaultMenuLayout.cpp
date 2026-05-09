@@ -20,19 +20,19 @@ namespace javax {
 			namespace basic {
 
 int32_t DefaultMenuLayout::hashCode() {
-	 return this->$BoxLayout::hashCode();
+	return this->$BoxLayout::hashCode();
 }
 
 bool DefaultMenuLayout::equals(Object$* arg0) {
-	 return this->$BoxLayout::equals(arg0);
+	return this->$BoxLayout::equals(arg0);
 }
 
 $Object* DefaultMenuLayout::clone() {
-	 return this->$BoxLayout::clone();
+	return this->$BoxLayout::clone();
 }
 
 $String* DefaultMenuLayout::toString() {
-	 return this->$BoxLayout::toString();
+	return this->$BoxLayout::toString();
 }
 
 void DefaultMenuLayout::finalize() {

@@ -200,7 +200,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	Http2Connection* inst$ = nullptr;
 };
@@ -236,7 +236,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->toString());
+		return $of($nc(inst$)->toString());
 	}
 	$String* inst$ = nullptr;
 };
@@ -311,7 +311,7 @@ public:
 		$set(this, initial, initial);
 	}
 	virtual $Object* get() override {
-		 return Http2Connection::lambda$createAsync$0(connection, client2, exchange, initial);
+		return Http2Connection::lambda$createAsync$0(connection, client2, exchange, initial);
 	}
 	$HttpConnection* connection = nullptr;
 	$Http2ClientImpl* client2 = nullptr;
@@ -353,7 +353,7 @@ public:
 		$set(this, connection, connection);
 	}
 	virtual $Object* apply(Object$* unused) override {
-		 return Http2Connection::lambda$createAsync$1(connection, $cast($Void, unused));
+		return Http2Connection::lambda$createAsync$1(connection, $cast($Void, unused));
 	}
 	$AbstractAsyncSSLConnection* connection = nullptr;
 };
@@ -389,7 +389,7 @@ public:
 		$set(this, connection, connection);
 	}
 	virtual $Object* apply(Object$* unused) override {
-		 return Http2Connection::lambda$createAsync$2(connection, $cast($Void, unused));
+		return Http2Connection::lambda$createAsync$2(connection, $cast($Void, unused));
 	}
 	$AbstractAsyncSSLConnection* connection = nullptr;
 };
@@ -427,7 +427,7 @@ public:
 		$set(this, connection, connection);
 	}
 	virtual $Object* apply(Object$* notused) override {
-		 return Http2Connection::lambda$createAsync$3(request, h2client, connection, notused);
+		return Http2Connection::lambda$createAsync$3(request, h2client, connection, notused);
 	}
 	$HttpRequestImpl* request = nullptr;
 	$Http2ClientImpl* h2client = nullptr;
@@ -467,7 +467,7 @@ public:
 		$set(this, aconn, aconn);
 	}
 	virtual $Object* apply(Object$* alpn) override {
-		 return $of(Http2Connection::lambda$checkSSLConfig$4(aconn, $cast($String, alpn)));
+		return $of(Http2Connection::lambda$checkSSLConfig$4(aconn, $cast($String, alpn)));
 	}
 	$AbstractAsyncSSLConnection* aconn = nullptr;
 };
@@ -540,7 +540,7 @@ public:
 		$set(this, b, b);
 	}
 	virtual $Object* get() override {
-		 return $of(Http2Connection::lambda$asyncReceive$6(c, b));
+		return $of(Http2Connection::lambda$asyncReceive$6(c, b));
 	}
 	int64_t c = 0;
 	$ByteBuffer* b = nullptr;
@@ -579,7 +579,7 @@ public:
 		$set(this, t, t);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$shutdown$7(t));
+		return $of($nc(inst$)->lambda$shutdown$7(t));
 	}
 	Http2Connection* inst$ = nullptr;
 	$Throwable* t = nullptr;
@@ -617,7 +617,7 @@ public:
 		$set(this, frame, frame);
 	}
 	virtual $Object* get() override {
-		 return $of(Http2Connection::lambda$processFrame$8(frame));
+		return $of(Http2Connection::lambda$processFrame$8(frame));
 	}
 	$Http2Frame* frame = nullptr;
 };

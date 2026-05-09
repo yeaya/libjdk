@@ -13,15 +13,15 @@ namespace javax {
 			namespace standard {
 
 int32_t PrinterResolution::hashCode() {
-	 return this->$ResolutionSyntax::hashCode();
+	return this->$ResolutionSyntax::hashCode();
 }
 
 $String* PrinterResolution::toString() {
-	 return this->$ResolutionSyntax::toString();
+	return this->$ResolutionSyntax::toString();
 }
 
 $Object* PrinterResolution::clone() {
-	 return this->$ResolutionSyntax::clone();
+	return this->$ResolutionSyntax::clone();
 }
 
 void PrinterResolution::finalize() {

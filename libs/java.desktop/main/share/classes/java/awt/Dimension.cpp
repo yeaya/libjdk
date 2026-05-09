@@ -18,7 +18,7 @@ namespace java {
 	namespace awt {
 
 $Object* Dimension::clone() {
-	 return this->$Dimension2D::clone();
+	return this->$Dimension2D::clone();
 }
 
 void Dimension::finalize() {

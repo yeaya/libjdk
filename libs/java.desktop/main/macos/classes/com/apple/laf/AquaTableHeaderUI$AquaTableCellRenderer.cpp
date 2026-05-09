@@ -32,19 +32,19 @@ namespace com {
 		namespace laf {
 
 $String* AquaTableHeaderUI$AquaTableCellRenderer::toString() {
-	 return this->$DefaultTableCellRenderer::toString();
+	return this->$DefaultTableCellRenderer::toString();
 }
 
 int32_t AquaTableHeaderUI$AquaTableCellRenderer::hashCode() {
-	 return this->$DefaultTableCellRenderer::hashCode();
+	return this->$DefaultTableCellRenderer::hashCode();
 }
 
 bool AquaTableHeaderUI$AquaTableCellRenderer::equals(Object$* arg0) {
-	 return this->$DefaultTableCellRenderer::equals(arg0);
+	return this->$DefaultTableCellRenderer::equals(arg0);
 }
 
 $Object* AquaTableHeaderUI$AquaTableCellRenderer::clone() {
-	 return this->$DefaultTableCellRenderer::clone();
+	return this->$DefaultTableCellRenderer::clone();
 }
 
 void AquaTableHeaderUI$AquaTableCellRenderer::finalize() {

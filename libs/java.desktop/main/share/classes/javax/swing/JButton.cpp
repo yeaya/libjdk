@@ -39,19 +39,19 @@ namespace javax {
 	namespace swing {
 
 $String* JButton::toString() {
-	 return this->$AbstractButton::toString();
+	return this->$AbstractButton::toString();
 }
 
 int32_t JButton::hashCode() {
-	 return this->$AbstractButton::hashCode();
+	return this->$AbstractButton::hashCode();
 }
 
 bool JButton::equals(Object$* arg0) {
-	 return this->$AbstractButton::equals(arg0);
+	return this->$AbstractButton::equals(arg0);
 }
 
 $Object* JButton::clone() {
-	 return this->$AbstractButton::clone();
+	return this->$AbstractButton::clone();
 }
 
 void JButton::finalize() {

@@ -80,19 +80,19 @@ void LWListPeer::dispose() {
 }
 
 $GraphicsConfiguration* LWListPeer::getGraphicsConfiguration() {
-	 return this->$LWComponentPeer::getGraphicsConfiguration();
+	return this->$LWComponentPeer::getGraphicsConfiguration();
 }
 
 bool LWListPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$LWComponentPeer::updateGraphicsData(gc);
+	return this->$LWComponentPeer::updateGraphicsData(gc);
 }
 
 $Graphics* LWListPeer::getGraphics() {
-	 return this->$LWComponentPeer::getGraphics();
+	return this->$LWComponentPeer::getGraphics();
 }
 
 $ColorModel* LWListPeer::getColorModel() {
-	 return this->$LWComponentPeer::getColorModel();
+	return this->$LWComponentPeer::getColorModel();
 }
 
 void LWListPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -100,7 +100,7 @@ void LWListPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
 }
 
 $Image* LWListPeer::getBackBuffer() {
-	 return this->$LWComponentPeer::getBackBuffer();
+	return this->$LWComponentPeer::getBackBuffer();
 }
 
 void LWListPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -116,7 +116,7 @@ void LWListPeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int32_t o
 }
 
 $Point* LWListPeer::getLocationOnScreen() {
-	 return this->$LWComponentPeer::getLocationOnScreen();
+	return this->$LWComponentPeer::getLocationOnScreen();
 }
 
 void LWListPeer::setBackground($Color* c) {
@@ -132,7 +132,7 @@ void LWListPeer::setFont($Font* f) {
 }
 
 $FontMetrics* LWListPeer::getFontMetrics($Font* f) {
-	 return this->$LWComponentPeer::getFontMetrics(f);
+	return this->$LWComponentPeer::getFontMetrics(f);
 }
 
 void LWListPeer::setEnabled(bool e) {
@@ -156,7 +156,7 @@ void LWListPeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWListPeer::isReparentSupported() {
-	 return this->$LWComponentPeer::isReparentSupported();
+	return this->$LWComponentPeer::isReparentSupported();
 }
 
 void LWListPeer::setZOrder($ComponentPeer* above) {
@@ -172,11 +172,11 @@ void LWListPeer::layout() {
 }
 
 bool LWListPeer::isObscured() {
-	 return this->$LWComponentPeer::isObscured();
+	return this->$LWComponentPeer::isObscured();
 }
 
 bool LWListPeer::canDetermineObscurity() {
-	 return this->$LWComponentPeer::canDetermineObscurity();
+	return this->$LWComponentPeer::canDetermineObscurity();
 }
 
 void LWListPeer::updateCursorImmediately() {
@@ -184,19 +184,19 @@ void LWListPeer::updateCursorImmediately() {
 }
 
 bool LWListPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWListPeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWComponentPeer::createImage(width, height);
+	return this->$LWComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* LWListPeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWComponentPeer::createVolatileImage(w, h);
+	return this->$LWComponentPeer::createVolatileImage(w, h);
 }
 
 bool LWListPeer::handlesWheelScrolling() {
-	 return this->$LWComponentPeer::handlesWheelScrolling();
+	return this->$LWComponentPeer::handlesWheelScrolling();
 }
 
 void LWListPeer::applyShape($Region* shape) {
@@ -208,19 +208,19 @@ void LWListPeer::handleEvent($AWTEvent* e) {
 }
 
 int32_t LWListPeer::hashCode() {
-	 return this->$LWComponentPeer::hashCode();
+	return this->$LWComponentPeer::hashCode();
 }
 
 bool LWListPeer::equals(Object$* arg0) {
-	 return this->$LWComponentPeer::equals(arg0);
+	return this->$LWComponentPeer::equals(arg0);
 }
 
 $Object* LWListPeer::clone() {
-	 return this->$LWComponentPeer::clone();
+	return this->$LWComponentPeer::clone();
 }
 
 $String* LWListPeer::toString() {
-	 return this->$LWComponentPeer::toString();
+	return this->$LWComponentPeer::toString();
 }
 
 void LWListPeer::finalize() {

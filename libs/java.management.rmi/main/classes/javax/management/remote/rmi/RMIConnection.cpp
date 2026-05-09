@@ -33,19 +33,19 @@ namespace javax {
 			namespace rmi {
 
 int32_t RMIConnection::hashCode() {
-	 return this->$Closeable::hashCode();
+	return this->$Closeable::hashCode();
 }
 
 bool RMIConnection::equals(Object$* arg0) {
-	 return this->$Closeable::equals(arg0);
+	return this->$Closeable::equals(arg0);
 }
 
 $Object* RMIConnection::clone() {
-	 return this->$Closeable::clone();
+	return this->$Closeable::clone();
 }
 
 $String* RMIConnection::toString() {
-	 return this->$Closeable::toString();
+	return this->$Closeable::toString();
 }
 
 void RMIConnection::finalize() {

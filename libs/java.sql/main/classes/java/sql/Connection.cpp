@@ -51,19 +51,19 @@ namespace java {
 	namespace sql {
 
 int32_t Connection::hashCode() {
-	 return this->$Wrapper::hashCode();
+	return this->$Wrapper::hashCode();
 }
 
 bool Connection::equals(Object$* arg0) {
-	 return this->$Wrapper::equals(arg0);
+	return this->$Wrapper::equals(arg0);
 }
 
 $Object* Connection::clone() {
-	 return this->$Wrapper::clone();
+	return this->$Wrapper::clone();
 }
 
 $String* Connection::toString() {
-	 return this->$Wrapper::toString();
+	return this->$Wrapper::toString();
 }
 
 void Connection::finalize() {

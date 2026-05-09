@@ -59,19 +59,19 @@ void ScreenMenuItem::setFont($Font* f) {
 }
 
 $String* ScreenMenuItem::toString() {
-	 return this->$MenuItem::toString();
+	return this->$MenuItem::toString();
 }
 
 int32_t ScreenMenuItem::hashCode() {
-	 return this->$MenuItem::hashCode();
+	return this->$MenuItem::hashCode();
 }
 
 bool ScreenMenuItem::equals(Object$* arg0) {
-	 return this->$MenuItem::equals(arg0);
+	return this->$MenuItem::equals(arg0);
 }
 
 $Object* ScreenMenuItem::clone() {
-	 return this->$MenuItem::clone();
+	return this->$MenuItem::clone();
 }
 
 void ScreenMenuItem::finalize() {

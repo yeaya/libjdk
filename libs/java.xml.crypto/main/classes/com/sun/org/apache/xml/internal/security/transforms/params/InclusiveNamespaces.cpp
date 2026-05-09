@@ -33,19 +33,19 @@ namespace com {
 								namespace params {
 
 int32_t InclusiveNamespaces::hashCode() {
-	 return this->$ElementProxy::hashCode();
+	return this->$ElementProxy::hashCode();
 }
 
 bool InclusiveNamespaces::equals(Object$* arg0) {
-	 return this->$ElementProxy::equals(arg0);
+	return this->$ElementProxy::equals(arg0);
 }
 
 $Object* InclusiveNamespaces::clone() {
-	 return this->$ElementProxy::clone();
+	return this->$ElementProxy::clone();
 }
 
 $String* InclusiveNamespaces::toString() {
-	 return this->$ElementProxy::toString();
+	return this->$ElementProxy::toString();
 }
 
 void InclusiveNamespaces::finalize() {

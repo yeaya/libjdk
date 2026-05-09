@@ -132,19 +132,19 @@ namespace com {
 							namespace validation {
 
 int32_t DOMValidatorHelper::hashCode() {
-	 return this->$ValidatorHelper::hashCode();
+	return this->$ValidatorHelper::hashCode();
 }
 
 bool DOMValidatorHelper::equals(Object$* arg0) {
-	 return this->$ValidatorHelper::equals(arg0);
+	return this->$ValidatorHelper::equals(arg0);
 }
 
 $Object* DOMValidatorHelper::clone() {
-	 return this->$ValidatorHelper::clone();
+	return this->$ValidatorHelper::clone();
 }
 
 $String* DOMValidatorHelper::toString() {
-	 return this->$ValidatorHelper::toString();
+	return this->$ValidatorHelper::toString();
 }
 
 void DOMValidatorHelper::finalize() {

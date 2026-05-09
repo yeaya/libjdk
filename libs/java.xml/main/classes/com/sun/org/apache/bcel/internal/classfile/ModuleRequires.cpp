@@ -31,15 +31,15 @@ namespace com {
 						namespace classfile {
 
 int32_t ModuleRequires::hashCode() {
-	 return this->$Cloneable::hashCode();
+	return this->$Cloneable::hashCode();
 }
 
 bool ModuleRequires::equals(Object$* arg0) {
-	 return this->$Cloneable::equals(arg0);
+	return this->$Cloneable::equals(arg0);
 }
 
 $Object* ModuleRequires::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 void ModuleRequires::finalize() {

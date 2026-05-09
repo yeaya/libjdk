@@ -191,7 +191,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	HttpClientImpl* inst$ = nullptr;
 };
@@ -227,7 +227,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool getAsBoolean() override {
-		 return $nc(inst$)->isSelectorThread();
+		return $nc(inst$)->isSelectorThread();
 	}
 	HttpClientImpl* inst$ = nullptr;
 };
@@ -262,7 +262,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return HttpClientImpl::getDefaultProxySelector();
+		return HttpClientImpl::getDefaultProxySelector();
 	}
 };
 $Class* HttpClientImpl$$Lambda$getDefaultProxySelector$2::load$($String* name, bool initialize) {
@@ -292,7 +292,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $ProxySelector::getDefault();
+		return $ProxySelector::getDefault();
 	}
 };
 $Class* HttpClientImpl$$Lambda$getDefault$3::load$($String* name, bool initialize) {
@@ -425,15 +425,15 @@ $Class* HttpClientImpl$$Lambda$lambda$sendAsync$2$6::load$($String* name, bool i
 $Class* HttpClientImpl$$Lambda$lambda$sendAsync$2$6::class$ = nullptr;
 
 int32_t HttpClientImpl::hashCode() {
-	 return this->$HttpClient::hashCode();
+	return this->$HttpClient::hashCode();
 }
 
 bool HttpClientImpl::equals(Object$* arg0) {
-	 return this->$HttpClient::equals(arg0);
+	return this->$HttpClient::equals(arg0);
 }
 
 $Object* HttpClientImpl::clone() {
-	 return this->$HttpClient::clone();
+	return this->$HttpClient::clone();
 }
 
 void HttpClientImpl::finalize() {

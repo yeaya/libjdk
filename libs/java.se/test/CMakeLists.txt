@@ -20,6 +20,7 @@ jcpp_add_dependencies(
 	"java.transaction.xa:17.35"
 	"java.xml:17.35"
 	"java.xml.crypto:17.35"
+	"java.base:17.35"
 )
 
 include_directories("classes")

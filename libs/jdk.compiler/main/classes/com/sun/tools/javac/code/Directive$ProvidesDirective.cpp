@@ -29,7 +29,7 @@ namespace com {
 				namespace code {
 
 $Object* Directive$ProvidesDirective::clone() {
-	 return this->$Directive::clone();
+	return this->$Directive::clone();
 }
 
 void Directive$ProvidesDirective::finalize() {

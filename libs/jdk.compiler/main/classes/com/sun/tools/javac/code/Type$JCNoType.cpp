@@ -35,27 +35,27 @@ namespace com {
 				namespace code {
 
 $Annotation* Type$JCNoType::getAnnotation($Class* annotationType) {
-	 return this->$Type::getAnnotation(annotationType);
+	return this->$Type::getAnnotation(annotationType);
 }
 
 $AnnotationArray* Type$JCNoType::getAnnotationsByType($Class* annotationType) {
-	 return this->$Type::getAnnotationsByType(annotationType);
+	return this->$Type::getAnnotationsByType(annotationType);
 }
 
 $String* Type$JCNoType::toString() {
-	 return this->$Type::toString();
+	return this->$Type::toString();
 }
 
 bool Type$JCNoType::equals(Object$* t) {
-	 return this->$Type::equals(t);
+	return this->$Type::equals(t);
 }
 
 int32_t Type$JCNoType::hashCode() {
-	 return this->$Type::hashCode();
+	return this->$Type::hashCode();
 }
 
 $Object* Type$JCNoType::clone() {
-	 return this->$Type::clone();
+	return this->$Type::clone();
 }
 
 void Type$JCNoType::finalize() {

@@ -41,31 +41,31 @@ namespace com {
 				namespace code {
 
 $String* Type$UnionClassType::toString() {
-	 return this->$Type$ClassType::toString();
+	return this->$Type$ClassType::toString();
 }
 
 $List* Type$UnionClassType::getAnnotationMirrors() {
-	 return this->$Type$ClassType::getAnnotationMirrors();
+	return this->$Type$ClassType::getAnnotationMirrors();
 }
 
 $Annotation* Type$UnionClassType::getAnnotation($Class* annotationType) {
-	 return this->$Type$ClassType::getAnnotation(annotationType);
+	return this->$Type$ClassType::getAnnotation(annotationType);
 }
 
 $AnnotationArray* Type$UnionClassType::getAnnotationsByType($Class* annotationType) {
-	 return this->$Type$ClassType::getAnnotationsByType(annotationType);
+	return this->$Type$ClassType::getAnnotationsByType(annotationType);
 }
 
 bool Type$UnionClassType::equals(Object$* t) {
-	 return this->$Type$ClassType::equals(t);
+	return this->$Type$ClassType::equals(t);
 }
 
 int32_t Type$UnionClassType::hashCode() {
-	 return this->$Type$ClassType::hashCode();
+	return this->$Type$ClassType::hashCode();
 }
 
 $Object* Type$UnionClassType::clone() {
-	 return this->$Type$ClassType::clone();
+	return this->$Type$ClassType::clone();
 }
 
 void Type$UnionClassType::finalize() {

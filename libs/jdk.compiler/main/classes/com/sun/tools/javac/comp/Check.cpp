@@ -411,7 +411,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return Check::lambda$new$6($cast($Symbol, s));
+		return Check::lambda$new$6($cast($Symbol, s));
 	}
 };
 $Class* Check$$Lambda$lambda$new$6::load$($String* name, bool initialize) {
@@ -623,7 +623,7 @@ public:
 		$set(this, tree, tree);
 	}
 	virtual $Object* get() override {
-		 return Check::lambda$checkOverride$4(m, tree);
+		return Check::lambda$checkOverride$4(m, tree);
 	}
 	$Symbol$MethodSymbol* m = nullptr;
 	$JCTree* tree = nullptr;
@@ -661,7 +661,7 @@ public:
 		$set(this, tree, tree);
 	}
 	virtual bool test(Object$* rc) override {
-		 return Check::lambda$checkOverride$5(tree, $cast($Symbol$RecordComponent, rc));
+		return Check::lambda$checkOverride$5(tree, $cast($Symbol$RecordComponent, rc));
 	}
 	$JCTree$JCMethodDecl* tree = nullptr;
 };
@@ -733,7 +733,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* anno) override {
-		 return $nc(inst$)->lambda$validateAnnotation$8($cast($Attribute$Compound, anno));
+		return $nc(inst$)->lambda$validateAnnotation$8($cast($Attribute$Compound, anno));
 	}
 	Check* inst$ = nullptr;
 };
@@ -770,7 +770,7 @@ public:
 		this->isTypeParameter = isTypeParameter;
 	}
 	virtual bool test(Object$* attr) override {
-		 return $nc(inst$)->lambda$isTypeAnnotation$9(isTypeParameter, $cast($Attribute, attr));
+		return $nc(inst$)->lambda$isTypeAnnotation$9(isTypeParameter, $cast($Attribute, attr));
 	}
 	Check* inst$ = nullptr;
 	bool isTypeParameter = false;
@@ -808,7 +808,7 @@ public:
 		$set(this, pos, pos);
 	}
 	virtual $Object* get() override {
-		 return Check::lambda$checkDeprecated$10(pos);
+		return Check::lambda$checkDeprecated$10(pos);
 	}
 	$JCDiagnostic$DiagnosticPosition* pos = nullptr;
 };
@@ -1092,7 +1092,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* sym) override {
-		 return Check::lambda$checkImportsUnique$17($cast($Symbol, sym));
+		return Check::lambda$checkImportsUnique$17($cast($Symbol, sym));
 	}
 };
 $Class* Check$$Lambda$lambda$checkImportsUnique$17$17::load$($String* name, bool initialize) {
@@ -1123,7 +1123,7 @@ public:
 		$set(this, sym, sym);
 	}
 	virtual bool test(Object$* candidate) override {
-		 return Check::lambda$checkUniqueImport$18(sym, $cast($Symbol, candidate));
+		return Check::lambda$checkUniqueImport$18(sym, $cast($Symbol, candidate));
 	}
 	$Symbol* sym = nullptr;
 };
@@ -1333,7 +1333,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* name) override {
-		 return $nc(inst$)->lambda$validateAnnotation$7($cast($Name, name));
+		return $nc(inst$)->lambda$validateAnnotation$7($cast($Name, name));
 	}
 	Check* inst$ = nullptr;
 };

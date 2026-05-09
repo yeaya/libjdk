@@ -42,7 +42,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* d) override {
-		 return Log$DeferredDiagnosticHandler::lambda$reportDeferredDiagnostics$0($cast($JCDiagnostic, d));
+		return Log$DeferredDiagnosticHandler::lambda$reportDeferredDiagnostics$0($cast($JCDiagnostic, d));
 	}
 };
 $Class* Log$DeferredDiagnosticHandler$$Lambda$lambda$reportDeferredDiagnostics$0::load$($String* name, bool initialize) {

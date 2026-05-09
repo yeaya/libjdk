@@ -58,19 +58,19 @@ namespace com {
 			namespace sound {
 
 int32_t DirectAudioDevice$DirectDL::hashCode() {
-	 return this->$AbstractDataLine::hashCode();
+	return this->$AbstractDataLine::hashCode();
 }
 
 bool DirectAudioDevice$DirectDL::equals(Object$* arg0) {
-	 return this->$AbstractDataLine::equals(arg0);
+	return this->$AbstractDataLine::equals(arg0);
 }
 
 $Object* DirectAudioDevice$DirectDL::clone() {
-	 return this->$AbstractDataLine::clone();
+	return this->$AbstractDataLine::clone();
 }
 
 $String* DirectAudioDevice$DirectDL::toString() {
-	 return this->$AbstractDataLine::toString();
+	return this->$AbstractDataLine::toString();
 }
 
 void DirectAudioDevice$DirectDL::finalize() {

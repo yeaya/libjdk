@@ -129,19 +129,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaComboBoxUI::hashCode() {
-	 return this->$BasicComboBoxUI::hashCode();
+	return this->$BasicComboBoxUI::hashCode();
 }
 
 bool AquaComboBoxUI::equals(Object$* arg0) {
-	 return this->$BasicComboBoxUI::equals(arg0);
+	return this->$BasicComboBoxUI::equals(arg0);
 }
 
 $Object* AquaComboBoxUI::clone() {
-	 return this->$BasicComboBoxUI::clone();
+	return this->$BasicComboBoxUI::clone();
 }
 
 $String* AquaComboBoxUI::toString() {
-	 return this->$BasicComboBoxUI::toString();
+	return this->$BasicComboBoxUI::toString();
 }
 
 void AquaComboBoxUI::finalize() {

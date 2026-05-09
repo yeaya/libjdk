@@ -42,7 +42,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return MultiHashtable::lambda$put$0(k);
+		return MultiHashtable::lambda$put$0(k);
 	}
 };
 $Class* MultiHashtable$$Lambda$lambda$put$0::load$($String* name, bool initialize) {

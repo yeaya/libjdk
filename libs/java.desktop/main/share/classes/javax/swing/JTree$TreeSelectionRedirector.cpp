@@ -16,19 +16,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JTree$TreeSelectionRedirector::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 bool JTree$TreeSelectionRedirector::equals(Object$* arg0) {
-	 return this->$Serializable::equals(arg0);
+	return this->$Serializable::equals(arg0);
 }
 
 $Object* JTree$TreeSelectionRedirector::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 $String* JTree$TreeSelectionRedirector::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void JTree$TreeSelectionRedirector::finalize() {

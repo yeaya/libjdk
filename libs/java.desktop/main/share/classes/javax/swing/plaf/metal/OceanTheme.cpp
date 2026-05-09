@@ -81,7 +81,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return $nc(inst$)->lambda$addCustomEntriesToTable$0(t);
+		return $nc(inst$)->lambda$addCustomEntriesToTable$0(t);
 	}
 	OceanTheme* inst$ = nullptr;
 };

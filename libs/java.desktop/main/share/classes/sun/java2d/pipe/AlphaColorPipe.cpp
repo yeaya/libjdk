@@ -20,19 +20,19 @@ namespace sun {
 		namespace pipe {
 
 int32_t AlphaColorPipe::hashCode() {
-	 return this->$CompositePipe::hashCode();
+	return this->$CompositePipe::hashCode();
 }
 
 bool AlphaColorPipe::equals(Object$* arg0) {
-	 return this->$CompositePipe::equals(arg0);
+	return this->$CompositePipe::equals(arg0);
 }
 
 $Object* AlphaColorPipe::clone() {
-	 return this->$CompositePipe::clone();
+	return this->$CompositePipe::clone();
 }
 
 $String* AlphaColorPipe::toString() {
-	 return this->$CompositePipe::toString();
+	return this->$CompositePipe::toString();
 }
 
 void AlphaColorPipe::finalize() {

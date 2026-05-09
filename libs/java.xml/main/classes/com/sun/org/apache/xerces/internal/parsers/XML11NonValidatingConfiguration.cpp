@@ -159,39 +159,39 @@ void XML11NonValidatingConfiguration::addRecognizedProperties($StringArray* prop
 }
 
 bool XML11NonValidatingConfiguration::getFeature($String* featureId) {
-	 return this->$ParserConfigurationSettings::getFeature(featureId);
+	return this->$ParserConfigurationSettings::getFeature(featureId);
 }
 
 bool XML11NonValidatingConfiguration::getFeature($String* featureId, bool defaultValue) {
-	 return this->$ParserConfigurationSettings::getFeature(featureId, defaultValue);
+	return this->$ParserConfigurationSettings::getFeature(featureId, defaultValue);
 }
 
 $Object* XML11NonValidatingConfiguration::getProperty($String* propertyId) {
-	 return this->$ParserConfigurationSettings::getProperty(propertyId);
+	return this->$ParserConfigurationSettings::getProperty(propertyId);
 }
 
 $Object* XML11NonValidatingConfiguration::getProperty($String* propertyId, Object$* defaultValue) {
-	 return this->$ParserConfigurationSettings::getProperty(propertyId, defaultValue);
+	return this->$ParserConfigurationSettings::getProperty(propertyId, defaultValue);
 }
 
 $PropertyState* XML11NonValidatingConfiguration::getPropertyState($String* propertyId) {
-	 return this->$ParserConfigurationSettings::getPropertyState(propertyId);
+	return this->$ParserConfigurationSettings::getPropertyState(propertyId);
 }
 
 int32_t XML11NonValidatingConfiguration::hashCode() {
-	 return this->$ParserConfigurationSettings::hashCode();
+	return this->$ParserConfigurationSettings::hashCode();
 }
 
 bool XML11NonValidatingConfiguration::equals(Object$* arg0) {
-	 return this->$ParserConfigurationSettings::equals(arg0);
+	return this->$ParserConfigurationSettings::equals(arg0);
 }
 
 $Object* XML11NonValidatingConfiguration::clone() {
-	 return this->$ParserConfigurationSettings::clone();
+	return this->$ParserConfigurationSettings::clone();
 }
 
 $String* XML11NonValidatingConfiguration::toString() {
-	 return this->$ParserConfigurationSettings::toString();
+	return this->$ParserConfigurationSettings::toString();
 }
 
 void XML11NonValidatingConfiguration::finalize() {

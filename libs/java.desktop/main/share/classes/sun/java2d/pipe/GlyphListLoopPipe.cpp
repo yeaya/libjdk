@@ -28,19 +28,19 @@ namespace sun {
 		namespace pipe {
 
 int32_t GlyphListLoopPipe::hashCode() {
-	 return this->$GlyphListPipe::hashCode();
+	return this->$GlyphListPipe::hashCode();
 }
 
 bool GlyphListLoopPipe::equals(Object$* arg0) {
-	 return this->$GlyphListPipe::equals(arg0);
+	return this->$GlyphListPipe::equals(arg0);
 }
 
 $Object* GlyphListLoopPipe::clone() {
-	 return this->$GlyphListPipe::clone();
+	return this->$GlyphListPipe::clone();
 }
 
 $String* GlyphListLoopPipe::toString() {
-	 return this->$GlyphListPipe::toString();
+	return this->$GlyphListPipe::toString();
 }
 
 void GlyphListLoopPipe::finalize() {

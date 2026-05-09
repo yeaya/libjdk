@@ -53,19 +53,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthToolBarUI::hashCode() {
-	 return this->$BasicToolBarUI::hashCode();
+	return this->$BasicToolBarUI::hashCode();
 }
 
 bool SynthToolBarUI::equals(Object$* arg0) {
-	 return this->$BasicToolBarUI::equals(arg0);
+	return this->$BasicToolBarUI::equals(arg0);
 }
 
 $Object* SynthToolBarUI::clone() {
-	 return this->$BasicToolBarUI::clone();
+	return this->$BasicToolBarUI::clone();
 }
 
 $String* SynthToolBarUI::toString() {
-	 return this->$BasicToolBarUI::toString();
+	return this->$BasicToolBarUI::toString();
 }
 
 void SynthToolBarUI::finalize() {

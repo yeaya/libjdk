@@ -54,7 +54,7 @@ public:
 		this->sequenceNum_ = sequenceNum_;
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$run$0(needRenewal_, refsToDirty_, sequenceNum_);
+		return $nc(inst$)->lambda$run$0(needRenewal_, refsToDirty_, sequenceNum_);
 	}
 	DGCClient$EndpointEntry$RenewCleanThread* inst$ = nullptr;
 	bool needRenewal_ = false;

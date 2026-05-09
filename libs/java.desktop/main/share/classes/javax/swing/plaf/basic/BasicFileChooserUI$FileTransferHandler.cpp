@@ -26,19 +26,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicFileChooserUI$FileTransferHandler::hashCode() {
-	 return this->$TransferHandler::hashCode();
+	return this->$TransferHandler::hashCode();
 }
 
 bool BasicFileChooserUI$FileTransferHandler::equals(Object$* arg0) {
-	 return this->$TransferHandler::equals(arg0);
+	return this->$TransferHandler::equals(arg0);
 }
 
 $Object* BasicFileChooserUI$FileTransferHandler::clone() {
-	 return this->$TransferHandler::clone();
+	return this->$TransferHandler::clone();
 }
 
 $String* BasicFileChooserUI$FileTransferHandler::toString() {
-	 return this->$TransferHandler::toString();
+	return this->$TransferHandler::toString();
 }
 
 void BasicFileChooserUI$FileTransferHandler::finalize() {

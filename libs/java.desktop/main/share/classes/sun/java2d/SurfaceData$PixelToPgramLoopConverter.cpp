@@ -16,19 +16,19 @@ namespace sun {
 	namespace java2d {
 
 int32_t SurfaceData$PixelToPgramLoopConverter::hashCode() {
-	 return this->$PixelToParallelogramConverter::hashCode();
+	return this->$PixelToParallelogramConverter::hashCode();
 }
 
 bool SurfaceData$PixelToPgramLoopConverter::equals(Object$* arg0) {
-	 return this->$PixelToParallelogramConverter::equals(arg0);
+	return this->$PixelToParallelogramConverter::equals(arg0);
 }
 
 $Object* SurfaceData$PixelToPgramLoopConverter::clone() {
-	 return this->$PixelToParallelogramConverter::clone();
+	return this->$PixelToParallelogramConverter::clone();
 }
 
 $String* SurfaceData$PixelToPgramLoopConverter::toString() {
-	 return this->$PixelToParallelogramConverter::toString();
+	return this->$PixelToParallelogramConverter::toString();
 }
 
 void SurfaceData$PixelToPgramLoopConverter::finalize() {

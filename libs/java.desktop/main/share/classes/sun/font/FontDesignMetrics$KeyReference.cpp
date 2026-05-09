@@ -20,19 +20,19 @@ namespace sun {
 	namespace font {
 
 $Object* FontDesignMetrics$KeyReference::clone() {
-	 return this->$SoftReference::clone();
+	return this->$SoftReference::clone();
 }
 
 int32_t FontDesignMetrics$KeyReference::hashCode() {
-	 return this->$SoftReference::hashCode();
+	return this->$SoftReference::hashCode();
 }
 
 bool FontDesignMetrics$KeyReference::equals(Object$* arg0) {
-	 return this->$SoftReference::equals(arg0);
+	return this->$SoftReference::equals(arg0);
 }
 
 $String* FontDesignMetrics$KeyReference::toString() {
-	 return this->$SoftReference::toString();
+	return this->$SoftReference::toString();
 }
 
 void FontDesignMetrics$KeyReference::finalize() {

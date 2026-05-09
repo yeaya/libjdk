@@ -91,19 +91,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthTableUI::hashCode() {
-	 return this->$BasicTableUI::hashCode();
+	return this->$BasicTableUI::hashCode();
 }
 
 bool SynthTableUI::equals(Object$* arg0) {
-	 return this->$BasicTableUI::equals(arg0);
+	return this->$BasicTableUI::equals(arg0);
 }
 
 $Object* SynthTableUI::clone() {
-	 return this->$BasicTableUI::clone();
+	return this->$BasicTableUI::clone();
 }
 
 $String* SynthTableUI::toString() {
-	 return this->$BasicTableUI::toString();
+	return this->$BasicTableUI::toString();
 }
 
 void SynthTableUI::finalize() {

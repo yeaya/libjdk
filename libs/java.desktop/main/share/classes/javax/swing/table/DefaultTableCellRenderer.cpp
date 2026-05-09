@@ -42,19 +42,19 @@ namespace javax {
 		namespace table {
 
 $String* DefaultTableCellRenderer::toString() {
-	 return this->$JLabel::toString();
+	return this->$JLabel::toString();
 }
 
 int32_t DefaultTableCellRenderer::hashCode() {
-	 return this->$JLabel::hashCode();
+	return this->$JLabel::hashCode();
 }
 
 bool DefaultTableCellRenderer::equals(Object$* arg0) {
-	 return this->$JLabel::equals(arg0);
+	return this->$JLabel::equals(arg0);
 }
 
 $Object* DefaultTableCellRenderer::clone() {
-	 return this->$JLabel::clone();
+	return this->$JLabel::clone();
 }
 
 void DefaultTableCellRenderer::finalize() {

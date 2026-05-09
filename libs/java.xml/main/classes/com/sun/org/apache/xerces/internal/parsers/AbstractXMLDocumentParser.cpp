@@ -38,19 +38,19 @@ namespace com {
 						namespace parsers {
 
 int32_t AbstractXMLDocumentParser::hashCode() {
-	 return this->$XMLParser::hashCode();
+	return this->$XMLParser::hashCode();
 }
 
 bool AbstractXMLDocumentParser::equals(Object$* arg0) {
-	 return this->$XMLParser::equals(arg0);
+	return this->$XMLParser::equals(arg0);
 }
 
 $Object* AbstractXMLDocumentParser::clone() {
-	 return this->$XMLParser::clone();
+	return this->$XMLParser::clone();
 }
 
 $String* AbstractXMLDocumentParser::toString() {
-	 return this->$XMLParser::toString();
+	return this->$XMLParser::toString();
 }
 
 void AbstractXMLDocumentParser::finalize() {

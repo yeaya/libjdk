@@ -12,11 +12,11 @@ namespace javax {
 		namespace attribute {
 
 bool AttributeSet::equals(Object$* object) {
-	 return this->$Object::equals(object);
+	return this->$Object::equals(object);
 }
 
 int32_t AttributeSet::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $Class* AttributeSet::load$($String* name, bool initialize) {

@@ -57,7 +57,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(MarshalInputStream::lambda$static$0());
+		return $of(MarshalInputStream::lambda$static$0());
 	}
 };
 $Class* MarshalInputStream$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

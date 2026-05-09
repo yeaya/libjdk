@@ -72,15 +72,15 @@ namespace com {
 						namespace objects {
 
 int32_t XObject::hashCode() {
-	 return this->$Expression::hashCode();
+	return this->$Expression::hashCode();
 }
 
 bool XObject::equals(Object$* arg0) {
-	 return this->$Expression::equals(arg0);
+	return this->$Expression::equals(arg0);
 }
 
 $Object* XObject::clone() {
-	 return this->$Expression::clone();
+	return this->$Expression::clone();
 }
 
 void XObject::finalize() {

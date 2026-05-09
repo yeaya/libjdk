@@ -133,7 +133,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* m) override {
-		 return JavacFiler::lambda$closeFileObject$0($cast($Symbol$ModuleSymbol, m));
+		return JavacFiler::lambda$closeFileObject$0($cast($Symbol$ModuleSymbol, m));
 	}
 };
 $Class* JavacFiler$$Lambda$lambda$closeFileObject$0::load$($String* name, bool initialize) {
@@ -158,15 +158,15 @@ $Class* JavacFiler$$Lambda$lambda$closeFileObject$0::load$($String* name, bool i
 $Class* JavacFiler$$Lambda$lambda$closeFileObject$0::class$ = nullptr;
 
 int32_t JavacFiler::hashCode() {
-	 return this->$Filer::hashCode();
+	return this->$Filer::hashCode();
 }
 
 bool JavacFiler::equals(Object$* arg0) {
-	 return this->$Filer::equals(arg0);
+	return this->$Filer::equals(arg0);
 }
 
 $Object* JavacFiler::clone() {
-	 return this->$Filer::clone();
+	return this->$Filer::clone();
 }
 
 void JavacFiler::finalize() {

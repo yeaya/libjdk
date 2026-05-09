@@ -79,19 +79,19 @@ namespace java {
 		namespace image {
 
 int32_t AffineTransformOp::hashCode() {
-	 return this->$BufferedImageOp::hashCode();
+	return this->$BufferedImageOp::hashCode();
 }
 
 bool AffineTransformOp::equals(Object$* arg0) {
-	 return this->$BufferedImageOp::equals(arg0);
+	return this->$BufferedImageOp::equals(arg0);
 }
 
 $Object* AffineTransformOp::clone() {
-	 return this->$BufferedImageOp::clone();
+	return this->$BufferedImageOp::clone();
 }
 
 $String* AffineTransformOp::toString() {
-	 return this->$BufferedImageOp::toString();
+	return this->$BufferedImageOp::toString();
 }
 
 void AffineTransformOp::finalize() {

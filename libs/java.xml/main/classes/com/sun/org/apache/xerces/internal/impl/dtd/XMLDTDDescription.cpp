@@ -49,31 +49,31 @@ void XMLDTDDescription::setNamespace($String* namespace$) {
 }
 
 $String* XMLDTDDescription::getPublicId() {
-	 return this->$XMLResourceIdentifierImpl::getPublicId();
+	return this->$XMLResourceIdentifierImpl::getPublicId();
 }
 
 $String* XMLDTDDescription::getLiteralSystemId() {
-	 return this->$XMLResourceIdentifierImpl::getLiteralSystemId();
+	return this->$XMLResourceIdentifierImpl::getLiteralSystemId();
 }
 
 $String* XMLDTDDescription::getBaseSystemId() {
-	 return this->$XMLResourceIdentifierImpl::getBaseSystemId();
+	return this->$XMLResourceIdentifierImpl::getBaseSystemId();
 }
 
 $String* XMLDTDDescription::getExpandedSystemId() {
-	 return this->$XMLResourceIdentifierImpl::getExpandedSystemId();
+	return this->$XMLResourceIdentifierImpl::getExpandedSystemId();
 }
 
 $String* XMLDTDDescription::getNamespace() {
-	 return this->$XMLResourceIdentifierImpl::getNamespace();
+	return this->$XMLResourceIdentifierImpl::getNamespace();
 }
 
 $String* XMLDTDDescription::toString() {
-	 return this->$XMLResourceIdentifierImpl::toString();
+	return this->$XMLResourceIdentifierImpl::toString();
 }
 
 $Object* XMLDTDDescription::clone() {
-	 return this->$XMLResourceIdentifierImpl::clone();
+	return this->$XMLResourceIdentifierImpl::clone();
 }
 
 void XMLDTDDescription::finalize() {

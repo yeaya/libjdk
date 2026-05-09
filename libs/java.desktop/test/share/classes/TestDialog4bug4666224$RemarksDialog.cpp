@@ -26,19 +26,19 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $String* TestDialog4bug4666224$RemarksDialog::toString() {
-	 return this->$Dialog::toString();
+	return this->$Dialog::toString();
 }
 
 int32_t TestDialog4bug4666224$RemarksDialog::hashCode() {
-	 return this->$Dialog::hashCode();
+	return this->$Dialog::hashCode();
 }
 
 bool TestDialog4bug4666224$RemarksDialog::equals(Object$* arg0) {
-	 return this->$Dialog::equals(arg0);
+	return this->$Dialog::equals(arg0);
 }
 
 $Object* TestDialog4bug4666224$RemarksDialog::clone() {
-	 return this->$Dialog::clone();
+	return this->$Dialog::clone();
 }
 
 void TestDialog4bug4666224$RemarksDialog::finalize() {

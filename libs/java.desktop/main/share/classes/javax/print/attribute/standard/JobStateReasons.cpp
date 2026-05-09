@@ -18,19 +18,19 @@ namespace javax {
 			namespace standard {
 
 $Object* JobStateReasons::clone() {
-	 return this->$HashSet::clone();
+	return this->$HashSet::clone();
 }
 
 bool JobStateReasons::equals(Object$* arg0) {
-	 return this->$HashSet::equals(arg0);
+	return this->$HashSet::equals(arg0);
 }
 
 int32_t JobStateReasons::hashCode() {
-	 return this->$HashSet::hashCode();
+	return this->$HashSet::hashCode();
 }
 
 $String* JobStateReasons::toString() {
-	 return this->$HashSet::toString();
+	return this->$HashSet::toString();
 }
 
 void JobStateReasons::finalize() {

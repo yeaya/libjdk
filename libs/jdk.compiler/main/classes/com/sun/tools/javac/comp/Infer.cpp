@@ -216,7 +216,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* tv) override {
-		 return Infer::lambda$roots$0($cast($Type, tv));
+		return Infer::lambda$roots$0($cast($Type, tv));
 	}
 };
 $Class* Infer$$Lambda$lambda$roots$0::load$($String* name, bool initialize) {
@@ -247,7 +247,7 @@ public:
 		$set(this, formalInterface, formalInterface);
 	}
 	virtual bool test(Object$* b) override {
-		 return Infer::lambda$instantiateFunctionalInterface$1(formalInterface, $cast($Type, b));
+		return Infer::lambda$instantiateFunctionalInterface$1(formalInterface, $cast($Type, b));
 	}
 	$Type* formalInterface = nullptr;
 };

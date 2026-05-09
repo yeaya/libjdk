@@ -19,7 +19,7 @@ namespace javax {
 			namespace standard {
 
 $Object* MediaPrintableArea::clone() {
-	 return this->$DocAttribute::clone();
+	return this->$DocAttribute::clone();
 }
 
 void MediaPrintableArea::finalize() {

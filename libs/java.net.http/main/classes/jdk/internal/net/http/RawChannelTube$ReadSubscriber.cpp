@@ -44,7 +44,7 @@ public:
 		$set(this, item, item);
 	}
 	virtual $Object* get() override {
-		 return $of(RawChannelTube$ReadSubscriber::lambda$onNext$0(item));
+		return $of(RawChannelTube$ReadSubscriber::lambda$onNext$0(item));
 	}
 	$List* item = nullptr;
 };

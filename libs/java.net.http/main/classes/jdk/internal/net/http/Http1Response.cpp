@@ -116,7 +116,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	Http1Response* inst$ = nullptr;
 };
@@ -188,7 +188,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* completed) override {
-		 return $nc(inst$)->lambda$readHeadersAsync$0($cast($Http1Response$State, completed));
+		return $nc(inst$)->lambda$readHeadersAsync$0($cast($Http1Response$State, completed));
 	}
 	Http1Response* inst$ = nullptr;
 };
@@ -347,7 +347,7 @@ public:
 		$set(this, cf, cf);
 	}
 	virtual $Object* get() override {
-		 return $of(Http1Response::lambda$onReadError$6(cf));
+		return $of(Http1Response::lambda$onReadError$6(cf));
 	}
 	$CompletableFuture* cf = nullptr;
 };
@@ -383,7 +383,7 @@ public:
 		$set(this, t, t);
 	}
 	virtual $Object* get() override {
-		 return $of(Http1Response::lambda$onReadError$7(t));
+		return $of(Http1Response::lambda$onReadError$7(t));
 	}
 	$Throwable* t = nullptr;
 };

@@ -36,15 +36,15 @@ namespace jdk {
 			namespace http {
 
 int32_t HttpResponseImpl::hashCode() {
-	 return this->$HttpResponse::hashCode();
+	return this->$HttpResponse::hashCode();
 }
 
 bool HttpResponseImpl::equals(Object$* arg0) {
-	 return this->$HttpResponse::equals(arg0);
+	return this->$HttpResponse::equals(arg0);
 }
 
 $Object* HttpResponseImpl::clone() {
-	 return this->$HttpResponse::clone();
+	return this->$HttpResponse::clone();
 }
 
 void HttpResponseImpl::finalize() {

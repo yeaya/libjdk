@@ -26,19 +26,19 @@ namespace com {
 						namespace functions {
 
 int32_t FunctionOneArg::hashCode() {
-	 return this->$Function::hashCode();
+	return this->$Function::hashCode();
 }
 
 bool FunctionOneArg::equals(Object$* arg0) {
-	 return this->$Function::equals(arg0);
+	return this->$Function::equals(arg0);
 }
 
 $Object* FunctionOneArg::clone() {
-	 return this->$Function::clone();
+	return this->$Function::clone();
 }
 
 $String* FunctionOneArg::toString() {
-	 return this->$Function::toString();
+	return this->$Function::toString();
 }
 
 void FunctionOneArg::finalize() {

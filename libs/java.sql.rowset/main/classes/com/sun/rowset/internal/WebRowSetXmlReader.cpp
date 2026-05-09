@@ -58,19 +58,19 @@ namespace com {
 			namespace internal {
 
 int32_t WebRowSetXmlReader::hashCode() {
-	 return this->$XmlReader::hashCode();
+	return this->$XmlReader::hashCode();
 }
 
 bool WebRowSetXmlReader::equals(Object$* arg0) {
-	 return this->$XmlReader::equals(arg0);
+	return this->$XmlReader::equals(arg0);
 }
 
 $Object* WebRowSetXmlReader::clone() {
-	 return this->$XmlReader::clone();
+	return this->$XmlReader::clone();
 }
 
 $String* WebRowSetXmlReader::toString() {
-	 return this->$XmlReader::toString();
+	return this->$XmlReader::toString();
 }
 
 void WebRowSetXmlReader::finalize() {

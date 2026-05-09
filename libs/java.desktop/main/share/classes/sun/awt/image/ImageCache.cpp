@@ -49,7 +49,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return ImageCache::lambda$getInstance$0();
+		return ImageCache::lambda$getInstance$0();
 	}
 };
 $Class* ImageCache$$Lambda$lambda$getInstance$0::load$($String* name, bool initialize) {

@@ -124,19 +124,19 @@ $Class* TestBrowserBGColor$$Lambda$lambda$main$1$1::load$($String* name, bool in
 $Class* TestBrowserBGColor$$Lambda$lambda$main$1$1::class$ = nullptr;
 
 $String* TestBrowserBGColor::toString() {
-	 return this->$JFrame::toString();
+	return this->$JFrame::toString();
 }
 
 int32_t TestBrowserBGColor::hashCode() {
-	 return this->$JFrame::hashCode();
+	return this->$JFrame::hashCode();
 }
 
 bool TestBrowserBGColor::equals(Object$* arg0) {
-	 return this->$JFrame::equals(arg0);
+	return this->$JFrame::equals(arg0);
 }
 
 $Object* TestBrowserBGColor::clone() {
-	 return this->$JFrame::clone();
+	return this->$JFrame::clone();
 }
 
 void TestBrowserBGColor::finalize() {

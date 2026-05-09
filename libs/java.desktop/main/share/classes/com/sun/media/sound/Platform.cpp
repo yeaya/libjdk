@@ -31,7 +31,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return Platform::lambda$loadLibraries$0();
+		return Platform::lambda$loadLibraries$0();
 	}
 };
 $Class* Platform$$Lambda$lambda$loadLibraries$0::load$($String* name, bool initialize) {

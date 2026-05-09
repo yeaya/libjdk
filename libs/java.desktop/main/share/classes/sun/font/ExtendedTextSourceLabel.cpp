@@ -65,15 +65,15 @@ namespace sun {
 	namespace font {
 
 int32_t ExtendedTextSourceLabel::hashCode() {
-	 return this->$ExtendedTextLabel::hashCode();
+	return this->$ExtendedTextLabel::hashCode();
 }
 
 bool ExtendedTextSourceLabel::equals(Object$* arg0) {
-	 return this->$ExtendedTextLabel::equals(arg0);
+	return this->$ExtendedTextLabel::equals(arg0);
 }
 
 $Object* ExtendedTextSourceLabel::clone() {
-	 return this->$ExtendedTextLabel::clone();
+	return this->$ExtendedTextLabel::clone();
 }
 
 void ExtendedTextSourceLabel::finalize() {

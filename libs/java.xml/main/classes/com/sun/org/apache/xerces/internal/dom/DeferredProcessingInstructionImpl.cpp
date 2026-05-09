@@ -31,23 +31,23 @@ namespace com {
 						namespace dom {
 
 int16_t DeferredProcessingInstructionImpl::getNodeType() {
-	 return this->$ProcessingInstructionImpl::getNodeType();
+	return this->$ProcessingInstructionImpl::getNodeType();
 }
 
 $String* DeferredProcessingInstructionImpl::getNodeName() {
-	 return this->$ProcessingInstructionImpl::getNodeName();
+	return this->$ProcessingInstructionImpl::getNodeName();
 }
 
 $String* DeferredProcessingInstructionImpl::getBaseURI() {
-	 return this->$ProcessingInstructionImpl::getBaseURI();
+	return this->$ProcessingInstructionImpl::getBaseURI();
 }
 
 $NodeList* DeferredProcessingInstructionImpl::getChildNodes() {
-	 return this->$ProcessingInstructionImpl::getChildNodes();
+	return this->$ProcessingInstructionImpl::getChildNodes();
 }
 
 $String* DeferredProcessingInstructionImpl::getNodeValue() {
-	 return this->$ProcessingInstructionImpl::getNodeValue();
+	return this->$ProcessingInstructionImpl::getNodeValue();
 }
 
 void DeferredProcessingInstructionImpl::setNodeValue($String* value) {
@@ -55,59 +55,59 @@ void DeferredProcessingInstructionImpl::setNodeValue($String* value) {
 }
 
 $Node* DeferredProcessingInstructionImpl::cloneNode(bool deep) {
-	 return this->$ProcessingInstructionImpl::cloneNode(deep);
+	return this->$ProcessingInstructionImpl::cloneNode(deep);
 }
 
 $Node* DeferredProcessingInstructionImpl::getParentNode() {
-	 return this->$ProcessingInstructionImpl::getParentNode();
+	return this->$ProcessingInstructionImpl::getParentNode();
 }
 
 $Node* DeferredProcessingInstructionImpl::getNextSibling() {
-	 return this->$ProcessingInstructionImpl::getNextSibling();
+	return this->$ProcessingInstructionImpl::getNextSibling();
 }
 
 $Node* DeferredProcessingInstructionImpl::getPreviousSibling() {
-	 return this->$ProcessingInstructionImpl::getPreviousSibling();
+	return this->$ProcessingInstructionImpl::getPreviousSibling();
 }
 
 $Node* DeferredProcessingInstructionImpl::appendChild($Node* newChild) {
-	 return this->$ProcessingInstructionImpl::appendChild(newChild);
+	return this->$ProcessingInstructionImpl::appendChild(newChild);
 }
 
 $Document* DeferredProcessingInstructionImpl::getOwnerDocument() {
-	 return this->$ProcessingInstructionImpl::getOwnerDocument();
+	return this->$ProcessingInstructionImpl::getOwnerDocument();
 }
 
 $NamedNodeMap* DeferredProcessingInstructionImpl::getAttributes() {
-	 return this->$ProcessingInstructionImpl::getAttributes();
+	return this->$ProcessingInstructionImpl::getAttributes();
 }
 
 bool DeferredProcessingInstructionImpl::hasAttributes() {
-	 return this->$ProcessingInstructionImpl::hasAttributes();
+	return this->$ProcessingInstructionImpl::hasAttributes();
 }
 
 bool DeferredProcessingInstructionImpl::hasChildNodes() {
-	 return this->$ProcessingInstructionImpl::hasChildNodes();
+	return this->$ProcessingInstructionImpl::hasChildNodes();
 }
 
 $Node* DeferredProcessingInstructionImpl::getFirstChild() {
-	 return this->$ProcessingInstructionImpl::getFirstChild();
+	return this->$ProcessingInstructionImpl::getFirstChild();
 }
 
 $Node* DeferredProcessingInstructionImpl::getLastChild() {
-	 return this->$ProcessingInstructionImpl::getLastChild();
+	return this->$ProcessingInstructionImpl::getLastChild();
 }
 
 $Node* DeferredProcessingInstructionImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$ProcessingInstructionImpl::insertBefore(newChild, refChild);
+	return this->$ProcessingInstructionImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DeferredProcessingInstructionImpl::removeChild($Node* oldChild) {
-	 return this->$ProcessingInstructionImpl::removeChild(oldChild);
+	return this->$ProcessingInstructionImpl::removeChild(oldChild);
 }
 
 $Node* DeferredProcessingInstructionImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$ProcessingInstructionImpl::replaceChild(newChild, oldChild);
+	return this->$ProcessingInstructionImpl::replaceChild(newChild, oldChild);
 }
 
 void DeferredProcessingInstructionImpl::normalize() {
@@ -115,15 +115,15 @@ void DeferredProcessingInstructionImpl::normalize() {
 }
 
 bool DeferredProcessingInstructionImpl::isSupported($String* feature, $String* version) {
-	 return this->$ProcessingInstructionImpl::isSupported(feature, version);
+	return this->$ProcessingInstructionImpl::isSupported(feature, version);
 }
 
 $String* DeferredProcessingInstructionImpl::getNamespaceURI() {
-	 return this->$ProcessingInstructionImpl::getNamespaceURI();
+	return this->$ProcessingInstructionImpl::getNamespaceURI();
 }
 
 $String* DeferredProcessingInstructionImpl::getPrefix() {
-	 return this->$ProcessingInstructionImpl::getPrefix();
+	return this->$ProcessingInstructionImpl::getPrefix();
 }
 
 void DeferredProcessingInstructionImpl::setPrefix($String* prefix) {
@@ -131,15 +131,15 @@ void DeferredProcessingInstructionImpl::setPrefix($String* prefix) {
 }
 
 $String* DeferredProcessingInstructionImpl::getLocalName() {
-	 return this->$ProcessingInstructionImpl::getLocalName();
+	return this->$ProcessingInstructionImpl::getLocalName();
 }
 
 int16_t DeferredProcessingInstructionImpl::compareDocumentPosition($Node* other) {
-	 return this->$ProcessingInstructionImpl::compareDocumentPosition(other);
+	return this->$ProcessingInstructionImpl::compareDocumentPosition(other);
 }
 
 $String* DeferredProcessingInstructionImpl::getTextContent() {
-	 return this->$ProcessingInstructionImpl::getTextContent();
+	return this->$ProcessingInstructionImpl::getTextContent();
 }
 
 void DeferredProcessingInstructionImpl::setTextContent($String* textContent) {
@@ -147,51 +147,51 @@ void DeferredProcessingInstructionImpl::setTextContent($String* textContent) {
 }
 
 bool DeferredProcessingInstructionImpl::isSameNode($Node* other) {
-	 return this->$ProcessingInstructionImpl::isSameNode(other);
+	return this->$ProcessingInstructionImpl::isSameNode(other);
 }
 
 bool DeferredProcessingInstructionImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$ProcessingInstructionImpl::isDefaultNamespace(namespaceURI);
+	return this->$ProcessingInstructionImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DeferredProcessingInstructionImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$ProcessingInstructionImpl::lookupPrefix(namespaceURI);
+	return this->$ProcessingInstructionImpl::lookupPrefix(namespaceURI);
 }
 
 $String* DeferredProcessingInstructionImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$ProcessingInstructionImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$ProcessingInstructionImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 bool DeferredProcessingInstructionImpl::isEqualNode($Node* arg) {
-	 return this->$ProcessingInstructionImpl::isEqualNode(arg);
+	return this->$ProcessingInstructionImpl::isEqualNode(arg);
 }
 
 $Object* DeferredProcessingInstructionImpl::getFeature($String* feature, $String* version) {
-	 return this->$ProcessingInstructionImpl::getFeature(feature, version);
+	return this->$ProcessingInstructionImpl::getFeature(feature, version);
 }
 
 $Object* DeferredProcessingInstructionImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$ProcessingInstructionImpl::setUserData(key, data, handler);
+	return this->$ProcessingInstructionImpl::setUserData(key, data, handler);
 }
 
 $Object* DeferredProcessingInstructionImpl::getUserData($String* key) {
-	 return this->$ProcessingInstructionImpl::getUserData(key);
+	return this->$ProcessingInstructionImpl::getUserData(key);
 }
 
 $String* DeferredProcessingInstructionImpl::toString() {
-	 return this->$ProcessingInstructionImpl::toString();
+	return this->$ProcessingInstructionImpl::toString();
 }
 
 int32_t DeferredProcessingInstructionImpl::hashCode() {
-	 return this->$ProcessingInstructionImpl::hashCode();
+	return this->$ProcessingInstructionImpl::hashCode();
 }
 
 bool DeferredProcessingInstructionImpl::equals(Object$* arg0) {
-	 return this->$ProcessingInstructionImpl::equals(arg0);
+	return this->$ProcessingInstructionImpl::equals(arg0);
 }
 
 $Object* DeferredProcessingInstructionImpl::clone() {
-	 return this->$ProcessingInstructionImpl::clone();
+	return this->$ProcessingInstructionImpl::clone();
 }
 
 void DeferredProcessingInstructionImpl::finalize() {

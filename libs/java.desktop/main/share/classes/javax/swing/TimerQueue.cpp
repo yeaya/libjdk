@@ -65,7 +65,7 @@ public:
 		$set(this, threadGroup, threadGroup);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$startIfNeeded$0(threadGroup);
+		return $nc(inst$)->lambda$startIfNeeded$0(threadGroup);
 	}
 	TimerQueue* inst$ = nullptr;
 	$ThreadGroup* threadGroup = nullptr;

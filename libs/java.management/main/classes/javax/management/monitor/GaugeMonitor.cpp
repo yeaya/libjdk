@@ -65,7 +65,7 @@ namespace javax {
 		namespace monitor {
 
 $ObjectName* GaugeMonitor::getObservedObject() {
-	 return this->$Monitor::getObservedObject();
+	return this->$Monitor::getObservedObject();
 }
 
 void GaugeMonitor::setObservedObject($ObjectName* object) {
@@ -81,15 +81,15 @@ void GaugeMonitor::removeObservedObject($ObjectName* object) {
 }
 
 bool GaugeMonitor::containsObservedObject($ObjectName* object) {
-	 return this->$Monitor::containsObservedObject(object);
+	return this->$Monitor::containsObservedObject(object);
 }
 
 $ObjectNameArray* GaugeMonitor::getObservedObjects() {
-	 return this->$Monitor::getObservedObjects();
+	return this->$Monitor::getObservedObjects();
 }
 
 $String* GaugeMonitor::getObservedAttribute() {
-	 return this->$Monitor::getObservedAttribute();
+	return this->$Monitor::getObservedAttribute();
 }
 
 void GaugeMonitor::setObservedAttribute($String* attribute) {
@@ -97,7 +97,7 @@ void GaugeMonitor::setObservedAttribute($String* attribute) {
 }
 
 int64_t GaugeMonitor::getGranularityPeriod() {
-	 return this->$Monitor::getGranularityPeriod();
+	return this->$Monitor::getGranularityPeriod();
 }
 
 void GaugeMonitor::setGranularityPeriod(int64_t period) {
@@ -105,23 +105,23 @@ void GaugeMonitor::setGranularityPeriod(int64_t period) {
 }
 
 bool GaugeMonitor::isActive() {
-	 return this->$Monitor::isActive();
+	return this->$Monitor::isActive();
 }
 
 int32_t GaugeMonitor::hashCode() {
-	 return this->$Monitor::hashCode();
+	return this->$Monitor::hashCode();
 }
 
 bool GaugeMonitor::equals(Object$* arg0) {
-	 return this->$Monitor::equals(arg0);
+	return this->$Monitor::equals(arg0);
 }
 
 $Object* GaugeMonitor::clone() {
-	 return this->$Monitor::clone();
+	return this->$Monitor::clone();
 }
 
 $String* GaugeMonitor::toString() {
-	 return this->$Monitor::toString();
+	return this->$Monitor::toString();
 }
 
 void GaugeMonitor::finalize() {

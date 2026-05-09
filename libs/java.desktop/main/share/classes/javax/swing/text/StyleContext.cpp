@@ -77,15 +77,15 @@ namespace javax {
 		namespace text {
 
 int32_t StyleContext::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 bool StyleContext::equals(Object$* arg0) {
-	 return this->$Serializable::equals(arg0);
+	return this->$Serializable::equals(arg0);
 }
 
 $Object* StyleContext::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void StyleContext::finalize() {

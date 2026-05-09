@@ -56,19 +56,19 @@ void DefaultCellEditor::removeCellEditorListener($CellEditorListener* l) {
 }
 
 int32_t DefaultCellEditor::hashCode() {
-	 return this->$AbstractCellEditor::hashCode();
+	return this->$AbstractCellEditor::hashCode();
 }
 
 bool DefaultCellEditor::equals(Object$* arg0) {
-	 return this->$AbstractCellEditor::equals(arg0);
+	return this->$AbstractCellEditor::equals(arg0);
 }
 
 $Object* DefaultCellEditor::clone() {
-	 return this->$AbstractCellEditor::clone();
+	return this->$AbstractCellEditor::clone();
 }
 
 $String* DefaultCellEditor::toString() {
-	 return this->$AbstractCellEditor::toString();
+	return this->$AbstractCellEditor::toString();
 }
 
 void DefaultCellEditor::finalize() {

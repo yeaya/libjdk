@@ -29,19 +29,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicSplitPaneUI$Handler::hashCode() {
-	 return this->$FocusListener::hashCode();
+	return this->$FocusListener::hashCode();
 }
 
 bool BasicSplitPaneUI$Handler::equals(Object$* arg0) {
-	 return this->$FocusListener::equals(arg0);
+	return this->$FocusListener::equals(arg0);
 }
 
 $Object* BasicSplitPaneUI$Handler::clone() {
-	 return this->$FocusListener::clone();
+	return this->$FocusListener::clone();
 }
 
 $String* BasicSplitPaneUI$Handler::toString() {
-	 return this->$FocusListener::toString();
+	return this->$FocusListener::toString();
 }
 
 void BasicSplitPaneUI$Handler::finalize() {

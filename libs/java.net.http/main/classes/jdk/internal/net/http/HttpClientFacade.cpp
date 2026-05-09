@@ -42,15 +42,15 @@ namespace jdk {
 			namespace http {
 
 int32_t HttpClientFacade::hashCode() {
-	 return this->$HttpClient::hashCode();
+	return this->$HttpClient::hashCode();
 }
 
 bool HttpClientFacade::equals(Object$* arg0) {
-	 return this->$HttpClient::equals(arg0);
+	return this->$HttpClient::equals(arg0);
 }
 
 $Object* HttpClientFacade::clone() {
-	 return this->$HttpClient::clone();
+	return this->$HttpClient::clone();
 }
 
 void HttpClientFacade::finalize() {

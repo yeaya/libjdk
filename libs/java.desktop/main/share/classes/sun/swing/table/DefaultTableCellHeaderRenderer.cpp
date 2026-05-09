@@ -57,19 +57,19 @@ namespace sun {
 		namespace table {
 
 $String* DefaultTableCellHeaderRenderer::toString() {
-	 return this->$DefaultTableCellRenderer::toString();
+	return this->$DefaultTableCellRenderer::toString();
 }
 
 int32_t DefaultTableCellHeaderRenderer::hashCode() {
-	 return this->$DefaultTableCellRenderer::hashCode();
+	return this->$DefaultTableCellRenderer::hashCode();
 }
 
 bool DefaultTableCellHeaderRenderer::equals(Object$* arg0) {
-	 return this->$DefaultTableCellRenderer::equals(arg0);
+	return this->$DefaultTableCellRenderer::equals(arg0);
 }
 
 $Object* DefaultTableCellHeaderRenderer::clone() {
-	 return this->$DefaultTableCellRenderer::clone();
+	return this->$DefaultTableCellRenderer::clone();
 }
 
 void DefaultTableCellHeaderRenderer::finalize() {

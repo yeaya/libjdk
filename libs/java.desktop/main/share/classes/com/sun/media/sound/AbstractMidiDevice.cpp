@@ -30,19 +30,19 @@ namespace com {
 			namespace sound {
 
 int32_t AbstractMidiDevice::hashCode() {
-	 return this->$MidiDevice::hashCode();
+	return this->$MidiDevice::hashCode();
 }
 
 bool AbstractMidiDevice::equals(Object$* arg0) {
-	 return this->$MidiDevice::equals(arg0);
+	return this->$MidiDevice::equals(arg0);
 }
 
 $Object* AbstractMidiDevice::clone() {
-	 return this->$MidiDevice::clone();
+	return this->$MidiDevice::clone();
 }
 
 $String* AbstractMidiDevice::toString() {
-	 return this->$MidiDevice::toString();
+	return this->$MidiDevice::toString();
 }
 
 void AbstractMidiDevice::init$($MidiDevice$Info* info) {

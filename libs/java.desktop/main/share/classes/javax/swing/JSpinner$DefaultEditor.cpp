@@ -44,19 +44,19 @@ namespace javax {
 	namespace swing {
 
 $String* JSpinner$DefaultEditor::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t JSpinner$DefaultEditor::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool JSpinner$DefaultEditor::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* JSpinner$DefaultEditor::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void JSpinner$DefaultEditor::finalize() {

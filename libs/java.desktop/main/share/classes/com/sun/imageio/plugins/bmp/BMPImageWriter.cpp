@@ -115,19 +115,19 @@ namespace com {
 				namespace bmp {
 
 int32_t BMPImageWriter::hashCode() {
-	 return this->$ImageWriter::hashCode();
+	return this->$ImageWriter::hashCode();
 }
 
 bool BMPImageWriter::equals(Object$* arg0) {
-	 return this->$ImageWriter::equals(arg0);
+	return this->$ImageWriter::equals(arg0);
 }
 
 $Object* BMPImageWriter::clone() {
-	 return this->$ImageWriter::clone();
+	return this->$ImageWriter::clone();
 }
 
 $String* BMPImageWriter::toString() {
-	 return this->$ImageWriter::toString();
+	return this->$ImageWriter::toString();
 }
 
 void BMPImageWriter::finalize() {

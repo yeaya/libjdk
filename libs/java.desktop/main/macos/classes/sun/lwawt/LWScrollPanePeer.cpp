@@ -96,7 +96,7 @@ namespace sun {
 	namespace lwawt {
 
 $Insets* LWScrollPanePeer::getInsets() {
-	 return this->$LWContainerPeer::getInsets();
+	return this->$LWContainerPeer::getInsets();
 }
 
 void LWScrollPanePeer::beginValidate() {
@@ -140,11 +140,11 @@ void LWScrollPanePeer::print($Graphics* g) {
 }
 
 $Dimension* LWScrollPanePeer::getPreferredSize() {
-	 return this->$LWContainerPeer::getPreferredSize();
+	return this->$LWContainerPeer::getPreferredSize();
 }
 
 $Dimension* LWScrollPanePeer::getMinimumSize() {
-	 return this->$LWContainerPeer::getMinimumSize();
+	return this->$LWContainerPeer::getMinimumSize();
 }
 
 void LWScrollPanePeer::dispose() {
@@ -152,19 +152,19 @@ void LWScrollPanePeer::dispose() {
 }
 
 $GraphicsConfiguration* LWScrollPanePeer::getGraphicsConfiguration() {
-	 return this->$LWContainerPeer::getGraphicsConfiguration();
+	return this->$LWContainerPeer::getGraphicsConfiguration();
 }
 
 bool LWScrollPanePeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$LWContainerPeer::updateGraphicsData(gc);
+	return this->$LWContainerPeer::updateGraphicsData(gc);
 }
 
 $Graphics* LWScrollPanePeer::getGraphics() {
-	 return this->$LWContainerPeer::getGraphics();
+	return this->$LWContainerPeer::getGraphics();
 }
 
 $ColorModel* LWScrollPanePeer::getColorModel() {
-	 return this->$LWContainerPeer::getColorModel();
+	return this->$LWContainerPeer::getColorModel();
 }
 
 void LWScrollPanePeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -172,7 +172,7 @@ void LWScrollPanePeer::createBuffers(int32_t numBuffers, $BufferCapabilities* ca
 }
 
 $Image* LWScrollPanePeer::getBackBuffer() {
-	 return this->$LWContainerPeer::getBackBuffer();
+	return this->$LWContainerPeer::getBackBuffer();
 }
 
 void LWScrollPanePeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -188,11 +188,11 @@ void LWScrollPanePeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int
 }
 
 $Point* LWScrollPanePeer::getLocationOnScreen() {
-	 return this->$LWContainerPeer::getLocationOnScreen();
+	return this->$LWContainerPeer::getLocationOnScreen();
 }
 
 $FontMetrics* LWScrollPanePeer::getFontMetrics($Font* f) {
-	 return this->$LWContainerPeer::getFontMetrics(f);
+	return this->$LWContainerPeer::getFontMetrics(f);
 }
 
 void LWScrollPanePeer::setVisible(bool v) {
@@ -204,7 +204,7 @@ void LWScrollPanePeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWScrollPanePeer::isReparentSupported() {
-	 return this->$LWContainerPeer::isReparentSupported();
+	return this->$LWContainerPeer::isReparentSupported();
 }
 
 void LWScrollPanePeer::setZOrder($ComponentPeer* above) {
@@ -216,11 +216,11 @@ void LWScrollPanePeer::coalescePaintEvent($PaintEvent* e) {
 }
 
 bool LWScrollPanePeer::isObscured() {
-	 return this->$LWContainerPeer::isObscured();
+	return this->$LWContainerPeer::isObscured();
 }
 
 bool LWScrollPanePeer::canDetermineObscurity() {
-	 return this->$LWContainerPeer::canDetermineObscurity();
+	return this->$LWContainerPeer::canDetermineObscurity();
 }
 
 void LWScrollPanePeer::updateCursorImmediately() {
@@ -228,23 +228,23 @@ void LWScrollPanePeer::updateCursorImmediately() {
 }
 
 bool LWScrollPanePeer::isFocusable() {
-	 return this->$LWContainerPeer::isFocusable();
+	return this->$LWContainerPeer::isFocusable();
 }
 
 bool LWScrollPanePeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWContainerPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWContainerPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWScrollPanePeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWContainerPeer::createImage(width, height);
+	return this->$LWContainerPeer::createImage(width, height);
 }
 
 $VolatileImage* LWScrollPanePeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWContainerPeer::createVolatileImage(w, h);
+	return this->$LWContainerPeer::createVolatileImage(w, h);
 }
 
 bool LWScrollPanePeer::handlesWheelScrolling() {
-	 return this->$LWContainerPeer::handlesWheelScrolling();
+	return this->$LWContainerPeer::handlesWheelScrolling();
 }
 
 void LWScrollPanePeer::applyShape($Region* shape) {
@@ -252,19 +252,19 @@ void LWScrollPanePeer::applyShape($Region* shape) {
 }
 
 int32_t LWScrollPanePeer::hashCode() {
-	 return this->$LWContainerPeer::hashCode();
+	return this->$LWContainerPeer::hashCode();
 }
 
 bool LWScrollPanePeer::equals(Object$* arg0) {
-	 return this->$LWContainerPeer::equals(arg0);
+	return this->$LWContainerPeer::equals(arg0);
 }
 
 $Object* LWScrollPanePeer::clone() {
-	 return this->$LWContainerPeer::clone();
+	return this->$LWContainerPeer::clone();
 }
 
 $String* LWScrollPanePeer::toString() {
-	 return this->$LWContainerPeer::toString();
+	return this->$LWContainerPeer::toString();
 }
 
 void LWScrollPanePeer::finalize() {

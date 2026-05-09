@@ -54,7 +54,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* mbean) override {
-		 return $nc(inst$)->isMemoryManager($cast($MemoryManagerMXBean, mbean));
+		return $nc(inst$)->isMemoryManager($cast($MemoryManagerMXBean, mbean));
 	}
 	DefaultPlatformMBeanProvider$5* inst$ = nullptr;
 };
@@ -89,7 +89,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* pmo) override {
-		 return $of(DefaultPlatformMBeanProvider$5::lambda$nameToMBeanMap$0($cast($MemoryManagerMXBean, pmo)));
+		return $of(DefaultPlatformMBeanProvider$5::lambda$nameToMBeanMap$0($cast($MemoryManagerMXBean, pmo)));
 	}
 };
 $Class* DefaultPlatformMBeanProvider$5$$Lambda$lambda$nameToMBeanMap$0$1::load$($String* name, bool initialize) {

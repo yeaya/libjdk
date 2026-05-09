@@ -143,15 +143,15 @@ namespace com {
 				namespace parser {
 
 bool Tokens$TokenKind::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t Tokens$TokenKind::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* Tokens$TokenKind::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void Tokens$TokenKind::finalize() {

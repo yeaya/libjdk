@@ -29,19 +29,19 @@ namespace sun {
 			namespace synth {
 
 int32_t SynthFileChooserUI$UIBorder::hashCode() {
-	 return this->$AbstractBorder::hashCode();
+	return this->$AbstractBorder::hashCode();
 }
 
 bool SynthFileChooserUI$UIBorder::equals(Object$* arg0) {
-	 return this->$AbstractBorder::equals(arg0);
+	return this->$AbstractBorder::equals(arg0);
 }
 
 $Object* SynthFileChooserUI$UIBorder::clone() {
-	 return this->$AbstractBorder::clone();
+	return this->$AbstractBorder::clone();
 }
 
 $String* SynthFileChooserUI$UIBorder::toString() {
-	 return this->$AbstractBorder::toString();
+	return this->$AbstractBorder::toString();
 }
 
 void SynthFileChooserUI$UIBorder::finalize() {

@@ -279,7 +279,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($PlatformDescription$PluginInfo, inst$)->getPlugin();
+		return $sure($PlatformDescription$PluginInfo, inst$)->getPlugin();
 	}
 };
 $Class* JavacProcessingEnvironment$$Lambda$getPlugin::load$($String* name, bool initialize) {
@@ -309,7 +309,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* i) override {
-		 return JavacProcessingEnvironment::lambda$initProcessorIterator$0($cast($Iterator, i));
+		return JavacProcessingEnvironment::lambda$initProcessorIterator$0($cast($Iterator, i));
 	}
 };
 $Class* JavacProcessingEnvironment$$Lambda$lambda$initProcessorIterator$0$1::load$($String* name, bool initialize) {
@@ -334,15 +334,15 @@ $Class* JavacProcessingEnvironment$$Lambda$lambda$initProcessorIterator$0$1::loa
 $Class* JavacProcessingEnvironment$$Lambda$lambda$initProcessorIterator$0$1::class$ = nullptr;
 
 int32_t JavacProcessingEnvironment::hashCode() {
-	 return this->$ProcessingEnvironment::hashCode();
+	return this->$ProcessingEnvironment::hashCode();
 }
 
 bool JavacProcessingEnvironment::equals(Object$* arg0) {
-	 return this->$ProcessingEnvironment::equals(arg0);
+	return this->$ProcessingEnvironment::equals(arg0);
 }
 
 $Object* JavacProcessingEnvironment::clone() {
-	 return this->$ProcessingEnvironment::clone();
+	return this->$ProcessingEnvironment::clone();
 }
 
 void JavacProcessingEnvironment::finalize() {

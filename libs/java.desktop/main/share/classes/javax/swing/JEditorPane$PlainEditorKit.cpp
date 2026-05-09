@@ -32,19 +32,19 @@ namespace javax {
 	namespace swing {
 
 $Object* JEditorPane$PlainEditorKit::clone() {
-	 return this->$DefaultEditorKit::clone();
+	return this->$DefaultEditorKit::clone();
 }
 
 int32_t JEditorPane$PlainEditorKit::hashCode() {
-	 return this->$DefaultEditorKit::hashCode();
+	return this->$DefaultEditorKit::hashCode();
 }
 
 bool JEditorPane$PlainEditorKit::equals(Object$* arg0) {
-	 return this->$DefaultEditorKit::equals(arg0);
+	return this->$DefaultEditorKit::equals(arg0);
 }
 
 $String* JEditorPane$PlainEditorKit::toString() {
-	 return this->$DefaultEditorKit::toString();
+	return this->$DefaultEditorKit::toString();
 }
 
 void JEditorPane$PlainEditorKit::finalize() {

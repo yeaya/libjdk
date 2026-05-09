@@ -20,19 +20,19 @@ namespace javax {
 	namespace swing {
 
 int32_t AbstractSpinnerModel::hashCode() {
-	 return this->$SpinnerModel::hashCode();
+	return this->$SpinnerModel::hashCode();
 }
 
 bool AbstractSpinnerModel::equals(Object$* arg0) {
-	 return this->$SpinnerModel::equals(arg0);
+	return this->$SpinnerModel::equals(arg0);
 }
 
 $Object* AbstractSpinnerModel::clone() {
-	 return this->$SpinnerModel::clone();
+	return this->$SpinnerModel::clone();
 }
 
 $String* AbstractSpinnerModel::toString() {
-	 return this->$SpinnerModel::toString();
+	return this->$SpinnerModel::toString();
 }
 
 void AbstractSpinnerModel::finalize() {

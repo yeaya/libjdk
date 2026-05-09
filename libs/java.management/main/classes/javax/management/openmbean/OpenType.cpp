@@ -55,15 +55,15 @@ namespace javax {
 		namespace openmbean {
 
 bool OpenType::equals(Object$* obj) {
-	 return this->$Serializable::equals(obj);
+	return this->$Serializable::equals(obj);
 }
 
 int32_t OpenType::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 $String* OpenType::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 $List* OpenType::ALLOWED_CLASSNAMES_LIST = nullptr;

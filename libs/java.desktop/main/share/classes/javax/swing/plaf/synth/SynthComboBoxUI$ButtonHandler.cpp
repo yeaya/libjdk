@@ -22,19 +22,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthComboBoxUI$ButtonHandler::hashCode() {
-	 return this->$DefaultButtonModel::hashCode();
+	return this->$DefaultButtonModel::hashCode();
 }
 
 bool SynthComboBoxUI$ButtonHandler::equals(Object$* arg0) {
-	 return this->$DefaultButtonModel::equals(arg0);
+	return this->$DefaultButtonModel::equals(arg0);
 }
 
 $Object* SynthComboBoxUI$ButtonHandler::clone() {
-	 return this->$DefaultButtonModel::clone();
+	return this->$DefaultButtonModel::clone();
 }
 
 $String* SynthComboBoxUI$ButtonHandler::toString() {
-	 return this->$DefaultButtonModel::toString();
+	return this->$DefaultButtonModel::toString();
 }
 
 void SynthComboBoxUI$ButtonHandler::finalize() {

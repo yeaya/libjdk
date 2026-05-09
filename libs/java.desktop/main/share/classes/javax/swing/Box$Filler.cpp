@@ -26,19 +26,19 @@ namespace javax {
 	namespace swing {
 
 $String* Box$Filler::toString() {
-	 return this->$JComponent::toString();
+	return this->$JComponent::toString();
 }
 
 int32_t Box$Filler::hashCode() {
-	 return this->$JComponent::hashCode();
+	return this->$JComponent::hashCode();
 }
 
 bool Box$Filler::equals(Object$* arg0) {
-	 return this->$JComponent::equals(arg0);
+	return this->$JComponent::equals(arg0);
 }
 
 $Object* Box$Filler::clone() {
-	 return this->$JComponent::clone();
+	return this->$JComponent::clone();
 }
 
 void Box$Filler::finalize() {

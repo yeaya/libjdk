@@ -28,19 +28,19 @@ using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $DefaultTreeModel = ::javax::swing::tree::DefaultTreeModel;
 
 int32_t Test8015926::hashCode() {
-	 return this->$TreeModelListener::hashCode();
+	return this->$TreeModelListener::hashCode();
 }
 
 bool Test8015926::equals(Object$* arg0) {
-	 return this->$TreeModelListener::equals(arg0);
+	return this->$TreeModelListener::equals(arg0);
 }
 
 $Object* Test8015926::clone() {
-	 return this->$TreeModelListener::clone();
+	return this->$TreeModelListener::clone();
 }
 
 $String* Test8015926::toString() {
-	 return this->$TreeModelListener::toString();
+	return this->$TreeModelListener::toString();
 }
 
 void Test8015926::finalize() {

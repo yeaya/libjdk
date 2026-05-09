@@ -39,19 +39,19 @@ void GTKFileChooserUI$FilterComboBoxModel::removeListDataListener($ListDataListe
 }
 
 int32_t GTKFileChooserUI$FilterComboBoxModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool GTKFileChooserUI$FilterComboBoxModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* GTKFileChooserUI$FilterComboBoxModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* GTKFileChooserUI$FilterComboBoxModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void GTKFileChooserUI$FilterComboBoxModel::finalize() {

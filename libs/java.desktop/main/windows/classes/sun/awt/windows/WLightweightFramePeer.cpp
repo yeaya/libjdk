@@ -45,19 +45,19 @@ namespace sun {
 		namespace windows {
 
 $String* WLightweightFramePeer::toString() {
-	 return this->$WFramePeer::toString();
+	return this->$WFramePeer::toString();
 }
 
 int32_t WLightweightFramePeer::hashCode() {
-	 return this->$WFramePeer::hashCode();
+	return this->$WFramePeer::hashCode();
 }
 
 bool WLightweightFramePeer::equals(Object$* arg0) {
-	 return this->$WFramePeer::equals(arg0);
+	return this->$WFramePeer::equals(arg0);
 }
 
 $Object* WLightweightFramePeer::clone() {
-	 return this->$WFramePeer::clone();
+	return this->$WFramePeer::clone();
 }
 
 void WLightweightFramePeer::finalize() {

@@ -70,19 +70,19 @@ namespace com {
 							namespace trax {
 
 int32_t TransformerHandlerImpl::hashCode() {
-	 return this->$TransformerHandler::hashCode();
+	return this->$TransformerHandler::hashCode();
 }
 
 bool TransformerHandlerImpl::equals(Object$* arg0) {
-	 return this->$TransformerHandler::equals(arg0);
+	return this->$TransformerHandler::equals(arg0);
 }
 
 $Object* TransformerHandlerImpl::clone() {
-	 return this->$TransformerHandler::clone();
+	return this->$TransformerHandler::clone();
 }
 
 $String* TransformerHandlerImpl::toString() {
-	 return this->$TransformerHandler::toString();
+	return this->$TransformerHandler::toString();
 }
 
 void TransformerHandlerImpl::finalize() {

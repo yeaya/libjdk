@@ -45,19 +45,19 @@ namespace sun {
 				namespace ccache {
 
 int32_t CCacheOutputStream::hashCode() {
-	 return this->$KrbDataOutputStream::hashCode();
+	return this->$KrbDataOutputStream::hashCode();
 }
 
 bool CCacheOutputStream::equals(Object$* arg0) {
-	 return this->$KrbDataOutputStream::equals(arg0);
+	return this->$KrbDataOutputStream::equals(arg0);
 }
 
 $Object* CCacheOutputStream::clone() {
-	 return this->$KrbDataOutputStream::clone();
+	return this->$KrbDataOutputStream::clone();
 }
 
 $String* CCacheOutputStream::toString() {
-	 return this->$KrbDataOutputStream::toString();
+	return this->$KrbDataOutputStream::toString();
 }
 
 void CCacheOutputStream::finalize() {

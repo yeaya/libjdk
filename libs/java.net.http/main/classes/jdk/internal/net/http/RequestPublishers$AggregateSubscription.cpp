@@ -79,19 +79,19 @@ $Class* RequestPublishers$AggregateSubscription$$Lambda$run::load$($String* name
 $Class* RequestPublishers$AggregateSubscription$$Lambda$run::class$ = nullptr;
 
 int32_t RequestPublishers$AggregateSubscription::hashCode() {
-	 return this->$Flow$Subscription::hashCode();
+	return this->$Flow$Subscription::hashCode();
 }
 
 bool RequestPublishers$AggregateSubscription::equals(Object$* arg0) {
-	 return this->$Flow$Subscription::equals(arg0);
+	return this->$Flow$Subscription::equals(arg0);
 }
 
 $Object* RequestPublishers$AggregateSubscription::clone() {
-	 return this->$Flow$Subscription::clone();
+	return this->$Flow$Subscription::clone();
 }
 
 $String* RequestPublishers$AggregateSubscription::toString() {
-	 return this->$Flow$Subscription::toString();
+	return this->$Flow$Subscription::toString();
 }
 
 void RequestPublishers$AggregateSubscription::finalize() {

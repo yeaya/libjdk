@@ -55,19 +55,19 @@ namespace sun {
 		namespace X11 {
 
 $String* XLightweightFramePeer::toString() {
-	 return this->$XFramePeer::toString();
+	return this->$XFramePeer::toString();
 }
 
 int32_t XLightweightFramePeer::hashCode() {
-	 return this->$XFramePeer::hashCode();
+	return this->$XFramePeer::hashCode();
 }
 
 bool XLightweightFramePeer::equals(Object$* arg0) {
-	 return this->$XFramePeer::equals(arg0);
+	return this->$XFramePeer::equals(arg0);
 }
 
 $Object* XLightweightFramePeer::clone() {
-	 return this->$XFramePeer::clone();
+	return this->$XFramePeer::clone();
 }
 
 void XLightweightFramePeer::finalize() {

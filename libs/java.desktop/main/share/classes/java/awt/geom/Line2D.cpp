@@ -33,15 +33,15 @@ namespace java {
 		namespace geom {
 
 int32_t Line2D::hashCode() {
-	 return this->$Shape::hashCode();
+	return this->$Shape::hashCode();
 }
 
 bool Line2D::equals(Object$* arg0) {
-	 return this->$Shape::equals(arg0);
+	return this->$Shape::equals(arg0);
 }
 
 $String* Line2D::toString() {
-	 return this->$Shape::toString();
+	return this->$Shape::toString();
 }
 
 void Line2D::finalize() {

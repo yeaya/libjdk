@@ -39,19 +39,19 @@ namespace com {
 									namespace x509 {
 
 int32_t XMLX509Digest::hashCode() {
-	 return this->$Signature11ElementProxy::hashCode();
+	return this->$Signature11ElementProxy::hashCode();
 }
 
 bool XMLX509Digest::equals(Object$* arg0) {
-	 return this->$Signature11ElementProxy::equals(arg0);
+	return this->$Signature11ElementProxy::equals(arg0);
 }
 
 $Object* XMLX509Digest::clone() {
-	 return this->$Signature11ElementProxy::clone();
+	return this->$Signature11ElementProxy::clone();
 }
 
 $String* XMLX509Digest::toString() {
-	 return this->$Signature11ElementProxy::toString();
+	return this->$Signature11ElementProxy::toString();
 }
 
 void XMLX509Digest::finalize() {

@@ -29,19 +29,19 @@ namespace javax {
 			namespace standard {
 
 $Object* PrinterStateReasons::clone() {
-	 return this->$HashMap::clone();
+	return this->$HashMap::clone();
 }
 
 bool PrinterStateReasons::equals(Object$* arg0) {
-	 return this->$HashMap::equals(arg0);
+	return this->$HashMap::equals(arg0);
 }
 
 int32_t PrinterStateReasons::hashCode() {
-	 return this->$HashMap::hashCode();
+	return this->$HashMap::hashCode();
 }
 
 $String* PrinterStateReasons::toString() {
-	 return this->$HashMap::toString();
+	return this->$HashMap::toString();
 }
 
 void PrinterStateReasons::finalize() {

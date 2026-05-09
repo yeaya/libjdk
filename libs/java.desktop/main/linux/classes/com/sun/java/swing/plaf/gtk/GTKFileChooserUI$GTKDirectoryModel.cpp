@@ -44,7 +44,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* f) override {
-		 return $of($nc(inst$)->getSystemDisplayName($cast($File, f)));
+		return $of($nc(inst$)->getSystemDisplayName($cast($File, f)));
 	}
 	$FileSystemView* inst$ = nullptr;
 };

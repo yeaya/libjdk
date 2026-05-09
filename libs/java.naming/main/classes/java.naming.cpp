@@ -1,6 +1,7 @@
 #include <java.naming.h>
 #include <java.base.h>
 #include <java.security.sasl.h>
+#include <java.logging.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
@@ -577,6 +578,7 @@ $bytes* java$naming$GetResource($String* name) {
 void java$naming::init() {
 	::java$base::init();
 	::java$security$sasl::init();
+	::java$logging::init();
 	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.naming", "17.35", "",

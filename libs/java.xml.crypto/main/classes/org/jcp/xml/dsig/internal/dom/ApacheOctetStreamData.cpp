@@ -19,19 +19,19 @@ namespace org {
 					namespace dom {
 
 int32_t ApacheOctetStreamData::hashCode() {
-	 return this->$OctetStreamData::hashCode();
+	return this->$OctetStreamData::hashCode();
 }
 
 bool ApacheOctetStreamData::equals(Object$* arg0) {
-	 return this->$OctetStreamData::equals(arg0);
+	return this->$OctetStreamData::equals(arg0);
 }
 
 $Object* ApacheOctetStreamData::clone() {
-	 return this->$OctetStreamData::clone();
+	return this->$OctetStreamData::clone();
 }
 
 $String* ApacheOctetStreamData::toString() {
-	 return this->$OctetStreamData::toString();
+	return this->$OctetStreamData::toString();
 }
 
 void ApacheOctetStreamData::finalize() {

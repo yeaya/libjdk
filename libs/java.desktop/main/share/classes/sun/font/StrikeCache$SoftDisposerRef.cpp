@@ -23,19 +23,19 @@ namespace sun {
 	namespace font {
 
 $Object* StrikeCache$SoftDisposerRef::clone() {
-	 return this->$SoftReference::clone();
+	return this->$SoftReference::clone();
 }
 
 int32_t StrikeCache$SoftDisposerRef::hashCode() {
-	 return this->$SoftReference::hashCode();
+	return this->$SoftReference::hashCode();
 }
 
 bool StrikeCache$SoftDisposerRef::equals(Object$* arg0) {
-	 return this->$SoftReference::equals(arg0);
+	return this->$SoftReference::equals(arg0);
 }
 
 $String* StrikeCache$SoftDisposerRef::toString() {
-	 return this->$SoftReference::toString();
+	return this->$SoftReference::toString();
 }
 
 void StrikeCache$SoftDisposerRef::finalize() {

@@ -87,19 +87,19 @@ namespace com {
 			namespace internal {
 
 int32_t WebRowSetXmlWriter::hashCode() {
-	 return this->$XmlWriter::hashCode();
+	return this->$XmlWriter::hashCode();
 }
 
 bool WebRowSetXmlWriter::equals(Object$* arg0) {
-	 return this->$XmlWriter::equals(arg0);
+	return this->$XmlWriter::equals(arg0);
 }
 
 $Object* WebRowSetXmlWriter::clone() {
-	 return this->$XmlWriter::clone();
+	return this->$XmlWriter::clone();
 }
 
 $String* WebRowSetXmlWriter::toString() {
-	 return this->$XmlWriter::toString();
+	return this->$XmlWriter::toString();
 }
 
 void WebRowSetXmlWriter::finalize() {

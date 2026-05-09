@@ -31,19 +31,19 @@ namespace javax {
 		namespace rowset {
 
 int32_t CachedRowSet::hashCode() {
-	 return this->$RowSet::hashCode();
+	return this->$RowSet::hashCode();
 }
 
 bool CachedRowSet::equals(Object$* arg0) {
-	 return this->$RowSet::equals(arg0);
+	return this->$RowSet::equals(arg0);
 }
 
 $Object* CachedRowSet::clone() {
-	 return this->$RowSet::clone();
+	return this->$RowSet::clone();
 }
 
 $String* CachedRowSet::toString() {
-	 return this->$RowSet::toString();
+	return this->$RowSet::toString();
 }
 
 void CachedRowSet::finalize() {

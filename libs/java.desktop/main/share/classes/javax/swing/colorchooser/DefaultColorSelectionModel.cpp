@@ -22,19 +22,19 @@ namespace javax {
 		namespace colorchooser {
 
 int32_t DefaultColorSelectionModel::hashCode() {
-	 return this->$ColorSelectionModel::hashCode();
+	return this->$ColorSelectionModel::hashCode();
 }
 
 bool DefaultColorSelectionModel::equals(Object$* arg0) {
-	 return this->$ColorSelectionModel::equals(arg0);
+	return this->$ColorSelectionModel::equals(arg0);
 }
 
 $Object* DefaultColorSelectionModel::clone() {
-	 return this->$ColorSelectionModel::clone();
+	return this->$ColorSelectionModel::clone();
 }
 
 $String* DefaultColorSelectionModel::toString() {
-	 return this->$ColorSelectionModel::toString();
+	return this->$ColorSelectionModel::toString();
 }
 
 void DefaultColorSelectionModel::finalize() {

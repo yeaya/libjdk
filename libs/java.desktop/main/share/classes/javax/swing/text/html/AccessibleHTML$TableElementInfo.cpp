@@ -39,19 +39,19 @@ namespace javax {
 			namespace html {
 
 int32_t AccessibleHTML$TableElementInfo::hashCode() {
-	 return this->$AccessibleHTML$ElementInfo::hashCode();
+	return this->$AccessibleHTML$ElementInfo::hashCode();
 }
 
 bool AccessibleHTML$TableElementInfo::equals(Object$* arg0) {
-	 return this->$AccessibleHTML$ElementInfo::equals(arg0);
+	return this->$AccessibleHTML$ElementInfo::equals(arg0);
 }
 
 $Object* AccessibleHTML$TableElementInfo::clone() {
-	 return this->$AccessibleHTML$ElementInfo::clone();
+	return this->$AccessibleHTML$ElementInfo::clone();
 }
 
 $String* AccessibleHTML$TableElementInfo::toString() {
-	 return this->$AccessibleHTML$ElementInfo::toString();
+	return this->$AccessibleHTML$ElementInfo::toString();
 }
 
 void AccessibleHTML$TableElementInfo::finalize() {

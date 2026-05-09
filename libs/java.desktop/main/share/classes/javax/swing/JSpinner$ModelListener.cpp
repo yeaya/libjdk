@@ -16,19 +16,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JSpinner$ModelListener::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool JSpinner$ModelListener::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* JSpinner$ModelListener::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* JSpinner$ModelListener::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void JSpinner$ModelListener::finalize() {

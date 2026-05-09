@@ -18,19 +18,19 @@ using $JPanel = ::javax::swing::JPanel;
 using $JTree = ::javax::swing::JTree;
 
 $String* bug8023474$CheckboxCellRenderer::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t bug8023474$CheckboxCellRenderer::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool bug8023474$CheckboxCellRenderer::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* bug8023474$CheckboxCellRenderer::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void bug8023474$CheckboxCellRenderer::finalize() {

@@ -33,19 +33,19 @@ namespace javax {
 	namespace swing {
 
 int32_t LegacyGlueFocusTraversalPolicy::hashCode() {
-	 return this->$FocusTraversalPolicy::hashCode();
+	return this->$FocusTraversalPolicy::hashCode();
 }
 
 bool LegacyGlueFocusTraversalPolicy::equals(Object$* arg0) {
-	 return this->$FocusTraversalPolicy::equals(arg0);
+	return this->$FocusTraversalPolicy::equals(arg0);
 }
 
 $Object* LegacyGlueFocusTraversalPolicy::clone() {
-	 return this->$FocusTraversalPolicy::clone();
+	return this->$FocusTraversalPolicy::clone();
 }
 
 $String* LegacyGlueFocusTraversalPolicy::toString() {
-	 return this->$FocusTraversalPolicy::toString();
+	return this->$FocusTraversalPolicy::toString();
 }
 
 void LegacyGlueFocusTraversalPolicy::finalize() {

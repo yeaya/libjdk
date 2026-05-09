@@ -61,19 +61,19 @@ namespace com {
 					namespace motif {
 
 int32_t MotifComboBoxUI::hashCode() {
-	 return this->$BasicComboBoxUI::hashCode();
+	return this->$BasicComboBoxUI::hashCode();
 }
 
 bool MotifComboBoxUI::equals(Object$* arg0) {
-	 return this->$BasicComboBoxUI::equals(arg0);
+	return this->$BasicComboBoxUI::equals(arg0);
 }
 
 $Object* MotifComboBoxUI::clone() {
-	 return this->$BasicComboBoxUI::clone();
+	return this->$BasicComboBoxUI::clone();
 }
 
 $String* MotifComboBoxUI::toString() {
-	 return this->$BasicComboBoxUI::toString();
+	return this->$BasicComboBoxUI::toString();
 }
 
 void MotifComboBoxUI::finalize() {

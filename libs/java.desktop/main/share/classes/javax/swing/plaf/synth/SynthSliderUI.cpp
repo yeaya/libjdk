@@ -81,19 +81,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthSliderUI::hashCode() {
-	 return this->$BasicSliderUI::hashCode();
+	return this->$BasicSliderUI::hashCode();
 }
 
 bool SynthSliderUI::equals(Object$* arg0) {
-	 return this->$BasicSliderUI::equals(arg0);
+	return this->$BasicSliderUI::equals(arg0);
 }
 
 $Object* SynthSliderUI::clone() {
-	 return this->$BasicSliderUI::clone();
+	return this->$BasicSliderUI::clone();
 }
 
 $String* SynthSliderUI::toString() {
-	 return this->$BasicSliderUI::toString();
+	return this->$BasicSliderUI::toString();
 }
 
 void SynthSliderUI::finalize() {

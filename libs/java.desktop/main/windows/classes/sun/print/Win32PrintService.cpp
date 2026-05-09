@@ -274,7 +274,7 @@ namespace sun {
 	namespace print {
 
 $Object* Win32PrintService::clone() {
-	 return this->$PrintService::clone();
+	return this->$PrintService::clone();
 }
 
 void Win32PrintService::finalize() {

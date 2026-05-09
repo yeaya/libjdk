@@ -80,19 +80,19 @@ namespace javax {
 	namespace swing {
 
 $String* JFrame::toString() {
-	 return this->$Frame::toString();
+	return this->$Frame::toString();
 }
 
 int32_t JFrame::hashCode() {
-	 return this->$Frame::hashCode();
+	return this->$Frame::hashCode();
 }
 
 bool JFrame::equals(Object$* arg0) {
-	 return this->$Frame::equals(arg0);
+	return this->$Frame::equals(arg0);
 }
 
 $Object* JFrame::clone() {
-	 return this->$Frame::clone();
+	return this->$Frame::clone();
 }
 
 void JFrame::finalize() {

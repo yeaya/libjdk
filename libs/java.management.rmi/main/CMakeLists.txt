@@ -5,6 +5,8 @@ jcpp_add_dependencies(
 	"java.management:17.35"
 	"java.rmi:17.35"
 	"java.base:17.35"
+	"java.security.sasl:17.35"
+	"java.logging:17.35"
 )
 
 if(BUILD_SHARED_LIB)

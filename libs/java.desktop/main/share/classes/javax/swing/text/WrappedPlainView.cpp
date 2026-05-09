@@ -80,19 +80,19 @@ namespace javax {
 		namespace text {
 
 int32_t WrappedPlainView::hashCode() {
-	 return this->$BoxView::hashCode();
+	return this->$BoxView::hashCode();
 }
 
 bool WrappedPlainView::equals(Object$* arg0) {
-	 return this->$BoxView::equals(arg0);
+	return this->$BoxView::equals(arg0);
 }
 
 $Object* WrappedPlainView::clone() {
-	 return this->$BoxView::clone();
+	return this->$BoxView::clone();
 }
 
 $String* WrappedPlainView::toString() {
-	 return this->$BoxView::toString();
+	return this->$BoxView::toString();
 }
 
 void WrappedPlainView::finalize() {

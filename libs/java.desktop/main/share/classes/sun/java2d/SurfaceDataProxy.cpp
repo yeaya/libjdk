@@ -53,19 +53,19 @@ namespace sun {
 	namespace java2d {
 
 int32_t SurfaceDataProxy::hashCode() {
-	 return this->$DisplayChangedListener::hashCode();
+	return this->$DisplayChangedListener::hashCode();
 }
 
 bool SurfaceDataProxy::equals(Object$* arg0) {
-	 return this->$DisplayChangedListener::equals(arg0);
+	return this->$DisplayChangedListener::equals(arg0);
 }
 
 $Object* SurfaceDataProxy::clone() {
-	 return this->$DisplayChangedListener::clone();
+	return this->$DisplayChangedListener::clone();
 }
 
 $String* SurfaceDataProxy::toString() {
-	 return this->$DisplayChangedListener::toString();
+	return this->$DisplayChangedListener::toString();
 }
 
 void SurfaceDataProxy::finalize() {

@@ -49,7 +49,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* syms) override {
-		 return $of(Operators$OperatorType::lambda$static$0($cast($Symtab, syms)));
+		return $of(Operators$OperatorType::lambda$static$0($cast($Symtab, syms)));
 	}
 };
 $Class* Operators$OperatorType$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -79,7 +79,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* syms) override {
-		 return $of(Operators$OperatorType::lambda$static$1($cast($Symtab, syms)));
+		return $of(Operators$OperatorType::lambda$static$1($cast($Symtab, syms)));
 	}
 };
 $Class* Operators$OperatorType$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
@@ -109,7 +109,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* syms) override {
-		 return $of(Operators$OperatorType::lambda$static$2($cast($Symtab, syms)));
+		return $of(Operators$OperatorType::lambda$static$2($cast($Symtab, syms)));
 	}
 };
 $Class* Operators$OperatorType$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {
@@ -139,7 +139,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* syms) override {
-		 return $of(Operators$OperatorType::lambda$static$3($cast($Symtab, syms)));
+		return $of(Operators$OperatorType::lambda$static$3($cast($Symtab, syms)));
 	}
 };
 $Class* Operators$OperatorType$$Lambda$lambda$static$3$3::load$($String* name, bool initialize) {
@@ -169,7 +169,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* syms) override {
-		 return $of(Operators$OperatorType::lambda$static$4($cast($Symtab, syms)));
+		return $of(Operators$OperatorType::lambda$static$4($cast($Symtab, syms)));
 	}
 };
 $Class* Operators$OperatorType$$Lambda$lambda$static$4$4::load$($String* name, bool initialize) {
@@ -199,7 +199,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* syms) override {
-		 return $of(Operators$OperatorType::lambda$static$5($cast($Symtab, syms)));
+		return $of(Operators$OperatorType::lambda$static$5($cast($Symtab, syms)));
 	}
 };
 $Class* Operators$OperatorType$$Lambda$lambda$static$5$5::load$($String* name, bool initialize) {
@@ -229,7 +229,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* syms) override {
-		 return $of(Operators$OperatorType::lambda$static$6($cast($Symtab, syms)));
+		return $of(Operators$OperatorType::lambda$static$6($cast($Symtab, syms)));
 	}
 };
 $Class* Operators$OperatorType$$Lambda$lambda$static$6$6::load$($String* name, bool initialize) {
@@ -259,7 +259,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* syms) override {
-		 return $of(Operators$OperatorType::lambda$static$7($cast($Symtab, syms)));
+		return $of(Operators$OperatorType::lambda$static$7($cast($Symtab, syms)));
 	}
 };
 $Class* Operators$OperatorType$$Lambda$lambda$static$7$7::load$($String* name, bool initialize) {
@@ -289,7 +289,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* syms) override {
-		 return $of(Operators$OperatorType::lambda$static$8($cast($Symtab, syms)));
+		return $of(Operators$OperatorType::lambda$static$8($cast($Symtab, syms)));
 	}
 };
 $Class* Operators$OperatorType$$Lambda$lambda$static$8$8::load$($String* name, bool initialize) {
@@ -319,7 +319,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* syms) override {
-		 return $of(Operators$OperatorType::lambda$static$9($cast($Symtab, syms)));
+		return $of(Operators$OperatorType::lambda$static$9($cast($Symtab, syms)));
 	}
 };
 $Class* Operators$OperatorType$$Lambda$lambda$static$9$9::load$($String* name, bool initialize) {
@@ -349,7 +349,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* syms) override {
-		 return $of(Operators$OperatorType::lambda$static$10($cast($Symtab, syms)));
+		return $of(Operators$OperatorType::lambda$static$10($cast($Symtab, syms)));
 	}
 };
 $Class* Operators$OperatorType$$Lambda$lambda$static$10$10::load$($String* name, bool initialize) {

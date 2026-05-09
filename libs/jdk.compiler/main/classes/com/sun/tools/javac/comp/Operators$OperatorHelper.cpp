@@ -50,7 +50,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->initOperators();
+		return $nc(inst$)->initOperators();
 	}
 	Operators$OperatorHelper* inst$ = nullptr;
 };
@@ -85,7 +85,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Supplier, inst$)->get();
+		return $sure($Supplier, inst$)->get();
 	}
 };
 $Class* Operators$OperatorHelper$$Lambda$get$1::load$($String* name, bool initialize) {
@@ -115,7 +115,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return Operators$OperatorHelper::lambda$initOperators$0(x$0);
+		return Operators$OperatorHelper::lambda$initOperators$0(x$0);
 	}
 };
 $Class* Operators$OperatorHelper$$Lambda$lambda$initOperators$0$2::load$($String* name, bool initialize) {

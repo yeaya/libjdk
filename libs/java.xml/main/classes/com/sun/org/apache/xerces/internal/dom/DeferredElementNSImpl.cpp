@@ -41,11 +41,11 @@ namespace com {
 						namespace dom {
 
 $String* DeferredElementNSImpl::getNamespaceURI() {
-	 return this->$ElementNSImpl::getNamespaceURI();
+	return this->$ElementNSImpl::getNamespaceURI();
 }
 
 $String* DeferredElementNSImpl::getPrefix() {
-	 return this->$ElementNSImpl::getPrefix();
+	return this->$ElementNSImpl::getPrefix();
 }
 
 void DeferredElementNSImpl::setPrefix($String* prefix) {
@@ -53,27 +53,27 @@ void DeferredElementNSImpl::setPrefix($String* prefix) {
 }
 
 $String* DeferredElementNSImpl::getLocalName() {
-	 return this->$ElementNSImpl::getLocalName();
+	return this->$ElementNSImpl::getLocalName();
 }
 
 int16_t DeferredElementNSImpl::getNodeType() {
-	 return this->$ElementNSImpl::getNodeType();
+	return this->$ElementNSImpl::getNodeType();
 }
 
 $String* DeferredElementNSImpl::getNodeName() {
-	 return this->$ElementNSImpl::getNodeName();
+	return this->$ElementNSImpl::getNodeName();
 }
 
 $NamedNodeMap* DeferredElementNSImpl::getAttributes() {
-	 return this->$ElementNSImpl::getAttributes();
+	return this->$ElementNSImpl::getAttributes();
 }
 
 $Node* DeferredElementNSImpl::cloneNode(bool deep) {
-	 return this->$ElementNSImpl::cloneNode(deep);
+	return this->$ElementNSImpl::cloneNode(deep);
 }
 
 $String* DeferredElementNSImpl::getBaseURI() {
-	 return this->$ElementNSImpl::getBaseURI();
+	return this->$ElementNSImpl::getBaseURI();
 }
 
 void DeferredElementNSImpl::normalize() {
@@ -81,47 +81,47 @@ void DeferredElementNSImpl::normalize() {
 }
 
 bool DeferredElementNSImpl::hasAttributes() {
-	 return this->$ElementNSImpl::hasAttributes();
+	return this->$ElementNSImpl::hasAttributes();
 }
 
 bool DeferredElementNSImpl::isEqualNode($Node* arg) {
-	 return this->$ElementNSImpl::isEqualNode(arg);
+	return this->$ElementNSImpl::isEqualNode(arg);
 }
 
 $Document* DeferredElementNSImpl::getOwnerDocument() {
-	 return this->$ElementNSImpl::getOwnerDocument();
+	return this->$ElementNSImpl::getOwnerDocument();
 }
 
 bool DeferredElementNSImpl::hasChildNodes() {
-	 return this->$ElementNSImpl::hasChildNodes();
+	return this->$ElementNSImpl::hasChildNodes();
 }
 
 $NodeList* DeferredElementNSImpl::getChildNodes() {
-	 return this->$ElementNSImpl::getChildNodes();
+	return this->$ElementNSImpl::getChildNodes();
 }
 
 $Node* DeferredElementNSImpl::getFirstChild() {
-	 return this->$ElementNSImpl::getFirstChild();
+	return this->$ElementNSImpl::getFirstChild();
 }
 
 $Node* DeferredElementNSImpl::getLastChild() {
-	 return this->$ElementNSImpl::getLastChild();
+	return this->$ElementNSImpl::getLastChild();
 }
 
 $Node* DeferredElementNSImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$ElementNSImpl::insertBefore(newChild, refChild);
+	return this->$ElementNSImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DeferredElementNSImpl::removeChild($Node* oldChild) {
-	 return this->$ElementNSImpl::removeChild(oldChild);
+	return this->$ElementNSImpl::removeChild(oldChild);
 }
 
 $Node* DeferredElementNSImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$ElementNSImpl::replaceChild(newChild, oldChild);
+	return this->$ElementNSImpl::replaceChild(newChild, oldChild);
 }
 
 $String* DeferredElementNSImpl::getTextContent() {
-	 return this->$ElementNSImpl::getTextContent();
+	return this->$ElementNSImpl::getTextContent();
 }
 
 void DeferredElementNSImpl::setTextContent($String* textContent) {
@@ -129,19 +129,19 @@ void DeferredElementNSImpl::setTextContent($String* textContent) {
 }
 
 $Node* DeferredElementNSImpl::getParentNode() {
-	 return this->$ElementNSImpl::getParentNode();
+	return this->$ElementNSImpl::getParentNode();
 }
 
 $Node* DeferredElementNSImpl::getNextSibling() {
-	 return this->$ElementNSImpl::getNextSibling();
+	return this->$ElementNSImpl::getNextSibling();
 }
 
 $Node* DeferredElementNSImpl::getPreviousSibling() {
-	 return this->$ElementNSImpl::getPreviousSibling();
+	return this->$ElementNSImpl::getPreviousSibling();
 }
 
 $String* DeferredElementNSImpl::getNodeValue() {
-	 return this->$ElementNSImpl::getNodeValue();
+	return this->$ElementNSImpl::getNodeValue();
 }
 
 void DeferredElementNSImpl::setNodeValue($String* x) {
@@ -149,59 +149,59 @@ void DeferredElementNSImpl::setNodeValue($String* x) {
 }
 
 $Node* DeferredElementNSImpl::appendChild($Node* newChild) {
-	 return this->$ElementNSImpl::appendChild(newChild);
+	return this->$ElementNSImpl::appendChild(newChild);
 }
 
 bool DeferredElementNSImpl::isSupported($String* feature, $String* version) {
-	 return this->$ElementNSImpl::isSupported(feature, version);
+	return this->$ElementNSImpl::isSupported(feature, version);
 }
 
 int16_t DeferredElementNSImpl::compareDocumentPosition($Node* other) {
-	 return this->$ElementNSImpl::compareDocumentPosition(other);
+	return this->$ElementNSImpl::compareDocumentPosition(other);
 }
 
 bool DeferredElementNSImpl::isSameNode($Node* other) {
-	 return this->$ElementNSImpl::isSameNode(other);
+	return this->$ElementNSImpl::isSameNode(other);
 }
 
 bool DeferredElementNSImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$ElementNSImpl::isDefaultNamespace(namespaceURI);
+	return this->$ElementNSImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DeferredElementNSImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$ElementNSImpl::lookupPrefix(namespaceURI);
+	return this->$ElementNSImpl::lookupPrefix(namespaceURI);
 }
 
 $String* DeferredElementNSImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$ElementNSImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$ElementNSImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* DeferredElementNSImpl::getFeature($String* feature, $String* version) {
-	 return this->$ElementNSImpl::getFeature(feature, version);
+	return this->$ElementNSImpl::getFeature(feature, version);
 }
 
 $Object* DeferredElementNSImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$ElementNSImpl::setUserData(key, data, handler);
+	return this->$ElementNSImpl::setUserData(key, data, handler);
 }
 
 $Object* DeferredElementNSImpl::getUserData($String* key) {
-	 return this->$ElementNSImpl::getUserData(key);
+	return this->$ElementNSImpl::getUserData(key);
 }
 
 $String* DeferredElementNSImpl::toString() {
-	 return this->$ElementNSImpl::toString();
+	return this->$ElementNSImpl::toString();
 }
 
 int32_t DeferredElementNSImpl::hashCode() {
-	 return this->$ElementNSImpl::hashCode();
+	return this->$ElementNSImpl::hashCode();
 }
 
 bool DeferredElementNSImpl::equals(Object$* arg0) {
-	 return this->$ElementNSImpl::equals(arg0);
+	return this->$ElementNSImpl::equals(arg0);
 }
 
 $Object* DeferredElementNSImpl::clone() {
-	 return this->$ElementNSImpl::clone();
+	return this->$ElementNSImpl::clone();
 }
 
 void DeferredElementNSImpl::finalize() {

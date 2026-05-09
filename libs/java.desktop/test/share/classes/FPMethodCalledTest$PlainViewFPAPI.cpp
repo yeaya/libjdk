@@ -14,19 +14,19 @@ using $Element = ::javax::swing::text::Element;
 using $PlainView = ::javax::swing::text::PlainView;
 
 int32_t FPMethodCalledTest$PlainViewFPAPI::hashCode() {
-	 return this->$PlainView::hashCode();
+	return this->$PlainView::hashCode();
 }
 
 bool FPMethodCalledTest$PlainViewFPAPI::equals(Object$* arg0) {
-	 return this->$PlainView::equals(arg0);
+	return this->$PlainView::equals(arg0);
 }
 
 $Object* FPMethodCalledTest$PlainViewFPAPI::clone() {
-	 return this->$PlainView::clone();
+	return this->$PlainView::clone();
 }
 
 $String* FPMethodCalledTest$PlainViewFPAPI::toString() {
-	 return this->$PlainView::toString();
+	return this->$PlainView::toString();
 }
 
 void FPMethodCalledTest$PlainViewFPAPI::finalize() {

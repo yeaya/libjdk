@@ -30,19 +30,19 @@ namespace com {
 						namespace parsers {
 
 int32_t AbstractSAXParser$AttributesProxy::hashCode() {
-	 return this->$AttributeList::hashCode();
+	return this->$AttributeList::hashCode();
 }
 
 bool AbstractSAXParser$AttributesProxy::equals(Object$* arg0) {
-	 return this->$AttributeList::equals(arg0);
+	return this->$AttributeList::equals(arg0);
 }
 
 $Object* AbstractSAXParser$AttributesProxy::clone() {
-	 return this->$AttributeList::clone();
+	return this->$AttributeList::clone();
 }
 
 $String* AbstractSAXParser$AttributesProxy::toString() {
-	 return this->$AttributeList::toString();
+	return this->$AttributeList::toString();
 }
 
 void AbstractSAXParser$AttributesProxy::finalize() {

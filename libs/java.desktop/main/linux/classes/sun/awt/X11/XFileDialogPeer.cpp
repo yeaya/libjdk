@@ -156,7 +156,7 @@ void XFileDialogPeer::blockWindows($List* toBlock) {
 }
 
 $Graphics* XFileDialogPeer::getGraphics() {
-	 return this->$XDialogPeer::getGraphics();
+	return this->$XDialogPeer::getGraphics();
 }
 
 void XFileDialogPeer::setTitle($String* title) {
@@ -164,7 +164,7 @@ void XFileDialogPeer::setTitle($String* title) {
 }
 
 $Insets* XFileDialogPeer::getInsets() {
-	 return this->$XDialogPeer::getInsets();
+	return this->$XDialogPeer::getInsets();
 }
 
 void XFileDialogPeer::setBounds(int32_t x, int32_t y, int32_t width, int32_t height, int32_t op) {
@@ -176,7 +176,7 @@ void XFileDialogPeer::setResizable(bool resizable) {
 }
 
 $Point* XFileDialogPeer::getLocationOnScreen() {
-	 return this->$XDialogPeer::getLocationOnScreen();
+	return this->$XDialogPeer::getLocationOnScreen();
 }
 
 void XFileDialogPeer::toFront() {
@@ -236,23 +236,23 @@ void XFileDialogPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool XFileDialogPeer::isReparentSupported() {
-	 return this->$XDialogPeer::isReparentSupported();
+	return this->$XDialogPeer::isReparentSupported();
 }
 
 bool XFileDialogPeer::isObscured() {
-	 return this->$XDialogPeer::isObscured();
+	return this->$XDialogPeer::isObscured();
 }
 
 bool XFileDialogPeer::canDetermineObscurity() {
-	 return this->$XDialogPeer::canDetermineObscurity();
+	return this->$XDialogPeer::canDetermineObscurity();
 }
 
 bool XFileDialogPeer::isFocusable() {
-	 return this->$XDialogPeer::isFocusable();
+	return this->$XDialogPeer::isFocusable();
 }
 
 bool XFileDialogPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XDialogPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XDialogPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void XFileDialogPeer::setEnabled(bool value) {
@@ -268,11 +268,11 @@ void XFileDialogPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* XFileDialogPeer::getMinimumSize() {
-	 return this->$XDialogPeer::getMinimumSize();
+	return this->$XDialogPeer::getMinimumSize();
 }
 
 $Dimension* XFileDialogPeer::getPreferredSize() {
-	 return this->$XDialogPeer::getPreferredSize();
+	return this->$XDialogPeer::getPreferredSize();
 }
 
 void XFileDialogPeer::layout() {
@@ -280,7 +280,7 @@ void XFileDialogPeer::layout() {
 }
 
 $FontMetrics* XFileDialogPeer::getFontMetrics($Font* font) {
-	 return this->$XDialogPeer::getFontMetrics(font);
+	return this->$XDialogPeer::getFontMetrics(font);
 }
 
 void XFileDialogPeer::setFont($Font* f) {
@@ -292,11 +292,11 @@ void XFileDialogPeer::updateCursorImmediately() {
 }
 
 $Image* XFileDialogPeer::createImage(int32_t width, int32_t height) {
-	 return this->$XDialogPeer::createImage(width, height);
+	return this->$XDialogPeer::createImage(width, height);
 }
 
 $VolatileImage* XFileDialogPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XDialogPeer::createVolatileImage(width, height);
+	return this->$XDialogPeer::createVolatileImage(width, height);
 }
 
 void XFileDialogPeer::beginValidate() {
@@ -308,7 +308,7 @@ void XFileDialogPeer::endValidate() {
 }
 
 bool XFileDialogPeer::handlesWheelScrolling() {
-	 return this->$XDialogPeer::handlesWheelScrolling();
+	return this->$XDialogPeer::handlesWheelScrolling();
 }
 
 void XFileDialogPeer::beginLayout() {
@@ -328,7 +328,7 @@ void XFileDialogPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $Buff
 }
 
 $Image* XFileDialogPeer::getBackBuffer() {
-	 return this->$XDialogPeer::getBackBuffer();
+	return this->$XDialogPeer::getBackBuffer();
 }
 
 void XFileDialogPeer::destroyBuffers() {
@@ -344,31 +344,31 @@ void XFileDialogPeer::applyShape($Region* shape) {
 }
 
 bool XFileDialogPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XDialogPeer::updateGraphicsData(gc);
+	return this->$XDialogPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* XFileDialogPeer::getColorModel() {
-	 return this->$XDialogPeer::getColorModel();
+	return this->$XDialogPeer::getColorModel();
 }
 
 $GraphicsConfiguration* XFileDialogPeer::getGraphicsConfiguration() {
-	 return this->$XDialogPeer::getGraphicsConfiguration();
+	return this->$XDialogPeer::getGraphicsConfiguration();
 }
 
 $String* XFileDialogPeer::toString() {
-	 return this->$XDialogPeer::toString();
+	return this->$XDialogPeer::toString();
 }
 
 int32_t XFileDialogPeer::hashCode() {
-	 return this->$XDialogPeer::hashCode();
+	return this->$XDialogPeer::hashCode();
 }
 
 bool XFileDialogPeer::equals(Object$* arg0) {
-	 return this->$XDialogPeer::equals(arg0);
+	return this->$XDialogPeer::equals(arg0);
 }
 
 $Object* XFileDialogPeer::clone() {
-	 return this->$XDialogPeer::clone();
+	return this->$XDialogPeer::clone();
 }
 
 void XFileDialogPeer::finalize() {

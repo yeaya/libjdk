@@ -74,19 +74,19 @@ namespace com {
 							namespace validation {
 
 int32_t ValidatorImpl::hashCode() {
-	 return this->$Validator::hashCode();
+	return this->$Validator::hashCode();
 }
 
 bool ValidatorImpl::equals(Object$* arg0) {
-	 return this->$Validator::equals(arg0);
+	return this->$Validator::equals(arg0);
 }
 
 $Object* ValidatorImpl::clone() {
-	 return this->$Validator::clone();
+	return this->$Validator::clone();
 }
 
 $String* ValidatorImpl::toString() {
-	 return this->$Validator::toString();
+	return this->$Validator::toString();
 }
 
 void ValidatorImpl::finalize() {

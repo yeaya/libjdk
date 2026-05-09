@@ -66,19 +66,19 @@ namespace java {
 	namespace sql {
 
 int32_t ResultSet::hashCode() {
-	 return this->$Wrapper::hashCode();
+	return this->$Wrapper::hashCode();
 }
 
 bool ResultSet::equals(Object$* arg0) {
-	 return this->$Wrapper::equals(arg0);
+	return this->$Wrapper::equals(arg0);
 }
 
 $Object* ResultSet::clone() {
-	 return this->$Wrapper::clone();
+	return this->$Wrapper::clone();
 }
 
 $String* ResultSet::toString() {
-	 return this->$Wrapper::toString();
+	return this->$Wrapper::toString();
 }
 
 void ResultSet::finalize() {

@@ -95,19 +95,19 @@ namespace com {
 			namespace internal {
 
 int32_t CachedRowSetWriter::hashCode() {
-	 return this->$TransactionalWriter::hashCode();
+	return this->$TransactionalWriter::hashCode();
 }
 
 bool CachedRowSetWriter::equals(Object$* arg0) {
-	 return this->$TransactionalWriter::equals(arg0);
+	return this->$TransactionalWriter::equals(arg0);
 }
 
 $Object* CachedRowSetWriter::clone() {
-	 return this->$TransactionalWriter::clone();
+	return this->$TransactionalWriter::clone();
 }
 
 $String* CachedRowSetWriter::toString() {
-	 return this->$TransactionalWriter::toString();
+	return this->$TransactionalWriter::toString();
 }
 
 void CachedRowSetWriter::finalize() {

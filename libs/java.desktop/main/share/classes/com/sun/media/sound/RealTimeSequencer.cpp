@@ -88,7 +88,7 @@ namespace com {
 			namespace sound {
 
 $MidiDevice$Info* RealTimeSequencer::getDeviceInfo() {
-	 return this->$AbstractMidiDevice::getDeviceInfo();
+	return this->$AbstractMidiDevice::getDeviceInfo();
 }
 
 void RealTimeSequencer::open() {
@@ -100,31 +100,31 @@ void RealTimeSequencer::close() {
 }
 
 bool RealTimeSequencer::isOpen() {
-	 return this->$AbstractMidiDevice::isOpen();
+	return this->$AbstractMidiDevice::isOpen();
 }
 
 int32_t RealTimeSequencer::getMaxReceivers() {
-	 return this->$AbstractMidiDevice::getMaxReceivers();
+	return this->$AbstractMidiDevice::getMaxReceivers();
 }
 
 int32_t RealTimeSequencer::getMaxTransmitters() {
-	 return this->$AbstractMidiDevice::getMaxTransmitters();
+	return this->$AbstractMidiDevice::getMaxTransmitters();
 }
 
 $Receiver* RealTimeSequencer::getReceiver() {
-	 return this->$AbstractMidiDevice::getReceiver();
+	return this->$AbstractMidiDevice::getReceiver();
 }
 
 $List* RealTimeSequencer::getReceivers() {
-	 return this->$AbstractMidiDevice::getReceivers();
+	return this->$AbstractMidiDevice::getReceivers();
 }
 
 $Transmitter* RealTimeSequencer::getTransmitter() {
-	 return this->$AbstractMidiDevice::getTransmitter();
+	return this->$AbstractMidiDevice::getTransmitter();
 }
 
 $List* RealTimeSequencer::getTransmitters() {
-	 return this->$AbstractMidiDevice::getTransmitters();
+	return this->$AbstractMidiDevice::getTransmitters();
 }
 
 void RealTimeSequencer::finalize() {
@@ -132,19 +132,19 @@ void RealTimeSequencer::finalize() {
 }
 
 int32_t RealTimeSequencer::hashCode() {
-	 return this->$AbstractMidiDevice::hashCode();
+	return this->$AbstractMidiDevice::hashCode();
 }
 
 bool RealTimeSequencer::equals(Object$* arg0) {
-	 return this->$AbstractMidiDevice::equals(arg0);
+	return this->$AbstractMidiDevice::equals(arg0);
 }
 
 $Object* RealTimeSequencer::clone() {
-	 return this->$AbstractMidiDevice::clone();
+	return this->$AbstractMidiDevice::clone();
 }
 
 $String* RealTimeSequencer::toString() {
-	 return this->$AbstractMidiDevice::toString();
+	return this->$AbstractMidiDevice::toString();
 }
 
 $Map* RealTimeSequencer::dispatchers = nullptr;

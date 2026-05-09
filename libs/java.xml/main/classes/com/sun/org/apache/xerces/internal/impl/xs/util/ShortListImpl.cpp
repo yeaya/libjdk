@@ -50,11 +50,11 @@ namespace com {
 								namespace util {
 
 bool ShortListImpl::add(Object$* arg0) {
-	 return this->$AbstractList::add(arg0);
+	return this->$AbstractList::add(arg0);
 }
 
 $Object* ShortListImpl::set(int32_t arg0, Object$* arg1) {
-	 return this->$AbstractList::set(arg0, arg1);
+	return this->$AbstractList::set(arg0, arg1);
 }
 
 void ShortListImpl::add(int32_t arg0, Object$* arg1) {
@@ -62,15 +62,15 @@ void ShortListImpl::add(int32_t arg0, Object$* arg1) {
 }
 
 $Object* ShortListImpl::remove(int32_t arg0) {
-	 return this->$AbstractList::remove(arg0);
+	return this->$AbstractList::remove(arg0);
 }
 
 int32_t ShortListImpl::indexOf(Object$* arg0) {
-	 return this->$AbstractList::indexOf(arg0);
+	return this->$AbstractList::indexOf(arg0);
 }
 
 int32_t ShortListImpl::lastIndexOf(Object$* arg0) {
-	 return this->$AbstractList::lastIndexOf(arg0);
+	return this->$AbstractList::lastIndexOf(arg0);
 }
 
 void ShortListImpl::clear() {
@@ -78,87 +78,87 @@ void ShortListImpl::clear() {
 }
 
 bool ShortListImpl::addAll(int32_t arg0, $Collection* arg1) {
-	 return this->$AbstractList::addAll(arg0, arg1);
+	return this->$AbstractList::addAll(arg0, arg1);
 }
 
 $Iterator* ShortListImpl::iterator() {
-	 return this->$AbstractList::iterator();
+	return this->$AbstractList::iterator();
 }
 
 $ListIterator* ShortListImpl::listIterator() {
-	 return this->$AbstractList::listIterator();
+	return this->$AbstractList::listIterator();
 }
 
 $ListIterator* ShortListImpl::listIterator(int32_t arg0) {
-	 return this->$AbstractList::listIterator(arg0);
+	return this->$AbstractList::listIterator(arg0);
 }
 
 $List* ShortListImpl::subList(int32_t arg0, int32_t arg1) {
-	 return this->$AbstractList::subList(arg0, arg1);
+	return this->$AbstractList::subList(arg0, arg1);
 }
 
 int32_t ShortListImpl::hashCode() {
-	 return this->$AbstractList::hashCode();
+	return this->$AbstractList::hashCode();
 }
 
 bool ShortListImpl::isEmpty() {
-	 return this->$AbstractList::isEmpty();
+	return this->$AbstractList::isEmpty();
 }
 
 bool ShortListImpl::contains(Object$* arg0) {
-	 return this->$AbstractList::contains(arg0);
+	return this->$AbstractList::contains(arg0);
 }
 
 $ObjectArray* ShortListImpl::toArray() {
-	 return this->$AbstractList::toArray();
+	return this->$AbstractList::toArray();
 }
 
 $ObjectArray* ShortListImpl::toArray($ObjectArray* arg0) {
-	 return this->$AbstractList::toArray(arg0);
+	return this->$AbstractList::toArray(arg0);
 }
 
 bool ShortListImpl::remove(Object$* arg0) {
-	 return this->$AbstractList::remove(arg0);
+	return this->$AbstractList::remove(arg0);
 }
 
 bool ShortListImpl::containsAll($Collection* arg0) {
-	 return this->$AbstractList::containsAll(arg0);
+	return this->$AbstractList::containsAll(arg0);
 }
 
 bool ShortListImpl::addAll($Collection* arg0) {
-	 return this->$AbstractList::addAll(arg0);
+	return this->$AbstractList::addAll(arg0);
 }
 
 bool ShortListImpl::removeAll($Collection* arg0) {
-	 return this->$AbstractList::removeAll(arg0);
+	return this->$AbstractList::removeAll(arg0);
 }
 
 bool ShortListImpl::retainAll($Collection* arg0) {
-	 return this->$AbstractList::retainAll(arg0);
+	return this->$AbstractList::retainAll(arg0);
 }
 
 $String* ShortListImpl::toString() {
-	 return this->$AbstractList::toString();
+	return this->$AbstractList::toString();
 }
 
 $ObjectArray* ShortListImpl::toArray($IntFunction* arg0) {
-	 return this->$AbstractList::toArray(arg0);
+	return this->$AbstractList::toArray(arg0);
 }
 
 bool ShortListImpl::removeIf($Predicate* arg0) {
-	 return this->$AbstractList::removeIf(arg0);
+	return this->$AbstractList::removeIf(arg0);
 }
 
 $Spliterator* ShortListImpl::spliterator() {
-	 return this->$AbstractList::spliterator();
+	return this->$AbstractList::spliterator();
 }
 
 $Stream* ShortListImpl::stream() {
-	 return this->$AbstractList::stream();
+	return this->$AbstractList::stream();
 }
 
 $Stream* ShortListImpl::parallelStream() {
-	 return this->$AbstractList::parallelStream();
+	return this->$AbstractList::parallelStream();
 }
 
 void ShortListImpl::forEach($Consumer* arg0) {
@@ -166,7 +166,7 @@ void ShortListImpl::forEach($Consumer* arg0) {
 }
 
 $Object* ShortListImpl::clone() {
-	 return this->$AbstractList::clone();
+	return this->$AbstractList::clone();
 }
 
 void ShortListImpl::finalize() {

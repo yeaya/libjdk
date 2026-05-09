@@ -128,31 +128,31 @@ void OGLSurfaceData::markDirty() {
 }
 
 bool OGLSurfaceData::isSurfaceLost() {
-	 return this->$SurfaceData::isSurfaceLost();
+	return this->$SurfaceData::isSurfaceLost();
 }
 
 bool OGLSurfaceData::isValid() {
-	 return this->$SurfaceData::isValid();
+	return this->$SurfaceData::isValid();
 }
 
 int64_t OGLSurfaceData::getNativeOps() {
-	 return this->$SurfaceData::getNativeOps();
+	return this->$SurfaceData::getNativeOps();
 }
 
 int32_t OGLSurfaceData::hashCode() {
-	 return this->$SurfaceData::hashCode();
+	return this->$SurfaceData::hashCode();
 }
 
 bool OGLSurfaceData::equals(Object$* arg0) {
-	 return this->$SurfaceData::equals(arg0);
+	return this->$SurfaceData::equals(arg0);
 }
 
 $Object* OGLSurfaceData::clone() {
-	 return this->$SurfaceData::clone();
+	return this->$SurfaceData::clone();
 }
 
 $String* OGLSurfaceData::toString() {
-	 return this->$SurfaceData::toString();
+	return this->$SurfaceData::toString();
 }
 
 void OGLSurfaceData::finalize() {

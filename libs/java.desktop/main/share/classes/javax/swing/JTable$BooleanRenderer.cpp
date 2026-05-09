@@ -29,19 +29,19 @@ namespace javax {
 	namespace swing {
 
 $String* JTable$BooleanRenderer::toString() {
-	 return this->$JCheckBox::toString();
+	return this->$JCheckBox::toString();
 }
 
 int32_t JTable$BooleanRenderer::hashCode() {
-	 return this->$JCheckBox::hashCode();
+	return this->$JCheckBox::hashCode();
 }
 
 bool JTable$BooleanRenderer::equals(Object$* arg0) {
-	 return this->$JCheckBox::equals(arg0);
+	return this->$JCheckBox::equals(arg0);
 }
 
 $Object* JTable$BooleanRenderer::clone() {
-	 return this->$JCheckBox::clone();
+	return this->$JCheckBox::clone();
 }
 
 void JTable$BooleanRenderer::finalize() {

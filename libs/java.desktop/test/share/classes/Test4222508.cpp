@@ -22,19 +22,19 @@ using $JCheckBox = ::javax::swing::JCheckBox;
 using $JColorChooser = ::javax::swing::JColorChooser;
 
 $String* Test4222508::toString() {
-	 return this->$JApplet::toString();
+	return this->$JApplet::toString();
 }
 
 int32_t Test4222508::hashCode() {
-	 return this->$JApplet::hashCode();
+	return this->$JApplet::hashCode();
 }
 
 bool Test4222508::equals(Object$* arg0) {
-	 return this->$JApplet::equals(arg0);
+	return this->$JApplet::equals(arg0);
 }
 
 $Object* Test4222508::clone() {
-	 return this->$JApplet::clone();
+	return this->$JApplet::clone();
 }
 
 void Test4222508::finalize() {

@@ -29,19 +29,19 @@ void WriterToUTF8Buffered::write($String* arg0, int32_t arg1, int32_t arg2) {
 }
 
 int32_t WriterToUTF8Buffered::hashCode() {
-	 return this->$Writer::hashCode();
+	return this->$Writer::hashCode();
 }
 
 bool WriterToUTF8Buffered::equals(Object$* arg0) {
-	 return this->$Writer::equals(arg0);
+	return this->$Writer::equals(arg0);
 }
 
 $Object* WriterToUTF8Buffered::clone() {
-	 return this->$Writer::clone();
+	return this->$Writer::clone();
 }
 
 $String* WriterToUTF8Buffered::toString() {
-	 return this->$Writer::toString();
+	return this->$Writer::toString();
 }
 
 void WriterToUTF8Buffered::finalize() {

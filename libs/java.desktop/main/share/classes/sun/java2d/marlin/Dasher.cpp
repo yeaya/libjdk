@@ -45,19 +45,19 @@ namespace sun {
 		namespace marlin {
 
 int32_t Dasher::hashCode() {
-	 return this->$DPathConsumer2D::hashCode();
+	return this->$DPathConsumer2D::hashCode();
 }
 
 bool Dasher::equals(Object$* arg0) {
-	 return this->$DPathConsumer2D::equals(arg0);
+	return this->$DPathConsumer2D::equals(arg0);
 }
 
 $Object* Dasher::clone() {
-	 return this->$DPathConsumer2D::clone();
+	return this->$DPathConsumer2D::clone();
 }
 
 $String* Dasher::toString() {
-	 return this->$DPathConsumer2D::toString();
+	return this->$DPathConsumer2D::toString();
 }
 
 void Dasher::finalize() {

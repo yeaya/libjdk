@@ -171,19 +171,19 @@ namespace javax {
 			namespace html {
 
 int32_t FormView::hashCode() {
-	 return this->$ComponentView::hashCode();
+	return this->$ComponentView::hashCode();
 }
 
 bool FormView::equals(Object$* arg0) {
-	 return this->$ComponentView::equals(arg0);
+	return this->$ComponentView::equals(arg0);
 }
 
 $Object* FormView::clone() {
-	 return this->$ComponentView::clone();
+	return this->$ComponentView::clone();
 }
 
 $String* FormView::toString() {
-	 return this->$ComponentView::toString();
+	return this->$ComponentView::toString();
 }
 
 void FormView::finalize() {

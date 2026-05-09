@@ -70,19 +70,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthScrollBarUI::hashCode() {
-	 return this->$BasicScrollBarUI::hashCode();
+	return this->$BasicScrollBarUI::hashCode();
 }
 
 bool SynthScrollBarUI::equals(Object$* arg0) {
-	 return this->$BasicScrollBarUI::equals(arg0);
+	return this->$BasicScrollBarUI::equals(arg0);
 }
 
 $Object* SynthScrollBarUI::clone() {
-	 return this->$BasicScrollBarUI::clone();
+	return this->$BasicScrollBarUI::clone();
 }
 
 $String* SynthScrollBarUI::toString() {
-	 return this->$BasicScrollBarUI::toString();
+	return this->$BasicScrollBarUI::toString();
 }
 
 void SynthScrollBarUI::finalize() {

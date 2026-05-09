@@ -34,19 +34,19 @@ namespace javax {
 			namespace basic {
 
 $String* BasicTabbedPaneUI$CroppedEdge::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t BasicTabbedPaneUI$CroppedEdge::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool BasicTabbedPaneUI$CroppedEdge::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* BasicTabbedPaneUI$CroppedEdge::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void BasicTabbedPaneUI$CroppedEdge::finalize() {

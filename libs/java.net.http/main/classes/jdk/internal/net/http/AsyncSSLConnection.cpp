@@ -75,7 +75,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* unused) override {
-		 return $nc(inst$)->lambda$connectAsync$0($cast($Void, unused));
+		return $nc(inst$)->lambda$connectAsync$0($cast($Void, unused));
 	}
 	AsyncSSLConnection* inst$ = nullptr;
 };
@@ -111,7 +111,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* unused, Object$* ex) override {
-		 return $of($nc(inst$)->lambda$finishConnect$1($cast($String, unused), $cast($Throwable, ex)));
+		return $of($nc(inst$)->lambda$finishConnect$1($cast($String, unused), $cast($Throwable, ex)));
 	}
 	AsyncSSLConnection* inst$ = nullptr;
 };

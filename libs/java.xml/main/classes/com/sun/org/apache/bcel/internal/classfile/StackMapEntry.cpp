@@ -51,15 +51,15 @@ namespace com {
 						namespace classfile {
 
 int32_t StackMapEntry::hashCode() {
-	 return this->$Node::hashCode();
+	return this->$Node::hashCode();
 }
 
 bool StackMapEntry::equals(Object$* arg0) {
-	 return this->$Node::equals(arg0);
+	return this->$Node::equals(arg0);
 }
 
 $Object* StackMapEntry::clone() {
-	 return this->$Node::clone();
+	return this->$Node::clone();
 }
 
 void StackMapEntry::finalize() {

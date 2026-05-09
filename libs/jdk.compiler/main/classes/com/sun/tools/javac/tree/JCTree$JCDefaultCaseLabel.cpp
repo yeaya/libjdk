@@ -26,19 +26,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCDefaultCaseLabel::toString() {
-	 return this->$JCTree$JCCaseLabel::toString();
+	return this->$JCTree$JCCaseLabel::toString();
 }
 
 $Object* JCTree$JCDefaultCaseLabel::clone() {
-	 return this->$JCTree$JCCaseLabel::clone();
+	return this->$JCTree$JCCaseLabel::clone();
 }
 
 int32_t JCTree$JCDefaultCaseLabel::hashCode() {
-	 return this->$JCTree$JCCaseLabel::hashCode();
+	return this->$JCTree$JCCaseLabel::hashCode();
 }
 
 bool JCTree$JCDefaultCaseLabel::equals(Object$* arg0) {
-	 return this->$JCTree$JCCaseLabel::equals(arg0);
+	return this->$JCTree$JCCaseLabel::equals(arg0);
 }
 
 void JCTree$JCDefaultCaseLabel::finalize() {

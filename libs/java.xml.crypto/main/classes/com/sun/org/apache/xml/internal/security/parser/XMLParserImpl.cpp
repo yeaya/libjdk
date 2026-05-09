@@ -78,7 +78,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(XMLParserImpl::lambda$static$0());
+		return $of(XMLParserImpl::lambda$static$0());
 	}
 };
 $Class* XMLParserImpl$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

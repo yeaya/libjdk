@@ -20,19 +20,19 @@ namespace java {
 		namespace server {
 
 int32_t RMISocketFactory::hashCode() {
-	 return this->$RMIClientSocketFactory::hashCode();
+	return this->$RMIClientSocketFactory::hashCode();
 }
 
 bool RMISocketFactory::equals(Object$* arg0) {
-	 return this->$RMIClientSocketFactory::equals(arg0);
+	return this->$RMIClientSocketFactory::equals(arg0);
 }
 
 $Object* RMISocketFactory::clone() {
-	 return this->$RMIClientSocketFactory::clone();
+	return this->$RMIClientSocketFactory::clone();
 }
 
 $String* RMISocketFactory::toString() {
-	 return this->$RMIClientSocketFactory::toString();
+	return this->$RMIClientSocketFactory::toString();
 }
 
 void RMISocketFactory::finalize() {

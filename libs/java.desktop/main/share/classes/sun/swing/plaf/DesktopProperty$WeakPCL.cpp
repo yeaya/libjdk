@@ -25,19 +25,19 @@ namespace sun {
 		namespace plaf {
 
 $Object* DesktopProperty$WeakPCL::clone() {
-	 return this->$WeakReference::clone();
+	return this->$WeakReference::clone();
 }
 
 int32_t DesktopProperty$WeakPCL::hashCode() {
-	 return this->$WeakReference::hashCode();
+	return this->$WeakReference::hashCode();
 }
 
 bool DesktopProperty$WeakPCL::equals(Object$* arg0) {
-	 return this->$WeakReference::equals(arg0);
+	return this->$WeakReference::equals(arg0);
 }
 
 $String* DesktopProperty$WeakPCL::toString() {
-	 return this->$WeakReference::toString();
+	return this->$WeakReference::toString();
 }
 
 void DesktopProperty$WeakPCL::finalize() {

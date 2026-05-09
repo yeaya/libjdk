@@ -41,19 +41,19 @@ namespace javax {
 		namespace text {
 
 int32_t JTextComponent$DefaultTransferHandler::hashCode() {
-	 return this->$TransferHandler::hashCode();
+	return this->$TransferHandler::hashCode();
 }
 
 bool JTextComponent$DefaultTransferHandler::equals(Object$* arg0) {
-	 return this->$TransferHandler::equals(arg0);
+	return this->$TransferHandler::equals(arg0);
 }
 
 $Object* JTextComponent$DefaultTransferHandler::clone() {
-	 return this->$TransferHandler::clone();
+	return this->$TransferHandler::clone();
 }
 
 $String* JTextComponent$DefaultTransferHandler::toString() {
-	 return this->$TransferHandler::toString();
+	return this->$TransferHandler::toString();
 }
 
 void JTextComponent$DefaultTransferHandler::finalize() {

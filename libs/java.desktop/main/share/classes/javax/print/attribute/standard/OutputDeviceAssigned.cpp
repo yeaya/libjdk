@@ -15,15 +15,15 @@ namespace javax {
 			namespace standard {
 
 int32_t OutputDeviceAssigned::hashCode() {
-	 return this->$TextSyntax::hashCode();
+	return this->$TextSyntax::hashCode();
 }
 
 $String* OutputDeviceAssigned::toString() {
-	 return this->$TextSyntax::toString();
+	return this->$TextSyntax::toString();
 }
 
 $Object* OutputDeviceAssigned::clone() {
-	 return this->$TextSyntax::clone();
+	return this->$TextSyntax::clone();
 }
 
 void OutputDeviceAssigned::finalize() {

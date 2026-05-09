@@ -77,19 +77,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicTableUI$Handler::hashCode() {
-	 return this->$FocusListener::hashCode();
+	return this->$FocusListener::hashCode();
 }
 
 bool BasicTableUI$Handler::equals(Object$* arg0) {
-	 return this->$FocusListener::equals(arg0);
+	return this->$FocusListener::equals(arg0);
 }
 
 $Object* BasicTableUI$Handler::clone() {
-	 return this->$FocusListener::clone();
+	return this->$FocusListener::clone();
 }
 
 $String* BasicTableUI$Handler::toString() {
-	 return this->$FocusListener::toString();
+	return this->$FocusListener::toString();
 }
 
 void BasicTableUI$Handler::finalize() {

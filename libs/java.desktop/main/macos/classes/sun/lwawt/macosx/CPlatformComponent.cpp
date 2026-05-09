@@ -82,19 +82,19 @@ void CPlatformComponent::finalize() {
 }
 
 int32_t CPlatformComponent::hashCode() {
-	 return this->$CFRetainedResource::hashCode();
+	return this->$CFRetainedResource::hashCode();
 }
 
 bool CPlatformComponent::equals(Object$* arg0) {
-	 return this->$CFRetainedResource::equals(arg0);
+	return this->$CFRetainedResource::equals(arg0);
 }
 
 $Object* CPlatformComponent::clone() {
-	 return this->$CFRetainedResource::clone();
+	return this->$CFRetainedResource::clone();
 }
 
 $String* CPlatformComponent::toString() {
-	 return this->$CFRetainedResource::toString();
+	return this->$CFRetainedResource::toString();
 }
 
 void CPlatformComponent::init$() {

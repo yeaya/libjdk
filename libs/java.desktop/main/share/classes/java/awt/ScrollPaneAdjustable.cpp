@@ -44,15 +44,15 @@ namespace java {
 	namespace awt {
 
 int32_t ScrollPaneAdjustable::hashCode() {
-	 return this->$Adjustable::hashCode();
+	return this->$Adjustable::hashCode();
 }
 
 bool ScrollPaneAdjustable::equals(Object$* arg0) {
-	 return this->$Adjustable::equals(arg0);
+	return this->$Adjustable::equals(arg0);
 }
 
 $Object* ScrollPaneAdjustable::clone() {
-	 return this->$Adjustable::clone();
+	return this->$Adjustable::clone();
 }
 
 void ScrollPaneAdjustable::finalize() {

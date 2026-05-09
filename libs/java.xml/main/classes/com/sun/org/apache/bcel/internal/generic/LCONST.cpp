@@ -37,23 +37,23 @@ namespace com {
 						namespace generic {
 
 $String* LCONST::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 int32_t LCONST::produceStack($ConstantPoolGen* cpg) {
-	 return this->$Instruction::produceStack(cpg);
+	return this->$Instruction::produceStack(cpg);
 }
 
 bool LCONST::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t LCONST::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* LCONST::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void LCONST::finalize() {

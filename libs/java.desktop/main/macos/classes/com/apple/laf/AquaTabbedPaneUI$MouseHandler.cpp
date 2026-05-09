@@ -48,19 +48,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaTabbedPaneUI$MouseHandler::hashCode() {
-	 return this->$MouseInputAdapter::hashCode();
+	return this->$MouseInputAdapter::hashCode();
 }
 
 bool AquaTabbedPaneUI$MouseHandler::equals(Object$* arg0) {
-	 return this->$MouseInputAdapter::equals(arg0);
+	return this->$MouseInputAdapter::equals(arg0);
 }
 
 $Object* AquaTabbedPaneUI$MouseHandler::clone() {
-	 return this->$MouseInputAdapter::clone();
+	return this->$MouseInputAdapter::clone();
 }
 
 $String* AquaTabbedPaneUI$MouseHandler::toString() {
-	 return this->$MouseInputAdapter::toString();
+	return this->$MouseInputAdapter::toString();
 }
 
 void AquaTabbedPaneUI$MouseHandler::finalize() {

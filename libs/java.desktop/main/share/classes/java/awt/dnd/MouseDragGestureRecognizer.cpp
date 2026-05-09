@@ -24,19 +24,19 @@ namespace java {
 		namespace dnd {
 
 int32_t MouseDragGestureRecognizer::hashCode() {
-	 return this->$DragGestureRecognizer::hashCode();
+	return this->$DragGestureRecognizer::hashCode();
 }
 
 bool MouseDragGestureRecognizer::equals(Object$* arg0) {
-	 return this->$DragGestureRecognizer::equals(arg0);
+	return this->$DragGestureRecognizer::equals(arg0);
 }
 
 $Object* MouseDragGestureRecognizer::clone() {
-	 return this->$DragGestureRecognizer::clone();
+	return this->$DragGestureRecognizer::clone();
 }
 
 $String* MouseDragGestureRecognizer::toString() {
-	 return this->$DragGestureRecognizer::toString();
+	return this->$DragGestureRecognizer::toString();
 }
 
 void MouseDragGestureRecognizer::finalize() {

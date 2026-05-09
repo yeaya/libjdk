@@ -163,7 +163,7 @@ public:
 		$set(this, element, element);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$getResolvedDocComment$0(task, element);
+		return $nc(inst$)->lambda$getResolvedDocComment$0(task, element);
 	}
 	JavadocHelper$OnDemandJavadocHelper* inst$ = nullptr;
 	$JavacTask* task = nullptr;
@@ -202,7 +202,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* span1, Object$* span2) override {
-		 return JavadocHelper$OnDemandJavadocHelper::lambda$getResolvedDocComment$1($cast($ints, span1), $cast($ints, span2));
+		return JavadocHelper$OnDemandJavadocHelper::lambda$getResolvedDocComment$1($cast($ints, span1), $cast($ints, span2));
 	}
 };
 $Class* JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$1$1::load$($String* name, bool initialize) {
@@ -232,7 +232,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* sup) override {
-		 return JavadocHelper$OnDemandJavadocHelper::lambda$superMethodsForInheritDoc$2($cast($Element, sup));
+		return JavadocHelper$OnDemandJavadocHelper::lambda$superMethodsForInheritDoc$2($cast($Element, sup));
 	}
 };
 $Class* JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$2$2::load$($String* name, bool initialize) {
@@ -265,7 +265,7 @@ public:
 		$set(this, type, type);
 	}
 	virtual bool test(Object$* supMethod) override {
-		 return JavadocHelper$OnDemandJavadocHelper::lambda$superMethodsForInheritDoc$3(task, method, type, $cast($ExecutableElement, supMethod));
+		return JavadocHelper$OnDemandJavadocHelper::lambda$superMethodsForInheritDoc$3(task, method, type, $cast($ExecutableElement, supMethod));
 	}
 	$JavacTask* task = nullptr;
 	$ExecutableElement* method = nullptr;
@@ -306,7 +306,7 @@ public:
 		$set(this, task, task);
 	}
 	virtual $Object* apply(Object$* el) override {
-		 return $nc(inst$)->lambda$superTypeForInheritDoc$4(task, $cast($Element, el));
+		return $nc(inst$)->lambda$superTypeForInheritDoc$4(task, $cast($Element, el));
 	}
 	JavadocHelper$OnDemandJavadocHelper* inst$ = nullptr;
 	$JavacTask* task = nullptr;
@@ -343,7 +343,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* tm) override {
-		 return JavadocHelper$OnDemandJavadocHelper::lambda$interfaces$5($cast($TypeMirror, tm));
+		return JavadocHelper$OnDemandJavadocHelper::lambda$interfaces$5($cast($TypeMirror, tm));
 	}
 };
 $Class* JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$5$5::load$($String* name, bool initialize) {
@@ -373,7 +373,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* tm) override {
-		 return JavadocHelper$OnDemandJavadocHelper::lambda$interfaces$6($cast($TypeMirror, tm));
+		return JavadocHelper$OnDemandJavadocHelper::lambda$interfaces$6($cast($TypeMirror, tm));
 	}
 };
 $Class* JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$6$6::load$($String* name, bool initialize) {

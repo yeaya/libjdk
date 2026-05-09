@@ -68,19 +68,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicPopupMenuUI$MenuKeyboardHelper::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool BasicPopupMenuUI$MenuKeyboardHelper::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* BasicPopupMenuUI$MenuKeyboardHelper::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* BasicPopupMenuUI$MenuKeyboardHelper::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void BasicPopupMenuUI$MenuKeyboardHelper::finalize() {

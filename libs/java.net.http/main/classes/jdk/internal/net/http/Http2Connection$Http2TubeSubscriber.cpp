@@ -94,7 +94,7 @@ public:
 		$set(this, item, item);
 	}
 	virtual $Object* get() override {
-		 return $of(Http2Connection$Http2TubeSubscriber::lambda$onNext$0(item));
+		return $of(Http2Connection$Http2TubeSubscriber::lambda$onNext$0(item));
 	}
 	$List* item = nullptr;
 };
@@ -130,7 +130,7 @@ public:
 		$set(this, throwable, throwable);
 	}
 	virtual $Object* get() override {
-		 return $of(Http2Connection$Http2TubeSubscriber::lambda$onError$1(throwable));
+		return $of(Http2Connection$Http2TubeSubscriber::lambda$onError$1(throwable));
 	}
 	$Throwable* throwable = nullptr;
 };

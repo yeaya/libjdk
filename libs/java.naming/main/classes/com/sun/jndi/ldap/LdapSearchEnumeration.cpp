@@ -85,7 +85,7 @@ public:
 		$set(this, attrs, attrs);
 	}
 	virtual $Object* run() override {
-		 return LdapSearchEnumeration::lambda$createItem$0(attrs);
+		return LdapSearchEnumeration::lambda$createItem$0(attrs);
 	}
 	$Attributes* attrs = nullptr;
 };

@@ -112,35 +112,35 @@ namespace com {
 						namespace dom {
 
 $Node* DeferredDocumentImpl::cloneNode(bool deep) {
-	 return this->$DocumentImpl::cloneNode(deep);
+	return this->$DocumentImpl::cloneNode(deep);
 }
 
 $Document* DeferredDocumentImpl::getOwnerDocument() {
-	 return this->$DocumentImpl::getOwnerDocument();
+	return this->$DocumentImpl::getOwnerDocument();
 }
 
 int16_t DeferredDocumentImpl::getNodeType() {
-	 return this->$DocumentImpl::getNodeType();
+	return this->$DocumentImpl::getNodeType();
 }
 
 $String* DeferredDocumentImpl::getNodeName() {
-	 return this->$DocumentImpl::getNodeName();
+	return this->$DocumentImpl::getNodeName();
 }
 
 $Node* DeferredDocumentImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$DocumentImpl::insertBefore(newChild, refChild);
+	return this->$DocumentImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DeferredDocumentImpl::removeChild($Node* oldChild) {
-	 return this->$DocumentImpl::removeChild(oldChild);
+	return this->$DocumentImpl::removeChild(oldChild);
 }
 
 $Node* DeferredDocumentImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$DocumentImpl::replaceChild(newChild, oldChild);
+	return this->$DocumentImpl::replaceChild(newChild, oldChild);
 }
 
 $String* DeferredDocumentImpl::getTextContent() {
-	 return this->$DocumentImpl::getTextContent();
+	return this->$DocumentImpl::getTextContent();
 }
 
 void DeferredDocumentImpl::setTextContent($String* textContent) {
@@ -148,31 +148,31 @@ void DeferredDocumentImpl::setTextContent($String* textContent) {
 }
 
 $Object* DeferredDocumentImpl::getFeature($String* feature, $String* version) {
-	 return this->$DocumentImpl::getFeature(feature, version);
+	return this->$DocumentImpl::getFeature(feature, version);
 }
 
 $String* DeferredDocumentImpl::getBaseURI() {
-	 return this->$DocumentImpl::getBaseURI();
+	return this->$DocumentImpl::getBaseURI();
 }
 
 $Object* DeferredDocumentImpl::clone() {
-	 return this->$DocumentImpl::clone();
+	return this->$DocumentImpl::clone();
 }
 
 bool DeferredDocumentImpl::hasChildNodes() {
-	 return this->$DocumentImpl::hasChildNodes();
+	return this->$DocumentImpl::hasChildNodes();
 }
 
 $NodeList* DeferredDocumentImpl::getChildNodes() {
-	 return this->$DocumentImpl::getChildNodes();
+	return this->$DocumentImpl::getChildNodes();
 }
 
 $Node* DeferredDocumentImpl::getFirstChild() {
-	 return this->$DocumentImpl::getFirstChild();
+	return this->$DocumentImpl::getFirstChild();
 }
 
 $Node* DeferredDocumentImpl::getLastChild() {
-	 return this->$DocumentImpl::getLastChild();
+	return this->$DocumentImpl::getLastChild();
 }
 
 void DeferredDocumentImpl::normalize() {
@@ -180,23 +180,23 @@ void DeferredDocumentImpl::normalize() {
 }
 
 bool DeferredDocumentImpl::isEqualNode($Node* arg) {
-	 return this->$DocumentImpl::isEqualNode(arg);
+	return this->$DocumentImpl::isEqualNode(arg);
 }
 
 $Node* DeferredDocumentImpl::getParentNode() {
-	 return this->$DocumentImpl::getParentNode();
+	return this->$DocumentImpl::getParentNode();
 }
 
 $Node* DeferredDocumentImpl::getNextSibling() {
-	 return this->$DocumentImpl::getNextSibling();
+	return this->$DocumentImpl::getNextSibling();
 }
 
 $Node* DeferredDocumentImpl::getPreviousSibling() {
-	 return this->$DocumentImpl::getPreviousSibling();
+	return this->$DocumentImpl::getPreviousSibling();
 }
 
 $String* DeferredDocumentImpl::getNodeValue() {
-	 return this->$DocumentImpl::getNodeValue();
+	return this->$DocumentImpl::getNodeValue();
 }
 
 void DeferredDocumentImpl::setNodeValue($String* x) {
@@ -204,27 +204,27 @@ void DeferredDocumentImpl::setNodeValue($String* x) {
 }
 
 $Node* DeferredDocumentImpl::appendChild($Node* newChild) {
-	 return this->$DocumentImpl::appendChild(newChild);
+	return this->$DocumentImpl::appendChild(newChild);
 }
 
 $NamedNodeMap* DeferredDocumentImpl::getAttributes() {
-	 return this->$DocumentImpl::getAttributes();
+	return this->$DocumentImpl::getAttributes();
 }
 
 bool DeferredDocumentImpl::hasAttributes() {
-	 return this->$DocumentImpl::hasAttributes();
+	return this->$DocumentImpl::hasAttributes();
 }
 
 bool DeferredDocumentImpl::isSupported($String* feature, $String* version) {
-	 return this->$DocumentImpl::isSupported(feature, version);
+	return this->$DocumentImpl::isSupported(feature, version);
 }
 
 $String* DeferredDocumentImpl::getNamespaceURI() {
-	 return this->$DocumentImpl::getNamespaceURI();
+	return this->$DocumentImpl::getNamespaceURI();
 }
 
 $String* DeferredDocumentImpl::getPrefix() {
-	 return this->$DocumentImpl::getPrefix();
+	return this->$DocumentImpl::getPrefix();
 }
 
 void DeferredDocumentImpl::setPrefix($String* prefix) {
@@ -232,47 +232,47 @@ void DeferredDocumentImpl::setPrefix($String* prefix) {
 }
 
 $String* DeferredDocumentImpl::getLocalName() {
-	 return this->$DocumentImpl::getLocalName();
+	return this->$DocumentImpl::getLocalName();
 }
 
 int16_t DeferredDocumentImpl::compareDocumentPosition($Node* other) {
-	 return this->$DocumentImpl::compareDocumentPosition(other);
+	return this->$DocumentImpl::compareDocumentPosition(other);
 }
 
 bool DeferredDocumentImpl::isSameNode($Node* other) {
-	 return this->$DocumentImpl::isSameNode(other);
+	return this->$DocumentImpl::isSameNode(other);
 }
 
 bool DeferredDocumentImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$DocumentImpl::isDefaultNamespace(namespaceURI);
+	return this->$DocumentImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DeferredDocumentImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$DocumentImpl::lookupPrefix(namespaceURI);
+	return this->$DocumentImpl::lookupPrefix(namespaceURI);
 }
 
 $String* DeferredDocumentImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$DocumentImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$DocumentImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* DeferredDocumentImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$DocumentImpl::setUserData(key, data, handler);
+	return this->$DocumentImpl::setUserData(key, data, handler);
 }
 
 $Object* DeferredDocumentImpl::getUserData($String* key) {
-	 return this->$DocumentImpl::getUserData(key);
+	return this->$DocumentImpl::getUserData(key);
 }
 
 $String* DeferredDocumentImpl::toString() {
-	 return this->$DocumentImpl::toString();
+	return this->$DocumentImpl::toString();
 }
 
 int32_t DeferredDocumentImpl::hashCode() {
-	 return this->$DocumentImpl::hashCode();
+	return this->$DocumentImpl::hashCode();
 }
 
 bool DeferredDocumentImpl::equals(Object$* arg0) {
-	 return this->$DocumentImpl::equals(arg0);
+	return this->$DocumentImpl::equals(arg0);
 }
 
 void DeferredDocumentImpl::finalize() {

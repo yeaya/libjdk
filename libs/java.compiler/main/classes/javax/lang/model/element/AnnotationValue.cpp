@@ -12,7 +12,7 @@ namespace javax {
 			namespace element {
 
 $String* AnnotationValue::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $Class* AnnotationValue::load$($String* name, bool initialize) {

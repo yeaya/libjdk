@@ -60,7 +60,7 @@ namespace javax {
 			namespace kerberos {
 
 $Object* KerberosTicket::clone() {
-	 return this->$Destroyable::clone();
+	return this->$Destroyable::clone();
 }
 
 void KerberosTicket::finalize() {

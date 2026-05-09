@@ -32,19 +32,19 @@ namespace com {
 							namespace validation {
 
 int32_t AbstractXMLSchema::hashCode() {
-	 return this->$Schema::hashCode();
+	return this->$Schema::hashCode();
 }
 
 bool AbstractXMLSchema::equals(Object$* arg0) {
-	 return this->$Schema::equals(arg0);
+	return this->$Schema::equals(arg0);
 }
 
 $Object* AbstractXMLSchema::clone() {
-	 return this->$Schema::clone();
+	return this->$Schema::clone();
 }
 
 $String* AbstractXMLSchema::toString() {
-	 return this->$Schema::toString();
+	return this->$Schema::toString();
 }
 
 void AbstractXMLSchema::finalize() {

@@ -126,7 +126,7 @@ public:
 		$set(this, lambdaIdent, lambdaIdent);
 	}
 	virtual bool test(Object$* out) override {
-		 return $nc(inst$)->lambda$translate$0(lambdaIdent, $cast($Symbol, out));
+		return $nc(inst$)->lambda$translate$0(lambdaIdent, $cast($Symbol, out));
 	}
 	LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext* inst$ = nullptr;
 	$JCTree$JCIdent* lambdaIdent = nullptr;
@@ -163,7 +163,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return $of(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::lambda$translate$1($cast($Symbol, a), $cast($Symbol, b)));
+		return $of(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::lambda$translate$1($cast($Symbol, a), $cast($Symbol, b)));
 	}
 };
 $Class* LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$1$1::load$($String* name, bool initialize) {

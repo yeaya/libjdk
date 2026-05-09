@@ -83,7 +83,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getInputStream$0();
+		return $nc(inst$)->lambda$getInputStream$0();
 	}
 	StreamRemoteCall* inst$ = nullptr;
 };

@@ -30,55 +30,55 @@ namespace jdk {
 		namespace zipfs {
 
 $String* ZipFileSystem$PosixEntry::toString() {
-	 return this->$ZipFileSystem$Entry::toString();
+	return this->$ZipFileSystem$Entry::toString();
 }
 
 $FileTime* ZipFileSystem$PosixEntry::creationTime() {
-	 return this->$ZipFileSystem$Entry::creationTime();
+	return this->$ZipFileSystem$Entry::creationTime();
 }
 
 bool ZipFileSystem$PosixEntry::isDirectory() {
-	 return this->$ZipFileSystem$Entry::isDirectory();
+	return this->$ZipFileSystem$Entry::isDirectory();
 }
 
 bool ZipFileSystem$PosixEntry::isOther() {
-	 return this->$ZipFileSystem$Entry::isOther();
+	return this->$ZipFileSystem$Entry::isOther();
 }
 
 bool ZipFileSystem$PosixEntry::isRegularFile() {
-	 return this->$ZipFileSystem$Entry::isRegularFile();
+	return this->$ZipFileSystem$Entry::isRegularFile();
 }
 
 $FileTime* ZipFileSystem$PosixEntry::lastAccessTime() {
-	 return this->$ZipFileSystem$Entry::lastAccessTime();
+	return this->$ZipFileSystem$Entry::lastAccessTime();
 }
 
 $FileTime* ZipFileSystem$PosixEntry::lastModifiedTime() {
-	 return this->$ZipFileSystem$Entry::lastModifiedTime();
+	return this->$ZipFileSystem$Entry::lastModifiedTime();
 }
 
 int64_t ZipFileSystem$PosixEntry::size() {
-	 return this->$ZipFileSystem$Entry::size();
+	return this->$ZipFileSystem$Entry::size();
 }
 
 bool ZipFileSystem$PosixEntry::isSymbolicLink() {
-	 return this->$ZipFileSystem$Entry::isSymbolicLink();
+	return this->$ZipFileSystem$Entry::isSymbolicLink();
 }
 
 $Object* ZipFileSystem$PosixEntry::fileKey() {
-	 return this->$ZipFileSystem$Entry::fileKey();
+	return this->$ZipFileSystem$Entry::fileKey();
 }
 
 bool ZipFileSystem$PosixEntry::equals(Object$* other) {
-	 return this->$ZipFileSystem$Entry::equals(other);
+	return this->$ZipFileSystem$Entry::equals(other);
 }
 
 int32_t ZipFileSystem$PosixEntry::hashCode() {
-	 return this->$ZipFileSystem$Entry::hashCode();
+	return this->$ZipFileSystem$Entry::hashCode();
 }
 
 $Object* ZipFileSystem$PosixEntry::clone() {
-	 return this->$ZipFileSystem$Entry::clone();
+	return this->$ZipFileSystem$Entry::clone();
 }
 
 void ZipFileSystem$PosixEntry::finalize() {

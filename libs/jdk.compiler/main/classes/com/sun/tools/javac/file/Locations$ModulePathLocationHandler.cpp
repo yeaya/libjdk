@@ -75,7 +75,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Iterator* iterator() override {
-		 return $nc(inst$)->lambda$listLocationsForModules$0();
+		return $nc(inst$)->lambda$listLocationsForModules$0();
 	}
 	Locations$ModulePathLocationHandler* inst$ = nullptr;
 };
@@ -112,7 +112,7 @@ public:
 		$set(this, searchPathLocations, searchPathLocations);
 	}
 	virtual $Iterator* iterator() override {
-		 return Locations$ModulePathLocationHandler::lambda$listLocationsForModules$1(explicitLocationsList, searchPathLocations);
+		return Locations$ModulePathLocationHandler::lambda$listLocationsForModules$1(explicitLocationsList, searchPathLocations);
 	}
 	$Iterable* explicitLocationsList = nullptr;
 	$Iterable* searchPathLocations = nullptr;
@@ -149,7 +149,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Iterable, inst$)->iterator();
+		return $sure($Iterable, inst$)->iterator();
 	}
 };
 $Class* Locations$ModulePathLocationHandler$$Lambda$iterator$2::load$($String* name, bool initialize) {

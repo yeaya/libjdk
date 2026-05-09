@@ -31,19 +31,19 @@ namespace sun {
 		namespace windows {
 
 $String* WPrinterJob$PrintToFileErrorDialog::toString() {
-	 return this->$Dialog::toString();
+	return this->$Dialog::toString();
 }
 
 int32_t WPrinterJob$PrintToFileErrorDialog::hashCode() {
-	 return this->$Dialog::hashCode();
+	return this->$Dialog::hashCode();
 }
 
 bool WPrinterJob$PrintToFileErrorDialog::equals(Object$* arg0) {
-	 return this->$Dialog::equals(arg0);
+	return this->$Dialog::equals(arg0);
 }
 
 $Object* WPrinterJob$PrintToFileErrorDialog::clone() {
-	 return this->$Dialog::clone();
+	return this->$Dialog::clone();
 }
 
 void WPrinterJob$PrintToFileErrorDialog::finalize() {

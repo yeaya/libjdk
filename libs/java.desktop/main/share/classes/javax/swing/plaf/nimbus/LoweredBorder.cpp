@@ -59,19 +59,19 @@ namespace javax {
 			namespace nimbus {
 
 int32_t LoweredBorder::hashCode() {
-	 return this->$AbstractRegionPainter::hashCode();
+	return this->$AbstractRegionPainter::hashCode();
 }
 
 bool LoweredBorder::equals(Object$* arg0) {
-	 return this->$AbstractRegionPainter::equals(arg0);
+	return this->$AbstractRegionPainter::equals(arg0);
 }
 
 $Object* LoweredBorder::clone() {
-	 return this->$AbstractRegionPainter::clone();
+	return this->$AbstractRegionPainter::clone();
 }
 
 $String* LoweredBorder::toString() {
-	 return this->$AbstractRegionPainter::toString();
+	return this->$AbstractRegionPainter::toString();
 }
 
 void LoweredBorder::finalize() {

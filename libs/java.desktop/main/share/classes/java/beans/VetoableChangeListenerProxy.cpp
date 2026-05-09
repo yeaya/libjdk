@@ -16,19 +16,19 @@ namespace java {
 	namespace beans {
 
 int32_t VetoableChangeListenerProxy::hashCode() {
-	 return this->$EventListenerProxy::hashCode();
+	return this->$EventListenerProxy::hashCode();
 }
 
 bool VetoableChangeListenerProxy::equals(Object$* arg0) {
-	 return this->$EventListenerProxy::equals(arg0);
+	return this->$EventListenerProxy::equals(arg0);
 }
 
 $Object* VetoableChangeListenerProxy::clone() {
-	 return this->$EventListenerProxy::clone();
+	return this->$EventListenerProxy::clone();
 }
 
 $String* VetoableChangeListenerProxy::toString() {
-	 return this->$EventListenerProxy::toString();
+	return this->$EventListenerProxy::toString();
 }
 
 void VetoableChangeListenerProxy::finalize() {

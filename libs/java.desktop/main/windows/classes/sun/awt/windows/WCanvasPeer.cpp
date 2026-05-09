@@ -57,15 +57,15 @@ namespace sun {
 		namespace windows {
 
 bool WCanvasPeer::isObscured() {
-	 return this->$WComponentPeer::isObscured();
+	return this->$WComponentPeer::isObscured();
 }
 
 bool WCanvasPeer::canDetermineObscurity() {
-	 return this->$WComponentPeer::canDetermineObscurity();
+	return this->$WComponentPeer::canDetermineObscurity();
 }
 
 $Point* WCanvasPeer::getLocationOnScreen() {
-	 return this->$WComponentPeer::getLocationOnScreen();
+	return this->$WComponentPeer::getLocationOnScreen();
 }
 
 void WCanvasPeer::setVisible(bool b) {
@@ -93,11 +93,11 @@ void WCanvasPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* WCanvasPeer::getMinimumSize() {
-	 return this->$WComponentPeer::getMinimumSize();
+	return this->$WComponentPeer::getMinimumSize();
 }
 
 $Dimension* WCanvasPeer::getPreferredSize() {
-	 return this->$WComponentPeer::getPreferredSize();
+	return this->$WComponentPeer::getPreferredSize();
 }
 
 void WCanvasPeer::layout() {
@@ -105,27 +105,27 @@ void WCanvasPeer::layout() {
 }
 
 bool WCanvasPeer::isFocusable() {
-	 return this->$WComponentPeer::isFocusable();
+	return this->$WComponentPeer::isFocusable();
 }
 
 $GraphicsConfiguration* WCanvasPeer::getGraphicsConfiguration() {
-	 return this->$WComponentPeer::getGraphicsConfiguration();
+	return this->$WComponentPeer::getGraphicsConfiguration();
 }
 
 bool WCanvasPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$WComponentPeer::updateGraphicsData(gc);
+	return this->$WComponentPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* WCanvasPeer::getColorModel() {
-	 return this->$WComponentPeer::getColorModel();
+	return this->$WComponentPeer::getColorModel();
 }
 
 $Graphics* WCanvasPeer::getGraphics() {
-	 return this->$WComponentPeer::getGraphics();
+	return this->$WComponentPeer::getGraphics();
 }
 
 $FontMetrics* WCanvasPeer::getFontMetrics($Font* font) {
-	 return this->$WComponentPeer::getFontMetrics(font);
+	return this->$WComponentPeer::getFontMetrics(font);
 }
 
 void WCanvasPeer::setForeground($Color* c) {
@@ -145,23 +145,23 @@ void WCanvasPeer::updateCursorImmediately() {
 }
 
 bool WCanvasPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$WComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$WComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* WCanvasPeer::createImage(int32_t width, int32_t height) {
-	 return this->$WComponentPeer::createImage(width, height);
+	return this->$WComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* WCanvasPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$WComponentPeer::createVolatileImage(width, height);
+	return this->$WComponentPeer::createVolatileImage(width, height);
 }
 
 $String* WCanvasPeer::toString() {
-	 return this->$WComponentPeer::toString();
+	return this->$WComponentPeer::toString();
 }
 
 bool WCanvasPeer::handlesWheelScrolling() {
-	 return this->$WComponentPeer::handlesWheelScrolling();
+	return this->$WComponentPeer::handlesWheelScrolling();
 }
 
 void WCanvasPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -177,7 +177,7 @@ void WCanvasPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCa
 }
 
 $Image* WCanvasPeer::getBackBuffer() {
-	 return this->$WComponentPeer::getBackBuffer();
+	return this->$WComponentPeer::getBackBuffer();
 }
 
 void WCanvasPeer::reparent($ContainerPeer* newNativeParent) {
@@ -185,7 +185,7 @@ void WCanvasPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool WCanvasPeer::isReparentSupported() {
-	 return this->$WComponentPeer::isReparentSupported();
+	return this->$WComponentPeer::isReparentSupported();
 }
 
 void WCanvasPeer::applyShape($Region* shape) {
@@ -201,15 +201,15 @@ void WCanvasPeer::dispose() {
 }
 
 int32_t WCanvasPeer::hashCode() {
-	 return this->$WComponentPeer::hashCode();
+	return this->$WComponentPeer::hashCode();
 }
 
 bool WCanvasPeer::equals(Object$* arg0) {
-	 return this->$WComponentPeer::equals(arg0);
+	return this->$WComponentPeer::equals(arg0);
 }
 
 $Object* WCanvasPeer::clone() {
-	 return this->$WComponentPeer::clone();
+	return this->$WComponentPeer::clone();
 }
 
 void WCanvasPeer::finalize() {

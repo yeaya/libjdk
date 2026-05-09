@@ -19,19 +19,19 @@ void ProxyPrintGraphics::finalize() {
 }
 
 $String* ProxyPrintGraphics::toString() {
-	 return this->$ProxyGraphics::toString();
+	return this->$ProxyGraphics::toString();
 }
 
 int32_t ProxyPrintGraphics::hashCode() {
-	 return this->$ProxyGraphics::hashCode();
+	return this->$ProxyGraphics::hashCode();
 }
 
 bool ProxyPrintGraphics::equals(Object$* arg0) {
-	 return this->$ProxyGraphics::equals(arg0);
+	return this->$ProxyGraphics::equals(arg0);
 }
 
 $Object* ProxyPrintGraphics::clone() {
-	 return this->$ProxyGraphics::clone();
+	return this->$ProxyGraphics::clone();
 }
 
 void ProxyPrintGraphics::init$($Graphics* graphics, $PrintJob* thePrintJob) {

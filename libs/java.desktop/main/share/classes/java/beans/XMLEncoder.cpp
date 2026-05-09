@@ -64,19 +64,19 @@ namespace java {
 	namespace beans {
 
 int32_t XMLEncoder::hashCode() {
-	 return this->$Encoder::hashCode();
+	return this->$Encoder::hashCode();
 }
 
 bool XMLEncoder::equals(Object$* arg0) {
-	 return this->$Encoder::equals(arg0);
+	return this->$Encoder::equals(arg0);
 }
 
 $Object* XMLEncoder::clone() {
-	 return this->$Encoder::clone();
+	return this->$Encoder::clone();
 }
 
 $String* XMLEncoder::toString() {
-	 return this->$Encoder::toString();
+	return this->$Encoder::toString();
 }
 
 void XMLEncoder::finalize() {

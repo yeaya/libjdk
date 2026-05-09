@@ -237,19 +237,19 @@ $Class* TestJSpinnerFocusLost$$Lambda$lambda$main$4$4::load$($String* name, bool
 $Class* TestJSpinnerFocusLost$$Lambda$lambda$main$4$4::class$ = nullptr;
 
 $String* TestJSpinnerFocusLost::toString() {
-	 return this->$JFrame::toString();
+	return this->$JFrame::toString();
 }
 
 int32_t TestJSpinnerFocusLost::hashCode() {
-	 return this->$JFrame::hashCode();
+	return this->$JFrame::hashCode();
 }
 
 bool TestJSpinnerFocusLost::equals(Object$* arg0) {
-	 return this->$JFrame::equals(arg0);
+	return this->$JFrame::equals(arg0);
 }
 
 $Object* TestJSpinnerFocusLost::clone() {
-	 return this->$JFrame::clone();
+	return this->$JFrame::clone();
 }
 
 void TestJSpinnerFocusLost::finalize() {

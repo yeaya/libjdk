@@ -49,19 +49,19 @@ void XCheckboxMenuItemPeer::setEnabled(bool enabled) {
 }
 
 int32_t XCheckboxMenuItemPeer::hashCode() {
-	 return this->$XMenuItemPeer::hashCode();
+	return this->$XMenuItemPeer::hashCode();
 }
 
 bool XCheckboxMenuItemPeer::equals(Object$* arg0) {
-	 return this->$XMenuItemPeer::equals(arg0);
+	return this->$XMenuItemPeer::equals(arg0);
 }
 
 $Object* XCheckboxMenuItemPeer::clone() {
-	 return this->$XMenuItemPeer::clone();
+	return this->$XMenuItemPeer::clone();
 }
 
 $String* XCheckboxMenuItemPeer::toString() {
-	 return this->$XMenuItemPeer::toString();
+	return this->$XMenuItemPeer::toString();
 }
 
 void XCheckboxMenuItemPeer::finalize() {

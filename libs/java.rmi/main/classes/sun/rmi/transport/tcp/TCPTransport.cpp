@@ -139,7 +139,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(TCPTransport::lambda$static$0());
+		return $of(TCPTransport::lambda$static$0());
 	}
 };
 $Class* TCPTransport$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -169,7 +169,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(TCPTransport::lambda$static$1());
+		return $of(TCPTransport::lambda$static$1());
 	}
 };
 $Class* TCPTransport$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
@@ -199,7 +199,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(TCPTransport::lambda$static$2());
+		return $of(TCPTransport::lambda$static$2());
 	}
 };
 $Class* TCPTransport$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {
@@ -229,7 +229,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(TCPTransport::lambda$static$3());
+		return $of(TCPTransport::lambda$static$3());
 	}
 };
 $Class* TCPTransport$$Lambda$lambda$static$3$3::load$($String* name, bool initialize) {

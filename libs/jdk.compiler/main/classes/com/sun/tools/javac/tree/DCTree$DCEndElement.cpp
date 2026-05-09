@@ -24,19 +24,19 @@ namespace com {
 				namespace tree {
 
 $String* DCTree$DCEndElement::toString() {
-	 return this->$DCTree$DCEndPosTree::toString();
+	return this->$DCTree$DCEndPosTree::toString();
 }
 
 int32_t DCTree$DCEndElement::hashCode() {
-	 return this->$DCTree$DCEndPosTree::hashCode();
+	return this->$DCTree$DCEndPosTree::hashCode();
 }
 
 bool DCTree$DCEndElement::equals(Object$* arg0) {
-	 return this->$DCTree$DCEndPosTree::equals(arg0);
+	return this->$DCTree$DCEndPosTree::equals(arg0);
 }
 
 $Object* DCTree$DCEndElement::clone() {
-	 return this->$DCTree$DCEndPosTree::clone();
+	return this->$DCTree$DCEndPosTree::clone();
 }
 
 void DCTree$DCEndElement::finalize() {

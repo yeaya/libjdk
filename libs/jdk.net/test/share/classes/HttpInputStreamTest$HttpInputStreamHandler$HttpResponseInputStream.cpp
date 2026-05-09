@@ -41,19 +41,19 @@ using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 
 int32_t HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::hashCode() {
-	 return this->$InputStream::hashCode();
+	return this->$InputStream::hashCode();
 }
 
 bool HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::equals(Object$* arg0) {
-	 return this->$InputStream::equals(arg0);
+	return this->$InputStream::equals(arg0);
 }
 
 $Object* HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::clone() {
-	 return this->$InputStream::clone();
+	return this->$InputStream::clone();
 }
 
 $String* HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::toString() {
-	 return this->$InputStream::toString();
+	return this->$InputStream::toString();
 }
 
 void HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream::finalize() {

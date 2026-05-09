@@ -82,19 +82,19 @@ namespace com {
 				namespace code {
 
 int32_t Printer::hashCode() {
-	 return this->$Type$Visitor::hashCode();
+	return this->$Type$Visitor::hashCode();
 }
 
 bool Printer::equals(Object$* arg0) {
-	 return this->$Type$Visitor::equals(arg0);
+	return this->$Type$Visitor::equals(arg0);
 }
 
 $Object* Printer::clone() {
-	 return this->$Type$Visitor::clone();
+	return this->$Type$Visitor::clone();
 }
 
 $String* Printer::toString() {
-	 return this->$Type$Visitor::toString();
+	return this->$Type$Visitor::toString();
 }
 
 void Printer::finalize() {

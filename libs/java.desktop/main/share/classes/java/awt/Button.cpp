@@ -45,19 +45,19 @@ namespace java {
 	namespace awt {
 
 $String* Button::toString() {
-	 return this->$Component::toString();
+	return this->$Component::toString();
 }
 
 int32_t Button::hashCode() {
-	 return this->$Component::hashCode();
+	return this->$Component::hashCode();
 }
 
 bool Button::equals(Object$* arg0) {
-	 return this->$Component::equals(arg0);
+	return this->$Component::equals(arg0);
 }
 
 $Object* Button::clone() {
-	 return this->$Component::clone();
+	return this->$Component::clone();
 }
 
 void Button::finalize() {

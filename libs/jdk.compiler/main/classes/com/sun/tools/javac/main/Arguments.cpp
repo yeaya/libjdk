@@ -259,7 +259,7 @@ public:
 		this->checkFileManager = checkFileManager;
 	}
 	virtual bool test(Object$* extra) override {
-		 return $nc(inst$)->lambda$processArgs$1(allowableOpts, helper, allowOperands, checkFileManager, $cast($Iterable, extra));
+		return $nc(inst$)->lambda$processArgs$1(allowableOpts, helper, allowOperands, checkFileManager, $cast($Iterable, extra));
 	}
 	Arguments* inst$ = nullptr;
 	$Set* allowableOpts = nullptr;
@@ -342,7 +342,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* option) override {
-		 return $nc(inst$)->isSet($cast($Option, option));
+		return $nc(inst$)->isSet($cast($Option, option));
 	}
 	$Options* inst$ = nullptr;
 };

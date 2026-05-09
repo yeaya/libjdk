@@ -162,19 +162,19 @@ namespace com {
 						namespace serialize {
 
 int32_t DOMSerializerImpl::hashCode() {
-	 return this->$LSSerializer::hashCode();
+	return this->$LSSerializer::hashCode();
 }
 
 bool DOMSerializerImpl::equals(Object$* arg0) {
-	 return this->$LSSerializer::equals(arg0);
+	return this->$LSSerializer::equals(arg0);
 }
 
 $Object* DOMSerializerImpl::clone() {
-	 return this->$LSSerializer::clone();
+	return this->$LSSerializer::clone();
 }
 
 $String* DOMSerializerImpl::toString() {
-	 return this->$LSSerializer::toString();
+	return this->$LSSerializer::toString();
 }
 
 void DOMSerializerImpl::finalize() {

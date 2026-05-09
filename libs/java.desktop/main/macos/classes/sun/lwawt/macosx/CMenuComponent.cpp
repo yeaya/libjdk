@@ -22,19 +22,19 @@ void CMenuComponent::finalize() {
 }
 
 int32_t CMenuComponent::hashCode() {
-	 return this->$CFRetainedResource::hashCode();
+	return this->$CFRetainedResource::hashCode();
 }
 
 bool CMenuComponent::equals(Object$* arg0) {
-	 return this->$CFRetainedResource::equals(arg0);
+	return this->$CFRetainedResource::equals(arg0);
 }
 
 $Object* CMenuComponent::clone() {
-	 return this->$CFRetainedResource::clone();
+	return this->$CFRetainedResource::clone();
 }
 
 $String* CMenuComponent::toString() {
-	 return this->$CFRetainedResource::toString();
+	return this->$CFRetainedResource::toString();
 }
 
 void CMenuComponent::init$($MenuComponent* target) {

@@ -13,15 +13,15 @@ namespace javax {
 		namespace openmbean {
 
 bool OpenMBeanOperationInfo::equals(Object$* obj) {
-	 return this->$Object::equals(obj);
+	return this->$Object::equals(obj);
 }
 
 int32_t OpenMBeanOperationInfo::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $String* OpenMBeanOperationInfo::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $Class* OpenMBeanOperationInfo::load$($String* name, bool initialize) {

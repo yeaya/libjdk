@@ -95,7 +95,7 @@ void LWTextAreaPeer::setEditable(bool editable) {
 }
 
 $String* LWTextAreaPeer::getText() {
-	 return this->$LWTextComponentPeer::getText();
+	return this->$LWTextComponentPeer::getText();
 }
 
 void LWTextAreaPeer::setText($String* text) {
@@ -103,11 +103,11 @@ void LWTextAreaPeer::setText($String* text) {
 }
 
 int32_t LWTextAreaPeer::getSelectionStart() {
-	 return this->$LWTextComponentPeer::getSelectionStart();
+	return this->$LWTextComponentPeer::getSelectionStart();
 }
 
 int32_t LWTextAreaPeer::getSelectionEnd() {
-	 return this->$LWTextComponentPeer::getSelectionEnd();
+	return this->$LWTextComponentPeer::getSelectionEnd();
 }
 
 void LWTextAreaPeer::select(int32_t selStart, int32_t selEnd) {
@@ -119,15 +119,15 @@ void LWTextAreaPeer::setCaretPosition(int32_t pos) {
 }
 
 int32_t LWTextAreaPeer::getCaretPosition() {
-	 return this->$LWTextComponentPeer::getCaretPosition();
+	return this->$LWTextComponentPeer::getCaretPosition();
 }
 
 $InputMethodRequests* LWTextAreaPeer::getInputMethodRequests() {
-	 return this->$LWTextComponentPeer::getInputMethodRequests();
+	return this->$LWTextComponentPeer::getInputMethodRequests();
 }
 
 bool LWTextAreaPeer::isFocusable() {
-	 return this->$LWTextComponentPeer::isFocusable();
+	return this->$LWTextComponentPeer::isFocusable();
 }
 
 void LWTextAreaPeer::dispose() {
@@ -135,19 +135,19 @@ void LWTextAreaPeer::dispose() {
 }
 
 $GraphicsConfiguration* LWTextAreaPeer::getGraphicsConfiguration() {
-	 return this->$LWTextComponentPeer::getGraphicsConfiguration();
+	return this->$LWTextComponentPeer::getGraphicsConfiguration();
 }
 
 bool LWTextAreaPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$LWTextComponentPeer::updateGraphicsData(gc);
+	return this->$LWTextComponentPeer::updateGraphicsData(gc);
 }
 
 $Graphics* LWTextAreaPeer::getGraphics() {
-	 return this->$LWTextComponentPeer::getGraphics();
+	return this->$LWTextComponentPeer::getGraphics();
 }
 
 $ColorModel* LWTextAreaPeer::getColorModel() {
-	 return this->$LWTextComponentPeer::getColorModel();
+	return this->$LWTextComponentPeer::getColorModel();
 }
 
 void LWTextAreaPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -155,7 +155,7 @@ void LWTextAreaPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps
 }
 
 $Image* LWTextAreaPeer::getBackBuffer() {
-	 return this->$LWTextComponentPeer::getBackBuffer();
+	return this->$LWTextComponentPeer::getBackBuffer();
 }
 
 void LWTextAreaPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -171,7 +171,7 @@ void LWTextAreaPeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int32
 }
 
 $Point* LWTextAreaPeer::getLocationOnScreen() {
-	 return this->$LWTextComponentPeer::getLocationOnScreen();
+	return this->$LWTextComponentPeer::getLocationOnScreen();
 }
 
 void LWTextAreaPeer::setBackground($Color* c) {
@@ -187,7 +187,7 @@ void LWTextAreaPeer::setFont($Font* f) {
 }
 
 $FontMetrics* LWTextAreaPeer::getFontMetrics($Font* f) {
-	 return this->$LWTextComponentPeer::getFontMetrics(f);
+	return this->$LWTextComponentPeer::getFontMetrics(f);
 }
 
 void LWTextAreaPeer::setEnabled(bool e) {
@@ -211,7 +211,7 @@ void LWTextAreaPeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWTextAreaPeer::isReparentSupported() {
-	 return this->$LWTextComponentPeer::isReparentSupported();
+	return this->$LWTextComponentPeer::isReparentSupported();
 }
 
 void LWTextAreaPeer::setZOrder($ComponentPeer* above) {
@@ -227,11 +227,11 @@ void LWTextAreaPeer::layout() {
 }
 
 bool LWTextAreaPeer::isObscured() {
-	 return this->$LWTextComponentPeer::isObscured();
+	return this->$LWTextComponentPeer::isObscured();
 }
 
 bool LWTextAreaPeer::canDetermineObscurity() {
-	 return this->$LWTextComponentPeer::canDetermineObscurity();
+	return this->$LWTextComponentPeer::canDetermineObscurity();
 }
 
 void LWTextAreaPeer::updateCursorImmediately() {
@@ -239,19 +239,19 @@ void LWTextAreaPeer::updateCursorImmediately() {
 }
 
 bool LWTextAreaPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWTextComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWTextComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWTextAreaPeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWTextComponentPeer::createImage(width, height);
+	return this->$LWTextComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* LWTextAreaPeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWTextComponentPeer::createVolatileImage(w, h);
+	return this->$LWTextComponentPeer::createVolatileImage(w, h);
 }
 
 bool LWTextAreaPeer::handlesWheelScrolling() {
-	 return this->$LWTextComponentPeer::handlesWheelScrolling();
+	return this->$LWTextComponentPeer::handlesWheelScrolling();
 }
 
 void LWTextAreaPeer::applyShape($Region* shape) {
@@ -263,19 +263,19 @@ void LWTextAreaPeer::handleEvent($AWTEvent* e) {
 }
 
 int32_t LWTextAreaPeer::hashCode() {
-	 return this->$LWTextComponentPeer::hashCode();
+	return this->$LWTextComponentPeer::hashCode();
 }
 
 bool LWTextAreaPeer::equals(Object$* arg0) {
-	 return this->$LWTextComponentPeer::equals(arg0);
+	return this->$LWTextComponentPeer::equals(arg0);
 }
 
 $Object* LWTextAreaPeer::clone() {
-	 return this->$LWTextComponentPeer::clone();
+	return this->$LWTextComponentPeer::clone();
 }
 
 $String* LWTextAreaPeer::toString() {
-	 return this->$LWTextComponentPeer::toString();
+	return this->$LWTextComponentPeer::toString();
 }
 
 void LWTextAreaPeer::finalize() {

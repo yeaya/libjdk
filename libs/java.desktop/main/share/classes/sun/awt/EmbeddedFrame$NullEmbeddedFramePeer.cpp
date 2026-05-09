@@ -65,15 +65,15 @@ namespace sun {
 	namespace awt {
 
 bool EmbeddedFrame$NullEmbeddedFramePeer::isObscured() {
-	 return this->$NullComponentPeer::isObscured();
+	return this->$NullComponentPeer::isObscured();
 }
 
 bool EmbeddedFrame$NullEmbeddedFramePeer::canDetermineObscurity() {
-	 return this->$NullComponentPeer::canDetermineObscurity();
+	return this->$NullComponentPeer::canDetermineObscurity();
 }
 
 bool EmbeddedFrame$NullEmbeddedFramePeer::isFocusable() {
-	 return this->$NullComponentPeer::isFocusable();
+	return this->$NullComponentPeer::isFocusable();
 }
 
 void EmbeddedFrame$NullEmbeddedFramePeer::setVisible(bool b) {
@@ -105,27 +105,27 @@ void EmbeddedFrame$NullEmbeddedFramePeer::handleEvent($AWTEvent* arg0) {
 }
 
 $Dimension* EmbeddedFrame$NullEmbeddedFramePeer::getPreferredSize() {
-	 return this->$NullComponentPeer::getPreferredSize();
+	return this->$NullComponentPeer::getPreferredSize();
 }
 
 $Dimension* EmbeddedFrame$NullEmbeddedFramePeer::getMinimumSize() {
-	 return this->$NullComponentPeer::getMinimumSize();
+	return this->$NullComponentPeer::getMinimumSize();
 }
 
 $ColorModel* EmbeddedFrame$NullEmbeddedFramePeer::getColorModel() {
-	 return this->$NullComponentPeer::getColorModel();
+	return this->$NullComponentPeer::getColorModel();
 }
 
 $Graphics* EmbeddedFrame$NullEmbeddedFramePeer::getGraphics() {
-	 return this->$NullComponentPeer::getGraphics();
+	return this->$NullComponentPeer::getGraphics();
 }
 
 $GraphicsConfiguration* EmbeddedFrame$NullEmbeddedFramePeer::getGraphicsConfiguration() {
-	 return this->$NullComponentPeer::getGraphicsConfiguration();
+	return this->$NullComponentPeer::getGraphicsConfiguration();
 }
 
 $FontMetrics* EmbeddedFrame$NullEmbeddedFramePeer::getFontMetrics($Font* font) {
-	 return this->$NullComponentPeer::getFontMetrics(font);
+	return this->$NullComponentPeer::getFontMetrics(font);
 }
 
 void EmbeddedFrame$NullEmbeddedFramePeer::dispose() {
@@ -149,19 +149,19 @@ void EmbeddedFrame$NullEmbeddedFramePeer::updateCursorImmediately() {
 }
 
 bool EmbeddedFrame$NullEmbeddedFramePeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$NullComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$NullComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* EmbeddedFrame$NullEmbeddedFramePeer::createImage(int32_t width, int32_t height) {
-	 return this->$NullComponentPeer::createImage(width, height);
+	return this->$NullComponentPeer::createImage(width, height);
 }
 
 $Point* EmbeddedFrame$NullEmbeddedFramePeer::getLocationOnScreen() {
-	 return this->$NullComponentPeer::getLocationOnScreen();
+	return this->$NullComponentPeer::getLocationOnScreen();
 }
 
 $Insets* EmbeddedFrame$NullEmbeddedFramePeer::getInsets() {
-	 return this->$NullComponentPeer::getInsets();
+	return this->$NullComponentPeer::getInsets();
 }
 
 void EmbeddedFrame$NullEmbeddedFramePeer::beginValidate() {
@@ -173,11 +173,11 @@ void EmbeddedFrame$NullEmbeddedFramePeer::endValidate() {
 }
 
 bool EmbeddedFrame$NullEmbeddedFramePeer::handlesWheelScrolling() {
-	 return this->$NullComponentPeer::handlesWheelScrolling();
+	return this->$NullComponentPeer::handlesWheelScrolling();
 }
 
 $VolatileImage* EmbeddedFrame$NullEmbeddedFramePeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$NullComponentPeer::createVolatileImage(width, height);
+	return this->$NullComponentPeer::createVolatileImage(width, height);
 }
 
 void EmbeddedFrame$NullEmbeddedFramePeer::beginLayout() {
@@ -193,7 +193,7 @@ void EmbeddedFrame$NullEmbeddedFramePeer::createBuffers(int32_t numBuffers, $Buf
 }
 
 $Image* EmbeddedFrame$NullEmbeddedFramePeer::getBackBuffer() {
-	 return this->$NullComponentPeer::getBackBuffer();
+	return this->$NullComponentPeer::getBackBuffer();
 }
 
 void EmbeddedFrame$NullEmbeddedFramePeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -205,7 +205,7 @@ void EmbeddedFrame$NullEmbeddedFramePeer::destroyBuffers() {
 }
 
 bool EmbeddedFrame$NullEmbeddedFramePeer::isReparentSupported() {
-	 return this->$NullComponentPeer::isReparentSupported();
+	return this->$NullComponentPeer::isReparentSupported();
 }
 
 void EmbeddedFrame$NullEmbeddedFramePeer::reparent($ContainerPeer* newNativeParent) {
@@ -225,23 +225,23 @@ void EmbeddedFrame$NullEmbeddedFramePeer::setZOrder($ComponentPeer* above) {
 }
 
 bool EmbeddedFrame$NullEmbeddedFramePeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$NullComponentPeer::updateGraphicsData(gc);
+	return this->$NullComponentPeer::updateGraphicsData(gc);
 }
 
 int32_t EmbeddedFrame$NullEmbeddedFramePeer::hashCode() {
-	 return this->$NullComponentPeer::hashCode();
+	return this->$NullComponentPeer::hashCode();
 }
 
 bool EmbeddedFrame$NullEmbeddedFramePeer::equals(Object$* arg0) {
-	 return this->$NullComponentPeer::equals(arg0);
+	return this->$NullComponentPeer::equals(arg0);
 }
 
 $Object* EmbeddedFrame$NullEmbeddedFramePeer::clone() {
-	 return this->$NullComponentPeer::clone();
+	return this->$NullComponentPeer::clone();
 }
 
 $String* EmbeddedFrame$NullEmbeddedFramePeer::toString() {
-	 return this->$NullComponentPeer::toString();
+	return this->$NullComponentPeer::toString();
 }
 
 void EmbeddedFrame$NullEmbeddedFramePeer::finalize() {

@@ -93,19 +93,19 @@ namespace sun {
 				namespace ccache {
 
 int32_t FileCredentialsCache::hashCode() {
-	 return this->$CredentialsCache::hashCode();
+	return this->$CredentialsCache::hashCode();
 }
 
 bool FileCredentialsCache::equals(Object$* arg0) {
-	 return this->$CredentialsCache::equals(arg0);
+	return this->$CredentialsCache::equals(arg0);
 }
 
 $Object* FileCredentialsCache::clone() {
-	 return this->$CredentialsCache::clone();
+	return this->$CredentialsCache::clone();
 }
 
 $String* FileCredentialsCache::toString() {
-	 return this->$CredentialsCache::toString();
+	return this->$CredentialsCache::toString();
 }
 
 void FileCredentialsCache::finalize() {

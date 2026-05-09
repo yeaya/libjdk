@@ -197,7 +197,7 @@ public:
 		this->size = size;
 	}
 	virtual $Object* call() override {
-		 return $nc(inst$)->lambda$getIcon$0(size);
+		return $nc(inst$)->lambda$getIcon$0(size);
 	}
 	Win32ShellFolder2* inst$ = nullptr;
 	int32_t size = 0;

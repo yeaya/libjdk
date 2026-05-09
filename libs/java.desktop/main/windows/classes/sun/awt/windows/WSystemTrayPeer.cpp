@@ -24,19 +24,19 @@ namespace sun {
 		namespace windows {
 
 int32_t WSystemTrayPeer::hashCode() {
-	 return this->$WObjectPeer::hashCode();
+	return this->$WObjectPeer::hashCode();
 }
 
 bool WSystemTrayPeer::equals(Object$* arg0) {
-	 return this->$WObjectPeer::equals(arg0);
+	return this->$WObjectPeer::equals(arg0);
 }
 
 $Object* WSystemTrayPeer::clone() {
-	 return this->$WObjectPeer::clone();
+	return this->$WObjectPeer::clone();
 }
 
 $String* WSystemTrayPeer::toString() {
-	 return this->$WObjectPeer::toString();
+	return this->$WObjectPeer::toString();
 }
 
 void WSystemTrayPeer::finalize() {

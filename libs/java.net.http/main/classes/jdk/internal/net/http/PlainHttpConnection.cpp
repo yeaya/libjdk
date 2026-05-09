@@ -105,7 +105,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$connectAsync$0());
+		return $of($nc(inst$)->lambda$connectAsync$0());
 	}
 	PlainHttpConnection* inst$ = nullptr;
 };
@@ -142,7 +142,7 @@ public:
 		$set(this, exchange, exchange);
 	}
 	virtual $Object* apply(Object$* r, Object$* t) override {
-		 return $of($nc(inst$)->lambda$connectAsync$1(exchange, $cast($PlainHttpConnection$ConnectState, r), $cast($Throwable, t)));
+		return $of($nc(inst$)->lambda$connectAsync$1(exchange, $cast($PlainHttpConnection$ConnectState, r), $cast($Throwable, t)));
 	}
 	PlainHttpConnection* inst$ = nullptr;
 	$Exchange* exchange = nullptr;
@@ -179,7 +179,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($Utils::getBuffer());
+		return $of($Utils::getBuffer());
 	}
 };
 $Class* PlainHttpConnection$$Lambda$getBuffer$2::load$($String* name, bool initialize) {

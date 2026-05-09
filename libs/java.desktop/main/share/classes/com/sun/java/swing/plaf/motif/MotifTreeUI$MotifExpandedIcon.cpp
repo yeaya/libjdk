@@ -25,19 +25,19 @@ namespace com {
 					namespace motif {
 
 int32_t MotifTreeUI$MotifExpandedIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool MotifTreeUI$MotifExpandedIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* MotifTreeUI$MotifExpandedIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* MotifTreeUI$MotifExpandedIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void MotifTreeUI$MotifExpandedIcon::finalize() {

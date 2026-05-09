@@ -27,15 +27,15 @@ namespace com {
 						namespace classfile {
 
 $Object* ConstantLong::clone() {
-	 return this->$Constant::clone();
+	return this->$Constant::clone();
 }
 
 bool ConstantLong::equals(Object$* obj) {
-	 return this->$Constant::equals(obj);
+	return this->$Constant::equals(obj);
 }
 
 int32_t ConstantLong::hashCode() {
-	 return this->$Constant::hashCode();
+	return this->$Constant::hashCode();
 }
 
 void ConstantLong::finalize() {

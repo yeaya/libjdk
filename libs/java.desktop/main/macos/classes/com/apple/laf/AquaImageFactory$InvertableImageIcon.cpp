@@ -30,27 +30,27 @@ void AquaImageFactory$InvertableImageIcon::paintIcon($Component* c, $Graphics* g
 }
 
 int32_t AquaImageFactory$InvertableImageIcon::getIconWidth() {
-	 return this->$ImageIcon::getIconWidth();
+	return this->$ImageIcon::getIconWidth();
 }
 
 int32_t AquaImageFactory$InvertableImageIcon::getIconHeight() {
-	 return this->$ImageIcon::getIconHeight();
+	return this->$ImageIcon::getIconHeight();
 }
 
 $String* AquaImageFactory$InvertableImageIcon::toString() {
-	 return this->$ImageIcon::toString();
+	return this->$ImageIcon::toString();
 }
 
 int32_t AquaImageFactory$InvertableImageIcon::hashCode() {
-	 return this->$ImageIcon::hashCode();
+	return this->$ImageIcon::hashCode();
 }
 
 bool AquaImageFactory$InvertableImageIcon::equals(Object$* arg0) {
-	 return this->$ImageIcon::equals(arg0);
+	return this->$ImageIcon::equals(arg0);
 }
 
 $Object* AquaImageFactory$InvertableImageIcon::clone() {
-	 return this->$ImageIcon::clone();
+	return this->$ImageIcon::clone();
 }
 
 void AquaImageFactory$InvertableImageIcon::finalize() {

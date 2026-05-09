@@ -13,19 +13,19 @@ namespace javax {
 		namespace ldap {
 
 int32_t UnsolicitedNotification::hashCode() {
-	 return this->$ExtendedResponse::hashCode();
+	return this->$ExtendedResponse::hashCode();
 }
 
 bool UnsolicitedNotification::equals(Object$* arg0) {
-	 return this->$ExtendedResponse::equals(arg0);
+	return this->$ExtendedResponse::equals(arg0);
 }
 
 $Object* UnsolicitedNotification::clone() {
-	 return this->$ExtendedResponse::clone();
+	return this->$ExtendedResponse::clone();
 }
 
 $String* UnsolicitedNotification::toString() {
-	 return this->$ExtendedResponse::toString();
+	return this->$ExtendedResponse::toString();
 }
 
 void UnsolicitedNotification::finalize() {

@@ -55,19 +55,19 @@ void LWCanvasPeer::dispose() {
 }
 
 $GraphicsConfiguration* LWCanvasPeer::getGraphicsConfiguration() {
-	 return this->$LWComponentPeer::getGraphicsConfiguration();
+	return this->$LWComponentPeer::getGraphicsConfiguration();
 }
 
 bool LWCanvasPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$LWComponentPeer::updateGraphicsData(gc);
+	return this->$LWComponentPeer::updateGraphicsData(gc);
 }
 
 $Graphics* LWCanvasPeer::getGraphics() {
-	 return this->$LWComponentPeer::getGraphics();
+	return this->$LWComponentPeer::getGraphics();
 }
 
 $ColorModel* LWCanvasPeer::getColorModel() {
-	 return this->$LWComponentPeer::getColorModel();
+	return this->$LWComponentPeer::getColorModel();
 }
 
 void LWCanvasPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -75,7 +75,7 @@ void LWCanvasPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) 
 }
 
 $Image* LWCanvasPeer::getBackBuffer() {
-	 return this->$LWComponentPeer::getBackBuffer();
+	return this->$LWComponentPeer::getBackBuffer();
 }
 
 void LWCanvasPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -91,7 +91,7 @@ void LWCanvasPeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int32_t
 }
 
 $Point* LWCanvasPeer::getLocationOnScreen() {
-	 return this->$LWComponentPeer::getLocationOnScreen();
+	return this->$LWComponentPeer::getLocationOnScreen();
 }
 
 void LWCanvasPeer::setBackground($Color* c) {
@@ -107,7 +107,7 @@ void LWCanvasPeer::setFont($Font* f) {
 }
 
 $FontMetrics* LWCanvasPeer::getFontMetrics($Font* f) {
-	 return this->$LWComponentPeer::getFontMetrics(f);
+	return this->$LWComponentPeer::getFontMetrics(f);
 }
 
 void LWCanvasPeer::setEnabled(bool e) {
@@ -131,7 +131,7 @@ void LWCanvasPeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWCanvasPeer::isReparentSupported() {
-	 return this->$LWComponentPeer::isReparentSupported();
+	return this->$LWComponentPeer::isReparentSupported();
 }
 
 void LWCanvasPeer::setZOrder($ComponentPeer* above) {
@@ -147,11 +147,11 @@ void LWCanvasPeer::layout() {
 }
 
 bool LWCanvasPeer::isObscured() {
-	 return this->$LWComponentPeer::isObscured();
+	return this->$LWComponentPeer::isObscured();
 }
 
 bool LWCanvasPeer::canDetermineObscurity() {
-	 return this->$LWComponentPeer::canDetermineObscurity();
+	return this->$LWComponentPeer::canDetermineObscurity();
 }
 
 void LWCanvasPeer::updateCursorImmediately() {
@@ -159,23 +159,23 @@ void LWCanvasPeer::updateCursorImmediately() {
 }
 
 bool LWCanvasPeer::isFocusable() {
-	 return this->$LWComponentPeer::isFocusable();
+	return this->$LWComponentPeer::isFocusable();
 }
 
 bool LWCanvasPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWCanvasPeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWComponentPeer::createImage(width, height);
+	return this->$LWComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* LWCanvasPeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWComponentPeer::createVolatileImage(w, h);
+	return this->$LWComponentPeer::createVolatileImage(w, h);
 }
 
 bool LWCanvasPeer::handlesWheelScrolling() {
-	 return this->$LWComponentPeer::handlesWheelScrolling();
+	return this->$LWComponentPeer::handlesWheelScrolling();
 }
 
 void LWCanvasPeer::applyShape($Region* shape) {
@@ -187,19 +187,19 @@ void LWCanvasPeer::handleEvent($AWTEvent* e) {
 }
 
 int32_t LWCanvasPeer::hashCode() {
-	 return this->$LWComponentPeer::hashCode();
+	return this->$LWComponentPeer::hashCode();
 }
 
 bool LWCanvasPeer::equals(Object$* arg0) {
-	 return this->$LWComponentPeer::equals(arg0);
+	return this->$LWComponentPeer::equals(arg0);
 }
 
 $Object* LWCanvasPeer::clone() {
-	 return this->$LWComponentPeer::clone();
+	return this->$LWComponentPeer::clone();
 }
 
 $String* LWCanvasPeer::toString() {
-	 return this->$LWComponentPeer::toString();
+	return this->$LWComponentPeer::toString();
 }
 
 void LWCanvasPeer::finalize() {

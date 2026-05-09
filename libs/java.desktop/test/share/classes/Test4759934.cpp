@@ -31,19 +31,19 @@ using $JDialog = ::javax::swing::JDialog;
 using $JFrame = ::javax::swing::JFrame;
 
 $String* Test4759934::toString() {
-	 return this->$JApplet::toString();
+	return this->$JApplet::toString();
 }
 
 int32_t Test4759934::hashCode() {
-	 return this->$JApplet::hashCode();
+	return this->$JApplet::hashCode();
 }
 
 bool Test4759934::equals(Object$* arg0) {
-	 return this->$JApplet::equals(arg0);
+	return this->$JApplet::equals(arg0);
 }
 
 $Object* Test4759934::clone() {
-	 return this->$JApplet::clone();
+	return this->$JApplet::clone();
 }
 
 void Test4759934::finalize() {

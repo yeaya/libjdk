@@ -29,19 +29,19 @@ namespace com {
 		namespace laf {
 
 $String* AquaTabbedPaneCopyFromBasicUI$TabContainer::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t AquaTabbedPaneCopyFromBasicUI$TabContainer::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool AquaTabbedPaneCopyFromBasicUI$TabContainer::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* AquaTabbedPaneCopyFromBasicUI$TabContainer::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void AquaTabbedPaneCopyFromBasicUI$TabContainer::finalize() {

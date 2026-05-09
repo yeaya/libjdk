@@ -34,19 +34,19 @@ namespace org {
 			namespace helpers {
 
 int32_t XMLFilterImpl::hashCode() {
-	 return this->$XMLFilter::hashCode();
+	return this->$XMLFilter::hashCode();
 }
 
 bool XMLFilterImpl::equals(Object$* arg0) {
-	 return this->$XMLFilter::equals(arg0);
+	return this->$XMLFilter::equals(arg0);
 }
 
 $Object* XMLFilterImpl::clone() {
-	 return this->$XMLFilter::clone();
+	return this->$XMLFilter::clone();
 }
 
 $String* XMLFilterImpl::toString() {
-	 return this->$XMLFilter::toString();
+	return this->$XMLFilter::toString();
 }
 
 void XMLFilterImpl::finalize() {

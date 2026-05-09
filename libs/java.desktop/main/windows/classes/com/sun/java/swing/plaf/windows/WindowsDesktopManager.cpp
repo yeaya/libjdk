@@ -21,19 +21,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsDesktopManager::hashCode() {
-	 return this->$DefaultDesktopManager::hashCode();
+	return this->$DefaultDesktopManager::hashCode();
 }
 
 bool WindowsDesktopManager::equals(Object$* arg0) {
-	 return this->$DefaultDesktopManager::equals(arg0);
+	return this->$DefaultDesktopManager::equals(arg0);
 }
 
 $Object* WindowsDesktopManager::clone() {
-	 return this->$DefaultDesktopManager::clone();
+	return this->$DefaultDesktopManager::clone();
 }
 
 $String* WindowsDesktopManager::toString() {
-	 return this->$DefaultDesktopManager::toString();
+	return this->$DefaultDesktopManager::toString();
 }
 
 void WindowsDesktopManager::finalize() {

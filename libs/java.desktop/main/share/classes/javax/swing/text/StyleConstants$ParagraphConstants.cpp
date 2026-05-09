@@ -12,19 +12,19 @@ namespace javax {
 		namespace text {
 
 $String* StyleConstants$ParagraphConstants::toString() {
-	 return this->$StyleConstants::toString();
+	return this->$StyleConstants::toString();
 }
 
 int32_t StyleConstants$ParagraphConstants::hashCode() {
-	 return this->$StyleConstants::hashCode();
+	return this->$StyleConstants::hashCode();
 }
 
 bool StyleConstants$ParagraphConstants::equals(Object$* arg0) {
-	 return this->$StyleConstants::equals(arg0);
+	return this->$StyleConstants::equals(arg0);
 }
 
 $Object* StyleConstants$ParagraphConstants::clone() {
-	 return this->$StyleConstants::clone();
+	return this->$StyleConstants::clone();
 }
 
 void StyleConstants$ParagraphConstants::finalize() {

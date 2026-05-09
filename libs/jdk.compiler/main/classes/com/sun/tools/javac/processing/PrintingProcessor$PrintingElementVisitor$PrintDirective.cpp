@@ -56,7 +56,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($QualifiedNameable, inst$)->getQualifiedName();
+		return $sure($QualifiedNameable, inst$)->getQualifiedName();
 	}
 };
 $Class* PrintingProcessor$PrintingElementVisitor$PrintDirective$$Lambda$getQualifiedName::load$($String* name, bool initialize) {

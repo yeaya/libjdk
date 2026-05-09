@@ -25,11 +25,11 @@ namespace javax {
 	namespace management {
 
 $Object* MBeanFeatureInfo::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 $String* MBeanFeatureInfo::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void MBeanFeatureInfo::finalize() {

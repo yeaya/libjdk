@@ -36,19 +36,19 @@ namespace com {
 						namespace util {
 
 int32_t XMLAttributesImpl::hashCode() {
-	 return this->$XMLAttributes::hashCode();
+	return this->$XMLAttributes::hashCode();
 }
 
 bool XMLAttributesImpl::equals(Object$* arg0) {
-	 return this->$XMLAttributes::equals(arg0);
+	return this->$XMLAttributes::equals(arg0);
 }
 
 $Object* XMLAttributesImpl::clone() {
-	 return this->$XMLAttributes::clone();
+	return this->$XMLAttributes::clone();
 }
 
 $String* XMLAttributesImpl::toString() {
-	 return this->$XMLAttributes::toString();
+	return this->$XMLAttributes::toString();
 }
 
 void XMLAttributesImpl::finalize() {

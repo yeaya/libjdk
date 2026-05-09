@@ -168,7 +168,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Attribute, inst$)->getName());
+		return $of($sure($Attribute, inst$)->getName());
 	}
 };
 $Class* RMIConnector$$Lambda$getName::load$($String* name, bool initialize) {
@@ -193,15 +193,15 @@ $Class* RMIConnector$$Lambda$getName::load$($String* name, bool initialize) {
 $Class* RMIConnector$$Lambda$getName::class$ = nullptr;
 
 int32_t RMIConnector::hashCode() {
-	 return this->$JMXConnector::hashCode();
+	return this->$JMXConnector::hashCode();
 }
 
 bool RMIConnector::equals(Object$* arg0) {
-	 return this->$JMXConnector::equals(arg0);
+	return this->$JMXConnector::equals(arg0);
 }
 
 $Object* RMIConnector::clone() {
-	 return this->$JMXConnector::clone();
+	return this->$JMXConnector::clone();
 }
 
 void RMIConnector::finalize() {

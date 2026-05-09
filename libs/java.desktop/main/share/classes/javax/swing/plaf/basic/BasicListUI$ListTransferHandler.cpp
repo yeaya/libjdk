@@ -24,19 +24,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicListUI$ListTransferHandler::hashCode() {
-	 return this->$TransferHandler::hashCode();
+	return this->$TransferHandler::hashCode();
 }
 
 bool BasicListUI$ListTransferHandler::equals(Object$* arg0) {
-	 return this->$TransferHandler::equals(arg0);
+	return this->$TransferHandler::equals(arg0);
 }
 
 $Object* BasicListUI$ListTransferHandler::clone() {
-	 return this->$TransferHandler::clone();
+	return this->$TransferHandler::clone();
 }
 
 $String* BasicListUI$ListTransferHandler::toString() {
-	 return this->$TransferHandler::toString();
+	return this->$TransferHandler::toString();
 }
 
 void BasicListUI$ListTransferHandler::finalize() {

@@ -37,19 +37,19 @@ namespace com {
 						namespace generic {
 
 $String* RET::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 bool RET::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t RET::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* RET::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void RET::finalize() {

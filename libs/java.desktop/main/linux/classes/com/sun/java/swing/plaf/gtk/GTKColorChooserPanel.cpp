@@ -91,19 +91,19 @@ namespace com {
 					namespace gtk {
 
 $String* GTKColorChooserPanel::toString() {
-	 return this->$AbstractColorChooserPanel::toString();
+	return this->$AbstractColorChooserPanel::toString();
 }
 
 int32_t GTKColorChooserPanel::hashCode() {
-	 return this->$AbstractColorChooserPanel::hashCode();
+	return this->$AbstractColorChooserPanel::hashCode();
 }
 
 bool GTKColorChooserPanel::equals(Object$* arg0) {
-	 return this->$AbstractColorChooserPanel::equals(arg0);
+	return this->$AbstractColorChooserPanel::equals(arg0);
 }
 
 $Object* GTKColorChooserPanel::clone() {
-	 return this->$AbstractColorChooserPanel::clone();
+	return this->$AbstractColorChooserPanel::clone();
 }
 
 void GTKColorChooserPanel::finalize() {

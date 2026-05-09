@@ -53,7 +53,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(Option$7::lambda$process$0($cast($String, s)));
+		return $of(Option$7::lambda$process$0($cast($String, s)));
 	}
 };
 $Class* Option$7$$Lambda$lambda$process$0::load$($String* name, bool initialize) {

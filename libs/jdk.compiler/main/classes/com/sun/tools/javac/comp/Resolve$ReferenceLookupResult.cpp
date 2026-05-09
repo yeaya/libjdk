@@ -64,7 +64,7 @@ public:
 		$set(this, resolutionContext, resolutionContext);
 	}
 	virtual bool test(Object$* c) override {
-		 return Resolve$ReferenceLookupResult::lambda$staticKind$0(resolutionContext, $cast($Resolve$MethodResolutionContext$Candidate, c));
+		return Resolve$ReferenceLookupResult::lambda$staticKind$0(resolutionContext, $cast($Resolve$MethodResolutionContext$Candidate, c));
 	}
 	$Resolve$MethodResolutionContext* resolutionContext = nullptr;
 };
@@ -99,7 +99,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of(Resolve$ReferenceLookupResult::lambda$staticKind$1($cast($Resolve$MethodResolutionContext$Candidate, c)));
+		return $of(Resolve$ReferenceLookupResult::lambda$staticKind$1($cast($Resolve$MethodResolutionContext$Candidate, c)));
 	}
 };
 $Class* Resolve$ReferenceLookupResult$$Lambda$lambda$staticKind$1$1::load$($String* name, bool initialize) {
@@ -129,7 +129,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* sk1, Object$* sk2) override {
-		 return $of($Resolve$ReferenceLookupResult$StaticKind::reduce($cast($Resolve$ReferenceLookupResult$StaticKind, sk1), $cast($Resolve$ReferenceLookupResult$StaticKind, sk2)));
+		return $of($Resolve$ReferenceLookupResult$StaticKind::reduce($cast($Resolve$ReferenceLookupResult$StaticKind, sk1), $cast($Resolve$ReferenceLookupResult$StaticKind, sk2)));
 	}
 };
 $Class* Resolve$ReferenceLookupResult$$Lambda$reduce$2::load$($String* name, bool initialize) {

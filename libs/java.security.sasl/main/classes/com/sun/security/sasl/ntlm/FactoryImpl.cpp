@@ -36,19 +36,19 @@ namespace com {
 				namespace ntlm {
 
 int32_t FactoryImpl::hashCode() {
-	 return this->$SaslClientFactory::hashCode();
+	return this->$SaslClientFactory::hashCode();
 }
 
 bool FactoryImpl::equals(Object$* arg0) {
-	 return this->$SaslClientFactory::equals(arg0);
+	return this->$SaslClientFactory::equals(arg0);
 }
 
 $Object* FactoryImpl::clone() {
-	 return this->$SaslClientFactory::clone();
+	return this->$SaslClientFactory::clone();
 }
 
 $String* FactoryImpl::toString() {
-	 return this->$SaslClientFactory::toString();
+	return this->$SaslClientFactory::toString();
 }
 
 void FactoryImpl::finalize() {

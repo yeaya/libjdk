@@ -62,27 +62,27 @@ namespace com {
 				namespace code {
 
 $Object* Type$ClassType::poolKey($Types* types) {
-	 return this->$Type::poolKey(types);
+	return this->$Type::poolKey(types);
 }
 
 $Annotation* Type$ClassType::getAnnotation($Class* annotationType) {
-	 return this->$Type::getAnnotation(annotationType);
+	return this->$Type::getAnnotation(annotationType);
 }
 
 $AnnotationArray* Type$ClassType::getAnnotationsByType($Class* annotationType) {
-	 return this->$Type::getAnnotationsByType(annotationType);
+	return this->$Type::getAnnotationsByType(annotationType);
 }
 
 bool Type$ClassType::equals(Object$* t) {
-	 return this->$Type::equals(t);
+	return this->$Type::equals(t);
 }
 
 int32_t Type$ClassType::hashCode() {
-	 return this->$Type::hashCode();
+	return this->$Type::hashCode();
 }
 
 $Object* Type$ClassType::clone() {
-	 return this->$Type::clone();
+	return this->$Type::clone();
 }
 
 void Type$ClassType::finalize() {

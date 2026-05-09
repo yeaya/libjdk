@@ -198,7 +198,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($TreeSet));
+		return $of($new($TreeSet));
 	}
 };
 $Class* LogManager$$Lambda$TreeSet::load$($String* name, bool initialize) {
@@ -270,7 +270,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* property) override {
-		 return $LogManager$ConfigProperty::matches($cast($String, property));
+		return $LogManager$ConfigProperty::matches($cast($String, property));
 	}
 };
 $Class* LogManager$$Lambda$matches$2::load$($String* name, bool initialize) {
@@ -302,7 +302,7 @@ public:
 		$set(this, next, next);
 	}
 	virtual bool test(Object$* k) override {
-		 return LogManager::lambda$updateConfiguration$1(previous, next, $cast($String, k));
+		return LogManager::lambda$updateConfiguration$1(previous, next, $cast($String, k));
 	}
 	$Properties* previous = nullptr;
 	$Properties* next = nullptr;
@@ -339,7 +339,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* property) override {
-		 return $of($LogManager$ConfigProperty::getLoggerName($cast($String, property)));
+		return $of($LogManager$ConfigProperty::getLoggerName($cast($String, property)));
 	}
 };
 $Class* LogManager$$Lambda$getLoggerName$4::load$($String* name, bool initialize) {
@@ -369,7 +369,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($TreeMap));
+		return $of($new($TreeMap));
 	}
 };
 $Class* LogManager$$Lambda$TreeMap$5::load$($String* name, bool initialize) {
@@ -400,7 +400,7 @@ public:
 		$set(this, l, l);
 	}
 	virtual bool test(Object$* c) override {
-		 return LogManager::lambda$updateConfiguration$2(l, $cast($LogManager$CloseOnReset, c));
+		return LogManager::lambda$updateConfiguration$2(l, $cast($LogManager$CloseOnReset, c));
 	}
 	$Logger* l = nullptr;
 };
@@ -436,7 +436,7 @@ public:
 		$set(this, r, r);
 	}
 	virtual $Object* run() override {
-		 return LogManager::lambda$addConfigurationListener$3(r);
+		return LogManager::lambda$addConfigurationListener$3(r);
 	}
 	$Runnable* r = nullptr;
 };

@@ -48,7 +48,7 @@ public:
 		$set(this, sm, sm);
 	}
 	virtual bool test(Object$* f) override {
-		 return ShellFolderManager::lambda$checkFiles$0(sm, $cast($File, f));
+		return ShellFolderManager::lambda$checkFiles$0(sm, $cast($File, f));
 	}
 	$SecurityManager* sm = nullptr;
 };
@@ -83,7 +83,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return ShellFolderManager::lambda$checkFiles$1(x$0);
+		return ShellFolderManager::lambda$checkFiles$1(x$0);
 	}
 };
 $Class* ShellFolderManager$$Lambda$lambda$checkFiles$1$1::load$($String* name, bool initialize) {

@@ -14,15 +14,15 @@ namespace sun {
 			namespace spi {
 
 bool GSSNameSpi::equals(Object$* another) {
-	 return this->$Object::equals(another);
+	return this->$Object::equals(another);
 }
 
 int32_t GSSNameSpi::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $String* GSSNameSpi::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $Class* GSSNameSpi::load$($String* name, bool initialize) {

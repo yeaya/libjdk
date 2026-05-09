@@ -37,19 +37,19 @@ namespace javax {
 		namespace text {
 
 int32_t JTextComponent$InputMethodRequestsHandler::hashCode() {
-	 return this->$InputMethodRequests::hashCode();
+	return this->$InputMethodRequests::hashCode();
 }
 
 bool JTextComponent$InputMethodRequestsHandler::equals(Object$* arg0) {
-	 return this->$InputMethodRequests::equals(arg0);
+	return this->$InputMethodRequests::equals(arg0);
 }
 
 $Object* JTextComponent$InputMethodRequestsHandler::clone() {
-	 return this->$InputMethodRequests::clone();
+	return this->$InputMethodRequests::clone();
 }
 
 $String* JTextComponent$InputMethodRequestsHandler::toString() {
-	 return this->$InputMethodRequests::toString();
+	return this->$InputMethodRequests::toString();
 }
 
 void JTextComponent$InputMethodRequestsHandler::finalize() {

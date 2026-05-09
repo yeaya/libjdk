@@ -17,19 +17,19 @@ namespace javax {
 		namespace plaf {
 
 int32_t IconUIResource::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool IconUIResource::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* IconUIResource::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* IconUIResource::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void IconUIResource::finalize() {

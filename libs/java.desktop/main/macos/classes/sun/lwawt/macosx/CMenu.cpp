@@ -50,7 +50,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual int64_t run(int64_t parentMenuPtr) override {
-		 return $nc(inst$)->nativeCreateSubMenu(parentMenuPtr);
+		return $nc(inst$)->nativeCreateSubMenu(parentMenuPtr);
 	}
 	CMenu* inst$ = nullptr;
 };
@@ -88,7 +88,7 @@ public:
 		this->insertionLocation = insertionLocation;
 	}
 	virtual int64_t run(int64_t ptr) override {
-		 return $nc(inst$)->lambda$createModel$0(isHelpMenu, insertionLocation, ptr);
+		return $nc(inst$)->lambda$createModel$0(isHelpMenu, insertionLocation, ptr);
 	}
 	CMenu* inst$ = nullptr;
 	bool isHelpMenu = false;
@@ -206,7 +206,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual int64_t run(int64_t menuPtr) override {
-		 return $nc(inst$)->nativeGetNSMenu(menuPtr);
+		return $nc(inst$)->nativeGetNSMenu(menuPtr);
 	}
 	CMenu* inst$ = nullptr;
 };
@@ -248,19 +248,19 @@ void CMenu::finalize() {
 }
 
 int32_t CMenu::hashCode() {
-	 return this->$CMenuItem::hashCode();
+	return this->$CMenuItem::hashCode();
 }
 
 bool CMenu::equals(Object$* arg0) {
-	 return this->$CMenuItem::equals(arg0);
+	return this->$CMenuItem::equals(arg0);
 }
 
 $Object* CMenu::clone() {
-	 return this->$CMenuItem::clone();
+	return this->$CMenuItem::clone();
 }
 
 $String* CMenu::toString() {
-	 return this->$CMenuItem::toString();
+	return this->$CMenuItem::toString();
 }
 
 void CMenu::init$($Menu* target) {

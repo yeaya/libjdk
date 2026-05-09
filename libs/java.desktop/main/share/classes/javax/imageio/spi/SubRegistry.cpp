@@ -45,7 +45,7 @@ public:
 		$set(this, rs, rs);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$clear$0(rs);
+		return $nc(inst$)->lambda$clear$0(rs);
 	}
 	SubRegistry* inst$ = nullptr;
 	$RegisterableService* rs = nullptr;

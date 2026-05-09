@@ -24,19 +24,19 @@ namespace com {
 		namespace laf {
 
 $String* AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport::toString() {
-	 return this->$JViewport::toString();
+	return this->$JViewport::toString();
 }
 
 int32_t AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport::hashCode() {
-	 return this->$JViewport::hashCode();
+	return this->$JViewport::hashCode();
 }
 
 bool AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport::equals(Object$* arg0) {
-	 return this->$JViewport::equals(arg0);
+	return this->$JViewport::equals(arg0);
 }
 
 $Object* AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport::clone() {
-	 return this->$JViewport::clone();
+	return this->$JViewport::clone();
 }
 
 void AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport::finalize() {

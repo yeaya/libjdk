@@ -29,23 +29,23 @@ namespace com {
 						namespace generic {
 
 $String* Select::toString() {
-	 return this->$BranchInstruction::toString();
+	return this->$BranchInstruction::toString();
 }
 
 int32_t Select::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$BranchInstruction::consumeStack(cpg);
+	return this->$BranchInstruction::consumeStack(cpg);
 }
 
 int32_t Select::produceStack($ConstantPoolGen* cpg) {
-	 return this->$BranchInstruction::produceStack(cpg);
+	return this->$BranchInstruction::produceStack(cpg);
 }
 
 bool Select::equals(Object$* that) {
-	 return this->$BranchInstruction::equals(that);
+	return this->$BranchInstruction::equals(that);
 }
 
 int32_t Select::hashCode() {
-	 return this->$BranchInstruction::hashCode();
+	return this->$BranchInstruction::hashCode();
 }
 
 void Select::finalize() {

@@ -25,19 +25,19 @@ namespace sun {
 			namespace ext {
 
 int32_t MacRomania::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool MacRomania::equals(Object$* arg0) {
-	 return this->$Charset::equals(arg0);
+	return this->$Charset::equals(arg0);
 }
 
 $String* MacRomania::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* MacRomania::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void MacRomania::finalize() {

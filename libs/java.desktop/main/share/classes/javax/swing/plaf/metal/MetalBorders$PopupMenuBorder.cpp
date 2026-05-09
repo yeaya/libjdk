@@ -24,19 +24,19 @@ namespace javax {
 			namespace metal {
 
 int32_t MetalBorders$PopupMenuBorder::hashCode() {
-	 return this->$AbstractBorder::hashCode();
+	return this->$AbstractBorder::hashCode();
 }
 
 bool MetalBorders$PopupMenuBorder::equals(Object$* arg0) {
-	 return this->$AbstractBorder::equals(arg0);
+	return this->$AbstractBorder::equals(arg0);
 }
 
 $Object* MetalBorders$PopupMenuBorder::clone() {
-	 return this->$AbstractBorder::clone();
+	return this->$AbstractBorder::clone();
 }
 
 $String* MetalBorders$PopupMenuBorder::toString() {
-	 return this->$AbstractBorder::toString();
+	return this->$AbstractBorder::toString();
 }
 
 void MetalBorders$PopupMenuBorder::finalize() {

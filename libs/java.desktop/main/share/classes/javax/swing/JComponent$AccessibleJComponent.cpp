@@ -67,19 +67,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JComponent$AccessibleJComponent::hashCode() {
-	 return this->$Container$AccessibleAWTContainer::hashCode();
+	return this->$Container$AccessibleAWTContainer::hashCode();
 }
 
 bool JComponent$AccessibleJComponent::equals(Object$* arg0) {
-	 return this->$Container$AccessibleAWTContainer::equals(arg0);
+	return this->$Container$AccessibleAWTContainer::equals(arg0);
 }
 
 $Object* JComponent$AccessibleJComponent::clone() {
-	 return this->$Container$AccessibleAWTContainer::clone();
+	return this->$Container$AccessibleAWTContainer::clone();
 }
 
 $String* JComponent$AccessibleJComponent::toString() {
-	 return this->$Container$AccessibleAWTContainer::toString();
+	return this->$Container$AccessibleAWTContainer::toString();
 }
 
 void JComponent$AccessibleJComponent::finalize() {

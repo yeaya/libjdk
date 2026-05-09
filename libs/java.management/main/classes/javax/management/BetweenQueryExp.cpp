@@ -25,15 +25,15 @@ void BetweenQueryExp::setMBeanServer($MBeanServer* s) {
 }
 
 int32_t BetweenQueryExp::hashCode() {
-	 return this->$QueryEval::hashCode();
+	return this->$QueryEval::hashCode();
 }
 
 bool BetweenQueryExp::equals(Object$* arg0) {
-	 return this->$QueryEval::equals(arg0);
+	return this->$QueryEval::equals(arg0);
 }
 
 $Object* BetweenQueryExp::clone() {
-	 return this->$QueryEval::clone();
+	return this->$QueryEval::clone();
 }
 
 void BetweenQueryExp::finalize() {

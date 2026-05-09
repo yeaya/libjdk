@@ -52,15 +52,15 @@ namespace com {
 				namespace code {
 
 int32_t Attribute$Compound::hashCode() {
-	 return this->$Attribute::hashCode();
+	return this->$Attribute::hashCode();
 }
 
 bool Attribute$Compound::equals(Object$* arg0) {
-	 return this->$Attribute::equals(arg0);
+	return this->$Attribute::equals(arg0);
 }
 
 $Object* Attribute$Compound::clone() {
-	 return this->$Attribute::clone();
+	return this->$Attribute::clone();
 }
 
 void Attribute$Compound::finalize() {

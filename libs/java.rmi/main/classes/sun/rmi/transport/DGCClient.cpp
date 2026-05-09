@@ -55,7 +55,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DGCClient::lambda$static$0());
+		return $of(DGCClient::lambda$static$0());
 	}
 };
 $Class* DGCClient$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -85,7 +85,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DGCClient::lambda$static$1());
+		return $of(DGCClient::lambda$static$1());
 	}
 };
 $Class* DGCClient$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
@@ -115,7 +115,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DGCClient::lambda$static$2());
+		return $of(DGCClient::lambda$static$2());
 	}
 };
 $Class* DGCClient$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {

@@ -47,19 +47,19 @@ namespace sun {
 		namespace pipe {
 
 int32_t AAShapePipe::hashCode() {
-	 return this->$ShapeDrawPipe::hashCode();
+	return this->$ShapeDrawPipe::hashCode();
 }
 
 bool AAShapePipe::equals(Object$* arg0) {
-	 return this->$ShapeDrawPipe::equals(arg0);
+	return this->$ShapeDrawPipe::equals(arg0);
 }
 
 $Object* AAShapePipe::clone() {
-	 return this->$ShapeDrawPipe::clone();
+	return this->$ShapeDrawPipe::clone();
 }
 
 $String* AAShapePipe::toString() {
-	 return this->$ShapeDrawPipe::toString();
+	return this->$ShapeDrawPipe::toString();
 }
 
 void AAShapePipe::finalize() {

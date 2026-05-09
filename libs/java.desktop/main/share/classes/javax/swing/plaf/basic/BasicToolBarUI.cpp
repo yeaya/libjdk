@@ -141,19 +141,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicToolBarUI::hashCode() {
-	 return this->$ToolBarUI::hashCode();
+	return this->$ToolBarUI::hashCode();
 }
 
 bool BasicToolBarUI::equals(Object$* arg0) {
-	 return this->$ToolBarUI::equals(arg0);
+	return this->$ToolBarUI::equals(arg0);
 }
 
 $Object* BasicToolBarUI::clone() {
-	 return this->$ToolBarUI::clone();
+	return this->$ToolBarUI::clone();
 }
 
 $String* BasicToolBarUI::toString() {
-	 return this->$ToolBarUI::toString();
+	return this->$ToolBarUI::toString();
 }
 
 void BasicToolBarUI::finalize() {

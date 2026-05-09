@@ -40,7 +40,7 @@ public:
 	void init$() {
 	}
 	virtual bool equals($Instruction* i1, $Instruction* i2) override {
-		 return InstructionComparator::lambda$static$0(i1, i2);
+		return InstructionComparator::lambda$static$0(i1, i2);
 	}
 };
 $Class* InstructionComparator$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

@@ -15,15 +15,15 @@ namespace javax {
 			namespace standard {
 
 int32_t Destination::hashCode() {
-	 return this->$URISyntax::hashCode();
+	return this->$URISyntax::hashCode();
 }
 
 $String* Destination::toString() {
-	 return this->$URISyntax::toString();
+	return this->$URISyntax::toString();
 }
 
 $Object* Destination::clone() {
-	 return this->$URISyntax::clone();
+	return this->$URISyntax::clone();
 }
 
 void Destination::finalize() {

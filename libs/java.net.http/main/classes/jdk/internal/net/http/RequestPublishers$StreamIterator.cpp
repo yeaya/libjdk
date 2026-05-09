@@ -40,7 +40,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($Utils::getBuffer());
+		return $of($Utils::getBuffer());
 	}
 };
 $Class* RequestPublishers$StreamIterator$$Lambda$getBuffer::load$($String* name, bool initialize) {

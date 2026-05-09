@@ -119,7 +119,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(UnicastServerRef::lambda$static$0());
+		return $of(UnicastServerRef::lambda$static$0());
 	}
 };
 $Class* UnicastServerRef$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -149,7 +149,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(UnicastServerRef::lambda$static$1());
+		return $of(UnicastServerRef::lambda$static$1());
 	}
 };
 $Class* UnicastServerRef$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
@@ -179,7 +179,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(UnicastServerRef::lambda$static$2());
+		return $of(UnicastServerRef::lambda$static$2());
 	}
 };
 $Class* UnicastServerRef$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {
@@ -211,7 +211,7 @@ public:
 		$set(this, ois, ois);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$unmarshalCustomCallData$3(ois);
+		return $nc(inst$)->lambda$unmarshalCustomCallData$3(ois);
 	}
 	UnicastServerRef* inst$ = nullptr;
 	$ObjectInputStream* ois = nullptr;
@@ -243,11 +243,11 @@ $Class* UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::load$($Stri
 $Class* UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::class$ = nullptr;
 
 $Object* UnicastServerRef::invoke($Remote* obj, $Method* method, $ObjectArray* params, int64_t opnum) {
-	 return this->$UnicastRef::invoke(obj, method, params, opnum);
+	return this->$UnicastRef::invoke(obj, method, params, opnum);
 }
 
 $RemoteCall* UnicastServerRef::newCall($RemoteObject* obj, $OperationArray* ops, int32_t opnum, int64_t hash) {
-	 return this->$UnicastRef::newCall(obj, ops, opnum, hash);
+	return this->$UnicastRef::newCall(obj, ops, opnum, hash);
 }
 
 void UnicastServerRef::invoke($RemoteCall* call) {
@@ -259,31 +259,31 @@ void UnicastServerRef::done($RemoteCall* call) {
 }
 
 $String* UnicastServerRef::remoteToString() {
-	 return this->$UnicastRef::remoteToString();
+	return this->$UnicastRef::remoteToString();
 }
 
 int32_t UnicastServerRef::remoteHashCode() {
-	 return this->$UnicastRef::remoteHashCode();
+	return this->$UnicastRef::remoteHashCode();
 }
 
 bool UnicastServerRef::remoteEquals($RemoteRef* sub) {
-	 return this->$UnicastRef::remoteEquals(sub);
+	return this->$UnicastRef::remoteEquals(sub);
 }
 
 int32_t UnicastServerRef::hashCode() {
-	 return this->$UnicastRef::hashCode();
+	return this->$UnicastRef::hashCode();
 }
 
 bool UnicastServerRef::equals(Object$* arg0) {
-	 return this->$UnicastRef::equals(arg0);
+	return this->$UnicastRef::equals(arg0);
 }
 
 $Object* UnicastServerRef::clone() {
-	 return this->$UnicastRef::clone();
+	return this->$UnicastRef::clone();
 }
 
 $String* UnicastServerRef::toString() {
-	 return this->$UnicastRef::toString();
+	return this->$UnicastRef::toString();
 }
 
 void UnicastServerRef::finalize() {

@@ -29,19 +29,19 @@ namespace javax {
 			namespace metal {
 
 int32_t MetalIconFactory$HorizontalSliderThumbIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool MetalIconFactory$HorizontalSliderThumbIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* MetalIconFactory$HorizontalSliderThumbIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* MetalIconFactory$HorizontalSliderThumbIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void MetalIconFactory$HorizontalSliderThumbIcon::finalize() {

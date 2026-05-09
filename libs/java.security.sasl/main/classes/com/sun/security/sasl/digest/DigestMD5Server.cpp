@@ -98,15 +98,15 @@ namespace com {
 				namespace digest {
 
 $String* DigestMD5Server::getMechanismName() {
-	 return this->$DigestMD5Base::getMechanismName();
+	return this->$DigestMD5Base::getMechanismName();
 }
 
 $bytes* DigestMD5Server::unwrap($bytes* incoming, int32_t start, int32_t len) {
-	 return this->$DigestMD5Base::unwrap(incoming, start, len);
+	return this->$DigestMD5Base::unwrap(incoming, start, len);
 }
 
 $bytes* DigestMD5Server::wrap($bytes* outgoing, int32_t start, int32_t len) {
-	 return this->$DigestMD5Base::wrap(outgoing, start, len);
+	return this->$DigestMD5Base::wrap(outgoing, start, len);
 }
 
 void DigestMD5Server::dispose() {
@@ -114,27 +114,27 @@ void DigestMD5Server::dispose() {
 }
 
 $Object* DigestMD5Server::getNegotiatedProperty($String* propName) {
-	 return this->$DigestMD5Base::getNegotiatedProperty(propName);
+	return this->$DigestMD5Base::getNegotiatedProperty(propName);
 }
 
 bool DigestMD5Server::isComplete() {
-	 return this->$DigestMD5Base::isComplete();
+	return this->$DigestMD5Base::isComplete();
 }
 
 int32_t DigestMD5Server::hashCode() {
-	 return this->$DigestMD5Base::hashCode();
+	return this->$DigestMD5Base::hashCode();
 }
 
 bool DigestMD5Server::equals(Object$* arg0) {
-	 return this->$DigestMD5Base::equals(arg0);
+	return this->$DigestMD5Base::equals(arg0);
 }
 
 $Object* DigestMD5Server::clone() {
-	 return this->$DigestMD5Base::clone();
+	return this->$DigestMD5Base::clone();
 }
 
 $String* DigestMD5Server::toString() {
-	 return this->$DigestMD5Base::toString();
+	return this->$DigestMD5Base::toString();
 }
 
 void DigestMD5Server::finalize() {

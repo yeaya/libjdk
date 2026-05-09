@@ -90,7 +90,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $new(SystemFlavorMap);
+		return $new(SystemFlavorMap);
 	}
 };
 $Class* SystemFlavorMap$$Lambda$SystemFlavorMap::load$($String* name, bool initialize) {
@@ -120,7 +120,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return SystemFlavorMap::lambda$initSystemFlavorMap$0();
+		return SystemFlavorMap::lambda$initSystemFlavorMap$0();
 	}
 };
 $Class* SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1::load$($String* name, bool initialize) {

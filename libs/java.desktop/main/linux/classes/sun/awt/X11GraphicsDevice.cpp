@@ -100,7 +100,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$setDisplayMode$1();
+		return $nc(inst$)->lambda$setDisplayMode$1();
 	}
 	X11GraphicsDevice* inst$ = nullptr;
 };
@@ -166,15 +166,15 @@ $Class* X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1::load$($String* name
 $Class* X11GraphicsDevice$$Lambda$lambda$setDisplayMode$0$1::class$ = nullptr;
 
 int32_t X11GraphicsDevice::hashCode() {
-	 return this->$GraphicsDevice::hashCode();
+	return this->$GraphicsDevice::hashCode();
 }
 
 bool X11GraphicsDevice::equals(Object$* arg0) {
-	 return this->$GraphicsDevice::equals(arg0);
+	return this->$GraphicsDevice::equals(arg0);
 }
 
 $Object* X11GraphicsDevice::clone() {
-	 return this->$GraphicsDevice::clone();
+	return this->$GraphicsDevice::clone();
 }
 
 void X11GraphicsDevice::finalize() {

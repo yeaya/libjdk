@@ -31,19 +31,19 @@ namespace javax {
 			namespace nimbus {
 
 int32_t NimbusDefaults$PainterBorder::hashCode() {
-	 return this->$Border::hashCode();
+	return this->$Border::hashCode();
 }
 
 bool NimbusDefaults$PainterBorder::equals(Object$* arg0) {
-	 return this->$Border::equals(arg0);
+	return this->$Border::equals(arg0);
 }
 
 $Object* NimbusDefaults$PainterBorder::clone() {
-	 return this->$Border::clone();
+	return this->$Border::clone();
 }
 
 $String* NimbusDefaults$PainterBorder::toString() {
-	 return this->$Border::toString();
+	return this->$Border::toString();
 }
 
 void NimbusDefaults$PainterBorder::finalize() {

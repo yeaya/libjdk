@@ -50,19 +50,19 @@ namespace javax {
 	namespace swing {
 
 int32_t LayoutFocusTraversalPolicy::hashCode() {
-	 return this->$SortingFocusTraversalPolicy::hashCode();
+	return this->$SortingFocusTraversalPolicy::hashCode();
 }
 
 bool LayoutFocusTraversalPolicy::equals(Object$* arg0) {
-	 return this->$SortingFocusTraversalPolicy::equals(arg0);
+	return this->$SortingFocusTraversalPolicy::equals(arg0);
 }
 
 $Object* LayoutFocusTraversalPolicy::clone() {
-	 return this->$SortingFocusTraversalPolicy::clone();
+	return this->$SortingFocusTraversalPolicy::clone();
 }
 
 $String* LayoutFocusTraversalPolicy::toString() {
-	 return this->$SortingFocusTraversalPolicy::toString();
+	return this->$SortingFocusTraversalPolicy::toString();
 }
 
 void LayoutFocusTraversalPolicy::finalize() {

@@ -321,7 +321,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(int32_t index) override {
-		 return $nc(inst$)->getNameAndType(index);
+		return $nc(inst$)->getNameAndType(index);
 	}
 	$PoolReader* inst$ = nullptr;
 };
@@ -357,7 +357,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(int32_t index) override {
-		 return $of($nc(inst$)->getName(index));
+		return $of($nc(inst$)->getName(index));
 	}
 	$PoolReader* inst$ = nullptr;
 };
@@ -393,7 +393,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(int32_t idx) override {
-		 return $of($nc(inst$)->lambda$readClass$0(idx));
+		return $of($nc(inst$)->lambda$readClass$0(idx));
 	}
 	ClassReader* inst$ = nullptr;
 };
@@ -428,7 +428,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return ClassReader::lambda$lookupMethod$1($cast($Symbol, s));
+		return ClassReader::lambda$lookupMethod$1($cast($Symbol, s));
 	}
 };
 $Class* ClassReader$$Lambda$lambda$lookupMethod$1$3::load$($String* name, bool initialize) {
@@ -459,7 +459,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(int32_t index) override {
-		 return $of($nc(inst$)->getClass(index));
+		return $of($nc(inst$)->getClass(index));
 	}
 	$PoolReader* inst$ = nullptr;
 };

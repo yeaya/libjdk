@@ -33,19 +33,19 @@ namespace javax {
 			namespace metal {
 
 int32_t MetalBorders$MenuItemBorder::hashCode() {
-	 return this->$AbstractBorder::hashCode();
+	return this->$AbstractBorder::hashCode();
 }
 
 bool MetalBorders$MenuItemBorder::equals(Object$* arg0) {
-	 return this->$AbstractBorder::equals(arg0);
+	return this->$AbstractBorder::equals(arg0);
 }
 
 $Object* MetalBorders$MenuItemBorder::clone() {
-	 return this->$AbstractBorder::clone();
+	return this->$AbstractBorder::clone();
 }
 
 $String* MetalBorders$MenuItemBorder::toString() {
-	 return this->$AbstractBorder::toString();
+	return this->$AbstractBorder::toString();
 }
 
 void MetalBorders$MenuItemBorder::finalize() {

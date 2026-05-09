@@ -138,7 +138,7 @@ public:
 		$set(this, w, w);
 	}
 	virtual $Object* make($Context* c) override {
-		 return Log::lambda$preRegister$0(w, c);
+		return Log::lambda$preRegister$0(w, c);
 	}
 	$PrintWriter* w = nullptr;
 };

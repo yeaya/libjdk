@@ -57,7 +57,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* o) override {
-		 return Util::lambda$indexBy$0(o);
+		return Util::lambda$indexBy$0(o);
 	}
 };
 $Class* Util$$Lambda$lambda$indexBy$0::load$($String* name, bool initialize) {

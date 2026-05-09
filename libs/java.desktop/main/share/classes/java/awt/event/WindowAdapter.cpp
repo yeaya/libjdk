@@ -13,19 +13,19 @@ namespace java {
 		namespace event {
 
 int32_t WindowAdapter::hashCode() {
-	 return this->$WindowListener::hashCode();
+	return this->$WindowListener::hashCode();
 }
 
 bool WindowAdapter::equals(Object$* arg0) {
-	 return this->$WindowListener::equals(arg0);
+	return this->$WindowListener::equals(arg0);
 }
 
 $Object* WindowAdapter::clone() {
-	 return this->$WindowListener::clone();
+	return this->$WindowListener::clone();
 }
 
 $String* WindowAdapter::toString() {
-	 return this->$WindowListener::toString();
+	return this->$WindowListener::toString();
 }
 
 void WindowAdapter::finalize() {

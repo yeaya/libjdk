@@ -23,19 +23,19 @@ namespace com {
 					namespace motif {
 
 int32_t MotifComboBoxUI$MotifComboBoxArrowIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool MotifComboBoxUI$MotifComboBoxArrowIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* MotifComboBoxUI$MotifComboBoxArrowIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* MotifComboBoxUI$MotifComboBoxArrowIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void MotifComboBoxUI$MotifComboBoxArrowIcon::finalize() {

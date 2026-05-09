@@ -151,7 +151,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$0(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$0(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0::load$($String* name, bool initialize) {
@@ -181,7 +181,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$1(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$1(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::load$($String* name, bool initialize) {
@@ -211,7 +211,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$2(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$2(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::load$($String* name, bool initialize) {
@@ -241,7 +241,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$3(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$3(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::load$($String* name, bool initialize) {
@@ -271,7 +271,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$4(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$4(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::load$($String* name, bool initialize) {
@@ -301,7 +301,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$5(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$5(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::load$($String* name, bool initialize) {
@@ -331,7 +331,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$6(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$6(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::load$($String* name, bool initialize) {
@@ -361,7 +361,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$7(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$7(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::load$($String* name, bool initialize) {
@@ -391,7 +391,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$8(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$8(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::load$($String* name, bool initialize) {
@@ -421,7 +421,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$9(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$9(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::load$($String* name, bool initialize) {
@@ -451,7 +451,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$10(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$10(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::load$($String* name, bool initialize) {
@@ -481,7 +481,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$11(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$11(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::load$($String* name, bool initialize) {
@@ -511,7 +511,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$12(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$12(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::load$($String* name, bool initialize) {
@@ -541,7 +541,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$13(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$13(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13::load$($String* name, bool initialize) {
@@ -571,7 +571,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$14(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$14(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14::load$($String* name, bool initialize) {
@@ -601,7 +601,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$15(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$15(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15::load$($String* name, bool initialize) {
@@ -631,7 +631,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$16(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$16(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16::load$($String* name, bool initialize) {
@@ -661,7 +661,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$17(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$17(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17::load$($String* name, bool initialize) {
@@ -691,7 +691,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$18(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$18(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18::load$($String* name, bool initialize) {
@@ -721,7 +721,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$19(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$19(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19::load$($String* name, bool initialize) {
@@ -751,7 +751,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$20(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$20(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20::load$($String* name, bool initialize) {
@@ -781,7 +781,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$21(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$21(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21::load$($String* name, bool initialize) {
@@ -811,7 +811,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$23(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$23(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22::load$($String* name, bool initialize) {
@@ -841,7 +841,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$24(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$24(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23::load$($String* name, bool initialize) {
@@ -871,7 +871,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$25(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$25(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24::load$($String* name, bool initialize) {
@@ -901,7 +901,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$26(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$26(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25::load$($String* name, bool initialize) {
@@ -931,7 +931,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$27(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$27(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26::load$($String* name, bool initialize) {
@@ -961,7 +961,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$28(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$28(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27::load$($String* name, bool initialize) {
@@ -991,7 +991,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$29(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$29(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28::load$($String* name, bool initialize) {
@@ -1021,7 +1021,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$30(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$30(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29::load$($String* name, bool initialize) {
@@ -1051,7 +1051,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$31(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$31(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30::load$($String* name, bool initialize) {
@@ -1081,7 +1081,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$32(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$32(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31::load$($String* name, bool initialize) {
@@ -1111,7 +1111,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$35(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$35(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::load$($String* name, bool initialize) {
@@ -1141,7 +1141,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$37(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$37(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33::load$($String* name, bool initialize) {
@@ -1171,7 +1171,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$38(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$38(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34::load$($String* name, bool initialize) {
@@ -1201,7 +1201,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$39(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$39(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35::load$($String* name, bool initialize) {
@@ -1231,7 +1231,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$40(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$40(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36::load$($String* name, bool initialize) {
@@ -1261,7 +1261,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$41(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$41(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37::load$($String* name, bool initialize) {
@@ -1291,7 +1291,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$42(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$42(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38::load$($String* name, bool initialize) {
@@ -1321,7 +1321,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* createValue($UIDefaults* t) override {
-		 return AquaLookAndFeel::lambda$initComponentDefaults$43(t);
+		return AquaLookAndFeel::lambda$initComponentDefaults$43(t);
 	}
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::load$($String* name, bool initialize) {

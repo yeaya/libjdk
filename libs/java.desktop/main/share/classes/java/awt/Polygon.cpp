@@ -44,19 +44,19 @@ namespace java {
 	namespace awt {
 
 int32_t Polygon::hashCode() {
-	 return this->$Shape::hashCode();
+	return this->$Shape::hashCode();
 }
 
 bool Polygon::equals(Object$* arg0) {
-	 return this->$Shape::equals(arg0);
+	return this->$Shape::equals(arg0);
 }
 
 $Object* Polygon::clone() {
-	 return this->$Shape::clone();
+	return this->$Shape::clone();
 }
 
 $String* Polygon::toString() {
-	 return this->$Shape::toString();
+	return this->$Shape::toString();
 }
 
 void Polygon::finalize() {

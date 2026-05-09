@@ -139,19 +139,19 @@ namespace sun {
 		namespace marlin {
 
 int32_t DMarlinRenderingEngine::hashCode() {
-	 return this->$RenderingEngine::hashCode();
+	return this->$RenderingEngine::hashCode();
 }
 
 bool DMarlinRenderingEngine::equals(Object$* arg0) {
-	 return this->$RenderingEngine::equals(arg0);
+	return this->$RenderingEngine::equals(arg0);
 }
 
 $Object* DMarlinRenderingEngine::clone() {
-	 return this->$RenderingEngine::clone();
+	return this->$RenderingEngine::clone();
 }
 
 $String* DMarlinRenderingEngine::toString() {
-	 return this->$RenderingEngine::toString();
+	return this->$RenderingEngine::toString();
 }
 
 void DMarlinRenderingEngine::finalize() {

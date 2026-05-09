@@ -66,19 +66,19 @@ namespace com {
 							namespace ref {
 
 int32_t IncrementalSAXSource_Filter::hashCode() {
-	 return this->$IncrementalSAXSource::hashCode();
+	return this->$IncrementalSAXSource::hashCode();
 }
 
 bool IncrementalSAXSource_Filter::equals(Object$* arg0) {
-	 return this->$IncrementalSAXSource::equals(arg0);
+	return this->$IncrementalSAXSource::equals(arg0);
 }
 
 $Object* IncrementalSAXSource_Filter::clone() {
-	 return this->$IncrementalSAXSource::clone();
+	return this->$IncrementalSAXSource::clone();
 }
 
 $String* IncrementalSAXSource_Filter::toString() {
-	 return this->$IncrementalSAXSource::toString();
+	return this->$IncrementalSAXSource::toString();
 }
 
 void IncrementalSAXSource_Filter::finalize() {

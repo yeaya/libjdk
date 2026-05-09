@@ -59,19 +59,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaFileSystemModel::hashCode() {
-	 return this->$AbstractTableModel::hashCode();
+	return this->$AbstractTableModel::hashCode();
 }
 
 bool AquaFileSystemModel::equals(Object$* arg0) {
-	 return this->$AbstractTableModel::equals(arg0);
+	return this->$AbstractTableModel::equals(arg0);
 }
 
 $Object* AquaFileSystemModel::clone() {
-	 return this->$AbstractTableModel::clone();
+	return this->$AbstractTableModel::clone();
 }
 
 $String* AquaFileSystemModel::toString() {
-	 return this->$AbstractTableModel::toString();
+	return this->$AbstractTableModel::toString();
 }
 
 void AquaFileSystemModel::finalize() {

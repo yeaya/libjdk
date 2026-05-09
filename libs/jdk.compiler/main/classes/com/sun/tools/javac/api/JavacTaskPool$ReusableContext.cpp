@@ -81,19 +81,19 @@ namespace com {
 				namespace api {
 
 int32_t JavacTaskPool$ReusableContext::hashCode() {
-	 return this->$Context::hashCode();
+	return this->$Context::hashCode();
 }
 
 bool JavacTaskPool$ReusableContext::equals(Object$* arg0) {
-	 return this->$Context::equals(arg0);
+	return this->$Context::equals(arg0);
 }
 
 $Object* JavacTaskPool$ReusableContext::clone() {
-	 return this->$Context::clone();
+	return this->$Context::clone();
 }
 
 $String* JavacTaskPool$ReusableContext::toString() {
-	 return this->$Context::toString();
+	return this->$Context::toString();
 }
 
 void JavacTaskPool$ReusableContext::finalize() {

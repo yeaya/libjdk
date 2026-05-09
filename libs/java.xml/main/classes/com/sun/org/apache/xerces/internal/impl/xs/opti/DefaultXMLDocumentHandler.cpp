@@ -38,19 +38,19 @@ namespace com {
 								namespace opti {
 
 int32_t DefaultXMLDocumentHandler::hashCode() {
-	 return this->$XMLDocumentHandler::hashCode();
+	return this->$XMLDocumentHandler::hashCode();
 }
 
 bool DefaultXMLDocumentHandler::equals(Object$* arg0) {
-	 return this->$XMLDocumentHandler::equals(arg0);
+	return this->$XMLDocumentHandler::equals(arg0);
 }
 
 $Object* DefaultXMLDocumentHandler::clone() {
-	 return this->$XMLDocumentHandler::clone();
+	return this->$XMLDocumentHandler::clone();
 }
 
 $String* DefaultXMLDocumentHandler::toString() {
-	 return this->$XMLDocumentHandler::toString();
+	return this->$XMLDocumentHandler::toString();
 }
 
 void DefaultXMLDocumentHandler::finalize() {

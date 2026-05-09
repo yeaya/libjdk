@@ -25,19 +25,19 @@ namespace sun {
 			namespace ext {
 
 int32_t MacCyrillic::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool MacCyrillic::equals(Object$* arg0) {
-	 return this->$Charset::equals(arg0);
+	return this->$Charset::equals(arg0);
 }
 
 $String* MacCyrillic::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* MacCyrillic::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void MacCyrillic::finalize() {

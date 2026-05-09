@@ -43,11 +43,11 @@ namespace com {
 									namespace x509 {
 
 $Object* XMLX509IssuerSerial::clone() {
-	 return this->$SignatureElementProxy::clone();
+	return this->$SignatureElementProxy::clone();
 }
 
 $String* XMLX509IssuerSerial::toString() {
-	 return this->$SignatureElementProxy::toString();
+	return this->$SignatureElementProxy::toString();
 }
 
 void XMLX509IssuerSerial::finalize() {

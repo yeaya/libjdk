@@ -33,31 +33,31 @@ void MutationEventImpl::initEvent($String* eventTypeArg, bool canBubbleArg, bool
 }
 
 bool MutationEventImpl::getBubbles() {
-	 return this->$EventImpl::getBubbles();
+	return this->$EventImpl::getBubbles();
 }
 
 bool MutationEventImpl::getCancelable() {
-	 return this->$EventImpl::getCancelable();
+	return this->$EventImpl::getCancelable();
 }
 
 $EventTarget* MutationEventImpl::getCurrentTarget() {
-	 return this->$EventImpl::getCurrentTarget();
+	return this->$EventImpl::getCurrentTarget();
 }
 
 int16_t MutationEventImpl::getEventPhase() {
-	 return this->$EventImpl::getEventPhase();
+	return this->$EventImpl::getEventPhase();
 }
 
 $EventTarget* MutationEventImpl::getTarget() {
-	 return this->$EventImpl::getTarget();
+	return this->$EventImpl::getTarget();
 }
 
 $String* MutationEventImpl::getType() {
-	 return this->$EventImpl::getType();
+	return this->$EventImpl::getType();
 }
 
 int64_t MutationEventImpl::getTimeStamp() {
-	 return this->$EventImpl::getTimeStamp();
+	return this->$EventImpl::getTimeStamp();
 }
 
 void MutationEventImpl::stopPropagation() {
@@ -69,19 +69,19 @@ void MutationEventImpl::preventDefault() {
 }
 
 int32_t MutationEventImpl::hashCode() {
-	 return this->$EventImpl::hashCode();
+	return this->$EventImpl::hashCode();
 }
 
 bool MutationEventImpl::equals(Object$* arg0) {
-	 return this->$EventImpl::equals(arg0);
+	return this->$EventImpl::equals(arg0);
 }
 
 $Object* MutationEventImpl::clone() {
-	 return this->$EventImpl::clone();
+	return this->$EventImpl::clone();
 }
 
 $String* MutationEventImpl::toString() {
-	 return this->$EventImpl::toString();
+	return this->$EventImpl::toString();
 }
 
 void MutationEventImpl::finalize() {

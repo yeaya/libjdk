@@ -54,11 +54,11 @@ namespace javax {
 		namespace tree {
 
 int32_t DefaultMutableTreeNode::hashCode() {
-	 return this->$Cloneable::hashCode();
+	return this->$Cloneable::hashCode();
 }
 
 bool DefaultMutableTreeNode::equals(Object$* arg0) {
-	 return this->$Cloneable::equals(arg0);
+	return this->$Cloneable::equals(arg0);
 }
 
 void DefaultMutableTreeNode::finalize() {

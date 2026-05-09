@@ -52,19 +52,19 @@ namespace javax {
 		namespace text {
 
 int32_t AbstractDocument$AbstractElement::hashCode() {
-	 return this->$Element::hashCode();
+	return this->$Element::hashCode();
 }
 
 bool AbstractDocument$AbstractElement::equals(Object$* arg0) {
-	 return this->$Element::equals(arg0);
+	return this->$Element::equals(arg0);
 }
 
 $Object* AbstractDocument$AbstractElement::clone() {
-	 return this->$Element::clone();
+	return this->$Element::clone();
 }
 
 $String* AbstractDocument$AbstractElement::toString() {
-	 return this->$Element::toString();
+	return this->$Element::toString();
 }
 
 void AbstractDocument$AbstractElement::finalize() {

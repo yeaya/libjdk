@@ -27,19 +27,19 @@ namespace com {
 				namespace util {
 
 $String* Dependencies$CompletionCause::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool Dependencies$CompletionCause::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t Dependencies$CompletionCause::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* Dependencies$CompletionCause::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void Dependencies$CompletionCause::finalize() {

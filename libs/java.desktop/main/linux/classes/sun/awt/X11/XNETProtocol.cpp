@@ -89,19 +89,19 @@ namespace sun {
 		namespace X11 {
 
 int32_t XNETProtocol::hashCode() {
-	 return this->$XProtocol::hashCode();
+	return this->$XProtocol::hashCode();
 }
 
 bool XNETProtocol::equals(Object$* arg0) {
-	 return this->$XProtocol::equals(arg0);
+	return this->$XProtocol::equals(arg0);
 }
 
 $Object* XNETProtocol::clone() {
-	 return this->$XProtocol::clone();
+	return this->$XProtocol::clone();
 }
 
 $String* XNETProtocol::toString() {
-	 return this->$XProtocol::toString();
+	return this->$XProtocol::toString();
 }
 
 void XNETProtocol::finalize() {

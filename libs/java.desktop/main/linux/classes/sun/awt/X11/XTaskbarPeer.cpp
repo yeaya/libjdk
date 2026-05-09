@@ -90,7 +90,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(XTaskbarPeer::lambda$static$0());
+		return $of(XTaskbarPeer::lambda$static$0());
 	}
 };
 $Class* XTaskbarPeer$$Lambda$lambda$static$0$1::load$($String* name, bool initialize) {

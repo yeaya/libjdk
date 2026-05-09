@@ -37,19 +37,19 @@ void WCheckboxMenuItemPeer::dispose() {
 }
 
 int32_t WCheckboxMenuItemPeer::hashCode() {
-	 return this->$WMenuItemPeer::hashCode();
+	return this->$WMenuItemPeer::hashCode();
 }
 
 bool WCheckboxMenuItemPeer::equals(Object$* arg0) {
-	 return this->$WMenuItemPeer::equals(arg0);
+	return this->$WMenuItemPeer::equals(arg0);
 }
 
 $Object* WCheckboxMenuItemPeer::clone() {
-	 return this->$WMenuItemPeer::clone();
+	return this->$WMenuItemPeer::clone();
 }
 
 $String* WCheckboxMenuItemPeer::toString() {
-	 return this->$WMenuItemPeer::toString();
+	return this->$WMenuItemPeer::toString();
 }
 
 void WCheckboxMenuItemPeer::finalize() {

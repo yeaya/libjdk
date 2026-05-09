@@ -24,23 +24,23 @@ namespace com {
 						namespace generic {
 
 $String* DUP2::toString() {
-	 return this->$StackInstruction::toString();
+	return this->$StackInstruction::toString();
 }
 
 int32_t DUP2::produceStack($ConstantPoolGen* cpg) {
-	 return this->$StackInstruction::produceStack(cpg);
+	return this->$StackInstruction::produceStack(cpg);
 }
 
 bool DUP2::equals(Object$* that) {
-	 return this->$StackInstruction::equals(that);
+	return this->$StackInstruction::equals(that);
 }
 
 int32_t DUP2::hashCode() {
-	 return this->$StackInstruction::hashCode();
+	return this->$StackInstruction::hashCode();
 }
 
 $Object* DUP2::clone() {
-	 return this->$StackInstruction::clone();
+	return this->$StackInstruction::clone();
 }
 
 void DUP2::finalize() {

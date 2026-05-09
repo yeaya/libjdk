@@ -50,19 +50,19 @@ namespace com {
 						namespace operations {
 
 int32_t Variable::hashCode() {
-	 return this->$Expression::hashCode();
+	return this->$Expression::hashCode();
 }
 
 bool Variable::equals(Object$* arg0) {
-	 return this->$Expression::equals(arg0);
+	return this->$Expression::equals(arg0);
 }
 
 $Object* Variable::clone() {
-	 return this->$Expression::clone();
+	return this->$Expression::clone();
 }
 
 $String* Variable::toString() {
-	 return this->$Expression::toString();
+	return this->$Expression::toString();
 }
 
 void Variable::finalize() {

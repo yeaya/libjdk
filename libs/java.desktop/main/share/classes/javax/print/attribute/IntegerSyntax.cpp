@@ -13,7 +13,7 @@ namespace javax {
 		namespace attribute {
 
 $Object* IntegerSyntax::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void IntegerSyntax::finalize() {

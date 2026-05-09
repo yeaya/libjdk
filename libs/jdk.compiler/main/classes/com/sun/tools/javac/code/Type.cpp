@@ -80,7 +80,7 @@ namespace com {
 				namespace code {
 
 $Object* Type::clone() {
-	 return this->$AnnoConstruct::clone();
+	return this->$AnnoConstruct::clone();
 }
 
 void Type::finalize() {

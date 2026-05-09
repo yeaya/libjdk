@@ -181,7 +181,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->dbgString());
+		return $of($nc(inst$)->dbgString());
 	}
 	Stream* inst$ = nullptr;
 };
@@ -397,7 +397,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* v) override {
-		 return $nc(inst$)->lambda$sendBodyAsync$1($cast($Void, v));
+		return $nc(inst$)->lambda$sendBodyAsync$1($cast($Void, v));
 	}
 	Stream* inst$ = nullptr;
 };
@@ -432,7 +432,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return Stream::lambda$handleResponse$2();
+		return Stream::lambda$handleResponse$2();
 	}
 };
 $Class* Stream$$Lambda$lambda$handleResponse$2$7::load$($String* name, bool initialize) {
@@ -505,7 +505,7 @@ public:
 		$set(this, uh, uh);
 	}
 	virtual bool test(Object$* k, Object$* v) override {
-		 return Stream::lambda$headerFrame$4(uh, $cast($String, k), $cast($String, v));
+		return Stream::lambda$headerFrame$4(uh, $cast($String, k), $cast($String, v));
 	}
 	$HttpHeaders* uh = nullptr;
 };
@@ -540,7 +540,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* r) override {
-		 return Stream::lambda$getResponseAsync$5($cast($Response, r));
+		return Stream::lambda$getResponseAsync$5($cast($Response, r));
 	}
 };
 $Class* Stream$$Lambda$lambda$getResponseAsync$5$10::load$($String* name, bool initialize) {

@@ -28,19 +28,19 @@ namespace java {
 	namespace awt {
 
 int32_t ScrollPane$PeerFixer::hashCode() {
-	 return this->$AdjustmentListener::hashCode();
+	return this->$AdjustmentListener::hashCode();
 }
 
 bool ScrollPane$PeerFixer::equals(Object$* arg0) {
-	 return this->$AdjustmentListener::equals(arg0);
+	return this->$AdjustmentListener::equals(arg0);
 }
 
 $Object* ScrollPane$PeerFixer::clone() {
-	 return this->$AdjustmentListener::clone();
+	return this->$AdjustmentListener::clone();
 }
 
 $String* ScrollPane$PeerFixer::toString() {
-	 return this->$AdjustmentListener::toString();
+	return this->$AdjustmentListener::toString();
 }
 
 void ScrollPane$PeerFixer::finalize() {

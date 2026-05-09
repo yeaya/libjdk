@@ -167,19 +167,19 @@ namespace sun {
 	namespace java2d {
 
 int32_t SurfaceData::hashCode() {
-	 return this->$Transparency::hashCode();
+	return this->$Transparency::hashCode();
 }
 
 bool SurfaceData::equals(Object$* arg0) {
-	 return this->$Transparency::equals(arg0);
+	return this->$Transparency::equals(arg0);
 }
 
 $Object* SurfaceData::clone() {
-	 return this->$Transparency::clone();
+	return this->$Transparency::clone();
 }
 
 $String* SurfaceData::toString() {
-	 return this->$Transparency::toString();
+	return this->$Transparency::toString();
 }
 
 void SurfaceData::finalize() {

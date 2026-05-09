@@ -67,19 +67,19 @@ namespace javax {
 	namespace swing {
 
 int32_t DefaultDesktopManager::hashCode() {
-	 return this->$DesktopManager::hashCode();
+	return this->$DesktopManager::hashCode();
 }
 
 bool DefaultDesktopManager::equals(Object$* arg0) {
-	 return this->$DesktopManager::equals(arg0);
+	return this->$DesktopManager::equals(arg0);
 }
 
 $Object* DefaultDesktopManager::clone() {
-	 return this->$DesktopManager::clone();
+	return this->$DesktopManager::clone();
 }
 
 $String* DefaultDesktopManager::toString() {
-	 return this->$DesktopManager::toString();
+	return this->$DesktopManager::toString();
 }
 
 void DefaultDesktopManager::finalize() {

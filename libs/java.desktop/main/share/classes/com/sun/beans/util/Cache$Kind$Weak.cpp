@@ -18,19 +18,19 @@ namespace com {
 			namespace util {
 
 $Object* Cache$Kind$Weak::clone() {
-	 return this->$WeakReference::clone();
+	return this->$WeakReference::clone();
 }
 
 int32_t Cache$Kind$Weak::hashCode() {
-	 return this->$WeakReference::hashCode();
+	return this->$WeakReference::hashCode();
 }
 
 bool Cache$Kind$Weak::equals(Object$* arg0) {
-	 return this->$WeakReference::equals(arg0);
+	return this->$WeakReference::equals(arg0);
 }
 
 $String* Cache$Kind$Weak::toString() {
-	 return this->$WeakReference::toString();
+	return this->$WeakReference::toString();
 }
 
 void Cache$Kind$Weak::finalize() {

@@ -24,19 +24,19 @@ namespace javax {
 			namespace standard {
 
 $Object* ReferenceUriSchemesSupported::clone() {
-	 return this->$EnumSyntax::clone();
+	return this->$EnumSyntax::clone();
 }
 
 int32_t ReferenceUriSchemesSupported::hashCode() {
-	 return this->$EnumSyntax::hashCode();
+	return this->$EnumSyntax::hashCode();
 }
 
 $String* ReferenceUriSchemesSupported::toString() {
-	 return this->$EnumSyntax::toString();
+	return this->$EnumSyntax::toString();
 }
 
 bool ReferenceUriSchemesSupported::equals(Object$* arg0) {
-	 return this->$EnumSyntax::equals(arg0);
+	return this->$EnumSyntax::equals(arg0);
 }
 
 void ReferenceUriSchemesSupported::finalize() {

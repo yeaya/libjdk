@@ -109,7 +109,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(Manifest::lambda$static$0());
+		return $of(Manifest::lambda$static$0());
 	}
 };
 $Class* Manifest$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

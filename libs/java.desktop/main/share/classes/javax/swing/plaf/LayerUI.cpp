@@ -62,19 +62,19 @@ namespace javax {
 		namespace plaf {
 
 int32_t LayerUI::hashCode() {
-	 return this->$ComponentUI::hashCode();
+	return this->$ComponentUI::hashCode();
 }
 
 bool LayerUI::equals(Object$* arg0) {
-	 return this->$ComponentUI::equals(arg0);
+	return this->$ComponentUI::equals(arg0);
 }
 
 $Object* LayerUI::clone() {
-	 return this->$ComponentUI::clone();
+	return this->$ComponentUI::clone();
 }
 
 $String* LayerUI::toString() {
-	 return this->$ComponentUI::toString();
+	return this->$ComponentUI::toString();
 }
 
 void LayerUI::finalize() {

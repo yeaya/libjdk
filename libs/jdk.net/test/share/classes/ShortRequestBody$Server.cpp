@@ -37,19 +37,19 @@ using $SocketException = ::java::net::SocketException;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 
 $Object* ShortRequestBody$Server::clone() {
-	 return this->$Thread::clone();
+	return this->$Thread::clone();
 }
 
 $String* ShortRequestBody$Server::toString() {
-	 return this->$Thread::toString();
+	return this->$Thread::toString();
 }
 
 int32_t ShortRequestBody$Server::hashCode() {
-	 return this->$Thread::hashCode();
+	return this->$Thread::hashCode();
 }
 
 bool ShortRequestBody$Server::equals(Object$* arg0) {
-	 return this->$Thread::equals(arg0);
+	return this->$Thread::equals(arg0);
 }
 
 void ShortRequestBody$Server::finalize() {

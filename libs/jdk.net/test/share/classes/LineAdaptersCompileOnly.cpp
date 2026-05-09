@@ -50,7 +50,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* subscriber) override {
-		 return $of(LineAdaptersCompileOnly::lambda$static$0($cast($LineAdaptersCompileOnly$StringSubscriber, subscriber)));
+		return $of(LineAdaptersCompileOnly::lambda$static$0($cast($LineAdaptersCompileOnly$StringSubscriber, subscriber)));
 	}
 };
 $Class* LineAdaptersCompileOnly$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -80,7 +80,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* subscriber) override {
-		 return LineAdaptersCompileOnly::lambda$static$1($cast($LineAdaptersCompileOnly$StringSubscriber, subscriber));
+		return LineAdaptersCompileOnly::lambda$static$1($cast($LineAdaptersCompileOnly$StringSubscriber, subscriber));
 	}
 };
 $Class* LineAdaptersCompileOnly$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
@@ -110,7 +110,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* subscriber) override {
-		 return $of(LineAdaptersCompileOnly::lambda$static$2($cast($LineAdaptersCompileOnly$StringSubscriberX, subscriber)));
+		return $of(LineAdaptersCompileOnly::lambda$static$2($cast($LineAdaptersCompileOnly$StringSubscriberX, subscriber)));
 	}
 };
 $Class* LineAdaptersCompileOnly$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {
@@ -140,7 +140,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* subscriber) override {
-		 return LineAdaptersCompileOnly::lambda$static$3($cast($LineAdaptersCompileOnly$StringSubscriberX, subscriber));
+		return LineAdaptersCompileOnly::lambda$static$3($cast($LineAdaptersCompileOnly$StringSubscriberX, subscriber));
 	}
 };
 $Class* LineAdaptersCompileOnly$$Lambda$lambda$static$3$3::load$($String* name, bool initialize) {
@@ -170,7 +170,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(LineAdaptersCompileOnly::lambda$makesSureDifferentGenericFunctionSignaturesCompile$4($cast($LineAdaptersCompileOnly$StringSubscriber, s)));
+		return $of(LineAdaptersCompileOnly::lambda$makesSureDifferentGenericFunctionSignaturesCompile$4($cast($LineAdaptersCompileOnly$StringSubscriber, s)));
 	}
 };
 $Class* LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$4::load$($String* name, bool initialize) {
@@ -200,7 +200,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return LineAdaptersCompileOnly::lambda$makesSureDifferentGenericFunctionSignaturesCompile$5($cast($LineAdaptersCompileOnly$StringSubscriber, s));
+		return LineAdaptersCompileOnly::lambda$makesSureDifferentGenericFunctionSignaturesCompile$5($cast($LineAdaptersCompileOnly$StringSubscriber, s));
 	}
 };
 $Class* LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$5::load$($String* name, bool initialize) {
@@ -230,7 +230,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($LineAdaptersCompileOnly$StringSubscriberX, inst$)->getIntegerX());
+		return $of($sure($LineAdaptersCompileOnly$StringSubscriberX, inst$)->getIntegerX());
 	}
 };
 $Class* LineAdaptersCompileOnly$$Lambda$getIntegerX$6::load$($String* name, bool initialize) {

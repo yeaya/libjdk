@@ -106,7 +106,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return NamingManager::lambda$getInitialContext$0();
+		return NamingManager::lambda$getInitialContext$0();
 	}
 };
 $Class* NamingManager$$Lambda$lambda$getInitialContext$0::load$($String* name, bool initialize) {
@@ -136,7 +136,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* ld, Object$* ky) override {
-		 return NamingManager::lambda$getInitialContext$1($cast($ClassLoader, ld), $cast($AbstractClassLoaderValue$Sub, ky));
+		return NamingManager::lambda$getInitialContext$1($cast($ClassLoader, ld), $cast($AbstractClassLoaderValue$Sub, ky));
 	}
 };
 $Class* NamingManager$$Lambda$lambda$getInitialContext$1$1::load$($String* name, bool initialize) {
@@ -167,7 +167,7 @@ public:
 		$set(this, className, className);
 	}
 	virtual bool test(Object$* p) override {
-		 return NamingManager::lambda$getFactory$2(className, $cast($ServiceLoader$Provider, p));
+		return NamingManager::lambda$getFactory$2(className, $cast($ServiceLoader$Provider, p));
 	}
 	$String* className = nullptr;
 };
@@ -202,7 +202,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ServiceLoader$Provider, inst$)->get();
+		return $sure($ServiceLoader$Provider, inst$)->get();
 	}
 };
 $Class* NamingManager$$Lambda$get$3::load$($String* name, bool initialize) {

@@ -19,19 +19,19 @@ namespace javax {
 		namespace text {
 
 $String* AbstractDocument$ElementEdit::toString() {
-	 return this->$AbstractUndoableEdit::toString();
+	return this->$AbstractUndoableEdit::toString();
 }
 
 int32_t AbstractDocument$ElementEdit::hashCode() {
-	 return this->$AbstractUndoableEdit::hashCode();
+	return this->$AbstractUndoableEdit::hashCode();
 }
 
 bool AbstractDocument$ElementEdit::equals(Object$* arg0) {
-	 return this->$AbstractUndoableEdit::equals(arg0);
+	return this->$AbstractUndoableEdit::equals(arg0);
 }
 
 $Object* AbstractDocument$ElementEdit::clone() {
-	 return this->$AbstractUndoableEdit::clone();
+	return this->$AbstractUndoableEdit::clone();
 }
 
 void AbstractDocument$ElementEdit::finalize() {

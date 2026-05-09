@@ -31,19 +31,19 @@ namespace javax {
 			namespace basic {
 
 $String* BasicComboBoxRenderer::toString() {
-	 return this->$JLabel::toString();
+	return this->$JLabel::toString();
 }
 
 int32_t BasicComboBoxRenderer::hashCode() {
-	 return this->$JLabel::hashCode();
+	return this->$JLabel::hashCode();
 }
 
 bool BasicComboBoxRenderer::equals(Object$* arg0) {
-	 return this->$JLabel::equals(arg0);
+	return this->$JLabel::equals(arg0);
 }
 
 $Object* BasicComboBoxRenderer::clone() {
-	 return this->$JLabel::clone();
+	return this->$JLabel::clone();
 }
 
 void BasicComboBoxRenderer::finalize() {

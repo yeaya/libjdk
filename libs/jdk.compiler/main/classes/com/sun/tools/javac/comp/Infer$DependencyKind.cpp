@@ -20,19 +20,19 @@ namespace com {
 				namespace comp {
 
 $String* Infer$DependencyKind::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool Infer$DependencyKind::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t Infer$DependencyKind::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* Infer$DependencyKind::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void Infer$DependencyKind::finalize() {

@@ -23,19 +23,19 @@ using $JPanel = ::javax::swing::JPanel;
 using $LineBorder = ::javax::swing::border::LineBorder;
 
 $String* Test4252164::toString() {
-	 return this->$JApplet::toString();
+	return this->$JApplet::toString();
 }
 
 int32_t Test4252164::hashCode() {
-	 return this->$JApplet::hashCode();
+	return this->$JApplet::hashCode();
 }
 
 bool Test4252164::equals(Object$* arg0) {
-	 return this->$JApplet::equals(arg0);
+	return this->$JApplet::equals(arg0);
 }
 
 $Object* Test4252164::clone() {
-	 return this->$JApplet::clone();
+	return this->$JApplet::clone();
 }
 
 void Test4252164::finalize() {

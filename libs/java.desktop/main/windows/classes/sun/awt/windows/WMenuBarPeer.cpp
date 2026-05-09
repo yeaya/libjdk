@@ -33,19 +33,19 @@ void WMenuBarPeer::dispose() {
 }
 
 int32_t WMenuBarPeer::hashCode() {
-	 return this->$WMenuPeer::hashCode();
+	return this->$WMenuPeer::hashCode();
 }
 
 bool WMenuBarPeer::equals(Object$* arg0) {
-	 return this->$WMenuPeer::equals(arg0);
+	return this->$WMenuPeer::equals(arg0);
 }
 
 $Object* WMenuBarPeer::clone() {
-	 return this->$WMenuPeer::clone();
+	return this->$WMenuPeer::clone();
 }
 
 $String* WMenuBarPeer::toString() {
-	 return this->$WMenuPeer::toString();
+	return this->$WMenuPeer::toString();
 }
 
 void WMenuBarPeer::finalize() {

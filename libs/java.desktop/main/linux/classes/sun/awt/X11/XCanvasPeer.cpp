@@ -66,23 +66,23 @@ void XCanvasPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool XCanvasPeer::isReparentSupported() {
-	 return this->$XComponentPeer::isReparentSupported();
+	return this->$XComponentPeer::isReparentSupported();
 }
 
 bool XCanvasPeer::isObscured() {
-	 return this->$XComponentPeer::isObscured();
+	return this->$XComponentPeer::isObscured();
 }
 
 bool XCanvasPeer::canDetermineObscurity() {
-	 return this->$XComponentPeer::canDetermineObscurity();
+	return this->$XComponentPeer::canDetermineObscurity();
 }
 
 bool XCanvasPeer::isFocusable() {
-	 return this->$XComponentPeer::isFocusable();
+	return this->$XComponentPeer::isFocusable();
 }
 
 bool XCanvasPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void XCanvasPeer::setVisible(bool b) {
@@ -98,7 +98,7 @@ void XCanvasPeer::paint($Graphics* g) {
 }
 
 $Graphics* XCanvasPeer::getGraphics() {
-	 return this->$XComponentPeer::getGraphics();
+	return this->$XComponentPeer::getGraphics();
 }
 
 void XCanvasPeer::print($Graphics* g) {
@@ -118,11 +118,11 @@ void XCanvasPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* XCanvasPeer::getMinimumSize() {
-	 return this->$XComponentPeer::getMinimumSize();
+	return this->$XComponentPeer::getMinimumSize();
 }
 
 $Dimension* XCanvasPeer::getPreferredSize() {
-	 return this->$XComponentPeer::getPreferredSize();
+	return this->$XComponentPeer::getPreferredSize();
 }
 
 void XCanvasPeer::layout() {
@@ -138,7 +138,7 @@ void XCanvasPeer::setForeground($Color* c) {
 }
 
 $FontMetrics* XCanvasPeer::getFontMetrics($Font* font) {
-	 return this->$XComponentPeer::getFontMetrics(font);
+	return this->$XComponentPeer::getFontMetrics(font);
 }
 
 void XCanvasPeer::setFont($Font* f) {
@@ -150,15 +150,15 @@ void XCanvasPeer::updateCursorImmediately() {
 }
 
 $Image* XCanvasPeer::createImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createImage(width, height);
+	return this->$XComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* XCanvasPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createVolatileImage(width, height);
+	return this->$XComponentPeer::createVolatileImage(width, height);
 }
 
 bool XCanvasPeer::handlesWheelScrolling() {
-	 return this->$XComponentPeer::handlesWheelScrolling();
+	return this->$XComponentPeer::handlesWheelScrolling();
 }
 
 void XCanvasPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -170,7 +170,7 @@ void XCanvasPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCa
 }
 
 $Image* XCanvasPeer::getBackBuffer() {
-	 return this->$XComponentPeer::getBackBuffer();
+	return this->$XComponentPeer::getBackBuffer();
 }
 
 void XCanvasPeer::destroyBuffers() {
@@ -186,11 +186,11 @@ void XCanvasPeer::applyShape($Region* shape) {
 }
 
 bool XCanvasPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XComponentPeer::updateGraphicsData(gc);
+	return this->$XComponentPeer::updateGraphicsData(gc);
 }
 
 $Point* XCanvasPeer::getLocationOnScreen() {
-	 return this->$XComponentPeer::getLocationOnScreen();
+	return this->$XComponentPeer::getLocationOnScreen();
 }
 
 void XCanvasPeer::dispose() {
@@ -198,27 +198,27 @@ void XCanvasPeer::dispose() {
 }
 
 $ColorModel* XCanvasPeer::getColorModel() {
-	 return this->$XComponentPeer::getColorModel();
+	return this->$XComponentPeer::getColorModel();
 }
 
 $GraphicsConfiguration* XCanvasPeer::getGraphicsConfiguration() {
-	 return this->$XComponentPeer::getGraphicsConfiguration();
+	return this->$XComponentPeer::getGraphicsConfiguration();
 }
 
 $String* XCanvasPeer::toString() {
-	 return this->$XComponentPeer::toString();
+	return this->$XComponentPeer::toString();
 }
 
 int32_t XCanvasPeer::hashCode() {
-	 return this->$XComponentPeer::hashCode();
+	return this->$XComponentPeer::hashCode();
 }
 
 bool XCanvasPeer::equals(Object$* arg0) {
-	 return this->$XComponentPeer::equals(arg0);
+	return this->$XComponentPeer::equals(arg0);
 }
 
 $Object* XCanvasPeer::clone() {
-	 return this->$XComponentPeer::clone();
+	return this->$XComponentPeer::clone();
 }
 
 void XCanvasPeer::finalize() {

@@ -273,15 +273,15 @@ namespace sun {
 	namespace java2d {
 
 $String* SunGraphics2D::toString() {
-	 return this->$Graphics2D::toString();
+	return this->$Graphics2D::toString();
 }
 
 int32_t SunGraphics2D::hashCode() {
-	 return this->$Graphics2D::hashCode();
+	return this->$Graphics2D::hashCode();
 }
 
 bool SunGraphics2D::equals(Object$* arg0) {
-	 return this->$Graphics2D::equals(arg0);
+	return this->$Graphics2D::equals(arg0);
 }
 
 bool SunGraphics2D::$assertionsDisabled = false;

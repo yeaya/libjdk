@@ -27,19 +27,19 @@ namespace sun {
 			namespace ext {
 
 int32_t MS950::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool MS950::equals(Object$* arg0) {
-	 return this->$Charset::equals(arg0);
+	return this->$Charset::equals(arg0);
 }
 
 $String* MS950::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* MS950::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void MS950::finalize() {

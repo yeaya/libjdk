@@ -14,19 +14,19 @@ namespace javax {
 		namespace plaf {
 
 int32_t ColorUIResource::hashCode() {
-	 return this->$Color::hashCode();
+	return this->$Color::hashCode();
 }
 
 bool ColorUIResource::equals(Object$* obj) {
-	 return this->$Color::equals(obj);
+	return this->$Color::equals(obj);
 }
 
 $String* ColorUIResource::toString() {
-	 return this->$Color::toString();
+	return this->$Color::toString();
 }
 
 $Object* ColorUIResource::clone() {
-	 return this->$Color::clone();
+	return this->$Color::clone();
 }
 
 void ColorUIResource::finalize() {

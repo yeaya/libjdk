@@ -87,11 +87,11 @@ namespace com {
 							namespace ref {
 
 $Object* DTMNodeProxy::clone() {
-	 return this->$Document::clone();
+	return this->$Document::clone();
 }
 
 $String* DTMNodeProxy::toString() {
-	 return this->$Document::toString();
+	return this->$Document::toString();
 }
 
 void DTMNodeProxy::finalize() {

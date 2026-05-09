@@ -32,11 +32,11 @@ namespace com {
 									namespace x509 {
 
 $Object* XMLX509SubjectName::clone() {
-	 return this->$SignatureElementProxy::clone();
+	return this->$SignatureElementProxy::clone();
 }
 
 $String* XMLX509SubjectName::toString() {
-	 return this->$SignatureElementProxy::toString();
+	return this->$SignatureElementProxy::toString();
 }
 
 void XMLX509SubjectName::finalize() {

@@ -314,7 +314,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* t1, Object$* t2) override {
-		 return Types::lambda$new$4($cast($Type, t1), $cast($Type, t2));
+		return Types::lambda$new$4($cast($Type, t1), $cast($Type, t2));
 	}
 };
 $Class* Types$$Lambda$lambda$new$4::load$($String* name, bool initialize) {
@@ -344,7 +344,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* t) override {
-		 return Types::lambda$removeWildcards$0($cast($Type, t));
+		return Types::lambda$removeWildcards$0($cast($Type, t));
 	}
 };
 $Class* Types$$Lambda$lambda$removeWildcards$0$1::load$($String* name, bool initialize) {
@@ -376,7 +376,7 @@ public:
 		$set(this, other, other);
 	}
 	virtual bool test(Object$* sym) override {
-		 return $nc(inst$)->lambda$areDisjoint$1(other, $cast($Symbol, sym));
+		return $nc(inst$)->lambda$areDisjoint$1(other, $cast($Symbol, sym));
 	}
 	Types* inst$ = nullptr;
 	$Symbol$ClassSymbol* other = nullptr;
@@ -414,7 +414,7 @@ public:
 		$set(this, site, site);
 	}
 	virtual $Object* get() override {
-		 return $of(Types::lambda$membersClosure$2(site));
+		return $of(Types::lambda$membersClosure$2(site));
 	}
 	$Type* site = nullptr;
 };
@@ -452,7 +452,7 @@ public:
 		$set(this, shouldSkip, shouldSkip);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$closureCollector$3(minClosure, shouldSkip);
+		return $nc(inst$)->lambda$closureCollector$3(minClosure, shouldSkip);
 	}
 	Types* inst$ = nullptr;
 	bool minClosure = false;
@@ -521,7 +521,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$, Object$* other) override {
-		 return $sure($Types$ClosureHolder, inst$)->merge($cast($Types$ClosureHolder, other));
+		return $sure($Types$ClosureHolder, inst$)->merge($cast($Types$ClosureHolder, other));
 	}
 };
 $Class* Types$$Lambda$merge$6::load$($String* name, bool initialize) {
@@ -551,7 +551,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Types$ClosureHolder, inst$)->closure());
+		return $of($sure($Types$ClosureHolder, inst$)->closure());
 	}
 };
 $Class* Types$$Lambda$closure$7::load$($String* name, bool initialize) {

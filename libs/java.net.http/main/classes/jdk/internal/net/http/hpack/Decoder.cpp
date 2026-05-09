@@ -79,7 +79,7 @@ public:
 		this->capacity = capacity;
 	}
 	virtual $Object* get() override {
-		 return $of(Decoder::lambda$new$0(capacity));
+		return $of(Decoder::lambda$new$0(capacity));
 	}
 	int32_t capacity = 0;
 };
@@ -115,7 +115,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$new$1());
+		return $of($nc(inst$)->lambda$new$1());
 	}
 	Decoder* inst$ = nullptr;
 };
@@ -151,7 +151,7 @@ public:
 		this->capacity = capacity;
 	}
 	virtual $Object* get() override {
-		 return $of(Decoder::lambda$setMaxCapacity$2(capacity));
+		return $of(Decoder::lambda$setMaxCapacity$2(capacity));
 	}
 	int32_t capacity = 0;
 };
@@ -188,7 +188,7 @@ public:
 		this->endOfHeaderBlock = endOfHeaderBlock;
 	}
 	virtual $Object* get() override {
-		 return $of(Decoder::lambda$decode$3(headerBlock, endOfHeaderBlock));
+		return $of(Decoder::lambda$decode$3(headerBlock, endOfHeaderBlock));
 	}
 	$ByteBuffer* headerBlock = nullptr;
 	bool endOfHeaderBlock = false;
@@ -226,7 +226,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$decode$4());
+		return $of($nc(inst$)->lambda$decode$4());
 	}
 	Decoder* inst$ = nullptr;
 };
@@ -263,7 +263,7 @@ public:
 		this->b = b;
 	}
 	virtual $Object* get() override {
-		 return $of(Decoder::lambda$resumeReady$5(s, b));
+		return $of(Decoder::lambda$resumeReady$5(s, b));
 	}
 	$Decoder$State* s = nullptr;
 	int32_t b = 0;
@@ -301,7 +301,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$resumeIndexed$6());
+		return $of($nc(inst$)->lambda$resumeIndexed$6());
 	}
 	Decoder* inst$ = nullptr;
 };
@@ -337,7 +337,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$resumeLiteral$7());
+		return $of($nc(inst$)->lambda$resumeLiteral$7());
 	}
 	Decoder* inst$ = nullptr;
 };
@@ -373,7 +373,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$resumeLiteral$8());
+		return $of($nc(inst$)->lambda$resumeLiteral$8());
 	}
 	Decoder* inst$ = nullptr;
 };
@@ -409,7 +409,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$resumeLiteralWithIndexing$9());
+		return $of($nc(inst$)->lambda$resumeLiteralWithIndexing$9());
 	}
 	Decoder* inst$ = nullptr;
 };
@@ -446,7 +446,7 @@ public:
 		$set(this, n, n);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$resumeLiteralWithIndexing$10(n));
+		return $of($nc(inst$)->lambda$resumeLiteralWithIndexing$10(n));
 	}
 	Decoder* inst$ = nullptr;
 	$String* n = nullptr;
@@ -484,7 +484,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$resumeLiteralNeverIndexed$11());
+		return $of($nc(inst$)->lambda$resumeLiteralNeverIndexed$11());
 	}
 	Decoder* inst$ = nullptr;
 };
@@ -520,7 +520,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$resumeLiteralNeverIndexed$12());
+		return $of($nc(inst$)->lambda$resumeLiteralNeverIndexed$12());
 	}
 	Decoder* inst$ = nullptr;
 };
@@ -556,7 +556,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$resumeSizeUpdate$13());
+		return $of($nc(inst$)->lambda$resumeSizeUpdate$13());
 	}
 	Decoder* inst$ = nullptr;
 };

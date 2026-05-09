@@ -253,19 +253,19 @@ namespace java {
 	namespace awt {
 
 $String* Window::toString() {
-	 return this->$Container::toString();
+	return this->$Container::toString();
 }
 
 int32_t Window::hashCode() {
-	 return this->$Container::hashCode();
+	return this->$Container::hashCode();
 }
 
 bool Window::equals(Object$* arg0) {
-	 return this->$Container::equals(arg0);
+	return this->$Container::equals(arg0);
 }
 
 $Object* Window::clone() {
-	 return this->$Container::clone();
+	return this->$Container::clone();
 }
 
 void Window::finalize() {

@@ -85,7 +85,7 @@ public:
 	void init$() {
 	}
 	virtual $ObjectInputFilter$Status* checkInput($ObjectInputFilter$FilterInfo* filterInfo) override {
-		 return DGCImpl_Stub::leaseFilter(filterInfo);
+		return DGCImpl_Stub::leaseFilter(filterInfo);
 	}
 };
 $Class* DGCImpl_Stub$$Lambda$leaseFilter::load$($String* name, bool initialize) {
@@ -110,19 +110,19 @@ $Class* DGCImpl_Stub$$Lambda$leaseFilter::load$($String* name, bool initialize) 
 $Class* DGCImpl_Stub$$Lambda$leaseFilter::class$ = nullptr;
 
 int32_t DGCImpl_Stub::hashCode() {
-	 return this->$RemoteStub::hashCode();
+	return this->$RemoteStub::hashCode();
 }
 
 bool DGCImpl_Stub::equals(Object$* obj) {
-	 return this->$RemoteStub::equals(obj);
+	return this->$RemoteStub::equals(obj);
 }
 
 $String* DGCImpl_Stub::toString() {
-	 return this->$RemoteStub::toString();
+	return this->$RemoteStub::toString();
 }
 
 $Object* DGCImpl_Stub::clone() {
-	 return this->$RemoteStub::clone();
+	return this->$RemoteStub::clone();
 }
 
 void DGCImpl_Stub::finalize() {

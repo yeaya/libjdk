@@ -66,7 +66,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool evaluate() override {
-		 return $nc(inst$)->lambda$dispatch$0();
+		return $nc(inst$)->lambda$dispatch$0();
 	}
 	SequencedEvent* inst$ = nullptr;
 };
@@ -96,19 +96,19 @@ $Class* SequencedEvent$$Lambda$lambda$dispatch$0::load$($String* name, bool init
 $Class* SequencedEvent$$Lambda$lambda$dispatch$0::class$ = nullptr;
 
 $String* SequencedEvent::toString() {
-	 return this->$AWTEvent::toString();
+	return this->$AWTEvent::toString();
 }
 
 int32_t SequencedEvent::hashCode() {
-	 return this->$AWTEvent::hashCode();
+	return this->$AWTEvent::hashCode();
 }
 
 bool SequencedEvent::equals(Object$* arg0) {
-	 return this->$AWTEvent::equals(arg0);
+	return this->$AWTEvent::equals(arg0);
 }
 
 $Object* SequencedEvent::clone() {
-	 return this->$AWTEvent::clone();
+	return this->$AWTEvent::clone();
 }
 
 void SequencedEvent::finalize() {

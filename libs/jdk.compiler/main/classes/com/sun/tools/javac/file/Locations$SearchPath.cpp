@@ -76,7 +76,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* file) override {
-		 return $nc(inst$)->isArchive($cast($Path, file));
+		return $nc(inst$)->isArchive($cast($Path, file));
 	}
 	$Locations* inst$ = nullptr;
 };

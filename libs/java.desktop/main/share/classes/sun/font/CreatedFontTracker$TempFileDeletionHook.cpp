@@ -51,7 +51,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return CreatedFontTracker$TempFileDeletionHook::lambda$init$0();
+		return CreatedFontTracker$TempFileDeletionHook::lambda$init$0();
 	}
 };
 $Class* CreatedFontTracker$TempFileDeletionHook$$Lambda$lambda$init$0::load$($String* name, bool initialize) {

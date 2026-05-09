@@ -77,7 +77,7 @@ public:
 		$set(this, dirName, dirName);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$registerFontsInDir$0(dirName);
+		return $nc(inst$)->lambda$registerFontsInDir$0(dirName);
 	}
 	CFontManager* inst$ = nullptr;
 	$String* dirName = nullptr;

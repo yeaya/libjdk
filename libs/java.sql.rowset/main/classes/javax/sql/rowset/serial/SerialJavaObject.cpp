@@ -54,7 +54,7 @@ namespace javax {
 			namespace serial {
 
 $String* SerialJavaObject::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void SerialJavaObject::finalize() {

@@ -20,19 +20,19 @@ namespace com {
 			namespace event {
 
 int32_t GestureAdapter::hashCode() {
-	 return this->$GesturePhaseListener::hashCode();
+	return this->$GesturePhaseListener::hashCode();
 }
 
 bool GestureAdapter::equals(Object$* arg0) {
-	 return this->$GesturePhaseListener::equals(arg0);
+	return this->$GesturePhaseListener::equals(arg0);
 }
 
 $Object* GestureAdapter::clone() {
-	 return this->$GesturePhaseListener::clone();
+	return this->$GesturePhaseListener::clone();
 }
 
 $String* GestureAdapter::toString() {
-	 return this->$GesturePhaseListener::toString();
+	return this->$GesturePhaseListener::toString();
 }
 
 void GestureAdapter::finalize() {

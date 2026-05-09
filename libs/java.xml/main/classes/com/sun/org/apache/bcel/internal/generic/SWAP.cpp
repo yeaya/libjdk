@@ -23,27 +23,27 @@ namespace com {
 						namespace generic {
 
 $String* SWAP::toString() {
-	 return this->$StackInstruction::toString();
+	return this->$StackInstruction::toString();
 }
 
 int32_t SWAP::consumeStack($ConstantPoolGen* cpg) {
-	 return this->$StackInstruction::consumeStack(cpg);
+	return this->$StackInstruction::consumeStack(cpg);
 }
 
 int32_t SWAP::produceStack($ConstantPoolGen* cpg) {
-	 return this->$StackInstruction::produceStack(cpg);
+	return this->$StackInstruction::produceStack(cpg);
 }
 
 bool SWAP::equals(Object$* that) {
-	 return this->$StackInstruction::equals(that);
+	return this->$StackInstruction::equals(that);
 }
 
 int32_t SWAP::hashCode() {
-	 return this->$StackInstruction::hashCode();
+	return this->$StackInstruction::hashCode();
 }
 
 $Object* SWAP::clone() {
-	 return this->$StackInstruction::clone();
+	return this->$StackInstruction::clone();
 }
 
 void SWAP::finalize() {

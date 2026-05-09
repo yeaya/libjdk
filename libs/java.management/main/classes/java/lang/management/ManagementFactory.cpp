@@ -138,7 +138,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($PlatformMBeanProvider$PlatformComponent, inst$)->shouldRegister();
+		return $sure($PlatformMBeanProvider$PlatformComponent, inst$)->shouldRegister();
 	}
 };
 $Class* ManagementFactory$$Lambda$shouldRegister::load$($String* name, bool initialize) {
@@ -168,7 +168,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* pc) override {
-		 return ManagementFactory::lambda$getPlatformMBeanServer$0($cast($PlatformMBeanProvider$PlatformComponent, pc));
+		return ManagementFactory::lambda$getPlatformMBeanServer$0($cast($PlatformMBeanProvider$PlatformComponent, pc));
 	}
 };
 $Class* ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$0$1::load$($String* name, bool initialize) {
@@ -229,7 +229,7 @@ public:
 		this->cls = cls;
 	}
 	virtual $Object* run() override {
-		 return ManagementFactory::lambda$newPlatformMXBeanProxy$2(cls);
+		return ManagementFactory::lambda$newPlatformMXBeanProxy$2(cls);
 	}
 	$Class* cls = nullptr;
 };
@@ -265,7 +265,7 @@ public:
 		this->mxbeanInterface = mxbeanInterface;
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return ManagementFactory::lambda$getPlatformMXBeans$3(mxbeanInterface, $cast($PlatformMBeanProvider$PlatformComponent, p));
+		return ManagementFactory::lambda$getPlatformMXBeans$3(mxbeanInterface, $cast($PlatformMBeanProvider$PlatformComponent, p));
 	}
 	$Class* mxbeanInterface = nullptr;
 };
@@ -300,7 +300,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ObjectName, inst$)->getCanonicalName());
+		return $of($sure($ObjectName, inst$)->getCanonicalName());
 	}
 };
 $Class* ManagementFactory$$Lambda$getCanonicalName$5::load$($String* name, bool initialize) {
@@ -330,7 +330,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* pc) override {
-		 return ManagementFactory::lambda$getPlatformManagementInterfaces$4($cast($PlatformMBeanProvider$PlatformComponent, pc));
+		return ManagementFactory::lambda$getPlatformManagementInterfaces$4($cast($PlatformMBeanProvider$PlatformComponent, pc));
 	}
 };
 $Class* ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$4$6::load$($String* name, bool initialize) {
@@ -360,7 +360,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* clazz) override {
-		 return ManagementFactory::lambda$getPlatformManagementInterfaces$5($cast($Class, clazz));
+		return ManagementFactory::lambda$getPlatformManagementInterfaces$5($cast($Class, clazz));
 	}
 };
 $Class* ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$5$7::load$($String* name, bool initialize) {
@@ -390,7 +390,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* clazz) override {
-		 return $of(ManagementFactory::lambda$getPlatformManagementInterfaces$6($cast($Class, clazz)));
+		return $of(ManagementFactory::lambda$getPlatformManagementInterfaces$6($cast($Class, clazz)));
 	}
 };
 $Class* ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$6$8::load$($String* name, bool initialize) {
@@ -423,7 +423,7 @@ public:
 		$set(this, oname, oname);
 	}
 	virtual $Object* run() override {
-		 return ManagementFactory::lambda$addMXBean$7(pmo, mbs, oname);
+		return ManagementFactory::lambda$addMXBean$7(pmo, mbs, oname);
 	}
 	$Object* pmo = nullptr;
 	$MBeanServer* mbs = nullptr;
@@ -462,7 +462,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return ManagementFactory::lambda$static$8();
+		return ManagementFactory::lambda$static$8();
 	}
 };
 $Class* ManagementFactory$$Lambda$lambda$static$8$10::load$($String* name, bool initialize) {

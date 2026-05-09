@@ -33,19 +33,19 @@ namespace com {
 		namespace laf {
 
 $String* AquaTabbedPaneCopyFromBasicUI$CroppedEdge::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t AquaTabbedPaneCopyFromBasicUI$CroppedEdge::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool AquaTabbedPaneCopyFromBasicUI$CroppedEdge::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* AquaTabbedPaneCopyFromBasicUI$CroppedEdge::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void AquaTabbedPaneCopyFromBasicUI$CroppedEdge::finalize() {

@@ -18,15 +18,15 @@ namespace javax {
 		namespace openmbean {
 
 bool TabularData::equals(Object$* obj) {
-	 return this->$Object::equals(obj);
+	return this->$Object::equals(obj);
 }
 
 int32_t TabularData::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $String* TabularData::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $Class* TabularData::load$($String* name, bool initialize) {

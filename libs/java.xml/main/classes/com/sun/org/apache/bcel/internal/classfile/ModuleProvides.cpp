@@ -30,15 +30,15 @@ namespace com {
 						namespace classfile {
 
 int32_t ModuleProvides::hashCode() {
-	 return this->$Cloneable::hashCode();
+	return this->$Cloneable::hashCode();
 }
 
 bool ModuleProvides::equals(Object$* arg0) {
-	 return this->$Cloneable::equals(arg0);
+	return this->$Cloneable::equals(arg0);
 }
 
 $Object* ModuleProvides::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 void ModuleProvides::finalize() {

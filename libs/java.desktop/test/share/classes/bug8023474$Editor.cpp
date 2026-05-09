@@ -23,19 +23,19 @@ using $JTree = ::javax::swing::JTree;
 using $CellEditorListener = ::javax::swing::event::CellEditorListener;
 
 $String* bug8023474$Editor::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t bug8023474$Editor::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool bug8023474$Editor::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* bug8023474$Editor::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void bug8023474$Editor::finalize() {

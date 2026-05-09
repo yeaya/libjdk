@@ -57,19 +57,19 @@ namespace javax {
 			namespace html {
 
 int32_t IsindexView::hashCode() {
-	 return this->$ComponentView::hashCode();
+	return this->$ComponentView::hashCode();
 }
 
 bool IsindexView::equals(Object$* arg0) {
-	 return this->$ComponentView::equals(arg0);
+	return this->$ComponentView::equals(arg0);
 }
 
 $Object* IsindexView::clone() {
-	 return this->$ComponentView::clone();
+	return this->$ComponentView::clone();
 }
 
 $String* IsindexView::toString() {
-	 return this->$ComponentView::toString();
+	return this->$ComponentView::toString();
 }
 
 void IsindexView::finalize() {

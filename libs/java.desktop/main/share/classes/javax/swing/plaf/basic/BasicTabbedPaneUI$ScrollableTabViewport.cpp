@@ -25,19 +25,19 @@ namespace javax {
 			namespace basic {
 
 $String* BasicTabbedPaneUI$ScrollableTabViewport::toString() {
-	 return this->$JViewport::toString();
+	return this->$JViewport::toString();
 }
 
 int32_t BasicTabbedPaneUI$ScrollableTabViewport::hashCode() {
-	 return this->$JViewport::hashCode();
+	return this->$JViewport::hashCode();
 }
 
 bool BasicTabbedPaneUI$ScrollableTabViewport::equals(Object$* arg0) {
-	 return this->$JViewport::equals(arg0);
+	return this->$JViewport::equals(arg0);
 }
 
 $Object* BasicTabbedPaneUI$ScrollableTabViewport::clone() {
-	 return this->$JViewport::clone();
+	return this->$JViewport::clone();
 }
 
 void BasicTabbedPaneUI$ScrollableTabViewport::finalize() {

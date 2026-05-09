@@ -61,19 +61,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicSpinnerUI$Handler::hashCode() {
-	 return this->$LayoutManager::hashCode();
+	return this->$LayoutManager::hashCode();
 }
 
 bool BasicSpinnerUI$Handler::equals(Object$* arg0) {
-	 return this->$LayoutManager::equals(arg0);
+	return this->$LayoutManager::equals(arg0);
 }
 
 $Object* BasicSpinnerUI$Handler::clone() {
-	 return this->$LayoutManager::clone();
+	return this->$LayoutManager::clone();
 }
 
 $String* BasicSpinnerUI$Handler::toString() {
-	 return this->$LayoutManager::toString();
+	return this->$LayoutManager::toString();
 }
 
 void BasicSpinnerUI$Handler::finalize() {

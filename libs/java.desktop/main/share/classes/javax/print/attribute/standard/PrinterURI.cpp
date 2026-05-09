@@ -15,15 +15,15 @@ namespace javax {
 			namespace standard {
 
 int32_t PrinterURI::hashCode() {
-	 return this->$URISyntax::hashCode();
+	return this->$URISyntax::hashCode();
 }
 
 $String* PrinterURI::toString() {
-	 return this->$URISyntax::toString();
+	return this->$URISyntax::toString();
 }
 
 $Object* PrinterURI::clone() {
-	 return this->$URISyntax::clone();
+	return this->$URISyntax::clone();
 }
 
 void PrinterURI::finalize() {

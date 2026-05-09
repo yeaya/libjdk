@@ -24,19 +24,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsIconFactory$CheckBoxMenuItemIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool WindowsIconFactory$CheckBoxMenuItemIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* WindowsIconFactory$CheckBoxMenuItemIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* WindowsIconFactory$CheckBoxMenuItemIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void WindowsIconFactory$CheckBoxMenuItemIcon::finalize() {

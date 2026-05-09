@@ -58,19 +58,19 @@ namespace javax {
 		namespace tree {
 
 $String* DefaultTreeCellRenderer::toString() {
-	 return this->$JLabel::toString();
+	return this->$JLabel::toString();
 }
 
 int32_t DefaultTreeCellRenderer::hashCode() {
-	 return this->$JLabel::hashCode();
+	return this->$JLabel::hashCode();
 }
 
 bool DefaultTreeCellRenderer::equals(Object$* arg0) {
-	 return this->$JLabel::equals(arg0);
+	return this->$JLabel::equals(arg0);
 }
 
 $Object* DefaultTreeCellRenderer::clone() {
-	 return this->$JLabel::clone();
+	return this->$JLabel::clone();
 }
 
 void DefaultTreeCellRenderer::finalize() {

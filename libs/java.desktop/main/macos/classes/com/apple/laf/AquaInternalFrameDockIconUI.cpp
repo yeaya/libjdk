@@ -41,19 +41,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaInternalFrameDockIconUI::hashCode() {
-	 return this->$DesktopIconUI::hashCode();
+	return this->$DesktopIconUI::hashCode();
 }
 
 bool AquaInternalFrameDockIconUI::equals(Object$* arg0) {
-	 return this->$DesktopIconUI::equals(arg0);
+	return this->$DesktopIconUI::equals(arg0);
 }
 
 $Object* AquaInternalFrameDockIconUI::clone() {
-	 return this->$DesktopIconUI::clone();
+	return this->$DesktopIconUI::clone();
 }
 
 $String* AquaInternalFrameDockIconUI::toString() {
-	 return this->$DesktopIconUI::toString();
+	return this->$DesktopIconUI::toString();
 }
 
 void AquaInternalFrameDockIconUI::finalize() {

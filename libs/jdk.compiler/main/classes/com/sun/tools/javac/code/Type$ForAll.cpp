@@ -47,27 +47,27 @@ namespace com {
 				namespace code {
 
 $List* Type$ForAll::getAnnotationMirrors() {
-	 return this->$Type$DelegatedType::getAnnotationMirrors();
+	return this->$Type$DelegatedType::getAnnotationMirrors();
 }
 
 $Annotation* Type$ForAll::getAnnotation($Class* annotationType) {
-	 return this->$Type$DelegatedType::getAnnotation(annotationType);
+	return this->$Type$DelegatedType::getAnnotation(annotationType);
 }
 
 $AnnotationArray* Type$ForAll::getAnnotationsByType($Class* annotationType) {
-	 return this->$Type$DelegatedType::getAnnotationsByType(annotationType);
+	return this->$Type$DelegatedType::getAnnotationsByType(annotationType);
 }
 
 bool Type$ForAll::equals(Object$* t) {
-	 return this->$Type$DelegatedType::equals(t);
+	return this->$Type$DelegatedType::equals(t);
 }
 
 int32_t Type$ForAll::hashCode() {
-	 return this->$Type$DelegatedType::hashCode();
+	return this->$Type$DelegatedType::hashCode();
 }
 
 $Object* Type$ForAll::clone() {
-	 return this->$Type$DelegatedType::clone();
+	return this->$Type$DelegatedType::clone();
 }
 
 void Type$ForAll::finalize() {

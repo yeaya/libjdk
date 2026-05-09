@@ -24,19 +24,19 @@ namespace com {
 						namespace generic {
 
 $String* ATHROW::toString() {
-	 return this->$Instruction::toString();
+	return this->$Instruction::toString();
 }
 
 bool ATHROW::equals(Object$* that) {
-	 return this->$Instruction::equals(that);
+	return this->$Instruction::equals(that);
 }
 
 int32_t ATHROW::hashCode() {
-	 return this->$Instruction::hashCode();
+	return this->$Instruction::hashCode();
 }
 
 $Object* ATHROW::clone() {
-	 return this->$Instruction::clone();
+	return this->$Instruction::clone();
 }
 
 void ATHROW::finalize() {

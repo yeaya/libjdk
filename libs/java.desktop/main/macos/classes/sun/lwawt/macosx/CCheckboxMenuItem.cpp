@@ -136,19 +136,19 @@ void CCheckboxMenuItem::finalize() {
 }
 
 int32_t CCheckboxMenuItem::hashCode() {
-	 return this->$CMenuItem::hashCode();
+	return this->$CMenuItem::hashCode();
 }
 
 bool CCheckboxMenuItem::equals(Object$* arg0) {
-	 return this->$CMenuItem::equals(arg0);
+	return this->$CMenuItem::equals(arg0);
 }
 
 $Object* CCheckboxMenuItem::clone() {
-	 return this->$CMenuItem::clone();
+	return this->$CMenuItem::clone();
 }
 
 $String* CCheckboxMenuItem::toString() {
-	 return this->$CMenuItem::toString();
+	return this->$CMenuItem::toString();
 }
 
 void CCheckboxMenuItem::nativeSetState(int64_t modelPtr, bool state) {

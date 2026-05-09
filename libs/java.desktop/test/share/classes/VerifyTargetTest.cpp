@@ -100,19 +100,19 @@ $Class* VerifyTargetTest$$Lambda$lambda$main$1$1::load$($String* name, bool init
 $Class* VerifyTargetTest$$Lambda$lambda$main$1$1::class$ = nullptr;
 
 int32_t VerifyTargetTest::hashCode() {
-	 return this->$InputVerifier::hashCode();
+	return this->$InputVerifier::hashCode();
 }
 
 bool VerifyTargetTest::equals(Object$* arg0) {
-	 return this->$InputVerifier::equals(arg0);
+	return this->$InputVerifier::equals(arg0);
 }
 
 $Object* VerifyTargetTest::clone() {
-	 return this->$InputVerifier::clone();
+	return this->$InputVerifier::clone();
 }
 
 $String* VerifyTargetTest::toString() {
-	 return this->$InputVerifier::toString();
+	return this->$InputVerifier::toString();
 }
 
 void VerifyTargetTest::finalize() {

@@ -96,7 +96,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$new$1();
+		return $nc(inst$)->lambda$new$1();
 	}
 	D3DScreenUpdateManager* inst$ = nullptr;
 };
@@ -132,7 +132,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$startUpdateThread$2();
+		return $nc(inst$)->lambda$startUpdateThread$2();
 	}
 	D3DScreenUpdateManager* inst$ = nullptr;
 };
@@ -198,19 +198,19 @@ $Class* D3DScreenUpdateManager$$Lambda$lambda$new$0$2::load$($String* name, bool
 $Class* D3DScreenUpdateManager$$Lambda$lambda$new$0$2::class$ = nullptr;
 
 int32_t D3DScreenUpdateManager::hashCode() {
-	 return this->$ScreenUpdateManager::hashCode();
+	return this->$ScreenUpdateManager::hashCode();
 }
 
 bool D3DScreenUpdateManager::equals(Object$* arg0) {
-	 return this->$ScreenUpdateManager::equals(arg0);
+	return this->$ScreenUpdateManager::equals(arg0);
 }
 
 $Object* D3DScreenUpdateManager::clone() {
-	 return this->$ScreenUpdateManager::clone();
+	return this->$ScreenUpdateManager::clone();
 }
 
 $String* D3DScreenUpdateManager::toString() {
-	 return this->$ScreenUpdateManager::toString();
+	return this->$ScreenUpdateManager::toString();
 }
 
 void D3DScreenUpdateManager::finalize() {

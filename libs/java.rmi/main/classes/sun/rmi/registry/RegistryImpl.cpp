@@ -174,7 +174,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return RegistryImpl::initRegistryFilter();
+		return RegistryImpl::initRegistryFilter();
 	}
 };
 $Class* RegistryImpl$$Lambda$initRegistryFilter::load$($String* name, bool initialize) {
@@ -204,7 +204,7 @@ public:
 	void init$() {
 	}
 	virtual $ObjectInputFilter$Status* checkInput($ObjectInputFilter$FilterInfo* filterInfo) override {
-		 return RegistryImpl::registryFilter(filterInfo);
+		return RegistryImpl::registryFilter(filterInfo);
 	}
 };
 $Class* RegistryImpl$$Lambda$registryFilter$1::load$($String* name, bool initialize) {
@@ -229,19 +229,19 @@ $Class* RegistryImpl$$Lambda$registryFilter$1::load$($String* name, bool initial
 $Class* RegistryImpl$$Lambda$registryFilter$1::class$ = nullptr;
 
 int32_t RegistryImpl::hashCode() {
-	 return this->$RemoteServer::hashCode();
+	return this->$RemoteServer::hashCode();
 }
 
 bool RegistryImpl::equals(Object$* obj) {
-	 return this->$RemoteServer::equals(obj);
+	return this->$RemoteServer::equals(obj);
 }
 
 $String* RegistryImpl::toString() {
-	 return this->$RemoteServer::toString();
+	return this->$RemoteServer::toString();
 }
 
 $Object* RegistryImpl::clone() {
-	 return this->$RemoteServer::clone();
+	return this->$RemoteServer::clone();
 }
 
 void RegistryImpl::finalize() {

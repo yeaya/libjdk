@@ -55,7 +55,7 @@ namespace javax {
 			namespace serial {
 
 $String* SerialStruct::toString() {
-	 return this->$Struct::toString();
+	return this->$Struct::toString();
 }
 
 void SerialStruct::finalize() {

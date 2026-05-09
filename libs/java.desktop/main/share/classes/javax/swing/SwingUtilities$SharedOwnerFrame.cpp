@@ -21,19 +21,19 @@ namespace javax {
 	namespace swing {
 
 $String* SwingUtilities$SharedOwnerFrame::toString() {
-	 return this->$Frame::toString();
+	return this->$Frame::toString();
 }
 
 int32_t SwingUtilities$SharedOwnerFrame::hashCode() {
-	 return this->$Frame::hashCode();
+	return this->$Frame::hashCode();
 }
 
 bool SwingUtilities$SharedOwnerFrame::equals(Object$* arg0) {
-	 return this->$Frame::equals(arg0);
+	return this->$Frame::equals(arg0);
 }
 
 $Object* SwingUtilities$SharedOwnerFrame::clone() {
-	 return this->$Frame::clone();
+	return this->$Frame::clone();
 }
 
 void SwingUtilities$SharedOwnerFrame::finalize() {

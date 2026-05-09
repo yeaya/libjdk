@@ -43,7 +43,7 @@ public:
 		this->factoryClass = factoryClass;
 	}
 	virtual $Class* serialClass() override {
-		 return ObjectFactoriesFilter::lambda$canInstantiateObjectsFactory$0(factoryClass);
+		return ObjectFactoriesFilter::lambda$canInstantiateObjectsFactory$0(factoryClass);
 	}
 	$Class* factoryClass = nullptr;
 };

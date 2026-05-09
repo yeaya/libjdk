@@ -66,7 +66,7 @@ namespace com {
 							namespace compiler {
 
 $String* Expression::toString() {
-	 return this->$SyntaxTreeNode::toString();
+	return this->$SyntaxTreeNode::toString();
 }
 
 void Expression::init$() {

@@ -42,7 +42,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* t) override {
-		 return FilteredMemberList::lambda$iterator$0($cast($Symbol, t));
+		return FilteredMemberList::lambda$iterator$0($cast($Symbol, t));
 	}
 };
 $Class* FilteredMemberList$$Lambda$lambda$iterator$0::load$($String* name, bool initialize) {

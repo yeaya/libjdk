@@ -35,15 +35,15 @@ void BinaryRelQueryExp::setMBeanServer($MBeanServer* s) {
 }
 
 int32_t BinaryRelQueryExp::hashCode() {
-	 return this->$QueryEval::hashCode();
+	return this->$QueryEval::hashCode();
 }
 
 bool BinaryRelQueryExp::equals(Object$* arg0) {
-	 return this->$QueryEval::equals(arg0);
+	return this->$QueryEval::equals(arg0);
 }
 
 $Object* BinaryRelQueryExp::clone() {
-	 return this->$QueryEval::clone();
+	return this->$QueryEval::clone();
 }
 
 void BinaryRelQueryExp::finalize() {

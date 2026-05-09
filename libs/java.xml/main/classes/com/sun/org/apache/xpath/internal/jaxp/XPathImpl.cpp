@@ -61,19 +61,19 @@ namespace com {
 						namespace jaxp {
 
 int32_t XPathImpl::hashCode() {
-	 return this->$XPathImplUtil::hashCode();
+	return this->$XPathImplUtil::hashCode();
 }
 
 bool XPathImpl::equals(Object$* arg0) {
-	 return this->$XPathImplUtil::equals(arg0);
+	return this->$XPathImplUtil::equals(arg0);
 }
 
 $Object* XPathImpl::clone() {
-	 return this->$XPathImplUtil::clone();
+	return this->$XPathImplUtil::clone();
 }
 
 $String* XPathImpl::toString() {
-	 return this->$XPathImplUtil::toString();
+	return this->$XPathImplUtil::toString();
 }
 
 void XPathImpl::finalize() {

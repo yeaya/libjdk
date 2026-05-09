@@ -320,7 +320,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(Object$* inst$, Object$* t) override {
-		 return $sure($PoolWriter, inst$)->putClass($cast($Type, t));
+		return $sure($PoolWriter, inst$)->putClass($cast($Type, t));
 	}
 };
 $Class* Gen$$Lambda$putClass::load$($String* name, bool initialize) {

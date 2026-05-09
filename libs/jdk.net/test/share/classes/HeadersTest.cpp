@@ -74,7 +74,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* x, Object$* y) override {
-		 return HeadersTest::lambda$static$0($cast($String, x), $cast($String, y));
+		return HeadersTest::lambda$static$0($cast($String, x), $cast($String, y));
 	}
 };
 $Class* HeadersTest$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

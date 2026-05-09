@@ -34,19 +34,19 @@ void MidiInDevice::finalize() {
 }
 
 int32_t MidiInDevice::hashCode() {
-	 return this->$AbstractMidiDevice::hashCode();
+	return this->$AbstractMidiDevice::hashCode();
 }
 
 bool MidiInDevice::equals(Object$* arg0) {
-	 return this->$AbstractMidiDevice::equals(arg0);
+	return this->$AbstractMidiDevice::equals(arg0);
 }
 
 $Object* MidiInDevice::clone() {
-	 return this->$AbstractMidiDevice::clone();
+	return this->$AbstractMidiDevice::clone();
 }
 
 $String* MidiInDevice::toString() {
-	 return this->$AbstractMidiDevice::toString();
+	return this->$AbstractMidiDevice::toString();
 }
 
 void MidiInDevice::init$($AbstractMidiDeviceProvider$Info* info) {

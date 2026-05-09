@@ -65,7 +65,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* call() override {
-		 return $of(WTaskbarPeer::lambda$init$0());
+		return $of(WTaskbarPeer::lambda$init$0());
 	}
 };
 $Class* WTaskbarPeer$$Lambda$lambda$init$0::load$($String* name, bool initialize) {
@@ -99,7 +99,7 @@ public:
 		$set(this, image, image);
 	}
 	virtual $Object* call() override {
-		 return $nc(inst$)->lambda$setWindowIconBadge$1(wp, buffer, image);
+		return $nc(inst$)->lambda$setWindowIconBadge$1(wp, buffer, image);
 	}
 	WTaskbarPeer* inst$ = nullptr;
 	$WWindowPeer* wp = nullptr;
@@ -143,7 +143,7 @@ public:
 		this->value = value;
 	}
 	virtual $Object* call() override {
-		 return $nc(inst$)->lambda$setWindowProgressValue$2(wp, value);
+		return $nc(inst$)->lambda$setWindowProgressValue$2(wp, value);
 	}
 	WTaskbarPeer* inst$ = nullptr;
 	$WWindowPeer* wp = nullptr;
@@ -185,7 +185,7 @@ public:
 		$set(this, state, state);
 	}
 	virtual $Object* call() override {
-		 return $nc(inst$)->lambda$setWindowProgressState$3(wp, state);
+		return $nc(inst$)->lambda$setWindowProgressState$3(wp, state);
 	}
 	WTaskbarPeer* inst$ = nullptr;
 	$WWindowPeer* wp = nullptr;

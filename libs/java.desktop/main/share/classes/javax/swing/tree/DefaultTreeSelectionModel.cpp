@@ -70,11 +70,11 @@ namespace javax {
 		namespace tree {
 
 int32_t DefaultTreeSelectionModel::hashCode() {
-	 return this->$Cloneable::hashCode();
+	return this->$Cloneable::hashCode();
 }
 
 bool DefaultTreeSelectionModel::equals(Object$* arg0) {
-	 return this->$Cloneable::equals(arg0);
+	return this->$Cloneable::equals(arg0);
 }
 
 void DefaultTreeSelectionModel::finalize() {

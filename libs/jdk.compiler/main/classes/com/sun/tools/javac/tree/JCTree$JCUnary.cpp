@@ -32,19 +32,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCUnary::toString() {
-	 return this->$JCTree$JCOperatorExpression::toString();
+	return this->$JCTree$JCOperatorExpression::toString();
 }
 
 $Object* JCTree$JCUnary::clone() {
-	 return this->$JCTree$JCOperatorExpression::clone();
+	return this->$JCTree$JCOperatorExpression::clone();
 }
 
 int32_t JCTree$JCUnary::hashCode() {
-	 return this->$JCTree$JCOperatorExpression::hashCode();
+	return this->$JCTree$JCOperatorExpression::hashCode();
 }
 
 bool JCTree$JCUnary::equals(Object$* arg0) {
-	 return this->$JCTree$JCOperatorExpression::equals(arg0);
+	return this->$JCTree$JCOperatorExpression::equals(arg0);
 }
 
 void JCTree$JCUnary::finalize() {

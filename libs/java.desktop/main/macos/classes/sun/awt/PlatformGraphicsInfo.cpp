@@ -34,7 +34,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return PlatformGraphicsInfo::lambda$static$0();
+		return PlatformGraphicsInfo::lambda$static$0();
 	}
 };
 $Class* PlatformGraphicsInfo$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

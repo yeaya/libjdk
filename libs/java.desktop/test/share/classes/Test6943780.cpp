@@ -21,19 +21,19 @@ using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 int32_t Test6943780::hashCode() {
-	 return this->$Runnable::hashCode();
+	return this->$Runnable::hashCode();
 }
 
 bool Test6943780::equals(Object$* arg0) {
-	 return this->$Runnable::equals(arg0);
+	return this->$Runnable::equals(arg0);
 }
 
 $Object* Test6943780::clone() {
-	 return this->$Runnable::clone();
+	return this->$Runnable::clone();
 }
 
 $String* Test6943780::toString() {
-	 return this->$Runnable::toString();
+	return this->$Runnable::toString();
 }
 
 void Test6943780::finalize() {

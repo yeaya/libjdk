@@ -15,19 +15,19 @@ namespace javax {
 	namespace swing {
 
 $String* PopupFactory$MediumWeightPopup$MediumWeightComponent::toString() {
-	 return this->$Panel::toString();
+	return this->$Panel::toString();
 }
 
 int32_t PopupFactory$MediumWeightPopup$MediumWeightComponent::hashCode() {
-	 return this->$Panel::hashCode();
+	return this->$Panel::hashCode();
 }
 
 bool PopupFactory$MediumWeightPopup$MediumWeightComponent::equals(Object$* arg0) {
-	 return this->$Panel::equals(arg0);
+	return this->$Panel::equals(arg0);
 }
 
 $Object* PopupFactory$MediumWeightPopup$MediumWeightComponent::clone() {
-	 return this->$Panel::clone();
+	return this->$Panel::clone();
 }
 
 void PopupFactory$MediumWeightPopup$MediumWeightComponent::finalize() {

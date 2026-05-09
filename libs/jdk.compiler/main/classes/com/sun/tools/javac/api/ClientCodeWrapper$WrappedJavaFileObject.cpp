@@ -43,51 +43,51 @@ namespace com {
 				namespace api {
 
 $URI* ClientCodeWrapper$WrappedJavaFileObject::toUri() {
-	 return this->$ClientCodeWrapper$WrappedFileObject::toUri();
+	return this->$ClientCodeWrapper$WrappedFileObject::toUri();
 }
 
 $String* ClientCodeWrapper$WrappedJavaFileObject::getName() {
-	 return this->$ClientCodeWrapper$WrappedFileObject::getName();
+	return this->$ClientCodeWrapper$WrappedFileObject::getName();
 }
 
 $InputStream* ClientCodeWrapper$WrappedJavaFileObject::openInputStream() {
-	 return this->$ClientCodeWrapper$WrappedFileObject::openInputStream();
+	return this->$ClientCodeWrapper$WrappedFileObject::openInputStream();
 }
 
 $OutputStream* ClientCodeWrapper$WrappedJavaFileObject::openOutputStream() {
-	 return this->$ClientCodeWrapper$WrappedFileObject::openOutputStream();
+	return this->$ClientCodeWrapper$WrappedFileObject::openOutputStream();
 }
 
 $Reader* ClientCodeWrapper$WrappedJavaFileObject::openReader(bool ignoreEncodingErrors) {
-	 return this->$ClientCodeWrapper$WrappedFileObject::openReader(ignoreEncodingErrors);
+	return this->$ClientCodeWrapper$WrappedFileObject::openReader(ignoreEncodingErrors);
 }
 
 $CharSequence* ClientCodeWrapper$WrappedJavaFileObject::getCharContent(bool ignoreEncodingErrors) {
-	 return this->$ClientCodeWrapper$WrappedFileObject::getCharContent(ignoreEncodingErrors);
+	return this->$ClientCodeWrapper$WrappedFileObject::getCharContent(ignoreEncodingErrors);
 }
 
 $Writer* ClientCodeWrapper$WrappedJavaFileObject::openWriter() {
-	 return this->$ClientCodeWrapper$WrappedFileObject::openWriter();
+	return this->$ClientCodeWrapper$WrappedFileObject::openWriter();
 }
 
 int64_t ClientCodeWrapper$WrappedJavaFileObject::getLastModified() {
-	 return this->$ClientCodeWrapper$WrappedFileObject::getLastModified();
+	return this->$ClientCodeWrapper$WrappedFileObject::getLastModified();
 }
 
 bool ClientCodeWrapper$WrappedJavaFileObject::delete$() {
-	 return this->$ClientCodeWrapper$WrappedFileObject::delete$();
+	return this->$ClientCodeWrapper$WrappedFileObject::delete$();
 }
 
 int32_t ClientCodeWrapper$WrappedJavaFileObject::hashCode() {
-	 return this->$ClientCodeWrapper$WrappedFileObject::hashCode();
+	return this->$ClientCodeWrapper$WrappedFileObject::hashCode();
 }
 
 bool ClientCodeWrapper$WrappedJavaFileObject::equals(Object$* arg0) {
-	 return this->$ClientCodeWrapper$WrappedFileObject::equals(arg0);
+	return this->$ClientCodeWrapper$WrappedFileObject::equals(arg0);
 }
 
 $Object* ClientCodeWrapper$WrappedJavaFileObject::clone() {
-	 return this->$ClientCodeWrapper$WrappedFileObject::clone();
+	return this->$ClientCodeWrapper$WrappedFileObject::clone();
 }
 
 void ClientCodeWrapper$WrappedJavaFileObject::finalize() {

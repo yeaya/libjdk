@@ -2,6 +2,7 @@
 #include <java.naming.h>
 #include <java.base.h>
 #include <java.security.sasl.h>
+#include <java.logging.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
@@ -38,6 +39,7 @@ void java$naming$test::init() {
 	::java$naming::init();
 	::java$base::init();
 	::java$security$sasl::init();
+	::java$logging::init();
 	::java::lang::Library lib = {
 		"java.naming.test", "17.35", "",
 		nullptr,

@@ -94,19 +94,19 @@ namespace com {
 							namespace dom {
 
 int32_t SimpleResultTreeImpl::hashCode() {
-	 return this->$EmptySerializer::hashCode();
+	return this->$EmptySerializer::hashCode();
 }
 
 bool SimpleResultTreeImpl::equals(Object$* arg0) {
-	 return this->$EmptySerializer::equals(arg0);
+	return this->$EmptySerializer::equals(arg0);
 }
 
 $Object* SimpleResultTreeImpl::clone() {
-	 return this->$EmptySerializer::clone();
+	return this->$EmptySerializer::clone();
 }
 
 $String* SimpleResultTreeImpl::toString() {
-	 return this->$EmptySerializer::toString();
+	return this->$EmptySerializer::toString();
 }
 
 void SimpleResultTreeImpl::finalize() {

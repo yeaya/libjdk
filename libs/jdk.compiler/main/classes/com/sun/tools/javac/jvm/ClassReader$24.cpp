@@ -86,7 +86,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* map($bytes* cs, int32_t start, int32_t len) override {
-		 return $of($nc(inst$)->fromUtf(cs, start, len));
+		return $of($nc(inst$)->fromUtf(cs, start, len));
 	}
 	$Names* inst$ = nullptr;
 };
@@ -122,7 +122,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(int32_t index) override {
-		 return $of($nc(inst$)->getName(index));
+		return $of($nc(inst$)->getName(index));
 	}
 	$PoolReader* inst$ = nullptr;
 };
@@ -158,7 +158,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* map($bytes* arr, int32_t offset, int32_t length) override {
-		 return $of($nc(inst$)->classNameMapper(arr, offset, length));
+		return $of($nc(inst$)->classNameMapper(arr, offset, length));
 	}
 	ClassReader$24* inst$ = nullptr;
 };

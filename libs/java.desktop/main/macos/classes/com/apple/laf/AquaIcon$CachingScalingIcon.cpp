@@ -32,19 +32,19 @@ namespace com {
 		namespace laf {
 
 int32_t AquaIcon$CachingScalingIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool AquaIcon$CachingScalingIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* AquaIcon$CachingScalingIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* AquaIcon$CachingScalingIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void AquaIcon$CachingScalingIcon::finalize() {

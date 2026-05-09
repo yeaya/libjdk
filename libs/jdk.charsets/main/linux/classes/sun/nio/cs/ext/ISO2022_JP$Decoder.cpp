@@ -31,19 +31,19 @@ namespace sun {
 			namespace ext {
 
 int32_t ISO2022_JP$Decoder::hashCode() {
-	 return this->$CharsetDecoder::hashCode();
+	return this->$CharsetDecoder::hashCode();
 }
 
 bool ISO2022_JP$Decoder::equals(Object$* arg0) {
-	 return this->$CharsetDecoder::equals(arg0);
+	return this->$CharsetDecoder::equals(arg0);
 }
 
 $Object* ISO2022_JP$Decoder::clone() {
-	 return this->$CharsetDecoder::clone();
+	return this->$CharsetDecoder::clone();
 }
 
 $String* ISO2022_JP$Decoder::toString() {
-	 return this->$CharsetDecoder::toString();
+	return this->$CharsetDecoder::toString();
 }
 
 void ISO2022_JP$Decoder::finalize() {

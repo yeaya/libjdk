@@ -37,55 +37,55 @@ namespace com {
 				namespace api {
 
 $URI* JavacTrees$HtmlFileObject::toUri() {
-	 return this->$ForwardingFileObject::toUri();
+	return this->$ForwardingFileObject::toUri();
 }
 
 $String* JavacTrees$HtmlFileObject::getName() {
-	 return this->$ForwardingFileObject::getName();
+	return this->$ForwardingFileObject::getName();
 }
 
 $InputStream* JavacTrees$HtmlFileObject::openInputStream() {
-	 return this->$ForwardingFileObject::openInputStream();
+	return this->$ForwardingFileObject::openInputStream();
 }
 
 $OutputStream* JavacTrees$HtmlFileObject::openOutputStream() {
-	 return this->$ForwardingFileObject::openOutputStream();
+	return this->$ForwardingFileObject::openOutputStream();
 }
 
 $Reader* JavacTrees$HtmlFileObject::openReader(bool arg0) {
-	 return this->$ForwardingFileObject::openReader(arg0);
+	return this->$ForwardingFileObject::openReader(arg0);
 }
 
 $CharSequence* JavacTrees$HtmlFileObject::getCharContent(bool arg0) {
-	 return this->$ForwardingFileObject::getCharContent(arg0);
+	return this->$ForwardingFileObject::getCharContent(arg0);
 }
 
 $Writer* JavacTrees$HtmlFileObject::openWriter() {
-	 return this->$ForwardingFileObject::openWriter();
+	return this->$ForwardingFileObject::openWriter();
 }
 
 int64_t JavacTrees$HtmlFileObject::getLastModified() {
-	 return this->$ForwardingFileObject::getLastModified();
+	return this->$ForwardingFileObject::getLastModified();
 }
 
 bool JavacTrees$HtmlFileObject::delete$() {
-	 return this->$ForwardingFileObject::delete$();
+	return this->$ForwardingFileObject::delete$();
 }
 
 int32_t JavacTrees$HtmlFileObject::hashCode() {
-	 return this->$ForwardingFileObject::hashCode();
+	return this->$ForwardingFileObject::hashCode();
 }
 
 bool JavacTrees$HtmlFileObject::equals(Object$* arg0) {
-	 return this->$ForwardingFileObject::equals(arg0);
+	return this->$ForwardingFileObject::equals(arg0);
 }
 
 $Object* JavacTrees$HtmlFileObject::clone() {
-	 return this->$ForwardingFileObject::clone();
+	return this->$ForwardingFileObject::clone();
 }
 
 $String* JavacTrees$HtmlFileObject::toString() {
-	 return this->$ForwardingFileObject::toString();
+	return this->$ForwardingFileObject::toString();
 }
 
 void JavacTrees$HtmlFileObject::finalize() {

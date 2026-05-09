@@ -154,19 +154,19 @@ $Class* JLightweightFrame$$Lambda$lambda$new$0::load$($String* name, bool initia
 $Class* JLightweightFrame$$Lambda$lambda$new$0::class$ = nullptr;
 
 $String* JLightweightFrame::toString() {
-	 return this->$LightweightFrame::toString();
+	return this->$LightweightFrame::toString();
 }
 
 int32_t JLightweightFrame::hashCode() {
-	 return this->$LightweightFrame::hashCode();
+	return this->$LightweightFrame::hashCode();
 }
 
 bool JLightweightFrame::equals(Object$* arg0) {
-	 return this->$LightweightFrame::equals(arg0);
+	return this->$LightweightFrame::equals(arg0);
 }
 
 $Object* JLightweightFrame::clone() {
-	 return this->$LightweightFrame::clone();
+	return this->$LightweightFrame::clone();
 }
 
 void JLightweightFrame::finalize() {

@@ -104,7 +104,7 @@ public:
 		this->def = def;
 	}
 	virtual $Object* run() override {
-		 return $of(TCPEndpoint::lambda$getInt$0(name, def));
+		return $of(TCPEndpoint::lambda$getInt$0(name, def));
 	}
 	$String* name = nullptr;
 	int32_t def = 0;
@@ -142,7 +142,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return $of(TCPEndpoint::lambda$getBoolean$1(name));
+		return $of(TCPEndpoint::lambda$getBoolean$1(name));
 	}
 	$String* name = nullptr;
 };
@@ -177,7 +177,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(TCPEndpoint::lambda$getHostnameProperty$2());
+		return $of(TCPEndpoint::lambda$getHostnameProperty$2());
 	}
 };
 $Class* TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2::load$($String* name, bool initialize) {

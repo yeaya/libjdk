@@ -42,55 +42,55 @@ namespace sun {
 		namespace util {
 
 $Iterator* IdentityLinkedList::iterator() {
-	 return this->$AbstractSequentialList::iterator();
+	return this->$AbstractSequentialList::iterator();
 }
 
 bool IdentityLinkedList::equals(Object$* arg0) {
-	 return this->$AbstractSequentialList::equals(arg0);
+	return this->$AbstractSequentialList::equals(arg0);
 }
 
 int32_t IdentityLinkedList::hashCode() {
-	 return this->$AbstractSequentialList::hashCode();
+	return this->$AbstractSequentialList::hashCode();
 }
 
 bool IdentityLinkedList::isEmpty() {
-	 return this->$AbstractSequentialList::isEmpty();
+	return this->$AbstractSequentialList::isEmpty();
 }
 
 bool IdentityLinkedList::containsAll($Collection* arg0) {
-	 return this->$AbstractSequentialList::containsAll(arg0);
+	return this->$AbstractSequentialList::containsAll(arg0);
 }
 
 bool IdentityLinkedList::removeAll($Collection* arg0) {
-	 return this->$AbstractSequentialList::removeAll(arg0);
+	return this->$AbstractSequentialList::removeAll(arg0);
 }
 
 bool IdentityLinkedList::retainAll($Collection* arg0) {
-	 return this->$AbstractSequentialList::retainAll(arg0);
+	return this->$AbstractSequentialList::retainAll(arg0);
 }
 
 $String* IdentityLinkedList::toString() {
-	 return this->$AbstractSequentialList::toString();
+	return this->$AbstractSequentialList::toString();
 }
 
 $ObjectArray* IdentityLinkedList::toArray($IntFunction* arg0) {
-	 return this->$AbstractSequentialList::toArray(arg0);
+	return this->$AbstractSequentialList::toArray(arg0);
 }
 
 bool IdentityLinkedList::removeIf($Predicate* arg0) {
-	 return this->$AbstractSequentialList::removeIf(arg0);
+	return this->$AbstractSequentialList::removeIf(arg0);
 }
 
 $Spliterator* IdentityLinkedList::spliterator() {
-	 return this->$AbstractSequentialList::spliterator();
+	return this->$AbstractSequentialList::spliterator();
 }
 
 $Stream* IdentityLinkedList::stream() {
-	 return this->$AbstractSequentialList::stream();
+	return this->$AbstractSequentialList::stream();
 }
 
 $Stream* IdentityLinkedList::parallelStream() {
-	 return this->$AbstractSequentialList::parallelStream();
+	return this->$AbstractSequentialList::parallelStream();
 }
 
 void IdentityLinkedList::forEach($Consumer* arg0) {
@@ -98,7 +98,7 @@ void IdentityLinkedList::forEach($Consumer* arg0) {
 }
 
 $Object* IdentityLinkedList::clone() {
-	 return this->$AbstractSequentialList::clone();
+	return this->$AbstractSequentialList::clone();
 }
 
 void IdentityLinkedList::finalize() {

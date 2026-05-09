@@ -52,7 +52,7 @@ public:
 		$set(this, moduleSpecificForm, moduleSpecificForm);
 	}
 	virtual bool test(Object$* s) override {
-		 return Option$6::lambda$process$0(moduleSpecificForm, $cast($String, s));
+		return Option$6::lambda$process$0(moduleSpecificForm, $cast($String, s));
 	}
 	$Pattern* moduleSpecificForm = nullptr;
 };
@@ -87,7 +87,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(Option$6::lambda$process$1($cast($String, s)));
+		return $of(Option$6::lambda$process$1($cast($String, s)));
 	}
 };
 $Class* Option$6$$Lambda$lambda$process$1$1::load$($String* name, bool initialize) {
@@ -118,7 +118,7 @@ public:
 		$set(this, argModule, argModule);
 	}
 	virtual bool test(Object$* s) override {
-		 return Option$6::lambda$process$2(argModule, $cast($String, s));
+		return Option$6::lambda$process$2(argModule, $cast($String, s));
 	}
 	$String* argModule = nullptr;
 };
@@ -154,7 +154,7 @@ public:
 		$set(this, moduleSpecificForm, moduleSpecificForm);
 	}
 	virtual bool test(Object$* s) override {
-		 return Option$6::lambda$process$3(moduleSpecificForm, $cast($String, s));
+		return Option$6::lambda$process$3(moduleSpecificForm, $cast($String, s));
 	}
 	$Pattern* moduleSpecificForm = nullptr;
 };

@@ -25,19 +25,19 @@ void ArrayNotificationBuffer$BroadcasterQuery::setMBeanServer($MBeanServer* s) {
 }
 
 int32_t ArrayNotificationBuffer$BroadcasterQuery::hashCode() {
-	 return this->$QueryEval::hashCode();
+	return this->$QueryEval::hashCode();
 }
 
 bool ArrayNotificationBuffer$BroadcasterQuery::equals(Object$* arg0) {
-	 return this->$QueryEval::equals(arg0);
+	return this->$QueryEval::equals(arg0);
 }
 
 $Object* ArrayNotificationBuffer$BroadcasterQuery::clone() {
-	 return this->$QueryEval::clone();
+	return this->$QueryEval::clone();
 }
 
 $String* ArrayNotificationBuffer$BroadcasterQuery::toString() {
-	 return this->$QueryEval::toString();
+	return this->$QueryEval::toString();
 }
 
 void ArrayNotificationBuffer$BroadcasterQuery::finalize() {

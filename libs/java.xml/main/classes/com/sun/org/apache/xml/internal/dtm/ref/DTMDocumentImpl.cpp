@@ -76,19 +76,19 @@ namespace com {
 							namespace ref {
 
 int32_t DTMDocumentImpl::hashCode() {
-	 return this->$DTM::hashCode();
+	return this->$DTM::hashCode();
 }
 
 bool DTMDocumentImpl::equals(Object$* arg0) {
-	 return this->$DTM::equals(arg0);
+	return this->$DTM::equals(arg0);
 }
 
 $Object* DTMDocumentImpl::clone() {
-	 return this->$DTM::clone();
+	return this->$DTM::clone();
 }
 
 $String* DTMDocumentImpl::toString() {
-	 return this->$DTM::toString();
+	return this->$DTM::toString();
 }
 
 void DTMDocumentImpl::finalize() {

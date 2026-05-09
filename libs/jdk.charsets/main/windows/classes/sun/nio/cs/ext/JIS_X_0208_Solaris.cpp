@@ -27,19 +27,19 @@ namespace sun {
 			namespace ext {
 
 int32_t JIS_X_0208_Solaris::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool JIS_X_0208_Solaris::equals(Object$* arg0) {
-	 return this->$Charset::equals(arg0);
+	return this->$Charset::equals(arg0);
 }
 
 $String* JIS_X_0208_Solaris::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* JIS_X_0208_Solaris::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void JIS_X_0208_Solaris::finalize() {

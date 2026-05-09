@@ -83,7 +83,7 @@ public:
 		this->i = i;
 	}
 	virtual $Object* run() override {
-		 return $of(VersionHelper::lambda$getJndiProperty$1(i));
+		return $of(VersionHelper::lambda$getJndiProperty$1(i));
 	}
 	int32_t i = 0;
 };
@@ -118,7 +118,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(VersionHelper::lambda$getJndiProperties$2());
+		return $of(VersionHelper::lambda$getJndiProperties$2());
 	}
 };
 $Class* VersionHelper$$Lambda$lambda$getJndiProperties$2$1::load$($String* name, bool initialize) {
@@ -150,7 +150,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return VersionHelper::lambda$getResourceAsStream$3(c, name);
+		return VersionHelper::lambda$getResourceAsStream$3(c, name);
 	}
 	$Class* c = nullptr;
 	$String* name = nullptr;
@@ -188,7 +188,7 @@ public:
 		$set(this, filename, filename);
 	}
 	virtual $Object* run() override {
-		 return VersionHelper::lambda$getJavaHomeConfStream$4(filename);
+		return VersionHelper::lambda$getJavaHomeConfStream$4(filename);
 	}
 	$String* filename = nullptr;
 };
@@ -225,7 +225,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return VersionHelper::lambda$getResources$5(cl, name);
+		return VersionHelper::lambda$getResources$5(cl, name);
 	}
 	$ClassLoader* cl = nullptr;
 	$String* name = nullptr;
@@ -262,7 +262,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return VersionHelper::lambda$getContextClassLoader$6();
+		return VersionHelper::lambda$getContextClassLoader$6();
 	}
 };
 $Class* VersionHelper$$Lambda$lambda$getContextClassLoader$6$5::load$($String* name, bool initialize) {
@@ -292,7 +292,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(VersionHelper::lambda$static$0());
+		return $of(VersionHelper::lambda$static$0());
 	}
 };
 $Class* VersionHelper$$Lambda$lambda$static$0$6::load$($String* name, bool initialize) {

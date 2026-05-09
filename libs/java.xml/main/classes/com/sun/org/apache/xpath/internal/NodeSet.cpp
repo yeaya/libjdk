@@ -40,15 +40,15 @@ namespace com {
 					namespace internal {
 
 int32_t NodeSet::hashCode() {
-	 return this->$NodeList::hashCode();
+	return this->$NodeList::hashCode();
 }
 
 bool NodeSet::equals(Object$* arg0) {
-	 return this->$NodeList::equals(arg0);
+	return this->$NodeList::equals(arg0);
 }
 
 $String* NodeSet::toString() {
-	 return this->$NodeList::toString();
+	return this->$NodeList::toString();
 }
 
 void NodeSet::finalize() {

@@ -89,19 +89,19 @@ namespace javax {
 	namespace swing {
 
 $String* JMenuItem::toString() {
-	 return this->$AbstractButton::toString();
+	return this->$AbstractButton::toString();
 }
 
 int32_t JMenuItem::hashCode() {
-	 return this->$AbstractButton::hashCode();
+	return this->$AbstractButton::hashCode();
 }
 
 bool JMenuItem::equals(Object$* arg0) {
-	 return this->$AbstractButton::equals(arg0);
+	return this->$AbstractButton::equals(arg0);
 }
 
 $Object* JMenuItem::clone() {
-	 return this->$AbstractButton::clone();
+	return this->$AbstractButton::clone();
 }
 
 void JMenuItem::finalize() {

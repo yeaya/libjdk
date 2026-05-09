@@ -195,19 +195,19 @@ namespace com {
 						namespace impl {
 
 int32_t XMLDocumentFragmentScannerImpl::hashCode() {
-	 return this->$XMLScanner::hashCode();
+	return this->$XMLScanner::hashCode();
 }
 
 bool XMLDocumentFragmentScannerImpl::equals(Object$* arg0) {
-	 return this->$XMLScanner::equals(arg0);
+	return this->$XMLScanner::equals(arg0);
 }
 
 $Object* XMLDocumentFragmentScannerImpl::clone() {
-	 return this->$XMLScanner::clone();
+	return this->$XMLScanner::clone();
 }
 
 $String* XMLDocumentFragmentScannerImpl::toString() {
-	 return this->$XMLScanner::toString();
+	return this->$XMLScanner::toString();
 }
 
 void XMLDocumentFragmentScannerImpl::finalize() {

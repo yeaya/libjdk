@@ -44,19 +44,19 @@ namespace javax {
 			namespace synth {
 
 $String* SynthDesktopPaneUI$TaskBar::toString() {
-	 return this->$JPanel::toString();
+	return this->$JPanel::toString();
 }
 
 int32_t SynthDesktopPaneUI$TaskBar::hashCode() {
-	 return this->$JPanel::hashCode();
+	return this->$JPanel::hashCode();
 }
 
 bool SynthDesktopPaneUI$TaskBar::equals(Object$* arg0) {
-	 return this->$JPanel::equals(arg0);
+	return this->$JPanel::equals(arg0);
 }
 
 $Object* SynthDesktopPaneUI$TaskBar::clone() {
-	 return this->$JPanel::clone();
+	return this->$JPanel::clone();
 }
 
 void SynthDesktopPaneUI$TaskBar::finalize() {

@@ -123,7 +123,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Type, inst$)->stripMetadataIfNeeded());
+		return $of($sure($Type, inst$)->stripMetadataIfNeeded());
 	}
 };
 $Class* JavacTypes$$Lambda$stripMetadataIfNeeded::load$($String* name, bool initialize) {

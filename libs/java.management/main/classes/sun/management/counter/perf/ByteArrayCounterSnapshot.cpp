@@ -17,47 +17,47 @@ namespace sun {
 			namespace perf {
 
 $String* ByteArrayCounterSnapshot::getName() {
-	 return this->$AbstractCounter::getName();
+	return this->$AbstractCounter::getName();
 }
 
 $Units* ByteArrayCounterSnapshot::getUnits() {
-	 return this->$AbstractCounter::getUnits();
+	return this->$AbstractCounter::getUnits();
 }
 
 $Variability* ByteArrayCounterSnapshot::getVariability() {
-	 return this->$AbstractCounter::getVariability();
+	return this->$AbstractCounter::getVariability();
 }
 
 bool ByteArrayCounterSnapshot::isVector() {
-	 return this->$AbstractCounter::isVector();
+	return this->$AbstractCounter::isVector();
 }
 
 int32_t ByteArrayCounterSnapshot::getVectorLength() {
-	 return this->$AbstractCounter::getVectorLength();
+	return this->$AbstractCounter::getVectorLength();
 }
 
 bool ByteArrayCounterSnapshot::isInternal() {
-	 return this->$AbstractCounter::isInternal();
+	return this->$AbstractCounter::isInternal();
 }
 
 int32_t ByteArrayCounterSnapshot::getFlags() {
-	 return this->$AbstractCounter::getFlags();
+	return this->$AbstractCounter::getFlags();
 }
 
 $String* ByteArrayCounterSnapshot::toString() {
-	 return this->$AbstractCounter::toString();
+	return this->$AbstractCounter::toString();
 }
 
 int32_t ByteArrayCounterSnapshot::hashCode() {
-	 return this->$AbstractCounter::hashCode();
+	return this->$AbstractCounter::hashCode();
 }
 
 bool ByteArrayCounterSnapshot::equals(Object$* arg0) {
-	 return this->$AbstractCounter::equals(arg0);
+	return this->$AbstractCounter::equals(arg0);
 }
 
 $Object* ByteArrayCounterSnapshot::clone() {
-	 return this->$AbstractCounter::clone();
+	return this->$AbstractCounter::clone();
 }
 
 void ByteArrayCounterSnapshot::finalize() {

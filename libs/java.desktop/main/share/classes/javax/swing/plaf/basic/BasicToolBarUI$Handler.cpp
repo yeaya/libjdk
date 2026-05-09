@@ -44,19 +44,19 @@ namespace javax {
 			namespace basic {
 
 int32_t BasicToolBarUI$Handler::hashCode() {
-	 return this->$ContainerListener::hashCode();
+	return this->$ContainerListener::hashCode();
 }
 
 bool BasicToolBarUI$Handler::equals(Object$* arg0) {
-	 return this->$ContainerListener::equals(arg0);
+	return this->$ContainerListener::equals(arg0);
 }
 
 $Object* BasicToolBarUI$Handler::clone() {
-	 return this->$ContainerListener::clone();
+	return this->$ContainerListener::clone();
 }
 
 $String* BasicToolBarUI$Handler::toString() {
-	 return this->$ContainerListener::toString();
+	return this->$ContainerListener::toString();
 }
 
 void BasicToolBarUI$Handler::finalize() {

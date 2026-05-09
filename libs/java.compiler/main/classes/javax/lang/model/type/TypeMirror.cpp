@@ -16,15 +16,15 @@ namespace javax {
 			namespace type {
 
 bool TypeMirror::equals(Object$* obj) {
-	 return this->$AnnotatedConstruct::equals(obj);
+	return this->$AnnotatedConstruct::equals(obj);
 }
 
 int32_t TypeMirror::hashCode() {
-	 return this->$AnnotatedConstruct::hashCode();
+	return this->$AnnotatedConstruct::hashCode();
 }
 
 $String* TypeMirror::toString() {
-	 return this->$AnnotatedConstruct::toString();
+	return this->$AnnotatedConstruct::toString();
 }
 
 $Class* TypeMirror::load$($String* name, bool initialize) {

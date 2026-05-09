@@ -58,15 +58,15 @@ namespace com {
 						namespace axes {
 
 int32_t PredicatedNodeTest::hashCode() {
-	 return this->$NodeTest::hashCode();
+	return this->$NodeTest::hashCode();
 }
 
 bool PredicatedNodeTest::equals(Object$* arg0) {
-	 return this->$NodeTest::equals(arg0);
+	return this->$NodeTest::equals(arg0);
 }
 
 $String* PredicatedNodeTest::toString() {
-	 return this->$NodeTest::toString();
+	return this->$NodeTest::toString();
 }
 
 void PredicatedNodeTest::finalize() {

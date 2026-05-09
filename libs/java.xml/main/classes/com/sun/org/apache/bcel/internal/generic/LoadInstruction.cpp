@@ -21,23 +21,23 @@ namespace com {
 						namespace generic {
 
 $String* LoadInstruction::toString() {
-	 return this->$LocalVariableInstruction::toString();
+	return this->$LocalVariableInstruction::toString();
 }
 
 int32_t LoadInstruction::produceStack($ConstantPoolGen* cpg) {
-	 return this->$LocalVariableInstruction::produceStack(cpg);
+	return this->$LocalVariableInstruction::produceStack(cpg);
 }
 
 bool LoadInstruction::equals(Object$* that) {
-	 return this->$LocalVariableInstruction::equals(that);
+	return this->$LocalVariableInstruction::equals(that);
 }
 
 int32_t LoadInstruction::hashCode() {
-	 return this->$LocalVariableInstruction::hashCode();
+	return this->$LocalVariableInstruction::hashCode();
 }
 
 $Object* LoadInstruction::clone() {
-	 return this->$LocalVariableInstruction::clone();
+	return this->$LocalVariableInstruction::clone();
 }
 
 void LoadInstruction::finalize() {

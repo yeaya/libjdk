@@ -45,19 +45,19 @@ void SynthFileChooserUIImpl$DirectoryComboBoxModel::removeListDataListener($List
 }
 
 int32_t SynthFileChooserUIImpl$DirectoryComboBoxModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool SynthFileChooserUIImpl$DirectoryComboBoxModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* SynthFileChooserUIImpl$DirectoryComboBoxModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* SynthFileChooserUIImpl$DirectoryComboBoxModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void SynthFileChooserUIImpl$DirectoryComboBoxModel::finalize() {

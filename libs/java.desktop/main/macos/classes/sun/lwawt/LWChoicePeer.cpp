@@ -71,19 +71,19 @@ void LWChoicePeer::dispose() {
 }
 
 $GraphicsConfiguration* LWChoicePeer::getGraphicsConfiguration() {
-	 return this->$LWComponentPeer::getGraphicsConfiguration();
+	return this->$LWComponentPeer::getGraphicsConfiguration();
 }
 
 bool LWChoicePeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$LWComponentPeer::updateGraphicsData(gc);
+	return this->$LWComponentPeer::updateGraphicsData(gc);
 }
 
 $Graphics* LWChoicePeer::getGraphics() {
-	 return this->$LWComponentPeer::getGraphics();
+	return this->$LWComponentPeer::getGraphics();
 }
 
 $ColorModel* LWChoicePeer::getColorModel() {
-	 return this->$LWComponentPeer::getColorModel();
+	return this->$LWComponentPeer::getColorModel();
 }
 
 void LWChoicePeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -91,7 +91,7 @@ void LWChoicePeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) 
 }
 
 $Image* LWChoicePeer::getBackBuffer() {
-	 return this->$LWComponentPeer::getBackBuffer();
+	return this->$LWComponentPeer::getBackBuffer();
 }
 
 void LWChoicePeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -107,7 +107,7 @@ void LWChoicePeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int32_t
 }
 
 $Point* LWChoicePeer::getLocationOnScreen() {
-	 return this->$LWComponentPeer::getLocationOnScreen();
+	return this->$LWComponentPeer::getLocationOnScreen();
 }
 
 void LWChoicePeer::setBackground($Color* c) {
@@ -123,7 +123,7 @@ void LWChoicePeer::setFont($Font* f) {
 }
 
 $FontMetrics* LWChoicePeer::getFontMetrics($Font* f) {
-	 return this->$LWComponentPeer::getFontMetrics(f);
+	return this->$LWComponentPeer::getFontMetrics(f);
 }
 
 void LWChoicePeer::setEnabled(bool e) {
@@ -147,7 +147,7 @@ void LWChoicePeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWChoicePeer::isReparentSupported() {
-	 return this->$LWComponentPeer::isReparentSupported();
+	return this->$LWComponentPeer::isReparentSupported();
 }
 
 void LWChoicePeer::setZOrder($ComponentPeer* above) {
@@ -163,19 +163,19 @@ void LWChoicePeer::layout() {
 }
 
 bool LWChoicePeer::isObscured() {
-	 return this->$LWComponentPeer::isObscured();
+	return this->$LWComponentPeer::isObscured();
 }
 
 bool LWChoicePeer::canDetermineObscurity() {
-	 return this->$LWComponentPeer::canDetermineObscurity();
+	return this->$LWComponentPeer::canDetermineObscurity();
 }
 
 $Dimension* LWChoicePeer::getPreferredSize() {
-	 return this->$LWComponentPeer::getPreferredSize();
+	return this->$LWComponentPeer::getPreferredSize();
 }
 
 $Dimension* LWChoicePeer::getMinimumSize() {
-	 return this->$LWComponentPeer::getMinimumSize();
+	return this->$LWComponentPeer::getMinimumSize();
 }
 
 void LWChoicePeer::updateCursorImmediately() {
@@ -183,19 +183,19 @@ void LWChoicePeer::updateCursorImmediately() {
 }
 
 bool LWChoicePeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWChoicePeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWComponentPeer::createImage(width, height);
+	return this->$LWComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* LWChoicePeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWComponentPeer::createVolatileImage(w, h);
+	return this->$LWComponentPeer::createVolatileImage(w, h);
 }
 
 bool LWChoicePeer::handlesWheelScrolling() {
-	 return this->$LWComponentPeer::handlesWheelScrolling();
+	return this->$LWComponentPeer::handlesWheelScrolling();
 }
 
 void LWChoicePeer::applyShape($Region* shape) {
@@ -207,19 +207,19 @@ void LWChoicePeer::handleEvent($AWTEvent* e) {
 }
 
 int32_t LWChoicePeer::hashCode() {
-	 return this->$LWComponentPeer::hashCode();
+	return this->$LWComponentPeer::hashCode();
 }
 
 bool LWChoicePeer::equals(Object$* arg0) {
-	 return this->$LWComponentPeer::equals(arg0);
+	return this->$LWComponentPeer::equals(arg0);
 }
 
 $Object* LWChoicePeer::clone() {
-	 return this->$LWComponentPeer::clone();
+	return this->$LWComponentPeer::clone();
 }
 
 $String* LWChoicePeer::toString() {
-	 return this->$LWComponentPeer::toString();
+	return this->$LWComponentPeer::toString();
 }
 
 void LWChoicePeer::finalize() {

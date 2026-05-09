@@ -27,19 +27,19 @@ namespace javax {
 	namespace tools {
 
 int32_t DocumentationTool::hashCode() {
-	 return this->$Tool::hashCode();
+	return this->$Tool::hashCode();
 }
 
 bool DocumentationTool::equals(Object$* arg0) {
-	 return this->$Tool::equals(arg0);
+	return this->$Tool::equals(arg0);
 }
 
 $Object* DocumentationTool::clone() {
-	 return this->$Tool::clone();
+	return this->$Tool::clone();
 }
 
 $String* DocumentationTool::toString() {
-	 return this->$Tool::toString();
+	return this->$Tool::toString();
 }
 
 void DocumentationTool::finalize() {

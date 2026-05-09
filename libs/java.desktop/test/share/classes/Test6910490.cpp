@@ -30,19 +30,19 @@ using $JSplitPane = ::javax::swing::JSplitPane;
 using $MatteBorder = ::javax::swing::border::MatteBorder;
 
 $String* Test6910490::toString() {
-	 return this->$JApplet::toString();
+	return this->$JApplet::toString();
 }
 
 int32_t Test6910490::hashCode() {
-	 return this->$JApplet::hashCode();
+	return this->$JApplet::hashCode();
 }
 
 bool Test6910490::equals(Object$* arg0) {
-	 return this->$JApplet::equals(arg0);
+	return this->$JApplet::equals(arg0);
 }
 
 $Object* Test6910490::clone() {
-	 return this->$JApplet::clone();
+	return this->$JApplet::clone();
 }
 
 void Test6910490::finalize() {

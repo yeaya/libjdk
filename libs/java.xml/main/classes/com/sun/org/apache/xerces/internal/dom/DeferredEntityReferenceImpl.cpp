@@ -30,55 +30,55 @@ namespace com {
 						namespace dom {
 
 int16_t DeferredEntityReferenceImpl::getNodeType() {
-	 return this->$EntityReferenceImpl::getNodeType();
+	return this->$EntityReferenceImpl::getNodeType();
 }
 
 $String* DeferredEntityReferenceImpl::getNodeName() {
-	 return this->$EntityReferenceImpl::getNodeName();
+	return this->$EntityReferenceImpl::getNodeName();
 }
 
 $Node* DeferredEntityReferenceImpl::cloneNode(bool deep) {
-	 return this->$EntityReferenceImpl::cloneNode(deep);
+	return this->$EntityReferenceImpl::cloneNode(deep);
 }
 
 $String* DeferredEntityReferenceImpl::getBaseURI() {
-	 return this->$EntityReferenceImpl::getBaseURI();
+	return this->$EntityReferenceImpl::getBaseURI();
 }
 
 $Document* DeferredEntityReferenceImpl::getOwnerDocument() {
-	 return this->$EntityReferenceImpl::getOwnerDocument();
+	return this->$EntityReferenceImpl::getOwnerDocument();
 }
 
 bool DeferredEntityReferenceImpl::hasChildNodes() {
-	 return this->$EntityReferenceImpl::hasChildNodes();
+	return this->$EntityReferenceImpl::hasChildNodes();
 }
 
 $NodeList* DeferredEntityReferenceImpl::getChildNodes() {
-	 return this->$EntityReferenceImpl::getChildNodes();
+	return this->$EntityReferenceImpl::getChildNodes();
 }
 
 $Node* DeferredEntityReferenceImpl::getFirstChild() {
-	 return this->$EntityReferenceImpl::getFirstChild();
+	return this->$EntityReferenceImpl::getFirstChild();
 }
 
 $Node* DeferredEntityReferenceImpl::getLastChild() {
-	 return this->$EntityReferenceImpl::getLastChild();
+	return this->$EntityReferenceImpl::getLastChild();
 }
 
 $Node* DeferredEntityReferenceImpl::insertBefore($Node* newChild, $Node* refChild) {
-	 return this->$EntityReferenceImpl::insertBefore(newChild, refChild);
+	return this->$EntityReferenceImpl::insertBefore(newChild, refChild);
 }
 
 $Node* DeferredEntityReferenceImpl::removeChild($Node* oldChild) {
-	 return this->$EntityReferenceImpl::removeChild(oldChild);
+	return this->$EntityReferenceImpl::removeChild(oldChild);
 }
 
 $Node* DeferredEntityReferenceImpl::replaceChild($Node* newChild, $Node* oldChild) {
-	 return this->$EntityReferenceImpl::replaceChild(newChild, oldChild);
+	return this->$EntityReferenceImpl::replaceChild(newChild, oldChild);
 }
 
 $String* DeferredEntityReferenceImpl::getTextContent() {
-	 return this->$EntityReferenceImpl::getTextContent();
+	return this->$EntityReferenceImpl::getTextContent();
 }
 
 void DeferredEntityReferenceImpl::setTextContent($String* textContent) {
@@ -90,23 +90,23 @@ void DeferredEntityReferenceImpl::normalize() {
 }
 
 bool DeferredEntityReferenceImpl::isEqualNode($Node* arg) {
-	 return this->$EntityReferenceImpl::isEqualNode(arg);
+	return this->$EntityReferenceImpl::isEqualNode(arg);
 }
 
 $Node* DeferredEntityReferenceImpl::getParentNode() {
-	 return this->$EntityReferenceImpl::getParentNode();
+	return this->$EntityReferenceImpl::getParentNode();
 }
 
 $Node* DeferredEntityReferenceImpl::getNextSibling() {
-	 return this->$EntityReferenceImpl::getNextSibling();
+	return this->$EntityReferenceImpl::getNextSibling();
 }
 
 $Node* DeferredEntityReferenceImpl::getPreviousSibling() {
-	 return this->$EntityReferenceImpl::getPreviousSibling();
+	return this->$EntityReferenceImpl::getPreviousSibling();
 }
 
 $String* DeferredEntityReferenceImpl::getNodeValue() {
-	 return this->$EntityReferenceImpl::getNodeValue();
+	return this->$EntityReferenceImpl::getNodeValue();
 }
 
 void DeferredEntityReferenceImpl::setNodeValue($String* x) {
@@ -114,27 +114,27 @@ void DeferredEntityReferenceImpl::setNodeValue($String* x) {
 }
 
 $Node* DeferredEntityReferenceImpl::appendChild($Node* newChild) {
-	 return this->$EntityReferenceImpl::appendChild(newChild);
+	return this->$EntityReferenceImpl::appendChild(newChild);
 }
 
 $NamedNodeMap* DeferredEntityReferenceImpl::getAttributes() {
-	 return this->$EntityReferenceImpl::getAttributes();
+	return this->$EntityReferenceImpl::getAttributes();
 }
 
 bool DeferredEntityReferenceImpl::hasAttributes() {
-	 return this->$EntityReferenceImpl::hasAttributes();
+	return this->$EntityReferenceImpl::hasAttributes();
 }
 
 bool DeferredEntityReferenceImpl::isSupported($String* feature, $String* version) {
-	 return this->$EntityReferenceImpl::isSupported(feature, version);
+	return this->$EntityReferenceImpl::isSupported(feature, version);
 }
 
 $String* DeferredEntityReferenceImpl::getNamespaceURI() {
-	 return this->$EntityReferenceImpl::getNamespaceURI();
+	return this->$EntityReferenceImpl::getNamespaceURI();
 }
 
 $String* DeferredEntityReferenceImpl::getPrefix() {
-	 return this->$EntityReferenceImpl::getPrefix();
+	return this->$EntityReferenceImpl::getPrefix();
 }
 
 void DeferredEntityReferenceImpl::setPrefix($String* prefix) {
@@ -142,55 +142,55 @@ void DeferredEntityReferenceImpl::setPrefix($String* prefix) {
 }
 
 $String* DeferredEntityReferenceImpl::getLocalName() {
-	 return this->$EntityReferenceImpl::getLocalName();
+	return this->$EntityReferenceImpl::getLocalName();
 }
 
 int16_t DeferredEntityReferenceImpl::compareDocumentPosition($Node* other) {
-	 return this->$EntityReferenceImpl::compareDocumentPosition(other);
+	return this->$EntityReferenceImpl::compareDocumentPosition(other);
 }
 
 bool DeferredEntityReferenceImpl::isSameNode($Node* other) {
-	 return this->$EntityReferenceImpl::isSameNode(other);
+	return this->$EntityReferenceImpl::isSameNode(other);
 }
 
 bool DeferredEntityReferenceImpl::isDefaultNamespace($String* namespaceURI) {
-	 return this->$EntityReferenceImpl::isDefaultNamespace(namespaceURI);
+	return this->$EntityReferenceImpl::isDefaultNamespace(namespaceURI);
 }
 
 $String* DeferredEntityReferenceImpl::lookupPrefix($String* namespaceURI) {
-	 return this->$EntityReferenceImpl::lookupPrefix(namespaceURI);
+	return this->$EntityReferenceImpl::lookupPrefix(namespaceURI);
 }
 
 $String* DeferredEntityReferenceImpl::lookupNamespaceURI($String* specifiedPrefix) {
-	 return this->$EntityReferenceImpl::lookupNamespaceURI(specifiedPrefix);
+	return this->$EntityReferenceImpl::lookupNamespaceURI(specifiedPrefix);
 }
 
 $Object* DeferredEntityReferenceImpl::getFeature($String* feature, $String* version) {
-	 return this->$EntityReferenceImpl::getFeature(feature, version);
+	return this->$EntityReferenceImpl::getFeature(feature, version);
 }
 
 $Object* DeferredEntityReferenceImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	 return this->$EntityReferenceImpl::setUserData(key, data, handler);
+	return this->$EntityReferenceImpl::setUserData(key, data, handler);
 }
 
 $Object* DeferredEntityReferenceImpl::getUserData($String* key) {
-	 return this->$EntityReferenceImpl::getUserData(key);
+	return this->$EntityReferenceImpl::getUserData(key);
 }
 
 $String* DeferredEntityReferenceImpl::toString() {
-	 return this->$EntityReferenceImpl::toString();
+	return this->$EntityReferenceImpl::toString();
 }
 
 int32_t DeferredEntityReferenceImpl::hashCode() {
-	 return this->$EntityReferenceImpl::hashCode();
+	return this->$EntityReferenceImpl::hashCode();
 }
 
 bool DeferredEntityReferenceImpl::equals(Object$* arg0) {
-	 return this->$EntityReferenceImpl::equals(arg0);
+	return this->$EntityReferenceImpl::equals(arg0);
 }
 
 $Object* DeferredEntityReferenceImpl::clone() {
-	 return this->$EntityReferenceImpl::clone();
+	return this->$EntityReferenceImpl::clone();
 }
 
 void DeferredEntityReferenceImpl::finalize() {

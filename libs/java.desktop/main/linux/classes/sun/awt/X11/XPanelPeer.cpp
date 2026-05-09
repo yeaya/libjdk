@@ -78,23 +78,23 @@ void XPanelPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool XPanelPeer::isReparentSupported() {
-	 return this->$XCanvasPeer::isReparentSupported();
+	return this->$XCanvasPeer::isReparentSupported();
 }
 
 bool XPanelPeer::isObscured() {
-	 return this->$XCanvasPeer::isObscured();
+	return this->$XCanvasPeer::isObscured();
 }
 
 bool XPanelPeer::canDetermineObscurity() {
-	 return this->$XCanvasPeer::canDetermineObscurity();
+	return this->$XCanvasPeer::canDetermineObscurity();
 }
 
 bool XPanelPeer::isFocusable() {
-	 return this->$XCanvasPeer::isFocusable();
+	return this->$XCanvasPeer::isFocusable();
 }
 
 bool XPanelPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XCanvasPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XCanvasPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void XPanelPeer::setVisible(bool b) {
@@ -106,7 +106,7 @@ void XPanelPeer::setEnabled(bool value) {
 }
 
 $Graphics* XPanelPeer::getGraphics() {
-	 return this->$XCanvasPeer::getGraphics();
+	return this->$XCanvasPeer::getGraphics();
 }
 
 void XPanelPeer::setBounds(int32_t x, int32_t y, int32_t width, int32_t height, int32_t op) {
@@ -122,11 +122,11 @@ void XPanelPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* XPanelPeer::getMinimumSize() {
-	 return this->$XCanvasPeer::getMinimumSize();
+	return this->$XCanvasPeer::getMinimumSize();
 }
 
 $Dimension* XPanelPeer::getPreferredSize() {
-	 return this->$XCanvasPeer::getPreferredSize();
+	return this->$XCanvasPeer::getPreferredSize();
 }
 
 void XPanelPeer::layout() {
@@ -134,7 +134,7 @@ void XPanelPeer::layout() {
 }
 
 $FontMetrics* XPanelPeer::getFontMetrics($Font* font) {
-	 return this->$XCanvasPeer::getFontMetrics(font);
+	return this->$XCanvasPeer::getFontMetrics(font);
 }
 
 void XPanelPeer::setFont($Font* f) {
@@ -146,11 +146,11 @@ void XPanelPeer::updateCursorImmediately() {
 }
 
 $Image* XPanelPeer::createImage(int32_t width, int32_t height) {
-	 return this->$XCanvasPeer::createImage(width, height);
+	return this->$XCanvasPeer::createImage(width, height);
 }
 
 $VolatileImage* XPanelPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XCanvasPeer::createVolatileImage(width, height);
+	return this->$XCanvasPeer::createVolatileImage(width, height);
 }
 
 void XPanelPeer::beginValidate() {
@@ -162,7 +162,7 @@ void XPanelPeer::endValidate() {
 }
 
 bool XPanelPeer::handlesWheelScrolling() {
-	 return this->$XCanvasPeer::handlesWheelScrolling();
+	return this->$XCanvasPeer::handlesWheelScrolling();
 }
 
 void XPanelPeer::beginLayout() {
@@ -182,7 +182,7 @@ void XPanelPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCap
 }
 
 $Image* XPanelPeer::getBackBuffer() {
-	 return this->$XCanvasPeer::getBackBuffer();
+	return this->$XCanvasPeer::getBackBuffer();
 }
 
 void XPanelPeer::destroyBuffers() {
@@ -198,35 +198,35 @@ void XPanelPeer::applyShape($Region* shape) {
 }
 
 bool XPanelPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XCanvasPeer::updateGraphicsData(gc);
+	return this->$XCanvasPeer::updateGraphicsData(gc);
 }
 
 $Point* XPanelPeer::getLocationOnScreen() {
-	 return this->$XCanvasPeer::getLocationOnScreen();
+	return this->$XCanvasPeer::getLocationOnScreen();
 }
 
 $ColorModel* XPanelPeer::getColorModel() {
-	 return this->$XCanvasPeer::getColorModel();
+	return this->$XCanvasPeer::getColorModel();
 }
 
 $GraphicsConfiguration* XPanelPeer::getGraphicsConfiguration() {
-	 return this->$XCanvasPeer::getGraphicsConfiguration();
+	return this->$XCanvasPeer::getGraphicsConfiguration();
 }
 
 $String* XPanelPeer::toString() {
-	 return this->$XCanvasPeer::toString();
+	return this->$XCanvasPeer::toString();
 }
 
 int32_t XPanelPeer::hashCode() {
-	 return this->$XCanvasPeer::hashCode();
+	return this->$XCanvasPeer::hashCode();
 }
 
 bool XPanelPeer::equals(Object$* arg0) {
-	 return this->$XCanvasPeer::equals(arg0);
+	return this->$XCanvasPeer::equals(arg0);
 }
 
 $Object* XPanelPeer::clone() {
-	 return this->$XCanvasPeer::clone();
+	return this->$XCanvasPeer::clone();
 }
 
 void XPanelPeer::finalize() {

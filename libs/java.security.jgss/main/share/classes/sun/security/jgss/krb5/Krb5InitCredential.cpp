@@ -72,19 +72,19 @@ namespace sun {
 			namespace krb5 {
 
 $String* Krb5InitCredential::toString() {
-	 return this->$KerberosTicket::toString();
+	return this->$KerberosTicket::toString();
 }
 
 int32_t Krb5InitCredential::hashCode() {
-	 return this->$KerberosTicket::hashCode();
+	return this->$KerberosTicket::hashCode();
 }
 
 bool Krb5InitCredential::equals(Object$* other) {
-	 return this->$KerberosTicket::equals(other);
+	return this->$KerberosTicket::equals(other);
 }
 
 $Object* Krb5InitCredential::clone() {
-	 return this->$KerberosTicket::clone();
+	return this->$KerberosTicket::clone();
 }
 
 void Krb5InitCredential::finalize() {

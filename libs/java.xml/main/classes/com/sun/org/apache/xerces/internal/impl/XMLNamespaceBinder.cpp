@@ -68,19 +68,19 @@ namespace com {
 						namespace impl {
 
 int32_t XMLNamespaceBinder::hashCode() {
-	 return this->$XMLComponent::hashCode();
+	return this->$XMLComponent::hashCode();
 }
 
 bool XMLNamespaceBinder::equals(Object$* arg0) {
-	 return this->$XMLComponent::equals(arg0);
+	return this->$XMLComponent::equals(arg0);
 }
 
 $Object* XMLNamespaceBinder::clone() {
-	 return this->$XMLComponent::clone();
+	return this->$XMLComponent::clone();
 }
 
 $String* XMLNamespaceBinder::toString() {
-	 return this->$XMLComponent::toString();
+	return this->$XMLComponent::toString();
 }
 
 void XMLNamespaceBinder::finalize() {

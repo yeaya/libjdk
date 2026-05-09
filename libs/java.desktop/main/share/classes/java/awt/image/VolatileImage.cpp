@@ -31,19 +31,19 @@ namespace java {
 		namespace image {
 
 int32_t VolatileImage::hashCode() {
-	 return this->$Image::hashCode();
+	return this->$Image::hashCode();
 }
 
 bool VolatileImage::equals(Object$* arg0) {
-	 return this->$Image::equals(arg0);
+	return this->$Image::equals(arg0);
 }
 
 $Object* VolatileImage::clone() {
-	 return this->$Image::clone();
+	return this->$Image::clone();
 }
 
 $String* VolatileImage::toString() {
-	 return this->$Image::toString();
+	return this->$Image::toString();
 }
 
 void VolatileImage::finalize() {

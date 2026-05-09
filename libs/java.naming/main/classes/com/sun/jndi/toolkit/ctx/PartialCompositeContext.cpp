@@ -45,19 +45,19 @@ namespace com {
 				namespace ctx {
 
 int32_t PartialCompositeContext::hashCode() {
-	 return this->$Context::hashCode();
+	return this->$Context::hashCode();
 }
 
 bool PartialCompositeContext::equals(Object$* arg0) {
-	 return this->$Context::equals(arg0);
+	return this->$Context::equals(arg0);
 }
 
 $Object* PartialCompositeContext::clone() {
-	 return this->$Context::clone();
+	return this->$Context::clone();
 }
 
 $String* PartialCompositeContext::toString() {
-	 return this->$Context::toString();
+	return this->$Context::toString();
 }
 
 void PartialCompositeContext::finalize() {

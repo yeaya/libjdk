@@ -68,19 +68,19 @@ namespace sun {
 	namespace swing {
 
 $String* WindowsPlacesBar::toString() {
-	 return this->$JToolBar::toString();
+	return this->$JToolBar::toString();
 }
 
 int32_t WindowsPlacesBar::hashCode() {
-	 return this->$JToolBar::hashCode();
+	return this->$JToolBar::hashCode();
 }
 
 bool WindowsPlacesBar::equals(Object$* arg0) {
-	 return this->$JToolBar::equals(arg0);
+	return this->$JToolBar::equals(arg0);
 }
 
 $Object* WindowsPlacesBar::clone() {
-	 return this->$JToolBar::clone();
+	return this->$JToolBar::clone();
 }
 
 void WindowsPlacesBar::finalize() {

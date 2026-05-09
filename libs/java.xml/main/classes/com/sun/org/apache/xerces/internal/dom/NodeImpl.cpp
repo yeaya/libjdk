@@ -94,15 +94,15 @@ namespace com {
 						namespace dom {
 
 int32_t NodeImpl::hashCode() {
-	 return this->$Node::hashCode();
+	return this->$Node::hashCode();
 }
 
 bool NodeImpl::equals(Object$* arg0) {
-	 return this->$Node::equals(arg0);
+	return this->$Node::equals(arg0);
 }
 
 $Object* NodeImpl::clone() {
-	 return this->$Node::clone();
+	return this->$Node::clone();
 }
 
 void NodeImpl::finalize() {

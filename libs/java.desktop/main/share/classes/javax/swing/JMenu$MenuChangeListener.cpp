@@ -18,19 +18,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JMenu$MenuChangeListener::hashCode() {
-	 return this->$ChangeListener::hashCode();
+	return this->$ChangeListener::hashCode();
 }
 
 bool JMenu$MenuChangeListener::equals(Object$* arg0) {
-	 return this->$ChangeListener::equals(arg0);
+	return this->$ChangeListener::equals(arg0);
 }
 
 $Object* JMenu$MenuChangeListener::clone() {
-	 return this->$ChangeListener::clone();
+	return this->$ChangeListener::clone();
 }
 
 $String* JMenu$MenuChangeListener::toString() {
-	 return this->$ChangeListener::toString();
+	return this->$ChangeListener::toString();
 }
 
 void JMenu$MenuChangeListener::finalize() {

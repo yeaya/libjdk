@@ -40,7 +40,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* x, Object$* y) override {
-		 return MethodsTest$1::lambda$headers$0($cast($String, x), $cast($String, y));
+		return MethodsTest$1::lambda$headers$0($cast($String, x), $cast($String, y));
 	}
 };
 $Class* MethodsTest$1$$Lambda$lambda$headers$0::load$($String* name, bool initialize) {

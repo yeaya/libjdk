@@ -25,19 +25,19 @@ namespace com {
 					namespace windows {
 
 int32_t WindowsBorders$ComplementDashedBorder::hashCode() {
-	 return this->$LineBorder::hashCode();
+	return this->$LineBorder::hashCode();
 }
 
 bool WindowsBorders$ComplementDashedBorder::equals(Object$* arg0) {
-	 return this->$LineBorder::equals(arg0);
+	return this->$LineBorder::equals(arg0);
 }
 
 $Object* WindowsBorders$ComplementDashedBorder::clone() {
-	 return this->$LineBorder::clone();
+	return this->$LineBorder::clone();
 }
 
 $String* WindowsBorders$ComplementDashedBorder::toString() {
-	 return this->$LineBorder::toString();
+	return this->$LineBorder::toString();
 }
 
 void WindowsBorders$ComplementDashedBorder::finalize() {

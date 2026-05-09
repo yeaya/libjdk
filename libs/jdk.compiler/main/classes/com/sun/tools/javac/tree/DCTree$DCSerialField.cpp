@@ -31,23 +31,23 @@ namespace com {
 				namespace tree {
 
 $String* DCTree$DCSerialField::getTagName() {
-	 return this->$DCTree$DCBlockTag::getTagName();
+	return this->$DCTree$DCBlockTag::getTagName();
 }
 
 $String* DCTree$DCSerialField::toString() {
-	 return this->$DCTree$DCBlockTag::toString();
+	return this->$DCTree$DCBlockTag::toString();
 }
 
 int32_t DCTree$DCSerialField::hashCode() {
-	 return this->$DCTree$DCBlockTag::hashCode();
+	return this->$DCTree$DCBlockTag::hashCode();
 }
 
 bool DCTree$DCSerialField::equals(Object$* arg0) {
-	 return this->$DCTree$DCBlockTag::equals(arg0);
+	return this->$DCTree$DCBlockTag::equals(arg0);
 }
 
 $Object* DCTree$DCSerialField::clone() {
-	 return this->$DCTree$DCBlockTag::clone();
+	return this->$DCTree$DCBlockTag::clone();
 }
 
 void DCTree$DCSerialField::finalize() {

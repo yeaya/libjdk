@@ -86,7 +86,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return ResponseSubscribers$PathSubscriber::lambda$new$0(x$0);
+		return ResponseSubscribers$PathSubscriber::lambda$new$0(x$0);
 	}
 };
 $Class* ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
@@ -117,7 +117,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$onSubscribe$1());
+		return $of($nc(inst$)->lambda$onSubscribe$1());
 	}
 	ResponseSubscribers$PathSubscriber* inst$ = nullptr;
 };
@@ -153,7 +153,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$close$2();
+		return $nc(inst$)->lambda$close$2();
 	}
 	ResponseSubscribers$PathSubscriber* inst$ = nullptr;
 };

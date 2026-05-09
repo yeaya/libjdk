@@ -143,7 +143,7 @@ public:
 		$set(this, rewriting, rewriting);
 	}
 	virtual $Object* get() override {
-		 return Analyzer::lambda$doAnalysis$0(rewriting);
+		return Analyzer::lambda$doAnalysis$0(rewriting);
 	}
 	$Analyzer$RewritingContext* rewriting = nullptr;
 };
@@ -178,7 +178,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* se) override {
-		 return $of(Analyzer::lambda$doAnalysis$1($cast($StackTraceElement, se)));
+		return $of(Analyzer::lambda$doAnalysis$1($cast($StackTraceElement, se)));
 	}
 };
 $Class* Analyzer$$Lambda$lambda$doAnalysis$1$1::load$($String* name, bool initialize) {

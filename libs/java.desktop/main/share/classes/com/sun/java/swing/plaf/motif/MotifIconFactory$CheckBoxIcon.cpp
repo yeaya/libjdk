@@ -31,19 +31,19 @@ namespace com {
 					namespace motif {
 
 int32_t MotifIconFactory$CheckBoxIcon::hashCode() {
-	 return this->$Icon::hashCode();
+	return this->$Icon::hashCode();
 }
 
 bool MotifIconFactory$CheckBoxIcon::equals(Object$* arg0) {
-	 return this->$Icon::equals(arg0);
+	return this->$Icon::equals(arg0);
 }
 
 $Object* MotifIconFactory$CheckBoxIcon::clone() {
-	 return this->$Icon::clone();
+	return this->$Icon::clone();
 }
 
 $String* MotifIconFactory$CheckBoxIcon::toString() {
-	 return this->$Icon::toString();
+	return this->$Icon::toString();
 }
 
 void MotifIconFactory$CheckBoxIcon::finalize() {

@@ -58,7 +58,7 @@ namespace sun {
 	namespace lwawt {
 
 $Insets* LWPanelPeer::getInsets() {
-	 return this->$LWContainerPeer::getInsets();
+	return this->$LWContainerPeer::getInsets();
 }
 
 void LWPanelPeer::beginValidate() {
@@ -102,11 +102,11 @@ void LWPanelPeer::print($Graphics* g) {
 }
 
 $Dimension* LWPanelPeer::getPreferredSize() {
-	 return this->$LWContainerPeer::getPreferredSize();
+	return this->$LWContainerPeer::getPreferredSize();
 }
 
 $Dimension* LWPanelPeer::getMinimumSize() {
-	 return this->$LWContainerPeer::getMinimumSize();
+	return this->$LWContainerPeer::getMinimumSize();
 }
 
 void LWPanelPeer::dispose() {
@@ -114,19 +114,19 @@ void LWPanelPeer::dispose() {
 }
 
 $GraphicsConfiguration* LWPanelPeer::getGraphicsConfiguration() {
-	 return this->$LWContainerPeer::getGraphicsConfiguration();
+	return this->$LWContainerPeer::getGraphicsConfiguration();
 }
 
 bool LWPanelPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$LWContainerPeer::updateGraphicsData(gc);
+	return this->$LWContainerPeer::updateGraphicsData(gc);
 }
 
 $Graphics* LWPanelPeer::getGraphics() {
-	 return this->$LWContainerPeer::getGraphics();
+	return this->$LWContainerPeer::getGraphics();
 }
 
 $ColorModel* LWPanelPeer::getColorModel() {
-	 return this->$LWContainerPeer::getColorModel();
+	return this->$LWContainerPeer::getColorModel();
 }
 
 void LWPanelPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -134,7 +134,7 @@ void LWPanelPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
 }
 
 $Image* LWPanelPeer::getBackBuffer() {
-	 return this->$LWContainerPeer::getBackBuffer();
+	return this->$LWContainerPeer::getBackBuffer();
 }
 
 void LWPanelPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -150,11 +150,11 @@ void LWPanelPeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int32_t 
 }
 
 $Point* LWPanelPeer::getLocationOnScreen() {
-	 return this->$LWContainerPeer::getLocationOnScreen();
+	return this->$LWContainerPeer::getLocationOnScreen();
 }
 
 $FontMetrics* LWPanelPeer::getFontMetrics($Font* f) {
-	 return this->$LWContainerPeer::getFontMetrics(f);
+	return this->$LWContainerPeer::getFontMetrics(f);
 }
 
 void LWPanelPeer::setVisible(bool v) {
@@ -166,7 +166,7 @@ void LWPanelPeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWPanelPeer::isReparentSupported() {
-	 return this->$LWContainerPeer::isReparentSupported();
+	return this->$LWContainerPeer::isReparentSupported();
 }
 
 void LWPanelPeer::setZOrder($ComponentPeer* above) {
@@ -182,11 +182,11 @@ void LWPanelPeer::layout() {
 }
 
 bool LWPanelPeer::isObscured() {
-	 return this->$LWContainerPeer::isObscured();
+	return this->$LWContainerPeer::isObscured();
 }
 
 bool LWPanelPeer::canDetermineObscurity() {
-	 return this->$LWContainerPeer::canDetermineObscurity();
+	return this->$LWContainerPeer::canDetermineObscurity();
 }
 
 void LWPanelPeer::updateCursorImmediately() {
@@ -194,23 +194,23 @@ void LWPanelPeer::updateCursorImmediately() {
 }
 
 bool LWPanelPeer::isFocusable() {
-	 return this->$LWContainerPeer::isFocusable();
+	return this->$LWContainerPeer::isFocusable();
 }
 
 bool LWPanelPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWContainerPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWContainerPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWPanelPeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWContainerPeer::createImage(width, height);
+	return this->$LWContainerPeer::createImage(width, height);
 }
 
 $VolatileImage* LWPanelPeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWContainerPeer::createVolatileImage(w, h);
+	return this->$LWContainerPeer::createVolatileImage(w, h);
 }
 
 bool LWPanelPeer::handlesWheelScrolling() {
-	 return this->$LWContainerPeer::handlesWheelScrolling();
+	return this->$LWContainerPeer::handlesWheelScrolling();
 }
 
 void LWPanelPeer::applyShape($Region* shape) {
@@ -222,19 +222,19 @@ void LWPanelPeer::handleEvent($AWTEvent* e) {
 }
 
 int32_t LWPanelPeer::hashCode() {
-	 return this->$LWContainerPeer::hashCode();
+	return this->$LWContainerPeer::hashCode();
 }
 
 bool LWPanelPeer::equals(Object$* arg0) {
-	 return this->$LWContainerPeer::equals(arg0);
+	return this->$LWContainerPeer::equals(arg0);
 }
 
 $Object* LWPanelPeer::clone() {
-	 return this->$LWContainerPeer::clone();
+	return this->$LWContainerPeer::clone();
 }
 
 $String* LWPanelPeer::toString() {
-	 return this->$LWContainerPeer::toString();
+	return this->$LWContainerPeer::toString();
 }
 
 void LWPanelPeer::finalize() {

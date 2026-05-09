@@ -31,55 +31,55 @@ namespace javax {
 	namespace tools {
 
 $URI* ForwardingJavaFileObject::toUri() {
-	 return this->$ForwardingFileObject::toUri();
+	return this->$ForwardingFileObject::toUri();
 }
 
 $String* ForwardingJavaFileObject::getName() {
-	 return this->$ForwardingFileObject::getName();
+	return this->$ForwardingFileObject::getName();
 }
 
 $InputStream* ForwardingJavaFileObject::openInputStream() {
-	 return this->$ForwardingFileObject::openInputStream();
+	return this->$ForwardingFileObject::openInputStream();
 }
 
 $OutputStream* ForwardingJavaFileObject::openOutputStream() {
-	 return this->$ForwardingFileObject::openOutputStream();
+	return this->$ForwardingFileObject::openOutputStream();
 }
 
 $Reader* ForwardingJavaFileObject::openReader(bool ignoreEncodingErrors) {
-	 return this->$ForwardingFileObject::openReader(ignoreEncodingErrors);
+	return this->$ForwardingFileObject::openReader(ignoreEncodingErrors);
 }
 
 $CharSequence* ForwardingJavaFileObject::getCharContent(bool ignoreEncodingErrors) {
-	 return this->$ForwardingFileObject::getCharContent(ignoreEncodingErrors);
+	return this->$ForwardingFileObject::getCharContent(ignoreEncodingErrors);
 }
 
 $Writer* ForwardingJavaFileObject::openWriter() {
-	 return this->$ForwardingFileObject::openWriter();
+	return this->$ForwardingFileObject::openWriter();
 }
 
 int64_t ForwardingJavaFileObject::getLastModified() {
-	 return this->$ForwardingFileObject::getLastModified();
+	return this->$ForwardingFileObject::getLastModified();
 }
 
 bool ForwardingJavaFileObject::delete$() {
-	 return this->$ForwardingFileObject::delete$();
+	return this->$ForwardingFileObject::delete$();
 }
 
 int32_t ForwardingJavaFileObject::hashCode() {
-	 return this->$ForwardingFileObject::hashCode();
+	return this->$ForwardingFileObject::hashCode();
 }
 
 bool ForwardingJavaFileObject::equals(Object$* arg0) {
-	 return this->$ForwardingFileObject::equals(arg0);
+	return this->$ForwardingFileObject::equals(arg0);
 }
 
 $Object* ForwardingJavaFileObject::clone() {
-	 return this->$ForwardingFileObject::clone();
+	return this->$ForwardingFileObject::clone();
 }
 
 $String* ForwardingJavaFileObject::toString() {
-	 return this->$ForwardingFileObject::toString();
+	return this->$ForwardingFileObject::toString();
 }
 
 void ForwardingJavaFileObject::finalize() {

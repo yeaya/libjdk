@@ -16,15 +16,15 @@ namespace javax {
 			namespace standard {
 
 int32_t NumberOfInterveningJobs::hashCode() {
-	 return this->$IntegerSyntax::hashCode();
+	return this->$IntegerSyntax::hashCode();
 }
 
 $String* NumberOfInterveningJobs::toString() {
-	 return this->$IntegerSyntax::toString();
+	return this->$IntegerSyntax::toString();
 }
 
 $Object* NumberOfInterveningJobs::clone() {
-	 return this->$IntegerSyntax::clone();
+	return this->$IntegerSyntax::clone();
 }
 
 void NumberOfInterveningJobs::finalize() {

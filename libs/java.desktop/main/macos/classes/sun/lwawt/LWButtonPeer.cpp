@@ -67,19 +67,19 @@ void LWButtonPeer::dispose() {
 }
 
 $GraphicsConfiguration* LWButtonPeer::getGraphicsConfiguration() {
-	 return this->$LWComponentPeer::getGraphicsConfiguration();
+	return this->$LWComponentPeer::getGraphicsConfiguration();
 }
 
 bool LWButtonPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$LWComponentPeer::updateGraphicsData(gc);
+	return this->$LWComponentPeer::updateGraphicsData(gc);
 }
 
 $Graphics* LWButtonPeer::getGraphics() {
-	 return this->$LWComponentPeer::getGraphics();
+	return this->$LWComponentPeer::getGraphics();
 }
 
 $ColorModel* LWButtonPeer::getColorModel() {
-	 return this->$LWComponentPeer::getColorModel();
+	return this->$LWComponentPeer::getColorModel();
 }
 
 void LWButtonPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -87,7 +87,7 @@ void LWButtonPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) 
 }
 
 $Image* LWButtonPeer::getBackBuffer() {
-	 return this->$LWComponentPeer::getBackBuffer();
+	return this->$LWComponentPeer::getBackBuffer();
 }
 
 void LWButtonPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
@@ -103,7 +103,7 @@ void LWButtonPeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int32_t
 }
 
 $Point* LWButtonPeer::getLocationOnScreen() {
-	 return this->$LWComponentPeer::getLocationOnScreen();
+	return this->$LWComponentPeer::getLocationOnScreen();
 }
 
 void LWButtonPeer::setBackground($Color* c) {
@@ -119,7 +119,7 @@ void LWButtonPeer::setFont($Font* f) {
 }
 
 $FontMetrics* LWButtonPeer::getFontMetrics($Font* f) {
-	 return this->$LWComponentPeer::getFontMetrics(f);
+	return this->$LWComponentPeer::getFontMetrics(f);
 }
 
 void LWButtonPeer::setEnabled(bool e) {
@@ -143,7 +143,7 @@ void LWButtonPeer::reparent($ContainerPeer* newContainer) {
 }
 
 bool LWButtonPeer::isReparentSupported() {
-	 return this->$LWComponentPeer::isReparentSupported();
+	return this->$LWComponentPeer::isReparentSupported();
 }
 
 void LWButtonPeer::setZOrder($ComponentPeer* above) {
@@ -159,19 +159,19 @@ void LWButtonPeer::layout() {
 }
 
 bool LWButtonPeer::isObscured() {
-	 return this->$LWComponentPeer::isObscured();
+	return this->$LWComponentPeer::isObscured();
 }
 
 bool LWButtonPeer::canDetermineObscurity() {
-	 return this->$LWComponentPeer::canDetermineObscurity();
+	return this->$LWComponentPeer::canDetermineObscurity();
 }
 
 $Dimension* LWButtonPeer::getPreferredSize() {
-	 return this->$LWComponentPeer::getPreferredSize();
+	return this->$LWComponentPeer::getPreferredSize();
 }
 
 $Dimension* LWButtonPeer::getMinimumSize() {
-	 return this->$LWComponentPeer::getMinimumSize();
+	return this->$LWComponentPeer::getMinimumSize();
 }
 
 void LWButtonPeer::updateCursorImmediately() {
@@ -179,19 +179,19 @@ void LWButtonPeer::updateCursorImmediately() {
 }
 
 bool LWButtonPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$LWComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* LWButtonPeer::createImage(int32_t width, int32_t height) {
-	 return this->$LWComponentPeer::createImage(width, height);
+	return this->$LWComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* LWButtonPeer::createVolatileImage(int32_t w, int32_t h) {
-	 return this->$LWComponentPeer::createVolatileImage(w, h);
+	return this->$LWComponentPeer::createVolatileImage(w, h);
 }
 
 bool LWButtonPeer::handlesWheelScrolling() {
-	 return this->$LWComponentPeer::handlesWheelScrolling();
+	return this->$LWComponentPeer::handlesWheelScrolling();
 }
 
 void LWButtonPeer::applyShape($Region* shape) {
@@ -203,19 +203,19 @@ void LWButtonPeer::handleEvent($AWTEvent* e) {
 }
 
 int32_t LWButtonPeer::hashCode() {
-	 return this->$LWComponentPeer::hashCode();
+	return this->$LWComponentPeer::hashCode();
 }
 
 bool LWButtonPeer::equals(Object$* arg0) {
-	 return this->$LWComponentPeer::equals(arg0);
+	return this->$LWComponentPeer::equals(arg0);
 }
 
 $Object* LWButtonPeer::clone() {
-	 return this->$LWComponentPeer::clone();
+	return this->$LWComponentPeer::clone();
 }
 
 $String* LWButtonPeer::toString() {
-	 return this->$LWComponentPeer::toString();
+	return this->$LWComponentPeer::toString();
 }
 
 void LWButtonPeer::finalize() {

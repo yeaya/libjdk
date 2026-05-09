@@ -42,19 +42,19 @@ namespace javax {
 			namespace synth {
 
 int32_t SynthTableHeaderUI::hashCode() {
-	 return this->$BasicTableHeaderUI::hashCode();
+	return this->$BasicTableHeaderUI::hashCode();
 }
 
 bool SynthTableHeaderUI::equals(Object$* arg0) {
-	 return this->$BasicTableHeaderUI::equals(arg0);
+	return this->$BasicTableHeaderUI::equals(arg0);
 }
 
 $Object* SynthTableHeaderUI::clone() {
-	 return this->$BasicTableHeaderUI::clone();
+	return this->$BasicTableHeaderUI::clone();
 }
 
 $String* SynthTableHeaderUI::toString() {
-	 return this->$BasicTableHeaderUI::toString();
+	return this->$BasicTableHeaderUI::toString();
 }
 
 void SynthTableHeaderUI::finalize() {

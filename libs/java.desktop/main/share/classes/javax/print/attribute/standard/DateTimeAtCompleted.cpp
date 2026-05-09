@@ -15,15 +15,15 @@ namespace javax {
 			namespace standard {
 
 int32_t DateTimeAtCompleted::hashCode() {
-	 return this->$DateTimeSyntax::hashCode();
+	return this->$DateTimeSyntax::hashCode();
 }
 
 $String* DateTimeAtCompleted::toString() {
-	 return this->$DateTimeSyntax::toString();
+	return this->$DateTimeSyntax::toString();
 }
 
 $Object* DateTimeAtCompleted::clone() {
-	 return this->$DateTimeSyntax::clone();
+	return this->$DateTimeSyntax::clone();
 }
 
 void DateTimeAtCompleted::finalize() {

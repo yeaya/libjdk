@@ -60,7 +60,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(PlainHttpConnection$ConnectEvent::lambda$handle$0());
+		return $of(PlainHttpConnection$ConnectEvent::lambda$handle$0());
 	}
 };
 $Class* PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$0::load$($String* name, bool initialize) {
@@ -90,7 +90,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(PlainHttpConnection$ConnectEvent::lambda$handle$1());
+		return $of(PlainHttpConnection$ConnectEvent::lambda$handle$1());
 	}
 };
 $Class* PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$1$1::load$($String* name, bool initialize) {

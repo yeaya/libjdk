@@ -84,7 +84,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return ShortRequestBody::lambda$main$0();
+		return ShortRequestBody::lambda$main$0();
 	}
 };
 $Class* ShortRequestBody$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
@@ -115,7 +115,7 @@ public:
 		$set(this, sharedClient, sharedClient);
 	}
 	virtual $Object* get() override {
-		 return ShortRequestBody::lambda$main$1(sharedClient);
+		return ShortRequestBody::lambda$main$1(sharedClient);
 	}
 	$HttpClient* sharedClient = nullptr;
 };

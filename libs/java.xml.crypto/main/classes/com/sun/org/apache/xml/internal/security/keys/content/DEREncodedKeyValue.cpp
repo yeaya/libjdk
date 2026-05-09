@@ -42,19 +42,19 @@ namespace com {
 								namespace content {
 
 int32_t DEREncodedKeyValue::hashCode() {
-	 return this->$Signature11ElementProxy::hashCode();
+	return this->$Signature11ElementProxy::hashCode();
 }
 
 bool DEREncodedKeyValue::equals(Object$* arg0) {
-	 return this->$Signature11ElementProxy::equals(arg0);
+	return this->$Signature11ElementProxy::equals(arg0);
 }
 
 $Object* DEREncodedKeyValue::clone() {
-	 return this->$Signature11ElementProxy::clone();
+	return this->$Signature11ElementProxy::clone();
 }
 
 $String* DEREncodedKeyValue::toString() {
-	 return this->$Signature11ElementProxy::toString();
+	return this->$Signature11ElementProxy::toString();
 }
 
 void DEREncodedKeyValue::finalize() {

@@ -96,19 +96,19 @@ namespace com {
 							namespace dtd {
 
 int32_t XMLDTDLoader::hashCode() {
-	 return this->$XMLDTDProcessor::hashCode();
+	return this->$XMLDTDProcessor::hashCode();
 }
 
 bool XMLDTDLoader::equals(Object$* arg0) {
-	 return this->$XMLDTDProcessor::equals(arg0);
+	return this->$XMLDTDProcessor::equals(arg0);
 }
 
 $Object* XMLDTDLoader::clone() {
-	 return this->$XMLDTDProcessor::clone();
+	return this->$XMLDTDProcessor::clone();
 }
 
 $String* XMLDTDLoader::toString() {
-	 return this->$XMLDTDProcessor::toString();
+	return this->$XMLDTDProcessor::toString();
 }
 
 void XMLDTDLoader::finalize() {

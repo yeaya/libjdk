@@ -13,11 +13,11 @@ namespace javax {
 			namespace nimbus {
 
 $String* DerivedColor$UIResource::toString() {
-	 return this->$DerivedColor::toString();
+	return this->$DerivedColor::toString();
 }
 
 $Object* DerivedColor$UIResource::clone() {
-	 return this->$DerivedColor::clone();
+	return this->$DerivedColor::clone();
 }
 
 void DerivedColor$UIResource::finalize() {

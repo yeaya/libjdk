@@ -103,23 +103,23 @@ void XScrollbarPeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool XScrollbarPeer::isReparentSupported() {
-	 return this->$XComponentPeer::isReparentSupported();
+	return this->$XComponentPeer::isReparentSupported();
 }
 
 bool XScrollbarPeer::isObscured() {
-	 return this->$XComponentPeer::isObscured();
+	return this->$XComponentPeer::isObscured();
 }
 
 bool XScrollbarPeer::canDetermineObscurity() {
-	 return this->$XComponentPeer::canDetermineObscurity();
+	return this->$XComponentPeer::canDetermineObscurity();
 }
 
 bool XScrollbarPeer::isFocusable() {
-	 return this->$XComponentPeer::isFocusable();
+	return this->$XComponentPeer::isFocusable();
 }
 
 bool XScrollbarPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$XComponentPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 void XScrollbarPeer::setVisible(bool b) {
@@ -135,7 +135,7 @@ void XScrollbarPeer::paint($Graphics* g) {
 }
 
 $Graphics* XScrollbarPeer::getGraphics() {
-	 return this->$XComponentPeer::getGraphics();
+	return this->$XComponentPeer::getGraphics();
 }
 
 void XScrollbarPeer::print($Graphics* g) {
@@ -155,7 +155,7 @@ void XScrollbarPeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* XScrollbarPeer::getPreferredSize() {
-	 return this->$XComponentPeer::getPreferredSize();
+	return this->$XComponentPeer::getPreferredSize();
 }
 
 void XScrollbarPeer::setBackground($Color* c) {
@@ -167,7 +167,7 @@ void XScrollbarPeer::setForeground($Color* c) {
 }
 
 $FontMetrics* XScrollbarPeer::getFontMetrics($Font* font) {
-	 return this->$XComponentPeer::getFontMetrics(font);
+	return this->$XComponentPeer::getFontMetrics(font);
 }
 
 void XScrollbarPeer::setFont($Font* f) {
@@ -179,15 +179,15 @@ void XScrollbarPeer::updateCursorImmediately() {
 }
 
 $Image* XScrollbarPeer::createImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createImage(width, height);
+	return this->$XComponentPeer::createImage(width, height);
 }
 
 $VolatileImage* XScrollbarPeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$XComponentPeer::createVolatileImage(width, height);
+	return this->$XComponentPeer::createVolatileImage(width, height);
 }
 
 bool XScrollbarPeer::handlesWheelScrolling() {
-	 return this->$XComponentPeer::handlesWheelScrolling();
+	return this->$XComponentPeer::handlesWheelScrolling();
 }
 
 void XScrollbarPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -199,7 +199,7 @@ void XScrollbarPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $Buffe
 }
 
 $Image* XScrollbarPeer::getBackBuffer() {
-	 return this->$XComponentPeer::getBackBuffer();
+	return this->$XComponentPeer::getBackBuffer();
 }
 
 void XScrollbarPeer::destroyBuffers() {
@@ -215,11 +215,11 @@ void XScrollbarPeer::applyShape($Region* shape) {
 }
 
 bool XScrollbarPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$XComponentPeer::updateGraphicsData(gc);
+	return this->$XComponentPeer::updateGraphicsData(gc);
 }
 
 $Point* XScrollbarPeer::getLocationOnScreen() {
-	 return this->$XComponentPeer::getLocationOnScreen();
+	return this->$XComponentPeer::getLocationOnScreen();
 }
 
 void XScrollbarPeer::dispose() {
@@ -227,31 +227,31 @@ void XScrollbarPeer::dispose() {
 }
 
 $ColorModel* XScrollbarPeer::getColorModel() {
-	 return this->$XComponentPeer::getColorModel();
+	return this->$XComponentPeer::getColorModel();
 }
 
 $Component* XScrollbarPeer::getEventSource() {
-	 return this->$XComponentPeer::getEventSource();
+	return this->$XComponentPeer::getEventSource();
 }
 
 $GraphicsConfiguration* XScrollbarPeer::getGraphicsConfiguration() {
-	 return this->$XComponentPeer::getGraphicsConfiguration();
+	return this->$XComponentPeer::getGraphicsConfiguration();
 }
 
 $String* XScrollbarPeer::toString() {
-	 return this->$XComponentPeer::toString();
+	return this->$XComponentPeer::toString();
 }
 
 int32_t XScrollbarPeer::hashCode() {
-	 return this->$XComponentPeer::hashCode();
+	return this->$XComponentPeer::hashCode();
 }
 
 bool XScrollbarPeer::equals(Object$* arg0) {
-	 return this->$XComponentPeer::equals(arg0);
+	return this->$XComponentPeer::equals(arg0);
 }
 
 $Object* XScrollbarPeer::clone() {
-	 return this->$XComponentPeer::clone();
+	return this->$XComponentPeer::clone();
 }
 
 void XScrollbarPeer::finalize() {

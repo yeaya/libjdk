@@ -38,7 +38,7 @@ public:
 	void init$() {
 	}
 	virtual $ObjectInputFilter$Status* checkInput($ObjectInputFilter$FilterInfo* filterInfo) override {
-		 return $RegistryImpl::registryFilter(filterInfo);
+		return $RegistryImpl::registryFilter(filterInfo);
 	}
 };
 $Class* RegistryImpl$2$$Lambda$registryFilter::load$($String* name, bool initialize) {

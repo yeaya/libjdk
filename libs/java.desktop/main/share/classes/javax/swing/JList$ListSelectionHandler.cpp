@@ -16,19 +16,19 @@ namespace javax {
 	namespace swing {
 
 int32_t JList$ListSelectionHandler::hashCode() {
-	 return this->$ListSelectionListener::hashCode();
+	return this->$ListSelectionListener::hashCode();
 }
 
 bool JList$ListSelectionHandler::equals(Object$* arg0) {
-	 return this->$ListSelectionListener::equals(arg0);
+	return this->$ListSelectionListener::equals(arg0);
 }
 
 $Object* JList$ListSelectionHandler::clone() {
-	 return this->$ListSelectionListener::clone();
+	return this->$ListSelectionListener::clone();
 }
 
 $String* JList$ListSelectionHandler::toString() {
-	 return this->$ListSelectionListener::toString();
+	return this->$ListSelectionListener::toString();
 }
 
 void JList$ListSelectionHandler::finalize() {

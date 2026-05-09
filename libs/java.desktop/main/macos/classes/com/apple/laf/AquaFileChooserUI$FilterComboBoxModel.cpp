@@ -37,19 +37,19 @@ void AquaFileChooserUI$FilterComboBoxModel::removeListDataListener($ListDataList
 }
 
 int32_t AquaFileChooserUI$FilterComboBoxModel::hashCode() {
-	 return this->$AbstractListModel::hashCode();
+	return this->$AbstractListModel::hashCode();
 }
 
 bool AquaFileChooserUI$FilterComboBoxModel::equals(Object$* arg0) {
-	 return this->$AbstractListModel::equals(arg0);
+	return this->$AbstractListModel::equals(arg0);
 }
 
 $Object* AquaFileChooserUI$FilterComboBoxModel::clone() {
-	 return this->$AbstractListModel::clone();
+	return this->$AbstractListModel::clone();
 }
 
 $String* AquaFileChooserUI$FilterComboBoxModel::toString() {
-	 return this->$AbstractListModel::toString();
+	return this->$AbstractListModel::toString();
 }
 
 void AquaFileChooserUI$FilterComboBoxModel::finalize() {

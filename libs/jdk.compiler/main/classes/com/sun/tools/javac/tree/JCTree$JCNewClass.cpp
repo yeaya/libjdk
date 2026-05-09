@@ -41,19 +41,19 @@ namespace com {
 				namespace tree {
 
 $String* JCTree$JCNewClass::toString() {
-	 return this->$JCTree$JCPolyExpression::toString();
+	return this->$JCTree$JCPolyExpression::toString();
 }
 
 $Object* JCTree$JCNewClass::clone() {
-	 return this->$JCTree$JCPolyExpression::clone();
+	return this->$JCTree$JCPolyExpression::clone();
 }
 
 int32_t JCTree$JCNewClass::hashCode() {
-	 return this->$JCTree$JCPolyExpression::hashCode();
+	return this->$JCTree$JCPolyExpression::hashCode();
 }
 
 bool JCTree$JCNewClass::equals(Object$* arg0) {
-	 return this->$JCTree$JCPolyExpression::equals(arg0);
+	return this->$JCTree$JCPolyExpression::equals(arg0);
 }
 
 void JCTree$JCNewClass::finalize() {

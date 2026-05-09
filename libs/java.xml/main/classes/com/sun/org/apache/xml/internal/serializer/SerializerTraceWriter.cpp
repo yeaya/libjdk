@@ -32,19 +32,19 @@ void SerializerTraceWriter::write($String* arg0, int32_t arg1, int32_t arg2) {
 }
 
 int32_t SerializerTraceWriter::hashCode() {
-	 return this->$Writer::hashCode();
+	return this->$Writer::hashCode();
 }
 
 bool SerializerTraceWriter::equals(Object$* arg0) {
-	 return this->$Writer::equals(arg0);
+	return this->$Writer::equals(arg0);
 }
 
 $Object* SerializerTraceWriter::clone() {
-	 return this->$Writer::clone();
+	return this->$Writer::clone();
 }
 
 $String* SerializerTraceWriter::toString() {
-	 return this->$Writer::toString();
+	return this->$Writer::toString();
 }
 
 void SerializerTraceWriter::finalize() {

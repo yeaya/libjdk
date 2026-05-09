@@ -24,19 +24,19 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
 
 int32_t Test6559154::hashCode() {
-	 return this->$ActionListener::hashCode();
+	return this->$ActionListener::hashCode();
 }
 
 bool Test6559154::equals(Object$* arg0) {
-	 return this->$ActionListener::equals(arg0);
+	return this->$ActionListener::equals(arg0);
 }
 
 $Object* Test6559154::clone() {
-	 return this->$ActionListener::clone();
+	return this->$ActionListener::clone();
 }
 
 $String* Test6559154::toString() {
-	 return this->$ActionListener::toString();
+	return this->$ActionListener::toString();
 }
 
 void Test6559154::finalize() {

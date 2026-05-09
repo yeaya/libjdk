@@ -8,15 +8,15 @@ namespace java {
 	namespace sql {
 
 bool RowId::equals(Object$* obj) {
-	 return this->$Object::equals(obj);
+	return this->$Object::equals(obj);
 }
 
 $String* RowId::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 int32_t RowId::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $Class* RowId::load$($String* name, bool initialize) {

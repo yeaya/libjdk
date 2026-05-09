@@ -163,7 +163,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* call() override {
-		 return $of($nc(inst$)->lambda$doCall$0());
+		return $of($nc(inst$)->lambda$doCall$0());
 	}
 	JavacTaskImpl* inst$ = nullptr;
 };
@@ -199,7 +199,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* call() override {
-		 return $nc(inst$)->parseInternal();
+		return $nc(inst$)->parseInternal();
 	}
 	JavacTaskImpl* inst$ = nullptr;
 };
@@ -235,7 +235,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* call() override {
-		 return $nc(inst$)->lambda$analyze$1();
+		return $nc(inst$)->lambda$analyze$1();
 	}
 	JavacTaskImpl* inst$ = nullptr;
 };
@@ -271,7 +271,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* call() override {
-		 return $nc(inst$)->lambda$generate$2();
+		return $nc(inst$)->lambda$generate$2();
 	}
 	JavacTaskImpl* inst$ = nullptr;
 };

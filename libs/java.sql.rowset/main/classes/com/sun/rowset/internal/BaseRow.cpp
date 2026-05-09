@@ -15,19 +15,19 @@ namespace com {
 			namespace internal {
 
 int32_t BaseRow::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 bool BaseRow::equals(Object$* arg0) {
-	 return this->$Serializable::equals(arg0);
+	return this->$Serializable::equals(arg0);
 }
 
 $Object* BaseRow::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 $String* BaseRow::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void BaseRow::finalize() {

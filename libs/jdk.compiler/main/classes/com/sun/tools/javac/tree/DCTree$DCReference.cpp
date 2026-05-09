@@ -30,19 +30,19 @@ namespace com {
 				namespace tree {
 
 $String* DCTree$DCReference::toString() {
-	 return this->$DCTree$DCEndPosTree::toString();
+	return this->$DCTree$DCEndPosTree::toString();
 }
 
 int32_t DCTree$DCReference::hashCode() {
-	 return this->$DCTree$DCEndPosTree::hashCode();
+	return this->$DCTree$DCEndPosTree::hashCode();
 }
 
 bool DCTree$DCReference::equals(Object$* arg0) {
-	 return this->$DCTree$DCEndPosTree::equals(arg0);
+	return this->$DCTree$DCEndPosTree::equals(arg0);
 }
 
 $Object* DCTree$DCReference::clone() {
-	 return this->$DCTree$DCEndPosTree::clone();
+	return this->$DCTree$DCEndPosTree::clone();
 }
 
 void DCTree$DCReference::finalize() {

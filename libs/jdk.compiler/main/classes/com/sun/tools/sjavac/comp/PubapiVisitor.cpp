@@ -81,7 +81,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t c) override {
-		 return $of(PubapiVisitor::encodeChar(c));
+		return $of(PubapiVisitor::encodeChar(c));
 	}
 };
 $Class* PubapiVisitor$$Lambda$encodeChar::load$($String* name, bool initialize) {
@@ -112,7 +112,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $nc(inst$)->lambda$getTypeParameters$0($cast($TypeParameterElement, e));
+		return $nc(inst$)->lambda$getTypeParameters$0($cast($TypeParameterElement, e));
 	}
 	PubapiVisitor* inst$ = nullptr;
 };
@@ -147,7 +147,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($VariableElement, inst$)->asType();
+		return $sure($VariableElement, inst$)->asType();
 	}
 };
 $Class* PubapiVisitor$$Lambda$asType$2::load$($String* name, bool initialize) {
@@ -177,7 +177,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* type) override {
-		 return $TypeDesc::fromType($cast($TypeMirror, type));
+		return $TypeDesc::fromType($cast($TypeMirror, type));
 	}
 };
 $Class* PubapiVisitor$$Lambda$fromType$3::load$($String* name, bool initialize) {

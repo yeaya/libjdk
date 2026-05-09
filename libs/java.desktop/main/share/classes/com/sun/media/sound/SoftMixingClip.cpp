@@ -82,35 +82,35 @@ void SoftMixingClip::removeLineListener($LineListener* listener) {
 }
 
 $Line$Info* SoftMixingClip::getLineInfo() {
-	 return this->$SoftMixingDataLine::getLineInfo();
+	return this->$SoftMixingDataLine::getLineInfo();
 }
 
 $Control* SoftMixingClip::getControl($Control$Type* control) {
-	 return this->$SoftMixingDataLine::getControl(control);
+	return this->$SoftMixingDataLine::getControl(control);
 }
 
 $ControlArray* SoftMixingClip::getControls() {
-	 return this->$SoftMixingDataLine::getControls();
+	return this->$SoftMixingDataLine::getControls();
 }
 
 bool SoftMixingClip::isControlSupported($Control$Type* control) {
-	 return this->$SoftMixingDataLine::isControlSupported(control);
+	return this->$SoftMixingDataLine::isControlSupported(control);
 }
 
 int32_t SoftMixingClip::hashCode() {
-	 return this->$SoftMixingDataLine::hashCode();
+	return this->$SoftMixingDataLine::hashCode();
 }
 
 bool SoftMixingClip::equals(Object$* arg0) {
-	 return this->$SoftMixingDataLine::equals(arg0);
+	return this->$SoftMixingDataLine::equals(arg0);
 }
 
 $Object* SoftMixingClip::clone() {
-	 return this->$SoftMixingDataLine::clone();
+	return this->$SoftMixingDataLine::clone();
 }
 
 $String* SoftMixingClip::toString() {
-	 return this->$SoftMixingDataLine::toString();
+	return this->$SoftMixingDataLine::toString();
 }
 
 void SoftMixingClip::finalize() {

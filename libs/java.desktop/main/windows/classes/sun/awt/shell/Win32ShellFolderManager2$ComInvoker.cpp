@@ -103,7 +103,7 @@ public:
 		$set(this, shutdownHook, shutdownHook);
 	}
 	virtual $Object* run() override {
-		 return Win32ShellFolderManager2$ComInvoker::lambda$new$2(shutdownHook);
+		return Win32ShellFolderManager2$ComInvoker::lambda$new$2(shutdownHook);
 	}
 	$Runnable* shutdownHook = nullptr;
 };
@@ -139,7 +139,7 @@ public:
 		$set(this, comRun, comRun);
 	}
 	virtual $Object* run() override {
-		 return Win32ShellFolderManager2$ComInvoker::lambda$newThread$3(comRun);
+		return Win32ShellFolderManager2$ComInvoker::lambda$newThread$3(comRun);
 	}
 	$Runnable* comRun = nullptr;
 };
@@ -175,7 +175,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$new$0();
+		return $nc(inst$)->lambda$new$0();
 	}
 	Win32ShellFolderManager2$ComInvoker* inst$ = nullptr;
 };
@@ -209,19 +209,19 @@ void Win32ShellFolderManager2$ComInvoker::finalize() {
 }
 
 $String* Win32ShellFolderManager2$ComInvoker::toString() {
-	 return this->$ThreadPoolExecutor::toString();
+	return this->$ThreadPoolExecutor::toString();
 }
 
 int32_t Win32ShellFolderManager2$ComInvoker::hashCode() {
-	 return this->$ThreadPoolExecutor::hashCode();
+	return this->$ThreadPoolExecutor::hashCode();
 }
 
 bool Win32ShellFolderManager2$ComInvoker::equals(Object$* arg0) {
-	 return this->$ThreadPoolExecutor::equals(arg0);
+	return this->$ThreadPoolExecutor::equals(arg0);
 }
 
 $Object* Win32ShellFolderManager2$ComInvoker::clone() {
-	 return this->$ThreadPoolExecutor::clone();
+	return this->$ThreadPoolExecutor::clone();
 }
 
 $Thread* Win32ShellFolderManager2$ComInvoker::comThread = nullptr;

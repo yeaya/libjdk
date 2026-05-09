@@ -21,19 +21,19 @@ namespace java {
 	namespace awt {
 
 $String* SentEvent::toString() {
-	 return this->$AWTEvent::toString();
+	return this->$AWTEvent::toString();
 }
 
 int32_t SentEvent::hashCode() {
-	 return this->$AWTEvent::hashCode();
+	return this->$AWTEvent::hashCode();
 }
 
 bool SentEvent::equals(Object$* arg0) {
-	 return this->$AWTEvent::equals(arg0);
+	return this->$AWTEvent::equals(arg0);
 }
 
 $Object* SentEvent::clone() {
-	 return this->$AWTEvent::clone();
+	return this->$AWTEvent::clone();
 }
 
 void SentEvent::finalize() {

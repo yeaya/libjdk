@@ -49,7 +49,7 @@ public:
 		$set(this, cl, cl);
 	}
 	virtual $Object* get() override {
-		 return $of(ObjectFactory::lambda$newInstance$0(providerClass, cl));
+		return $of(ObjectFactory::lambda$newInstance$0(providerClass, cl));
 	}
 	$Class* providerClass = nullptr;
 	$ClassLoader* cl = nullptr;

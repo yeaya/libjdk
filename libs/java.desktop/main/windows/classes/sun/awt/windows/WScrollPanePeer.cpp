@@ -82,19 +82,19 @@ void WScrollPanePeer::print($Graphics* g) {
 }
 
 $Insets* WScrollPanePeer::getInsets() {
-	 return this->$WPanelPeer::getInsets();
+	return this->$WPanelPeer::getInsets();
 }
 
 bool WScrollPanePeer::isObscured() {
-	 return this->$WPanelPeer::isObscured();
+	return this->$WPanelPeer::isObscured();
 }
 
 bool WScrollPanePeer::canDetermineObscurity() {
-	 return this->$WPanelPeer::canDetermineObscurity();
+	return this->$WPanelPeer::canDetermineObscurity();
 }
 
 $Point* WScrollPanePeer::getLocationOnScreen() {
-	 return this->$WPanelPeer::getLocationOnScreen();
+	return this->$WPanelPeer::getLocationOnScreen();
 }
 
 void WScrollPanePeer::setVisible(bool b) {
@@ -118,11 +118,11 @@ void WScrollPanePeer::handleEvent($AWTEvent* e) {
 }
 
 $Dimension* WScrollPanePeer::getMinimumSize() {
-	 return this->$WPanelPeer::getMinimumSize();
+	return this->$WPanelPeer::getMinimumSize();
 }
 
 $Dimension* WScrollPanePeer::getPreferredSize() {
-	 return this->$WPanelPeer::getPreferredSize();
+	return this->$WPanelPeer::getPreferredSize();
 }
 
 void WScrollPanePeer::layout() {
@@ -130,27 +130,27 @@ void WScrollPanePeer::layout() {
 }
 
 bool WScrollPanePeer::isFocusable() {
-	 return this->$WPanelPeer::isFocusable();
+	return this->$WPanelPeer::isFocusable();
 }
 
 $GraphicsConfiguration* WScrollPanePeer::getGraphicsConfiguration() {
-	 return this->$WPanelPeer::getGraphicsConfiguration();
+	return this->$WPanelPeer::getGraphicsConfiguration();
 }
 
 bool WScrollPanePeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	 return this->$WPanelPeer::updateGraphicsData(gc);
+	return this->$WPanelPeer::updateGraphicsData(gc);
 }
 
 $ColorModel* WScrollPanePeer::getColorModel() {
-	 return this->$WPanelPeer::getColorModel();
+	return this->$WPanelPeer::getColorModel();
 }
 
 $Graphics* WScrollPanePeer::getGraphics() {
-	 return this->$WPanelPeer::getGraphics();
+	return this->$WPanelPeer::getGraphics();
 }
 
 $FontMetrics* WScrollPanePeer::getFontMetrics($Font* font) {
-	 return this->$WPanelPeer::getFontMetrics(font);
+	return this->$WPanelPeer::getFontMetrics(font);
 }
 
 void WScrollPanePeer::setForeground($Color* c) {
@@ -170,19 +170,19 @@ void WScrollPanePeer::updateCursorImmediately() {
 }
 
 bool WScrollPanePeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	 return this->$WPanelPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
+	return this->$WPanelPeer::requestFocus(lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 }
 
 $Image* WScrollPanePeer::createImage(int32_t width, int32_t height) {
-	 return this->$WPanelPeer::createImage(width, height);
+	return this->$WPanelPeer::createImage(width, height);
 }
 
 $VolatileImage* WScrollPanePeer::createVolatileImage(int32_t width, int32_t height) {
-	 return this->$WPanelPeer::createVolatileImage(width, height);
+	return this->$WPanelPeer::createVolatileImage(width, height);
 }
 
 $String* WScrollPanePeer::toString() {
-	 return this->$WPanelPeer::toString();
+	return this->$WPanelPeer::toString();
 }
 
 void WScrollPanePeer::beginLayout() {
@@ -202,7 +202,7 @@ void WScrollPanePeer::endValidate() {
 }
 
 bool WScrollPanePeer::handlesWheelScrolling() {
-	 return this->$WPanelPeer::handlesWheelScrolling();
+	return this->$WPanelPeer::handlesWheelScrolling();
 }
 
 void WScrollPanePeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
@@ -218,7 +218,7 @@ void WScrollPanePeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $Buff
 }
 
 $Image* WScrollPanePeer::getBackBuffer() {
-	 return this->$WPanelPeer::getBackBuffer();
+	return this->$WPanelPeer::getBackBuffer();
 }
 
 void WScrollPanePeer::reparent($ContainerPeer* newNativeParent) {
@@ -226,7 +226,7 @@ void WScrollPanePeer::reparent($ContainerPeer* newNativeParent) {
 }
 
 bool WScrollPanePeer::isReparentSupported() {
-	 return this->$WPanelPeer::isReparentSupported();
+	return this->$WPanelPeer::isReparentSupported();
 }
 
 void WScrollPanePeer::applyShape($Region* shape) {
@@ -242,15 +242,15 @@ void WScrollPanePeer::dispose() {
 }
 
 int32_t WScrollPanePeer::hashCode() {
-	 return this->$WPanelPeer::hashCode();
+	return this->$WPanelPeer::hashCode();
 }
 
 bool WScrollPanePeer::equals(Object$* arg0) {
-	 return this->$WPanelPeer::equals(arg0);
+	return this->$WPanelPeer::equals(arg0);
 }
 
 $Object* WScrollPanePeer::clone() {
-	 return this->$WPanelPeer::clone();
+	return this->$WPanelPeer::clone();
 }
 
 void WScrollPanePeer::finalize() {

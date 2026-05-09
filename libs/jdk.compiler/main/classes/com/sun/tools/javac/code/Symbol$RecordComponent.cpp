@@ -51,51 +51,51 @@ namespace com {
 				namespace code {
 
 $String* Symbol$RecordComponent::toString() {
-	 return this->$Symbol$VarSymbol::toString();
+	return this->$Symbol$VarSymbol::toString();
 }
 
 $List* Symbol$RecordComponent::getAnnotationMirrors() {
-	 return this->$Symbol$VarSymbol::getAnnotationMirrors();
+	return this->$Symbol$VarSymbol::getAnnotationMirrors();
 }
 
 $Element* Symbol$RecordComponent::getEnclosingElement() {
-	 return this->$Symbol$VarSymbol::getEnclosingElement();
+	return this->$Symbol$VarSymbol::getEnclosingElement();
 }
 
 $Name* Symbol$RecordComponent::getSimpleName() {
-	 return this->$Symbol$VarSymbol::getSimpleName();
+	return this->$Symbol$VarSymbol::getSimpleName();
 }
 
 $TypeMirror* Symbol$RecordComponent::asType() {
-	 return this->$Symbol$VarSymbol::asType();
+	return this->$Symbol$VarSymbol::asType();
 }
 
 $Set* Symbol$RecordComponent::getModifiers() {
-	 return this->$Symbol$VarSymbol::getModifiers();
+	return this->$Symbol$VarSymbol::getModifiers();
 }
 
 $List* Symbol$RecordComponent::getEnclosedElements() {
-	 return this->$Symbol$VarSymbol::getEnclosedElements();
+	return this->$Symbol$VarSymbol::getEnclosedElements();
 }
 
 $AnnotationArray* Symbol$RecordComponent::getAnnotationsByType($Class* annoType) {
-	 return this->$Symbol$VarSymbol::getAnnotationsByType(annoType);
+	return this->$Symbol$VarSymbol::getAnnotationsByType(annoType);
 }
 
 $Annotation* Symbol$RecordComponent::getAnnotation($Class* annoType) {
-	 return this->$Symbol$VarSymbol::getAnnotation(annoType);
+	return this->$Symbol$VarSymbol::getAnnotation(annoType);
 }
 
 int32_t Symbol$RecordComponent::hashCode() {
-	 return this->$Symbol$VarSymbol::hashCode();
+	return this->$Symbol$VarSymbol::hashCode();
 }
 
 bool Symbol$RecordComponent::equals(Object$* arg0) {
-	 return this->$Symbol$VarSymbol::equals(arg0);
+	return this->$Symbol$VarSymbol::equals(arg0);
 }
 
 $Object* Symbol$RecordComponent::clone() {
-	 return this->$Symbol$VarSymbol::clone();
+	return this->$Symbol$VarSymbol::clone();
 }
 
 void Symbol$RecordComponent::finalize() {

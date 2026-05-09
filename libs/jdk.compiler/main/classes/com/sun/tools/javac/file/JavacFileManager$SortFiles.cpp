@@ -24,19 +24,19 @@ namespace com {
 				namespace file {
 
 $String* JavacFileManager$SortFiles::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool JavacFileManager$SortFiles::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t JavacFileManager$SortFiles::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* JavacFileManager$SortFiles::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void JavacFileManager$SortFiles::finalize() {

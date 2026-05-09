@@ -66,7 +66,7 @@ public:
 		$set(this, mbs, mbs);
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return $of(JMXConnectorServerFactory::lambda$getConnectorServerAsService$0(url, map, mbs, $cast($JMXConnectorServerProvider, p)));
+		return $of(JMXConnectorServerFactory::lambda$getConnectorServerAsService$0(url, map, mbs, $cast($JMXConnectorServerProvider, p)));
 	}
 	$JMXServiceURL* url = nullptr;
 	$Map* map = nullptr;
@@ -105,7 +105,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* provider) override {
-		 return $JMXConnectorFactory::isSystemProvider($cast($ServiceLoader$Provider, provider));
+		return $JMXConnectorFactory::isSystemProvider($cast($ServiceLoader$Provider, provider));
 	}
 };
 $Class* JMXConnectorServerFactory$$Lambda$isSystemProvider$1::load$($String* name, bool initialize) {
